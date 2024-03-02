@@ -9,6 +9,8 @@ Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
 		Debug|x86 = Debug|x86
+		EduConnect|x64 = EduConnect|x64
+		EduConnect|x86 = EduConnect|x86
 		Release|x64 = Release|x64
 		Release|x86 = Release|x86
 	EndGlobalSection
@@ -17,8 +19,12 @@ Global
 		{C3C1B704-4C81-499B-8DE4-B573ADE850F0}.Debug|x64.Build.0 = Debug|x64
 		{C3C1B704-4C81-499B-8DE4-B573ADE850F0}.Debug|x86.ActiveCfg = Debug|Win32
 		{C3C1B704-4C81-499B-8DE4-B573ADE850F0}.Debug|x86.Build.0 = Debug|Win32
-		{C3C1B704-4C81-499B-8DE4-B573ADE850F0}.Release|x64.ActiveCfg = Release|x64
-		{C3C1B704-4C81-499B-8DE4-B573ADE850F0}.Release|x64.Build.0 = Release|x64
+		{C3C1B704-4C81-499B-8DE4-B573ADE850F0}.EduConnect|x64.ActiveCfg = Debug|x64
+		{C3C1B704-4C81-499B-8DE4-B573ADE850F0}.EduConnect|x64.Build.0 = Debug|x64
+		{C3C1B704-4C81-499B-8DE4-B573ADE850F0}.EduConnect|x86.ActiveCfg = EduConnect|Win32
+		{C3C1B704-4C81-499B-8DE4-B573ADE850F0}.EduConnect|x86.Build.0 = EduConnect|Win32
+		{C3C1B704-4C81-499B-8DE4-B573ADE850F0}.Release|x64.ActiveCfg = Debug|x64
+		{C3C1B704-4C81-499B-8DE4-B573ADE850F0}.Release|x64.Build.0 = Debug|x64
 		{C3C1B704-4C81-499B-8DE4-B573ADE850F0}.Release|x86.ActiveCfg = Release|Win32
 		{C3C1B704-4C81-499B-8DE4-B573ADE850F0}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
