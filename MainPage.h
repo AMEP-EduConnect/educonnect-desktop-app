@@ -15,16 +15,7 @@ namespace CppCLRWinFormsProject {
 	public ref class MainPage : public System::Windows::Forms::Form
 	{
 	public:
-		MainPage(void)
-		{
-			InitializeComponent();
-			//
-			//TODO: Add the constructor code here
-			//
-			this->Text = L"EduConnect";
-
-
-		}
+		MainPage(void);
 
 	protected:
 		/// <summary>
@@ -64,7 +55,7 @@ namespace CppCLRWinFormsProject {
 			this->versionLabel->Size = System::Drawing::Size(67, 13);
 			this->versionLabel->TabIndex = 0;
 			this->versionLabel->Text = L"versionLabel";
-			this->versionLabel->Click += gcnew System::EventHandler(this, &MainPage::versionLabel_Click);
+			//this->versionLabel->Click += gcnew System::EventHandler(this, &MainPage::versionLabel_Click);
 			// 
 			// MainPage
 			// 
@@ -76,18 +67,12 @@ namespace CppCLRWinFormsProject {
 			this->Text = L"MainPage";
 			this->Load += gcnew System::EventHandler(this, &MainPage::MainPage_Load);
 
-			//TODO: change the icon at Release
-			this->Icon = gcnew System::Drawing::Icon(L"app.ico");
+
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
 		}
 #pragma endregion
-	private: System::Void MainPage_Load(System::Object^ sender, System::EventArgs^ e) {
-		versionLabel->Text = L"V0.0 - Develop";
-		
-	}
-	private: System::Void versionLabel_Click(System::Object^ sender, System::EventArgs^ e) {
-	}
+	private: System::Void MainPage_Load(System::Object^ sender, System::EventArgs^ e);
 	};
 }

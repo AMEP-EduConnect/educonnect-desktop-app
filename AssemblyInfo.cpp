@@ -15,6 +15,6 @@ using namespace System::Security::Permissions;
 [assembly:AssemblyTrademarkAttribute(L"AMEP Corp.")];
 [assembly:AssemblyCultureAttribute(L"")];
 
-[assembly:AssemblyVersionAttribute(L"0.0.0.0")];
+[assembly:AssemblyVersionAttribute(L"0.0.0.1")];
 
 [assembly:ComVisible(false)];
