@@ -1,5 +1,5 @@
 #pragma once
-
+using namespace MySql::Data::MySqlClient;
 namespace CppCLRWinFormsProject {
 
 	using namespace System;
@@ -16,6 +16,9 @@ namespace CppCLRWinFormsProject {
 	{
 	public:
 		MainPage(void);
+		String^ connectionString;
+
+		MySqlConnection^ conn;
 
 	protected:
 		/// <summary>
@@ -67,12 +70,14 @@ namespace CppCLRWinFormsProject {
 			this->Text = L"MainPage";
 			this->Load += gcnew System::EventHandler(this, &MainPage::MainPage_Load);
 
-
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
 		}
 #pragma endregion
-	private: System::Void MainPage_Load(System::Object^ sender, System::EventArgs^ e);
+	private: 
+		System::Void MainPage_Load(System::Object^ sender, System::EventArgs^ e);
+		//TESTING METHOD, DELETE LATER
+   		System::Void testQuery();
 	};
 }
