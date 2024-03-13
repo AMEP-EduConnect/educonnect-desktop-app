@@ -16,9 +16,6 @@ namespace CppCLRWinFormsProject {
 	{
 	public:
 		MainPage(void);
-		String^ connectionString;
-
-		MySqlConnection^ conn;
 
 	protected:
 		/// <summary>
