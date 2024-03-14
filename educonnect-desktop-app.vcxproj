@@ -226,6 +226,9 @@
     <ClInclude Include="Professor.h" />
     <ClInclude Include="ProfessorRepository.h" />
     <ClInclude Include="ProfessorService.h" />
+    <ClInclude Include="RegistreUsuari.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="Resource.h" />
     <ClInclude Include="Utils.h" />
   </ItemGroup>
@@ -246,6 +249,7 @@
     <ClCompile Include="Professor.cpp" />
     <ClCompile Include="ProfessorRepository.cpp" />
     <ClCompile Include="ProfessorService.cpp" />
+    <ClCompile Include="RegistreUsuari.cpp" />
     <ClCompile Include="Utils.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -267,6 +271,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MyForm.resx">
       <DependentUpon>MyForm.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RegistreUsuari.resx">
+      <DependentUpon>RegistreUsuari.h</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
