@@ -1,6 +1,7 @@
 #include "pch.h"
 #include "ProfessorRepository.h"
 #include "DatabaseConnector.h"
+
 ProfessorRepository::ProfessorRepository()
 {
 

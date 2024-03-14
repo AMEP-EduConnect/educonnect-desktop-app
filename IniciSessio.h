@@ -127,6 +127,7 @@ namespace CppCLRWinFormsProject {
 			this->button1->TabIndex = 5;
 			this->button1->Text = L"Continuar";
 			this->button1->UseVisualStyleBackColor = true;
+			this->button1->Click += gcnew System::EventHandler(this, &IniciSessio::Button_Click);
 			// 
 			// IniciSessio
 			// 
@@ -200,5 +201,6 @@ namespace CppCLRWinFormsProject {
 	}
 	private: System::Void textBox1_TextChanged(System::Object^ sender, System::EventArgs^ e) {
 	}
+	System::Void Button_Click(System::Object^ sender, System::EventArgs^ e);
 	};
 }

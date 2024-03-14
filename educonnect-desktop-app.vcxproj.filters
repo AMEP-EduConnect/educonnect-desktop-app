@@ -65,6 +65,15 @@
     <ClInclude Include="IniciSessio.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="TxIniciSessio.h">
+      <Filter>Source Files\services</Filter>
+    </ClInclude>
+    <ClInclude Include="UsuariRepository.h">
+      <Filter>Source Files\repositories</Filter>
+    </ClInclude>
+    <ClInclude Include="Usuari.h">
+      <Filter>Source Files\entities</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CppCLR_WinFormsProject.cpp">
@@ -99,6 +108,15 @@
     </ClCompile>
     <ClCompile Include="IniciSessio.cpp">
       <Filter>Source Files\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="TxIniciSessio.cpp">
+      <Filter>Source Files\services</Filter>
+    </ClCompile>
+    <ClCompile Include="UsuariRepository.cpp">
+      <Filter>Source Files\repositories</Filter>
+    </ClCompile>
+    <ClCompile Include="Usuari.cpp">
+      <Filter>Source Files\entities</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
