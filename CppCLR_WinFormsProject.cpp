@@ -9,6 +9,7 @@ using namespace System;
 
 #include "MainPage.h"
 #include "MyForm.h"
+#include "IniciSessio.h"
 
 using namespace System::Windows::Forms;
 
@@ -17,6 +18,7 @@ int main()
 {
   Application::EnableVisualStyles();
   Application::SetCompatibleTextRenderingDefault(false);
-  Application::Run(gcnew CppCLRWinFormsProject::MyForm());
+  Application::Run(gcnew CppCLRWinFormsProject::IniciSessio());
+  //COMENTED FOR TEST Application::Run(gcnew CppCLRWinFormsProject::MyForm());
   return 0;
 }

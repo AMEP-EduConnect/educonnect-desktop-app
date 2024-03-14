@@ -216,6 +216,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DatabaseConnector.h" />
+    <ClInclude Include="IniciSessio.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="MainPage.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -233,6 +236,7 @@
     <ClCompile Include="AssemblyInfo.cpp" />
     <ClCompile Include="CppCLR_WinFormsProject.cpp" />
     <ClCompile Include="DatabaseConnector.cpp" />
+    <ClCompile Include="IniciSessio.cpp" />
     <ClCompile Include="MainPage.cpp" />
     <ClCompile Include="MyForm.cpp" />
     <ClCompile Include="pch.cpp">
@@ -262,6 +266,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="IniciSessio.resx">
+      <DependentUpon>IniciSessio.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainPage.resx">
       <DependentUpon>MainPage.h</DependentUpon>
     </EmbeddedResource>
