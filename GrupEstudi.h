@@ -30,4 +30,5 @@ public:
 	void setGroupAcademicTag(Int64^ group_academic_tag);
 	void setDescription(String^ description);
 
+
 };
