@@ -24,14 +24,14 @@ Usuari^ UsuariRepository::GetUsuariById(Int64^ id)
 
 }
 
-Usuari^ UsuariRepository::GetUsuariByUsername(String^ user) {
+Usuari^ UsuariRepository::GetUsuariByPassUser(String^ username, String^ password) {
 	DatabaseConnector::Instance->connect();
-	String^ sql = "SELECT * FROM users WHERE username = " + user;
+	String^ sql = "SELECT * FROM users WHERE username = " + username + " and password = " + password;
 	MySqlDataReader^ data = DatabaseConnector::Instance->executeCommand(sql);
 	Usuari^ usuari = gcnew Usuari();
 	while (data->Read())
 	{
-		usuari->id = data->GetInt64(0);
+		usuari->user_id = data->GetInt64(0);
 		usuari->username = data->GetString(1);
 		usuari->password = data->GetString(2);
 		usuari->email = data->GetString(3);

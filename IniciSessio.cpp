@@ -14,8 +14,9 @@ namespace CppCLRWinFormsProject {
        String ^ username = textBox1->Text;
        String ^ password = textBox2->Text;
 
-       inici.
-       
+       bool check = inici.CheckUsername(username, password);
+       if (check == true) MessageBox::Show("TRUE");
+       else MessageBox::Show("FALSE");
 
     }
 }

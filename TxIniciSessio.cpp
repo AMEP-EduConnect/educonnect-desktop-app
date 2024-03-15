@@ -1,14 +1,33 @@
 #include "pch.h"
-#include "DatabaseConnector.h"
-#include "UsuariRepository.h"
 #include "TxIniciSessio.h"
-
 TxIniciSessio::TxIniciSessio()
 {
-	UsuariRepository = gcnew;
+	usuariRepository = gcnew UsuariRepository();
 }
 
-Usuari^ TxiniciSessio::GetUsuariById(Int64^ id)
+/*Usuari^ TxIniciSessio::GetUsuariById(Int64^ id)
 {
-	return UsuariRepository->GetUsuariById(id);
+	UsuariRepository user;
+	return user.GetUsuariById(id);
+}*/
+
+Usuari^ TxIniciSessio::GetUsuariByPassUser(String^ username, String^ password)
+{
+	UsuariRepository^ user = gcnew UsuariRepository();
+	return user->GetUsuariByPassUser(username, password);
+}
+bool TxIniciSessio::CheckUsername(String^ username, String^ password)
+{
+
+	Usuari^ checkuser = GetUsuariByPassUser(username, password);
+	if (checkuser->username == username) {
+		bool checkpassword = CheckPassword(checkuser, password);
+		return checkpassword;
+	}
+	else return false;
+}
+bool TxIniciSessio::CheckPassword(Usuari^ checkuser, String^ password)
+{
+	if (checkuser->password == password) return true;
+	else return false;
 }
