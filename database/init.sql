@@ -1,0 +1,81 @@
+-- tabla de usuarios
+create table if not exists users(
+	id int auto_increment primary key,
+	username varchar(255) not null,
+	password varchar(500) not null,
+	email varchar(255) not null,
+	surname varchar(255) not null
+);
+-- tabla de roles
+create table if not exists roles(
+	id int primary key,
+	role_name varchar(50) not null
+
+);
+-- tabla intermedia de roles de usuario
+create table if not exists users_roles(
+	user_id int,
+	role_id int,
+	foreign key (user_id) references users(id) on delete cascade,
+	foreign key (role_id) references roles(id),
+	primary key(user_id, role_id)
+);
+-- tabla sesiones de usuario
+create table if not exists user_sessions(
+	id int auto_increment primary key,
+	user_id int not null,
+	token varchar(500) not null,
+	created_at timestamp default current_timestamp,
+	foreign key (user_id) references users(id) on delete cascade
+
+);
+-- intereses academicos/temas
+create table if not exists academicTags(
+	id int auto_increment primary key,
+	tag_name varchar(255) not null
+);
+-- tabla intermedia intereses academicos
+create table if not exists users_academicTags(
+	user_id int,
+	academicTag_id int,
+	foreign key (user_id) references users(id) on delete cascade,
+	foreign key (academicTag_id) references academicTags(id),
+	primary key(user_id, academicTag_id)
+
+);
+-- tabla de grupos de estudio
+create table if not exists studyGroups(
+	id int auto_increment primary key,
+	group_name varchar(255) not null,
+	group_owner_id int,
+	group_academic_tag int,
+	foreign key (group_academic_tag) references academicTags(id),
+	foreign key (group_owner_id) references users(id)
+
+);
+-- tabla intermedia para miembros de grupos de estudio
+create table if not exists studyGroupsMembership (
+    id int auto_increment primary key,
+    user_id int,
+    group_id int,
+    member_since timestamp default current_timestamp,
+    foreign key (user_id) references users(id) on delete cascade,
+    foreign key (group_id) references studyGroups(id) on delete cascade
+);
+
+insert into academicTags(tag_name) values("AMEP");
+insert into academicTags(tag_name) values("FOMA");
+insert into academicTags(tag_name) values("INEP");
+insert into academicTags(tag_name) values("PTIN");
+insert into academicTags(tag_name) values("ESIN");
+-- TODO: completar
+
+
+-- roles minimos
+insert into roles values(1, "ADMIN");
+insert into roles values(2, "STUDENT");
+insert into roles values(3, "PROVIDER");
+
+
+
+
