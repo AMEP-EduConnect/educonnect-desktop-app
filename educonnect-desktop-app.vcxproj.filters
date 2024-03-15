@@ -62,6 +62,21 @@
     <ClInclude Include="MyForm.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="GrupEstudi.h">
+      <Filter>Source Files\entities</Filter>
+    </ClInclude>
+    <ClInclude Include="GrupEstudiUI.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GrupEstudiService.h">
+      <Filter>Source Files\services</Filter>
+    </ClInclude>
+    <ClInclude Include="GrupEstudiRepository.h">
+      <Filter>Source Files\repositories</Filter>
+    </ClInclude>
+    <ClInclude Include="GrupEstudi_EditarUI.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CppCLR_WinFormsProject.cpp">
@@ -93,6 +108,21 @@
     </ClCompile>
     <ClCompile Include="MyForm.cpp">
       <Filter>Source Files\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="GrupEstudiUI.cpp">
+      <Filter>Source Files\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="GrupEstudi.cpp">
+      <Filter>Source Files\entities</Filter>
+    </ClCompile>
+    <ClCompile Include="GrupEstudiService.cpp">
+      <Filter>Source Files\services</Filter>
+    </ClCompile>
+    <ClCompile Include="GrupEstudiRepository.cpp">
+      <Filter>Source Files\repositories</Filter>
+    </ClCompile>
+    <ClCompile Include="GrupEstudi_EditarUI.cpp">
+      <Filter>Header Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

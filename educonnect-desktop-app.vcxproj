@@ -216,6 +216,15 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DatabaseConnector.h" />
+    <ClInclude Include="GrupEstudi.h" />
+    <ClInclude Include="GrupEstudiRepository.h" />
+    <ClInclude Include="GrupEstudiService.h" />
+    <ClInclude Include="GrupEstudiUI.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="GrupEstudi_EditarUI.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="MainPage.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -233,6 +242,11 @@
     <ClCompile Include="AssemblyInfo.cpp" />
     <ClCompile Include="CppCLR_WinFormsProject.cpp" />
     <ClCompile Include="DatabaseConnector.cpp" />
+    <ClCompile Include="GrupEstudi.cpp" />
+    <ClCompile Include="GrupEstudiRepository.cpp" />
+    <ClCompile Include="GrupEstudiService.cpp" />
+    <ClCompile Include="GrupEstudiUI.cpp" />
+    <ClCompile Include="GrupEstudi_EditarUI.cpp" />
     <ClCompile Include="MainPage.cpp" />
     <ClCompile Include="MyForm.cpp" />
     <ClCompile Include="pch.cpp">

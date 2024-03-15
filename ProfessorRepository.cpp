@@ -19,6 +19,6 @@ Professor^ ProfessorRepository::GetProfessorById(Int64^ id)
 		professor->surname = data->GetString(2);
 	}
 	return professor;
-
 }
+
 
