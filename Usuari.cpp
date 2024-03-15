@@ -18,5 +18,4 @@ Usuari::Usuari(Int64^ user_id, String^ username, String^ password, String^ email
 	this->password = password;
 	this->email = email;
 	this->name = name;
-
 }

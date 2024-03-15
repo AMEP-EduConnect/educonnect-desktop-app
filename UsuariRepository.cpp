@@ -26,9 +26,10 @@ Usuari^ UsuariRepository::GetUsuariById(Int64^ id)
 
 Usuari^ UsuariRepository::GetUsuariByPassUser(String^ username, String^ password) {
 	DatabaseConnector::Instance->connect();
-	String^ sql = "SELECT * FROM users WHERE username = " + username + " and password = " + password;
+	String^ sql = "SELECT * FROM users WHERE username = '" + username + "' AND password = '" + password + "'";
 	MySqlDataReader^ data = DatabaseConnector::Instance->executeCommand(sql);
 	Usuari^ usuari = gcnew Usuari();
+
 	while (data->Read())
 	{
 		usuari->user_id = data->GetInt64(0);
@@ -37,6 +38,7 @@ Usuari^ UsuariRepository::GetUsuariByPassUser(String^ username, String^ password
 		usuari->email = data->GetString(3);
 		usuari->name = data->GetString(4);
 	}
+	DatabaseConnector::Instance->disconnect();
 	return usuari;
 }
 

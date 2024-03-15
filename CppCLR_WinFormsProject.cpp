@@ -10,12 +10,14 @@ using namespace System;
 #include "MainPage.h"
 #include "MyForm.h"
 #include "IniciSessio.h"
+#include "DatabaseConnector.h"
 
 using namespace System::Windows::Forms;
 
 [STAThread]
 int main()
 {
+  DatabaseConnector::Instance = gcnew DatabaseConnector();
   Application::EnableVisualStyles();
   Application::SetCompatibleTextRenderingDefault(false);
   Application::Run(gcnew CppCLRWinFormsProject::IniciSessio());
