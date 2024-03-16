@@ -79,7 +79,6 @@ void GrupEstudi::setDescription(String^ description)
 }
 
 
-
 //ZITRO STUFF
 // 
 // 

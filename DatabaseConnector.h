@@ -5,17 +5,18 @@ using namespace MySql::Data::MySqlClient;
 
 public ref class DatabaseConnector
 {
-public: 
-	static DatabaseConnector^ Instance;
-	DatabaseConnector();
-	void connect();
-	void disconnect();
-	MySqlDataReader^ executeCommand(String^ sql);
+public:
+    static DatabaseConnector^ Instance;
+    DatabaseConnector();
+    void connect();
+    void disconnect();
+    MySqlDataReader^ executeCommand(String^ sql);
+    MySqlConnection^ getConn();
 
 private:
-	String^ server;
-	String^ username;
-	String^ password;
-	String^ databaseName;
-	MySqlConnection^ conn;
+    String^ server;
+    String^ username;
+    String^ password;
+    String^ databaseName;
+    MySqlConnection^ conn;
 };

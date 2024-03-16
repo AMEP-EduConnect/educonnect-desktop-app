@@ -29,6 +29,7 @@ namespace CppCLRWinFormsProject {
 			}
 		}
 	private: System::Windows::Forms::Button^ testButton;
+	private: System::Windows::Forms::Button^ button1;
 	protected:
 
 	private:
@@ -45,11 +46,12 @@ namespace CppCLRWinFormsProject {
 		void InitializeComponent(void)
 		{
 			this->testButton = (gcnew System::Windows::Forms::Button());
+			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->SuspendLayout();
 			// 
 			// testButton
 			// 
-			this->testButton->Location = System::Drawing::Point(133, 182);
+			this->testButton->Location = System::Drawing::Point(129, 128);
 			this->testButton->Name = L"testButton";
 			this->testButton->Size = System::Drawing::Size(75, 23);
 			this->testButton->TabIndex = 0;
@@ -57,18 +59,33 @@ namespace CppCLRWinFormsProject {
 			this->testButton->UseVisualStyleBackColor = true;
 			this->testButton->Click += gcnew System::EventHandler(this, &MyForm::testButton_Click);
 			// 
+			// button1
+			// 
+			this->button1->Location = System::Drawing::Point(57, 64);
+			this->button1->Name = L"button1";
+			this->button1->Size = System::Drawing::Size(75, 23);
+			this->button1->TabIndex = 1;
+			this->button1->Text = L"button1";
+			this->button1->UseVisualStyleBackColor = true;
+			this->testButton->Click += gcnew System::EventHandler(this, &MyForm::BClick);
+			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(284, 261);
+			this->Controls->Add(this->button1);
 			this->Controls->Add(this->testButton);
 			this->Name = L"MyForm";
 			this->Text = L"MyForm";
+			this->Load += gcnew System::EventHandler(this, &MyForm::MyForm_Load);
 			this->ResumeLayout(false);
 
 		}
 #pragma endregion
 	private: System::Void testButton_Click(System::Object^ sender, System::EventArgs^ e);
+	private: System::Void BClick(System::Object^ sender, System::EventArgs^ e);
+	private: System::Void MyForm_Load(System::Object^ sender, System::EventArgs^ e) {
+	}
 	};
 }
