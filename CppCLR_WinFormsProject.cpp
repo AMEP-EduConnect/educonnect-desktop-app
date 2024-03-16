@@ -10,6 +10,7 @@ using namespace System;
 #include "MainPage.h"
 #include "MyForm.h"
 #include "GrupEstudi_EditarUI.h"
+#include "GrupEstudiUI.h"
 #include "DatabaseConnector.h"
 
 using namespace System::Windows::Forms;
