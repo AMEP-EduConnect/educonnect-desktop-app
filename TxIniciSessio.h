@@ -2,8 +2,10 @@
 #include "pch.h"
 #include "UsuariRepository.h"
 #include "DatabaseConnector.h"
+#include "Usuari.h"
 public ref class TxIniciSessio
 {
+
 public:
 	TxIniciSessio();
 	//Usuari^ GetUsuariById(Int64^ id);
@@ -13,4 +15,5 @@ public:
 
 private:
 	UsuariRepository^ usuariRepository;
+
 };
