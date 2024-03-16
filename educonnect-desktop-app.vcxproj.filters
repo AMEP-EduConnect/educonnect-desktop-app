@@ -80,6 +80,9 @@
     <ClInclude Include="AcademicTag.h">
       <Filter>Source Files\entities</Filter>
     </ClInclude>
+    <ClInclude Include="GrupEstudi_ConsultarUI3.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CppCLR_WinFormsProject.cpp">
@@ -129,6 +132,9 @@
     </ClCompile>
     <ClCompile Include="AcademicTag.cpp">
       <Filter>Source Files\entities</Filter>
+    </ClCompile>
+    <ClCompile Include="GrupEstudi_ConsultarUI3.cpp">
+      <Filter>Header Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
