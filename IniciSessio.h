@@ -22,26 +22,6 @@ namespace CppCLRWinFormsProject {
 			//TODO: agregar código de constructor aquí
 			//
 
-			// Asocia los eventos Enter y Leave del TextBox al mismo manejador de eventos.
-			textBox1->Enter += gcnew System::EventHandler(this, &IniciSessio::TextBox_Enter);
-			textBox1->Leave += gcnew System::EventHandler(this, &IniciSessio::TextBox_Leave);
-
-			textBox2->Enter += gcnew System::EventHandler(this, &IniciSessio::TextBox_Enter1);
-			textBox2->Leave += gcnew System::EventHandler(this, &IniciSessio::TextBox_Leave1);
-
-
-
-			// Configura el texto predeterminado cuando se carga el formulario.
-			textBox1->Text = "Nom d'usuari";
-			// Cambia el color del texto predeterminado para diferenciarlo del texto introducido por el usuario.
-			textBox1->ForeColor = System::Drawing::SystemColors::GrayText;
-
-			// Configura el texto predeterminado cuando se carga el formulario.
-			textBox2->Text = "Contrasenya";
-			// Cambia el color del texto predeterminado para diferenciarlo del texto introducido por el usuario.
-			textBox2->ForeColor = System::Drawing::SystemColors::GrayText;
-
-
 
 
 		}
@@ -64,6 +44,13 @@ namespace CppCLRWinFormsProject {
 	private: System::Windows::Forms::TextBox^ textBox2;
 	private: System::Windows::Forms::Label^ label3;
 	private: System::Windows::Forms::Button^ button1;
+	private: System::Windows::Forms::Label^ label1;
+	private: System::Windows::Forms::Label^ label2;
+	private: System::Windows::Forms::Label^ label4;
+	private: System::Windows::Forms::Panel^ panel1;
+	private: System::Windows::Forms::Label^ label5;
+	private: System::Windows::Forms::PictureBox^ pictureBox1;
+
 	protected:
 
 	private:
@@ -83,117 +70,166 @@ namespace CppCLRWinFormsProject {
 			this->textBox2 = (gcnew System::Windows::Forms::TextBox());
 			this->label3 = (gcnew System::Windows::Forms::Label());
 			this->button1 = (gcnew System::Windows::Forms::Button());
+			this->label1 = (gcnew System::Windows::Forms::Label());
+			this->label2 = (gcnew System::Windows::Forms::Label());
+			this->label4 = (gcnew System::Windows::Forms::Label());
+			this->panel1 = (gcnew System::Windows::Forms::Panel());
+			this->label5 = (gcnew System::Windows::Forms::Label());
+			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
+			this->panel1->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// textBox1
 			// 
-			this->textBox1->Font = (gcnew System::Drawing::Font(L"Microsoft Tai Le", 8.25F, System::Drawing::FontStyle::Italic, System::Drawing::GraphicsUnit::Point,
+			this->textBox1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->textBox1->Location = System::Drawing::Point(191, 108);
+			this->textBox1->Location = System::Drawing::Point(45, 46);
 			this->textBox1->Name = L"textBox1";
-			this->textBox1->Size = System::Drawing::Size(161, 21);
+			this->textBox1->Size = System::Drawing::Size(161, 22);
 			this->textBox1->TabIndex = 1;
 			this->textBox1->TabStop = false;
 			this->textBox1->TextChanged += gcnew System::EventHandler(this, &IniciSessio::textBox1_TextChanged);
 			// 
 			// textBox2
 			// 
-			this->textBox2->Font = (gcnew System::Drawing::Font(L"Microsoft Tai Le", 8.25F, System::Drawing::FontStyle::Italic, System::Drawing::GraphicsUnit::Point,
+			this->textBox2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->textBox2->Location = System::Drawing::Point(191, 144);
+			this->textBox2->Location = System::Drawing::Point(45, 112);
 			this->textBox2->Name = L"textBox2";
-			this->textBox2->Size = System::Drawing::Size(161, 21);
+			this->textBox2->PasswordChar = '*';
+			this->textBox2->Size = System::Drawing::Size(161, 22);
 			this->textBox2->TabIndex = 3;
 			this->textBox2->TabStop = false;
 			// 
 			// label3
 			// 
 			this->label3->AutoSize = true;
-			this->label3->Font = (gcnew System::Drawing::Font(L"Microsoft Tai Le", 20.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->label3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label3->Location = System::Drawing::Point(185, 33);
+			this->label3->ForeColor = System::Drawing::SystemColors::HotTrack;
+			this->label3->Location = System::Drawing::Point(255, 67);
 			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(178, 34);
+			this->label3->Size = System::Drawing::Size(186, 31);
 			this->label3->TabIndex = 4;
 			this->label3->Text = L"Iniciar sessió";
+			this->label3->Click += gcnew System::EventHandler(this, &IniciSessio::label3_Click);
 			// 
 			// button1
 			// 
-			this->button1->Font = (gcnew System::Drawing::Font(L"Microsoft Tai Le", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->button1->Font = (gcnew System::Drawing::Font(L"Microsoft Tai Le", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->button1->Location = System::Drawing::Point(191, 241);
+			this->button1->ForeColor = System::Drawing::SystemColors::HotTrack;
+			this->button1->Location = System::Drawing::Point(45, 186);
 			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(161, 25);
+			this->button1->Size = System::Drawing::Size(161, 23);
 			this->button1->TabIndex = 5;
 			this->button1->Text = L"Continuar";
 			this->button1->UseVisualStyleBackColor = true;
 			this->button1->Click += gcnew System::EventHandler(this, &IniciSessio::Button_Click);
 			// 
+			// label1
+			// 
+			this->label1->AutoSize = true;
+			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label1->ForeColor = System::Drawing::SystemColors::HotTrack;
+			this->label1->Location = System::Drawing::Point(258, 59);
+			this->label1->Name = L"label1";
+			this->label1->Size = System::Drawing::Size(66, 13);
+			this->label1->TabIndex = 6;
+			this->label1->Text = L"EduConnect";
+			this->label1->Click += gcnew System::EventHandler(this, &IniciSessio::label1_Click_1);
+			// 
+			// label2
+			// 
+			this->label2->AutoSize = true;
+			this->label2->BackColor = System::Drawing::SystemColors::GradientInactiveCaption;
+			this->label2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label2->ForeColor = System::Drawing::SystemColors::HotTrack;
+			this->label2->Location = System::Drawing::Point(42, 27);
+			this->label2->Name = L"label2";
+			this->label2->Size = System::Drawing::Size(86, 16);
+			this->label2->TabIndex = 7;
+			this->label2->Text = L"Nom d\'usuari";
+			this->label2->Click += gcnew System::EventHandler(this, &IniciSessio::label2_Click);
+			// 
+			// label4
+			// 
+			this->label4->AutoSize = true;
+			this->label4->BackColor = System::Drawing::SystemColors::GradientInactiveCaption;
+			this->label4->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label4->ForeColor = System::Drawing::SystemColors::HotTrack;
+			this->label4->Location = System::Drawing::Point(42, 93);
+			this->label4->Name = L"label4";
+			this->label4->Size = System::Drawing::Size(83, 16);
+			this->label4->TabIndex = 8;
+			this->label4->Text = L"Contrasenya";
+			// 
+			// panel1
+			// 
+			this->panel1->BackColor = System::Drawing::SystemColors::GradientInactiveCaption;
+			this->panel1->Controls->Add(this->button1);
+			this->panel1->Controls->Add(this->label2);
+			this->panel1->Controls->Add(this->label4);
+			this->panel1->Controls->Add(this->textBox1);
+			this->panel1->Controls->Add(this->textBox2);
+			this->panel1->Location = System::Drawing::Point(261, 129);
+			this->panel1->Name = L"panel1";
+			this->panel1->Size = System::Drawing::Size(259, 265);
+			this->panel1->TabIndex = 9;
+			// 
+			// label5
+			// 
+			this->label5->AutoSize = true;
+			this->label5->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label5->ForeColor = System::Drawing::Color::Red;
+			this->label5->Location = System::Drawing::Point(258, 411);
+			this->label5->Name = L"label5";
+			this->label5->Size = System::Drawing::Size(148, 16);
+			this->label5->TabIndex = 10;
+			this->label5->Text = L"Credencials incorrectes";
+			this->label5->Visible = false;
+			// 
+			// pictureBox1
+			// 
+			this->pictureBox1->Image = Image::FromFile("background.png");
+			this->pictureBox1->Location = System::Drawing::Point(-1, 430);
+			this->pictureBox1->Name = L"pictureBox1";
+			this->pictureBox1->Size = System::Drawing::Size(804, 265);
+			this->pictureBox1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
+			this->pictureBox1->TabIndex = 11;
+			this->pictureBox1->TabStop = false;
+			// 
 			// IniciSessio
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(6, 14);
+			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::SystemColors::Control;
-			this->ClientSize = System::Drawing::Size(535, 367);
-			this->Controls->Add(this->button1);
+			this->ClientSize = System::Drawing::Size(799, 523);
+			this->Controls->Add(this->pictureBox1);
+			this->Controls->Add(this->label5);
+			this->Controls->Add(this->label1);
 			this->Controls->Add(this->label3);
-			this->Controls->Add(this->textBox2);
-			this->Controls->Add(this->textBox1);
-			this->Font = (gcnew System::Drawing::Font(L"Microsoft Tai Le", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->Controls->Add(this->panel1);
+			this->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->ForeColor = System::Drawing::SystemColors::ActiveCaptionText;
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedSingle;
 			this->Name = L"IniciSessio";
 			this->Text = L"EduConnect";
 			this->Load += gcnew System::EventHandler(this, &IniciSessio::IniciSessio_Load);
+			this->panel1->ResumeLayout(false);
+			this->panel1->PerformLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
 		}
-		System::Void TextBox_Enter(System::Object^ sender, System::EventArgs^ e)
-		{
-			// Si el texto actual es igual al texto predeterminado, elimina el texto.
-			if (textBox1->Text == "Nom d'usuari")
-			{
-				textBox1->Text = "";
-				// Restaura el color del texto a negro.
-				textBox1->ForeColor = System::Drawing::SystemColors::ControlText;
-			}
 
-		}
-		System::Void TextBox_Leave(System::Object^ sender, System::EventArgs^ e)
-		{
-			// Si el texto está vacío, restaura el texto predeterminado.
-			if (textBox1->Text->Trim() == "")
-			{
-				textBox1->Text = "Nom d'usuari";
-				// Cambia el color del texto predeterminado.
-				textBox1->ForeColor = System::Drawing::SystemColors::GrayText;
-			}
-
-		}
-		System::Void TextBox_Enter1(System::Object^ sender, System::EventArgs^ e)
-		{
-			// Si el texto actual es igual al texto predeterminado, elimina el texto.
-			if (textBox2->Text == "Contrasenya")
-			{
-				textBox2->Text = "";
-				// Restaura el color del texto a negro.
-				textBox2->ForeColor = System::Drawing::SystemColors::ControlText;
-			}
-
-		}
-		System::Void TextBox_Leave1(System::Object^ sender, System::EventArgs^ e)
-		{
-			// Si el texto está vacío, restaura el texto predeterminado.
-			if (textBox2->Text->Trim() == "")
-			{
-				textBox2->Text = "Contrasenya";
-				// Cambia el color del texto predeterminado.
-				textBox2->ForeColor = System::Drawing::SystemColors::GrayText;
-			}
-
-		}
 #pragma endregion
 	private: System::Void IniciSessio_Load(System::Object^ sender, System::EventArgs^ e) {
 	}
@@ -202,5 +238,11 @@ namespace CppCLRWinFormsProject {
 	private: System::Void textBox1_TextChanged(System::Object^ sender, System::EventArgs^ e) {
 	}
 	System::Void Button_Click(System::Object^ sender, System::EventArgs^ e);
-	};
+	private: System::Void label3_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+private: System::Void label2_Click(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void label1_Click_1(System::Object^ sender, System::EventArgs^ e) {
+}
+};
 }

@@ -7,14 +7,14 @@ public ref class Usuari
 public:
     Usuari();
     // Constructor
-    Usuari(Int64^ user_id,String^ username, String^ password, String^ email, String^ name);
+    Usuari(Int64^ user_id, String^ username, String^ password, String^ email, String^ name);
 
-    // Properties
+    // Setters
+
+public:
     property Int64^ user_id;
     property String^ username;
     property String^ password;
     property String^ email;
-	property String^ name;
-
-
+    property String^ name;
 };
