@@ -18,4 +18,10 @@ namespace CppCLRWinFormsProject {
         MessageBox::Show("Database testing");
 		
 	}
+
+    void MyForm::BClick(System::Object^ sender, System::EventArgs^ e)
+    {
+        MessageBox::Show("Database testing");
+
+    }
 }

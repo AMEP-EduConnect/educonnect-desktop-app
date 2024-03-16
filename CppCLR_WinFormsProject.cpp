@@ -9,7 +9,7 @@ using namespace System;
 
 #include "MainPage.h"
 #include "MyForm.h"
-#include "GrupEstudiUI.h"
+#include "GrupEstudi_EditarUI.h"
 #include "DatabaseConnector.h"
 
 using namespace System::Windows::Forms;
@@ -20,6 +20,7 @@ int main()
   DatabaseConnector::Instance = gcnew DatabaseConnector();
   Application::EnableVisualStyles();
   Application::SetCompatibleTextRenderingDefault(false);
-  Application::Run(gcnew CppCLRWinFormsProject::GrupEstudiUI());
+  //Application::Run(gcnew CppCLRWinFormsProject::MyForm());
+  Application::Run(gcnew CppCLRWinFormsProject::GrupEstudi_EditarUI());
   return 0;
 }
