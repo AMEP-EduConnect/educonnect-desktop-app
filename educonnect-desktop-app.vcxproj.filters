@@ -62,8 +62,17 @@
     <ClInclude Include="MyForm.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="RegistreUsuari.h">
+    <ClInclude Include="IniciSessio.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TxIniciSessio.h">
+      <Filter>Source Files\services</Filter>
+    </ClInclude>
+    <ClInclude Include="UsuariRepository.h">
+      <Filter>Source Files\repositories</Filter>
+    </ClInclude>
+    <ClInclude Include="Usuari.h">
+      <Filter>Source Files\entities</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

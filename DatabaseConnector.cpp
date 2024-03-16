@@ -37,5 +37,3 @@ MySqlDataReader^ DatabaseConnector::executeCommand(String^ sql)
 	dataReader = cmd->ExecuteReader();
 	return dataReader;
 }
-
-

@@ -216,6 +216,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DatabaseConnector.h" />
+    <ClInclude Include="IniciSessio.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="MainPage.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -230,12 +233,16 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="Resource.h" />
+    <ClInclude Include="TxIniciSessio.h" />
+    <ClInclude Include="Usuari.h" />
+    <ClInclude Include="UsuariRepository.h" />
     <ClInclude Include="Utils.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AssemblyInfo.cpp" />
     <ClCompile Include="CppCLR_WinFormsProject.cpp" />
     <ClCompile Include="DatabaseConnector.cpp" />
+    <ClCompile Include="IniciSessio.cpp" />
     <ClCompile Include="MainPage.cpp" />
     <ClCompile Include="MyForm.cpp" />
     <ClCompile Include="pch.cpp">
@@ -249,6 +256,9 @@
     <ClCompile Include="Professor.cpp" />
     <ClCompile Include="ProfessorRepository.cpp" />
     <ClCompile Include="ProfessorService.cpp" />
+    <ClCompile Include="TxIniciSessio.cpp" />
+    <ClCompile Include="Usuari.cpp" />
+    <ClCompile Include="UsuariRepository.cpp" />
     <ClCompile Include="RegistreUsuari.cpp" />
     <ClCompile Include="Utils.cpp" />
   </ItemGroup>
@@ -266,6 +276,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="IniciSessio.resx">
+      <DependentUpon>IniciSessio.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainPage.resx">
       <DependentUpon>MainPage.h</DependentUpon>
     </EmbeddedResource>
