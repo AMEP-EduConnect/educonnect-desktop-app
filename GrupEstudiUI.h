@@ -41,7 +41,7 @@ namespace CppCLRWinFormsProject {
 	private: System::Windows::Forms::Button^ CreateGrupButton;
 	private: System::Windows::Forms::Panel^ FormPanel;
 	private: GrupEstudiService^ grupEstudiService;
-	private: System::Windows::Forms::ListBox^ listBox1;
+
 	protected:
 
 	private:
@@ -68,7 +68,6 @@ namespace CppCLRWinFormsProject {
 			this->GrupDescriptionLabel = (gcnew System::Windows::Forms::Label());
 			this->CreateGrupButton = (gcnew System::Windows::Forms::Button());
 			this->FormPanel = (gcnew System::Windows::Forms::Panel());
-			this->listBox1 = (gcnew System::Windows::Forms::ListBox());
 			this->FormPanel->SuspendLayout();
 			this->SuspendLayout();
 			// 
@@ -187,20 +186,11 @@ namespace CppCLRWinFormsProject {
 			this->FormPanel->Size = System::Drawing::Size(454, 411);
 			this->FormPanel->TabIndex = 10;
 			// 
-			// listBox1
-			// 
-			this->listBox1->FormattingEnabled = true;
-			this->listBox1->Location = System::Drawing::Point(688, 345);
-			this->listBox1->Name = L"listBox1";
-			this->listBox1->Size = System::Drawing::Size(120, 56);
-			this->listBox1->TabIndex = 11;
-			// 
 			// GrupEstudiUI
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(1175, 680);
-			this->Controls->Add(this->listBox1);
 			this->Controls->Add(this->goBackButton);
 			this->Controls->Add(this->eduConnectLabel);
 			this->Controls->Add(this->pageTitle);
