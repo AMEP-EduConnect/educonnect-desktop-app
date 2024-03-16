@@ -12,10 +12,10 @@ public:
 	AcademicTag(Int64^ id, String^ tag_name);
 
 	//getters
-	Int64^ getId();
-	String^ getTagName();
+	Int64^ GetId();
+	String^ GetTagName();
 	//setters
-	void setId(Int64^ id);
-	void setTagName(System::String^ tag_name);	
+	void SetId(Int64^ id);
+	void SetTagName(System::String^ tag_name);	
 
 };

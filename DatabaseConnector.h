@@ -8,10 +8,10 @@ public ref class DatabaseConnector
 public:
     static DatabaseConnector^ Instance;
     DatabaseConnector();
-    void connect();
-    void disconnect();
-    MySqlDataReader^ executeCommand(String^ sql);
-    MySqlConnection^ getConn();
+    void Connect();
+    void Disconnect();
+    MySqlDataReader^ ExecuteCommand(String^ sql);
+    MySqlConnection^ GetConn();
 
 private:
     String^ server;

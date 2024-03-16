@@ -9,11 +9,11 @@ DatabaseConnector::DatabaseConnector()
     String^ username;
     String^ password;
     String^ databaseName;
-    Utils::readAndDecryptDatabaseCredentials(server, username, password, databaseName);
+    Utils::ReadAndDecryptDatabaseCredentials(server, username, password, databaseName);
     conn = gcnew MySqlConnection(String::Format("server={0};port=3306;user id={1};password={2};database={3};AllowPublicKeyRetrieval=true;", server, username, password, databaseName));
 }
 
-void DatabaseConnector::connect()
+void DatabaseConnector::Connect()
 {
     try
     {
@@ -25,17 +25,17 @@ void DatabaseConnector::connect()
     }
 }
 
-MySqlConnection^ DatabaseConnector::getConn()
+MySqlConnection^ DatabaseConnector::GetConn()
 {
     return this->conn;
 }
 
-void DatabaseConnector::disconnect()
+void DatabaseConnector::Disconnect()
 {
     conn->Close();
 }
 
-MySqlDataReader^ DatabaseConnector::executeCommand(String^ sql)
+MySqlDataReader^ DatabaseConnector::ExecuteCommand(String^ sql)
 {
     MySqlCommand^ cmd = gcnew MySqlCommand(sql, this->conn);
     MySqlDataReader^ dataReader;

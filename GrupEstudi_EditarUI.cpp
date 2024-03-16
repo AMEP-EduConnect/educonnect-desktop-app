@@ -25,15 +25,15 @@ namespace CppCLRWinFormsProject {
         String^ description_new = textBox_DescripcioEditar->Text;
 
         //Comprobar que el "group_name_act" existe;
-        if (editar.existGroup(group_name_act)) {
+        if (editar.ExistGroup(group_name_act)) {
             if (description_new != "") {
-                editar.modifyGroupDescription(group_name_act, description_new);
+                editar.ModifyGroupDescription(group_name_act, description_new);
             }
 
             if (group_name_new != "") {
                 //Comprobar que el "group_name_new" no existe;
-                if (not editar.existGroup(group_name_act)) {
-                    editar.modifyGroupName(group_name_act, group_name_new);
+                if (not editar.ExistGroup(group_name_act)) {
+                    editar.ModifyGroupName(group_name_act, group_name_new);
                 }
             }
 

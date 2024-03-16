@@ -18,18 +18,18 @@ private:
 public:
 
 	//getters
-	Int64^ getId();
-	String^ getGroupName();
-	Int64^ getGroupOwnerId();
-	Int64^ getGroupAcademicTag();
-	String^ getDescription();
-	array<Int64>^ getMemberIds();
+	Int64^ GetId();
+	String^ GetGroupName();
+	Int64^ GetGroupOwnerId();
+	Int64^ GetGroupAcademicTag();
+	String^ GetDescription();
+	array<Int64>^ GetMemberIds();
 	//setters
-	void setId(Int64^ id);
-	void setGroupName(String^ group_name);
-	void setGroupOwnerId(Int64^ group_owner_id);
-	void setGroupAcademicTag(Int64^ group_academic_tag);
-	void setDescription(String^ description);
+	void SetId(Int64^ id);
+	void SetGroupName(String^ group_name);
+	void SetGroupOwnerId(Int64^ group_owner_id);
+	void SetGroupAcademicTag(Int64^ group_academic_tag);
+	void SetDescription(String^ description);
 	//List
 	//void addMemberId(Int64^ member_id);
 

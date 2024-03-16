@@ -14,22 +14,22 @@ AcademicTag::AcademicTag(Int64^ id, String^ tag_name)
 	this->tag_name = tag_name;
 }
 
-Int64^ AcademicTag::getId()
+Int64^ AcademicTag::GetId()
 {
 	return id;
 }
 
-String^ AcademicTag::getTagName()
+String^ AcademicTag::GetTagName()
 {
 	return tag_name;
 }
 
-void AcademicTag::setId(Int64^ id)
+void AcademicTag::SetId(Int64^ id)
 {
 	this->id = id;
 }
 
-void AcademicTag::setTagName(System::String^ tag_name)
+void AcademicTag::SetTagName(System::String^ tag_name)
 {
 	this->tag_name = tag_name;
 }

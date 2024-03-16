@@ -19,7 +19,7 @@ namespace CppCLRWinFormsProject {
 		array<AcademicTag^>^ academicTags;
         academicTags = grupEstudiService->LoadAllAcademicTags();
         for (int i = 0; i < academicTags->Length; i++) {
-			this->AcademicTagComboBox->Items->Add(academicTags[i]->getTagName());
+			this->AcademicTagComboBox->Items->Add(academicTags[i]->GetTagName());
 		}
 
 	}
@@ -29,7 +29,7 @@ namespace CppCLRWinFormsProject {
 
     void GrupEstudiUI::CreateGrupButton_Click(System::Object^ sender, System::EventArgs^ e)
     {
-        MessageBox::Show("Grup creat correctament\n"+ FormGrupNameTextBox->Text + "\n"+ FormGrupDescriptionTextBox->Text + "\n" + AcademicTagComboBox->Text + "\n");
+        grupEstudiService->CreateNewGrupEstudi(FormGrupNameTextBox->Text, FormGrupDescriptionTextBox->Text, AcademicTagComboBox->Text);
     }
 
     void GrupEstudiUI::FormGrupNameTextBox_TextChanged(System::Object^ sender, System::EventArgs^ e)

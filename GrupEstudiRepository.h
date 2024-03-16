@@ -6,6 +6,9 @@ public ref class GrupEstudiRepository
 public:
 	GrupEstudiRepository();
 	array<AcademicTag^>^ LoadAllAcademicTags();
+	void CreateNewGrupEstudi(String^ group_name, String^ description, String^ academic_tag);
+
+	Int64^ GetAcademicTagId(String^ academic_tag);
 
 //ZITRO STUFF
 // 
