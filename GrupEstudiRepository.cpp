@@ -9,9 +9,9 @@ GrupEstudiRepository::GrupEstudiRepository()
 array<AcademicTag^>^ GrupEstudiRepository::LoadAllAcademicTags()
 {
 	array<AcademicTag^>^ academicTags = gcnew array<AcademicTag^>(0);
-	DatabaseConnector::Instance->connect();
+	DatabaseConnector::Instance->Connect();
 	String^ sql = "SELECT * FROM academicTags";
-	MySqlDataReader^ data = DatabaseConnector::Instance->executeCommand(sql);
+	MySqlDataReader^ data = DatabaseConnector::Instance->ExecuteCommand(sql);
 	while (data->Read())
 	{
 		AcademicTag^ academicTag = gcnew AcademicTag();
@@ -20,31 +20,31 @@ array<AcademicTag^>^ GrupEstudiRepository::LoadAllAcademicTags()
 		Array::Resize(academicTags, academicTags->Length + 1);
 		academicTags[academicTags->Length - 1] = academicTag;
 	}
-	DatabaseConnector::Instance->disconnect();
+	DatabaseConnector::Instance->Disconnect();
 	return academicTags;
 }
 
 void GrupEstudiRepository::CreateNewGrupEstudi(String^ group_name, String^ description, String^ academic_tag)
 {
-	DatabaseConnector::Instance->connect();
+	DatabaseConnector::Instance->Connect();
 	//TODO: recoger el id del usuario logeado, falta hacer la instancia de la sesión de usuario
 	String^ sql = "INSERT INTO studyGroups (group_name, group_owner_id, group_academic_tag, description) VALUES ('" + group_name + "', 1, " + academic_tag + ", '" + description + "')";
-	MySqlCommand^ command = gcnew MySqlCommand(sql, DatabaseConnector::Instance->getConn());
+	MySqlCommand^ command = gcnew MySqlCommand(sql, DatabaseConnector::Instance->GetConn());
 	command->ExecuteNonQuery();
-	DatabaseConnector::Instance->disconnect();
+	DatabaseConnector::Instance->Disconnect();
 }
 
 Int64^ GrupEstudiRepository::GetAcademicTagId(String^ academic_tag)
 {
-	DatabaseConnector::Instance->connect();
+	DatabaseConnector::Instance->Connect();
 	String^ sql = "SELECT id from academicTags where tag_name = '"+academic_tag+"'";
-	MySqlDataReader^ data = DatabaseConnector::Instance->executeCommand(sql);
+	MySqlDataReader^ data = DatabaseConnector::Instance->ExecuteCommand(sql);
 	Int64^ lastId = nullptr;
 	while (data->Read())
 	{
 		lastId = data->GetInt64(0);
 	}
-	DatabaseConnector::Instance->disconnect();
+	DatabaseConnector::Instance->Disconnect();
 	return lastId;
 }
 
