@@ -77,6 +77,9 @@
     <ClInclude Include="GrupEstudi_EditarUI.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="AcademicTag.h">
+      <Filter>Source Files\entities</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CppCLR_WinFormsProject.cpp">
@@ -122,7 +125,10 @@
       <Filter>Source Files\repositories</Filter>
     </ClCompile>
     <ClCompile Include="GrupEstudi_EditarUI.cpp">
-      <Filter>Header Files</Filter>
+      <Filter>Source Files\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="AcademicTag.cpp">
+      <Filter>Source Files\entities</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

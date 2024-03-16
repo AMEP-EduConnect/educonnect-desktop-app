@@ -1,6 +1,6 @@
 #pragma once
 
-namespace CppCLR_WinFormsProject {
+namespace CppCLRWinFormsProject {
 
 	using namespace System;
 	using namespace System::ComponentModel;

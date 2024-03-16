@@ -25,6 +25,11 @@ void DatabaseConnector::connect()
 	}
 }
 
+MySqlConnection^ DatabaseConnector::getConn()
+{
+	return this->conn;
+}
+
 void DatabaseConnector::disconnect()
 {
 	conn->Close();

@@ -11,6 +11,7 @@ public:
 	void connect();
 	void disconnect();
 	MySqlDataReader^ executeCommand(String^ sql);
+	MySqlConnection^ getConn();
 
 private:
 	String^ server;

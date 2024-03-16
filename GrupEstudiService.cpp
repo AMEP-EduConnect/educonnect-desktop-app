@@ -10,6 +10,11 @@ GrupEstudiService::GrupEstudiService()
 	grupEstudiRepository = gcnew GrupEstudiRepository();
 }
 
+array<AcademicTag^>^ GrupEstudiService::LoadAllAcademicTags()
+{
+	return grupEstudiRepository->LoadAllAcademicTags();
+}
+
 
 //ZITRO STUFF
 // 

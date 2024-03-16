@@ -215,6 +215,7 @@
     <ResourceCompile Include="app.rc" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AcademicTag.h" />
     <ClInclude Include="DatabaseConnector.h" />
     <ClInclude Include="GrupEstudi.h" />
     <ClInclude Include="GrupEstudiRepository.h" />
@@ -239,6 +240,7 @@
     <ClInclude Include="Utils.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="AcademicTag.cpp" />
     <ClCompile Include="AssemblyInfo.cpp" />
     <ClCompile Include="CppCLR_WinFormsProject.cpp" />
     <ClCompile Include="DatabaseConnector.cpp" />
@@ -276,6 +278,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="GrupEstudiUI.resx">
+      <DependentUpon>GrupEstudiUI.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainPage.resx">
       <DependentUpon>MainPage.h</DependentUpon>
     </EmbeddedResource>
