@@ -76,8 +76,8 @@ namespace CppCLRWinFormsProject {
 			this->pageTitle->AutoSize = true;
 			this->pageTitle->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->pageTitle->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(0)),
-				static_cast<System::Int32>(static_cast<System::Byte>(139)));
+
+			this->pageTitle->ForeColor = System::Drawing::SystemColors::HotTrack;
 			this->pageTitle->Location = System::Drawing::Point(85, 76);
 			this->pageTitle->Name = L"pageTitle";
 			this->pageTitle->Size = System::Drawing::Size(262, 31);
@@ -89,8 +89,7 @@ namespace CppCLRWinFormsProject {
 			this->eduConnectLabel->AutoSize = true;
 			this->eduConnectLabel->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->eduConnectLabel->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(0)),
-				static_cast<System::Int32>(static_cast<System::Byte>(139)));
+			this->eduConnectLabel->ForeColor = System::Drawing::SystemColors::HotTrack;
 			this->eduConnectLabel->Location = System::Drawing::Point(91, 60);
 			this->eduConnectLabel->Name = L"eduConnectLabel";
 			this->eduConnectLabel->Size = System::Drawing::Size(95, 17);

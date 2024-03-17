@@ -21,15 +21,21 @@ array<AcademicTag^>^ GrupEstudiService::LoadAllAcademicTags()
 void GrupEstudiService::CreateNewGrupEstudi(String^ group_name, String^ description, String^ academic_tag)
 {
 	try {
-		Int64^ academic_tag_id = grupEstudiRepository->GetAcademicTagId(academic_tag);
-		grupEstudiRepository->CreateNewGrupEstudi(group_name, description, academic_tag_id);
+		if (this->CheckIfGroupExists(group_name)) {
+			MessageManager::WarningMessage("El grup ja existeix!");
+			return;
+		}
+		else {
+			Int64^ academic_tag_id = grupEstudiRepository->GetAcademicTagId(academic_tag);
+			MessageManager::InfoMessage(group_name + " " + description + " " + academic_tag_id);
+			grupEstudiRepository->CreateNewGrupEstudi(group_name, description, academic_tag_id);
+		}
 	}
 	catch (Exception^ e) {
 		MessageManager::ErrorMessage(e->Message);
 	}
 	
 }
-
 
 //ZITRO STUFF
 // 

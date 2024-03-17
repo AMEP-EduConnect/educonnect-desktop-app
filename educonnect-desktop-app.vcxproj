@@ -216,6 +216,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AcademicTag.h" />
+    <ClInclude Include="CurrentSession.h" />
     <ClInclude Include="DatabaseConnector.h" />
     <ClInclude Include="GrupEstudi.h" />
     <ClInclude Include="GrupEstudiMembershipRepository.h" />
@@ -244,12 +245,14 @@
     <ClInclude Include="ProfessorRepository.h" />
     <ClInclude Include="ProfessorService.h" />
     <ClInclude Include="Resource.h" />
+    <ClInclude Include="Usuari.h" />
     <ClInclude Include="Utils.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AcademicTag.cpp" />
     <ClCompile Include="AssemblyInfo.cpp" />
     <ClCompile Include="CppCLR_WinFormsProject.cpp" />
+    <ClCompile Include="CurrentSession.cpp" />
     <ClCompile Include="DatabaseConnector.cpp" />
     <ClCompile Include="GrupEstudi.cpp" />
     <ClCompile Include="GrupEstudiMembershipRepository.cpp" />
@@ -274,6 +277,7 @@
     <ClCompile Include="Professor.cpp" />
     <ClCompile Include="ProfessorRepository.cpp" />
     <ClCompile Include="ProfessorService.cpp" />
+    <ClCompile Include="Usuari.cpp" />
     <ClCompile Include="Utils.cpp" />
   </ItemGroup>
   <ItemGroup>

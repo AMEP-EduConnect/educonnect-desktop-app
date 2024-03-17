@@ -50,22 +50,28 @@ void GrupEstudiRepository::CreateNewGrupEstudi(String^ group_name, String^ descr
 Int64^ GrupEstudiRepository::GetAcademicTagId(String^ academic_tag)
 {
 	DatabaseConnector::Instance->Connect();
-	String^ sql = "SELECT id from academicTags where tag_name = '" + academic_tag + "'";
+	String^ sql = "SELECT id FROM academicTags WHERE tag_name = '" + academic_tag + "'";
 	MySqlDataReader^ data = DatabaseConnector::Instance->ExecuteCommand(sql);
-	Int64^ lastId = nullptr;
-	if(data->Read() != false) {
-		while (data->Read())
+	Int64^ tagId = nullptr;
+
+	try
+	{
+		if (data->Read())
 		{
-			lastId = data->GetInt64(0);
+			tagId = data->GetInt64(0);
+		}
+		else
+		{
+			throw gcnew Exception("Materia no encontrada!");
 		}
 	}
-	else {
-			DatabaseConnector::Instance->Disconnect();
-			throw gcnew Exception("Materia no trobada!");
+	finally
+	{
+		data->Close(); // Asegúrate de cerrar el lector de datos
+		DatabaseConnector::Instance->Disconnect();
 	}
 
-	DatabaseConnector::Instance->Disconnect();
-	return lastId;
+	return tagId;
 }
 
 
