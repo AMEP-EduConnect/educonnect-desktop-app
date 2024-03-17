@@ -4,6 +4,8 @@
 #include "GrupEstudiRepository.h"
 #include "GrupEstudi.h"
 #include "MessageManager.h"
+#include "Usuari.h"
+#include "CurrentSession.h"
 //#include "GrupsEstudiMembership.h"
 
 
@@ -26,9 +28,9 @@ void GrupEstudiService::CreateNewGrupEstudi(String^ group_name, String^ descript
 			return;
 		}
 		else {
-			Int64^ academic_tag_id = grupEstudiRepository->GetAcademicTagId(academic_tag);
-			MessageManager::InfoMessage(group_name + " " + description + " " + academic_tag_id);
-			grupEstudiRepository->CreateNewGrupEstudi(group_name, description, academic_tag_id);
+			Int64^ academic_tag_id = grupEstudiRepository->GetAcademicTagByTagName(academic_tag);
+			Usuari^ currentUser = CurrentSession::Instance->GetCurrentUser();
+			grupEstudiRepository->CreateNewGrupEstudi(group_name, description, academic_tag_id, currentUser->GetUserId());
 		}
 	}
 	catch (Exception^ e) {

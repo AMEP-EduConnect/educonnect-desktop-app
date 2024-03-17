@@ -1,5 +1,5 @@
 #pragma once
-
+#include "GrupEstudiMembershipService.h"
 namespace CppCLRWinFormsProject {
 
 	using namespace System;
@@ -37,6 +37,7 @@ namespace CppCLRWinFormsProject {
 	private: System::Windows::Forms::Label^ pertany_TITULO;
 	private: System::Windows::Forms::ListBox^ listaNoms;
 	private: System::Windows::Forms::Button^ button_Cancelar;
+	private: GrupEstudiMembershipService^ grupEstudiMembershipService;
 
 
 

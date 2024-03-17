@@ -98,13 +98,12 @@ namespace CppCLRWinFormsProject {
 			// 
 			// goBackButton
 			// 
-			this->goBackButton->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(0)),
-				static_cast<System::Int32>(static_cast<System::Byte>(139)));
+			this->goBackButton->ForeColor = System::Drawing::SystemColors::HotTrack;
 			this->goBackButton->Location = System::Drawing::Point(1044, 621);
 			this->goBackButton->Name = L"goBackButton";
 			this->goBackButton->Size = System::Drawing::Size(75, 23);
 			this->goBackButton->TabIndex = 2;
-			this->goBackButton->Text = L"Tornar";
+			this->goBackButton->Text = L"Cancelar";
 			this->goBackButton->UseVisualStyleBackColor = true;
 			this->goBackButton->Click += gcnew System::EventHandler(this, &GrupEstudiUI::goBackButton_Click);
 			// 
@@ -113,6 +112,9 @@ namespace CppCLRWinFormsProject {
 			this->FormGrupNameLabel->AutoSize = true;
 			this->FormGrupNameLabel->Location = System::Drawing::Point(20, 22);
 			this->FormGrupNameLabel->Name = L"FormGrupNameLabel";
+			this->FormGrupNameLabel->ForeColor = System::Drawing::SystemColors::HotTrack;
+			this->FormGrupNameLabel->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->FormGrupNameLabel->Size = System::Drawing::Size(29, 13);
 			this->FormGrupNameLabel->TabIndex = 3;
 			this->FormGrupNameLabel->Text = L"Nom";
@@ -138,7 +140,10 @@ namespace CppCLRWinFormsProject {
 			// 
 			this->AcademicTagLabel->AutoSize = true;
 			this->AcademicTagLabel->Location = System::Drawing::Point(20, 97);
+			this->AcademicTagLabel->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->AcademicTagLabel->Name = L"AcademicTagLabel";
+			this->AcademicTagLabel->ForeColor = System::Drawing::SystemColors::HotTrack;
 			this->AcademicTagLabel->Size = System::Drawing::Size(42, 13);
 			this->AcademicTagLabel->TabIndex = 6;
 			this->AcademicTagLabel->Text = L"Materia";
@@ -158,12 +163,16 @@ namespace CppCLRWinFormsProject {
 			this->GrupDescriptionLabel->AutoSize = true;
 			this->GrupDescriptionLabel->Location = System::Drawing::Point(20, 190);
 			this->GrupDescriptionLabel->Name = L"GrupDescriptionLabel";
+			this->GrupDescriptionLabel->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->GrupDescriptionLabel->ForeColor = System::Drawing::SystemColors::HotTrack;
 			this->GrupDescriptionLabel->Size = System::Drawing::Size(57, 13);
 			this->GrupDescriptionLabel->TabIndex = 7;
 			this->GrupDescriptionLabel->Text = L"Descripció";
 			// 
 			// CreateGrupButton
 			// 
+			this->CreateGrupButton->ForeColor = System::Drawing::SystemColors::HotTrack;
 			this->CreateGrupButton->Location = System::Drawing::Point(356, 367);
 			this->CreateGrupButton->Name = L"CreateGrupButton";
 			this->CreateGrupButton->Size = System::Drawing::Size(75, 23);

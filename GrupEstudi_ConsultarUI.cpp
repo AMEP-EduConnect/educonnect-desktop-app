@@ -10,6 +10,7 @@ namespace CppCLRWinFormsProject {
     GrupEstudi_ConsultarUI::GrupEstudi_ConsultarUI(void)
     {
         InitializeComponent();
+        grupEstudiMembershipService = gcnew GrupEstudiMembershipService();
     }
 
     void GrupEstudi_ConsultarUI::testbutton_Cancelar(System::Object^ sender, System::EventArgs^ e)

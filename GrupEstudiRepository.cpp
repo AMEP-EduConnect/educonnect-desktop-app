@@ -26,17 +26,18 @@ array<AcademicTag^>^ GrupEstudiRepository::LoadAllAcademicTags()
 	return academicTags;
 }
 
-void GrupEstudiRepository::CreateNewGrupEstudi(String^ group_name, String^ description, Int64^ academic_id)
+void GrupEstudiRepository::CreateNewGrupEstudi(String^ group_name, String^ description, Int64^ academic_id, Int64^ current_user_id)
 {
 	DatabaseConnector::Instance->Connect();
 
-	String^ sql = "INSERT INTO studyGroups (group_name, group_owner_id, group_academic_tag, description) VALUES (@GroupName, 1, @AcademicId, @Description)";
+	String^ sql = "INSERT INTO studyGroups (group_name, group_owner_id, group_academic_tag, description) VALUES (@GroupName, @CurrentUserId, @AcademicId, @Description)";
 	try {
 		MySqlCommand^ command = gcnew MySqlCommand(sql, DatabaseConnector::Instance->GetConn());
 
 		command->Parameters->AddWithValue("@GroupName", group_name);
 		command->Parameters->AddWithValue("@AcademicId", academic_id);
 		command->Parameters->AddWithValue("@Description", description);
+		command->Parameters->AddWithValue("@CurrentUserId", current_user_id);	
 
 		command->ExecuteNonQuery();
 		MessageManager::InfoMessage("Grup d'estudi creat correctament!");
@@ -47,7 +48,7 @@ void GrupEstudiRepository::CreateNewGrupEstudi(String^ group_name, String^ descr
 	}
 }
 
-Int64^ GrupEstudiRepository::GetAcademicTagId(String^ academic_tag)
+Int64^ GrupEstudiRepository::GetAcademicTagByTagName(String^ academic_tag)
 {
 	DatabaseConnector::Instance->Connect();
 	String^ sql = "SELECT id FROM academicTags WHERE tag_name = '" + academic_tag + "'";
