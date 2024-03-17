@@ -81,6 +81,10 @@
       <Filter>Source Files\entities</Filter>
     </ClInclude>
     <ClInclude Include="GrupEstudi_ConsultarUI.h">
+    <ClInclude Include="MessageManager.h">
+      <Filter>Source Files\utils</Filter>
+	</ClInclude>
+    <ClInclude Include="GrupEstudi_ConsultarUI3.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="GrupEstudiMembership.h">
@@ -153,6 +157,11 @@
     </ClCompile>
     <ClCompile Include="GrupEstudiMembershipService.cpp">
       <Filter>Source Files\services</Filter>
+    <ClCompile Include="MessageManager.cpp">
+      <Filter>Source Files\utils</Filter>
+	</ClCompile>
+    <ClCompile Include="GrupEstudi_ConsultarUI3.cpp">
+      <Filter>Header Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

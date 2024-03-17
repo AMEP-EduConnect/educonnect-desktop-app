@@ -2,6 +2,7 @@
 #include "GrupEstudiRepository.h"
 #include "DatabaseConnector.h"
 #include "AcademicTag.h"
+#include "MessageManager.h"
 GrupEstudiRepository::GrupEstudiRepository()
 {
 
@@ -25,26 +26,46 @@ array<AcademicTag^>^ GrupEstudiRepository::LoadAllAcademicTags()
 	return academicTags;
 }
 
-void GrupEstudiRepository::CreateNewGrupEstudi(String^ group_name, String^ description, String^ academic_tag)
+void GrupEstudiRepository::CreateNewGrupEstudi(String^ group_name, String^ description, Int64^ academic_id)
 {
 	DatabaseConnector::Instance->Connect();
-	//TODO: recoger el id del usuario logeado, falta hacer la instancia de la sesión de usuario
-	String^ sql = "INSERT INTO studyGroups (group_name, group_owner_id, group_academic_tag, description) VALUES ('" + group_name + "', 1, " + academic_tag + ", '" + description + "')";
-	MySqlCommand^ command = gcnew MySqlCommand(sql, DatabaseConnector::Instance->GetConn());
-	command->ExecuteNonQuery();
-	DatabaseConnector::Instance->Disconnect();
+
+	// Utilizamos una consulta parametrizada para evitar problemas de sintaxis y de seguridad
+	String^ sql = "INSERT INTO studyGroups (group_name, group_owner_id, group_academic_tag, description) VALUES (@GroupName, 1, @AcademicId, @Description)";
+	try {
+		MySqlCommand^ command = gcnew MySqlCommand(sql, DatabaseConnector::Instance->GetConn());
+
+		// Agregamos los parámetros a la consulta
+		command->Parameters->AddWithValue("@GroupName", group_name);
+		command->Parameters->AddWithValue("@AcademicId", academic_id);
+		command->Parameters->AddWithValue("@Description", description);
+
+		command->ExecuteNonQuery();
+		MessageManager::InfoMessage("Grup d'estudi creat correctament!");
+		DatabaseConnector::Instance->Disconnect();
+	}
+	catch (Exception^ e) {
+		MessageManager::ErrorMessage(e->Message);
+	}
 }
 
 Int64^ GrupEstudiRepository::GetAcademicTagId(String^ academic_tag)
 {
 	DatabaseConnector::Instance->Connect();
-	String^ sql = "SELECT id from academicTags where tag_name = '"+academic_tag+"'";
+	String^ sql = "SELECT id from academicTags where tag_name = '" + academic_tag + "'";
 	MySqlDataReader^ data = DatabaseConnector::Instance->ExecuteCommand(sql);
 	Int64^ lastId = nullptr;
-	while (data->Read())
-	{
-		lastId = data->GetInt64(0);
+	if(data->Read() != false) {
+		while (data->Read())
+		{
+			lastId = data->GetInt64(0);
+		}
 	}
+	else {
+			DatabaseConnector::Instance->Disconnect();
+			throw gcnew Exception("Materia no trobada!");
+	}
+
 	DatabaseConnector::Instance->Disconnect();
 	return lastId;
 }

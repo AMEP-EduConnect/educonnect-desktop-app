@@ -1,6 +1,7 @@
 #pragma once
 #include "GrupEstudiMembership.h"
 #include "AcademicTag.h"
+using namespace System;
 public ref class GrupEstudiMembershipRepository
 {
 public:

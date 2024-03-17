@@ -6,7 +6,7 @@ public ref class GrupEstudiRepository
 public:
 	GrupEstudiRepository();
 	array<AcademicTag^>^ LoadAllAcademicTags();
-	void CreateNewGrupEstudi(String^ group_name, String^ description, String^ academic_tag);
+	void CreateNewGrupEstudi(String^ group_name, String^ description, Int64^ academic_tag_id);
 
 	Int64^ GetAcademicTagId(String^ academic_tag);
 

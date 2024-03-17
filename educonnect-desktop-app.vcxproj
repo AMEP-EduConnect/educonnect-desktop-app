@@ -235,6 +235,7 @@
     <ClInclude Include="MainPage.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="MessageManager.h" />
     <ClInclude Include="MyForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -260,6 +261,7 @@
     <ClCompile Include="GrupEstudi_EditarUI.cpp" />
     <ClCompile Include="GrupEstudiMembership.cpp" />
     <ClCompile Include="MainPage.cpp" />
+    <ClCompile Include="MessageManager.cpp" />
     <ClCompile Include="MyForm.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
