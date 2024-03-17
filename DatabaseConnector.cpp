@@ -1,6 +1,7 @@
 #include "pch.h"
 #include "DatabaseConnector.h"
 #include "Utils.h"
+#include "MessageManager.h"
 
 //Singleton class to connect to the database from any context
 DatabaseConnector::DatabaseConnector()
@@ -15,14 +16,7 @@ DatabaseConnector::DatabaseConnector()
 
 void DatabaseConnector::Connect()
 {
-    try
-    {
-        conn->Open();
-    }
-    catch (MySqlException^ ex)
-    {
-        Console::WriteLine("Error: " + ex->Message);
-    }
+    conn->Open();
 }
 
 MySqlConnection^ DatabaseConnector::GetConn()
@@ -39,6 +33,13 @@ MySqlDataReader^ DatabaseConnector::ExecuteCommand(String^ sql)
 {
     MySqlCommand^ cmd = gcnew MySqlCommand(sql, this->conn);
     MySqlDataReader^ dataReader;
-    dataReader = cmd->ExecuteReader();
+    try {
+        dataReader = cmd->ExecuteReader();
+    }
+    catch (InvalidOperationException^ ex) {
+		MessageManager::ErrorMessage(ex->Message);
+        this->Connect();
+	}
+    
     return dataReader;
 }
