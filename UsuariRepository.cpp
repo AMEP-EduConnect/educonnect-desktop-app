@@ -3,13 +3,11 @@
 #include "DatabaseConnector.h"
 
 
-UsuariRepository::UsuariRepository()
-{
+UsuariRepository::UsuariRepository() {
 
 }
 
-Usuari^ UsuariRepository::GetUsuariById(Int64^ id)
-{
+Usuari^ UsuariRepository::GetUsuariById(Int64^ id) {
 	DatabaseConnector::Instance->connect();
 	String^ sql = "SELECT * FROM users WHERE id = " + id;
 	MySqlDataReader^ data = DatabaseConnector::Instance->executeCommand(sql);
@@ -42,13 +40,48 @@ Usuari^ UsuariRepository::GetUsuariByPassUser(String^ username, String^ password
 	DatabaseConnector::Instance->disconnect();
 	return usuari;
 }
+
 bool UsuariRepository::CheckUsuariByUser(String^ username) {
 	DatabaseConnector::Instance->connect();
 
 	String^ sql = "SELECT username FROM users WHERE username = '" + username + "'";
 	MySqlDataReader^ data = DatabaseConnector::Instance->executeCommand(sql);
-	Usuari^ usuari = gcnew Usuari();
+
 	bool check;
+
+	if (data != nullptr && data->Read() == false) check = false;
+	else check = true;
+	DatabaseConnector::Instance->disconnect();
+	return check;
+}
+
+bool UsuariRepository::CheckUsuariByEmail(String^ email) {
+    DatabaseConnector::Instance->connect();
+
+    String^ sql = "SELECT username FROM users WHERE email = '" + email + "'";
+    MySqlDataReader^ data = DatabaseConnector::Instance->executeCommand(sql);
+
+    bool check;
+
+    if (data != nullptr && data->Read() == false) check = false;
+    else check = true;
+    DatabaseConnector::Instance->disconnect();
+    return check;
+}
+
+bool UsuariRepository::CreateUser(String^ username, String^ email, String^ name, String^ password) {
+	DatabaseConnector::Instance->connect();
+
+	String^ sql = "INSERT INTO users (username, password, email, name) VALUES ('"
+	+ username + "', '"
+	+ password + "', '"
+	+ email + "', '"
+	+ name + "')";
+
+	MySqlDataReader^ data = DatabaseConnector::Instance->executeCommand(sql);
+
+	bool check;
+
 	if (data != nullptr && data->Read() == false) check = false;
 	else check = true;
 	DatabaseConnector::Instance->disconnect();

@@ -112,9 +112,6 @@
     <ClCompile Include="MyForm.cpp">
       <Filter>Source Files\ui</Filter>
     </ClCompile>
-    <ClCompile Include="IniciSessio.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="UsuariRepository.cpp">
       <Filter>Source Files\repositories</Filter>
     </ClCompile>
@@ -127,8 +124,11 @@
     <ClCompile Include="TxRegistre.cpp">
       <Filter>Source Files\services</Filter>
     </ClCompile>
+    <ClCompile Include="IniciSessio.cpp">
+      <Filter>Source Files\ui</Filter>
+    </ClCompile>
     <ClCompile Include="RegistreUsuari.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\ui</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

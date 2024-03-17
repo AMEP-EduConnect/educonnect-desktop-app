@@ -21,7 +21,7 @@ namespace CppCLRWinFormsProject {
 			//
 			//TODO: agregar código de constructor aquí
 			//
-
+			this->Icon = gcnew System::Drawing::Icon("app.ico");
 
 
 		}

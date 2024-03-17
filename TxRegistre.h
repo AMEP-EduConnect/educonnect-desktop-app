@@ -10,7 +10,8 @@ public ref class TxRegistre
 		TxRegistre();
 
 		bool CheckUsername(String^ username);
-
+        bool CheckEmail(String^ email);
+		bool CreateUser(String^ username, String^ email, String^ name, String^ password);
 
 	private:
 
