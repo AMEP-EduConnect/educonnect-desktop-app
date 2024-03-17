@@ -80,6 +80,9 @@
     <ClInclude Include="AcademicTag.h">
       <Filter>Source Files\entities</Filter>
     </ClInclude>
+    <ClInclude Include="MessageManager.h">
+      <Filter>Source Files\utils</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CppCLR_WinFormsProject.cpp">
@@ -129,6 +132,9 @@
     </ClCompile>
     <ClCompile Include="AcademicTag.cpp">
       <Filter>Source Files\entities</Filter>
+    </ClCompile>
+    <ClCompile Include="MessageManager.cpp">
+      <Filter>Source Files\utils</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

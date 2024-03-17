@@ -6,7 +6,7 @@ public ref class GrupEstudiService
 {
 public:
 	GrupEstudiService();
-
+	
 	array<AcademicTag^>^ LoadAllAcademicTags();
 	void CreateNewGrupEstudi(String^ group_name, String^ description, String^ academic_tag);
 
