@@ -234,6 +234,7 @@
     </ClInclude>
     <ClInclude Include="Resource.h" />
     <ClInclude Include="TxIniciSessio.h" />
+    <ClInclude Include="TxRegistre.h" />
     <ClInclude Include="Usuari.h" />
     <ClInclude Include="UsuariRepository.h" />
     <ClInclude Include="Utils.h" />
@@ -257,6 +258,7 @@
     <ClCompile Include="ProfessorRepository.cpp" />
     <ClCompile Include="ProfessorService.cpp" />
     <ClCompile Include="TxIniciSessio.cpp" />
+    <ClCompile Include="TxRegistre.cpp" />
     <ClCompile Include="Usuari.cpp" />
     <ClCompile Include="UsuariRepository.cpp" />
     <ClCompile Include="RegistreUsuari.cpp" />

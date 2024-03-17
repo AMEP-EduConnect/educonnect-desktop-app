@@ -108,7 +108,7 @@ namespace CppCLRWinFormsProject {
 			this->label3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label3->ForeColor = System::Drawing::SystemColors::HotTrack;
-			this->label3->Location = System::Drawing::Point(255, 67);
+			this->label3->Location = System::Drawing::Point(322, 103);
 			this->label3->Name = L"label3";
 			this->label3->Size = System::Drawing::Size(186, 31);
 			this->label3->TabIndex = 4;
@@ -134,7 +134,7 @@ namespace CppCLRWinFormsProject {
 			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label1->ForeColor = System::Drawing::SystemColors::HotTrack;
-			this->label1->Location = System::Drawing::Point(258, 59);
+			this->label1->Location = System::Drawing::Point(325, 95);
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(66, 13);
 			this->label1->TabIndex = 6;
@@ -176,7 +176,7 @@ namespace CppCLRWinFormsProject {
 			this->panel1->Controls->Add(this->label4);
 			this->panel1->Controls->Add(this->textBox1);
 			this->panel1->Controls->Add(this->textBox2);
-			this->panel1->Location = System::Drawing::Point(261, 129);
+			this->panel1->Location = System::Drawing::Point(328, 165);
 			this->panel1->Name = L"panel1";
 			this->panel1->Size = System::Drawing::Size(259, 265);
 			this->panel1->TabIndex = 9;
@@ -187,7 +187,7 @@ namespace CppCLRWinFormsProject {
 			this->label5->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label5->ForeColor = System::Drawing::Color::Red;
-			this->label5->Location = System::Drawing::Point(258, 411);
+			this->label5->Location = System::Drawing::Point(325, 447);
 			this->label5->Name = L"label5";
 			this->label5->Size = System::Drawing::Size(148, 16);
 			this->label5->TabIndex = 10;
@@ -196,20 +196,20 @@ namespace CppCLRWinFormsProject {
 			// 
 			// pictureBox1
 			// 
-			this->pictureBox1->Image = Image::FromFile("background.png");
-			this->pictureBox1->Location = System::Drawing::Point(-1, 430);
+			this->pictureBox1->Location = System::Drawing::Point(-5, 544);
 			this->pictureBox1->Name = L"pictureBox1";
-			this->pictureBox1->Size = System::Drawing::Size(804, 265);
+			this->pictureBox1->Size = System::Drawing::Size(928, 265);
 			this->pictureBox1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
 			this->pictureBox1->TabIndex = 11;
 			this->pictureBox1->TabStop = false;
+			this->pictureBox1->Image = Image::FromFile("background.png");
 			// 
 			// IniciSessio
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::SystemColors::Control;
-			this->ClientSize = System::Drawing::Size(799, 523);
+			this->ClientSize = System::Drawing::Size(917, 657);
 			this->Controls->Add(this->pictureBox1);
 			this->Controls->Add(this->label5);
 			this->Controls->Add(this->label1);
