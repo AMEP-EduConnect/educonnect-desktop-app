@@ -8,14 +8,14 @@ TxIniciSessio::TxIniciSessio()
 
 Usuari^ TxIniciSessio::GetUsuariByPassUser(String^ username, String^ password)
 {
-	UsuariRepository^ user = gcnew UsuariRepository();
-	return user->GetUsuariByPassUser(username, password);
+	
+	return usuariRepository->GetUsuariByPassUser(username, password);
 }
 
 bool TxIniciSessio::CheckUsername(String^ username, String^ password)
 {
 	Usuari^ checkuser = GetUsuariByPassUser(username, password);
-	if (checkuser->username == username) {
+	if (checkuser->GetUsername() == username) {
 		bool checkpassword = CheckPassword(checkuser, password);
 		return checkpassword;
 	}
@@ -24,6 +24,16 @@ bool TxIniciSessio::CheckUsername(String^ username, String^ password)
 
 bool TxIniciSessio::CheckPassword(Usuari^ checkuser, String^ password)
 {
-	if (checkuser->password == password) return true;
+	if (checkuser->GetPassword() == password) return true;
 	else return false;
+}
+
+Int64^ TxIniciSessio::GetUserId(String^ username) 
+{
+	Usuari^ user = usuariRepository->GetUsuariByUser(username);
+
+	if (user != nullptr) return user->GetUserId();
+
+	else return nullptr;
+
 }

@@ -15,6 +15,7 @@ namespace CppCLRWinFormsProject {
 	public ref class IniciSessio : public System::Windows::Forms::Form
 	{
 	public:
+
 		IniciSessio(void)
 		{
 			InitializeComponent();
@@ -233,16 +234,21 @@ namespace CppCLRWinFormsProject {
 #pragma endregion
 	private: System::Void IniciSessio_Load(System::Object^ sender, System::EventArgs^ e) {
 	}
+
 	private: System::Void label1_Click(System::Object^ sender, System::EventArgs^ e) {
 	}
+
 	private: System::Void textBox1_TextChanged(System::Object^ sender, System::EventArgs^ e) {
 	}
+
 	System::Void Button_Click(System::Object^ sender, System::EventArgs^ e);
 	private: System::Void label3_Click(System::Object^ sender, System::EventArgs^ e) {
 	}
-private: System::Void label2_Click(System::Object^ sender, System::EventArgs^ e) {
-}
-private: System::Void label1_Click_1(System::Object^ sender, System::EventArgs^ e) {
-}
+
+	private: System::Void label2_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+
+	private: System::Void label1_Click_1(System::Object^ sender, System::EventArgs^ e) {
+	}
 };
 }

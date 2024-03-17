@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -215,6 +215,7 @@
     <ResourceCompile Include="app.rc" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CurrentSession.h" />
     <ClInclude Include="DatabaseConnector.h" />
     <ClInclude Include="IniciSessio.h">
       <FileType>CppForm</FileType>
@@ -222,6 +223,7 @@
     <ClInclude Include="MainPage.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="MessageManager.h" />
     <ClInclude Include="MyForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -242,9 +244,11 @@
   <ItemGroup>
     <ClCompile Include="AssemblyInfo.cpp" />
     <ClCompile Include="CppCLR_WinFormsProject.cpp" />
+    <ClCompile Include="CurrentSession.cpp" />
     <ClCompile Include="DatabaseConnector.cpp" />
     <ClCompile Include="IniciSessio.cpp" />
     <ClCompile Include="MainPage.cpp" />
+    <ClCompile Include="MessageManager.cpp" />
     <ClCompile Include="MyForm.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>

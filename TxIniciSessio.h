@@ -12,6 +12,7 @@ public:
 	Usuari^ GetUsuariByPassUser(String^ username, String^ password);
 	bool CheckUsername(String^ username, String^ password);
 	bool CheckPassword(Usuari^ checkuser, String^ password);
+	Int64^ GetUserId(String^ username);
 
 private:
 	UsuariRepository^ usuariRepository;

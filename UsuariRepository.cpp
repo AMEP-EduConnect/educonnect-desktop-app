@@ -1,6 +1,7 @@
 #include "pch.h"
 #include "UsuariRepository.h"
 #include "DatabaseConnector.h"
+#include "CurrentSession.h"
 
 
 UsuariRepository::UsuariRepository() {
@@ -31,14 +32,35 @@ Usuari^ UsuariRepository::GetUsuariByPassUser(String^ username, String^ password
 
 	while (data->Read())
 	{
-		usuari->user_id = data->GetInt64(0);
-		usuari->username = data->GetString(1);
-		usuari->password = data->GetString(2);
-		usuari->email = data->GetString(3);
-		usuari->name = data->GetString(4);
+		usuari->SetUserId(data->GetInt64(0));
+		usuari->SetUsername(data->GetString(1));
+		usuari->SetPassword(data->GetString(2));
+		usuari->SetEmail(data->GetString(3));
+		usuari->SetName(data->GetString(4));
+	}
+	DatabaseConnector::Instance->disconnect();
+	CurrentSession::Instance->LogNewUser(usuari);
+	return usuari;
+}
+
+Usuari^ UsuariRepository::GetUsuariByUser(String^ username) {
+	DatabaseConnector::Instance->connect();
+
+	String^ sql = "SELECT * FROM users WHERE username = '" + username + "'";
+	MySqlDataReader^ data = DatabaseConnector::Instance->executeCommand(sql);
+	Usuari^ usuari = gcnew Usuari();
+
+	while (data->Read())
+	{
+		usuari->SetUserId(data->GetInt64(0));
+		usuari->SetUsername(data->GetString(1));
+		usuari->SetPassword(data->GetString(2));
+		usuari->SetEmail(data->GetString(3));
+		usuari->SetName(data->GetString(4));
 	}
 	DatabaseConnector::Instance->disconnect();
 	return usuari;
+	
 }
 
 bool UsuariRepository::CheckUsuariByUser(String^ username) {
