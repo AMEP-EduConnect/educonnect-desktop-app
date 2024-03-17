@@ -82,6 +82,7 @@
     </ClInclude>
     <ClInclude Include="MessageManager.h">
       <Filter>Source Files\utils</Filter>
+	</ClInclude>
     <ClInclude Include="GrupEstudi_ConsultarUI3.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -137,6 +138,7 @@
     </ClCompile>
     <ClCompile Include="MessageManager.cpp">
       <Filter>Source Files\utils</Filter>
+	</ClCompile>
     <ClCompile Include="GrupEstudi_ConsultarUI3.cpp">
       <Filter>Header Files</Filter>
     </ClCompile>
