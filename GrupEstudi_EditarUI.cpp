@@ -13,7 +13,7 @@ namespace CppCLRWinFormsProject {
 
     void GrupEstudi_EditarUI::testbutton_Cancelar(System::Object^ sender, System::EventArgs^ e)
     {
-        MessageBox::Show("Segur que vol sortir? No es guardar� cap modificaci�.");
+        MessageBox::Show("Segur que vol sortir? No es guardara cap modificacio.");
         this->Close();
     }
 

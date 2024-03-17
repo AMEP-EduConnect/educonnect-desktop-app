@@ -120,6 +120,7 @@ namespace CppCLRWinFormsProject {
 			// 
 			// FormGrupNameTextBox
 			// 
+			this->FormGrupNameTextBox->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			this->FormGrupNameTextBox->Location = System::Drawing::Point(23, 49);
 			this->FormGrupNameTextBox->Name = L"FormGrupNameTextBox";
 			this->FormGrupNameTextBox->Size = System::Drawing::Size(408, 20);
@@ -145,6 +146,7 @@ namespace CppCLRWinFormsProject {
 			// 
 			// FormGrupDescriptionTextBox
 			// 
+			this->FormGrupDescriptionTextBox->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			this->FormGrupDescriptionTextBox->Location = System::Drawing::Point(23, 217);
 			this->FormGrupDescriptionTextBox->Multiline = true;
 			this->FormGrupDescriptionTextBox->Name = L"FormGrupDescriptionTextBox";
