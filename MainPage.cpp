@@ -40,16 +40,17 @@ namespace CppCLRWinFormsProject {
         Professor^ prof = gcnew Professor();
         try {
             Int64 id = 1;
-			// es crida al mètode de la classe ProfessorService que retorna un professor
+			// es crida al mï¿½tode de la classe ProfessorService que retorna un professor
 			prof = professorService->GetProfessorById(id);
         }
         catch (Exception^ ex) {
-            // codi per mostrar l’error en una finestra
+            // codi per mostrar lï¿½error en una finestra
             MessageBox::Show(ex->Message);
         }
         finally {
-            // si tot va bé es tanca la connexió
+            // si tot va bï¿½ es tanca la connexiï¿½
             DatabaseConnector::Instance->Disconnect();
+            //DatabaseConnector::Instance->disconnect();
             MessageBox::Show("Database testing: " + prof->name);
         }
 

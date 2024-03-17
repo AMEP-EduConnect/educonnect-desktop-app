@@ -18,6 +18,7 @@ public:
 
 	bool CheckIfGroupExists(String^ group_name_act);
 
+
 private:
 	GrupEstudiRepository^ grupEstudiRepository;
 };

@@ -7,6 +7,7 @@ GrupEstudiRepository::GrupEstudiRepository()
 {
 
 }
+
 array<AcademicTag^>^ GrupEstudiRepository::LoadAllAcademicTags()
 {
 	array<AcademicTag^>^ academicTags = gcnew array<AcademicTag^>(0);
@@ -141,3 +142,4 @@ void GrupEstudiRepository::UpdateGroupDescription(String^ group_name_act, String
 
 	Console::WriteLine(rowsAffected + " rows updated.");
 }
+

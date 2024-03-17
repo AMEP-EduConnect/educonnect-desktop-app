@@ -218,14 +218,20 @@
     <ClInclude Include="AcademicTag.h" />
     <ClInclude Include="DatabaseConnector.h" />
     <ClInclude Include="GrupEstudi.h" />
+    <ClInclude Include="GrupEstudiMembershipRepository.h" />
+    <ClInclude Include="GrupEstudiMembershipService.h" />
     <ClInclude Include="GrupEstudiRepository.h" />
     <ClInclude Include="GrupEstudiService.h" />
     <ClInclude Include="GrupEstudiUI.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="GrupEstudi_ConsultarUI.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="GrupEstudi_EditarUI.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="GrupEstudiMembership.h" />
     <ClInclude Include="MainPage.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -246,10 +252,14 @@
     <ClCompile Include="CppCLR_WinFormsProject.cpp" />
     <ClCompile Include="DatabaseConnector.cpp" />
     <ClCompile Include="GrupEstudi.cpp" />
+    <ClCompile Include="GrupEstudiMembershipRepository.cpp" />
+    <ClCompile Include="GrupEstudiMembershipService.cpp" />
     <ClCompile Include="GrupEstudiRepository.cpp" />
     <ClCompile Include="GrupEstudiService.cpp" />
     <ClCompile Include="GrupEstudiUI.cpp" />
+    <ClCompile Include="GrupEstudi_ConsultarUI.cpp" />
     <ClCompile Include="GrupEstudi_EditarUI.cpp" />
+    <ClCompile Include="GrupEstudiMembership.cpp" />
     <ClCompile Include="MainPage.cpp" />
     <ClCompile Include="MessageManager.cpp" />
     <ClCompile Include="MyForm.cpp" />
@@ -282,6 +292,9 @@
   <ItemGroup>
     <EmbeddedResource Include="GrupEstudiUI.resx">
       <DependentUpon>GrupEstudiUI.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GrupEstudi_ConsultarUI.resx">
+      <DependentUpon>GrupEstudi_ConsultarUI.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GrupEstudi_EditarUI.resx">
       <DependentUpon>GrupEstudi_EditarUI.h</DependentUpon>

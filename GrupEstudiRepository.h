@@ -18,5 +18,6 @@ public:
 	GrupEstudi^ GetGrupEstudiByName(String^ group_name);
 	void UpdateGroupName(String^ group_name_act, String^ group_name_new);
 	void UpdateGroupDescription(String^ group_name_act, String^ description_new);
+	//array<GrupEstudi^>^ LoadGrupsEstudiByUserId(Int64^ user_id);
 
 };
