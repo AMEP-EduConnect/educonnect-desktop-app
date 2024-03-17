@@ -1,5 +1,5 @@
 #pragma once
-
+#include "GrupEstudiService.h"
 namespace CppCLRWinFormsProject {
 
 	using namespace System;
@@ -52,7 +52,7 @@ namespace CppCLRWinFormsProject {
 	private: System::Windows::Forms::TextBox^ textBox_NomActual;
 	private: System::Windows::Forms::Button^ button_Edita;
 	private: System::Windows::Forms::Button^ button_Cancelar;
-
+	private: GrupEstudiService^ grupEstudiService;
 
 
 

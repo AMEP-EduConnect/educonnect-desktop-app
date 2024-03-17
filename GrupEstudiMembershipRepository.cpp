@@ -19,8 +19,8 @@ array<Int64^>^ GrupEstudiMembershipRepository::LoadGrupsEstudiMembershipByUserId
 	MySqlDataReader^ data = DatabaseConnector::Instance->ExecuteCommand(sql);
 	while (data->Read())
 	{
-		//Array::Resize(user_groupEstudiMembership, user_groupEstudiMembership->Length + 1);
-		//user_groupEstudiMembership[user_groupEstudiMembership->Length - 1] = data->GetInt64(0);
+		Array::Resize(user_groupEstudiMembership, user_groupEstudiMembership->Length + 1);
+		user_groupEstudiMembership[user_groupEstudiMembership->Length - 1] = data->GetInt64(0);
 	}
 	DatabaseConnector::Instance->Disconnect();
 	return user_groupEstudiMembership;

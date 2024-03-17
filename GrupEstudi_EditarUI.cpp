@@ -2,6 +2,7 @@
 #include "GrupEstudi.h"
 #include "GrupEstudi_EditarUI.h"
 #include "GrupEstudiService.h"
+#include "MessageManager.h"
 
 
 namespace CppCLRWinFormsProject {
@@ -9,40 +10,61 @@ namespace CppCLRWinFormsProject {
     GrupEstudi_EditarUI::GrupEstudi_EditarUI(void)
     {
         InitializeComponent();
+        grupEstudiService = gcnew GrupEstudiService();
     }
 
     void GrupEstudi_EditarUI::testbutton_Cancelar(System::Object^ sender, System::EventArgs^ e)
     {
-        MessageBox::Show("Segur que vol sortir? No es guardara cap modificacio.");
+        MessageManager::InfoMessage("Segur que vol sortir? No es guardara cap modificacio.");
         this->Close();
     }
 
     void GrupEstudi_EditarUI::testbutton_Edita(System::Object^ sender, System::EventArgs^ e)
     {
-        GrupEstudiService editar;
-        String^ group_name_act = textBox_NomActual->Text;
-        String^ group_name_new = textBox_NomEditar->Text;
-        String^ description_new = textBox_DescripcioEditar->Text;
-
-        //Comprobar que el "group_name_act" existe;
-        if (editar.ExistGroup(group_name_act)) {
-            if (description_new != "") {
-                editar.ModifyGroupDescription(group_name_act, description_new);
+        if (grupEstudiService->CheckIfGroupExists(textBox_NomActual->Text)) {
+            bool checkD = false;
+            bool checkN = false;
+            if (textBox_DescripcioEditar->Text != "") {
+                grupEstudiService->ModifyGroupDescription(textBox_NomActual->Text, textBox_DescripcioEditar->Text);
+                checkD = true;
+                //MessageManager::InfoMessage("Descripció del grup modificat correctament.");
             }
+            //else {
+                //MessageManager::WarningMessage("Falten camps per omplir.");
+            //}
 
-            if (group_name_new != "") {
-                //Comprobar que el "group_name_new" no existe;
-                if (not editar.ExistGroup(group_name_act)) {
-                    editar.ModifyGroupName(group_name_act, group_name_new);
+            if (textBox_NomEditar->Text != "") {
+                if (grupEstudiService->CheckIfGroupExists(textBox_NomEditar->Text) == false) {
+                    try {
+                        grupEstudiService->ModifyGroupName(textBox_NomActual->Text, textBox_NomEditar->Text);
+                        checkN = true;
+                        //MessageManager::InfoMessage("Nom del grup modificat correctament.");
+                    }
+                    catch (Exception^ e) {
+						MessageManager::ErrorMessage(e->Message);
+					}
+                    
                 }
+                else {
+					MessageManager::WarningMessage("Ja existeix un grup amb aquest nom.");
+				}
             }
+            //else {
+                //MessageManager::WarningMessage("Falten camps per omplir.");
+            //}
 
-
-            MessageBox::Show("S'ha editat correctament");
-            //this->Close();
+            if (checkD == true and checkN == false) {
+                MessageManager::InfoMessage("Descripció del grup modificada correctament.");
+            }
+            else if (checkN == true and checkD == false) {
+                MessageManager::InfoMessage("Nom del grup modificat correctament.");
+            }
+            else if (checkN == true and checkD == true) {
+                MessageManager::InfoMessage("Nom i descripció del grup modificats correctament.");
+            }
         }
         else {
-            MessageBox::Show("No existeix cap grup amb aquest nom.");
+            MessageManager::WarningMessage("No existeix cap grup amb aquest nom.");
         }
     }
 }

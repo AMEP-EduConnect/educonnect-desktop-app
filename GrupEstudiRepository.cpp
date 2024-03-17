@@ -30,12 +30,10 @@ void GrupEstudiRepository::CreateNewGrupEstudi(String^ group_name, String^ descr
 {
 	DatabaseConnector::Instance->Connect();
 
-	// Utilizamos una consulta parametrizada para evitar problemas de sintaxis y de seguridad
 	String^ sql = "INSERT INTO studyGroups (group_name, group_owner_id, group_academic_tag, description) VALUES (@GroupName, 1, @AcademicId, @Description)";
 	try {
 		MySqlCommand^ command = gcnew MySqlCommand(sql, DatabaseConnector::Instance->GetConn());
 
-		// Agregamos los parámetros a la consulta
 		command->Parameters->AddWithValue("@GroupName", group_name);
 		command->Parameters->AddWithValue("@AcademicId", academic_id);
 		command->Parameters->AddWithValue("@Description", description);
@@ -52,22 +50,28 @@ void GrupEstudiRepository::CreateNewGrupEstudi(String^ group_name, String^ descr
 Int64^ GrupEstudiRepository::GetAcademicTagId(String^ academic_tag)
 {
 	DatabaseConnector::Instance->Connect();
-	String^ sql = "SELECT id from academicTags where tag_name = '" + academic_tag + "'";
+	String^ sql = "SELECT id FROM academicTags WHERE tag_name = '" + academic_tag + "'";
 	MySqlDataReader^ data = DatabaseConnector::Instance->ExecuteCommand(sql);
-	Int64^ lastId = nullptr;
-	if(data->Read() != false) {
-		while (data->Read())
+	Int64^ tagId = nullptr;
+
+	try
+	{
+		if (data->Read())
 		{
-			lastId = data->GetInt64(0);
+			tagId = data->GetInt64(0);
+		}
+		else
+		{
+			throw gcnew Exception("Materia no encontrada!");
 		}
 	}
-	else {
-			DatabaseConnector::Instance->Disconnect();
-			throw gcnew Exception("Materia no trobada!");
+	finally
+	{
+		data->Close(); // Asegúrate de cerrar el lector de datos
+		DatabaseConnector::Instance->Disconnect();
 	}
 
-	DatabaseConnector::Instance->Disconnect();
-	return lastId;
+	return tagId;
 }
 
 
@@ -94,7 +98,7 @@ GrupEstudi^ GrupEstudiRepository::GetGrupEstudiById(Int64^ id)
 
 GrupEstudi^ GrupEstudiRepository::GetGrupEstudiByName(String^ group_name_act) {
 	DatabaseConnector::Instance->Connect();
-	String^ sql = "SELECT * FROM studyGroups WHERE group_name = " + group_name_act;
+	String^ sql = "SELECT * FROM studyGroups WHERE group_name = '" + group_name_act + "'";
 	MySqlDataReader^ data = DatabaseConnector::Instance->ExecuteCommand(sql);
 	GrupEstudi^ grupestudi = gcnew GrupEstudi();
 
@@ -113,11 +117,13 @@ GrupEstudi^ GrupEstudiRepository::GetGrupEstudiByName(String^ group_name_act) {
 
 void GrupEstudiRepository::UpdateGroupName(String^ group_name_act, String^ group_name_new) {
 	DatabaseConnector::Instance->Connect();
-	//String^ sql = "UPDATE studyGroups SET group_name = '@group_name_new' WHERE group_name = '@group_name_act'";
-	String ^ sql = "UPDATE studyGroups SET group_name = '" + group_name_new + "' WHERE group_name = '" + group_name_act + "'";
+
+	String^ sql = "UPDATE studyGroups SET group_name = @group_name_new WHERE group_name = @group_name_act";
 	MySqlCommand^ command = gcnew MySqlCommand(sql, DatabaseConnector::Instance->GetConn());
-	//command->Parameters->AddWithValue("@group_name_new", group_name_new);
-	//command->Parameters->AddWithValue("@group_name_act", group_name_act);
+
+	// Agregamos los parámetros a la consulta
+	command->Parameters->AddWithValue("@group_name_new", group_name_new);
+	command->Parameters->AddWithValue("@group_name_act", group_name_act);
 
 	int rowsAffected = command->ExecuteNonQuery();
 
@@ -128,11 +134,13 @@ void GrupEstudiRepository::UpdateGroupName(String^ group_name_act, String^ group
 
 void GrupEstudiRepository::UpdateGroupDescription(String^ group_name_act, String^ description_new) {
 	DatabaseConnector::Instance->Connect();
-	//String^ sql = "UPDATE studyGroups SET description = '@description_new' WHERE group_name = '@group_name_act'";
-	String^ sql = "UPDATE studyGroups SET group_name = '" + description_new + "' WHERE group_name = '" + group_name_act + "'";
+
+	String^ sql = "UPDATE studyGroups SET description = @description_new WHERE group_name = @group_name_act";
 	MySqlCommand^ command = gcnew MySqlCommand(sql, DatabaseConnector::Instance->GetConn());
-	//command->Parameters->AddWithValue("@description_new", description_new);
-	//command->Parameters->AddWithValue("@group_name_act", group_name_act);
+
+	// Agregamos los parámetros a la consulta
+	command->Parameters->AddWithValue("@description_new", description_new);
+	command->Parameters->AddWithValue("@group_name_act", group_name_act);
 
 	int rowsAffected = command->ExecuteNonQuery();
 

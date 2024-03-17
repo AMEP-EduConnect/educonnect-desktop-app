@@ -80,13 +80,12 @@
     <ClInclude Include="AcademicTag.h">
       <Filter>Source Files\entities</Filter>
     </ClInclude>
+    <ClInclude Include="GrupEstudi_ConsultarUI.h">
+    </ClInclude>
     <ClInclude Include="GrupsEstudi_ConsultarUI.h">
 	</ClInclude>
     <ClInclude Include="MessageManager.h">
       <Filter>Source Files\utils</Filter>
-	</ClInclude>
-    <ClInclude Include="GrupEstudi_ConsultarUI3.h">
-      <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="GrupEstudiMembership.h">
       <Filter>Source Files\entities</Filter>
@@ -96,6 +95,12 @@
     </ClInclude>
     <ClInclude Include="GrupEstudiMembershipService.h">
       <Filter>Source Files\services</Filter>
+    </ClInclude>
+    <ClInclude Include="CurrentSession.h">
+      <Filter>Source Files\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Usuari.h">
+      <Filter>Source Files\entities</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -158,12 +163,15 @@
     </ClCompile>
     <ClCompile Include="GrupEstudiMembershipService.cpp">
       <Filter>Source Files\services</Filter>
-	</ClCompile>
+    </ClCompile>
     <ClCompile Include="MessageManager.cpp">
       <Filter>Source Files\utils</Filter>
 	</ClCompile>
-    <ClCompile Include="GrupEstudi_ConsultarUI3.cpp">
-      <Filter>Header Files</Filter>
+    <ClCompile Include="CurrentSession.cpp">
+      <Filter>Source Files\utils</Filter>
+    </ClCompile>
+	  <ClCompile Include="Usuari.cpp">
+      <Filter>Source Files\entities</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
