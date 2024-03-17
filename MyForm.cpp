@@ -16,7 +16,7 @@ namespace CppCLRWinFormsProject {
     void MyForm::testButton_Click(System::Object^ sender, System::EventArgs^ e)
 	{
         MessageBox::Show("Database testing");
-        this->Close()
+        this->Close();
 		
 	}
 
