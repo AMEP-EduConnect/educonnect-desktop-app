@@ -80,8 +80,17 @@
     <ClInclude Include="AcademicTag.h">
       <Filter>Source Files\entities</Filter>
     </ClInclude>
-    <ClInclude Include="GrupEstudi_ConsultarUI3.h">
+    <ClInclude Include="GrupEstudi_ConsultarUI.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GrupEstudiMembership.h">
+      <Filter>Source Files\entities</Filter>
+    </ClInclude>
+    <ClInclude Include="GrupEstudiMembershipRepository.h">
+      <Filter>Source Files\repositories</Filter>
+    </ClInclude>
+    <ClInclude Include="GrupEstudiMembershipService.h">
+      <Filter>Source Files\services</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -133,8 +142,17 @@
     <ClCompile Include="AcademicTag.cpp">
       <Filter>Source Files\entities</Filter>
     </ClCompile>
-    <ClCompile Include="GrupEstudi_ConsultarUI3.cpp">
-      <Filter>Header Files</Filter>
+    <ClCompile Include="GrupEstudi_ConsultarUI.cpp">
+      <Filter>Source Files\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="GrupEstudiMembership.cpp">
+      <Filter>Source Files\entities</Filter>
+    </ClCompile>
+    <ClCompile Include="GrupEstudiMembershipRepository.cpp">
+      <Filter>Source Files\repositories</Filter>
+    </ClCompile>
+    <ClCompile Include="GrupEstudiMembershipService.cpp">
+      <Filter>Source Files\services</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

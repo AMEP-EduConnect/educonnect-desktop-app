@@ -49,7 +49,7 @@ namespace CppCLRWinFormsProject {
         }
         finally {
             // si tot va bé es tanca la connexió
-            DatabaseConnector::Instance->disconnect();
+            //DatabaseConnector::Instance->disconnect();
             MessageBox::Show("Database testing: " + prof->name);
         }
 
