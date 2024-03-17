@@ -8,5 +8,6 @@ public:
 	GrupEstudiMembershipRepository();
 
 	array<Int64^>^ LoadGrupsEstudiMembershipByUserId(Int64^ user_id);
+	void CreateNewGrupEstudiMembership(Int64^ user_id, Int64^ group_id, DateTime^ member_since);
 
 };

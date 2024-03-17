@@ -2,6 +2,7 @@
 #include "GrupEstudiMembershipRepository.h"
 #include "DatabaseConnector.h"
 #include "AcademicTag.h"
+#include "MessageManager.h"
 
 using namespace System;
 
@@ -77,3 +78,26 @@ array<Int64^>^ GrupEstudiMembershipRepository::LoadGrupsEstudiMembershipByUserId
 }*/
 
 
+//Crear nova instància de membership;
+//PREGUNTAR SOBRE LA VARIABLE DateTime;
+void GrupEstudiMembershipRepository::CreateNewGrupEstudiMembership(Int64 ^ user_id, Int64 ^ group_id, DateTime ^ member_since) {
+	DatabaseConnector::Instance->Connect();
+
+	// Utilizamos una consulta parametrizada para evitar problemas de sintaxis y de seguridad
+	String^ sql = "INSERT INTO studyGroupsMembership (user_id, group_id, member_since) VALUES (@UserId, @GroupId, @Date)";
+	try {
+		MySqlCommand^ command = gcnew MySqlCommand(sql, DatabaseConnector::Instance->GetConn());
+
+		// Agregamos los parámetros a la consulta
+		command->Parameters->AddWithValue("@UserId", user_id);
+		command->Parameters->AddWithValue("@GroupId", group_id);
+		command->Parameters->AddWithValue("@Date", member_since);
+
+		command->ExecuteNonQuery();
+		MessageManager::InfoMessage("^Membresia al grup d'estudi creada correctament!");
+		DatabaseConnector::Instance->Disconnect();
+	}
+	catch (Exception^ e) {
+		MessageManager::ErrorMessage(e->Message);
+	}
+}
