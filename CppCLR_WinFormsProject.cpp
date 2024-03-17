@@ -24,8 +24,8 @@ int main()
 
   Application::EnableVisualStyles();
   Application::SetCompatibleTextRenderingDefault(false);
+  //Application::Run(gcnew CppCLRWinFormsProject::IniciSessio());
   Application::Run(gcnew CppCLRWinFormsProject::RegistreUsuari());
-  Application::Run(gcnew CppCLRWinFormsProject::IniciSessio());
   //COMENTED FOR TEST Application::Run(gcnew CppCLRWinFormsProject::MyForm());
   return 0;
 

@@ -42,20 +42,15 @@ Usuari^ UsuariRepository::GetUsuariByPassUser(String^ username, String^ password
 	DatabaseConnector::Instance->disconnect();
 	return usuari;
 }
-
-//NEXT FEATURE
-/*Usuari^ GetUsuariBySession(Int64^ token) {
+bool UsuariRepository::CheckUsuariByUser(String^ username) {
 	DatabaseConnector::Instance->connect();
-	String^ sql = "SELECT * FROM users WHERE username = " + token;
+
+	String^ sql = "SELECT username FROM users WHERE username = '" + username + "'";
 	MySqlDataReader^ data = DatabaseConnector::Instance->executeCommand(sql);
 	Usuari^ usuari = gcnew Usuari();
-	while (data->Read())
-	{
-		usuari->id = data->GetInt64(0);
-		usuari->username = data->GetString(1);
-		usuari->password = data->GetString(2);
-		usuari->email = data->GetString(3);
-		usuari->name = data->GetString(4);
-	}
-	return usuari;
-}*/
+	bool check;
+	if (data != nullptr && data->Read() == false) check = false;
+	else check = true;
+	DatabaseConnector::Instance->disconnect();
+	return check;
+}

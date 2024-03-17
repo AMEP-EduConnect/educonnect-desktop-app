@@ -1,5 +1,5 @@
 #pragma once
-
+#include "TxRegistre.h"
 namespace CppCLRWinFormsProject {
 
 	using namespace System;
@@ -21,8 +21,10 @@ namespace CppCLRWinFormsProject {
 			//
 			//TODO: Add the constructor code here
 			//
+			this->txRegistre = gcnew TxRegistre();
+			this->textBox1->Validating += gcnew System::ComponentModel::CancelEventHandler(this, &RegistreUsuari::textBox1_Validating);
 		}
-
+		System::Void textBox1_Validating(System::Object^ sender, System::ComponentModel::CancelEventArgs^ e);
 	protected:
 		/// <summary>
 		/// Clean up any resources being used.
@@ -35,11 +37,7 @@ namespace CppCLRWinFormsProject {
 			}
 		}
 	private: System::Windows::Forms::Label^ label1;
-
-
-
-
-
+	private: TxRegistre^ txRegistre;
 
 	private: System::Windows::Forms::Label^ label8;
 	private: System::Windows::Forms::TextBox^ textBox1;

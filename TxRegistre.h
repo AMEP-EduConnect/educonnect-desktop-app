@@ -1,6 +1,7 @@
 #pragma once
 #include "UsuariRepository.h"
-
+#include "DatabaseConnector.h"
+#include "Usuari.h"
 public ref class TxRegistre
 {
 	

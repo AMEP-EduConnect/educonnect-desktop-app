@@ -9,8 +9,5 @@ TxRegistre::TxRegistre()
 
 bool TxRegistre::CheckUsername(String^ username)
 {
-	//Usuari^ checkuser = CheckUserBD(username);
-	/*if (checkuser->username == username) return true;
-	else return false;*/
-	return true;
+	return this->usuariRepository->CheckUsuariByUser(username);
 }
