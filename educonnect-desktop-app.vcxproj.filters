@@ -44,23 +44,29 @@
     <ClInclude Include="MainPage.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Utils.h">
-      <Filter>Source Files\utils</Filter>
+    <ClInclude Include="MyForm.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Professor.h">
       <Filter>Source Files\entities</Filter>
     </ClInclude>
-    <ClInclude Include="DatabaseConnector.h">
-      <Filter>Source Files\utils</Filter>
+    <ClInclude Include="ProfessorRepository.h">
+      <Filter>Source Files\repositories</Filter>
     </ClInclude>
     <ClInclude Include="ProfessorService.h">
       <Filter>Source Files\services</Filter>
     </ClInclude>
-    <ClInclude Include="ProfessorRepository.h">
-      <Filter>Source Files\repositories</Filter>
-    </ClInclude>
-    <ClInclude Include="MyForm.h">
+    <ClInclude Include="InformacioPersonal_ConsultaUI.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Usuari.h">
+      <Filter>Source Files\entities</Filter>
+    </ClInclude>
+    <ClInclude Include="InformacioPersonalService.h">
+      <Filter>Source Files\services</Filter>
+    </ClInclude>
+    <ClInclude Include="InformacioPersonalRepository.h">
+      <Filter>Source Files\repositories</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -73,26 +79,32 @@
     <ClCompile Include="pch.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Utils.cpp">
-      <Filter>Source Files\utils</Filter>
-    </ClCompile>
     <ClCompile Include="MainPage.cpp">
       <Filter>Source Files\ui</Filter>
     </ClCompile>
     <ClCompile Include="Professor.cpp">
       <Filter>Source Files\entities</Filter>
     </ClCompile>
-    <ClCompile Include="DatabaseConnector.cpp">
-      <Filter>Source Files\utils</Filter>
+    <ClCompile Include="ProfessorRepository.cpp">
+      <Filter>Source Files\repositories</Filter>
     </ClCompile>
     <ClCompile Include="ProfessorService.cpp">
       <Filter>Source Files\services</Filter>
     </ClCompile>
-    <ClCompile Include="ProfessorRepository.cpp">
-      <Filter>Source Files\repositories</Filter>
-    </ClCompile>
     <ClCompile Include="MyForm.cpp">
       <Filter>Source Files\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="InformacioPersonal_ConsultaUI.cpp">
+      <Filter>Source Files\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="Usuari.cpp">
+      <Filter>Source Files\entities</Filter>
+    </ClCompile>
+    <ClCompile Include="InformacioPersonalService.cpp">
+      <Filter>Source Files\services</Filter>
+    </ClCompile>
+    <ClCompile Include="InformacioPersonalRepository.cpp">
+      <Filter>Source Files\repositories</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -101,8 +113,8 @@
     </Image>
   </ItemGroup>
   <ItemGroup>
-    <Xml Include="credentials.xml">
-      <Filter>Resource Files</Filter>
-    </Xml>
+    <EmbeddedResource Include="MyForm.resx">
+      <Filter>Header Files</Filter>
+    </EmbeddedResource>
   </ItemGroup>
 </Project>

@@ -9,6 +9,7 @@ using namespace System;
 
 #include "MainPage.h"
 #include "MyForm.h"
+#include "InformacioPersonal_ConsultaUI.h"
 
 using namespace System::Windows::Forms;
 
@@ -17,6 +18,6 @@ int main()
 {
   Application::EnableVisualStyles();
   Application::SetCompatibleTextRenderingDefault(false);
-  Application::Run(gcnew CppCLRWinFormsProject::MyForm());
+  Application::Run(gcnew CppCLRWinFormsProject::InformacioPersonal_ConsultaUI());
   return 0;
 }
