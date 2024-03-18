@@ -20,47 +20,61 @@ Usuari::Usuari(Int64^ user_id, String^ username, String^ password, String^ email
 	this->name = name;
 }
 
-Int64^ Usuari::GetId()
-{
-	return user_id;
-}
+void Usuari::SetUserId(Int64^ value)
+    {
+        this->user_id = value;
+    }
 
-String^ Usuari::GetUsername()
-{
-	return username;
-}
+    
+    Int64^ Usuari::GetUserId()
+    {
+        return this->user_id;
+    }
 
-String^ Usuari::GetPassword()
-{
-	return password;
-}
+    
+    void Usuari::SetUsername(String^ value)
+    {
+        this->username = value;
+    }
 
-String^ Usuari::GetEmail()
-{
-	return email;
-}
+    
+    String^ Usuari::GetUsername()
+    {
+        return this->username;
+    }
 
-String^ Usuari::GetName()
-{
-	return name;
-}
+    
+    void Usuari::SetPassword(String^ value)
+    {
+        this->password = value;
+    }
 
-void Usuari::SetUsername(String^ username)
-{
-	this->username = username;
-}
+    
+    String^ Usuari::GetPassword()
+    {
+        return this->password;
+    }
 
-void Usuari::SetPassword(String^ password)
-{
-	this->password = password;
-}
+    
+    void Usuari::SetEmail(String^ value)
+    {
+        this->email = value;
+    }
 
-void Usuari::SetEmail(String^ email)
-{
-	this->email = email;
-}
+    
+    String^ Usuari::GetEmail()
+    {
+        return this->email;
+    }
 
-void Usuari::SetName(String^ name)
-{
-	this->name = name;
-}
+    
+    void Usuari::SetName(String^ value)
+    {
+        this->name = value;
+    }
+
+    // Getter para name
+    String^ Usuari::GetName()
+    {
+        return this->name;
+    }

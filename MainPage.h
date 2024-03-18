@@ -62,6 +62,6 @@ namespace CppCLRWinFormsProject {
 	private: 
 		System::Void MainPage_Load(System::Object^ sender, System::EventArgs^ e);
 		//TESTING METHOD, DELETE LATER
-   		System::Void testQuery();
+   		//System::Void testQuery();
 	};
 }
