@@ -194,6 +194,9 @@
     <ClInclude Include="InformacioPersonal_ConsultaUI.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="InformacioPersonal_ModificaUI.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="MainPage.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -211,6 +214,7 @@
     <ClCompile Include="InformacioPersonalRepository.cpp" />
     <ClCompile Include="InformacioPersonalService.cpp" />
     <ClCompile Include="InformacioPersonal_ConsultaUI.cpp" />
+    <ClCompile Include="InformacioPersonal_ModificaUI.cpp" />
     <ClCompile Include="MainPage.cpp" />
     <ClCompile Include="MyForm.cpp" />
     <ClCompile Include="pch.cpp">
@@ -242,6 +246,9 @@
   <ItemGroup>
     <EmbeddedResource Include="InformacioPersonal_ConsultaUI.resx">
       <DependentUpon>InformacioPersonal_ConsultaUI.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InformacioPersonal_ModificaUI.resx">
+      <DependentUpon>InformacioPersonal_ModificaUI.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainPage.resx">
       <DependentUpon>MainPage.h</DependentUpon>

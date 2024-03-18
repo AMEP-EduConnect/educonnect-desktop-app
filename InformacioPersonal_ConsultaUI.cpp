@@ -12,5 +12,8 @@ namespace CppCLRWinFormsProject {
 		InitializeComponent();
 	}
 
-	
+	void InformacioPersonal_ConsultaUI::button1_Click(System::Object^ sender, System::EventArgs^ e)
+	{
+		this->Close();
+	}
 }
