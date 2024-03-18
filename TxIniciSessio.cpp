@@ -1,6 +1,7 @@
 #include "pch.h"
 #include "TxIniciSessio.h"
 
+
 TxIniciSessio::TxIniciSessio()
 {
 	usuariRepository = gcnew UsuariRepository();
@@ -17,6 +18,7 @@ bool TxIniciSessio::CheckUsername(String^ username, String^ password)
 	Usuari^ checkuser = GetUsuariByPassUser(username, password);
 	if (checkuser->GetUsername() == username) {
 		bool checkpassword = CheckPassword(checkuser, password);
+		if(checkpassword) CurrentSession::Instance->LogNewUser(checkuser);
 		return checkpassword;
 	}
 	else return false;

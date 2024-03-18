@@ -3,6 +3,7 @@
 #include "UsuariRepository.h"
 #include "DatabaseConnector.h"
 #include "Usuari.h"
+#include "CurrentSession.h"
 public ref class TxIniciSessio
 {
 

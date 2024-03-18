@@ -25,8 +25,10 @@ namespace CppCLRWinFormsProject {
            bool check = inici.CheckUsername(username, password);
 
 
-           if (check == true) MessageBox::Show("Inici de sessió amb exit");
+           if (check == true) {
+               MessageBox::Show("Inici de sessió amb exit");
 
+           }
            
            else label5->Visible = true;
        }

@@ -39,7 +39,6 @@ Usuari^ UsuariRepository::GetUsuariByPassUser(String^ username, String^ password
 		usuari->SetName(data->GetString(4));
 	}
 	DatabaseConnector::Instance->disconnect();
-	CurrentSession::Instance->LogNewUser(usuari);
 	return usuari;
 }
 
