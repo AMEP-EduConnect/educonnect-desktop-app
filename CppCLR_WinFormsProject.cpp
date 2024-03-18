@@ -17,6 +17,6 @@ int main()
 {
   Application::EnableVisualStyles();
   Application::SetCompatibleTextRenderingDefault(false);
-  Application::Run(gcnew CppCLRWinFormsProject::MyForm());
+  Application::Run(gcnew CppCLRWinFormsProject::AltaProveidorUI());
   return 0;
 }

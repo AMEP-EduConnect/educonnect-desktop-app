@@ -12,16 +12,16 @@ namespace CppCLRWinFormsProject {
 	/// <summary>
 	/// Resumen de MyForm
 	/// </summary>
-	public ref class MyForm : public System::Windows::Forms::Form
+	public ref class AltaProveidorUI : public System::Windows::Forms::Form
 	{
 	public:
-		MyForm(void);
+		AltaProveidorUI(void);
 
 	protected:
 		/// <summary>
 		/// Limpiar los recursos que se estén usando.
 		/// </summary>
-		~MyForm()
+		~AltaProveidorUI()
 		{
 			if (components)
 			{
@@ -55,7 +55,7 @@ namespace CppCLRWinFormsProject {
 			this->testButton->TabIndex = 0;
 			this->testButton->Text = L"testButton";
 			this->testButton->UseVisualStyleBackColor = true;
-			this->testButton->Click += gcnew System::EventHandler(this, &MyForm::testButton_Click);
+			this->testButton->Click += gcnew System::EventHandler(this, &AltaProveidorUI::testButton_Click);
 			// 
 			// MyForm
 			// 
