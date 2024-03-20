@@ -83,6 +83,9 @@
     <ClInclude Include="TxPerfilPersonal_Modifica.h">
       <Filter>Source Files\services</Filter>
     </ClInclude>
+    <ClInclude Include="Utils.h">
+      <Filter>Source Files\utils</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CppCLR_WinFormsProject.cpp">
@@ -135,6 +138,9 @@
     </ClCompile>
     <ClCompile Include="TxPerfilPersonal_Modifica.cpp">
       <Filter>Source Files\services</Filter>
+    </ClCompile>
+    <ClCompile Include="Utils.cpp">
+      <Filter>Source Files\utils</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

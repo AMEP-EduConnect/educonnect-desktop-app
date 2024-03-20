@@ -10,6 +10,7 @@ using namespace System;
 #include "MainPage.h"
 #include "MyForm.h"
 #include "InformacioPersonal_ConsultaUI.h"
+#include "InformacioPersonal_ModificaUI.h"
 
 using namespace System::Windows::Forms;
 

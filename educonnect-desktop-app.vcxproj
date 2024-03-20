@@ -211,6 +211,7 @@
     <ClInclude Include="ProfessorService.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="Usuari.h" />
+    <ClInclude Include="Utils.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AssemblyInfo.cpp" />
@@ -237,6 +238,7 @@
     <ClCompile Include="ProfessorRepository.cpp" />
     <ClCompile Include="ProfessorService.cpp" />
     <ClCompile Include="Usuari.cpp" />
+    <ClCompile Include="Utils.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="app.ico" />

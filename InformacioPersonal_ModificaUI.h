@@ -15,13 +15,7 @@ namespace CppCLRWinFormsProject {
 	public ref class InformacioPersonal_ModificaUI : public System::Windows::Forms::Form
 	{
 	public:
-		InformacioPersonal_ModificaUI(void)
-		{
-			InitializeComponent();
-			//
-			//TODO: agregar código de constructor aquí
-			//
-		}
+		InformacioPersonal_ModificaUI(void);
 
 	protected:
 		/// <summary>
@@ -207,6 +201,7 @@ namespace CppCLRWinFormsProject {
 			this->button1->TabIndex = 3;
 			this->button1->Text = L"Cancelar";
 			this->button1->UseVisualStyleBackColor = true;
+			this->button1->Click += gcnew System::EventHandler(this, &InformacioPersonal_ModificaUI::Cancelar_Click);
 			// 
 			// button2
 			// 
@@ -219,6 +214,7 @@ namespace CppCLRWinFormsProject {
 			this->button2->TabIndex = 4;
 			this->button2->Text = L"Acceptar";
 			this->button2->UseVisualStyleBackColor = true;
+			this->button2->Click += gcnew System::EventHandler(this, &InformacioPersonal_ModificaUI::Acceptar_Click);
 			// 
 			// InformacioPersonal_ModificaUI
 			// 
@@ -232,6 +228,7 @@ namespace CppCLRWinFormsProject {
 			this->Controls->Add(this->label1);
 			this->Name = L"InformacioPersonal_ModificaUI";
 			this->Text = L"InformacioPersonal_ModificaUI";
+			this->Load += gcnew System::EventHandler(this, &InformacioPersonal_ModificaUI::InformacioPersonal_ModificaUI_Load);
 			this->panel1->ResumeLayout(false);
 			this->panel1->PerformLayout();
 			this->ResumeLayout(false);
@@ -241,7 +238,11 @@ namespace CppCLRWinFormsProject {
 #pragma endregion
 	private: System::Void label6_Click(System::Object^ sender, System::EventArgs^ e) {
 	}
-private: System::Void label2_Click(System::Object^ sender, System::EventArgs^ e) {
-}
+	private: System::Void label2_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void Cancelar_Click(System::Object^ sender, System::EventArgs^ e);
+	private: System::Void Acceptar_Click(System::Object^ sender, System::EventArgs^ e);
+	private: System::Void InformacioPersonal_ModificaUI_Load(System::Object^ sender, System::EventArgs^ e) {
+	}
 };
 }

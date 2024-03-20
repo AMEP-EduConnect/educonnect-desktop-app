@@ -15,13 +15,7 @@ namespace CppCLRWinFormsProject {
 	public ref class InformacioPersonal_ConsultaUI : public System::Windows::Forms::Form
 	{
 	public:
-		InformacioPersonal_ConsultaUI(void)
-		{
-			InitializeComponent();
-			//
-			//TODO: agregar código de constructor aquí
-			//
-		}
+		InformacioPersonal_ConsultaUI(void);
 
 	protected:
 		/// <summary>
@@ -54,7 +48,7 @@ namespace CppCLRWinFormsProject {
 		/// Variable del diseñador necesaria.
 		/// </summary>
 		System::ComponentModel::Container ^components;
-
+		//TxPerfilPersonal_Consulta^ txPerfilPersonal_Consulta;
 #pragma region Windows Form Designer generated code
 		/// <summary>
 		/// Método necesario para admitir el Diseñador. No se puede modificar
@@ -200,6 +194,7 @@ namespace CppCLRWinFormsProject {
 			this->button1->TabIndex = 3;
 			this->button1->Text = L"Tanca";
 			this->button1->UseVisualStyleBackColor = true;
+			this->button1->Click += gcnew System::EventHandler(this, &InformacioPersonal_ConsultaUI::Tanca_Click);
 			// 
 			// button2
 			// 
@@ -209,6 +204,7 @@ namespace CppCLRWinFormsProject {
 			this->button2->TabIndex = 8;
 			this->button2->Text = L"Edita";
 			this->button2->UseVisualStyleBackColor = true;
+			this->button2->Click += gcnew System::EventHandler(this, &InformacioPersonal_ConsultaUI::Edita_Click);
 			// 
 			// InformacioPersonal_ConsultaUI
 			// 
@@ -240,8 +236,8 @@ namespace CppCLRWinFormsProject {
 	}
 	private: System::Void label3_Click(System::Object^ sender, System::EventArgs^ e) {
 	}
-	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
-	}
+	private: System::Void Tanca_Click(System::Object^ sender, System::EventArgs^ e);
+	private: System::Void Edita_Click(System::Object^ sender, System::EventArgs^ e);
 private: System::Void textBox1_TextChanged(System::Object^ sender, System::EventArgs^ e) {
 }
 private: System::Void label2_Click(System::Object^ sender, System::EventArgs^ e) {
