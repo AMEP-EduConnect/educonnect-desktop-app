@@ -66,3 +66,20 @@ bool GrupEstudiService::CheckIfGroupExists(String^ group_name_act) {
 	
 	return not System::String::IsNullOrEmpty(grup->GetGroupName());
 }
+
+bool GrupEstudiService::CheckIfUserExists(String^ user_name) {
+	bool user_exist = grupEstudiRepository->CheckIfUserExists(user_name);
+	return user_exist;
+}
+
+Int64^ GrupEstudiService::GetUserIdByName(String^ user_name) {
+	return grupEstudiRepository->GetUserIdByName(user_name);
+}
+
+Int64^ GrupEstudiService::GetGroupIdByName(String^ group_name) {
+	return grupEstudiRepository->GetGroupIdByName(group_name);
+}
+
+bool GrupEstudiService::CheckUserIsOwner(Int64^ currentUser, String^ group_name) {
+	return grupEstudiRepository->CheckUserIsOwner(currentUser, group_name);
+}

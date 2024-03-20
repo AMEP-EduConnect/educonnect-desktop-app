@@ -20,4 +20,11 @@ public:
 	void UpdateGroupDescription(String^ group_name_act, String^ description_new);
 	//array<GrupEstudi^>^ LoadGrupsEstudiByUserId(Int64^ user_id);
 
+	bool CheckIfUserExists(String^ user_name);
+
+	Int64^ GetUserIdByName(String^ user_name);
+	Int64^ GetGroupIdByName(String^ group_name);
+
+	bool CheckUserIsOwner(Int64^ currentUser, String^ group_name);
+
 };

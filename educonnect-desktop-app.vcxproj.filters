@@ -82,8 +82,6 @@
     </ClInclude>
     <ClInclude Include="GrupEstudi_ConsultarUI.h">
     </ClInclude>
-    <ClInclude Include="GrupsEstudi_ConsultarUI.h">
-	</ClInclude>
     <ClInclude Include="MessageManager.h">
       <Filter>Source Files\utils</Filter>
     </ClInclude>
@@ -101,6 +99,9 @@
     </ClInclude>
     <ClInclude Include="Usuari.h">
       <Filter>Source Files\entities</Filter>
+    </ClInclude>
+    <ClInclude Include="GrupEstudi_AssignarUI.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -166,12 +167,15 @@
     </ClCompile>
     <ClCompile Include="MessageManager.cpp">
       <Filter>Source Files\utils</Filter>
-	</ClCompile>
+    </ClCompile>
     <ClCompile Include="CurrentSession.cpp">
       <Filter>Source Files\utils</Filter>
     </ClCompile>
-	  <ClCompile Include="Usuari.cpp">
+    <ClCompile Include="Usuari.cpp">
       <Filter>Source Files\entities</Filter>
+    </ClCompile>
+    <ClCompile Include="GrupEstudi_AssignarUI.cpp">
+      <Filter>Source Files\ui</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -226,6 +226,9 @@
     <ClInclude Include="GrupEstudiUI.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="GrupEstudi_AssignarUI.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="GrupEstudi_ConsultarUI.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -260,6 +263,7 @@
     <ClCompile Include="GrupEstudiRepository.cpp" />
     <ClCompile Include="GrupEstudiService.cpp" />
     <ClCompile Include="GrupEstudiUI.cpp" />
+    <ClCompile Include="GrupEstudi_AssignarUI.cpp" />
     <ClCompile Include="GrupEstudi_ConsultarUI.cpp" />
     <ClCompile Include="GrupEstudi_EditarUI.cpp" />
     <ClCompile Include="GrupEstudiMembership.cpp" />
@@ -296,6 +300,9 @@
   <ItemGroup>
     <EmbeddedResource Include="GrupEstudiUI.resx">
       <DependentUpon>GrupEstudiUI.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GrupEstudi_AssignarUI.resx">
+      <DependentUpon>GrupEstudi_AssignarUI.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GrupEstudi_ConsultarUI.resx">
       <DependentUpon>GrupEstudi_ConsultarUI.h</DependentUpon>
