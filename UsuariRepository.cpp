@@ -15,9 +15,11 @@ Usuari^ UsuariRepository::GetUsuariById(Int64^ id) {
 	Usuari^ usuari = gcnew Usuari();
 	while (data->Read())
 	{
-		//usuari-> = data->GetInt64(0);
-		//professor->name = data->GetString(1);
-		//professor->surname = data->GetString(2);
+		usuari->SetUserId(data->GetInt64(0));
+		usuari->SetUsername(data->GetString(1));
+		usuari->SetPassword(data->GetString(2));
+		usuari->SetEmail(data->GetString(3));
+		usuari->SetName(data->GetString(4));
 	}
 	return usuari;
 
@@ -92,19 +94,33 @@ bool UsuariRepository::CheckUsuariByEmail(String^ email) {
 
 bool UsuariRepository::CreateUser(String^ username, String^ email, String^ name, String^ password) {
 	DatabaseConnector::Instance->connect();
-
 	String^ sql = "INSERT INTO users (username, password, email, name) VALUES ('"
-	+ username + "', '"
-	+ password + "', '"
-	+ email + "', '"
-	+ name + "')";
-
+		+ username + "', '"
+		+ password + "', '"
+		+ email + "', '"
+		+ name + "')";
 	MySqlDataReader^ data = DatabaseConnector::Instance->executeCommand(sql);
-
-	bool check;
-
-	if (data != nullptr && data->Read() == false) check = false;
-	else check = true;
-	DatabaseConnector::Instance->disconnect();
-	return check;
+	bool check = false;
+		data->Close();
+		sql = "SELECT LAST_INSERT_ID();";
+	MySqlDataReader^ data2 = DatabaseConnector::Instance->executeCommand(sql);
+	Int64^ id;
+		while (data2->Read()) {
+			id = data2->GetInt64(0);
+		}
+		data2->Close();
+		DatabaseConnector::Instance->disconnect();
+		check = CreateUserRol(id);
+		return check;
 }
+bool UsuariRepository::CreateUserRol(Int64^ id) {
+	DatabaseConnector::Instance->connect();
+	String^ sql = "INSERT INTO users_roles (user_id, role_id) VALUES ("
+		+ id->ToString() + ",2)";
+	MySqlDataReader^ data3 = DatabaseConnector::Instance->executeCommand(sql);
+		data3->Close();
+		DatabaseConnector::Instance->disconnect();
+		return true;
+}
+
+

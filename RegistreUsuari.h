@@ -66,6 +66,7 @@ namespace CppCLRWinFormsProject {
 	private: System::Windows::Forms::Label^ label7;
 	private: System::Windows::Forms::Label^ label4;
 	private: System::Windows::Forms::Label^ label9;
+	private: System::Windows::Forms::Button^ button2;
 
 
 
@@ -94,6 +95,7 @@ namespace CppCLRWinFormsProject {
 			this->label8 = (gcnew System::Windows::Forms::Label());
 			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
+			this->button2 = (gcnew System::Windows::Forms::Button());
 			this->label9 = (gcnew System::Windows::Forms::Label());
 			this->label4 = (gcnew System::Windows::Forms::Label());
 			this->button1 = (gcnew System::Windows::Forms::Button());
@@ -149,6 +151,7 @@ namespace CppCLRWinFormsProject {
 			// panel1
 			// 
 			this->panel1->BackColor = System::Drawing::SystemColors::GradientInactiveCaption;
+			this->panel1->Controls->Add(this->button2);
 			this->panel1->Controls->Add(this->label9);
 			this->panel1->Controls->Add(this->label4);
 			this->panel1->Controls->Add(this->button1);
@@ -162,8 +165,21 @@ namespace CppCLRWinFormsProject {
 			this->panel1->Controls->Add(this->label3);
 			this->panel1->Location = System::Drawing::Point(334, 90);
 			this->panel1->Name = L"panel1";
-			this->panel1->Size = System::Drawing::Size(259, 380);
+			this->panel1->Size = System::Drawing::Size(259, 401);
 			this->panel1->TabIndex = 9;
+			// 
+			// button2
+			// 
+			this->button2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->button2->ForeColor = System::Drawing::SystemColors::HotTrack;
+			this->button2->Location = System::Drawing::Point(31, 358);
+			this->button2->Name = L"button2";
+			this->button2->Size = System::Drawing::Size(197, 23);
+			this->button2->TabIndex = 21;
+			this->button2->Text = L"Tornar";
+			this->button2->UseVisualStyleBackColor = true;
+			this->button1->Click += gcnew System::EventHandler(this, &RegistreUsuari::Button_Click_Retorna);
 			// 
 			// label9
 			// 
@@ -173,9 +189,9 @@ namespace CppCLRWinFormsProject {
 			this->label9->ForeColor = System::Drawing::SystemColors::ControlDarkDark;
 			this->label9->Location = System::Drawing::Point(28, 280);
 			this->label9->Name = L"label9";
-			this->label9->Size = System::Drawing::Size(149, 13);
+			this->label9->Size = System::Drawing::Size(198, 13);
 			this->label9->TabIndex = 20;
-			this->label9->Text = L"caràcters especials i números.";
+			this->label9->Text = L"caràcters especials, números i maj. i min,";
 			// 
 			// label4
 			// 
@@ -286,7 +302,7 @@ namespace CppCLRWinFormsProject {
 			this->label6->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label6->ForeColor = System::Drawing::Color::Red;
-			this->label6->Location = System::Drawing::Point(332, 494);
+			this->label6->Location = System::Drawing::Point(331, 510);
 			this->label6->Name = L"label6";
 			this->label6->Size = System::Drawing::Size(150, 16);
 			this->label6->TabIndex = 19;
@@ -338,6 +354,8 @@ namespace CppCLRWinFormsProject {
 	private: System::Void label4_Click(System::Object^ sender, System::EventArgs^ e) {
 	}
 	private: System::Void Button_Click(System::Object^ sender, System::EventArgs^ e);
+
+	private: System::Void Button_Click_Retorna(System::Object^ sender, System::EventArgs^ e);
 	
 	private: System::Void label6_Click(System::Object^ sender, System::EventArgs^ e) {
 	}

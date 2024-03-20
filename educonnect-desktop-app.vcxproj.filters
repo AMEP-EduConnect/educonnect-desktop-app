@@ -86,6 +86,9 @@
     <ClInclude Include="MessageManager.h">
       <Filter>Source Files\utils</Filter>
     </ClInclude>
+    <ClInclude Include="FirstPage.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AssemblyInfo.cpp">
@@ -141,6 +144,9 @@
     </ClCompile>
     <ClCompile Include="MessageManager.cpp">
       <Filter>Source Files\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="FirstPage.cpp">
+      <Filter>Source Files\ui</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

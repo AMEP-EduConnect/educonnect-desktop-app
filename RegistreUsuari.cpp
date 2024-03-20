@@ -1,5 +1,6 @@
 #include "pch.h"
 #include "RegistreUsuari.h"
+#include "FirstPage.h"
 #include "Utils.h"
 #include "DatabaseConnector.h"
 #include <iostream>
@@ -76,12 +77,16 @@ namespace CppCLRWinFormsProject {
 
             else {
                 this->txRegistre->CreateUser(username,email,name,password);
-                MessageBox::Show("S'ha registrat correctament! Benvinguts!.", "Registre Correcte", MessageBoxButtons::OK);
+                MessageBox::Show("S'ha registrat correctament! Benvingut!", "Registre Correcte", MessageBoxButtons::OK);
             }
         }
 
+        Void RegistreUsuari::Button_Click_Retorna(System::Object^ sender, System::EventArgs^ e) {
+            this->Hide();
+            FirstPage^ Form = gcnew FirstPage();
+            Form->ShowDialog();
+        }
 
-    
 }
 
 

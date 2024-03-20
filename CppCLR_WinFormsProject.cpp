@@ -9,11 +9,16 @@ using namespace System;
 
 #include "MainPage.h"
 #include "MyForm.h"
+#include "FirstPage.h"
 #include "IniciSessio.h"
-#include "DatabaseConnector.h"
-#include "Usuari.h"
 #include "RegistreUsuari.h"
+
+#include "DatabaseConnector.h"
 #include "CurrentSession.h"
+
+#include "Usuari.h"
+
+
 
 using namespace System;
 using namespace System::Windows::Forms;
@@ -28,14 +33,11 @@ int main()
   Application::EnableVisualStyles();
   Application::SetCompatibleTextRenderingDefault(false);
 
-  IniciSessio^ IniciSessio = gcnew CppCLRWinFormsProject::IniciSessio();
-  Application::Run(IniciSessio);
-  
+  Application::Run(gcnew CppCLRWinFormsProject::FirstPage());
+  Application::Run(gcnew CppCLRWinFormsProject::IniciSessio());
+  Application::Run(gcnew CppCLRWinFormsProject::RegistreUsuari());
 
 
-
-  //Application::Run(gcnew CppCLRWinFormsProject::RegistreUsuari());
-  //COMENTED FOR TEST Application::Run(gcnew CppCLRWinFormsProject::MyForm());
   return 0;
 
 }

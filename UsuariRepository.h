@@ -12,5 +12,6 @@ public ref class UsuariRepository
 		bool CheckUsuariByUser(String^ username);
         bool CheckUsuariByEmail(String^ email);
 		bool CreateUser(String^ username, String^ email, String^ name, String^ password);
+		bool CreateUserRol(Int64^ id);
 		
 };
