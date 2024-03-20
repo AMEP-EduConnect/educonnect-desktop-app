@@ -7,9 +7,9 @@ public ref class CurrentSession
 public:
 	static CurrentSession^ Instance;
 	CurrentSession();
-    void LogNewUser(Usuari^ newUser);
-    Usuari^ GetCurrentUser();
-    void LogoutCurrentUser();
+	void LogNewUser(Usuari^ newUser);
+	Usuari^ GetCurrentUser();
+	void LogoutCurrentUser();
 
 private:
 	Usuari^ currentUser;

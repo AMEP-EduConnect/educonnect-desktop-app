@@ -65,13 +65,10 @@ namespace CppCLRWinFormsProject {
 			this->Controls->Add(this->testButton);
 			this->Name = L"MyForm";
 			this->Text = L"MyForm";
-			this->Load += gcnew System::EventHandler(this, &MyForm::MyForm_Load);
 			this->ResumeLayout(false);
 
 		}
 #pragma endregion
 	private: System::Void testButton_Click(System::Object^ sender, System::EventArgs^ e);
-	private: System::Void MyForm_Load(System::Object^ sender, System::EventArgs^ e) {
-	}
 	};
 }

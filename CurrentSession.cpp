@@ -4,7 +4,7 @@
 //Singleton class to connect to get current session information
 CurrentSession::CurrentSession()
 {
-	currentUser = nullptr;
+    currentUser = nullptr;
 }
 
 void CurrentSession::LogNewUser(Usuari^ newUser)
@@ -25,5 +25,3 @@ Usuari^ CurrentSession::GetCurrentUser()
 {
     return currentUser;
 }
-
-

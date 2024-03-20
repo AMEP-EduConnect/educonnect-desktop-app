@@ -59,7 +59,7 @@ Usuari^ UsuariRepository::GetUsuariByUser(String^ username) {
 	}
 	DatabaseConnector::Instance->disconnect();
 	return usuari;
-	
+
 }
 
 bool UsuariRepository::CheckUsuariByUser(String^ username) {
@@ -77,27 +77,27 @@ bool UsuariRepository::CheckUsuariByUser(String^ username) {
 }
 
 bool UsuariRepository::CheckUsuariByEmail(String^ email) {
-    DatabaseConnector::Instance->connect();
+	DatabaseConnector::Instance->connect();
 
-    String^ sql = "SELECT username FROM users WHERE email = '" + email + "'";
-    MySqlDataReader^ data = DatabaseConnector::Instance->executeCommand(sql);
+	String^ sql = "SELECT username FROM users WHERE email = '" + email + "'";
+	MySqlDataReader^ data = DatabaseConnector::Instance->executeCommand(sql);
 
-    bool check;
+	bool check;
 
-    if (data != nullptr && data->Read() == false) check = false;
-    else check = true;
-    DatabaseConnector::Instance->disconnect();
-    return check;
+	if (data != nullptr && data->Read() == false) check = false;
+	else check = true;
+	DatabaseConnector::Instance->disconnect();
+	return check;
 }
 
 bool UsuariRepository::CreateUser(String^ username, String^ email, String^ name, String^ password) {
 	DatabaseConnector::Instance->connect();
 
 	String^ sql = "INSERT INTO users (username, password, email, name) VALUES ('"
-	+ username + "', '"
-	+ password + "', '"
-	+ email + "', '"
-	+ name + "')";
+		+ username + "', '"
+		+ password + "', '"
+		+ email + "', '"
+		+ name + "')";
 
 	MySqlDataReader^ data = DatabaseConnector::Instance->executeCommand(sql);
 

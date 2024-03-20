@@ -1,9 +1,9 @@
 #include "pch.h"
 #include "MainPage.h"
-#include "Usuari.h"
+#include "Professor.h"
 #include "Utils.h"
 #include "DatabaseConnector.h"
-#include "TxIniciSessio.h"
+#include "ProfessorService.h"
 
 
 namespace CppCLRWinFormsProject {
@@ -30,19 +30,18 @@ namespace CppCLRWinFormsProject {
             Console::WriteLine("App icon not found: " + ex->Message);
         }
 
-        //testQuery();
+        testQuery();
     }
-    /*
     //TESTING METHOD, DELETE LATER
     void MainPage:: testQuery()
     {
         DatabaseConnector::Instance = gcnew DatabaseConnector();
-        TxIniciSessio^ txinicisessio = gcnew TxIniciSessio();
-        Usuari^ user = gcnew Usuari();
+        ProfessorService^ professorService = gcnew ProfessorService();
+        Professor^ prof = gcnew Professor();
         try {
             Int64 id = 1;
 			// es crida al mètode de la classe ProfessorService que retorna un professor
-			user = txinicisessio->U(id);
+			prof = professorService->GetProfessorById(id);
         }
         catch (Exception^ ex) {
             // codi per mostrar l’error en una finestra
@@ -54,6 +53,6 @@ namespace CppCLRWinFormsProject {
             MessageBox::Show("Database testing: " + prof->name);
         }
 
-    }*/
+    }
 
 }

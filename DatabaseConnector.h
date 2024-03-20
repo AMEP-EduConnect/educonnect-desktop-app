@@ -5,7 +5,7 @@ using namespace MySql::Data::MySqlClient;
 
 public ref class DatabaseConnector
 {
-public:
+public: 
 	static DatabaseConnector^ Instance;
 	DatabaseConnector();
 	void connect();

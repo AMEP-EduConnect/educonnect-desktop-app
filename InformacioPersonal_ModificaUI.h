@@ -65,14 +65,14 @@ namespace CppCLRWinFormsProject {
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
-			this->label3 = (gcnew System::Windows::Forms::Label());
-			this->label4 = (gcnew System::Windows::Forms::Label());
-			this->label5 = (gcnew System::Windows::Forms::Label());
-			this->label6 = (gcnew System::Windows::Forms::Label());
-			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
-			this->textBox2 = (gcnew System::Windows::Forms::TextBox());
-			this->textBox3 = (gcnew System::Windows::Forms::TextBox());
 			this->textBox4 = (gcnew System::Windows::Forms::TextBox());
+			this->textBox3 = (gcnew System::Windows::Forms::TextBox());
+			this->textBox2 = (gcnew System::Windows::Forms::TextBox());
+			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
+			this->label6 = (gcnew System::Windows::Forms::Label());
+			this->label5 = (gcnew System::Windows::Forms::Label());
+			this->label4 = (gcnew System::Windows::Forms::Label());
+			this->label3 = (gcnew System::Windows::Forms::Label());
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->button2 = (gcnew System::Windows::Forms::Button());
 			this->panel1->SuspendLayout();
@@ -98,9 +98,10 @@ namespace CppCLRWinFormsProject {
 			this->label2->ForeColor = System::Drawing::SystemColors::HotTrack;
 			this->label2->Location = System::Drawing::Point(41, 71);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(411, 39);
+			this->label2->Size = System::Drawing::Size(395, 38);
 			this->label2->TabIndex = 1;
 			this->label2->Text = L"Modificar Perfil Personal";
+			this->label2->Click += gcnew System::EventHandler(this, &InformacioPersonal_ModificaUI::label2_Click);
 			// 
 			// panel1
 			// 
@@ -118,41 +119,33 @@ namespace CppCLRWinFormsProject {
 			this->panel1->Size = System::Drawing::Size(404, 230);
 			this->panel1->TabIndex = 2;
 			// 
-			// label3
+			// textBox4
 			// 
-			this->label3->AutoSize = true;
-			this->label3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->label3->ForeColor = System::Drawing::SystemColors::HotTrack;
-			this->label3->Location = System::Drawing::Point(21, 45);
-			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(108, 20);
-			this->label3->TabIndex = 0;
-			this->label3->Text = L"Nom d\'usuari";
+			this->textBox4->Location = System::Drawing::Point(170, 170);
+			this->textBox4->Name = L"textBox4";
+			this->textBox4->Size = System::Drawing::Size(200, 22);
+			this->textBox4->TabIndex = 7;
 			// 
-			// label4
+			// textBox3
 			// 
-			this->label4->AutoSize = true;
-			this->label4->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->label4->ForeColor = System::Drawing::SystemColors::HotTrack;
-			this->label4->Location = System::Drawing::Point(21, 92);
-			this->label4->Name = L"label4";
-			this->label4->Size = System::Drawing::Size(103, 20);
-			this->label4->TabIndex = 1;
-			this->label4->Text = L"Contrasenya";
+			this->textBox3->Location = System::Drawing::Point(182, 130);
+			this->textBox3->Name = L"textBox3";
+			this->textBox3->Size = System::Drawing::Size(205, 22);
+			this->textBox3->TabIndex = 6;
 			// 
-			// label5
+			// textBox2
 			// 
-			this->label5->AutoSize = true;
-			this->label5->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->label5->ForeColor = System::Drawing::SystemColors::HotTrack;
-			this->label5->Location = System::Drawing::Point(21, 133);
-			this->label5->Name = L"label5";
-			this->label5->Size = System::Drawing::Size(138, 20);
-			this->label5->TabIndex = 2;
-			this->label5->Text = L"Correu electrònic";
+			this->textBox2->Location = System::Drawing::Point(146, 90);
+			this->textBox2->Name = L"textBox2";
+			this->textBox2->Size = System::Drawing::Size(136, 22);
+			this->textBox2->TabIndex = 5;
+			// 
+			// textBox1
+			// 
+			this->textBox1->Location = System::Drawing::Point(146, 43);
+			this->textBox1->Name = L"textBox1";
+			this->textBox1->Size = System::Drawing::Size(136, 22);
+			this->textBox1->TabIndex = 4;
 			// 
 			// label6
 			// 
@@ -167,33 +160,41 @@ namespace CppCLRWinFormsProject {
 			this->label6->Text = L"Nom i Cognoms";
 			this->label6->Click += gcnew System::EventHandler(this, &InformacioPersonal_ModificaUI::label6_Click);
 			// 
-			// textBox1
+			// label5
 			// 
-			this->textBox1->Location = System::Drawing::Point(146, 43);
-			this->textBox1->Name = L"textBox1";
-			this->textBox1->Size = System::Drawing::Size(136, 22);
-			this->textBox1->TabIndex = 4;
+			this->label5->AutoSize = true;
+			this->label5->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label5->ForeColor = System::Drawing::SystemColors::HotTrack;
+			this->label5->Location = System::Drawing::Point(21, 133);
+			this->label5->Name = L"label5";
+			this->label5->Size = System::Drawing::Size(138, 20);
+			this->label5->TabIndex = 2;
+			this->label5->Text = L"Correu electrònic";
 			// 
-			// textBox2
+			// label4
 			// 
-			this->textBox2->Location = System::Drawing::Point(146, 90);
-			this->textBox2->Name = L"textBox2";
-			this->textBox2->Size = System::Drawing::Size(136, 22);
-			this->textBox2->TabIndex = 5;
+			this->label4->AutoSize = true;
+			this->label4->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label4->ForeColor = System::Drawing::SystemColors::HotTrack;
+			this->label4->Location = System::Drawing::Point(21, 92);
+			this->label4->Name = L"label4";
+			this->label4->Size = System::Drawing::Size(103, 20);
+			this->label4->TabIndex = 1;
+			this->label4->Text = L"Contrasenya";
 			// 
-			// textBox3
+			// label3
 			// 
-			this->textBox3->Location = System::Drawing::Point(182, 130);
-			this->textBox3->Name = L"textBox3";
-			this->textBox3->Size = System::Drawing::Size(205, 22);
-			this->textBox3->TabIndex = 6;
-			// 
-			// textBox4
-			// 
-			this->textBox4->Location = System::Drawing::Point(170, 170);
-			this->textBox4->Name = L"textBox4";
-			this->textBox4->Size = System::Drawing::Size(200, 22);
-			this->textBox4->TabIndex = 7;
+			this->label3->AutoSize = true;
+			this->label3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label3->ForeColor = System::Drawing::SystemColors::HotTrack;
+			this->label3->Location = System::Drawing::Point(21, 45);
+			this->label3->Name = L"label3";
+			this->label3->Size = System::Drawing::Size(108, 20);
+			this->label3->TabIndex = 0;
+			this->label3->Text = L"Nom d\'usuari";
 			// 
 			// button1
 			// 
@@ -240,5 +241,7 @@ namespace CppCLRWinFormsProject {
 #pragma endregion
 	private: System::Void label6_Click(System::Object^ sender, System::EventArgs^ e) {
 	}
+private: System::Void label2_Click(System::Object^ sender, System::EventArgs^ e) {
+}
 };
 }
