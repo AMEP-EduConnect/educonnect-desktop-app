@@ -10,7 +10,6 @@ using namespace System;
 
 namespace CppCLRWinFormsProject {
 	    bool RegistreUsuari::IsValidEmail(String^ email) {
-		    // Patrón para validar un correo electrónico.
 		    String^ pattern = R"(^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$)";
 		    Regex^ regex = gcnew Regex(pattern);
 		    return regex->IsMatch(email);
@@ -70,7 +69,6 @@ namespace CppCLRWinFormsProject {
             String^ username = textBox1->Text;
             String^ email = textBox2->Text;
             String^ name = textBox3->Text;
-            //String^ surname = textBox4->Text;
             String^ password = textBox5->Text;
 
             if (username == "" or email == "" or name == "" or password == "") label6->Visible = true;
@@ -82,9 +80,7 @@ namespace CppCLRWinFormsProject {
         }
 
         Void RegistreUsuari::Button_Click_Retorna(System::Object^ sender, System::EventArgs^ e) {
-            this->Hide();
-            FirstPage^ Form = gcnew FirstPage();
-            Form->ShowDialog();
+            this->Close();
         }
 
 }

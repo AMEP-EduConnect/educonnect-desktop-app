@@ -219,7 +219,7 @@ namespace CppCLRWinFormsProject {
 			this->button2->TabIndex = 9;
 			this->button2->Text = L"Tornar";
 			this->button2->UseVisualStyleBackColor = true;
-			this->button1->Click += gcnew System::EventHandler(this, &IniciSessio::Button_Click_Retorna);
+			this->button2->Click += gcnew System::EventHandler(this, &IniciSessio::Button_Click_Retorna);
 			// 
 			// IniciSessio
 			// 

@@ -37,9 +37,7 @@ namespace CppCLRWinFormsProject {
 
 
     Void IniciSessio::Button_Click_Retorna(System::Object^ sender, System::EventArgs^ e) {
-        this->Hide();
-        FirstPage^ Form = gcnew FirstPage();
-        Form->Show();
+        this->Close();
     }
 
 

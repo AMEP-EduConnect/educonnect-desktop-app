@@ -34,8 +34,8 @@ int main()
   Application::SetCompatibleTextRenderingDefault(false);
 
   Application::Run(gcnew CppCLRWinFormsProject::FirstPage());
-  Application::Run(gcnew CppCLRWinFormsProject::IniciSessio());
-  Application::Run(gcnew CppCLRWinFormsProject::RegistreUsuari());
+  //Application::Run(gcnew CppCLRWinFormsProject::IniciSessio());
+  //Application::Run(gcnew CppCLRWinFormsProject::RegistreUsuari());
 
 
   return 0;

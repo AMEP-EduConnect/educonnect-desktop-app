@@ -14,16 +14,17 @@ namespace CppCLRWinFormsProject {
 
     void FirstPage::Button_Click_IniciSessio(System::Object^ sender, System::EventArgs^ e) {
         this->Hide();
-        IniciSessio^ Form = gcnew IniciSessio();
-        Form->ShowDialog();
+        IniciSessio^ form = gcnew IniciSessio();
+        form->ShowDialog();
+        this->Show();
     }
 
     void FirstPage::Button_Click_Registrat(System::Object^ sender, System::EventArgs^ e) {
         this->Hide();
-        RegistreUsuari^ Form = gcnew RegistreUsuari();
-        Form->ShowDialog();
-
-
+        RegistreUsuari^ form = gcnew RegistreUsuari();
+        form->ShowDialog();
+        this->Show();
+        
     }
 
 }
