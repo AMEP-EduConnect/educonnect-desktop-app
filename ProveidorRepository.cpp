@@ -8,24 +8,21 @@ ProveidorRepository::ProveidorRepository()
 
 }
 
-
-void ProveidorRepository::AltaProveidor(String^ name)
+void ProveidorRepository::BaixaProveidor(String^ name)
 {
 	DatabaseConnector::Instance->Connect();
-
-	String^ sql = "INSERT INTO proveidors (name) VALUES (@Name)";
+	String^ sql = "DELETE FROM proveidors WHERE name = @Name";
 	try {
 		MySqlCommand^ command = gcnew MySqlCommand(sql, DatabaseConnector::Instance->GetConn());
-
 		command->Parameters->AddWithValue("@Name", name);
-
-
 		command->ExecuteNonQuery();
-		MessageManager::InfoMessage("Proveidor donat d'alta");
-		DatabaseConnector::Instance->Disconnect();
+		MessageManager::InfoMessage("Proveidor eliminat");
 	}
 	catch (Exception^ e) {
 		MessageManager::ErrorMessage(e->Message);
+	}
+	finally {
+		DatabaseConnector::Instance->Disconnect();
 	}
 }
 

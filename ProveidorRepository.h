@@ -6,5 +6,6 @@ public:
 	ProveidorRepository();
 	void AltaProveidor(String^ name);
 	Proveidor^ GetProveidorByName(String^ name);
+	void BaixaProveidor(String^ name);
 };
 

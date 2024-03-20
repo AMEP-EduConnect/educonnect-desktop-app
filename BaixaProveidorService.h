@@ -7,7 +7,7 @@ public ref class ProveidorService
 public:
 	ProveidorService();
 
-	void AltaProveidor(String ^ name); 
+	void BaixaProveidor(String^ name);
 	bool CheckIfProveidorExists(String^ name);
 
 
