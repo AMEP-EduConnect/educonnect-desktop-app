@@ -1,17 +1,17 @@
 #pragma once
 using namespace System;
 using namespace MySql::Data::MySqlClient;
-
+using namespace System::Collections::Generic;
 
 public ref class DatabaseConnector
 {
 public:
-    static DatabaseConnector^ Instance;
-    DatabaseConnector();
-    void Connect();
-    void Disconnect();
-    MySqlDataReader^ ExecuteCommand(String^ sql);
-    MySqlConnection^ GetConn();
+	static DatabaseConnector^ Instance;
+	DatabaseConnector();
+	void connect();
+	void disconnect();
+	MySqlDataReader^ executeInternCommand(String^ sql);
+	MySqlDataReader^ executeClientCommand(String^ sql, Dictionary<String^, Object^>^ params);
 
 private:
     String^ server;

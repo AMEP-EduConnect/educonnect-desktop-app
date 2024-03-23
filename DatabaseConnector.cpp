@@ -40,6 +40,38 @@ MySqlDataReader^ DatabaseConnector::ExecuteCommand(String^ sql)
 		MessageManager::ErrorMessage(ex->Message);
         this->Connect();
 	}
-    
-    return dataReader;
+}
+MySqlDataReader^ DatabaseConnector::executeClientCommand(String^ sql, Dictionary<String^, Object^>^ params) {
+	MySqlCommand^ cmd = gcnew MySqlCommand(sql, this->conn);
+	if (params != nullptr) {
+		for each (KeyValuePair<String^, Object^> kvp in params) {
+			cmd->Parameters->AddWithValue(kvp.Key, kvp.Value);
+		}
+	}
+	MySqlDataReader^ dataReader = nullptr;
+	try {
+		dataReader = cmd->ExecuteReader();
+	}
+	catch (InvalidOperationException^ ex) {
+		//MessageManager::ErrorMessage(ex->Message);
+		this->connect();
+	}
+	return dataReader;
+}
+
+
+MySqlDataReader^ DatabaseConnector::executeInternCommand(String^ sql)
+{
+	MySqlCommand^ cmd = gcnew MySqlCommand(sql, this->conn);
+	MySqlDataReader^ dataReader;
+	try {
+		dataReader = cmd->ExecuteReader();
+	}
+	catch (InvalidOperationException^ ex) {
+		//MessageManager::ErrorMessage(ex->Message);
+		this->connect();
+	}
+
+	return dataReader;
+}
 }
