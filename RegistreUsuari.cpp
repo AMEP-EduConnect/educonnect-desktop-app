@@ -76,6 +76,7 @@ namespace CppCLRWinFormsProject {
             else {
                 this->txRegistre->CreateUser(username,email,name,password);
                 MessageBox::Show("S'ha registrat correctament! Benvingut!", "Registre Correcte", MessageBoxButtons::OK);
+                this->Close();
             }
         }
 
