@@ -22,7 +22,7 @@ namespace CppCLRWinFormsProject {
 			//TODO: agregar código de constructor aquí
 			//
 			this->Icon = gcnew System::Drawing::Icon("app.ico");
-			
+
 		}
 
 	protected:
@@ -51,7 +51,7 @@ namespace CppCLRWinFormsProject {
 		/// <summary>
 		/// Variable del diseñador necesaria.
 		/// </summary>
-		System::ComponentModel::Container ^components;
+		System::ComponentModel::Container^ components;
 
 #pragma region Windows Form Designer generated code
 		/// <summary>

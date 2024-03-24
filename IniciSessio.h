@@ -59,7 +59,7 @@ namespace CppCLRWinFormsProject {
 		/// <summary>
 		/// Variable del diseñador necesaria.
 		/// </summary>
-		System::ComponentModel::Container ^components;
+		System::ComponentModel::Container^ components;
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
@@ -268,6 +268,6 @@ namespace CppCLRWinFormsProject {
 
 	private: System::Void Button_Click_Retorna(System::Object^ sender, System::EventArgs^ e);
 	private: System::Void Button_Click(System::Object^ sender, System::EventArgs^ e);
-	
-};
+
+	};
 }
