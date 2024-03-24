@@ -1,5 +1,5 @@
 #include "pch.h"
-#include "AltaProveidor.h"
+
 #include "DatabaseConnector.h"
 #include "Proveidor.h"
 #include "AltaProveidorService.h"
@@ -9,16 +9,16 @@ AltaProveidorService::AltaProveidorService()
 {
 	proveidorRepository = gcnew ProveidorRepository();
 }
-void AltaProveidorService::AltaProveidor(String^ name)
+void AltaProveidorService::AltaProveidor(String^ id, String^ username, String^ password, String^ email, String^ surname)
 {
 	try {
-		if (this->CheckIfProveidorExists(name)) {
+		if (this->CheckIfProveidorExists(username)) {
 			MessageManager::WarningMessage("El proveidor ja existeix!");
 			return;
 		}
 		else {
 			MessageManager::InfoMessage("Proveidor donat d'alta");
-			proveidorRepository->AltaProveidor(name);
+			proveidorRepository->AltaProveidor(id, username, password, email, surname);
 		}
 	}
 	catch (Exception^ e) {
@@ -26,8 +26,8 @@ void AltaProveidorService::AltaProveidor(String^ name)
 	}
 
 }
-bool AltaProveidorService::CheckIfProveidorExists(String^ name) {
-	Proveidor^ proveidor = proveidorRepository->GetProveidorByName(name);
+bool AltaProveidorService::CheckIfProveidorExists(String^ username) {
+	Proveidor^ proveidor = proveidorRepository->GetProveidorByName(username);
 
-	return not System::String::IsNullOrEmpty(proveidor->GetProveidorName());
+	return !System::String::IsNullOrEmpty(proveidor->GetProveidorName());
 }

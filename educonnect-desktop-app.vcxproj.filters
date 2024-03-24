@@ -41,17 +41,8 @@
     <ClInclude Include="pch.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="MainPage.h">
+    <ClInclude Include="AltaProveidorUI.h">
       <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="AltaProveidor.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Professor.h">
-      <Filter>Source Files\entities</Filter>
-    </ClInclude>
-    <ClInclude Include="ProfessorRepository.h">
-      <Filter>Source Files\repositories</Filter>
     </ClInclude>
     <ClInclude Include="DatabaseConnector.h">
       <Filter>Source Files\utils</Filter>
@@ -82,17 +73,8 @@
     <ClCompile Include="pch.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="MainPage.cpp">
-      <Filter>Source Files\ui</Filter>
-    </ClCompile>
     <ClCompile Include="AltaProveidorUI.cpp">
       <Filter>Source Files\ui</Filter>
-    </ClCompile>
-    <ClCompile Include="Professor.cpp">
-      <Filter>Source Files\entities</Filter>
-    </ClCompile>
-    <ClCompile Include="ProfessorRepository.cpp">
-      <Filter>Source Files\repositories</Filter>
     </ClCompile>
     <ClCompile Include="DatabaseConnector.cpp">
       <Filter>Source Files\utils</Filter>

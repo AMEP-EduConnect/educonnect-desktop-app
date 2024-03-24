@@ -9,4 +9,4 @@ public:
     static void ErrorMessage(String^ message);
     static void WarningMessage(String^ message);
     static void InfoMessage(String^ message);
-}; #pragma once
+};

@@ -4,7 +4,8 @@ public ref class ProveidorRepository
 {
 public:
 	ProveidorRepository();
-	void AltaProveidor(String^ name);
-	Proveidor^ GetProveidorByName(String^ name);
+	void ProveidorRepository::AltaProveidor(String^ id, String^ username, String^ password, String^ email, String^ surname);
+	Proveidor^ GetProveidorByName(String^ username);
 };
+
 
