@@ -1,10 +1,6 @@
 #include "pch.h"
 #include "GrupEstudiRepository.h"
-#include "DatabaseConnector.h"
-#include "AcademicTag.h"
-#include "MessageManager.h"
-#include "GrupEstudi.h"
-#include "Usuari.h"
+
 GrupEstudiRepository::GrupEstudiRepository()
 {
 

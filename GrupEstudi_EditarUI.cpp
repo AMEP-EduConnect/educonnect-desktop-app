@@ -1,11 +1,5 @@
 #include "pch.h"
-#include "GrupEstudi.h"
 #include "GrupEstudi_EditarUI.h"
-#include "GrupEstudiService.h"
-#include "MessageManager.h"
-#include "Usuari.h"
-#include "CurrentSession.h"
-
 
 namespace CppCLRWinFormsProject {
 

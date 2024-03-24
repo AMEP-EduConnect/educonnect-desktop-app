@@ -1,5 +1,10 @@
 #pragma once
 #include "GrupEstudiService.h"
+#include "MessageManager.h"
+#include "Usuari.h"
+#include "CurrentSession.h"
+#include "GrupEstudi.h"
+
 namespace CppCLRWinFormsProject {
 
 	using namespace System;

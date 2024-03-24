@@ -1,13 +1,5 @@
 #include "pch.h"
 #include "GrupEstudi_AssignarUI.h"
-#include "GrupEstudi.h"
-#include "GrupEstudiMembership.h"
-#include "GrupEstudiMembershipService.h"
-#include "GrupEstudiService.h"
-#include <vector>
-#include "Usuari.h"
-#include "CurrentSession.h"
-#include "MessageManager.h"
 
 namespace CppCLRWinFormsProject {
 

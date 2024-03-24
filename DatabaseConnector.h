@@ -1,4 +1,7 @@
 #pragma once
+#include "Utils.h"
+#include "MessageManager.h"
+
 using namespace System;
 using namespace MySql::Data::MySqlClient;
 using namespace System::Collections::Generic;

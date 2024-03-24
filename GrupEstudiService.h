@@ -1,9 +1,14 @@
 #pragma once
-#include "GrupEstudiRepository.h"
 #include "GrupEstudiMembershipService.h"
 #include <vector>
 #include "AcademicTag.h"
+#include "DatabaseConnector.h"
+#include "GrupEstudiRepository.h"
+#include "GrupEstudi.h"
+#include "MessageManager.h"
 #include "Usuari.h"
+#include "CurrentSession.h"
+
 public ref class GrupEstudiService
 {
 public:

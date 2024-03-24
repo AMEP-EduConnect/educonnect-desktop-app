@@ -1,7 +1,5 @@
 #include "pch.h"
 #include "DatabaseConnector.h"
-#include "Utils.h"
-#include "MessageManager.h"
 
 //Singleton class to connect to the database from any context
 DatabaseConnector::DatabaseConnector()

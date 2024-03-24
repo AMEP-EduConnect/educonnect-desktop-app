@@ -3,6 +3,9 @@
 #include "GrupEstudi.h"
 #include <vector>
 #include "AcademicTag.h"
+#include "DatabaseConnector.h"
+#include "GrupEstudiMembership.h"
+#include "MessageManager.h"
 public ref class GrupEstudiMembershipService
 {
 public:

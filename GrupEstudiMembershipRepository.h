@@ -1,7 +1,10 @@
 #pragma once
 #include "GrupEstudiMembership.h"
 #include "GrupEstudi.h"
+#include "DatabaseConnector.h"
 #include "AcademicTag.h"
+#include "MessageManager.h"
+
 using namespace System;
 public ref class GrupEstudiMembershipRepository
 {

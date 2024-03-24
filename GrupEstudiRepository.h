@@ -1,6 +1,11 @@
 #pragma once
 #include "GrupEstudi.h"
 #include "AcademicTag.h"
+#include "DatabaseConnector.h"
+#include "AcademicTag.h"
+#include "MessageManager.h"
+#include "Usuari.h"
+
 public ref class GrupEstudiRepository
 {
 public:

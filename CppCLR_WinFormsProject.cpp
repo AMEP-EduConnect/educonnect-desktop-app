@@ -29,9 +29,9 @@ int main()
   Application::EnableVisualStyles();
   Application::SetCompatibleTextRenderingDefault(false);
   //Application::Run(gcnew CppCLRWinFormsProject::MyForm());
-  //Application::Run(gcnew CppCLRWinFormsProject::GrupEstudi_EditarUI());
+  Application::Run(gcnew CppCLRWinFormsProject::GrupEstudi_EditarUI());
   //Application::Run(gcnew CppCLRWinFormsProject::GrupEstudiUI());
-  Application::Run(gcnew CppCLRWinFormsProject::GrupEstudi_ConsultarUI());
+  //Application::Run(gcnew CppCLRWinFormsProject::GrupEstudi_ConsultarUI());
   //Application::Run(gcnew CppCLRWinFormsProject::GrupEstudi_AssignarUI());
   return 0;
 }

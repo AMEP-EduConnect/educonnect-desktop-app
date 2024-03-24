@@ -1,6 +1,13 @@
 #pragma once
-#include "GrupEstudiMembershipService.h"
 #include "GrupEstudiService.h"
+#include "GrupEstudi.h"
+#include "GrupEstudiMembership.h"
+#include "GrupEstudiMembershipService.h"
+#include <vector>
+#include "Usuari.h"
+#include "CurrentSession.h"
+#include "GrupEstudi_EditarUI.h"
+#include "MessageManager.h"
 
 namespace CppCLRWinFormsProject {
 

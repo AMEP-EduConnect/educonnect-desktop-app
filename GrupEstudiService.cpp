@@ -1,11 +1,6 @@
 #include "pch.h"
-#include "DatabaseConnector.h"
 #include "GrupEstudiService.h"
-#include "GrupEstudiRepository.h"
-#include "GrupEstudi.h"
-#include "MessageManager.h"
-#include "Usuari.h"
-#include "CurrentSession.h"
+
 //#include "GrupsEstudiMembership.h"
 
 

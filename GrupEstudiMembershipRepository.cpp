@@ -1,9 +1,6 @@
 #include "pch.h"
 #include "GrupEstudiMembershipRepository.h"
-#include "GrupEstudi.h"
-#include "DatabaseConnector.h"
-#include "AcademicTag.h"
-#include "MessageManager.h"
+
 
 using namespace System;
 

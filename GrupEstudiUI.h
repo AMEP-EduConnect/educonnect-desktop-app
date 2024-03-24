@@ -1,5 +1,10 @@
 #pragma once
+#include "GrupEstudi.h"
 #include "GrupEstudiService.h"
+#include "AcademicTag.h"
+#include "MessageManager.h"
+using namespace System;
+
 using namespace MySql::Data::MySqlClient;
 namespace CppCLRWinFormsProject {
 
@@ -41,7 +46,7 @@ namespace CppCLRWinFormsProject {
 	private: System::Windows::Forms::Button^ CreateGrupButton;
 	private: System::Windows::Forms::Panel^ FormPanel;
 	private: GrupEstudiService^ grupEstudiService;
-	private: System::Windows::Forms::Button^ deleteGrupButton_Click;
+
 
 	protected:
 
@@ -69,7 +74,6 @@ namespace CppCLRWinFormsProject {
 			this->GrupDescriptionLabel = (gcnew System::Windows::Forms::Label());
 			this->CreateGrupButton = (gcnew System::Windows::Forms::Button());
 			this->FormPanel = (gcnew System::Windows::Forms::Panel());
-			this->deleteGrupButton_Click = (gcnew System::Windows::Forms::Button());
 			this->FormPanel->SuspendLayout();
 			this->SuspendLayout();
 			// 
@@ -197,22 +201,11 @@ namespace CppCLRWinFormsProject {
 			this->FormPanel->Size = System::Drawing::Size(454, 411);
 			this->FormPanel->TabIndex = 10;
 			// 
-			// deleteGrupButton_Click
-			// 
-			this->deleteGrupButton_Click->Location = System::Drawing::Point(746, 480);
-			this->deleteGrupButton_Click->Name = L"deleteGrupButton_Click";
-			this->deleteGrupButton_Click->Size = System::Drawing::Size(75, 23);
-			this->deleteGrupButton_Click->TabIndex = 11;
-			this->deleteGrupButton_Click->Text = L"deleteGrupButton_Click";
-			this->deleteGrupButton_Click->UseVisualStyleBackColor = true;
-			this->deleteGrupButton_Click->Click += gcnew System::EventHandler(this, &GrupEstudiUI::DeleteGrupButton_Click);
-			// 
 			// GrupEstudiUI
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(1175, 680);
-			this->Controls->Add(this->deleteGrupButton_Click);
 			this->Controls->Add(this->goBackButton);
 			this->Controls->Add(this->eduConnectLabel);
 			this->Controls->Add(this->pageTitle);
@@ -232,6 +225,5 @@ namespace CppCLRWinFormsProject {
 	private: System::Void CreateGrupButton_Click(System::Object^ sender, System::EventArgs^ e);
 	private: System::Void FormGrupNameTextBox_TextChanged(System::Object^ sender, System::EventArgs^ e);
 	private: System::Void FormGrupDescriptionTextBox_TextChanged(System::Object^ sender, System::EventArgs^ e);
-	private: System::Void DeleteGrupButton_Click(System::Object^ sender, System::EventArgs^ e);
 };
 }

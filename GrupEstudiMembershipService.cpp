@@ -1,10 +1,6 @@
 #include "pch.h"
-#include "DatabaseConnector.h"
 #include "GrupEstudiMembershipService.h"
-#include "GrupEstudiMembershipRepository.h"
-#include "GrupEstudiMembership.h"
-#include "GrupEstudi.h"
-#include "MessageManager.h"
+
 
 
 GrupEstudiMembershipService::GrupEstudiMembershipService()
