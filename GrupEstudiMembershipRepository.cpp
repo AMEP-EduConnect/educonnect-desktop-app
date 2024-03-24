@@ -16,7 +16,7 @@ array<Int64^>^ GrupEstudiMembershipRepository::LoadGrupsEstudiMembershipByUserId
 {
     array<Int64^>^ user_groupEstudiMembership = gcnew array<Int64^>(0);
     DatabaseConnector::Instance->Connect();
-    String^ sql = "SELECT user_group FROM studyGroupsMembership WHERE user_id = " + user_id;
+    String^ sql = "SELECT group_id FROM studyGroupsMembership WHERE user_id = " + user_id;
     MySqlDataReader^ data = DatabaseConnector::Instance->ExecuteInternCommand(sql);
     array<Int64^>^ tempArray = gcnew array<Int64^>(user_groupEstudiMembership->Length + 1);
     for (int i = 0; i < user_groupEstudiMembership->Length; i++)
@@ -35,12 +35,12 @@ array<Int64^>^ GrupEstudiMembershipRepository::LoadGrupsEstudiMembershipByUserId
 	data->Close();
 
 	// Crear un nuevo arreglo con el tama�o correcto
-	array<Int64^>^ tempArray = gcnew array<Int64^>(rowCount);
+	tempArray = gcnew array<Int64^>(rowCount);
 
 	// Volver a ejecutar la consulta
-	data = DatabaseConnector::Instance->ExecuteCommand(sql);
+	data = DatabaseConnector::Instance->ExecuteInternCommand(sql);
 
-	int index = 0;
+	index = 0;
 	while (data->Read())
 	{
 		tempArray[index++] = data->GetInt64(0);
@@ -57,7 +57,7 @@ GrupEstudi^ GrupEstudiMembershipRepository::LoadAllGrupEstudibyId(Int64 ^ group_
 {
 	DatabaseConnector::Instance->Connect();
 	String^ sql = "SELECT * FROM studyGroups WHERE id = " + group_id;
-	MySqlDataReader^ data = DatabaseConnector::Instance->ExecuteCommand(sql);
+	MySqlDataReader^ data = DatabaseConnector::Instance->ExecuteInternCommand(sql);
 	GrupEstudi^ grupestudi = gcnew GrupEstudi();
 	while (data->Read())
 	{
@@ -99,7 +99,7 @@ bool GrupEstudiMembershipRepository::CheckIfUserIsInGroup(Int64^ user_id, Int64^
 {
 	DatabaseConnector::Instance->Connect();
 	String^ sql = "SELECT * FROM studyGroupsMembership WHERE user_id = " + user_id + " AND group_id = " + group_id;
-	MySqlDataReader^ data = DatabaseConnector::Instance->ExecuteCommand(sql);
+	MySqlDataReader^ data = DatabaseConnector::Instance->ExecuteInternCommand(sql);
 	bool exists = data->HasRows;
 	DatabaseConnector::Instance->Disconnect();
 	return exists;
@@ -109,6 +109,6 @@ void GrupEstudiMembershipRepository::DeleteUserFromGroup(Int64^ user_id, Int64^ 
 {
 	DatabaseConnector::Instance->Connect();
 	String^ sql = "DELETE FROM studyGroupsMembership WHERE user_id = " + user_id + " AND group_id = " + group_id;
-	DatabaseConnector::Instance->ExecuteCommand(sql);
+	DatabaseConnector::Instance->ExecuteInternCommand(sql);
 	DatabaseConnector::Instance->Disconnect();
 }

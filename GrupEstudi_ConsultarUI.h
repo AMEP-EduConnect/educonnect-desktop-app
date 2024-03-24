@@ -42,8 +42,6 @@ namespace CppCLRWinFormsProject {
 
 	private: GrupEstudiMembershipService^ grupEstudiMembershipService;
 	private: System::Windows::Forms::Button^ button_Cancelar;
-	private: GrupEstudiMembershipService^ grupEstudiMembershipService;
-
 
 
 

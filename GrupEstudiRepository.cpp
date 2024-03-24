@@ -155,7 +155,7 @@ void GrupEstudiRepository::UpdateGroupDescription(String^ group_name_act, String
 bool GrupEstudiRepository::CheckIfUserExists(String^ user_name) {
 	DatabaseConnector::Instance->Connect();
 	String^ sql = "SELECT * FROM users WHERE username = '" + user_name + "'";
-	MySqlDataReader^ data = DatabaseConnector::Instance->ExecuteCommand(sql);
+	MySqlDataReader^ data = DatabaseConnector::Instance->ExecuteInternCommand(sql);
 	bool trobat = false;
 
 	// Verificar si hay al menos una fila devuelta por la consulta
@@ -172,7 +172,7 @@ bool GrupEstudiRepository::CheckIfUserExists(String^ user_name) {
 Int64^ GrupEstudiRepository::GetUserIdByName(String^ user_name) {
 	DatabaseConnector::Instance->Connect();
 	String^ sql = "SELECT id FROM users WHERE username = '" + user_name + "'";
-	MySqlDataReader^ data = DatabaseConnector::Instance->ExecuteCommand(sql);
+	MySqlDataReader^ data = DatabaseConnector::Instance->ExecuteInternCommand(sql);
 	Int64^ id_user;
 
 	while (data->Read())
@@ -189,7 +189,7 @@ Int64^ GrupEstudiRepository::GetUserIdByName(String^ user_name) {
 Int64^ GrupEstudiRepository::GetGroupIdByName(String^ group_name) {
 	DatabaseConnector::Instance->Connect();
 	String^ sql = "SELECT id FROM studyGroups WHERE group_name = '" + group_name + "'";
-	MySqlDataReader^ data = DatabaseConnector::Instance->ExecuteCommand(sql);
+	MySqlDataReader^ data = DatabaseConnector::Instance->ExecuteInternCommand(sql);
 	Int64^ id_group;
 
 	while (data->Read())
@@ -206,7 +206,7 @@ Int64^ GrupEstudiRepository::GetGroupIdByName(String^ group_name) {
 bool GrupEstudiRepository::CheckUserIsOwner(Int64^ currentUser, String^ group_name) {
 	DatabaseConnector::Instance->Connect();
 	String^ sql = "SELECT * FROM studyGroups WHERE group_owner_id = " + currentUser + " AND group_name = '" + group_name + "'";
-	MySqlDataReader^ data = DatabaseConnector::Instance->ExecuteCommand(sql);
+	MySqlDataReader^ data = DatabaseConnector::Instance->ExecuteInternCommand(sql);
 	bool owner = false;
 
 	if (data->Read()) {
