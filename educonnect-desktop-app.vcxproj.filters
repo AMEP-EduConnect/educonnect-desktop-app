@@ -100,6 +100,9 @@
     <ClInclude Include="Usuari.h">
       <Filter>Source Files\entities</Filter>
     </ClInclude>
+    <ClInclude Include="GrupEstudi_AssignarUI.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CppCLR_WinFormsProject.cpp">
@@ -170,6 +173,9 @@
     </ClCompile>
     <ClCompile Include="Usuari.cpp">
       <Filter>Source Files\entities</Filter>
+    </ClCompile>
+    <ClCompile Include="GrupEstudi_AssignarUI.cpp">
+      <Filter>Source Files\ui</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

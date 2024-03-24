@@ -2,6 +2,7 @@
 #include "GrupEstudiRepository.h"
 #include <vector>
 #include "AcademicTag.h"
+#include "Usuari.h"
 public ref class GrupEstudiService
 {
 public:
@@ -18,6 +19,12 @@ public:
 	void ModifyGroupDescription(String^ group_name_act, String^ description_new);
 
 	bool CheckIfGroupExists(String^ group_name_act);
+	bool CheckIfUserExists(String^ user_name);
+
+	Int64^ GetUserIdByName(String^ user_name);
+	Int64^ GetGroupIdByName(String^ group_name);
+
+	bool CheckUserIsOwner(Int64^ currentUser, String^ group_name);
 
 
 private:
