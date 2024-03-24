@@ -29,17 +29,50 @@ void DatabaseConnector::Disconnect()
     conn->Close();
 }
 
-MySqlDataReader^ DatabaseConnector::ExecuteCommand(String^ sql)
-{
-    MySqlCommand^ cmd = gcnew MySqlCommand(sql, this->conn);
-    MySqlDataReader^ dataReader;
-    try {
-        dataReader = cmd->ExecuteReader();
-    }
-    catch (InvalidOperationException^ ex) {
-		MessageManager::ErrorMessage(ex->Message);
-        this->Connect();
+//MySqlDataReader^ DatabaseConnector::ExecuteCommand(String^ sql)
+//{
+//    MySqlCommand^ cmd = gcnew MySqlCommand(sql, this->conn);
+//    MySqlDataReader^ dataReader;
+//    try {
+//        dataReader = cmd->ExecuteReader();
+//    }
+//    catch (InvalidOperationException^ ex) {
+//		MessageManager::ErrorMessage(ex->Message);
+//        this->Connect();
+//	}
+//}
+
+MySqlDataReader^ DatabaseConnector::ExecuteClientCommand(String^ sql, Dictionary<String^, Object^>^ params) {
+	MySqlCommand^ cmd = gcnew MySqlCommand(sql, this->conn);
+	if (params != nullptr) {
+		for each (KeyValuePair<String^, Object^> kvp in params) {
+			cmd->Parameters->AddWithValue(kvp.Key, kvp.Value);
+		}
 	}
-    
-    return dataReader;
+	MySqlDataReader^ dataReader = nullptr;
+	try {
+		dataReader = cmd->ExecuteReader();
+	}
+	catch (InvalidOperationException^ ex) {
+		MessageManager::ErrorMessage(ex->Message);
+		this->Connect();
+	}
+	return dataReader;
 }
+
+
+MySqlDataReader^ DatabaseConnector::ExecuteInternCommand(String^ sql)
+{
+	MySqlCommand^ cmd = gcnew MySqlCommand(sql, this->conn);
+	MySqlDataReader^ dataReader;
+	try {
+		dataReader = cmd->ExecuteReader();
+	}
+	catch (InvalidOperationException^ ex) {
+		MessageManager::ErrorMessage(ex->Message);
+		this->Connect();
+	}
+
+	return dataReader;
+}
+

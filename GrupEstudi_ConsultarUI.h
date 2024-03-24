@@ -20,7 +20,7 @@ namespace CppCLRWinFormsProject {
 
 	protected:
 		/// <summary>
-		/// Limpiar los recursos que se estén usando.
+		/// Limpiar los recursos que se estï¿½n usando.
 		/// </summary>
 		~GrupEstudi_ConsultarUI()
 		{
@@ -42,6 +42,7 @@ namespace CppCLRWinFormsProject {
 
 	private: GrupEstudiMembershipService^ grupEstudiMembershipService;
 	private: System::Windows::Forms::Button^ button_Cancelar;
+	private: GrupEstudiMembershipService^ grupEstudiMembershipService;
 
 
 
@@ -51,14 +52,14 @@ namespace CppCLRWinFormsProject {
 
 	private:
 		/// <summary>
-		/// Variable del diseñador necesaria.
+		/// Variable del diseï¿½ador necesaria.
 		/// </summary>
 		System::ComponentModel::Container ^components;
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
-		/// Método necesario para admitir el Diseñador. No se puede modificar
-		/// el contenido de este método con el editor de código.
+		/// Mï¿½todo necesario para admitir el Diseï¿½ador. No se puede modificar
+		/// el contenido de este mï¿½todo con el editor de cï¿½digo.
 		/// </summary>
 		void InitializeComponent(void)
 		{

@@ -16,10 +16,17 @@ array<Int64^>^ GrupEstudiMembershipRepository::LoadGrupsEstudiMembershipByUserId
 {
     array<Int64^>^ user_groupEstudiMembership = gcnew array<Int64^>(0);
     DatabaseConnector::Instance->Connect();
-    String^ sql = "SELECT group_id FROM studyGroupsMembership WHERE user_id = " + user_id;
-    MySqlDataReader^ data = DatabaseConnector::Instance->ExecuteCommand(sql);
+    String^ sql = "SELECT user_group FROM studyGroupsMembership WHERE user_id = " + user_id;
+    MySqlDataReader^ data = DatabaseConnector::Instance->ExecuteInternCommand(sql);
+    array<Int64^>^ tempArray = gcnew array<Int64^>(user_groupEstudiMembership->Length + 1);
+    for (int i = 0; i < user_groupEstudiMembership->Length; i++)
+    {
+        tempArray[i] = user_groupEstudiMembership[i];
+    }
+    user_groupEstudiMembership = tempArray;
+    int index = user_groupEstudiMembership->Length;
 
-	// Obtener el número de filas
+	// Obtener el nï¿½mero de filas
 	int rowCount = 0;
 	while (data->Read())
 	{
@@ -27,7 +34,7 @@ array<Int64^>^ GrupEstudiMembershipRepository::LoadGrupsEstudiMembershipByUserId
 	}
 	data->Close();
 
-	// Crear un nuevo arreglo con el tamaño correcto
+	// Crear un nuevo arreglo con el tamaï¿½o correcto
 	array<Int64^>^ tempArray = gcnew array<Int64^>(rowCount);
 
 	// Volver a ejecutar la consulta
@@ -66,7 +73,7 @@ GrupEstudi^ GrupEstudiMembershipRepository::LoadAllGrupEstudibyId(Int64 ^ group_
 
 
 
-//Crear nova instància de membership;
+//Crear nova instï¿½ncia de membership;
 //PREGUNTAR SOBRE LA VARIABLE DateTime;
 void GrupEstudiMembershipRepository::UserToGroup(Int64 ^ user_id, Int64 ^ group_id) {
 	DatabaseConnector::Instance->Connect();
@@ -76,7 +83,7 @@ void GrupEstudiMembershipRepository::UserToGroup(Int64 ^ user_id, Int64 ^ group_
 	try {
 		MySqlCommand^ command = gcnew MySqlCommand(sql, DatabaseConnector::Instance->GetConn());
 
-		// Agregamos los parámetros a la consulta
+		// Agregamos los parï¿½metros a la consulta
 		command->Parameters->AddWithValue("@UserId", user_id);
 		command->Parameters->AddWithValue("@GroupId", group_id);
 

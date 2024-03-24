@@ -12,7 +12,7 @@ namespace CppCLRWinFormsProject {
     GrupEstudi_ConsultarUI::GrupEstudi_ConsultarUI(void)
     {
         InitializeComponent();
-        grupEstudiMembershipService = gcnew GrupEstudiMembershipService;
+        grupEstudiMembershipService = gcnew GrupEstudiMembershipService();
     }
 
     void GrupEstudi_ConsultarUI::button_Consultar(System::Object^ sender, System::EventArgs^ e)
