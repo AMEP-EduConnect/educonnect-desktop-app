@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -189,6 +189,34 @@
     <ResourceCompile Include="app.rc" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CurrentSession.h" />
+    <ClInclude Include="DatabaseConnector.h" />
+    <ClInclude Include="FirstPage.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="IniciSessio.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="MainPage.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="MessageManager.h" />
+    <ClInclude Include="MyForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="pch.h" />
+    <ClInclude Include="Professor.h" />
+    <ClInclude Include="ProfessorRepository.h" />
+    <ClInclude Include="ProfessorService.h" />
+    <ClInclude Include="RegistreUsuari.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="Resource.h" />
+    <ClInclude Include="TxIniciSessio.h" />
+    <ClInclude Include="TxRegistre.h" />
+    <ClInclude Include="Usuari.h" />
+    <ClInclude Include="UsuariRepository.h" />
+    <ClInclude Include="Utils.h" />
     <ClInclude Include="MainPage.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -198,6 +226,13 @@
   <ItemGroup>
     <ClCompile Include="AssemblyInfo.cpp" />
     <ClCompile Include="CppCLR_WinFormsProject.cpp" />
+    <ClCompile Include="CurrentSession.cpp" />
+    <ClCompile Include="DatabaseConnector.cpp" />
+    <ClCompile Include="FirstPage.cpp" />
+    <ClCompile Include="IniciSessio.cpp" />
+    <ClCompile Include="MainPage.cpp" />
+    <ClCompile Include="MessageManager.cpp" />
+    <ClCompile Include="MyForm.cpp" />
     <ClCompile Include="MainPage.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
@@ -207,6 +242,15 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="Professor.cpp" />
+    <ClCompile Include="ProfessorRepository.cpp" />
+    <ClCompile Include="ProfessorService.cpp" />
+    <ClCompile Include="RegistreUsuari.cpp" />
+    <ClCompile Include="TxIniciSessio.cpp" />
+    <ClCompile Include="TxRegistre.cpp" />
+    <ClCompile Include="Usuari.cpp" />
+    <ClCompile Include="UsuariRepository.cpp" />
+    <ClCompile Include="Utils.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="app.ico" />
@@ -222,9 +266,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="FirstPage.resx">
+      <DependentUpon>FirstPage.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IniciSessio.resx">
+      <DependentUpon>IniciSessio.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainPage.resx">
       <DependentUpon>MainPage.h</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MyForm.resx">
+      <DependentUpon>MyForm.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RegistreUsuari.resx">
+      <DependentUpon>RegistreUsuari.h</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Xml Include="credentials.xml" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
