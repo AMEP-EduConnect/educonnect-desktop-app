@@ -89,8 +89,6 @@ void GrupEstudiRepository::DeleteGrupEstudi(String^ group_name)
 	int rowsAffected = command->ExecuteNonQuery();
 
 	DatabaseConnector::Instance->Disconnect();
-
-	Console::WriteLine(rowsAffected + " rows deleted.");
 }	
 
 

@@ -1,5 +1,6 @@
 #pragma once
 #include "GrupEstudiRepository.h"
+#include "GrupEstudiMembershipService.h"
 #include <vector>
 #include "AcademicTag.h"
 #include "Usuari.h"
@@ -29,4 +30,5 @@ public:
 
 private:
 	GrupEstudiRepository^ grupEstudiRepository;
+	GrupEstudiMembershipService^ grupEstudiMembershipService;
 };

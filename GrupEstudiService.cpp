@@ -12,6 +12,7 @@
 GrupEstudiService::GrupEstudiService()
 {
 	grupEstudiRepository = gcnew GrupEstudiRepository();
+	grupEstudiMembershipService = gcnew GrupEstudiMembershipService();
 	//DatabaseConnector::Instance = gcnew DatabaseConnector();
 }
 
@@ -31,6 +32,7 @@ void GrupEstudiService::CreateNewGrupEstudi(String^ group_name, String^ descript
 			Int64^ academic_tag_id = grupEstudiRepository->GetAcademicTagByTagName(academic_tag);
 			Usuari^ currentUser = CurrentSession::Instance->GetCurrentUser();
 			grupEstudiRepository->CreateNewGrupEstudi(group_name, description, academic_tag_id, currentUser->GetUserId());
+			grupEstudiMembershipService->UserToGroup(currentUser->GetUserId(), grupEstudiRepository->GetGroupIdByName(group_name));
 		}
 	}
 	catch (Exception^ e) {
@@ -41,12 +43,10 @@ void GrupEstudiService::CreateNewGrupEstudi(String^ group_name, String^ descript
 
 void GrupEstudiService::DeleteGrupEstudi(String^ grup_name)
 {
-	try {
-		this->CheckIfCurrentUserIsGroupOwner(grup_name);
+	Usuari^ currentUser = CurrentSession::Instance->GetCurrentUser();
+	bool isOwner = this->CheckUserIsOwner(currentUser->GetUserId(), grup_name);
+	if (isOwner) {
 		grupEstudiRepository->DeleteGrupEstudi(grup_name);
-	}
-	catch (Exception^ e) {
-		MessageManager::ErrorMessage(e->Message);
 	}
 	
 }
@@ -58,7 +58,7 @@ bool GrupEstudiService::CheckIfCurrentUserIsGroupOwner(String^ grup_name) {
 		return true;
 	}
 	else {
-		MessageManager::WarningMessage("No tens permisos per a realitzar aquesta acció!");
+		throw gcnew Exception("No tens permisos per a realitzar aquesta acció!");
 		return false;
 	}
 }
