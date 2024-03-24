@@ -11,6 +11,7 @@ using namespace System;
 #include "MyForm.h"
 #include "GrupEstudi_EditarUI.h"
 #include "GrupEstudiUI.h"
+#include "GrupEstudi_ConsultarUI.h"
 #include "DatabaseConnector.h"
 #include "CurrentSession.h"
 #include "Usuari.h"

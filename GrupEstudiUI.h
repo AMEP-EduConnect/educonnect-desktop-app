@@ -41,6 +41,7 @@ namespace CppCLRWinFormsProject {
 	private: System::Windows::Forms::Button^ CreateGrupButton;
 	private: System::Windows::Forms::Panel^ FormPanel;
 	private: GrupEstudiService^ grupEstudiService;
+	private: System::Windows::Forms::Button^ deleteGrupButton_Click;
 
 	protected:
 
@@ -68,6 +69,7 @@ namespace CppCLRWinFormsProject {
 			this->GrupDescriptionLabel = (gcnew System::Windows::Forms::Label());
 			this->CreateGrupButton = (gcnew System::Windows::Forms::Button());
 			this->FormPanel = (gcnew System::Windows::Forms::Panel());
+			this->deleteGrupButton_Click = (gcnew System::Windows::Forms::Button());
 			this->FormPanel->SuspendLayout();
 			this->SuspendLayout();
 			// 
@@ -76,7 +78,6 @@ namespace CppCLRWinFormsProject {
 			this->pageTitle->AutoSize = true;
 			this->pageTitle->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-
 			this->pageTitle->ForeColor = System::Drawing::SystemColors::HotTrack;
 			this->pageTitle->Location = System::Drawing::Point(85, 76);
 			this->pageTitle->Name = L"pageTitle";
@@ -110,12 +111,12 @@ namespace CppCLRWinFormsProject {
 			// FormGrupNameLabel
 			// 
 			this->FormGrupNameLabel->AutoSize = true;
+			this->FormGrupNameLabel->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Regular,
+				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
+			this->FormGrupNameLabel->ForeColor = System::Drawing::SystemColors::HotTrack;
 			this->FormGrupNameLabel->Location = System::Drawing::Point(20, 22);
 			this->FormGrupNameLabel->Name = L"FormGrupNameLabel";
-			this->FormGrupNameLabel->ForeColor = System::Drawing::SystemColors::HotTrack;
-			this->FormGrupNameLabel->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->FormGrupNameLabel->Size = System::Drawing::Size(29, 13);
+			this->FormGrupNameLabel->Size = System::Drawing::Size(36, 16);
 			this->FormGrupNameLabel->TabIndex = 3;
 			this->FormGrupNameLabel->Text = L"Nom";
 			// 
@@ -139,12 +140,12 @@ namespace CppCLRWinFormsProject {
 			// AcademicTagLabel
 			// 
 			this->AcademicTagLabel->AutoSize = true;
-			this->AcademicTagLabel->Location = System::Drawing::Point(20, 97);
-			this->AcademicTagLabel->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->AcademicTagLabel->Name = L"AcademicTagLabel";
+			this->AcademicTagLabel->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Regular,
+				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
 			this->AcademicTagLabel->ForeColor = System::Drawing::SystemColors::HotTrack;
-			this->AcademicTagLabel->Size = System::Drawing::Size(42, 13);
+			this->AcademicTagLabel->Location = System::Drawing::Point(20, 97);
+			this->AcademicTagLabel->Name = L"AcademicTagLabel";
+			this->AcademicTagLabel->Size = System::Drawing::Size(52, 16);
 			this->AcademicTagLabel->TabIndex = 6;
 			this->AcademicTagLabel->Text = L"Materia";
 			// 
@@ -161,12 +162,12 @@ namespace CppCLRWinFormsProject {
 			// GrupDescriptionLabel
 			// 
 			this->GrupDescriptionLabel->AutoSize = true;
+			this->GrupDescriptionLabel->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Regular,
+				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
+			this->GrupDescriptionLabel->ForeColor = System::Drawing::SystemColors::HotTrack;
 			this->GrupDescriptionLabel->Location = System::Drawing::Point(20, 190);
 			this->GrupDescriptionLabel->Name = L"GrupDescriptionLabel";
-			this->GrupDescriptionLabel->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->GrupDescriptionLabel->ForeColor = System::Drawing::SystemColors::HotTrack;
-			this->GrupDescriptionLabel->Size = System::Drawing::Size(57, 13);
+			this->GrupDescriptionLabel->Size = System::Drawing::Size(72, 16);
 			this->GrupDescriptionLabel->TabIndex = 7;
 			this->GrupDescriptionLabel->Text = L"Descripció";
 			// 
@@ -196,11 +197,22 @@ namespace CppCLRWinFormsProject {
 			this->FormPanel->Size = System::Drawing::Size(454, 411);
 			this->FormPanel->TabIndex = 10;
 			// 
+			// deleteGrupButton_Click
+			// 
+			this->deleteGrupButton_Click->Location = System::Drawing::Point(746, 480);
+			this->deleteGrupButton_Click->Name = L"deleteGrupButton_Click";
+			this->deleteGrupButton_Click->Size = System::Drawing::Size(75, 23);
+			this->deleteGrupButton_Click->TabIndex = 11;
+			this->deleteGrupButton_Click->Text = L"deleteGrupButton_Click";
+			this->deleteGrupButton_Click->UseVisualStyleBackColor = true;
+			this->deleteGrupButton_Click->Click += gcnew System::EventHandler(this, &GrupEstudiUI::DeleteGrupButton_Click);
+			// 
 			// GrupEstudiUI
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(1175, 680);
+			this->Controls->Add(this->deleteGrupButton_Click);
 			this->Controls->Add(this->goBackButton);
 			this->Controls->Add(this->eduConnectLabel);
 			this->Controls->Add(this->pageTitle);
@@ -220,5 +232,6 @@ namespace CppCLRWinFormsProject {
 	private: System::Void CreateGrupButton_Click(System::Object^ sender, System::EventArgs^ e);
 	private: System::Void FormGrupNameTextBox_TextChanged(System::Object^ sender, System::EventArgs^ e);
 	private: System::Void FormGrupDescriptionTextBox_TextChanged(System::Object^ sender, System::EventArgs^ e);
+	private: System::Void DeleteGrupButton_Click(System::Object^ sender, System::EventArgs^ e);
 };
 }

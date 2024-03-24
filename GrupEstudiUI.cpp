@@ -43,4 +43,20 @@ namespace CppCLRWinFormsProject {
     void GrupEstudiUI::FormGrupDescriptionTextBox_TextChanged(System::Object^ sender, System::EventArgs^ e)
     {
     }
+
+    void GrupEstudiUI::DeleteGrupButton_Click(System::Object^ sender, System::EventArgs^ e)
+    {
+
+        String^ DEBUG_grupName = "tete6";
+        bool exists = grupEstudiService->CheckIfGroupExists(DEBUG_grupName);
+
+        if (exists) {
+			grupEstudiService->DeleteGrupEstudi(DEBUG_grupName);
+		}
+        else {
+			MessageManager::WarningMessage("No existeix cap grup amb aquest nom.");
+		}
+
+        
+	}
 }

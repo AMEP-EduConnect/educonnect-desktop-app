@@ -75,6 +75,22 @@ Int64^ GrupEstudiRepository::GetAcademicTagByTagName(String^ academic_tag)
 	return tagId;
 }
 
+void GrupEstudiRepository::DeleteGrupEstudi(String^ group_name)
+{
+	DatabaseConnector::Instance->Connect();
+
+	String^ sql = "DELETE FROM studyGroups WHERE group_name = @GroupName";
+	MySqlCommand^ command = gcnew MySqlCommand(sql, DatabaseConnector::Instance->GetConn());
+
+	command->Parameters->AddWithValue("@GroupName", group_name);
+
+	int rowsAffected = command->ExecuteNonQuery();
+
+	DatabaseConnector::Instance->Disconnect();
+
+	Console::WriteLine(rowsAffected + " rows deleted.");
+}	
+
 
 //ZITRO STUFF
 // 

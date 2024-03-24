@@ -39,6 +39,30 @@ void GrupEstudiService::CreateNewGrupEstudi(String^ group_name, String^ descript
 	
 }
 
+void GrupEstudiService::DeleteGrupEstudi(String^ grup_name)
+{
+	try {
+		this->CheckIfCurrentUserIsGroupOwner(grup_name);
+		grupEstudiRepository->DeleteGrupEstudi(grup_name);
+	}
+	catch (Exception^ e) {
+		MessageManager::ErrorMessage(e->Message);
+	}
+	
+}
+
+bool GrupEstudiService::CheckIfCurrentUserIsGroupOwner(String^ grup_name) {
+	Usuari^ currentUser = CurrentSession::Instance->GetCurrentUser();
+	GrupEstudi^ grup = grupEstudiRepository->GetGrupEstudiByName(grup_name);
+	if (grup->GetGroupOwnerId() == currentUser->GetUserId()) {
+		return true;
+	}
+	else {
+		MessageManager::WarningMessage("No tens permisos per a realitzar aquesta acció!");
+		return false;
+	}
+}
+
 //ZITRO STUFF
 // 
 //

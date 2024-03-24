@@ -7,7 +7,7 @@ public:
 	GrupEstudiRepository();
 	array<AcademicTag^>^ LoadAllAcademicTags();
 	void CreateNewGrupEstudi(String^ group_name, String^ description, Int64^ academic_tag_id, Int64^ current_user_id);
-
+	void DeleteGrupEstudi(String^ group_name);
 	Int64^ GetAcademicTagByTagName(String^ academic_tag);
 
 //ZITRO STUFF
