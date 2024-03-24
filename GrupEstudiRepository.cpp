@@ -13,7 +13,7 @@ array<AcademicTag^>^ GrupEstudiRepository::LoadAllAcademicTags()
 	array<AcademicTag^>^ academicTags = gcnew array<AcademicTag^>(0);
 	DatabaseConnector::Instance->Connect();
 	String^ sql = "SELECT * FROM academicTags";
-	MySqlDataReader^ data = DatabaseConnector::Instance->ExecuteCommand(sql);
+	MySqlDataReader^ data = DatabaseConnector::Instance->ExecuteInternCommand(sql);
 	while (data->Read())
 	{
 		AcademicTag^ academicTag = gcnew AcademicTag();
@@ -52,7 +52,7 @@ Int64^ GrupEstudiRepository::GetAcademicTagByTagName(String^ academic_tag)
 {
 	DatabaseConnector::Instance->Connect();
 	String^ sql = "SELECT id FROM academicTags WHERE tag_name = '" + academic_tag + "'";
-	MySqlDataReader^ data = DatabaseConnector::Instance->ExecuteCommand(sql);
+	MySqlDataReader^ data = DatabaseConnector::Instance->ExecuteInternCommand(sql);
 	Int64^ tagId = nullptr;
 
 	try
@@ -84,7 +84,7 @@ GrupEstudi^ GrupEstudiRepository::GetGrupEstudiById(Int64^ id)
 {
 	DatabaseConnector::Instance->Connect();
 	String^ sql = "SELECT * FROM studyGroups WHERE id = " + id;
-	MySqlDataReader^ data = DatabaseConnector::Instance->ExecuteCommand(sql);
+	MySqlDataReader^ data = DatabaseConnector::Instance->ExecuteInternCommand(sql);
 	GrupEstudi^ grupestudi = gcnew GrupEstudi();
 	while (data->Read())
 	{
@@ -100,7 +100,7 @@ GrupEstudi^ GrupEstudiRepository::GetGrupEstudiById(Int64^ id)
 GrupEstudi^ GrupEstudiRepository::GetGrupEstudiByName(String^ group_name_act) {
 	DatabaseConnector::Instance->Connect();
 	String^ sql = "SELECT * FROM studyGroups WHERE group_name = '" + group_name_act + "'";
-	MySqlDataReader^ data = DatabaseConnector::Instance->ExecuteCommand(sql);
+	MySqlDataReader^ data = DatabaseConnector::Instance->ExecuteInternCommand(sql);
 	GrupEstudi^ grupestudi = gcnew GrupEstudi();
 
 	while (data->Read())

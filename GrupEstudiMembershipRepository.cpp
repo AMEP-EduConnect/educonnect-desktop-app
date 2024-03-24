@@ -15,7 +15,7 @@ array<Int64^>^ GrupEstudiMembershipRepository::LoadGrupsEstudiMembershipByUserId
     array<Int64^>^ user_groupEstudiMembership = gcnew array<Int64^>(0);
     DatabaseConnector::Instance->Connect();
     String^ sql = "SELECT user_group FROM studyGroupsMembership WHERE user_id = " + user_id;
-    MySqlDataReader^ data = DatabaseConnector::Instance->ExecuteCommand(sql);
+    MySqlDataReader^ data = DatabaseConnector::Instance->ExecuteInternCommand(sql);
     array<Int64^>^ tempArray = gcnew array<Int64^>(user_groupEstudiMembership->Length + 1);
     for (int i = 0; i < user_groupEstudiMembership->Length; i++)
     {

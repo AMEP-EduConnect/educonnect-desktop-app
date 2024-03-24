@@ -29,19 +29,20 @@ void DatabaseConnector::Disconnect()
     conn->Close();
 }
 
-MySqlDataReader^ DatabaseConnector::ExecuteCommand(String^ sql)
-{
-    MySqlCommand^ cmd = gcnew MySqlCommand(sql, this->conn);
-    MySqlDataReader^ dataReader;
-    try {
-        dataReader = cmd->ExecuteReader();
-    }
-    catch (InvalidOperationException^ ex) {
-		MessageManager::ErrorMessage(ex->Message);
-        this->Connect();
-	}
-}
-MySqlDataReader^ DatabaseConnector::executeClientCommand(String^ sql, Dictionary<String^, Object^>^ params) {
+//MySqlDataReader^ DatabaseConnector::ExecuteCommand(String^ sql)
+//{
+//    MySqlCommand^ cmd = gcnew MySqlCommand(sql, this->conn);
+//    MySqlDataReader^ dataReader;
+//    try {
+//        dataReader = cmd->ExecuteReader();
+//    }
+//    catch (InvalidOperationException^ ex) {
+//		MessageManager::ErrorMessage(ex->Message);
+//        this->Connect();
+//	}
+//}
+
+MySqlDataReader^ DatabaseConnector::ExecuteClientCommand(String^ sql, Dictionary<String^, Object^>^ params) {
 	MySqlCommand^ cmd = gcnew MySqlCommand(sql, this->conn);
 	if (params != nullptr) {
 		for each (KeyValuePair<String^, Object^> kvp in params) {
@@ -53,14 +54,14 @@ MySqlDataReader^ DatabaseConnector::executeClientCommand(String^ sql, Dictionary
 		dataReader = cmd->ExecuteReader();
 	}
 	catch (InvalidOperationException^ ex) {
-		//MessageManager::ErrorMessage(ex->Message);
-		this->connect();
+		MessageManager::ErrorMessage(ex->Message);
+		this->Connect();
 	}
 	return dataReader;
 }
 
 
-MySqlDataReader^ DatabaseConnector::executeInternCommand(String^ sql)
+MySqlDataReader^ DatabaseConnector::ExecuteInternCommand(String^ sql)
 {
 	MySqlCommand^ cmd = gcnew MySqlCommand(sql, this->conn);
 	MySqlDataReader^ dataReader;
@@ -68,10 +69,10 @@ MySqlDataReader^ DatabaseConnector::executeInternCommand(String^ sql)
 		dataReader = cmd->ExecuteReader();
 	}
 	catch (InvalidOperationException^ ex) {
-		//MessageManager::ErrorMessage(ex->Message);
-		this->connect();
+		MessageManager::ErrorMessage(ex->Message);
+		this->Connect();
 	}
 
 	return dataReader;
 }
-}
+
