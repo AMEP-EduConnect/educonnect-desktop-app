@@ -2,12 +2,12 @@
 #include "UsuariRepository.h"
 #include "DatabaseConnector.h"
 #include "Usuari.h"
-public ref class TxRegistre
+public ref class RegistreService
 {
 	
 	public:
 
-		TxRegistre();
+		RegistreService();
 
 		bool CheckUsername(String^ username);
         bool CheckEmail(String^ email);

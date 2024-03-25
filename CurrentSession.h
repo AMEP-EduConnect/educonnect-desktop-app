@@ -1,5 +1,6 @@
 #pragma once
 #include "Usuari.h"
+#include "MessageManager.h"
 using namespace System;
 
 public ref class CurrentSession

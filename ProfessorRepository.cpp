@@ -9,7 +9,7 @@ ProfessorRepository::ProfessorRepository()
 
 Professor^ ProfessorRepository::GetProfessorById(Int64^ id)
 {
-	//DatabaseConnector::Instance->connect();
+	//DatabaseConnector::Instance->Connect();
 	//String^ sql = "SELECT * FROM professors WHERE id = " + id;
 	//MySqlDataReader^ data = DatabaseConnector::Instance->executeCommand(sql);
 	Professor^ professor = gcnew Professor();
@@ -20,6 +20,6 @@ Professor^ ProfessorRepository::GetProfessorById(Int64^ id)
 		professor->surname = data->GetString(2);
 	}*/
 	return professor;
-
 }
+
 

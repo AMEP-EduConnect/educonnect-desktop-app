@@ -1,7 +1,7 @@
 #include "pch.h"
 #include "CurrentSession.h"
-#include "MessageManager.h"
-//Singleton class to connect to get current session information
+
+//Singleton class to Connect to get current session information
 CurrentSession::CurrentSession()
 {
 	currentUser = nullptr;

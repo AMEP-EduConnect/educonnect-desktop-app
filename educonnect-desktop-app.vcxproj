@@ -215,45 +215,73 @@
     <ResourceCompile Include="app.rc" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AcademicTag.h" />
     <ClInclude Include="CurrentSession.h" />
     <ClInclude Include="DatabaseConnector.h" />
-    <ClInclude Include="FirstPage.h">
+    <ClInclude Include="GrupEstudi.h" />
+    <ClInclude Include="GrupEstudiMembershipRepository.h" />
+    <ClInclude Include="GrupEstudiMembershipService.h" />
+    <ClInclude Include="GrupEstudiRepository.h" />
+    <ClInclude Include="GrupEstudiService.h" />
+    <ClInclude Include="GrupEstudi_ConsultarUI.h">
       <FileType>CppForm</FileType>
     </ClInclude>
-    <ClInclude Include="IniciSessio.h">
+    <ClInclude Include="GrupEstudi_CrearUI.h">
       <FileType>CppForm</FileType>
     </ClInclude>
-    <ClInclude Include="MainPage.h">
+    <ClInclude Include="GrupEstudi_AssignarUI.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="GrupEstudi_EditarUI.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="GrupEstudiMembership.h" />
+    <ClInclude Include="CurrentSession.h" />
+    <ClInclude Include="DatabaseConnector.h" />
+    <ClInclude Include="FirstPageUI.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="IniciSessioUI.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="MainPageUI.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="MessageManager.h" />
-    <ClInclude Include="MyForm.h">
-      <FileType>CppForm</FileType>
-    </ClInclude>
     <ClInclude Include="pch.h" />
     <ClInclude Include="Professor.h" />
     <ClInclude Include="ProfessorRepository.h" />
     <ClInclude Include="ProfessorService.h" />
-    <ClInclude Include="RegistreUsuari.h">
+    <ClInclude Include="RegistreUsuariUI.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="Resource.h" />
-    <ClInclude Include="TxIniciSessio.h" />
-    <ClInclude Include="TxRegistre.h" />
+    <ClInclude Include="IniciSessioService.h" />
+    <ClInclude Include="RegistreService.h" />
     <ClInclude Include="Usuari.h" />
     <ClInclude Include="UsuariRepository.h" />
     <ClInclude Include="Utils.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="AcademicTag.cpp" />
     <ClCompile Include="AssemblyInfo.cpp" />
     <ClCompile Include="CppCLR_WinFormsProject.cpp" />
     <ClCompile Include="CurrentSession.cpp" />
     <ClCompile Include="DatabaseConnector.cpp" />
-    <ClCompile Include="FirstPage.cpp" />
-    <ClCompile Include="IniciSessio.cpp" />
-    <ClCompile Include="MainPage.cpp" />
+    <ClCompile Include="IniciSessioUI.cpp" />
+    <ClCompile Include="FirstPageUI.cpp" />
+    <ClCompile Include="GrupEstudi.cpp" />
+    <ClCompile Include="GrupEstudiMembershipRepository.cpp" />
+    <ClCompile Include="GrupEstudiMembershipService.cpp" />
+    <ClCompile Include="GrupEstudiRepository.cpp" />
+    <ClCompile Include="GrupEstudiService.cpp" />
+    <ClCompile Include="GrupEstudi_CrearUI.cpp" />
+    <ClCompile Include="GrupEstudi_AssignarUI.cpp" />
+    <ClCompile Include="GrupEstudi_ConsultarUI.cpp" />
+    <ClCompile Include="GrupEstudi_EditarUI.cpp" />
+    <ClCompile Include="GrupEstudiMembership.cpp" />
+    <ClCompile Include="MainPageUI.cpp" />
     <ClCompile Include="MessageManager.cpp" />
-    <ClCompile Include="MyForm.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='EduConnect|x64'">Create</PrecompiledHeader>
@@ -265,11 +293,11 @@
     <ClCompile Include="Professor.cpp" />
     <ClCompile Include="ProfessorRepository.cpp" />
     <ClCompile Include="ProfessorService.cpp" />
-    <ClCompile Include="RegistreUsuari.cpp" />
-    <ClCompile Include="TxIniciSessio.cpp" />
-    <ClCompile Include="TxRegistre.cpp" />
     <ClCompile Include="Usuari.cpp" />
     <ClCompile Include="UsuariRepository.cpp" />
+    <ClCompile Include="RegistreService.cpp" />
+    <ClCompile Include="IniciSessioService.cpp" />
+    <ClCompile Include="RegistreUsuariUI.cpp" />
     <ClCompile Include="Utils.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -287,11 +315,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="MainPage.resx">
-      <DependentUpon>MainPage.h</DependentUpon>
+    <EmbeddedResource Include="GrupEstudi_CrearUI.resx">
+      <DependentUpon>GrupEstudi_CrearUI.h</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MyForm.resx">
-      <DependentUpon>MyForm.h</DependentUpon>
+    <EmbeddedResource Include="GrupEstudi_AssignarUI.resx">
+      <DependentUpon>GrupEstudi_AssignarUI.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GrupEstudi_EditarUI.resx">
+      <DependentUpon>GrupEstudi_EditarUI.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainPageUI.resx">
+      <DependentUpon>MainPageUI.h</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

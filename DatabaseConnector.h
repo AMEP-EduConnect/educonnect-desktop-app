@@ -1,4 +1,7 @@
 #pragma once
+#include "Utils.h"
+#include "MessageManager.h"
+
 using namespace System;
 using namespace MySql::Data::MySqlClient;
 using namespace System::Collections::Generic;
@@ -8,15 +11,16 @@ public ref class DatabaseConnector
 public:
 	static DatabaseConnector^ Instance;
 	DatabaseConnector();
-	void connect();
-	void disconnect();
-	MySqlDataReader^ executeClientCommand(String^ sql, Dictionary<String^, Object^>^ params);
-	MySqlDataReader^ executeInternCommand(String^ sql);
+	void Connect();
+	void Disconnect();
+	MySqlConnection^ GetConn();
+	MySqlDataReader^ ExecuteInternCommand(String^ sql);
+	MySqlDataReader^ ExecuteClientCommand(String^ sql, Dictionary<String^, Object^>^ params);
 
 private:
-	String^ server;
-	String^ username;
-	String^ password;
-	String^ databaseName;
-	MySqlConnection^ conn;
+    String^ server;
+    String^ username;
+    String^ password;
+    String^ databaseName;
+    MySqlConnection^ conn;
 };

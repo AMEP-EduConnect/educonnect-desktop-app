@@ -1,19 +1,19 @@
 #include "pch.h"
-#include "TxIniciSessio.h"
+#include "IniciSessioService.h"
 
 
-TxIniciSessio::TxIniciSessio()
+IniciSessioService::IniciSessioService()
 {
 	usuariRepository = gcnew UsuariRepository();
 }
 
-Usuari^ TxIniciSessio::GetUsuariByPassUser(String^ username, String^ password)
+Usuari^ IniciSessioService::GetUsuariByPassUser(String^ username, String^ password)
 {
 	
 	return usuariRepository->GetUsuariByPassUser(username, password);
 }
 
-bool TxIniciSessio::CheckUsername(String^ username, String^ password)
+bool IniciSessioService::CheckUsername(String^ username, String^ password)
 {
 	Usuari^ checkuser = GetUsuariByPassUser(username, password);
 	if (checkuser->GetUsername() == username) {
@@ -24,13 +24,13 @@ bool TxIniciSessio::CheckUsername(String^ username, String^ password)
 	else return false;
 }
 
-bool TxIniciSessio::CheckPassword(Usuari^ checkuser, String^ password)
+bool IniciSessioService::CheckPassword(Usuari^ checkuser, String^ password)
 {
 	if (checkuser->GetPassword() == password) return true;
 	else return false;
 }
 
-Int64^ TxIniciSessio::GetUserId(String^ username) 
+Int64^ IniciSessioService::GetUserId(String^ username) 
 {
 	Usuari^ user = usuariRepository->GetUsuariByUser(username);
 
