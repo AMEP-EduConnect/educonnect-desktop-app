@@ -8,11 +8,10 @@ using namespace System;
 // }
 
 #include "MainPage.h"
-#include "MyForm.h"
 #include "GrupEstudi_EditarUI.h"
 #include "GrupEstudi_ConsultarUI.h"
 #include "GrupEstudi_AssignarUI.h"
-#include "GrupEstudiUI.h"
+#include "GrupEstudi_CrearUI.h"
 #include "GrupEstudi_ConsultarUI.h"
 #include "DatabaseConnector.h"
 #include "CurrentSession.h"
@@ -29,8 +28,8 @@ int main()
   Application::EnableVisualStyles();
   Application::SetCompatibleTextRenderingDefault(false);
   //Application::Run(gcnew CppCLRWinFormsProject::MyForm());
-  Application::Run(gcnew CppCLRWinFormsProject::GrupEstudi_EditarUI());
-  //Application::Run(gcnew CppCLRWinFormsProject::GrupEstudiUI());
+  //Application::Run(gcnew CppCLRWinFormsProject::GrupEstudi_EditarUI());
+  //Application::Run(gcnew CppCLRWinFormsProject::GrupEstudi_CrearUI());
   //Application::Run(gcnew CppCLRWinFormsProject::GrupEstudi_ConsultarUI());
   //Application::Run(gcnew CppCLRWinFormsProject::GrupEstudi_AssignarUI());
   return 0;

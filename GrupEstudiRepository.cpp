@@ -66,7 +66,7 @@ Int64^ GrupEstudiRepository::GetAcademicTagByTagName(String^ academic_tag)
 	}
 	finally
 	{
-		data->Close(); // Asegúrate de cerrar el lector de datos
+		data->Close();
 		DatabaseConnector::Instance->Disconnect();
 	}
 
@@ -86,11 +86,6 @@ void GrupEstudiRepository::DeleteGrupEstudi(String^ group_name)
 
 	DatabaseConnector::Instance->Disconnect();
 }	
-
-
-//ZITRO STUFF
-// 
-// 
 
 GrupEstudi^ GrupEstudiRepository::GetGrupEstudiById(Int64^ id)
 {
@@ -134,7 +129,6 @@ void GrupEstudiRepository::UpdateGroupName(String^ group_name_act, String^ group
 	String^ sql = "UPDATE studyGroups SET group_name = @group_name_new WHERE group_name = @group_name_act";
 	MySqlCommand^ command = gcnew MySqlCommand(sql, DatabaseConnector::Instance->GetConn());
 
-	// Agregamos los parámetros a la consulta
 	command->Parameters->AddWithValue("@group_name_new", group_name_new);
 	command->Parameters->AddWithValue("@group_name_act", group_name_act);
 
@@ -152,7 +146,6 @@ void GrupEstudiRepository::UpdateGroupDescription(String^ group_name_act, String
 	String^ sql = "UPDATE studyGroups SET description = @description_new WHERE group_name = @group_name_act";
 	MySqlCommand^ command = gcnew MySqlCommand(sql, DatabaseConnector::Instance->GetConn());
 
-	// Agregamos los parámetros a la consulta
 	command->Parameters->AddWithValue("@description_new", description_new);
 	command->Parameters->AddWithValue("@group_name_act", group_name_act);
 
@@ -217,10 +210,11 @@ Int64^ GrupEstudiRepository::GetGroupIdByName(String^ group_name)
 	return id_group;
 }
 
-bool GrupEstudiRepository::CheckUserIsOwner(Int64^ currentUser, String^ group_name)
+bool GrupEstudiRepository::CheckUserIsOwner(String^ group_name)
 {
+	Usuari^ currentUser = CurrentSession::Instance->GetCurrentUser();
 	DatabaseConnector::Instance->Connect();
-	String^ sql = "SELECT * FROM studyGroups WHERE group_owner_id = " + currentUser + " AND group_name = '" + group_name + "'";
+	String^ sql = "SELECT * FROM studyGroups WHERE group_owner_id = " + currentUser->GetUserId() + " AND group_name = '" + group_name + "'";
 	MySqlDataReader^ data = DatabaseConnector::Instance->ExecuteInternCommand(sql);
 	bool owner = false;
 

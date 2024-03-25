@@ -27,19 +27,6 @@ void DatabaseConnector::Disconnect()
     conn->Close();
 }
 
-//MySqlDataReader^ DatabaseConnector::ExecuteCommand(String^ sql)
-//{
-//    MySqlCommand^ cmd = gcnew MySqlCommand(sql, this->conn);
-//    MySqlDataReader^ dataReader;
-//    try {
-//        dataReader = cmd->ExecuteReader();
-//    }
-//    catch (InvalidOperationException^ ex) {
-//		MessageManager::ErrorMessage(ex->Message);
-//        this->Connect();
-//	}
-//}
-
 MySqlDataReader^ DatabaseConnector::ExecuteClientCommand(String^ sql, Dictionary<String^, Object^>^ params)
 {
 	MySqlCommand^ cmd = gcnew MySqlCommand(sql, this->conn);

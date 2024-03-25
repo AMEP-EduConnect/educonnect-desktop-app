@@ -1,14 +1,11 @@
 #include "pch.h"
 #include "GrupEstudiService.h"
 
-//#include "GrupsEstudiMembership.h"
-
 
 GrupEstudiService::GrupEstudiService()
 {
 	grupEstudiRepository = gcnew GrupEstudiRepository();
 	grupEstudiMembershipService = gcnew GrupEstudiMembershipService();
-	//DatabaseConnector::Instance = gcnew DatabaseConnector();
 }
 
 array<AcademicTag^>^ GrupEstudiService::LoadAllAcademicTags()
@@ -38,30 +35,12 @@ void GrupEstudiService::CreateNewGrupEstudi(String^ group_name, String^ descript
 
 void GrupEstudiService::DeleteGrupEstudi(String^ grup_name)
 {
-	Usuari^ currentUser = CurrentSession::Instance->GetCurrentUser();
-	bool isOwner = this->CheckUserIsOwner(currentUser->GetUserId(), grup_name);
+	bool isOwner = this->CheckUserIsOwner(grup_name);
 	if (isOwner) {
 		grupEstudiRepository->DeleteGrupEstudi(grup_name);
 	}
 	
 }
-
-bool GrupEstudiService::CheckIfCurrentUserIsGroupOwner(String^ grup_name)
-{
-	Usuari^ currentUser = CurrentSession::Instance->GetCurrentUser();
-	GrupEstudi^ grup = grupEstudiRepository->GetGrupEstudiByName(grup_name);
-	if (grup->GetGroupOwnerId() == currentUser->GetUserId()) {
-		return true;
-	}
-	else {
-		throw gcnew Exception("No tens permisos per a realitzar aquesta acció!");
-		return false;
-	}
-}
-
-//ZITRO STUFF
-// 
-//
 
 void GrupEstudiService::ModifyGroupName(String^ group_name_act, String^ group_name_new)
 {
@@ -108,7 +87,7 @@ Int64^ GrupEstudiService::GetGroupIdByName(String^ group_name)
 	return grupEstudiRepository->GetGroupIdByName(group_name);
 }
 
-bool GrupEstudiService::CheckUserIsOwner(Int64^ currentUser, String^ group_name)
+bool GrupEstudiService::CheckUserIsOwner(String^ group_name)
 {
-	return grupEstudiRepository->CheckUserIsOwner(currentUser, group_name);
+	return grupEstudiRepository->CheckUserIsOwner(group_name);
 }

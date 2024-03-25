@@ -5,6 +5,7 @@
 #include "AcademicTag.h"
 #include "MessageManager.h"
 #include "Usuari.h"
+#include "CurrentSession.h"
 
 public ref class GrupEstudiRepository
 {
@@ -23,13 +24,12 @@ public:
 	GrupEstudi^ GetGrupEstudiByName(String^ group_name);
 	void UpdateGroupName(String^ group_name_act, String^ group_name_new);
 	void UpdateGroupDescription(String^ group_name_act, String^ description_new);
-	//array<GrupEstudi^>^ LoadGrupsEstudiByUserId(Int64^ user_id);
 
 	bool CheckIfUserExists(String^ user_name);
 
 	Int64^ GetUserIdByName(String^ user_name);
 	Int64^ GetGroupIdByName(String^ group_name);
 
-	bool CheckUserIsOwner(Int64^ currentUser, String^ group_name);
+	bool CheckUserIsOwner(String^ group_name);
 
 };

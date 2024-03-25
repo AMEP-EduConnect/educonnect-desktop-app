@@ -73,7 +73,6 @@ void Usuari::SetUserId(Int64^ value)
         this->name = value;
     }
 
-    // Getter para name
     String^ Usuari::GetName()
     {
         return this->name;

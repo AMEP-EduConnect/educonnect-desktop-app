@@ -14,31 +14,31 @@ namespace CppCLRWinFormsProject {
 		array<AcademicTag^>^ academicTags;
         academicTags = grupEstudiService->LoadAllAcademicTags();
         for (int i = 0; i < academicTags->Length; i++) {
-            this->AcademicTagComboBox->Items->Add(academicTags[i]->GetTagName());
+            this->AcademicTag_ComboBox->Items->Add(academicTags[i]->GetTagName());
         }
 	}
 
-    void GrupEstudi_CrearUI::goBackButton_Click(System::Object^ sender, System::EventArgs^ e)
+    void GrupEstudi_CrearUI::GoBack_Button_Click(System::Object^ sender, System::EventArgs^ e)
 	{
     
     }
 
-    void GrupEstudi_CrearUI::CreateGrupButton_Click(System::Object^ sender, System::EventArgs^ e)
+    void GrupEstudi_CrearUI::CreateGrup_Button_Click(System::Object^ sender, System::EventArgs^ e)
     {
-        if (FormGrupNameTextBox->Text != "" && FormGrupDescriptionTextBox->Text != "" && AcademicTagComboBox->Text != "") {
-            grupEstudiService->CreateNewGrupEstudi(FormGrupNameTextBox->Text, FormGrupDescriptionTextBox->Text, AcademicTagComboBox->Text);
+        if (FormGrupName_TextBox->Text != "" && FormGrupDescription_TextBox->Text != "" && AcademicTag_ComboBox->Text != "") {
+            grupEstudiService->CreateNewGrupEstudi(FormGrupName_TextBox->Text, FormGrupDescription_TextBox->Text, AcademicTag_ComboBox->Text);
 		}
         else {
             MessageManager::WarningMessage("Falten camps per omplir.");
         }
     }
 
-    void GrupEstudi_CrearUI::FormGrupNameTextBox_TextChanged(System::Object^ sender, System::EventArgs^ e)
+    void GrupEstudi_CrearUI::FormGrupName_TextBox_TextChanged(System::Object^ sender, System::EventArgs^ e)
 	{
 
     }
 
-    void GrupEstudi_CrearUI::FormGrupDescriptionTextBox_TextChanged(System::Object^ sender, System::EventArgs^ e)
+    void GrupEstudi_CrearUI::FormGrupDescription_TextBox_TextChanged(System::Object^ sender, System::EventArgs^ e)
     {
 
     }

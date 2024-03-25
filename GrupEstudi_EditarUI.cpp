@@ -9,19 +9,19 @@ namespace CppCLRWinFormsProject {
         grupEstudiService = gcnew GrupEstudiService();
     }
 
-    void GrupEstudi_EditarUI::testbutton_Cancelar(System::Object^ sender, System::EventArgs^ e)
+    void GrupEstudi_EditarUI::CancelarButton_Click(System::Object^ sender, System::EventArgs^ e)
     {
         this->Close();
     }
 
-    void GrupEstudi_EditarUI::testbutton_Edita(System::Object^ sender, System::EventArgs^ e)
+    void GrupEstudi_EditarUI::testEdita_Button(System::Object^ sender, System::EventArgs^ e)
     {
-        if (grupEstudiService->CheckIfGroupExists(textBox_NomActual->Text)) {
+        if (grupEstudiService->CheckIfGroupExists(NomActual_TextBox->Text)) {
             bool checkD = false;
             bool checkN = false;
             Usuari^ currentUser = CurrentSession::Instance->GetCurrentUser();
             Int64^ currentUser_id = currentUser->GetUserId();
-            bool owner = grupEstudiService->CheckUserIsOwner(currentUser_id, textBox_NomActual->Text);
+            bool owner = grupEstudiService->CheckUserIsOwner(NomActual_TextBox->Text);
 
             if (owner == false) {
                 MessageManager::WarningMessage("No pots editar un grup que no siguis propietari.");
@@ -29,16 +29,16 @@ namespace CppCLRWinFormsProject {
             }
 
             else {
-                if (textBox_DescripcioEditar->Text != "") {
-                    grupEstudiService->ModifyGroupDescription(textBox_NomActual->Text, textBox_DescripcioEditar->Text);
+                if (EditarDescripcio_TextBox->Text != "") {
+                    grupEstudiService->ModifyGroupDescription(NomActual_TextBox->Text, EditarDescripcio_TextBox->Text);
                     checkD = true;
                     //MessageManager::InfoMessage("Descripció del grup modificat correctament.");
                 }
 
-                if (textBox_NomEditar->Text != "") {
-                    if (grupEstudiService->CheckIfGroupExists(textBox_NomEditar->Text) == false) {
+                if (EditarNom_TextBox->Text != "") {
+                    if (grupEstudiService->CheckIfGroupExists(EditarNom_TextBox->Text) == false) {
                         try {
-                            grupEstudiService->ModifyGroupName(textBox_NomActual->Text, textBox_NomEditar->Text);
+                            grupEstudiService->ModifyGroupName(NomActual_TextBox->Text, EditarNom_TextBox->Text);
                             checkN = true;
                             //MessageManager::InfoMessage("Nom del grup modificat correctament.");
                         }

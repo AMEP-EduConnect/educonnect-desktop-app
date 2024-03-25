@@ -223,6 +223,9 @@
     <ClInclude Include="GrupEstudiMembershipService.h" />
     <ClInclude Include="GrupEstudiRepository.h" />
     <ClInclude Include="GrupEstudiService.h" />
+    <ClInclude Include="GrupEstudi_ConsultarUI.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="GrupEstudi_CrearUI.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -237,9 +240,6 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="MessageManager.h" />
-    <ClInclude Include="MyForm.h">
-      <FileType>CppForm</FileType>
-    </ClInclude>
     <ClInclude Include="pch.h" />
     <ClInclude Include="Professor.h" />
     <ClInclude Include="ProfessorRepository.h" />

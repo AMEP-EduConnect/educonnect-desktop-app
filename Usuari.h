@@ -6,7 +6,7 @@ public ref class Usuari
 {
 public:
     Usuari();
-    // Constructor
+
     Usuari(Int64^ user_id,String^ username, String^ password, String^ email, String^ name);
   
     void SetUserId(Int64^ value);

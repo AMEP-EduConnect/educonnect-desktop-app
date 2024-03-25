@@ -79,29 +79,4 @@ void GrupEstudi::SetDescription(String^ description)
 }
 
 
-//ZITRO STUFF
-// 
-// 
-//void GrupEstudi::addMemberId(Int64^ member_id)
-//{
-//	Array::Resize(memberIds, memberIds->Length + 1);
-//	memberIds[memberIds->Length - 1] = member_id;
-//}
-//
-//void GrupEstudi::removeMemberId(Int64^ member_id)
-//{
-//	for (int i = 0; i < memberIds->Length; i++)
-//	{
-//		if (memberIds[i] == member_id)
-//		{
-//			for (int j = i; j < memberIds->Length - 1; j++)
-//			{
-//				memberIds[j] = memberIds[j + 1];
-//			}
-//			Array::Resize(memberIds, memberIds->Length - 1);
-//			break;
-//		}
-//	}
-//}
-
 

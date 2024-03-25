@@ -10,28 +10,27 @@ namespace CppCLRWinFormsProject {
         grupEstudiService = gcnew GrupEstudiService();
     }
 
-    void GrupEstudi_AssignarUI::testbutton_Cancelar(System::Object^ sender, System::EventArgs^ e)
+    void GrupEstudi_AssignarUI::CancelarButton_Click(System::Object^ sender, System::EventArgs^ e)
     {
-        //MessageManager::InfoMessage("Segur que vol sortir? No es guardara cap modificacio.");
         this->Close();
     }
 
-    void GrupEstudi_AssignarUI::testbutton_Expulsar(System::Object^ sender, System::EventArgs^ e)
+    void GrupEstudi_AssignarUI::ExpulsaButton_Click(System::Object^ sender, System::EventArgs^ e)
     {
-        if (textBox_NomUsuari->Text != "") {
-            if (boxNom_Grup->Text != "") {
-                if (grupEstudiService->CheckIfUserExists(textBox_NomUsuari->Text)) {
-                    if (grupEstudiService->CheckIfGroupExists(boxNom_Grup->Text)) {
+        if (NomUsuari_TextBox->Text != "") {
+            if (NomGrup_TextBox->Text != "") {
+                if (grupEstudiService->CheckIfUserExists(NomUsuari_TextBox->Text)) {
+                    if (grupEstudiService->CheckIfGroupExists(NomGrup_TextBox->Text)) {
                         try {
-                            Int64^ user_id = grupEstudiService->GetUserIdByName(textBox_NomUsuari->Text);
-                            Int64^ group_id = grupEstudiService->GetGroupIdByName(boxNom_Grup->Text);
+                            Int64^ user_id = grupEstudiService->GetUserIdByName(NomUsuari_TextBox->Text);
+                            Int64^ group_id = grupEstudiService->GetGroupIdByName(NomGrup_TextBox->Text);
                             if (not (grupEstudiMembershipService->CheckIfUserIsInGroup(user_id, group_id))) {
                                 MessageManager::WarningMessage("L'usuari no esta assignat al grup d'estudi.");
                                 return;
                             }
                             else {
                                 Usuari^ currentUser = CurrentSession::Instance->GetCurrentUser();
-                                bool owner = grupEstudiService->CheckUserIsOwner(currentUser->GetUserId(), boxNom_Grup->Text);
+                                bool owner = grupEstudiService->CheckUserIsOwner(NomGrup_TextBox->Text);
                                 if (not owner) {
                                     MessageManager::WarningMessage("No ets el propietari del grup.");
                                 }
@@ -44,8 +43,8 @@ namespace CppCLRWinFormsProject {
 									}
                                     else {
                                         grupEstudiMembershipService->DeleteUserFromGroup(user_id, group_id);
-                                        textBox_NomUsuari->Text = "";
-                                        boxNom_Grup->Text = "";
+                                        NomUsuari_TextBox->Text = "";
+                                        NomGrup_TextBox->Text = "";
                                         MessageManager::InfoMessage("Usuari expulsat del grup d'estudi amb exit.");
                                     }
                                 }
@@ -72,29 +71,28 @@ namespace CppCLRWinFormsProject {
         }
     }
 
-    void GrupEstudi_AssignarUI::testbutton_Assignar(System::Object^ sender, System::EventArgs^ e)
+    void GrupEstudi_AssignarUI::AssignaButton_Click(System::Object^ sender, System::EventArgs^ e)
     {
-        if (textBox_NomUsuari->Text != "") {
-            if (boxNom_Grup->Text != "") {
-                if (grupEstudiService->CheckIfUserExists(textBox_NomUsuari->Text)) {
-					if (grupEstudiService->CheckIfGroupExists(boxNom_Grup->Text)) {
+        if (NomUsuari_TextBox->Text != "") {
+            if (NomGrup_TextBox->Text != "") {
+                if (grupEstudiService->CheckIfUserExists(NomUsuari_TextBox->Text)) {
+					if (grupEstudiService->CheckIfGroupExists(NomGrup_TextBox->Text)) {
                         try {
-                            Int64^ user_id = grupEstudiService->GetUserIdByName(textBox_NomUsuari->Text);
-                            Int64^ group_id = grupEstudiService->GetGroupIdByName(boxNom_Grup->Text);
+                            Int64^ user_id = grupEstudiService->GetUserIdByName(NomUsuari_TextBox->Text);
+                            Int64^ group_id = grupEstudiService->GetGroupIdByName(NomGrup_TextBox->Text);
                             if (grupEstudiMembershipService->CheckIfUserIsInGroup(user_id, group_id)) {
 								MessageManager::WarningMessage("L'usuari ja esta assignat al grup d'estudi.");
 								return;
 							}
                             else {
-                                Usuari^ currentUser = CurrentSession::Instance->GetCurrentUser();
-                                bool owner = grupEstudiService->CheckUserIsOwner(currentUser->GetUserId(), boxNom_Grup->Text);
+                                bool owner = grupEstudiService->CheckUserIsOwner(NomGrup_TextBox->Text);
                                 if (not owner) {
                                     MessageManager::WarningMessage("No ets el propietari del grup.");
                                 }
                                 else {
                                     grupEstudiMembershipService->UserToGroup(user_id, group_id);
-                                    textBox_NomUsuari->Text = "";
-                                    boxNom_Grup->Text = "";
+                                    NomUsuari_TextBox->Text = "";
+                                    NomGrup_TextBox->Text = "";
                                     MessageManager::InfoMessage("Usuari assignat al grup d'estudi amb exit.");
                                 }
                             }

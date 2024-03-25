@@ -98,7 +98,7 @@
     <ClInclude Include="GrupEstudi_AssignarUI.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="MyForm.h">
+    <ClInclude Include="GrupEstudi_ConsultarUI.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

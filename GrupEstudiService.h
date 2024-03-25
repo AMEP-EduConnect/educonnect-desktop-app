@@ -17,7 +17,6 @@ public:
 	array<AcademicTag^>^ LoadAllAcademicTags();
 	void CreateNewGrupEstudi(String^ group_name, String^ description, String^ academic_tag);
 	void DeleteGrupEstudi(String^ grup_name);
-	bool CheckIfCurrentUserIsGroupOwner(String^ grup_name);
 //ZITRO STUFF
 // 
 // 
@@ -30,7 +29,7 @@ public:
 	Int64^ GetUserIdByName(String^ user_name);
 	Int64^ GetGroupIdByName(String^ group_name);
 
-	bool CheckUserIsOwner(Int64^ currentUser, String^ group_name);
+	bool CheckUserIsOwner(String^ group_name);
 
 
 private:

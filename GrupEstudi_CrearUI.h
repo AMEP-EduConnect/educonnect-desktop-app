@@ -34,16 +34,16 @@ namespace CppCLRWinFormsProject {
 				delete components;
 			}
 		}
-	private: System::Windows::Forms::Label^ pageTitle;
-	private: System::Windows::Forms::Label^ eduConnectLabel;
-	private: System::Windows::Forms::Button^ goBackButton;
-	private: System::Windows::Forms::Label^ FormGrupNameLabel;
-	private: System::Windows::Forms::TextBox^ FormGrupNameTextBox;
-	private: System::Windows::Forms::ComboBox^ AcademicTagComboBox;
-	private: System::Windows::Forms::Label^ AcademicTagLabel;
-	private: System::Windows::Forms::TextBox^ FormGrupDescriptionTextBox;
-	private: System::Windows::Forms::Label^ GrupDescriptionLabel;
-	private: System::Windows::Forms::Button^ CreateGrupButton;
+	private: System::Windows::Forms::Label^ PageTitle_Label;
+	private: System::Windows::Forms::Label^ EduConnect_Label;
+	private: System::Windows::Forms::Button^ GoBack_Button;
+	private: System::Windows::Forms::Label^ FormGrupName_Label;
+	private: System::Windows::Forms::TextBox^ FormGrupName_TextBox;
+	private: System::Windows::Forms::ComboBox^ AcademicTag_ComboBox;
+	private: System::Windows::Forms::Label^ AcademicTag_Label;
+	private: System::Windows::Forms::TextBox^ FormGrupDescription_TextBox;
+	private: System::Windows::Forms::Label^ GrupDescription_Label;
+	private: System::Windows::Forms::Button^ CreateGrup_Button;
 	private: System::Windows::Forms::Panel^ FormPanel;
 	private: GrupEstudiService^ grupEstudiService;
 
@@ -63,139 +63,139 @@ namespace CppCLRWinFormsProject {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			this->pageTitle = (gcnew System::Windows::Forms::Label());
-			this->eduConnectLabel = (gcnew System::Windows::Forms::Label());
-			this->goBackButton = (gcnew System::Windows::Forms::Button());
-			this->FormGrupNameLabel = (gcnew System::Windows::Forms::Label());
-			this->FormGrupNameTextBox = (gcnew System::Windows::Forms::TextBox());
-			this->AcademicTagComboBox = (gcnew System::Windows::Forms::ComboBox());
-			this->AcademicTagLabel = (gcnew System::Windows::Forms::Label());
-			this->FormGrupDescriptionTextBox = (gcnew System::Windows::Forms::TextBox());
-			this->GrupDescriptionLabel = (gcnew System::Windows::Forms::Label());
-			this->CreateGrupButton = (gcnew System::Windows::Forms::Button());
+			this->PageTitle_Label = (gcnew System::Windows::Forms::Label());
+			this->EduConnect_Label = (gcnew System::Windows::Forms::Label());
+			this->GoBack_Button = (gcnew System::Windows::Forms::Button());
+			this->FormGrupName_Label = (gcnew System::Windows::Forms::Label());
+			this->FormGrupName_TextBox = (gcnew System::Windows::Forms::TextBox());
+			this->AcademicTag_ComboBox = (gcnew System::Windows::Forms::ComboBox());
+			this->AcademicTag_Label = (gcnew System::Windows::Forms::Label());
+			this->FormGrupDescription_TextBox = (gcnew System::Windows::Forms::TextBox());
+			this->GrupDescription_Label = (gcnew System::Windows::Forms::Label());
+			this->CreateGrup_Button = (gcnew System::Windows::Forms::Button());
 			this->FormPanel = (gcnew System::Windows::Forms::Panel());
 			this->FormPanel->SuspendLayout();
 			this->SuspendLayout();
 			// 
-			// pageTitle
+			// PageTitle_Label
 			// 
-			this->pageTitle->AutoSize = true;
-			this->pageTitle->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->PageTitle_Label->AutoSize = true;
+			this->PageTitle_Label->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->pageTitle->ForeColor = System::Drawing::SystemColors::HotTrack;
-			this->pageTitle->Location = System::Drawing::Point(85, 76);
-			this->pageTitle->Name = L"pageTitle";
-			this->pageTitle->Size = System::Drawing::Size(262, 31);
-			this->pageTitle->TabIndex = 0;
-			this->pageTitle->Text = L"Crear grup d\'estudi";
+			this->PageTitle_Label->ForeColor = System::Drawing::SystemColors::HotTrack;
+			this->PageTitle_Label->Location = System::Drawing::Point(85, 76);
+			this->PageTitle_Label->Name = L"PageTitle_Label";
+			this->PageTitle_Label->Size = System::Drawing::Size(262, 31);
+			this->PageTitle_Label->TabIndex = 0;
+			this->PageTitle_Label->Text = L"Crear grup d\'estudi";
 			// 
-			// eduConnectLabel
+			// EduConnect_Label
 			// 
-			this->eduConnectLabel->AutoSize = true;
-			this->eduConnectLabel->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->EduConnect_Label->AutoSize = true;
+			this->EduConnect_Label->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->eduConnectLabel->ForeColor = System::Drawing::SystemColors::HotTrack;
-			this->eduConnectLabel->Location = System::Drawing::Point(91, 60);
-			this->eduConnectLabel->Name = L"eduConnectLabel";
-			this->eduConnectLabel->Size = System::Drawing::Size(95, 17);
-			this->eduConnectLabel->TabIndex = 1;
-			this->eduConnectLabel->Text = L"EduConnect";
+			this->EduConnect_Label->ForeColor = System::Drawing::SystemColors::HotTrack;
+			this->EduConnect_Label->Location = System::Drawing::Point(91, 60);
+			this->EduConnect_Label->Name = L"EduConnect_Label";
+			this->EduConnect_Label->Size = System::Drawing::Size(95, 17);
+			this->EduConnect_Label->TabIndex = 1;
+			this->EduConnect_Label->Text = L"EduConnect";
 			// 
-			// goBackButton
+			// GoBack_Button
 			// 
-			this->goBackButton->ForeColor = System::Drawing::SystemColors::HotTrack;
-			this->goBackButton->Location = System::Drawing::Point(1044, 621);
-			this->goBackButton->Name = L"goBackButton";
-			this->goBackButton->Size = System::Drawing::Size(75, 23);
-			this->goBackButton->TabIndex = 2;
-			this->goBackButton->Text = L"Cancelar";
-			this->goBackButton->UseVisualStyleBackColor = true;
-			this->goBackButton->Click += gcnew System::EventHandler(this, &GrupEstudi_CrearUI::goBackButton_Click);
+			this->GoBack_Button->ForeColor = System::Drawing::SystemColors::HotTrack;
+			this->GoBack_Button->Location = System::Drawing::Point(1044, 621);
+			this->GoBack_Button->Name = L"GoBack_Button";
+			this->GoBack_Button->Size = System::Drawing::Size(75, 23);
+			this->GoBack_Button->TabIndex = 2;
+			this->GoBack_Button->Text = L"Cancelar";
+			this->GoBack_Button->UseVisualStyleBackColor = true;
+			this->GoBack_Button->Click += gcnew System::EventHandler(this, &GrupEstudi_CrearUI::GoBack_Button_Click);
 			// 
-			// FormGrupNameLabel
+			// FormGrupName_Label
 			// 
-			this->FormGrupNameLabel->AutoSize = true;
-			this->FormGrupNameLabel->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Regular,
+			this->FormGrupName_Label->AutoSize = true;
+			this->FormGrupName_Label->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Regular,
 				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
-			this->FormGrupNameLabel->ForeColor = System::Drawing::SystemColors::HotTrack;
-			this->FormGrupNameLabel->Location = System::Drawing::Point(20, 22);
-			this->FormGrupNameLabel->Name = L"FormGrupNameLabel";
-			this->FormGrupNameLabel->Size = System::Drawing::Size(36, 16);
-			this->FormGrupNameLabel->TabIndex = 3;
-			this->FormGrupNameLabel->Text = L"Nom";
+			this->FormGrupName_Label->ForeColor = System::Drawing::SystemColors::HotTrack;
+			this->FormGrupName_Label->Location = System::Drawing::Point(20, 22);
+			this->FormGrupName_Label->Name = L"FormGrupName_Label";
+			this->FormGrupName_Label->Size = System::Drawing::Size(36, 16);
+			this->FormGrupName_Label->TabIndex = 3;
+			this->FormGrupName_Label->Text = L"Nom";
 			// 
-			// FormGrupNameTextBox
+			// FormGrupName_TextBox
 			// 
-			this->FormGrupNameTextBox->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-			this->FormGrupNameTextBox->Location = System::Drawing::Point(23, 49);
-			this->FormGrupNameTextBox->Name = L"FormGrupNameTextBox";
-			this->FormGrupNameTextBox->Size = System::Drawing::Size(408, 20);
-			this->FormGrupNameTextBox->TabIndex = 4;
-			this->FormGrupNameTextBox->TextChanged += gcnew System::EventHandler(this, &GrupEstudi_CrearUI::FormGrupNameTextBox_TextChanged);
+			this->FormGrupName_TextBox->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			this->FormGrupName_TextBox->Location = System::Drawing::Point(23, 49);
+			this->FormGrupName_TextBox->Name = L"FormGrupName_TextBox";
+			this->FormGrupName_TextBox->Size = System::Drawing::Size(408, 20);
+			this->FormGrupName_TextBox->TabIndex = 4;
+			this->FormGrupName_TextBox->TextChanged += gcnew System::EventHandler(this, &GrupEstudi_CrearUI::FormGrupName_TextBox_TextChanged);
 			// 
-			// AcademicTagComboBox
+			// AcademicTag_ComboBox
 			// 
-			this->AcademicTagComboBox->FormattingEnabled = true;
-			this->AcademicTagComboBox->Location = System::Drawing::Point(20, 125);
-			this->AcademicTagComboBox->Name = L"AcademicTagComboBox";
-			this->AcademicTagComboBox->Size = System::Drawing::Size(224, 21);
-			this->AcademicTagComboBox->TabIndex = 5;
+			this->AcademicTag_ComboBox->FormattingEnabled = true;
+			this->AcademicTag_ComboBox->Location = System::Drawing::Point(20, 125);
+			this->AcademicTag_ComboBox->Name = L"AcademicTag_ComboBox";
+			this->AcademicTag_ComboBox->Size = System::Drawing::Size(224, 21);
+			this->AcademicTag_ComboBox->TabIndex = 5;
 			// 
-			// AcademicTagLabel
+			// AcademicTag_Label
 			// 
-			this->AcademicTagLabel->AutoSize = true;
-			this->AcademicTagLabel->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Regular,
+			this->AcademicTag_Label->AutoSize = true;
+			this->AcademicTag_Label->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Regular,
 				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
-			this->AcademicTagLabel->ForeColor = System::Drawing::SystemColors::HotTrack;
-			this->AcademicTagLabel->Location = System::Drawing::Point(20, 97);
-			this->AcademicTagLabel->Name = L"AcademicTagLabel";
-			this->AcademicTagLabel->Size = System::Drawing::Size(52, 16);
-			this->AcademicTagLabel->TabIndex = 6;
-			this->AcademicTagLabel->Text = L"Materia";
+			this->AcademicTag_Label->ForeColor = System::Drawing::SystemColors::HotTrack;
+			this->AcademicTag_Label->Location = System::Drawing::Point(20, 97);
+			this->AcademicTag_Label->Name = L"AcademicTag_Label";
+			this->AcademicTag_Label->Size = System::Drawing::Size(52, 16);
+			this->AcademicTag_Label->TabIndex = 6;
+			this->AcademicTag_Label->Text = L"Materia";
 			// 
-			// FormGrupDescriptionTextBox
+			// FormGrupDescription_TextBox
 			// 
-			this->FormGrupDescriptionTextBox->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-			this->FormGrupDescriptionTextBox->Location = System::Drawing::Point(23, 217);
-			this->FormGrupDescriptionTextBox->Multiline = true;
-			this->FormGrupDescriptionTextBox->Name = L"FormGrupDescriptionTextBox";
-			this->FormGrupDescriptionTextBox->Size = System::Drawing::Size(408, 135);
-			this->FormGrupDescriptionTextBox->TabIndex = 8;
-			this->FormGrupDescriptionTextBox->TextChanged += gcnew System::EventHandler(this, &GrupEstudi_CrearUI::FormGrupDescriptionTextBox_TextChanged);
+			this->FormGrupDescription_TextBox->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			this->FormGrupDescription_TextBox->Location = System::Drawing::Point(23, 217);
+			this->FormGrupDescription_TextBox->Multiline = true;
+			this->FormGrupDescription_TextBox->Name = L"FormGrupDescription_TextBox";
+			this->FormGrupDescription_TextBox->Size = System::Drawing::Size(408, 135);
+			this->FormGrupDescription_TextBox->TabIndex = 8;
+			this->FormGrupDescription_TextBox->TextChanged += gcnew System::EventHandler(this, &GrupEstudi_CrearUI::FormGrupDescription_TextBox_TextChanged);
 			// 
-			// GrupDescriptionLabel
+			// GrupDescription_Label
 			// 
-			this->GrupDescriptionLabel->AutoSize = true;
-			this->GrupDescriptionLabel->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Regular,
+			this->GrupDescription_Label->AutoSize = true;
+			this->GrupDescription_Label->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Regular,
 				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
-			this->GrupDescriptionLabel->ForeColor = System::Drawing::SystemColors::HotTrack;
-			this->GrupDescriptionLabel->Location = System::Drawing::Point(20, 190);
-			this->GrupDescriptionLabel->Name = L"GrupDescriptionLabel";
-			this->GrupDescriptionLabel->Size = System::Drawing::Size(72, 16);
-			this->GrupDescriptionLabel->TabIndex = 7;
-			this->GrupDescriptionLabel->Text = L"Descripció";
+			this->GrupDescription_Label->ForeColor = System::Drawing::SystemColors::HotTrack;
+			this->GrupDescription_Label->Location = System::Drawing::Point(20, 190);
+			this->GrupDescription_Label->Name = L"GrupDescription_Label";
+			this->GrupDescription_Label->Size = System::Drawing::Size(72, 16);
+			this->GrupDescription_Label->TabIndex = 7;
+			this->GrupDescription_Label->Text = L"Descripció";
 			// 
-			// CreateGrupButton
+			// CreateGrup_Button
 			// 
-			this->CreateGrupButton->ForeColor = System::Drawing::SystemColors::HotTrack;
-			this->CreateGrupButton->Location = System::Drawing::Point(356, 367);
-			this->CreateGrupButton->Name = L"CreateGrupButton";
-			this->CreateGrupButton->Size = System::Drawing::Size(75, 23);
-			this->CreateGrupButton->TabIndex = 9;
-			this->CreateGrupButton->Text = L"Crear grup";
-			this->CreateGrupButton->UseVisualStyleBackColor = true;
-			this->CreateGrupButton->Click += gcnew System::EventHandler(this, &GrupEstudi_CrearUI::CreateGrupButton_Click);
+			this->CreateGrup_Button->ForeColor = System::Drawing::SystemColors::HotTrack;
+			this->CreateGrup_Button->Location = System::Drawing::Point(356, 367);
+			this->CreateGrup_Button->Name = L"CreateGrup_Button";
+			this->CreateGrup_Button->Size = System::Drawing::Size(75, 23);
+			this->CreateGrup_Button->TabIndex = 9;
+			this->CreateGrup_Button->Text = L"Crear grup";
+			this->CreateGrup_Button->UseVisualStyleBackColor = true;
+			this->CreateGrup_Button->Click += gcnew System::EventHandler(this, &GrupEstudi_CrearUI::CreateGrup_Button_Click);
 			// 
 			// FormPanel
 			// 
 			this->FormPanel->BackColor = System::Drawing::SystemColors::GradientInactiveCaption;
-			this->FormPanel->Controls->Add(this->CreateGrupButton);
-			this->FormPanel->Controls->Add(this->FormGrupDescriptionTextBox);
-			this->FormPanel->Controls->Add(this->FormGrupNameLabel);
-			this->FormPanel->Controls->Add(this->GrupDescriptionLabel);
-			this->FormPanel->Controls->Add(this->AcademicTagComboBox);
-			this->FormPanel->Controls->Add(this->FormGrupNameTextBox);
-			this->FormPanel->Controls->Add(this->AcademicTagLabel);
+			this->FormPanel->Controls->Add(this->CreateGrup_Button);
+			this->FormPanel->Controls->Add(this->FormGrupDescription_TextBox);
+			this->FormPanel->Controls->Add(this->FormGrupName_Label);
+			this->FormPanel->Controls->Add(this->GrupDescription_Label);
+			this->FormPanel->Controls->Add(this->AcademicTag_ComboBox);
+			this->FormPanel->Controls->Add(this->FormGrupName_TextBox);
+			this->FormPanel->Controls->Add(this->AcademicTag_Label);
 			this->FormPanel->Location = System::Drawing::Point(91, 155);
 			this->FormPanel->Name = L"FormPanel";
 			this->FormPanel->Size = System::Drawing::Size(454, 411);
@@ -206,9 +206,9 @@ namespace CppCLRWinFormsProject {
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(1175, 680);
-			this->Controls->Add(this->goBackButton);
-			this->Controls->Add(this->eduConnectLabel);
-			this->Controls->Add(this->pageTitle);
+			this->Controls->Add(this->GoBack_Button);
+			this->Controls->Add(this->EduConnect_Label);
+			this->Controls->Add(this->PageTitle_Label);
 			this->Controls->Add(this->FormPanel);
 			this->Name = L"GrupEstudi_CrearUI";
 			this->Text = L"Crear grup d\'estudi  - EduConnect";
@@ -221,9 +221,9 @@ namespace CppCLRWinFormsProject {
 		}
 #pragma endregion
 	private: System::Void GrupEstudi_CrearUI_Load(System::Object^ sender, System::EventArgs^ e);
-	private: System::Void goBackButton_Click(System::Object^ sender, System::EventArgs^ e);
-	private: System::Void CreateGrupButton_Click(System::Object^ sender, System::EventArgs^ e);
-	private: System::Void FormGrupNameTextBox_TextChanged(System::Object^ sender, System::EventArgs^ e);
-	private: System::Void FormGrupDescriptionTextBox_TextChanged(System::Object^ sender, System::EventArgs^ e);
+	private: System::Void GoBack_Button_Click(System::Object^ sender, System::EventArgs^ e);
+	private: System::Void CreateGrup_Button_Click(System::Object^ sender, System::EventArgs^ e);
+	private: System::Void FormGrupName_TextBox_TextChanged(System::Object^ sender, System::EventArgs^ e);
+	private: System::Void FormGrupDescription_TextBox_TextChanged(System::Object^ sender, System::EventArgs^ e);
 };
 }
