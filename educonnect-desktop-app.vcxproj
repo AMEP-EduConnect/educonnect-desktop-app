@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -236,16 +236,33 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="GrupEstudiMembership.h" />
+    <ClInclude Include="CurrentSession.h" />
+    <ClInclude Include="DatabaseConnector.h" />
+    <ClInclude Include="FirstPage.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="IniciSessio.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="MainPage.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="MessageManager.h" />
+    <ClInclude Include="MyForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="pch.h" />
     <ClInclude Include="Professor.h" />
     <ClInclude Include="ProfessorRepository.h" />
     <ClInclude Include="ProfessorService.h" />
+    <ClInclude Include="RegistreUsuari.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="Resource.h" />
+    <ClInclude Include="TxIniciSessio.h" />
+    <ClInclude Include="TxRegistre.h" />
     <ClInclude Include="Usuari.h" />
+    <ClInclude Include="UsuariRepository.h" />
     <ClInclude Include="Utils.h" />
   </ItemGroup>
   <ItemGroup>
@@ -254,6 +271,9 @@
     <ClCompile Include="CppCLR_WinFormsProject.cpp" />
     <ClCompile Include="CurrentSession.cpp" />
     <ClCompile Include="DatabaseConnector.cpp" />
+    <ClCompile Include="MyForm.cpp" />
+    <ClCompile Include="IniciSessio.cpp" />
+    <ClCompile Include="FirstPage.cpp" />
     <ClCompile Include="GrupEstudi.cpp" />
     <ClCompile Include="GrupEstudiMembershipRepository.cpp" />
     <ClCompile Include="GrupEstudiMembershipService.cpp" />
@@ -277,11 +297,15 @@
     <ClCompile Include="Professor.cpp" />
     <ClCompile Include="ProfessorRepository.cpp" />
     <ClCompile Include="ProfessorService.cpp" />
-    <ClCompile Include="Usuari.cpp" />
+    <ClCompile Include="UsuariRepository.cpp" />
+    <ClCompile Include="TxRegistre.cpp" />
+    <ClCompile Include="TxIniciSessio.cpp" />
+    <ClCompile Include="RegistreUsuari.cpp" />
     <ClCompile Include="Utils.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="app.ico" />
+    <Image Include="background.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="MySql.Data">

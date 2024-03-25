@@ -40,8 +40,8 @@ MySqlDataReader^ DatabaseConnector::ExecuteClientCommand(String^ sql, Dictionary
 		dataReader = cmd->ExecuteReader();
 	}
 	catch (InvalidOperationException^ ex) {
-		MessageManager::ErrorMessage(ex->Message);
 		this->Connect();
+		MessageManager::ErrorMessage(ex->Message);
 	}
 	return dataReader;
 }
