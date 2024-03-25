@@ -1,23 +1,23 @@
 #include "pch.h"
-#include "TxRegistre.h"
+#include "RegistreService.h"
 
 
-TxRegistre::TxRegistre()
+RegistreService::RegistreService()
 {
 	usuariRepository = gcnew UsuariRepository();
 }
 
-bool TxRegistre::CheckUsername(String^ username)
+bool RegistreService::CheckUsername(String^ username)
 {
 	return this->usuariRepository->CheckUsuariByUser(username);
 }
 
-bool TxRegistre::CheckEmail(String^ email)
+bool RegistreService::CheckEmail(String^ email)
 {
     return this->usuariRepository->CheckUsuariByEmail(email);
 }
 
-bool TxRegistre::CreateUser(String^ username, String^ email, String^ name, String^ password) 
+bool RegistreService::CreateUser(String^ username, String^ email, String^ name, String^ password)
 {
 	return this->usuariRepository->CreateUser(username, email, name, password);
 }

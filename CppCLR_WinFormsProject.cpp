@@ -7,7 +7,8 @@ using namespace System;
 //    return 0;
 // }
 
-#include "MainPage.h"
+#include "MainPageUI.h"
+#include "FirstPageUI.h"
 #include "GrupEstudi_EditarUI.h"
 #include "GrupEstudi_ConsultarUI.h"
 #include "GrupEstudi_CrearUI.h"
@@ -16,8 +17,8 @@ using namespace System;
 #include "DatabaseConnector.h"
 #include "CurrentSession.h"
 #include "Usuari.h"
-#include "RegistreUsuari.h"
-#include "IniciSessio.h"
+#include "RegistreUsuariUI.h"
+#include "IniciSessioUI.h"
 using namespace System;
 using namespace System::Windows::Forms;
 using namespace CppCLRWinFormsProject;
@@ -29,7 +30,7 @@ int main()
   CurrentSession::Instance = gcnew CurrentSession();
   Application::EnableVisualStyles();
   Application::SetCompatibleTextRenderingDefault(false);
-  Application::Run(gcnew CppCLRWinFormsProject::FirstPage());
+  Application::Run(gcnew CppCLRWinFormsProject::FirstPageUI());
   //Application::Run(gcnew CppCLRWinFormsProject::IniciSessio());
   //Application::Run(gcnew CppCLRWinFormsProject::RegistreUsuari());
   //Application::Run(gcnew CppCLRWinFormsProject::GrupEstudi_EditarUI());

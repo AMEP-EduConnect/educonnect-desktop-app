@@ -1,7 +1,7 @@
 #include "pch.h"
 #include "DatabaseConnector.h"
 
-//Singleton class to connect to the database from any context
+//Singleton class to Connect to the database from any context
 DatabaseConnector::DatabaseConnector()
 {
     String^ server;

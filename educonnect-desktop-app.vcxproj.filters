@@ -41,7 +41,7 @@
     <ClInclude Include="pch.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="MainPage.h">
+    <ClInclude Include="MainPageUI.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Utils.h">
@@ -110,22 +110,28 @@
     <ClInclude Include="MessageManager.h">
       <Filter>Source Files\utils</Filter>
     </ClInclude>
-    <ClInclude Include="TxIniciSessio.h">
+    <ClInclude Include="IniciSessioService.h">
       <Filter>Source Files\services</Filter>
     </ClInclude>
-    <ClInclude Include="TxRegistre.h">
+    <ClInclude Include="RegistreService.h">
       <Filter>Source Files\services</Filter>
     </ClInclude>
     <ClInclude Include="UsuariRepository.h">
       <Filter>Source Files\repositories</Filter>
     </ClInclude>
-    <ClInclude Include="FirstPage.h">
+    <ClInclude Include="FirstPageUI.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="IniciSessio.h">
+    <ClInclude Include="IniciSessioUI.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="RegistreUsuari.h">
+    <ClInclude Include="RegistreUsuariUI.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CurrentSession.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DatabaseConnector.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -139,7 +145,7 @@
     <ClCompile Include="Utils.cpp">
       <Filter>Source Files\utils</Filter>
     </ClCompile>
-    <ClCompile Include="MainPage.cpp">
+    <ClCompile Include="MainPageUI.cpp">
       <Filter>Source Files\ui</Filter>
     </ClCompile>
     <ClCompile Include="Professor.cpp">
@@ -190,9 +196,6 @@
     <ClCompile Include="CurrentSession.cpp">
       <Filter>Source Files\utils</Filter>
     </ClCompile>
-    <ClCompile Include="Usuari.cpp">
-      <Filter>Source Files\entities</Filter>
-    </ClCompile>
     <ClCompile Include="GrupEstudi_AssignarUI.cpp">
       <Filter>Source Files\ui</Filter>
     </ClCompile>
@@ -208,23 +211,26 @@
     <ClCompile Include="MessageManager.cpp">
       <Filter>Source Files\utils</Filter>
     </ClCompile>
-    <ClCompile Include="TxRegistre.cpp">
+    <ClCompile Include="RegistreService.cpp">
       <Filter>Source Files\services</Filter>
     </ClCompile>
-    <ClCompile Include="TxIniciSessio.cpp">
+    <ClCompile Include="IniciSessioService.cpp">
       <Filter>Source Files\services</Filter>
     </ClCompile>
     <ClCompile Include="UsuariRepository.cpp">
       <Filter>Source Files\repositories</Filter>
     </ClCompile>
-    <ClCompile Include="RegistreUsuari.cpp">
+    <ClCompile Include="RegistreUsuariUI.cpp">
       <Filter>Source Files\ui</Filter>
     </ClCompile>
-    <ClCompile Include="FirstPage.cpp">
+    <ClCompile Include="FirstPageUI.cpp">
       <Filter>Source Files\ui</Filter>
     </ClCompile>
-    <ClCompile Include="IniciSessio.cpp">
+    <ClCompile Include="IniciSessioUI.cpp">
       <Filter>Source Files\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="Usuari.cpp">
+      <Filter>Source Files\entities</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

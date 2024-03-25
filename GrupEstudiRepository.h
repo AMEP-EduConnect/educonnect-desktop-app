@@ -16,9 +16,6 @@ public:
 	void DeleteGrupEstudi(String^ group_name);
 	Int64^ GetAcademicTagByTagName(String^ academic_tag);
 
-//ZITRO STUFF
-// 
-// 
 	GrupEstudi^ GetGrupEstudiById(Int64^ id);
 
 	GrupEstudi^ GetGrupEstudiByName(String^ group_name);

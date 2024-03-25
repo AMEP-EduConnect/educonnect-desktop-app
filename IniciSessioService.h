@@ -4,11 +4,11 @@
 #include "DatabaseConnector.h"
 #include "Usuari.h"
 #include "CurrentSession.h"
-public ref class TxIniciSessio
+public ref class IniciSessioService
 {
 
 public:
-	TxIniciSessio();
+	IniciSessioService();
 	//Usuari^ GetUsuariById(Int64^ id);
 	Usuari^ GetUsuariByPassUser(String^ username, String^ password);
 	bool CheckUsername(String^ username, String^ password);
