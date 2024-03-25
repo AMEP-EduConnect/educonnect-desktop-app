@@ -72,7 +72,8 @@ GrupEstudi^ GrupEstudiMembershipRepository::LoadAllGrupEstudibyId(Int64 ^ group_
 
 //Crear nova inst�ncia de membership;
 //PREGUNTAR SOBRE LA VARIABLE DateTime;
-void GrupEstudiMembershipRepository::UserToGroup(Int64 ^ user_id, Int64 ^ group_id) {
+void GrupEstudiMembershipRepository::UserToGroup(Int64 ^ user_id, Int64 ^ group_id)
+{
 	DatabaseConnector::Instance->Connect();
 
 	// Utilizamos una consulta parametrizada para evitar problemas de sintaxis y de seguridad

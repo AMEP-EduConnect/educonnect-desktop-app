@@ -40,7 +40,8 @@ void DatabaseConnector::Disconnect()
 //	}
 //}
 
-MySqlDataReader^ DatabaseConnector::ExecuteClientCommand(String^ sql, Dictionary<String^, Object^>^ params) {
+MySqlDataReader^ DatabaseConnector::ExecuteClientCommand(String^ sql, Dictionary<String^, Object^>^ params)
+{
 	MySqlCommand^ cmd = gcnew MySqlCommand(sql, this->conn);
 	if (params != nullptr) {
 		for each (KeyValuePair<String^, Object^> kvp in params) {

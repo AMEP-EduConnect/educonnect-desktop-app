@@ -10,12 +10,14 @@ namespace CppCLRWinFormsProject {
         grupEstudiService = gcnew GrupEstudiService();
     }
 
-    void GrupEstudi_AssignarUI::testbutton_Cancelar(System::Object^ sender, System::EventArgs^ e) {
+    void GrupEstudi_AssignarUI::testbutton_Cancelar(System::Object^ sender, System::EventArgs^ e)
+    {
         //MessageManager::InfoMessage("Segur que vol sortir? No es guardara cap modificacio.");
         this->Close();
     }
 
-    void GrupEstudi_AssignarUI::testbutton_Expulsar(System::Object^ sender, System::EventArgs^ e) {
+    void GrupEstudi_AssignarUI::testbutton_Expulsar(System::Object^ sender, System::EventArgs^ e)
+    {
         if (textBox_NomUsuari->Text != "") {
             if (boxNom_Grup->Text != "") {
                 if (grupEstudiService->CheckIfUserExists(textBox_NomUsuari->Text)) {

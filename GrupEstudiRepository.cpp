@@ -145,7 +145,8 @@ void GrupEstudiRepository::UpdateGroupName(String^ group_name_act, String^ group
 	Console::WriteLine(rowsAffected + " rows updated.");
 }
 
-void GrupEstudiRepository::UpdateGroupDescription(String^ group_name_act, String^ description_new) {
+void GrupEstudiRepository::UpdateGroupDescription(String^ group_name_act, String^ description_new)
+{
 	DatabaseConnector::Instance->Connect();
 
 	String^ sql = "UPDATE studyGroups SET description = @description_new WHERE group_name = @group_name_act";
@@ -162,7 +163,8 @@ void GrupEstudiRepository::UpdateGroupDescription(String^ group_name_act, String
 	Console::WriteLine(rowsAffected + " rows updated.");
 }
 
-bool GrupEstudiRepository::CheckIfUserExists(String^ user_name) {
+bool GrupEstudiRepository::CheckIfUserExists(String^ user_name)
+{
 	DatabaseConnector::Instance->Connect();
 	String^ sql = "SELECT * FROM users WHERE username = '" + user_name + "'";
 	MySqlDataReader^ data = DatabaseConnector::Instance->ExecuteInternCommand(sql);
@@ -179,7 +181,8 @@ bool GrupEstudiRepository::CheckIfUserExists(String^ user_name) {
 	return trobat;
 }
 
-Int64^ GrupEstudiRepository::GetUserIdByName(String^ user_name) {
+Int64^ GrupEstudiRepository::GetUserIdByName(String^ user_name)
+{
 	DatabaseConnector::Instance->Connect();
 	String^ sql = "SELECT id FROM users WHERE username = '" + user_name + "'";
 	MySqlDataReader^ data = DatabaseConnector::Instance->ExecuteInternCommand(sql);
@@ -196,7 +199,8 @@ Int64^ GrupEstudiRepository::GetUserIdByName(String^ user_name) {
 	return id_user;
 }
 
-Int64^ GrupEstudiRepository::GetGroupIdByName(String^ group_name) {
+Int64^ GrupEstudiRepository::GetGroupIdByName(String^ group_name)
+{
 	DatabaseConnector::Instance->Connect();
 	String^ sql = "SELECT id FROM studyGroups WHERE group_name = '" + group_name + "'";
 	MySqlDataReader^ data = DatabaseConnector::Instance->ExecuteInternCommand(sql);
@@ -213,7 +217,8 @@ Int64^ GrupEstudiRepository::GetGroupIdByName(String^ group_name) {
 	return id_group;
 }
 
-bool GrupEstudiRepository::CheckUserIsOwner(Int64^ currentUser, String^ group_name) {
+bool GrupEstudiRepository::CheckUserIsOwner(Int64^ currentUser, String^ group_name)
+{
 	DatabaseConnector::Instance->Connect();
 	String^ sql = "SELECT * FROM studyGroups WHERE group_owner_id = " + currentUser + " AND group_name = '" + group_name + "'";
 	MySqlDataReader^ data = DatabaseConnector::Instance->ExecuteInternCommand(sql);

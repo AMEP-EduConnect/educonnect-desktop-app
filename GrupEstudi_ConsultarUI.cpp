@@ -58,6 +58,7 @@ namespace CppCLRWinFormsProject {
             try {
                 grupEstudiService->DeleteGrupEstudi(listaNoms->Text);
                 MessageManager::InfoMessage("Grup eliminat correctament.");
+                //FIXME: este refresh no va
                 this->Refresh();
             }
             catch (Exception^ e) {

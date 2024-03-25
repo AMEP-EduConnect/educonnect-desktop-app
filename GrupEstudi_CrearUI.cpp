@@ -1,15 +1,15 @@
 #include "pch.h"
-#include "GrupEstudiUI.h"
+#include "GrupEstudi_CrearUI.h"
 
 namespace CppCLRWinFormsProject {
 
-    GrupEstudiUI::GrupEstudiUI(void)
+    GrupEstudi_CrearUI::GrupEstudi_CrearUI(void)
     {
         InitializeComponent();
         grupEstudiService = gcnew GrupEstudiService();
     }
 
-    void GrupEstudiUI::GrupEstudiUI_Load(System::Object^ sender, System::EventArgs^ e)
+    void GrupEstudi_CrearUI::GrupEstudi_CrearUI_Load(System::Object^ sender, System::EventArgs^ e)
     {
 		array<AcademicTag^>^ academicTags;
         academicTags = grupEstudiService->LoadAllAcademicTags();
@@ -18,10 +18,12 @@ namespace CppCLRWinFormsProject {
         }
 	}
 
-    void GrupEstudiUI::goBackButton_Click(System::Object^ sender, System::EventArgs^ e)
-	{}
+    void GrupEstudi_CrearUI::goBackButton_Click(System::Object^ sender, System::EventArgs^ e)
+	{
+    
+    }
 
-    void GrupEstudiUI::CreateGrupButton_Click(System::Object^ sender, System::EventArgs^ e)
+    void GrupEstudi_CrearUI::CreateGrupButton_Click(System::Object^ sender, System::EventArgs^ e)
     {
         if (FormGrupNameTextBox->Text != "" && FormGrupDescriptionTextBox->Text != "" && AcademicTagComboBox->Text != "") {
             grupEstudiService->CreateNewGrupEstudi(FormGrupNameTextBox->Text, FormGrupDescriptionTextBox->Text, AcademicTagComboBox->Text);
@@ -31,11 +33,13 @@ namespace CppCLRWinFormsProject {
         }
     }
 
-    void GrupEstudiUI::FormGrupNameTextBox_TextChanged(System::Object^ sender, System::EventArgs^ e)
+    void GrupEstudi_CrearUI::FormGrupNameTextBox_TextChanged(System::Object^ sender, System::EventArgs^ e)
 	{
+
     }
 
-    void GrupEstudiUI::FormGrupDescriptionTextBox_TextChanged(System::Object^ sender, System::EventArgs^ e)
+    void GrupEstudi_CrearUI::FormGrupDescriptionTextBox_TextChanged(System::Object^ sender, System::EventArgs^ e)
     {
+
     }
 }

@@ -16,18 +16,18 @@ namespace CppCLRWinFormsProject {
 	using namespace System::Drawing;
 
 	/// <summary>
-	/// Resumen de GrupEstudiUI
+	/// Resumen de GrupEstudi_CrearUI
 	/// </summary>
-	public ref class GrupEstudiUI : public System::Windows::Forms::Form
+	public ref class GrupEstudi_CrearUI : public System::Windows::Forms::Form
 	{
 	public:
-		GrupEstudiUI(void);
+		GrupEstudi_CrearUI(void);
 
 	protected:
 		/// <summary>
 		/// Limpiar los recursos que se estén usando.
 		/// </summary>
-		~GrupEstudiUI()
+		~GrupEstudi_CrearUI()
 		{
 			if (components)
 			{
@@ -110,7 +110,7 @@ namespace CppCLRWinFormsProject {
 			this->goBackButton->TabIndex = 2;
 			this->goBackButton->Text = L"Cancelar";
 			this->goBackButton->UseVisualStyleBackColor = true;
-			this->goBackButton->Click += gcnew System::EventHandler(this, &GrupEstudiUI::goBackButton_Click);
+			this->goBackButton->Click += gcnew System::EventHandler(this, &GrupEstudi_CrearUI::goBackButton_Click);
 			// 
 			// FormGrupNameLabel
 			// 
@@ -131,7 +131,7 @@ namespace CppCLRWinFormsProject {
 			this->FormGrupNameTextBox->Name = L"FormGrupNameTextBox";
 			this->FormGrupNameTextBox->Size = System::Drawing::Size(408, 20);
 			this->FormGrupNameTextBox->TabIndex = 4;
-			this->FormGrupNameTextBox->TextChanged += gcnew System::EventHandler(this, &GrupEstudiUI::FormGrupNameTextBox_TextChanged);
+			this->FormGrupNameTextBox->TextChanged += gcnew System::EventHandler(this, &GrupEstudi_CrearUI::FormGrupNameTextBox_TextChanged);
 			// 
 			// AcademicTagComboBox
 			// 
@@ -161,7 +161,7 @@ namespace CppCLRWinFormsProject {
 			this->FormGrupDescriptionTextBox->Name = L"FormGrupDescriptionTextBox";
 			this->FormGrupDescriptionTextBox->Size = System::Drawing::Size(408, 135);
 			this->FormGrupDescriptionTextBox->TabIndex = 8;
-			this->FormGrupDescriptionTextBox->TextChanged += gcnew System::EventHandler(this, &GrupEstudiUI::FormGrupDescriptionTextBox_TextChanged);
+			this->FormGrupDescriptionTextBox->TextChanged += gcnew System::EventHandler(this, &GrupEstudi_CrearUI::FormGrupDescriptionTextBox_TextChanged);
 			// 
 			// GrupDescriptionLabel
 			// 
@@ -184,7 +184,7 @@ namespace CppCLRWinFormsProject {
 			this->CreateGrupButton->TabIndex = 9;
 			this->CreateGrupButton->Text = L"Crear grup";
 			this->CreateGrupButton->UseVisualStyleBackColor = true;
-			this->CreateGrupButton->Click += gcnew System::EventHandler(this, &GrupEstudiUI::CreateGrupButton_Click);
+			this->CreateGrupButton->Click += gcnew System::EventHandler(this, &GrupEstudi_CrearUI::CreateGrupButton_Click);
 			// 
 			// FormPanel
 			// 
@@ -201,7 +201,7 @@ namespace CppCLRWinFormsProject {
 			this->FormPanel->Size = System::Drawing::Size(454, 411);
 			this->FormPanel->TabIndex = 10;
 			// 
-			// GrupEstudiUI
+			// GrupEstudi_CrearUI
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
@@ -210,9 +210,9 @@ namespace CppCLRWinFormsProject {
 			this->Controls->Add(this->eduConnectLabel);
 			this->Controls->Add(this->pageTitle);
 			this->Controls->Add(this->FormPanel);
-			this->Name = L"GrupEstudiUI";
+			this->Name = L"GrupEstudi_CrearUI";
 			this->Text = L"Crear grup d\'estudi  - EduConnect";
-			this->Load += gcnew System::EventHandler(this, &GrupEstudiUI::GrupEstudiUI_Load);
+			this->Load += gcnew System::EventHandler(this, &GrupEstudi_CrearUI::GrupEstudi_CrearUI_Load);
 			this->FormPanel->ResumeLayout(false);
 			this->FormPanel->PerformLayout();
 			this->ResumeLayout(false);
@@ -220,7 +220,7 @@ namespace CppCLRWinFormsProject {
 
 		}
 #pragma endregion
-	private: System::Void GrupEstudiUI_Load(System::Object^ sender, System::EventArgs^ e);
+	private: System::Void GrupEstudi_CrearUI_Load(System::Object^ sender, System::EventArgs^ e);
 	private: System::Void goBackButton_Click(System::Object^ sender, System::EventArgs^ e);
 	private: System::Void CreateGrupButton_Click(System::Object^ sender, System::EventArgs^ e);
 	private: System::Void FormGrupNameTextBox_TextChanged(System::Object^ sender, System::EventArgs^ e);

@@ -46,7 +46,8 @@ void GrupEstudiService::DeleteGrupEstudi(String^ grup_name)
 	
 }
 
-bool GrupEstudiService::CheckIfCurrentUserIsGroupOwner(String^ grup_name) {
+bool GrupEstudiService::CheckIfCurrentUserIsGroupOwner(String^ grup_name)
+{
 	Usuari^ currentUser = CurrentSession::Instance->GetCurrentUser();
 	GrupEstudi^ grup = grupEstudiRepository->GetGrupEstudiByName(grup_name);
 	if (grup->GetGroupOwnerId() == currentUser->GetUserId()) {
@@ -62,7 +63,8 @@ bool GrupEstudiService::CheckIfCurrentUserIsGroupOwner(String^ grup_name) {
 // 
 //
 
-void GrupEstudiService::ModifyGroupName(String^ group_name_act, String^ group_name_new) {
+void GrupEstudiService::ModifyGroupName(String^ group_name_act, String^ group_name_new)
+{
 	try {
 		grupEstudiRepository->UpdateGroupName(group_name_act, group_name_new);
 	}
@@ -72,7 +74,8 @@ void GrupEstudiService::ModifyGroupName(String^ group_name_act, String^ group_na
 	
 }
 
-void GrupEstudiService::ModifyGroupDescription(String^ group_name_act, String^ description_new) {
+void GrupEstudiService::ModifyGroupDescription(String^ group_name_act, String^ description_new)
+{
 	try {
 		grupEstudiRepository->UpdateGroupDescription(group_name_act, description_new);
 	}
@@ -82,25 +85,30 @@ void GrupEstudiService::ModifyGroupDescription(String^ group_name_act, String^ d
 	
 }
 
-bool GrupEstudiService::CheckIfGroupExists(String^ group_name_act) {
+bool GrupEstudiService::CheckIfGroupExists(String^ group_name_act)
+{
 	GrupEstudi^ grup = grupEstudiRepository->GetGrupEstudiByName(group_name_act);
 	
 	return not System::String::IsNullOrEmpty(grup->GetGroupName());
 }
 
-bool GrupEstudiService::CheckIfUserExists(String^ user_name) {
+bool GrupEstudiService::CheckIfUserExists(String^ user_name)
+{
 	bool user_exist = grupEstudiRepository->CheckIfUserExists(user_name);
 	return user_exist;
 }
 
-Int64^ GrupEstudiService::GetUserIdByName(String^ user_name) {
+Int64^ GrupEstudiService::GetUserIdByName(String^ user_name)
+{
 	return grupEstudiRepository->GetUserIdByName(user_name);
 }
 
-Int64^ GrupEstudiService::GetGroupIdByName(String^ group_name) {
+Int64^ GrupEstudiService::GetGroupIdByName(String^ group_name)
+{
 	return grupEstudiRepository->GetGroupIdByName(group_name);
 }
 
-bool GrupEstudiService::CheckUserIsOwner(Int64^ currentUser, String^ group_name) {
+bool GrupEstudiService::CheckUserIsOwner(Int64^ currentUser, String^ group_name)
+{
 	return grupEstudiRepository->CheckUserIsOwner(currentUser, group_name);
 }
