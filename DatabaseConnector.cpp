@@ -3,7 +3,7 @@
 #include "Utils.h"
 #include "MessageManager.h"
 
-//Singleton class to connect to the database from any context
+//Singleton class to Connect to the database from any context
 DatabaseConnector::DatabaseConnector()
 {
     String^ server;

@@ -1,6 +1,7 @@
 #pragma once
 #include "Professor.h"
 #include <vector>
+using namespace System::Collections::Generic;
 
 public ref class ProfessorRepository
 {
