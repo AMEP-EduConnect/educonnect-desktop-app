@@ -7,8 +7,8 @@ public ref class AltaProveidorService
 public:
 	AltaProveidorService();
 
-	void AltaProveidor(String^ id, String^ username, String^ password, String^ email, String^ surname);
-	bool CheckIfProveidorExists(String^ name);
+	bool AltaProveidor(String^ username, String^ email, String^ name, String^ password);
+	bool CheckIfProveidorExists(String^ username);
 
 
 private:

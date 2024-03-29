@@ -15,6 +15,8 @@ public:
     void Disconnect();
     MySqlDataReader^ ExecuteCommand(String^ sql);
     MySqlConnection^ GetConn();
+    MySqlDataReader^ ExecuteInternCommand(String^ sql);
+    MySqlDataReader^ ExecuteClientCommand(String^ sql, Dictionary<String^, Object^>^ params);
 
 private:
     String^ server;

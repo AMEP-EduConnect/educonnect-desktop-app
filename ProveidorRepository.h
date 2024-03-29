@@ -4,7 +4,9 @@ public ref class ProveidorRepository
 {
 public:
 	ProveidorRepository();
-	void ProveidorRepository::AltaProveidor(String^ id, String^ username, String^ password, String^ email, String^ surname);
+	bool AltaProveidor(String^ username, String^ email, String^ name, String^ password);
+	bool CheckIfProveidorExists(String^username);
+	bool CreateUserRol(Int64^ id);
 	Proveidor^ GetProveidorByName(String^ username);
 };
 
