@@ -6,15 +6,16 @@ using namespace System;
 // {
 //    return 0;
 // }
-
-#include "MainPage.h"
-#include "MyForm.h"
-
+#include "DatabaseConnector.h"
+#include "Proveidor.h"
+#include "AltaProveidorUI.h"
+using namespace System;
 using namespace System::Windows::Forms;
-
+using namespace CppCLRWinFormsProject;
 [STAThread]
 int main()
 {
+  DatabaseConnector::Instance = gcnew DatabaseConnector();
   Application::EnableVisualStyles();
   Application::SetCompatibleTextRenderingDefault(false);
   Application::Run(gcnew CppCLRWinFormsProject::AltaProveidorUI());

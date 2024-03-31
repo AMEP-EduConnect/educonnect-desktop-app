@@ -104,6 +104,13 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <TargetName>EduConnect</TargetName>
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='EduConnect|x64'">
+    <LinkIncremental>false</LinkIncremental>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -189,6 +196,7 @@
     <ResourceCompile Include="app.rc" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AltaProveidorUI.h" />
     <ClInclude Include="DatabaseConnector.h" />
     <ClInclude Include="BaixaProveidorService.h" />
     <ClInclude Include="MessageManager.h" />
@@ -200,13 +208,12 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="pch.h" />
-    <ClInclude Include="Professor.h" />
-    <ClInclude Include="ProfessorRepository.h" />
     <ClInclude Include="ProveidorRepository.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="Utils.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="AltaProveidorUI.cpp" />
     <ClCompile Include="AssemblyInfo.cpp" />
     <ClCompile Include="CppCLR_WinFormsProject.cpp" />
     <ClCompile Include="DatabaseConnector.cpp" />
@@ -223,6 +230,7 @@
     <ClCompile Include="Professor.cpp" />
     <ClCompile Include="ProfessorRepository.cpp" />
     <ClCompile Include="BaixaProveidorService.cpp" />
+    <ClCompile Include="AltaProveidorService.cpp" />
     <ClCompile Include="Proveidor.cpp" />
     <ClCompile Include="MessageManager.cpp" />
     <ClCompile Include="ProveidorRepository.cpp" />

@@ -35,7 +35,7 @@ namespace CppCLRWinFormsProject {
 		/// <summary>
 		/// Required designer variable.
 		/// </summary>
-		System::ComponentModel::Container ^components;
+		System::ComponentModel::Container^ components;
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
@@ -72,9 +72,9 @@ namespace CppCLRWinFormsProject {
 
 		}
 #pragma endregion
-	private: 
+	private:
 		System::Void MainPage_Load(System::Object^ sender, System::EventArgs^ e);
 		//TESTING METHOD, DELETE LATER
-   		System::Void testQuery();
+		System::Void testQuery();
 	};
 }

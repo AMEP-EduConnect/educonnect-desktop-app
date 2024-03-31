@@ -1,41 +1,45 @@
 #include "pch.h"
 #include "DatabaseConnector.h"
 #include "Utils.h"
+#include "MessageManager.h"
 
 //Singleton class to connect to the database from any context
 DatabaseConnector::DatabaseConnector()
 {
-	String^ server;
-	String^ username;
-	String^ password;
-	String^ databaseName;
-	Utils::readAndDecryptDatabaseCredentials(server, username, password, databaseName);
-	conn = gcnew MySqlConnection(String::Format("server={0};port=3306;user id={1};password={2};database={3};AllowPublicKeyRetrieval=true;", server, username, password, databaseName));
+    String^ server;
+    String^ username;
+    String^ password;
+    String^ databaseName;
+    Utils::ReadAndDecryptDatabaseCredentials(server, username, password, databaseName);
+    conn = gcnew MySqlConnection(String::Format("server={0};port=3306;user id={1};password={2};database={3};AllowPublicKeyRetrieval=true;", server, username, password, databaseName));
 }
 
-void DatabaseConnector::connect()
+void DatabaseConnector::Connect()
 {
-	try
-	{
-		conn->Open();
-	}
-	catch (MySqlException^ ex)
-	{
-		Console::WriteLine("Error: " + ex->Message);
-	}
+    conn->Open();
 }
 
-void DatabaseConnector::disconnect()
+MySqlConnection^ DatabaseConnector::GetConn()
 {
-	conn->Close();
+    return this->conn;
 }
 
-MySqlDataReader^ DatabaseConnector::executeCommand(String^ sql)
+void DatabaseConnector::Disconnect()
 {
-	MySqlCommand^ cmd = gcnew MySqlCommand(sql, this->conn);
-	MySqlDataReader^ dataReader;
-	dataReader = cmd->ExecuteReader();
-	return dataReader;
+    conn->Close();
 }
 
+MySqlDataReader^ DatabaseConnector::ExecuteCommand(String^ sql)
+{
+    MySqlCommand^ cmd = gcnew MySqlCommand(sql, this->conn);
+    MySqlDataReader^ dataReader;
+    try {
+        dataReader = cmd->ExecuteReader();
+    }
+    catch (InvalidOperationException^ ex) {
+        MessageManager::ErrorMessage(ex->Message);
+        this->Connect();
+    }
 
+    return dataReader;
+}

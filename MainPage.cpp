@@ -1,4 +1,4 @@
-#include "pch.h"
+ï»¿#include "pch.h"
 #include "MainPage.h"
 #include "Professor.h"
 #include "Utils.h"
@@ -13,7 +13,7 @@ namespace CppCLRWinFormsProject {
         InitializeComponent();
         this->Text = L"EduConnect";
     }
-    void MainPage:: MainPage_Load(System::Object^ sender, System::EventArgs^ e) {
+    void MainPage::MainPage_Load(System::Object^ sender, System::EventArgs^ e) {
         versionLabel->Text = L"V0.0 - Develop";
 
         try {
@@ -33,23 +33,24 @@ namespace CppCLRWinFormsProject {
         testQuery();
     }
     //TESTING METHOD, DELETE LATER
-    void MainPage:: testQuery()
+    void MainPage::testQuery()
     {
         DatabaseConnector::Instance = gcnew DatabaseConnector();
         ProfessorService^ professorService = gcnew ProfessorService();
         Professor^ prof = gcnew Professor();
         try {
             Int64 id = 1;
-			// es crida al mètode de la classe ProfessorService que retorna un professor
-			prof = professorService->GetProfessorById(id);
+            // es crida al mï¿½tode de la classe ProfessorService que retorna un professor
+            prof = professorService->GetProfessorById(id);
         }
         catch (Exception^ ex) {
-            // codi per mostrar l’error en una finestra
+            // codi per mostrar lï¿½error en una finestra
             MessageBox::Show(ex->Message);
         }
         finally {
-            // si tot va bé es tanca la connexió
-            DatabaseConnector::Instance->disconnect();
+            // si tot va bï¿½ es tanca la connexiï¿½
+            DatabaseConnector::Instance->Disconnect();
+            //DatabaseConnector::Instance->disconnect();
             MessageBox::Show("Database testing: " + prof->name);
         }
 
