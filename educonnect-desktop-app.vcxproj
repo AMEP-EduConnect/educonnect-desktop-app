@@ -190,13 +190,13 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DatabaseConnector.h" />
-    <ClInclude Include="AltaProveidorService.h" />
+    <ClInclude Include="BaixaProveidorService.h" />
     <ClInclude Include="MessageManager.h" />
     <ClInclude Include="Proveidor.h" />
     <ClInclude Include="MainPage.h">
       <FileType>CppForm</FileType>
     </ClInclude>
-    <ClInclude Include="AltaProveidor.h">
+    <ClInclude Include="BaixaProveidor.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="pch.h" />
@@ -211,7 +211,7 @@
     <ClCompile Include="CppCLR_WinFormsProject.cpp" />
     <ClCompile Include="DatabaseConnector.cpp" />
     <ClCompile Include="MainPage.cpp" />
-    <ClCompile Include="AltaProveidorUI.cpp" />
+    <ClCompile Include="BaixaProveidorUI.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='EduConnect|x64'">Create</PrecompiledHeader>
@@ -222,7 +222,7 @@
     </ClCompile>
     <ClCompile Include="Professor.cpp" />
     <ClCompile Include="ProfessorRepository.cpp" />
-    <ClCompile Include="AltaProveidorService.cpp" />
+    <ClCompile Include="BaixaProveidorService.cpp" />
     <ClCompile Include="Proveidor.cpp" />
     <ClCompile Include="MessageManager.cpp" />
     <ClCompile Include="ProveidorRepository.cpp" />
@@ -245,8 +245,8 @@
     <EmbeddedResource Include="MainPage.resx">
       <DependentUpon>MainPage.h</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AltaProveidor.resx">
-      <DependentUpon>AltaProveidor.h</DependentUpon>
+    <EmbeddedResource Include="BaixaProveidor.resx">
+      <DependentUpon>BaixaProveidor.h</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

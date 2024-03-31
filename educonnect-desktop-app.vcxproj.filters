@@ -44,7 +44,7 @@
     <ClInclude Include="MainPage.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="AltaProveidor.h">
+    <ClInclude Include="BaixaProveidor.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Professor.h">
@@ -59,7 +59,7 @@
     <ClInclude Include="Utils.h">
       <Filter>Source Files\utils</Filter>
     </ClInclude>
-    <ClInclude Include="AltaProveidorService.h">
+    <ClInclude Include="BaixaProveidorService.h">
       <Filter>Source Files\services</Filter>
     </ClInclude>
     <ClInclude Include="Proveidor.h">
@@ -85,7 +85,7 @@
     <ClCompile Include="MainPage.cpp">
       <Filter>Source Files\ui</Filter>
     </ClCompile>
-    <ClCompile Include="AltaProveidorUI.cpp">
+    <ClCompile Include="BaixaProveidorUI.cpp">
       <Filter>Source Files\ui</Filter>
     </ClCompile>
     <ClCompile Include="Professor.cpp">
@@ -100,7 +100,7 @@
     <ClCompile Include="Utils.cpp">
       <Filter>Source Files\utils</Filter>
     </ClCompile>
-    <ClCompile Include="AltaProveidorService.cpp">
+    <ClCompile Include="BaixaProveidorService.cpp">
       <Filter>Source Files\services</Filter>
     </ClCompile>
     <ClCompile Include="Proveidor.cpp">

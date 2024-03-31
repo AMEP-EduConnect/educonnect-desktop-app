@@ -4,8 +4,7 @@ public ref class ProveidorRepository
 {
 public:
 	ProveidorRepository();
-	void AltaProveidor(String^ name);
-	Proveidor^ GetProveidorByName(String^ name);
 	void BaixaProveidor(String^ name);
+	Proveidor^ GetProveidorByName(String^ name);
 };
 
