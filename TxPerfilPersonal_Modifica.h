@@ -6,6 +6,10 @@ public ref class TxPerfilPersonal_Modifica
 public:
 	TxPerfilPersonal_Modifica();
 
+	bool ModificaUsuari(String^ username, String^ password, String^ email, String^ nom);
+	bool CheckUsername(String^ username);
+	bool CheckEmail(String^ email);
+
 private:
-	TxPerfilPersonal_Modifica^ txPerfilPersonal_Modifica;
+	UsuariRepository^ usuariRepository;
 };

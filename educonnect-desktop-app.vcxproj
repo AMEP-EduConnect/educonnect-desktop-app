@@ -265,6 +265,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MyForm.resx" />
   </ItemGroup>
+  <ItemGroup>
+    <Xml Include="credentials.xml" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

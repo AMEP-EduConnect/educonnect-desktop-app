@@ -94,7 +94,7 @@ namespace CppCLRWinFormsProject {
 			this->textBox4->Location = System::Drawing::Point(180, 171);
 			this->textBox4->Name = L"textBox4";
 			this->textBox4->ReadOnly = true;
-			this->textBox4->Size = System::Drawing::Size(147, 26);
+			this->textBox4->Size = System::Drawing::Size(147, 22);
 			this->textBox4->TabIndex = 7;
 			// 
 			// textBox3
@@ -102,23 +102,25 @@ namespace CppCLRWinFormsProject {
 			this->textBox3->Location = System::Drawing::Point(180, 120);
 			this->textBox3->Name = L"textBox3";
 			this->textBox3->ReadOnly = true;
-			this->textBox3->Size = System::Drawing::Size(228, 26);
+			this->textBox3->Size = System::Drawing::Size(228, 22);
 			this->textBox3->TabIndex = 6;
 			// 
 			// textBox2
 			// 
 			this->textBox2->Location = System::Drawing::Point(180, 68);
 			this->textBox2->Name = L"textBox2";
+			this->textBox2->PasswordChar = '*';
 			this->textBox2->ReadOnly = true;
-			this->textBox2->Size = System::Drawing::Size(147, 26);
+			this->textBox2->Size = System::Drawing::Size(147, 22);
 			this->textBox2->TabIndex = 5;
+			this->textBox2->UseSystemPasswordChar = true;
 			// 
 			// label6
 			// 
 			this->label6->AutoSize = true;
 			this->label6->Location = System::Drawing::Point(33, 174);
 			this->label6->Name = L"label6";
-			this->label6->Size = System::Drawing::Size(129, 20);
+			this->label6->Size = System::Drawing::Size(103, 16);
 			this->label6->TabIndex = 4;
 			this->label6->Text = L"Nom i Cognoms";
 			// 
@@ -127,7 +129,7 @@ namespace CppCLRWinFormsProject {
 			this->label5->AutoSize = true;
 			this->label5->Location = System::Drawing::Point(33, 123);
 			this->label5->Name = L"label5";
-			this->label5->Size = System::Drawing::Size(138, 20);
+			this->label5->Size = System::Drawing::Size(108, 16);
 			this->label5->TabIndex = 3;
 			this->label5->Text = L"Correu electrònic";
 			// 
@@ -136,7 +138,7 @@ namespace CppCLRWinFormsProject {
 			this->label4->AutoSize = true;
 			this->label4->Location = System::Drawing::Point(33, 71);
 			this->label4->Name = L"label4";
-			this->label4->Size = System::Drawing::Size(103, 20);
+			this->label4->Size = System::Drawing::Size(83, 16);
 			this->label4->TabIndex = 2;
 			this->label4->Text = L"Contrasenya";
 			// 
@@ -145,7 +147,7 @@ namespace CppCLRWinFormsProject {
 			this->label3->AutoSize = true;
 			this->label3->Location = System::Drawing::Point(33, 22);
 			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(108, 20);
+			this->label3->Size = System::Drawing::Size(86, 16);
 			this->label3->TabIndex = 1;
 			this->label3->Text = L"Nom d\'usuari";
 			this->label3->Click += gcnew System::EventHandler(this, &InformacioPersonal_ConsultaUI::label3_Click);
@@ -156,7 +158,7 @@ namespace CppCLRWinFormsProject {
 			this->textBox1->Margin = System::Windows::Forms::Padding(4);
 			this->textBox1->Name = L"textBox1";
 			this->textBox1->ReadOnly = true;
-			this->textBox1->Size = System::Drawing::Size(147, 26);
+			this->textBox1->Size = System::Drawing::Size(147, 22);
 			this->textBox1->TabIndex = 0;
 			this->textBox1->TextChanged += gcnew System::EventHandler(this, &InformacioPersonal_ConsultaUI::textBox1_TextChanged);
 			// 
@@ -168,7 +170,7 @@ namespace CppCLRWinFormsProject {
 			this->label1->Location = System::Drawing::Point(44, 46);
 			this->label1->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(100, 20);
+			this->label1->Size = System::Drawing::Size(80, 16);
 			this->label1->TabIndex = 1;
 			this->label1->Text = L"EduConnect";
 			this->label1->Click += gcnew System::EventHandler(this, &InformacioPersonal_ConsultaUI::label1_Click);
@@ -180,7 +182,7 @@ namespace CppCLRWinFormsProject {
 				static_cast<System::Byte>(0)));
 			this->label2->Location = System::Drawing::Point(41, 73);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(254, 39);
+			this->label2->Size = System::Drawing::Size(205, 31);
 			this->label2->TabIndex = 2;
 			this->label2->Text = L"Perfil Personal";
 			this->label2->Click += gcnew System::EventHandler(this, &InformacioPersonal_ConsultaUI::label2_Click);
@@ -208,7 +210,7 @@ namespace CppCLRWinFormsProject {
 			// 
 			// InformacioPersonal_ConsultaUI
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(9, 20);
+			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(727, 486);
 			this->Controls->Add(this->button2);

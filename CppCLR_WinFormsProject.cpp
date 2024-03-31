@@ -1,5 +1,5 @@
 #include "pch.h"
-
+#include "DatabaseConnector.h"
 using namespace System;
 
 // int main(array<System::String ^> ^args)
@@ -17,6 +17,7 @@ using namespace System::Windows::Forms;
 [STAThread]
 int main()
 {
+  DatabaseConnector::Instance = gcnew DatabaseConnector();
   Application::EnableVisualStyles();
   Application::SetCompatibleTextRenderingDefault(false);
   Application::Run(gcnew CppCLRWinFormsProject::InformacioPersonal_ConsultaUI());
