@@ -1,5 +1,5 @@
 #pragma once
-#include "TxPerfilPersonal_Modifica.h"
+#include "PerfilPersonalModificaService.h"
 namespace CppCLRWinFormsProject {
 
 	using namespace System;
@@ -48,9 +48,10 @@ namespace CppCLRWinFormsProject {
 	private: System::Windows::Forms::TextBox^ textBox3;
 	private: System::Windows::Forms::Button^ button1;
 	private: System::Windows::Forms::Button^ button2;
-	private: TxPerfilPersonal_Modifica^ txModifica;
+	private: PerfilPersonalModificaService^ txModifica;
 	private: System::Windows::Forms::TextBox^ textBox5;
 	private: System::Windows::Forms::Label^ label7;
+	private: System::Windows::Forms::PictureBox^ Background_PictureBox;
 
 	protected:
 
@@ -81,7 +82,9 @@ namespace CppCLRWinFormsProject {
 			this->label3 = (gcnew System::Windows::Forms::Label());
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->button2 = (gcnew System::Windows::Forms::Button());
+			this->Background_PictureBox = (gcnew System::Windows::Forms::PictureBox());
 			this->panel1->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->Background_PictureBox))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// label1
@@ -90,7 +93,7 @@ namespace CppCLRWinFormsProject {
 			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label1->ForeColor = System::Drawing::SystemColors::HotTrack;
-			this->label1->Location = System::Drawing::Point(33, 24);
+			this->label1->Location = System::Drawing::Point(262, 82);
 			this->label1->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(85, 17);
@@ -103,7 +106,7 @@ namespace CppCLRWinFormsProject {
 			this->label2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 19.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label2->ForeColor = System::Drawing::SystemColors::HotTrack;
-			this->label2->Location = System::Drawing::Point(31, 58);
+			this->label2->Location = System::Drawing::Point(259, 99);
 			this->label2->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label2->Name = L"label2";
 			this->label2->Size = System::Drawing::Size(332, 31);
@@ -124,7 +127,7 @@ namespace CppCLRWinFormsProject {
 			this->panel1->Controls->Add(this->label5);
 			this->panel1->Controls->Add(this->label4);
 			this->panel1->Controls->Add(this->label3);
-			this->panel1->Location = System::Drawing::Point(37, 133);
+			this->panel1->Location = System::Drawing::Point(265, 145);
 			this->panel1->Margin = System::Windows::Forms::Padding(2);
 			this->panel1->Name = L"panel1";
 			this->panel1->Size = System::Drawing::Size(404, 255);
@@ -250,7 +253,7 @@ namespace CppCLRWinFormsProject {
 			this->button1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->button1->ForeColor = System::Drawing::Color::Red;
-			this->button1->Location = System::Drawing::Point(692, 454);
+			this->button1->Location = System::Drawing::Point(803, 493);
 			this->button1->Margin = System::Windows::Forms::Padding(2);
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(82, 35);
@@ -264,7 +267,7 @@ namespace CppCLRWinFormsProject {
 			this->button2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->button2->ForeColor = System::Drawing::SystemColors::HotTrack;
-			this->button2->Location = System::Drawing::Point(574, 454);
+			this->button2->Location = System::Drawing::Point(692, 493);
 			this->button2->Margin = System::Windows::Forms::Padding(2);
 			this->button2->Name = L"button2";
 			this->button2->Size = System::Drawing::Size(95, 35);
@@ -273,22 +276,35 @@ namespace CppCLRWinFormsProject {
 			this->button2->UseVisualStyleBackColor = true;
 			this->button2->Click += gcnew System::EventHandler(this, &InformacioPersonal_ModificaUI::Acceptar_Click);
 			// 
+			// Background_PictureBox
+			// 
+			this->Background_PictureBox->Location = System::Drawing::Point(-5, 555);
+			this->Background_PictureBox->Name = L"Background_PictureBox";
+			this->Background_PictureBox->Size = System::Drawing::Size(928, 265);
+			this->Background_PictureBox->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
+			this->Background_PictureBox->TabIndex = 13;
+			this->Background_PictureBox->TabStop = false;
+			// 
 			// InformacioPersonal_ModificaUI
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(785, 500);
+			this->ClientSize = System::Drawing::Size(917, 657);
+			this->Controls->Add(this->Background_PictureBox);
 			this->Controls->Add(this->button2);
 			this->Controls->Add(this->button1);
 			this->Controls->Add(this->panel1);
 			this->Controls->Add(this->label2);
 			this->Controls->Add(this->label1);
+			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedSingle;
 			this->Margin = System::Windows::Forms::Padding(2);
 			this->Name = L"InformacioPersonal_ModificaUI";
-			this->Text = L"InformacioPersonal_ModificaUI";
+			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterParent;
+			this->Text = L"EduConnect";
 			this->Load += gcnew System::EventHandler(this, &InformacioPersonal_ModificaUI::InformacioPersonal_ModificaUI_Load);
 			this->panel1->ResumeLayout(false);
 			this->panel1->PerformLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->Background_PictureBox))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 

@@ -3,7 +3,7 @@
 #include "Proveidor.h"
 #include "AltaProveidorService.h"
 #include "MessageManager.h"
-
+#include "MainPageUI.h"
 
 using namespace System;
 
@@ -13,9 +13,18 @@ namespace CppCLRWinFormsProject {
     {
         InitializeComponent();
         altaProveidorService = gcnew AltaProveidorService();
+        this->Background_PictureBox->Image = Image::FromFile("background.png");
+        this->Icon = gcnew System::Drawing::Icon("app.ico");
 
     }
 
+    void AltaProveidorUI::Cancelar_Button_Click(System::Object^ sender, System::EventArgs^ e)
+    {   
+        this->Hide();
+        MainPageUI^ form = gcnew MainPageUI();
+        form->ShowDialog();
+        this->Close();
+    }
     
     
     void AltaProveidorUI::button1_Click(System::Object^ sender, System::EventArgs^ e)

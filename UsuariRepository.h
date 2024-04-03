@@ -14,7 +14,7 @@ public:
 	Usuari^ GetUsuariByUser(String^ username);
 	bool CheckUsuariByUser(String^ username);
     bool CheckUsuariByEmail(String^ email);
-	bool CreateUser(String^ username, String^ email, String^ name, String^ password);
+	Int64^ CreateUser(String^ username, String^ email, String^ name, String^ password);
 	bool CreateUserRol(Int64^ id);
 	bool UpdateUser(String^ username, String^ password, String^ email, String^ name);
 };

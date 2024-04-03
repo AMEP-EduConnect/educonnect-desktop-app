@@ -91,7 +91,7 @@ bool UsuariRepository::CheckUsuariByEmail(String^ email) {
 }
 
 
-bool UsuariRepository::CreateUser(String^ username, String^ email, String^ name, String^ password) {
+Int64^ UsuariRepository::CreateUser(String^ username, String^ email, String^ name, String^ password) {
 	DatabaseConnector::Instance->Connect();
 	String^ sql = "INSERT INTO users (username, password, email, name) VALUES (@Username, @Password, @Email, @Name)";
 	Dictionary<String^, Object^>^ params = gcnew Dictionary<String^, Object^>();
@@ -111,8 +111,7 @@ bool UsuariRepository::CreateUser(String^ username, String^ email, String^ name,
 	}
 	data2->Close();
 	DatabaseConnector::Instance->Disconnect();
-	check = CreateUserRol(id);
-	return check;
+	return id;
 }
 
 bool UsuariRepository::CreateUserRol(Int64^ id) {
@@ -145,3 +144,4 @@ bool UsuariRepository::UpdateUser(String^ username, String^ password, String^ em
 	currentUser->SetName(name);
 	return true;
 }
+

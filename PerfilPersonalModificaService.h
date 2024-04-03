@@ -1,10 +1,10 @@
 #pragma once
 #include "UsuariRepository.h"
 
-public ref class TxPerfilPersonal_Modifica
+public ref class PerfilPersonalModificaService
 {
 public:
-	TxPerfilPersonal_Modifica();
+	PerfilPersonalModificaService();
 
 	bool ModificaUsuari(String^ username, String^ password, String^ email, String^ nom);
 	bool CheckUsername(String^ username);

@@ -1,6 +1,7 @@
 #include "pch.h"
 #include "IniciSessioUI.h"
 #include "MainPageUI.h"
+#include "FirstPageUI.h"
 
 using namespace System;
 
@@ -22,11 +23,9 @@ namespace CppCLRWinFormsProject {
 
 
             if (check == true) {
-                MessageBox::Show("Inici de sessió amb exit");
                 this->Hide();
                 MainPageUI^ form = gcnew MainPageUI();
                 form->ShowDialog();
-                this->Show();
                 this->Close();
             }
 
@@ -36,6 +35,9 @@ namespace CppCLRWinFormsProject {
 
 
     Void IniciSessioUI::GoBackButton_Click(System::Object^ sender, System::EventArgs^ e) {
+        this->Hide();
+        FirstPageUI^ form = gcnew FirstPageUI();
+        form->ShowDialog();
         this->Close();
     }
 

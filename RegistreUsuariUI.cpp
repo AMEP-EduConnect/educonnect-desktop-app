@@ -71,11 +71,18 @@ namespace CppCLRWinFormsProject {
             else {
                 this->registreService->CreateUser(username,email,name,password);
                 MessageBox::Show("S'ha registrat correctament! Benvingut!", "Registre Correcte", MessageBoxButtons::OK);
+
+                this->Hide();
+                FirstPageUI^ form = gcnew FirstPageUI();
+                form->ShowDialog();
                 this->Close();
             }
         }
 
         Void RegistreUsuariUI::GoBackButton_Click(System::Object^ sender, System::EventArgs^ e) {
+            this->Hide();
+            FirstPageUI^ form = gcnew FirstPageUI();
+            form->ShowDialog();
             this->Close();
         }
 
