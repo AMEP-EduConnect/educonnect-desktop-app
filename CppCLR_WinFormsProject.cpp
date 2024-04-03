@@ -33,6 +33,7 @@ int main()
   Application::EnableVisualStyles();
   Application::SetCompatibleTextRenderingDefault(false);
   Application::Run(gcnew CppCLRWinFormsProject::FirstPageUI());
+  //Application::Run(gcnew CppCLRWinFormsProject::InformacioPersonal_ConsultaUI());
   //Application::Run(gcnew CppCLRWinFormsProject::IniciSessio());
   //Application::Run(gcnew CppCLRWinFormsProject::RegistreUsuari());
   //Application::Run(gcnew CppCLRWinFormsProject::GrupEstudi_EditarUI());

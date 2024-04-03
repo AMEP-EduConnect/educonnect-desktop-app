@@ -216,8 +216,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AcademicTag.h" />
-    <ClInclude Include="CurrentSession.h" />
-    <ClInclude Include="DatabaseConnector.h" />
     <ClInclude Include="GrupEstudi.h" />
     <ClInclude Include="GrupEstudiMembershipRepository.h" />
     <ClInclude Include="GrupEstudiMembershipService.h" />
@@ -236,8 +234,6 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="GrupEstudiMembership.h" />
-    <ClInclude Include="CurrentSession.h" />
-    <ClInclude Include="DatabaseConnector.h" />
     <ClInclude Include="FirstPageUI.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -248,6 +244,12 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="MessageManager.h" />
+    <ClInclude Include="InformacioPersonal_ConsultaUI.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="InformacioPersonal_ModificaUI.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="pch.h" />
     <ClInclude Include="Professor.h" />
     <ClInclude Include="ProfessorRepository.h" />
@@ -258,6 +260,8 @@
     <ClInclude Include="Resource.h" />
     <ClInclude Include="IniciSessioService.h" />
     <ClInclude Include="RegistreService.h" />
+    <ClInclude Include="TxPerfilPersonal_Consulta.h" />
+    <ClInclude Include="TxPerfilPersonal_Modifica.h" />
     <ClInclude Include="Usuari.h" />
     <ClInclude Include="UsuariRepository.h" />
     <ClInclude Include="Utils.h" />
@@ -268,6 +272,8 @@
     <ClCompile Include="CppCLR_WinFormsProject.cpp" />
     <ClCompile Include="CurrentSession.cpp" />
     <ClCompile Include="DatabaseConnector.cpp" />
+    <ClCompile Include="InformacioPersonal_ConsultaUI.cpp" />
+    <ClCompile Include="InformacioPersonal_ModificaUI.cpp" />
     <ClCompile Include="IniciSessioUI.cpp" />
     <ClCompile Include="FirstPageUI.cpp" />
     <ClCompile Include="GrupEstudi.cpp" />
@@ -293,6 +299,8 @@
     <ClCompile Include="Professor.cpp" />
     <ClCompile Include="ProfessorRepository.cpp" />
     <ClCompile Include="ProfessorService.cpp" />
+    <ClCompile Include="TxPerfilPersonal_Consulta.cpp" />
+    <ClCompile Include="TxPerfilPersonal_Modifica.cpp" />
     <ClCompile Include="Usuari.cpp" />
     <ClCompile Include="UsuariRepository.cpp" />
     <ClCompile Include="RegistreService.cpp" />
@@ -324,8 +332,17 @@
     <EmbeddedResource Include="GrupEstudi_EditarUI.resx">
       <DependentUpon>GrupEstudi_EditarUI.h</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="IniciSessioUI.resx">
+      <DependentUpon>IniciSessioUI.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainPageUI.resx">
       <DependentUpon>MainPageUI.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InformacioPersonal_ConsultaUI.resx">
+      <DependentUpon>InformacioPersonal_ConsultaUI.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InformacioPersonal_ModificaUI.resx">
+      <DependentUpon>InformacioPersonal_ModificaUI.h</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

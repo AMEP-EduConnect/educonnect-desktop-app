@@ -58,7 +58,7 @@ namespace CppCLRWinFormsProject {
 		/// <summary>
 		/// Variable del diseñador necesaria.
 		/// </summary>
-		System::ComponentModel::Container ^components;
+		System::ComponentModel::Container^ components;
 #pragma region Windows Form Designer generated code
 		/// <summary>
 		/// Método necesario para admitir el Diseñador. No se puede modificar
@@ -132,11 +132,11 @@ namespace CppCLRWinFormsProject {
 			// 
 			// textBox5
 			// 
-			this->textBox5->Location = System::Drawing::Point(180, 212);
+			this->textBox5->Location = System::Drawing::Point(172, 212);
 			this->textBox5->Margin = System::Windows::Forms::Padding(2);
 			this->textBox5->Name = L"textBox5";
 			this->textBox5->PasswordChar = '*';
-			this->textBox5->Size = System::Drawing::Size(136, 20);
+			this->textBox5->Size = System::Drawing::Size(199, 20);
 			this->textBox5->TabIndex = 9;
 			this->textBox5->UseSystemPasswordChar = true;
 			this->textBox5->TextChanged += gcnew System::EventHandler(this, &InformacioPersonal_ModificaUI::textBox5_TextChanged);
@@ -165,29 +165,29 @@ namespace CppCLRWinFormsProject {
 			// 
 			// textBox3
 			// 
-			this->textBox3->Location = System::Drawing::Point(180, 73);
+			this->textBox3->Location = System::Drawing::Point(172, 73);
 			this->textBox3->Margin = System::Windows::Forms::Padding(2);
 			this->textBox3->Name = L"textBox3";
-			this->textBox3->Size = System::Drawing::Size(191, 20);
+			this->textBox3->Size = System::Drawing::Size(199, 20);
 			this->textBox3->TabIndex = 6;
 			// 
 			// textBox2
 			// 
-			this->textBox2->Location = System::Drawing::Point(180, 168);
+			this->textBox2->Location = System::Drawing::Point(172, 168);
 			this->textBox2->Margin = System::Windows::Forms::Padding(2);
 			this->textBox2->Name = L"textBox2";
 			this->textBox2->PasswordChar = '*';
-			this->textBox2->Size = System::Drawing::Size(136, 20);
+			this->textBox2->Size = System::Drawing::Size(199, 20);
 			this->textBox2->TabIndex = 5;
 			this->textBox2->UseSystemPasswordChar = true;
 			this->textBox2->TextChanged += gcnew System::EventHandler(this, &InformacioPersonal_ModificaUI::textBox2_TextChanged);
 			// 
 			// textBox1
 			// 
-			this->textBox1->Location = System::Drawing::Point(180, 21);
+			this->textBox1->Location = System::Drawing::Point(172, 21);
 			this->textBox1->Margin = System::Windows::Forms::Padding(2);
 			this->textBox1->Name = L"textBox1";
-			this->textBox1->Size = System::Drawing::Size(136, 20);
+			this->textBox1->Size = System::Drawing::Size(199, 20);
 			this->textBox1->TabIndex = 4;
 			this->textBox1->TextChanged += gcnew System::EventHandler(this, &InformacioPersonal_ModificaUI::textBox1_TextChanged);
 			// 
@@ -302,17 +302,17 @@ namespace CppCLRWinFormsProject {
 	private: System::Void Acceptar_Click(System::Object^ sender, System::EventArgs^ e);
 	private: System::Void InformacioPersonal_ModificaUI_Load(System::Object^ sender, System::EventArgs^ e) {
 	}
-private: System::Void textBox2_TextChanged(System::Object^ sender, System::EventArgs^ e) {
-}
-private: System::Void label4_Click(System::Object^ sender, System::EventArgs^ e) {
-}
-private: System::Void label7_Click(System::Object^ sender, System::EventArgs^ e) {
-}
-private: System::Void textBox5_TextChanged(System::Object^ sender, System::EventArgs^ e) {
-}
-private: System::Void textBox1_TextChanged(System::Object^ sender, System::EventArgs^ e) {
-}
-private: System::Void label7_Click_1(System::Object^ sender, System::EventArgs^ e) {
-}
-};
+	private: System::Void textBox2_TextChanged(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void label4_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void label7_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void textBox5_TextChanged(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void textBox1_TextChanged(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void label7_Click_1(System::Object^ sender, System::EventArgs^ e) {
+	}
+	};
 }

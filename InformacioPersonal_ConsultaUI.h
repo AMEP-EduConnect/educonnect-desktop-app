@@ -47,7 +47,7 @@ namespace CppCLRWinFormsProject {
 		/// <summary>
 		/// Variable del diseñador necesaria.
 		/// </summary>
-		System::ComponentModel::Container ^components;
+		System::ComponentModel::Container^ components;
 		//TxPerfilPersonal_Consulta^ txPerfilPersonal_Consulta;
 #pragma region Windows Form Designer generated code
 		/// <summary>
@@ -94,7 +94,7 @@ namespace CppCLRWinFormsProject {
 			this->textBox4->Location = System::Drawing::Point(180, 171);
 			this->textBox4->Name = L"textBox4";
 			this->textBox4->ReadOnly = true;
-			this->textBox4->Size = System::Drawing::Size(147, 22);
+			this->textBox4->Size = System::Drawing::Size(228, 22);
 			this->textBox4->TabIndex = 7;
 			// 
 			// textBox3
@@ -111,7 +111,7 @@ namespace CppCLRWinFormsProject {
 			this->textBox2->Name = L"textBox2";
 			this->textBox2->PasswordChar = '*';
 			this->textBox2->ReadOnly = true;
-			this->textBox2->Size = System::Drawing::Size(147, 22);
+			this->textBox2->Size = System::Drawing::Size(228, 22);
 			this->textBox2->TabIndex = 5;
 			this->textBox2->UseSystemPasswordChar = true;
 			// 
@@ -158,7 +158,7 @@ namespace CppCLRWinFormsProject {
 			this->textBox1->Margin = System::Windows::Forms::Padding(4);
 			this->textBox1->Name = L"textBox1";
 			this->textBox1->ReadOnly = true;
-			this->textBox1->Size = System::Drawing::Size(147, 22);
+			this->textBox1->Size = System::Drawing::Size(228, 22);
 			this->textBox1->TabIndex = 0;
 			this->textBox1->TextChanged += gcnew System::EventHandler(this, &InformacioPersonal_ConsultaUI::textBox1_TextChanged);
 			// 
@@ -240,9 +240,9 @@ namespace CppCLRWinFormsProject {
 	}
 	private: System::Void Tanca_Click(System::Object^ sender, System::EventArgs^ e);
 	private: System::Void Edita_Click(System::Object^ sender, System::EventArgs^ e);
-private: System::Void textBox1_TextChanged(System::Object^ sender, System::EventArgs^ e) {
-}
-private: System::Void label2_Click(System::Object^ sender, System::EventArgs^ e) {
-}
-};
+	private: System::Void textBox1_TextChanged(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void label2_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+	};
 }
