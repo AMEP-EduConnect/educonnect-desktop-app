@@ -1,4 +1,5 @@
 #pragma once
+#include "BaixaProveidorService.h"
 
 namespace CppCLRWinFormsProject {
 
@@ -37,6 +38,8 @@ namespace CppCLRWinFormsProject {
 
 	private: System::Windows::Forms::Button^ button2;
 	private: System::Windows::Forms::TextBox^ textBox1;
+	private: BaixaProveidorService^ baixaProveidorService;
+
 
 	private:
 		/// <summary>
@@ -87,4 +90,3 @@ namespace CppCLRWinFormsProject {
 	}
 	};
 }
-

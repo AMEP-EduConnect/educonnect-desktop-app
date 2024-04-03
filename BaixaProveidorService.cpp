@@ -6,8 +6,10 @@
 #include "ProveidorRepository.h"
 #include "MessageManager.h"
 
+BaixaProveidorService::BaixaProveidorService() {
+};
 
-void ProveidorService::BaixaProveidor(String^ name)
+void BaixaProveidorService::BaixaProveidor(String^ name)
 {
 	if (!CheckIfProveidorExists(name)) {
 		MessageManager::WarningMessage("El proveidor no existeix.");

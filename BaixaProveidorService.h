@@ -2,10 +2,10 @@
 #include "ProveidorRepository.h"
 #include <vector>
 
-public ref class ProveidorService
+public ref class BaixaProveidorService
 {
 public:
-	ProveidorService();
+	BaixaProveidorService();
 
 	void BaixaProveidor(String^ name);
 	//void AltaProveidor(String^ id, String^ username, String^ password, String^ email, String^ surname);
