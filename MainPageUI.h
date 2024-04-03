@@ -71,8 +71,8 @@ namespace CppCLRWinFormsProject {
 		}
 #pragma endregion
 	private:
-		System::Void MainPage_Load(System::Object^ sender, System::EventArgs^ e);
+		System::Void MainPageUI_Load(System::Object^ sender, System::EventArgs^ e);
 		//TESTING METHOD, DELETE LATER
-		System::Void testQuery();
+		//System::Void testQuery();
 	};
 }
