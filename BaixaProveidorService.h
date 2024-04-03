@@ -7,10 +7,9 @@ public ref class BaixaProveidorService
 public:
 	BaixaProveidorService();
 
-	void BaixaProveidor(String^ name);
-	//void AltaProveidor(String^ id, String^ username, String^ password, String^ email, String^ surname);
-	bool CheckIfProveidorExists(String^ name);
+	bool BaixaProveidor(String^ username);
 
+	bool CheckIfProveidorExists(String^ username);
 
 private:
 	ProveidorRepository^ proveidorRepository;

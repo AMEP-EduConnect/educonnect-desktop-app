@@ -47,12 +47,6 @@
     <ClInclude Include="Utils.h">
       <Filter>Source Files\utils</Filter>
     </ClInclude>
-    <ClInclude Include="CurrentSession.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="DatabaseConnector.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="BaixaProveidorService.h">
       <Filter>Source Files\services</Filter>
     </ClInclude>
@@ -62,7 +56,7 @@
     <ClInclude Include="AltaProveidorService.h">
       <Filter>Source Files\services</Filter>
     </ClInclude>
-    <ClInclude Include="BaixaProveidor.h">
+    <ClInclude Include="BaixaProveidorUI.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="AltaUI.h">
@@ -109,9 +103,6 @@
     <ClCompile Include="AltaProveidorUI.cpp">
       <Filter>Source Files\ui</Filter>
     </ClCompile>
-    <ClCompile Include="MessageManager.cpp">
-      <Filter>Source Files\utils</Filter>
-    </ClCompile>
     <ClCompile Include="CppCLR_WinFormsProject.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -121,9 +112,6 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="app.ico">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="background.png">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>

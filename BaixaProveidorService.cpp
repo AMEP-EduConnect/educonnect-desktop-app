@@ -1,27 +1,29 @@
 #include "pch.h"
-#include "BaixaProveidor.h"
-#include "DatabaseConnector.h"
-#include "Proveidor.h"
 #include "BaixaProveidorService.h"
+#include "DatabaseConnector.h"
 #include "ProveidorRepository.h"
 #include "MessageManager.h"
 
 BaixaProveidorService::BaixaProveidorService() {
-};
-
-void BaixaProveidorService::BaixaProveidor(String^ name)
-{
-	if (!CheckIfProveidorExists(name)) {
-		MessageManager::WarningMessage("El proveidor no existeix.");
-		return;
-	}
-	proveidorRepository->BaixaProveidor(name);
-	MessageManager::InfoMessage("Proveidor eliminat amb èxit.");
+    proveidorRepository = gcnew ProveidorRepository();
 }
 
-bool BaixaProveidorService::CheckIfProveidorExists(String^ name) {
-	Proveidor^ proveidor = proveidorRepository->GetProveidorByName(name);
+bool BaixaProveidorService::BaixaProveidor(String^ username) {
+    if (!CheckIfProveidorExists(username)) {
+        MessageManager::WarningMessage("El proveedor no existe.");
+        return false; 
+    }
 
-	return not System::String::IsNullOrEmpty(proveidor->GetProveidorName());
+    try {
+        proveidorRepository->BaixaProveidor(username);
+        return true; 
+    }
+    catch (Exception^ ex) {
+        MessageManager::ErrorMessage("Error al eliminar el proveedor: " + ex->Message);
+        return false;
+    }
 }
 
+bool BaixaProveidorService::CheckIfProveidorExists(String^ username) {
+    return proveidorRepository->CheckIfProveidorExists(username);
+}

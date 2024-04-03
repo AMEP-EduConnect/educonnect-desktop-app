@@ -220,7 +220,7 @@
     <ClInclude Include="MainPageUI.h">
       <FileType>CppForm</FileType>
     </ClInclude>
-    <ClInclude Include="BaixaProveidor.h">
+    <ClInclude Include="BaixaProveidorUI.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="AltaUI.h">
@@ -271,6 +271,9 @@
   <ItemGroup>
     <EmbeddedResource Include="AltaUI.resx">
       <DependentUpon>AltaUI.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BaixaProveidorUI.resx">
+      <DependentUpon>BaixaProveidorUI.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainPageUI.resx">
       <DependentUpon>MainPageUI.h</DependentUpon>

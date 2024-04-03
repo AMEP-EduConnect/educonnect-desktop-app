@@ -9,6 +9,18 @@ ProveidorRepository::ProveidorRepository()
 
 }
 
+void ProveidorRepository::BaixaProveidor(String^ username)
+{
+	DatabaseConnector::Instance->Connect();
+	String^ sql = "DELETE FROM users WHERE username = @Username";
+	Dictionary<String^, Object^>^ params = gcnew Dictionary<String^, Object^>();
+	params->Add("@Username", username);
+
+	DatabaseConnector::Instance->ExecuteClientCommand(sql, params);
+	DatabaseConnector::Instance->Disconnect();
+}
+
+
 bool ProveidorRepository::AltaProveidor(String^ username, String^ email, String^ name, String^ password)
 {
 	DatabaseConnector::Instance->Connect();

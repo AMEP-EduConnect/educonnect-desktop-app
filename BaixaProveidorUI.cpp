@@ -1,42 +1,35 @@
 #include "pch.h"
-#include "BaixaProveidor.h"
+#include "BaixaProveidorUI.h"
 #include "Proveidor.h"
 #include "BaixaProveidorService.h"
 #include "MessageManager.h"
 
-
 using namespace System;
+using namespace CppCLRWinFormsProject;
 
-namespace CppCLRWinFormsProject {
-
-    BaixaProveidorUI::BaixaProveidorUI(void)
-    {
-        InitializeComponent();
-        baixaProveidorService = gcnew BaixaProveidorService(); // Asume la existencia de esta clase
-    }
-
-    void BaixaProveidorUI::BaixaProveidorUI_Load(System::Object^ sender, System::EventArgs^ e)
-    {
-        textBox1->Text = "Nombre del Proveedor a eliminar";
-    }
-
-    void BaixaProveidorUI::button2_Click(System::Object^ sender, System::EventArgs^ e)
-    {
-        String^ proveidorInfo = textBox1->Text;
-        if (!String::IsNullOrWhiteSpace(proveidorInfo)) {
-            try {
-                baixaProveidorService->BaixaProveidor(proveidorInfo); // Asume que este método existe
-
-                MessageManager::InfoMessage("Proveedor eliminado con éxito.");
-            }
-            catch (Exception^ e) {
-                MessageManager::ErrorMessage("Error al eliminar el proveedor: " + e->Message);
-            }
-        }
-        else {
-            MessageManager::WarningMessage("Por favor, introduce el nombre del proveedor a eliminar.");
-        }
-    }
+BaixaProveidorUI::BaixaProveidorUI(void) {
+    InitializeComponent();
+    baixaProveidorService = gcnew BaixaProveidorService();
+    this->button1->Click += gcnew System::EventHandler(this, &BaixaProveidorUI::button1_Click);
 }
 
-
+void BaixaProveidorUI::button1_Click(System::Object^ sender, System::EventArgs^ e) {
+    String^ username = this->textBox5->Text;
+    if (!String::IsNullOrWhiteSpace(username)) {
+        try {
+            bool success = baixaProveidorService->BaixaProveidor(username);
+            if (success) {
+                MessageManager::InfoMessage("Proveedor eliminado con éxito.");
+            }
+            else {
+                MessageManager::WarningMessage("El proveedor no pudo ser eliminado.");
+            }
+        }
+        catch (Exception^ ex) {
+            MessageManager::ErrorMessage("Error al eliminar el proveedor: " + ex->Message);
+        }
+    }
+    else {
+        MessageManager::WarningMessage("Por favor, introduce el nombre del proveedor a eliminar.");
+    }
+}
