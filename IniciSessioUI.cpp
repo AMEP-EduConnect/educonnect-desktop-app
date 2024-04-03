@@ -1,5 +1,6 @@
 #include "pch.h"
 #include "IniciSessioUI.h"
+#include "MainPageUI.h"
 
 using namespace System;
 
@@ -22,7 +23,11 @@ namespace CppCLRWinFormsProject {
 
             if (check == true) {
                 MessageBox::Show("Inici de sessió amb exit");
-
+                this->Hide();
+                MainPageUI^ form = gcnew MainPageUI();
+                form->ShowDialog();
+                this->Show();
+                this->Close();
             }
 
             else CredencialsIncorrectes_Label->Visible = true;

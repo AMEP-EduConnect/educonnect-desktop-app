@@ -9,6 +9,7 @@ public:
 	bool CreateUserRol(Int64^ id);
 	Proveidor^ GetProveidorByName(String^ username);
 	void BaixaProveidor(String^ name);
+	bool CheckIfIsProveidor(Int64^ providerId);
 	//Proveidor^ GetProveidorByName(String^ name);
 };
 

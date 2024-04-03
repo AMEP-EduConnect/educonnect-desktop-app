@@ -9,19 +9,13 @@ BaixaProveidorService::BaixaProveidorService() {
 }
 
 bool BaixaProveidorService::BaixaProveidor(String^ username) {
-    if (!CheckIfProveidorExists(username)) {
-        MessageManager::WarningMessage("El proveedor no existe.");
-        return false; 
-    }
 
-    try {
-        proveidorRepository->BaixaProveidor(username);
-        return true; 
-    }
-    catch (Exception^ ex) {
-        MessageManager::ErrorMessage("Error al eliminar el proveedor: " + ex->Message);
+    if (this->CheckIfProveidorExists(username)) {
+        MessageManager::WarningMessage("El proveedor no existe.");
         return false;
     }
+    proveidorRepository->BaixaProveidor(username);
+    return true;
 }
 
 bool BaixaProveidorService::CheckIfProveidorExists(String^ username) {

@@ -10,11 +10,11 @@ using namespace CppCLRWinFormsProject;
 BaixaProveidorUI::BaixaProveidorUI(void) {
     InitializeComponent();
     baixaProveidorService = gcnew BaixaProveidorService();
-    this->button1->Click += gcnew System::EventHandler(this, &BaixaProveidorUI::button1_Click);
+    this->BaixaProveidorButton->Click += gcnew System::EventHandler(this, &BaixaProveidorUI::BaixaProveidorButton_Click);
 }
 
-void BaixaProveidorUI::button1_Click(System::Object^ sender, System::EventArgs^ e) {
-    String^ username = this->textBox5->Text;
+void BaixaProveidorUI::BaixaProveidorButton_Click(System::Object^ sender, System::EventArgs^ e) {
+    String^ username = this->BaixaProveidorTextBox->Text;
     if (!String::IsNullOrWhiteSpace(username)) {
         try {
             bool success = baixaProveidorService->BaixaProveidor(username);

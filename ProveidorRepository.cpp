@@ -13,10 +13,9 @@ void ProveidorRepository::BaixaProveidor(String^ username)
 {
 	DatabaseConnector::Instance->Connect();
 	String^ sql = "DELETE FROM users WHERE username = @Username";
-	Dictionary<String^, Object^>^ params = gcnew Dictionary<String^, Object^>();
-	params->Add("@Username", username);
-
-	DatabaseConnector::Instance->ExecuteClientCommand(sql, params);
+	MySqlCommand^ command = gcnew MySqlCommand(sql, DatabaseConnector::Instance->GetConn());
+	command->Parameters->AddWithValue("@username", username);
+	int rowsAffected = command->ExecuteNonQuery();
 	DatabaseConnector::Instance->Disconnect();
 }
 
@@ -57,18 +56,45 @@ bool ProveidorRepository::CreateUserRol(Int64^ id) {
 }
 
 bool ProveidorRepository::CheckIfProveidorExists(String^username) {
-	
 	DatabaseConnector::Instance->Connect();
-	String^ sql = "SELECT username FROM users WHERE username = @Username";
+	String^ sql = "SELECT * FROM users WHERE username = @Username";
 	Dictionary<String^, Object^>^ params = gcnew Dictionary<String^, Object^>();
 	params->Add("@Username", username);
 
 	MySqlDataReader^ data = DatabaseConnector::Instance->ExecuteClientCommand(sql, params);
-
-	bool check = data != nullptr && data->Read();
+	Int64^ providerId;
+	while (data->Read())
+	{
+		providerId = data->GetInt64(0);
+	}
 	DatabaseConnector::Instance->Disconnect();
-	return check;
+	return this->CheckIfIsProveidor(providerId);
+}
 
+bool ProveidorRepository::CheckIfIsProveidor(Int64^ providerId) {
+	DatabaseConnector::Instance->Connect();
+	String^ sqlCheckIfProvider = "SELECT role_id FROM users_roles WHERE user_id = @User_Id";
+
+	Dictionary<String^, Object^>^ params2 = gcnew Dictionary<String^, Object^>();
+	params2->Add("@User_Id", providerId);
+
+	MySqlDataReader^ providerRoleChecker = DatabaseConnector::Instance->ExecuteClientCommand(sqlCheckIfProvider, params2);
+	Int64^ currentRoleId;
+
+	while (providerRoleChecker->Read())
+	{
+		currentRoleId = providerRoleChecker->GetInt64(0);
+	}
+
+	DatabaseConnector::Instance->Disconnect(); 
+	if(currentRoleId == 3LL)
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
 }
 
 Proveidor^ ProveidorRepository::GetProveidorByName(String^ username) {
