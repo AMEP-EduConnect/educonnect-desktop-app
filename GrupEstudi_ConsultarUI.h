@@ -187,7 +187,7 @@ namespace CppCLRWinFormsProject {
 			this->Cancelar_Button->BackColor = System::Drawing::Color::Transparent;
 			this->Cancelar_Button->Cursor = System::Windows::Forms::Cursors::Hand;
 			this->Cancelar_Button->ForeColor = System::Drawing::Color::Red;
-			this->Cancelar_Button->Location = System::Drawing::Point(737, 501);
+			this->Cancelar_Button->Location = System::Drawing::Point(800, 515);
 			this->Cancelar_Button->Name = L"Cancelar_Button";
 			this->Cancelar_Button->Size = System::Drawing::Size(75, 23);
 			this->Cancelar_Button->TabIndex = 7;

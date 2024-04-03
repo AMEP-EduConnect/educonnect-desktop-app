@@ -122,7 +122,7 @@ namespace CppCLRWinFormsProject {
 			this->NomUsuari_Label->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->NomUsuari_Label->ForeColor = System::Drawing::SystemColors::HotTrack;
-			this->NomUsuari_Label->Location = System::Drawing::Point(32, 23);
+			this->NomUsuari_Label->Location = System::Drawing::Point(35, 22);
 			this->NomUsuari_Label->Name = L"NomUsuari_Label";
 			this->NomUsuari_Label->Size = System::Drawing::Size(118, 16);
 			this->NomUsuari_Label->TabIndex = 1;
@@ -145,8 +145,8 @@ namespace CppCLRWinFormsProject {
 			// Expulsa_Button
 			// 
 			this->Expulsa_Button->Cursor = System::Windows::Forms::Cursors::Hand;
-			this->Expulsa_Button->ForeColor = System::Drawing::Color::DarkRed;
-			this->Expulsa_Button->Location = System::Drawing::Point(307, 158);
+			this->Expulsa_Button->ForeColor = System::Drawing::SystemColors::HotTrack;
+			this->Expulsa_Button->Location = System::Drawing::Point(294, 158);
 			this->Expulsa_Button->Name = L"Expulsa_Button";
 			this->Expulsa_Button->Size = System::Drawing::Size(75, 23);
 			this->Expulsa_Button->TabIndex = 9;
@@ -157,8 +157,8 @@ namespace CppCLRWinFormsProject {
 			// Assigna_Button
 			// 
 			this->Assigna_Button->Cursor = System::Windows::Forms::Cursors::Hand;
-			this->Assigna_Button->ForeColor = System::Drawing::Color::ForestGreen;
-			this->Assigna_Button->Location = System::Drawing::Point(226, 158);
+			this->Assigna_Button->ForeColor = System::Drawing::SystemColors::HotTrack;
+			this->Assigna_Button->Location = System::Drawing::Point(38, 158);
 			this->Assigna_Button->Name = L"Assigna_Button";
 			this->Assigna_Button->Size = System::Drawing::Size(75, 23);
 			this->Assigna_Button->TabIndex = 8;
@@ -170,7 +170,7 @@ namespace CppCLRWinFormsProject {
 			// 
 			this->NomGrup_TextBox->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			this->NomGrup_TextBox->Cursor = System::Windows::Forms::Cursors::Default;
-			this->NomGrup_TextBox->Location = System::Drawing::Point(41, 110);
+			this->NomGrup_TextBox->Location = System::Drawing::Point(38, 110);
 			this->NomGrup_TextBox->Name = L"NomGrup_TextBox";
 			this->NomGrup_TextBox->Size = System::Drawing::Size(195, 20);
 			this->NomGrup_TextBox->TabIndex = 5;
@@ -192,7 +192,7 @@ namespace CppCLRWinFormsProject {
 			this->Cancelar_Button->BackColor = System::Drawing::Color::Transparent;
 			this->Cancelar_Button->Cursor = System::Windows::Forms::Cursors::Hand;
 			this->Cancelar_Button->ForeColor = System::Drawing::Color::Red;
-			this->Cancelar_Button->Location = System::Drawing::Point(807, 466);
+			this->Cancelar_Button->Location = System::Drawing::Point(800, 515);
 			this->Cancelar_Button->Name = L"Cancelar_Button";
 			this->Cancelar_Button->Size = System::Drawing::Size(75, 23);
 			this->Cancelar_Button->TabIndex = 7;

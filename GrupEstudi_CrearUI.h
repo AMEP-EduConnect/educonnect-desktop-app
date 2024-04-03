@@ -106,8 +106,8 @@ namespace CppCLRWinFormsProject {
 			// 
 			// GoBack_Button
 			// 
-			this->GoBack_Button->ForeColor = System::Drawing::SystemColors::HotTrack;
-			this->GoBack_Button->Location = System::Drawing::Point(776, 526);
+			this->GoBack_Button->ForeColor = System::Drawing::Color::Red;
+			this->GoBack_Button->Location = System::Drawing::Point(800, 515);
 			this->GoBack_Button->Name = L"GoBack_Button";
 			this->GoBack_Button->Size = System::Drawing::Size(75, 23);
 			this->GoBack_Button->TabIndex = 2;
