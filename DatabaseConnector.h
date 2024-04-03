@@ -1,7 +1,10 @@
 #pragma once
+#include "Utils.h"
+#include "MessageManager.h"
+
 using namespace System;
 using namespace MySql::Data::MySqlClient;
-
+using namespace System::Collections::Generic;
 
 public ref class DatabaseConnector
 {
@@ -12,6 +15,8 @@ public:
     void Disconnect();
     MySqlDataReader^ ExecuteCommand(String^ sql);
     MySqlConnection^ GetConn();
+    MySqlDataReader^ ExecuteInternCommand(String^ sql);
+    MySqlDataReader^ ExecuteClientCommand(String^ sql, Dictionary<String^, Object^>^ params);
 
 private:
     String^ server;

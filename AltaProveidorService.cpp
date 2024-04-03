@@ -9,16 +9,17 @@ AltaProveidorService::AltaProveidorService()
 {
 	proveidorRepository = gcnew ProveidorRepository();
 }
-void AltaProveidorService::AltaProveidor(String^ id, String^ username, String^ password, String^ email, String^ surname)
+bool AltaProveidorService::AltaProveidor( String^ username, String^ email, String^ name, String^ password)
 {
 	try {
 		if (this->CheckIfProveidorExists(username)) {
 			MessageManager::WarningMessage("El proveidor ja existeix!");
-			return;
+			return false;
 		}
 		else {
 			MessageManager::InfoMessage("Proveidor donat d'alta");
-			proveidorRepository->AltaProveidor(id, username, password, email, surname);
+			return proveidorRepository->AltaProveidor(username, email, name, password);
+			
 		}
 	}
 	catch (Exception^ e) {
@@ -27,7 +28,6 @@ void AltaProveidorService::AltaProveidor(String^ id, String^ username, String^ p
 
 }
 bool AltaProveidorService::CheckIfProveidorExists(String^ username) {
-	Proveidor^ proveidor = proveidorRepository->GetProveidorByName(username);
 
-	return !System::String::IsNullOrEmpty(proveidor->GetProveidorName());
+	return proveidorRepository->CheckIfProveidorExists(username);
 }

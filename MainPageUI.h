@@ -10,18 +10,18 @@ namespace CppCLRWinFormsProject {
 	using namespace System::Drawing;
 
 	/// <summary>
-	/// Summary for MainPage
+	/// Summary for MainPageUI
 	/// </summary>
-	public ref class MainPage : public System::Windows::Forms::Form
+	public ref class MainPageUI : public System::Windows::Forms::Form
 	{
 	public:
-		MainPage(void);
+		MainPageUI(void);
 
 	protected:
 		/// <summary>
 		/// Clean up any resources being used.
 		/// </summary>
-		~MainPage()
+		~MainPageUI()
 		{
 			if (components)
 			{
@@ -55,17 +55,17 @@ namespace CppCLRWinFormsProject {
 			this->versionLabel->Size = System::Drawing::Size(67, 13);
 			this->versionLabel->TabIndex = 0;
 			this->versionLabel->Text = L"versionLabel";
-			//this->versionLabel->Click += gcnew System::EventHandler(this, &MainPage::versionLabel_Click);
+			//this->versionLabel->Click += gcnew System::EventHandler(this, &MainPageUI::versionLabel_Click);
 			// 
-			// MainPage
+			// MainPageUI
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(938, 496);
 			this->Controls->Add(this->versionLabel);
-			this->Name = L"MainPage";
-			this->Text = L"MainPage";
-			this->Load += gcnew System::EventHandler(this, &MainPage::MainPage_Load);
+			this->Name = L"MainPageUI";
+			this->Text = L"MainPageUI";
+			this->Load += gcnew System::EventHandler(this, &MainPageUI::MainPageUI_Load);
 
 			this->ResumeLayout(false);
 			this->PerformLayout();

@@ -6,6 +6,9 @@ using namespace System;
 // {
 //    return 0;
 // }
+
+
+
 #include "DatabaseConnector.h"
 #include "Proveidor.h"
 #include "AltaProveidorUI.h"
@@ -20,4 +23,5 @@ int main()
   Application::SetCompatibleTextRenderingDefault(false);
   Application::Run(gcnew CppCLRWinFormsProject::AltaProveidorUI());
   return 0;
+
 }
