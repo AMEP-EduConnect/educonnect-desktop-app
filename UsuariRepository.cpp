@@ -20,6 +20,7 @@ Usuari^ UsuariRepository::GetUsuariById(Int64^ id) {
 		usuari->SetEmail(data->GetString(3));
 		usuari->SetName(data->GetString(4));
 	}
+	DatabaseConnector::Instance->Disconnect();
 	return usuari;
 
 }
@@ -125,7 +126,22 @@ bool UsuariRepository::CreateUserRol(Int64^ id) {
 	return true;
 }
 
-
-
-
-
+bool UsuariRepository::UpdateUser(String^ username, String^ password, String^ email, String^ name) {
+	Usuari^ currentUser = CurrentSession::Instance->GetCurrentUser();
+	DatabaseConnector::Instance->Connect();
+	String^ sql = "UPDATE users SET username=@Username, password=@Password, email=@Email, name=@Name WHERE id=@id";
+	Dictionary<String^, Object^>^ params = gcnew Dictionary<String^, Object^>();
+	params->Add("@Username", username);
+	params->Add("@Password", password);
+	params->Add("@Email", email);
+	params->Add("@Name", name);
+	params->Add("@id", currentUser->GetUserId()->ToString());
+	MySqlDataReader^ data = DatabaseConnector::Instance->ExecuteClientCommand(sql, params);
+	data->Close();
+	DatabaseConnector::Instance->Disconnect();
+	currentUser->SetUsername(username);
+	currentUser->SetPassword(password);
+	currentUser->SetEmail(email);
+	currentUser->SetName(name);
+	return true;
+}

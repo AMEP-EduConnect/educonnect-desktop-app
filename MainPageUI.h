@@ -50,12 +50,11 @@ namespace CppCLRWinFormsProject {
 			// versionLabel
 			// 
 			this->versionLabel->AutoSize = true;
-			this->versionLabel->Location = System::Drawing::Point(26, 474);
+			this->versionLabel->Location = System::Drawing::Point(64, 422);
 			this->versionLabel->Name = L"versionLabel";
 			this->versionLabel->Size = System::Drawing::Size(67, 13);
 			this->versionLabel->TabIndex = 0;
 			this->versionLabel->Text = L"versionLabel";
-			//this->versionLabel->Click += gcnew System::EventHandler(this, &MainPageUI::versionLabel_Click);
 			// 
 			// MainPageUI
 			// 
@@ -66,7 +65,6 @@ namespace CppCLRWinFormsProject {
 			this->Name = L"MainPageUI";
 			this->Text = L"MainPageUI";
 			this->Load += gcnew System::EventHandler(this, &MainPageUI::MainPageUI_Load);
-
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
