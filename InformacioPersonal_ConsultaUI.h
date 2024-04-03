@@ -193,7 +193,7 @@ namespace CppCLRWinFormsProject {
 			// button1
 			// 
 			this->button1->ForeColor = System::Drawing::Color::Red;
-			this->button1->Location = System::Drawing::Point(784, 469);
+			this->button1->Location = System::Drawing::Point(800, 515);
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(75, 35);
 			this->button1->TabIndex = 3;
@@ -203,7 +203,7 @@ namespace CppCLRWinFormsProject {
 			// 
 			// button2
 			// 
-			this->button2->Location = System::Drawing::Point(703, 469);
+			this->button2->Location = System::Drawing::Point(719, 514);
 			this->button2->Name = L"button2";
 			this->button2->Size = System::Drawing::Size(75, 35);
 			this->button2->TabIndex = 8;

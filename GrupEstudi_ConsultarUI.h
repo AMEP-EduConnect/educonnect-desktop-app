@@ -187,7 +187,7 @@ namespace CppCLRWinFormsProject {
 			this->Cancelar_Button->BackColor = System::Drawing::Color::Transparent;
 			this->Cancelar_Button->Cursor = System::Windows::Forms::Cursors::Hand;
 			this->Cancelar_Button->ForeColor = System::Drawing::Color::Red;
-			this->Cancelar_Button->Location = System::Drawing::Point(737, 501);
+			this->Cancelar_Button->Location = System::Drawing::Point(800, 515);
 			this->Cancelar_Button->Name = L"Cancelar_Button";
 			this->Cancelar_Button->Size = System::Drawing::Size(75, 23);
 			this->Cancelar_Button->TabIndex = 7;
@@ -199,7 +199,7 @@ namespace CppCLRWinFormsProject {
 			// 
 			this->Background_PictureBox->Location = System::Drawing::Point(-5, 555);
 			this->Background_PictureBox->Name = L"Background_PictureBox";
-			this->Background_PictureBox->Size = System::Drawing::Size(928, 196);
+			this->Background_PictureBox->Size = System::Drawing::Size(928, 265);
 			this->Background_PictureBox->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
 			this->Background_PictureBox->TabIndex = 17;
 			this->Background_PictureBox->TabStop = false;
