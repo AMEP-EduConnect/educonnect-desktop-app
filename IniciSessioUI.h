@@ -82,17 +82,17 @@ namespace CppCLRWinFormsProject {
 			this->NomUsuari_Label = (gcnew System::Windows::Forms::Label());
 			this->Contrasenya_Label = (gcnew System::Windows::Forms::Label());
 			this->Main_Panel = (gcnew System::Windows::Forms::Panel());
+			this->GoBack_Button = (gcnew System::Windows::Forms::Button());
 			this->CredencialsIncorrectes_Label = (gcnew System::Windows::Forms::Label());
 			this->Background_PictureBox = (gcnew System::Windows::Forms::PictureBox());
-			this->GoBack_Button = (gcnew System::Windows::Forms::Button());
 			this->Main_Panel->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->Background_PictureBox))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// NomUsuari_TextBox
 			// 
-			this->NomUsuari_TextBox->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
+			this->NomUsuari_TextBox->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Regular,
+				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
 			this->NomUsuari_TextBox->Location = System::Drawing::Point(29, 46);
 			this->NomUsuari_TextBox->Name = L"NomUsuari_TextBox";
 			this->NomUsuari_TextBox->Size = System::Drawing::Size(197, 22);
@@ -101,8 +101,8 @@ namespace CppCLRWinFormsProject {
 			// 
 			// Contrasenya_TextBox
 			// 
-			this->Contrasenya_TextBox->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
+			this->Contrasenya_TextBox->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Regular,
+				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
 			this->Contrasenya_TextBox->Location = System::Drawing::Point(29, 112);
 			this->Contrasenya_TextBox->Name = L"Contrasenya_TextBox";
 			this->Contrasenya_TextBox->PasswordChar = '*';
@@ -113,8 +113,8 @@ namespace CppCLRWinFormsProject {
 			// IniciarSessio_Label
 			// 
 			this->IniciarSessio_Label->AutoSize = true;
-			this->IniciarSessio_Label->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
+			this->IniciarSessio_Label->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20.25F, System::Drawing::FontStyle::Bold,
+				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
 			this->IniciarSessio_Label->ForeColor = System::Drawing::SystemColors::HotTrack;
 			this->IniciarSessio_Label->Location = System::Drawing::Point(322, 103);
 			this->IniciarSessio_Label->Name = L"IniciarSessio_Label";
@@ -124,8 +124,8 @@ namespace CppCLRWinFormsProject {
 			// 
 			// Continuar_Button
 			// 
-			this->Continuar_Button->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
+			this->Continuar_Button->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Regular,
+				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
 			this->Continuar_Button->ForeColor = System::Drawing::SystemColors::HotTrack;
 			this->Continuar_Button->Location = System::Drawing::Point(29, 180);
 			this->Continuar_Button->Name = L"Continuar_Button";
@@ -138,8 +138,8 @@ namespace CppCLRWinFormsProject {
 			// EduConnect_Label
 			// 
 			this->EduConnect_Label->AutoSize = true;
-			this->EduConnect_Label->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
+			this->EduConnect_Label->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Regular,
+				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
 			this->EduConnect_Label->ForeColor = System::Drawing::SystemColors::HotTrack;
 			this->EduConnect_Label->Location = System::Drawing::Point(325, 95);
 			this->EduConnect_Label->Name = L"EduConnect_Label";
@@ -164,8 +164,8 @@ namespace CppCLRWinFormsProject {
 			// 
 			this->Contrasenya_Label->AutoSize = true;
 			this->Contrasenya_Label->BackColor = System::Drawing::SystemColors::GradientInactiveCaption;
-			this->Contrasenya_Label->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
+			this->Contrasenya_Label->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Regular,
+				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
 			this->Contrasenya_Label->ForeColor = System::Drawing::SystemColors::HotTrack;
 			this->Contrasenya_Label->Location = System::Drawing::Point(29, 93);
 			this->Contrasenya_Label->Name = L"Contrasenya_Label";
@@ -187,11 +187,24 @@ namespace CppCLRWinFormsProject {
 			this->Main_Panel->Size = System::Drawing::Size(259, 265);
 			this->Main_Panel->TabIndex = 9;
 			// 
+			// GoBack_Button
+			// 
+			this->GoBack_Button->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->GoBack_Button->ForeColor = System::Drawing::SystemColors::HotTrack;
+			this->GoBack_Button->Location = System::Drawing::Point(29, 224);
+			this->GoBack_Button->Name = L"GoBack_Button";
+			this->GoBack_Button->Size = System::Drawing::Size(197, 23);
+			this->GoBack_Button->TabIndex = 9;
+			this->GoBack_Button->Text = L"Tornar";
+			this->GoBack_Button->UseVisualStyleBackColor = true;
+			this->GoBack_Button->Click += gcnew System::EventHandler(this, &IniciSessioUI::GoBackButton_Click);
+			// 
 			// CredencialsIncorrectes_Label
 			// 
 			this->CredencialsIncorrectes_Label->AutoSize = true;
-			this->CredencialsIncorrectes_Label->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
+			this->CredencialsIncorrectes_Label->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Regular,
+				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
 			this->CredencialsIncorrectes_Label->ForeColor = System::Drawing::Color::Red;
 			this->CredencialsIncorrectes_Label->Location = System::Drawing::Point(325, 447);
 			this->CredencialsIncorrectes_Label->Name = L"CredencialsIncorrectes_Label";
@@ -208,20 +221,6 @@ namespace CppCLRWinFormsProject {
 			this->Background_PictureBox->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
 			this->Background_PictureBox->TabIndex = 11;
 			this->Background_PictureBox->TabStop = false;
-			this->Background_PictureBox->Image = Image::FromFile("background.png");
-			// 
-			// GoBack_Button
-			// 
-			this->GoBack_Button->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->GoBack_Button->ForeColor = System::Drawing::SystemColors::HotTrack;
-			this->GoBack_Button->Location = System::Drawing::Point(29, 224);
-			this->GoBack_Button->Name = L"GoBack_Button";
-			this->GoBack_Button->Size = System::Drawing::Size(197, 23);
-			this->GoBack_Button->TabIndex = 9;
-			this->GoBack_Button->Text = L"Tornar";
-			this->GoBack_Button->UseVisualStyleBackColor = true;
-			this->GoBack_Button->Click += gcnew System::EventHandler(this, &IniciSessioUI::GoBackButton_Click);
 			// 
 			// IniciSessioUI
 			// 
@@ -240,6 +239,7 @@ namespace CppCLRWinFormsProject {
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedSingle;
 			this->Name = L"IniciSessioUI";
 			this->Text = L"EduConnect";
+			this->Load += gcnew System::EventHandler(this, &IniciSessioUI::IniciSessioUI_Load);
 			this->Main_Panel->ResumeLayout(false);
 			this->Main_Panel->PerformLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->Background_PictureBox))->EndInit();
@@ -253,5 +253,7 @@ namespace CppCLRWinFormsProject {
 	private: System::Void GoBackButton_Click(System::Object^ sender, System::EventArgs^ e);
 	private: System::Void ContinuarIniciSessioButton_Click(System::Object^ sender, System::EventArgs^ e);
 
-	};
+	private: System::Void IniciSessioUI_Load(System::Object^ sender, System::EventArgs^ e) {
+	}
+};
 }

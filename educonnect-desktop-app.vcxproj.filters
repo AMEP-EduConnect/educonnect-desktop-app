@@ -62,6 +62,18 @@
     <ClInclude Include="AltaProveidorUI.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="TxPerfilPersonal_Consulta.h">
+      <Filter>Source Files\services</Filter>
+    </ClInclude>
+    <ClInclude Include="TxPerfilPersonal_Modifica.h">
+      <Filter>Source Files\services</Filter>
+    </ClInclude>
+    <ClInclude Include="InformacioPersonal_ConsultaUI.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="InformacioPersonal_ModificaUI.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AssemblyInfo.cpp">
@@ -99,6 +111,39 @@
     </ClCompile>
     <ClCompile Include="MessageManager.cpp">
       <Filter>Source Files\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="RegistreService.cpp">
+      <Filter>Source Files\services</Filter>
+    </ClCompile>
+    <ClCompile Include="IniciSessioService.cpp">
+      <Filter>Source Files\services</Filter>
+    </ClCompile>
+    <ClCompile Include="UsuariRepository.cpp">
+      <Filter>Source Files\repositories</Filter>
+    </ClCompile>
+    <ClCompile Include="RegistreUsuariUI.cpp">
+      <Filter>Source Files\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="FirstPageUI.cpp">
+      <Filter>Source Files\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="IniciSessioUI.cpp">
+      <Filter>Source Files\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="Usuari.cpp">
+      <Filter>Source Files\entities</Filter>
+    </ClCompile>
+    <ClCompile Include="InformacioPersonal_ConsultaUI.cpp">
+      <Filter>Source Files\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="InformacioPersonal_ModificaUI.cpp">
+      <Filter>Source Files\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="TxPerfilPersonal_Consulta.cpp">
+      <Filter>Source Files\services</Filter>
+    </ClCompile>
+    <ClCompile Include="TxPerfilPersonal_Modifica.cpp">
+      <Filter>Source Files\services</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
