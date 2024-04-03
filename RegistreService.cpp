@@ -19,5 +19,7 @@ bool RegistreService::CheckEmail(String^ email)
 
 bool RegistreService::CreateUser(String^ username, String^ email, String^ name, String^ password)
 {
-	return this->usuariRepository->CreateUser(username, email, name, password);
+	Int64^ id;
+	id = this->usuariRepository->CreateUser(username, email, name, password);
+	return this->usuariRepository->CreateUserRol(id);
 }

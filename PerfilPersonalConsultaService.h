@@ -1,10 +1,12 @@
 #pragma once
 #include "UsuariRepository.h"
 #include "InformacioPersonal_ConsultaUI.h"
-public ref class TxPerfilPersonal_Consulta
+
+
+public ref class PerfilPersonalConsultaService
 {
 public:
-	TxPerfilPersonal_Consulta();
+	PerfilPersonalConsultaService();
 
 	Usuari^ GetCurrentUser();
 

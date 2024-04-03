@@ -1,16 +1,16 @@
 #include "pch.h"
 #include "DatabaseConnector.h"
 #include "CurrentSession.h"
-#include "TxPerfilPersonal_Modifica.h"
+#include "PerfilPersonalModificaService.h"
 #include "UsuariRepository.h"
 #include "Usuari.h"
 
-TxPerfilPersonal_Modifica::TxPerfilPersonal_Modifica()
+PerfilPersonalModificaService::PerfilPersonalModificaService()
 {
 	usuariRepository = gcnew UsuariRepository();
 }
 
-bool TxPerfilPersonal_Modifica::ModificaUsuari(String^ username, String^ password, String^ email, String^ nom)
+bool PerfilPersonalModificaService::ModificaUsuari(String^ username, String^ password, String^ email, String^ nom)
 {
 	Usuari^ currentUser = CurrentSession::Instance->GetCurrentUser();
 	if (username == "") {
@@ -28,12 +28,12 @@ bool TxPerfilPersonal_Modifica::ModificaUsuari(String^ username, String^ passwor
 	return this->usuariRepository->UpdateUser(username, password, email, nom);	
 }
 
-bool TxPerfilPersonal_Modifica::CheckUsername(String^ username)
+bool PerfilPersonalModificaService::CheckUsername(String^ username)
 {
 	return this->usuariRepository->CheckUsuariByUser(username);
 }
 
-bool TxPerfilPersonal_Modifica::CheckEmail(String^ email)
+bool PerfilPersonalModificaService::CheckEmail(String^ email)
 {
 	return this->usuariRepository->CheckUsuariByEmail(email);
 }

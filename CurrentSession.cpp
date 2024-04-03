@@ -10,10 +10,10 @@ CurrentSession::CurrentSession()
 void CurrentSession::LogNewUser(Usuari^ newUser)
 {
     if (currentUser == nullptr) {
-        MessageManager::InfoMessage("USUARIO INICIADO");
+        MessageManager::InfoMessage("USUARI INICIAT CORRECTAMENT!");
         currentUser = newUser;
     }
-    else MessageManager::WarningMessage("USUARIO YA INICIADO");
+    else MessageManager::WarningMessage("USUARI JA INICIAT");
 }
 
 void CurrentSession::LogoutCurrentUser()
