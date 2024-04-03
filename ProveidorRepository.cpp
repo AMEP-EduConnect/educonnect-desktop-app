@@ -67,8 +67,11 @@ bool ProveidorRepository::CheckIfProveidorExists(String^username) {
 	{
 		providerId = data->GetInt64(0);
 	}
+	
+	bool check = data != nullptr && data->Read();
 	DatabaseConnector::Instance->Disconnect();
-	return this->CheckIfIsProveidor(providerId);
+	if (check == false) return check;
+	else return this->CheckIfIsProveidor(providerId);
 }
 
 bool ProveidorRepository::CheckIfIsProveidor(Int64^ providerId) {

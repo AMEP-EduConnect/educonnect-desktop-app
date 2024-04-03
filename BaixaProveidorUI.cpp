@@ -18,12 +18,6 @@ void BaixaProveidorUI::BaixaProveidorButton_Click(System::Object^ sender, System
     if (!String::IsNullOrWhiteSpace(username)) {
         try {
             bool success = baixaProveidorService->BaixaProveidor(username);
-            if (success) {
-                MessageManager::InfoMessage("Proveedor eliminado con éxito.");
-            }
-            else {
-                MessageManager::WarningMessage("El proveedor no pudo ser eliminado.");
-            }
         }
         catch (Exception^ ex) {
             MessageManager::ErrorMessage("Error al eliminar el proveedor: " + ex->Message);
