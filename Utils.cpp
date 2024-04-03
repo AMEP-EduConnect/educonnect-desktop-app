@@ -5,7 +5,7 @@ using namespace System;
 using namespace System::Xml;
 using namespace System::Security::Cryptography;
 
-void Utils::ReadAndDecryptDatabaseCredentials(String^% server, String^% username, String^% password, String^% databaseName)
+void Utils:: ReadAndDecryptDatabaseCredentials(String^% server, String^% username, String^% password, String^% databaseName)
 {
     try
     {

@@ -18,9 +18,9 @@ public:
 	MySqlDataReader^ ExecuteClientCommand(String^ sql, Dictionary<String^, Object^>^ params);
 
 private:
-	String^ server;
-	String^ username;
-	String^ password;
-	String^ databaseName;
-	MySqlConnection^ conn;
+    String^ server;
+    String^ username;
+    String^ password;
+    String^ databaseName;
+    MySqlConnection^ conn;
 };
