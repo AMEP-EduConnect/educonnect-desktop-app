@@ -216,6 +216,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AcademicTag.h" />
+    <ClInclude Include="AltaProveidorService.h" />
     <ClInclude Include="GrupEstudi.h" />
     <ClInclude Include="GrupEstudiMembershipRepository.h" />
     <ClInclude Include="GrupEstudiMembershipService.h" />
@@ -250,10 +251,15 @@
     <ClInclude Include="InformacioPersonal_ModificaUI.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="AltaProveidorUI.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="pch.h" />
     <ClInclude Include="Professor.h" />
     <ClInclude Include="ProfessorRepository.h" />
     <ClInclude Include="ProfessorService.h" />
+    <ClInclude Include="Proveidor.h" />
+    <ClInclude Include="ProveidorRepository.h" />
     <ClInclude Include="RegistreUsuariUI.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -268,6 +274,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AcademicTag.cpp" />
+    <ClCompile Include="AltaProveidorService.cpp" />
+    <ClCompile Include="AltaProveidorUI.cpp" />
     <ClCompile Include="AssemblyInfo.cpp" />
     <ClCompile Include="CppCLR_WinFormsProject.cpp" />
     <ClCompile Include="CurrentSession.cpp" />
@@ -299,6 +307,8 @@
     <ClCompile Include="Professor.cpp" />
     <ClCompile Include="ProfessorRepository.cpp" />
     <ClCompile Include="ProfessorService.cpp" />
+    <ClCompile Include="Proveidor.cpp" />
+    <ClCompile Include="ProveidorRepository.cpp" />
     <ClCompile Include="TxPerfilPersonal_Consulta.cpp" />
     <ClCompile Include="TxPerfilPersonal_Modifica.cpp" />
     <ClCompile Include="Usuari.cpp" />

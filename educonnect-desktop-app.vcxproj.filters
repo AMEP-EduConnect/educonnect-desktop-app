@@ -50,9 +50,6 @@
     <ClInclude Include="Professor.h">
       <Filter>Source Files\entities</Filter>
     </ClInclude>
-    <ClInclude Include="DatabaseConnector.h">
-      <Filter>Source Files\utils</Filter>
-    </ClInclude>
     <ClInclude Include="ProfessorService.h">
       <Filter>Source Files\services</Filter>
     </ClInclude>
@@ -88,9 +85,6 @@
     </ClInclude>
     <ClInclude Include="GrupEstudiMembershipService.h">
       <Filter>Source Files\services</Filter>
-    </ClInclude>
-    <ClInclude Include="CurrentSession.h">
-      <Filter>Source Files\utils</Filter>
     </ClInclude>
     <ClInclude Include="Usuari.h">
       <Filter>Source Files\entities</Filter>
@@ -144,6 +138,18 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="InformacioPersonal_ModificaUI.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Proveidor.h">
+      <Filter>Source Files\entities</Filter>
+    </ClInclude>
+    <ClInclude Include="ProveidorRepository.h">
+      <Filter>Source Files\repositories</Filter>
+    </ClInclude>
+    <ClInclude Include="AltaProveidorService.h">
+      <Filter>Source Files\services</Filter>
+    </ClInclude>
+    <ClInclude Include="AltaProveidorUI.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -255,6 +261,18 @@
     </ClCompile>
     <ClCompile Include="TxPerfilPersonal_Modifica.cpp">
       <Filter>Source Files\services</Filter>
+    </ClCompile>
+    <ClCompile Include="Proveidor.cpp">
+      <Filter>Source Files\entities</Filter>
+    </ClCompile>
+    <ClCompile Include="ProveidorRepository.cpp">
+      <Filter>Source Files\repositories</Filter>
+    </ClCompile>
+    <ClCompile Include="AltaProveidorService.cpp">
+      <Filter>Source Files\services</Filter>
+    </ClCompile>
+    <ClCompile Include="AltaProveidorUI.cpp">
+      <Filter>Source Files\ui</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
