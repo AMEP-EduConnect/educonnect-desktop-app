@@ -202,7 +202,7 @@ namespace CppCLRWinFormsProject {
 			// 
 			// Background_PictureBox
 			// 
-			this->Background_PictureBox->Location = System::Drawing::Point(-5, 524);
+			this->Background_PictureBox->Location = System::Drawing::Point(-5, 555);
 			this->Background_PictureBox->Name = L"Background_PictureBox";
 			this->Background_PictureBox->Size = System::Drawing::Size(928, 265);
 			this->Background_PictureBox->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
