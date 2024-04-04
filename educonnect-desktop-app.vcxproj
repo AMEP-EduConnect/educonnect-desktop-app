@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -104,6 +104,15 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <TargetName>EduConnect</TargetName>
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>$(SolutionDir)$(Platform)\$(Configuration)\</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>true</LinkIncremental>
+    <TargetName>EduConnect</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='EduConnect|x64'">
+    <TargetName>EduConnect</TargetName>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -111,11 +120,17 @@
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <AdditionalIncludeDirectories>
+      </AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <AdditionalDependencies />
+      <AdditionalDependencies>
+      </AdditionalDependencies>
       <SubSystem>Windows</SubSystem>
       <EntryPointSymbol>main</EntryPointSymbol>
+      <AdditionalLibraryDirectories>
+      </AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='EduConnect|x64'">
@@ -124,12 +139,17 @@
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>
+      </AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <AdditionalDependencies>
       </AdditionalDependencies>
       <SubSystem>Windows</SubSystem>
       <EntryPointSymbol>main</EntryPointSymbol>
+      <AdditionalLibraryDirectories>
+      </AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -178,27 +198,106 @@
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>
+      </AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
-      <AdditionalDependencies />
+      <AdditionalDependencies>
+      </AdditionalDependencies>
       <SubSystem>Windows</SubSystem>
       <EntryPointSymbol>main</EntryPointSymbol>
+      <AdditionalLibraryDirectories>
+      </AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ResourceCompile Include="app.rc" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="MainPage.h">
+    <ClInclude Include="AcademicTag.h" />
+    <ClInclude Include="AltaProveidorService.h" />
+    <ClInclude Include="BaixaProveidorService.h" />
+    <ClInclude Include="GrupEstudi.h" />
+    <ClInclude Include="GrupEstudiMembershipRepository.h" />
+    <ClInclude Include="GrupEstudiMembershipService.h" />
+    <ClInclude Include="GrupEstudiRepository.h" />
+    <ClInclude Include="GrupEstudiService.h" />
+    <ClInclude Include="GrupEstudi_ConsultarUI.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="GrupEstudi_CrearUI.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="GrupEstudi_AssignarUI.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="GrupEstudi_EditarUI.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="GrupEstudiMembership.h" />
+    <ClInclude Include="FirstPageUI.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="IniciSessioUI.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="MainPageUI.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="MessageManager.h" />
+    <ClInclude Include="InformacioPersonal_ConsultaUI.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="InformacioPersonal_ModificaUI.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="AltaProveidorUI.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="BaixaProveidorUI.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="pch.h" />
+    <ClInclude Include="PerfilPersonalModificaService.h" />
+    <ClInclude Include="ProveidorRepository.h" />
+    <ClInclude Include="RegistreUsuariUI.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="Resource.h" />
+    <ClInclude Include="IniciSessioService.h" />
+    <ClInclude Include="RegistreService.h" />
+    <ClInclude Include="PerfilPersonalConsultaService.h" />
+    <ClInclude Include="Usuari.h" />
+    <ClInclude Include="UsuariRepository.h" />
+    <ClInclude Include="Utils.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="AcademicTag.cpp" />
+    <ClCompile Include="AltaProveidorService.cpp" />
+    <ClCompile Include="AltaProveidorUI.cpp" />
     <ClCompile Include="AssemblyInfo.cpp" />
+    <ClCompile Include="BaixaProveidorService.cpp" />
+    <ClCompile Include="BaixaProveidorUI.cpp" />
     <ClCompile Include="CppCLR_WinFormsProject.cpp" />
-    <ClCompile Include="MainPage.cpp" />
+    <ClCompile Include="CurrentSession.cpp" />
+    <ClCompile Include="DatabaseConnector.cpp" />
+    <ClCompile Include="InformacioPersonal_ConsultaUI.cpp" />
+    <ClCompile Include="InformacioPersonal_ModificaUI.cpp" />
+    <ClCompile Include="IniciSessioUI.cpp" />
+    <ClCompile Include="FirstPageUI.cpp" />
+    <ClCompile Include="GrupEstudi.cpp" />
+    <ClCompile Include="GrupEstudiMembershipRepository.cpp" />
+    <ClCompile Include="GrupEstudiMembershipService.cpp" />
+    <ClCompile Include="GrupEstudiRepository.cpp" />
+    <ClCompile Include="GrupEstudiService.cpp" />
+    <ClCompile Include="GrupEstudi_CrearUI.cpp" />
+    <ClCompile Include="GrupEstudi_AssignarUI.cpp" />
+    <ClCompile Include="GrupEstudi_ConsultarUI.cpp" />
+    <ClCompile Include="GrupEstudi_EditarUI.cpp" />
+    <ClCompile Include="GrupEstudiMembership.cpp" />
+    <ClCompile Include="MainPageUI.cpp" />
+    <ClCompile Include="MessageManager.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='EduConnect|x64'">Create</PrecompiledHeader>
@@ -207,11 +306,24 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="PerfilPersonalModificaService.cpp" />
+    <ClCompile Include="ProveidorRepository.cpp" />
+    <ClCompile Include="PerfilPersonalConsultaService.cpp" />
+    <ClCompile Include="Usuari.cpp" />
+    <ClCompile Include="UsuariRepository.cpp" />
+    <ClCompile Include="RegistreService.cpp" />
+    <ClCompile Include="IniciSessioService.cpp" />
+    <ClCompile Include="RegistreUsuariUI.cpp" />
+    <ClCompile Include="Utils.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="app.ico" />
+    <Image Include="background.png" />
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="MySql.Data">
+      <HintPath>C:\Program Files (x86)\MySQL\MySQL Connector NET 8.3.0\MySql.Data.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -219,9 +331,45 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="MainPage.resx">
-      <DependentUpon>MainPage.h</DependentUpon>
+    <EmbeddedResource Include="AltaProveidorUI.resx">
+      <DependentUpon>AltaProveidorUI.h</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="BaixaProveidorUI.resx">
+      <DependentUpon>BaixaProveidorUI.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FirstPageUI.resx">
+      <DependentUpon>FirstPageUI.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GrupEstudi_ConsultarUI.resx">
+      <DependentUpon>GrupEstudi_ConsultarUI.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GrupEstudi_CrearUI.resx">
+      <DependentUpon>GrupEstudi_CrearUI.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GrupEstudi_AssignarUI.resx">
+      <DependentUpon>GrupEstudi_AssignarUI.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GrupEstudi_EditarUI.resx">
+      <DependentUpon>GrupEstudi_EditarUI.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IniciSessioUI.resx">
+      <DependentUpon>IniciSessioUI.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainPageUI.resx">
+      <DependentUpon>MainPageUI.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InformacioPersonal_ConsultaUI.resx">
+      <DependentUpon>InformacioPersonal_ConsultaUI.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InformacioPersonal_ModificaUI.resx">
+      <DependentUpon>InformacioPersonal_ModificaUI.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RegistreUsuariUI.resx">
+      <DependentUpon>RegistreUsuariUI.h</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Xml Include="credentials.xml" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
