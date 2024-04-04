@@ -47,15 +47,6 @@
     <ClInclude Include="Utils.h">
       <Filter>Source Files\utils</Filter>
     </ClInclude>
-    <ClInclude Include="Professor.h">
-      <Filter>Source Files\entities</Filter>
-    </ClInclude>
-    <ClInclude Include="ProfessorService.h">
-      <Filter>Source Files\services</Filter>
-    </ClInclude>
-    <ClInclude Include="ProfessorRepository.h">
-      <Filter>Source Files\repositories</Filter>
-    </ClInclude>
     <ClInclude Include="GrupEstudi.h">
       <Filter>Source Files\entities</Filter>
     </ClInclude>
@@ -119,13 +110,7 @@
     <ClInclude Include="RegistreUsuariUI.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="CurrentSession.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="TxPerfilPersonal_Consulta.h">
-      <Filter>Source Files\services</Filter>
-    </ClInclude>
-    <ClInclude Include="TxPerfilPersonal_Modifica.h">
+    <ClInclude Include="PerfilPersonalConsultaService.h">
       <Filter>Source Files\services</Filter>
     </ClInclude>
     <ClInclude Include="InformacioPersonal_ConsultaUI.h">
@@ -146,10 +131,7 @@
     <ClInclude Include="AltaProveidorUI.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="BaixaProveidorUI.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="BaixaProveidorService.h">
+    <ClInclude Include="PerfilPersonalModificaService.h">
       <Filter>Source Files\services</Filter>
     </ClInclude>
   </ItemGroup>
@@ -166,17 +148,8 @@
     <ClCompile Include="MainPageUI.cpp">
       <Filter>Source Files\ui</Filter>
     </ClCompile>
-    <ClCompile Include="Professor.cpp">
-      <Filter>Source Files\entities</Filter>
-    </ClCompile>
     <ClCompile Include="DatabaseConnector.cpp">
       <Filter>Source Files\utils</Filter>
-    </ClCompile>
-    <ClCompile Include="ProfessorService.cpp">
-      <Filter>Source Files\services</Filter>
-    </ClCompile>
-    <ClCompile Include="ProfessorRepository.cpp">
-      <Filter>Source Files\repositories</Filter>
     </ClCompile>
     <ClCompile Include="GrupEstudi_CrearUI.cpp">
       <Filter>Source Files\ui</Filter>
@@ -256,10 +229,7 @@
     <ClCompile Include="InformacioPersonal_ModificaUI.cpp">
       <Filter>Source Files\ui</Filter>
     </ClCompile>
-    <ClCompile Include="TxPerfilPersonal_Consulta.cpp">
-      <Filter>Source Files\services</Filter>
-    </ClCompile>
-    <ClCompile Include="TxPerfilPersonal_Modifica.cpp">
+    <ClCompile Include="PerfilPersonalConsultaService.cpp">
       <Filter>Source Files\services</Filter>
     </ClCompile>
     <ClCompile Include="Proveidor.cpp">
@@ -274,10 +244,7 @@
     <ClCompile Include="AltaProveidorUI.cpp">
       <Filter>Source Files\ui</Filter>
     </ClCompile>
-    <ClCompile Include="BaixaProveidorUI.cpp">
-      <Filter>Source Files\ui</Filter>
-    </ClCompile>
-    <ClCompile Include="BaixaProveidorService.cpp">
+    <ClCompile Include="PerfilPersonalModificaService.cpp">
       <Filter>Source Files\services</Filter>
     </ClCompile>
   </ItemGroup>

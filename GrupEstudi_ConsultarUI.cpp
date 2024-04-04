@@ -1,5 +1,6 @@
 #include "pch.h"
 #include "GrupEstudi_ConsultarUI.h"
+#include "MainPageUI.h"
 
 namespace CppCLRWinFormsProject {
 
@@ -8,6 +9,8 @@ namespace CppCLRWinFormsProject {
         InitializeComponent();
         grupEstudiMembershipService = gcnew GrupEstudiMembershipService();
         grupEstudiService = gcnew GrupEstudiService();
+        this->Background_PictureBox->Image = Image::FromFile("background.png");
+        this->Icon = gcnew System::Drawing::Icon("app.ico");
     }
     void GrupEstudi_ConsultarUI::GrupEstudi_ConsultarUI_Load(System::Object^ sender, System::EventArgs^ e)
     {
@@ -31,7 +34,10 @@ namespace CppCLRWinFormsProject {
     void GrupEstudi_ConsultarUI::CancelButton_Click(System::Object^ sender, System::EventArgs^ e)
     {
         //possar que torni al menu anterior
-        this->Close();
+        this->Hide();
+		MainPageUI^ form = gcnew MainPageUI();
+		form->ShowDialog();
+		this->Close();
     }
 
     void GrupEstudi_ConsultarUI::Noms_ListBox_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e)

@@ -1,16 +1,16 @@
 #include "pch.h"
 #include "DatabaseConnector.h"
 #include "CurrentSession.h"
-#include "TxPerfilPersonal_Consulta.h"
+#include "PerfilPersonalConsultaService.h"
 #include "UsuariRepository.h"
 #include "Usuari.h"
 
-TxPerfilPersonal_Consulta::TxPerfilPersonal_Consulta()
+PerfilPersonalConsultaService::PerfilPersonalConsultaService()
 {
 	usuariRepository = gcnew UsuariRepository();
 }
 
-Usuari^ TxPerfilPersonal_Consulta::GetCurrentUser()
+Usuari^ PerfilPersonalConsultaService::GetCurrentUser()
 {
 	Usuari^ currentUser = CurrentSession::Instance->GetCurrentUser();
 	return currentUser;

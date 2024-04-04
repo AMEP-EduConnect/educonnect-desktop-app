@@ -16,14 +16,14 @@ namespace CppCLRWinFormsProject {
         this->Hide();
         IniciSessioUI^ form = gcnew IniciSessioUI();
         form->ShowDialog();
-        this->Show();
+        this->Close();
     }
 
     void FirstPageUI::RegistrarseButton_Click(System::Object^ sender, System::EventArgs^ e) {
         this->Hide();
         RegistreUsuariUI^ form = gcnew RegistreUsuariUI();
         form->ShowDialog();
-        this->Show();
+        this->Close();
         
     }
 

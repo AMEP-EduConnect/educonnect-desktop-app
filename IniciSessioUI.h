@@ -29,7 +29,7 @@ namespace CppCLRWinFormsProject {
 			//TODO: agregar código de constructor aquí
 			//
 			this->Icon = gcnew System::Drawing::Icon("app.ico");
-
+			this->Background_PictureBox->Image = Image::FromFile("background.png");
 
 		}
 
@@ -215,7 +215,7 @@ namespace CppCLRWinFormsProject {
 			// 
 			// Background_PictureBox
 			// 
-			this->Background_PictureBox->Location = System::Drawing::Point(-5, 544);
+			this->Background_PictureBox->Location = System::Drawing::Point(-5, 555);
 			this->Background_PictureBox->Name = L"Background_PictureBox";
 			this->Background_PictureBox->Size = System::Drawing::Size(928, 265);
 			this->Background_PictureBox->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
@@ -238,6 +238,7 @@ namespace CppCLRWinFormsProject {
 			this->ForeColor = System::Drawing::SystemColors::ActiveCaptionText;
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedSingle;
 			this->Name = L"IniciSessioUI";
+			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterParent;
 			this->Text = L"EduConnect";
 			this->Load += gcnew System::EventHandler(this, &IniciSessioUI::IniciSessioUI_Load);
 			this->Main_Panel->ResumeLayout(false);

@@ -42,6 +42,7 @@ namespace CppCLRWinFormsProject {
 	private: System::Windows::Forms::Label^ label2;
 	private: System::Windows::Forms::Button^ button1;
 	private: System::Windows::Forms::Button^ button2;
+	private: System::Windows::Forms::PictureBox^ Background_PictureBox;
 
 	private:
 		/// <summary>
@@ -69,7 +70,9 @@ namespace CppCLRWinFormsProject {
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->button2 = (gcnew System::Windows::Forms::Button());
+			this->Background_PictureBox = (gcnew System::Windows::Forms::PictureBox());
 			this->panel1->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->Background_PictureBox))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// panel1
@@ -83,7 +86,7 @@ namespace CppCLRWinFormsProject {
 			this->panel1->Controls->Add(this->label4);
 			this->panel1->Controls->Add(this->label3);
 			this->panel1->Controls->Add(this->textBox1);
-			this->panel1->Location = System::Drawing::Point(47, 145);
+			this->panel1->Location = System::Drawing::Point(205, 158);
 			this->panel1->Margin = System::Windows::Forms::Padding(4);
 			this->panel1->Name = L"panel1";
 			this->panel1->Size = System::Drawing::Size(474, 228);
@@ -167,7 +170,7 @@ namespace CppCLRWinFormsProject {
 			this->label1->AutoSize = true;
 			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label1->Location = System::Drawing::Point(44, 46);
+			this->label1->Location = System::Drawing::Point(202, 85);
 			this->label1->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(80, 16);
@@ -180,7 +183,7 @@ namespace CppCLRWinFormsProject {
 			this->label2->AutoSize = true;
 			this->label2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label2->Location = System::Drawing::Point(41, 73);
+			this->label2->Location = System::Drawing::Point(199, 101);
 			this->label2->Name = L"label2";
 			this->label2->Size = System::Drawing::Size(205, 31);
 			this->label2->TabIndex = 2;
@@ -190,7 +193,7 @@ namespace CppCLRWinFormsProject {
 			// button1
 			// 
 			this->button1->ForeColor = System::Drawing::Color::Red;
-			this->button1->Location = System::Drawing::Point(614, 428);
+			this->button1->Location = System::Drawing::Point(800, 515);
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(75, 35);
 			this->button1->TabIndex = 3;
@@ -200,7 +203,7 @@ namespace CppCLRWinFormsProject {
 			// 
 			// button2
 			// 
-			this->button2->Location = System::Drawing::Point(513, 428);
+			this->button2->Location = System::Drawing::Point(719, 514);
 			this->button2->Name = L"button2";
 			this->button2->Size = System::Drawing::Size(75, 35);
 			this->button2->TabIndex = 8;
@@ -208,11 +211,21 @@ namespace CppCLRWinFormsProject {
 			this->button2->UseVisualStyleBackColor = true;
 			this->button2->Click += gcnew System::EventHandler(this, &InformacioPersonal_ConsultaUI::Edita_Click);
 			// 
+			// Background_PictureBox
+			// 
+			this->Background_PictureBox->Location = System::Drawing::Point(-5, 555);
+			this->Background_PictureBox->Name = L"Background_PictureBox";
+			this->Background_PictureBox->Size = System::Drawing::Size(928, 265);
+			this->Background_PictureBox->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
+			this->Background_PictureBox->TabIndex = 14;
+			this->Background_PictureBox->TabStop = false;
+			// 
 			// InformacioPersonal_ConsultaUI
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(727, 486);
+			this->ClientSize = System::Drawing::Size(917, 657);
+			this->Controls->Add(this->Background_PictureBox);
 			this->Controls->Add(this->button2);
 			this->Controls->Add(this->button1);
 			this->Controls->Add(this->label2);
@@ -221,12 +234,15 @@ namespace CppCLRWinFormsProject {
 			this->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->ForeColor = System::Drawing::SystemColors::HotTrack;
+			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedSingle;
 			this->Margin = System::Windows::Forms::Padding(4);
 			this->Name = L"InformacioPersonal_ConsultaUI";
-			this->Text = L"InformacioPersonal_ConsultaUI";
+			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterParent;
+			this->Text = L"EduConnect";
 			this->Load += gcnew System::EventHandler(this, &InformacioPersonal_ConsultaUI::InformacioPersonal_ConsultaUI_Load);
 			this->panel1->ResumeLayout(false);
 			this->panel1->PerformLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->Background_PictureBox))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 

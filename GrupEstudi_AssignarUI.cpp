@@ -1,5 +1,6 @@
 #include "pch.h"
 #include "GrupEstudi_AssignarUI.h"
+#include "MainPageUI.h"
 
 namespace CppCLRWinFormsProject {
 
@@ -8,11 +9,16 @@ namespace CppCLRWinFormsProject {
         InitializeComponent();
         grupEstudiMembershipService = gcnew GrupEstudiMembershipService;
         grupEstudiService = gcnew GrupEstudiService();
+        this->Background_PictureBox->Image = Image::FromFile("background.png");
+        this->Icon = gcnew System::Drawing::Icon("app.ico");
     }
 
     void GrupEstudi_AssignarUI::CancelarButton_Click(System::Object^ sender, System::EventArgs^ e)
     {
-        this->Close();
+        this->Hide();
+		MainPageUI^ form = gcnew MainPageUI();
+		form->ShowDialog();
+		this->Close();
     }
 
     void GrupEstudi_AssignarUI::ExpulsaButton_Click(System::Object^ sender, System::EventArgs^ e)
