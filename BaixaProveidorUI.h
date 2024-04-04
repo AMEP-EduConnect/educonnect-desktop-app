@@ -73,7 +73,7 @@ namespace CppCLRWinFormsProject {
 		   /// </summary>
 		   void InitializeComponent(void)
 		   {
-			   this->Icon = gcnew System::Drawing::Icon("app.ico");
+			
 			   this->BaixaProveidorButton = (gcnew System::Windows::Forms::Button());
 			   this->BaixaProveidorTextBox = (gcnew System::Windows::Forms::TextBox());
 			   this->BaixaProveidorLabel = (gcnew System::Windows::Forms::Label());
