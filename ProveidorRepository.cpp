@@ -13,9 +13,10 @@ void ProveidorRepository::BaixaProveidor(String^ username)
 {
 	DatabaseConnector::Instance->Connect();
 	String^ sql = "DELETE FROM users WHERE username = @Username";
-	MySqlCommand^ command = gcnew MySqlCommand(sql, DatabaseConnector::Instance->GetConn());
-	command->Parameters->AddWithValue("@username", username);
-	int rowsAffected = command->ExecuteNonQuery();
+	Dictionary<String^, Object^>^ params = gcnew Dictionary<String^, Object^>();
+	params->Add("@Username", username);
+	MySqlDataReader^ data = DatabaseConnector::Instance->ExecuteClientCommand(sql, params);
+	data->Close();
 	DatabaseConnector::Instance->Disconnect();
 }
 
@@ -55,49 +56,31 @@ bool ProveidorRepository::CreateUserRol(Int64^ id) {
 	return true;
 }
 
-bool ProveidorRepository::CheckIfProveidorExists(String^username) {
+Int64^ ProveidorRepository::CheckIfProveidorExists(String^username) {
 	DatabaseConnector::Instance->Connect();
 	String^ sql = "SELECT * FROM users WHERE username = @Username";
 	Dictionary<String^, Object^>^ params = gcnew Dictionary<String^, Object^>();
 	params->Add("@Username", username);
-
 	MySqlDataReader^ data = DatabaseConnector::Instance->ExecuteClientCommand(sql, params);
 	Int64^ providerId;
 	while (data->Read())
 	{
 		providerId = data->GetInt64(0);
 	}
-	
-	bool check = data != nullptr && data->Read();
 	DatabaseConnector::Instance->Disconnect();
-	if (check == false) return check;
-	else return this->CheckIfIsProveidor(providerId);
+	return providerId;
+	
 }
 
 bool ProveidorRepository::CheckIfIsProveidor(Int64^ providerId) {
 	DatabaseConnector::Instance->Connect();
-	String^ sqlCheckIfProvider = "SELECT role_id FROM users_roles WHERE user_id = @User_Id";
-
-	Dictionary<String^, Object^>^ params2 = gcnew Dictionary<String^, Object^>();
-	params2->Add("@User_Id", providerId);
-
-	MySqlDataReader^ providerRoleChecker = DatabaseConnector::Instance->ExecuteClientCommand(sqlCheckIfProvider, params2);
-	Int64^ currentRoleId;
-
-	while (providerRoleChecker->Read())
-	{
-		currentRoleId = providerRoleChecker->GetInt64(0);
-	}
-
-	DatabaseConnector::Instance->Disconnect(); 
-	if(currentRoleId == 3LL)
-	{
-		return true;
-	}
-	else
-	{
-		return false;
-	}
+	String^ sqlCheckIfProvider = "SELECT * FROM users_roles WHERE user_id = @User_Id and role_id = 3";
+	Dictionary<String^, Object^>^ params = gcnew Dictionary<String^, Object^>();
+	params->Add("@User_Id", providerId->ToString());
+	MySqlDataReader^ providerRoleChecker = DatabaseConnector::Instance->ExecuteClientCommand(sqlCheckIfProvider, params);
+	bool check = providerRoleChecker->Read();
+	DatabaseConnector::Instance->Disconnect();
+	return check;
 }
 
 Proveidor^ ProveidorRepository::GetProveidorByName(String^ username) {

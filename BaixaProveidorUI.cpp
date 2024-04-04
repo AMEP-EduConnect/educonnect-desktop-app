@@ -5,25 +5,22 @@
 #include "MessageManager.h"
 
 using namespace System;
-using namespace CppCLRWinFormsProject;
-
-BaixaProveidorUI::BaixaProveidorUI(void) {
-    InitializeComponent();
-    baixaProveidorService = gcnew BaixaProveidorService();
-    this->BaixaProveidorButton->Click += gcnew System::EventHandler(this, &BaixaProveidorUI::BaixaProveidorButton_Click);
-}
-
+namespace CppCLRWinFormsProject {
 void BaixaProveidorUI::BaixaProveidorButton_Click(System::Object^ sender, System::EventArgs^ e) {
     String^ username = this->BaixaProveidorTextBox->Text;
-    if (!String::IsNullOrWhiteSpace(username)) {
-        try {
-            bool success = baixaProveidorService->BaixaProveidor(username);
+    if(username!=nullptr and username!="") {
+        bool success = baixaProveidorService->BaixaProveidor(username);
+        if(success) {
+            MessageManager::InfoMessage("Proveidor donat de baixa correctament");
+            this->BaixaProveidorTextBox->Text = "";
         }
-        catch (Exception^ ex) {
-            MessageManager::ErrorMessage("Error al eliminar el proveedor: " + ex->Message);
+        else {
+            MessageManager::InfoMessage("No existeix el Proveidor " + username + "!");
+            this->BaixaProveidorTextBox->Text = "";
         }
     }
     else {
         MessageManager::WarningMessage("Por favor, introduce el nombre del proveedor a eliminar.");
     }
+}
 }

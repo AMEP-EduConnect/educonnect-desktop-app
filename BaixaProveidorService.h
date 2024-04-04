@@ -6,10 +6,9 @@ public ref class BaixaProveidorService
 {
 public:
 	BaixaProveidorService();
-
 	bool BaixaProveidor(String^ username);
-
-	bool CheckIfProveidorExists(String^ username);
+	Int64^ CheckProveidorExists(String^ username);
+	bool CheckIsProveidor(Int64^ id_role);
 
 private:
 	ProveidorRepository^ proveidorRepository;
