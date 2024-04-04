@@ -18,7 +18,7 @@ bool AltaProveidorService::AltaProveidor( String^ username, String^ email, Strin
 		}
 		else {
 			MessageManager::InfoMessage("Proveidor donat d'alta");
-			return proveidorRepository->AltaProveidor(username, email, name, password);
+			return proveidorRepository->CreateNewProveidor(username, email, name, password);
 			
 		}
 	}

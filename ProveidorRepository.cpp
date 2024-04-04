@@ -9,11 +9,11 @@ ProveidorRepository::ProveidorRepository()
 
 }
 
-void ProveidorRepository::BaixaProveidor(String^ username)
+void ProveidorRepository::DeleteProveidor(String^ username)
 {
 	DatabaseConnector::Instance->Connect();
 	String^ sql = "DELETE FROM users WHERE username = @Username";
-	Dictionary<String^, Object^>^ params = gcnew Dictionary<String^, Object^>();
+	Dictionary<String^, Object^>^ params = gcnew Dictionary<String^, Object^>(0);
 	params->Add("@Username", username);
 	MySqlDataReader^ data = DatabaseConnector::Instance->ExecuteClientCommand(sql, params);
 	data->Close();
@@ -21,11 +21,11 @@ void ProveidorRepository::BaixaProveidor(String^ username)
 }
 
 
-bool ProveidorRepository::AltaProveidor(String^ username, String^ email, String^ name, String^ password)
+bool ProveidorRepository::CreateNewProveidor(String^ username, String^ email, String^ name, String^ password)
 {
 	DatabaseConnector::Instance->Connect();
 	String^ sql = "INSERT INTO users (username, password, email, name) VALUES (@Username, @Password, @Email, @Name)";
-	Dictionary<String^, Object^>^ params = gcnew Dictionary<String^, Object^>();
+	Dictionary<String^, Object^>^ params = gcnew Dictionary<String^, Object^>(0);
 	params->Add("@Username", username);
 	params->Add("@Password", password);
 	params->Add("@Email", email);
@@ -48,7 +48,7 @@ bool ProveidorRepository::AltaProveidor(String^ username, String^ email, String^
 bool ProveidorRepository::CreateUserRol(Int64^ id) {
 	DatabaseConnector::Instance->Connect();
 	String^ sql = "INSERT INTO users_roles (user_id, role_id) VALUES (@id,3)";
-	Dictionary<String^, Object^>^ params = gcnew Dictionary<String^, Object^>();
+	Dictionary<String^, Object^>^ params = gcnew Dictionary<String^, Object^>(0);
 	params->Add("@id", id->ToString());
 	MySqlDataReader^ data3 = DatabaseConnector::Instance->ExecuteClientCommand(sql, params);
 	data3->Close();
@@ -56,10 +56,10 @@ bool ProveidorRepository::CreateUserRol(Int64^ id) {
 	return true;
 }
 
-Int64^ ProveidorRepository::CheckIfProveidorExists(String^username) {
+Int64^ ProveidorRepository::CheckProveidorandGetId(String^username) {
 	DatabaseConnector::Instance->Connect();
 	String^ sql = "SELECT * FROM users WHERE username = @Username";
-	Dictionary<String^, Object^>^ params = gcnew Dictionary<String^, Object^>();
+	Dictionary<String^, Object^>^ params = gcnew Dictionary<String^, Object^>(0);
 	params->Add("@Username", username);
 	MySqlDataReader^ data = DatabaseConnector::Instance->ExecuteClientCommand(sql, params);
 	Int64^ providerId;
@@ -72,10 +72,25 @@ Int64^ ProveidorRepository::CheckIfProveidorExists(String^username) {
 	
 }
 
+bool ProveidorRepository::CheckIfProveidorExists(String^ username) {
+
+	DatabaseConnector::Instance->Connect();
+	String^ sql = "SELECT username FROM users WHERE username = @Username";
+	Dictionary<String^, Object^>^ params = gcnew Dictionary<String^, Object^>(0);
+	params->Add("@Username", username);
+
+	MySqlDataReader^ data = DatabaseConnector::Instance->ExecuteClientCommand(sql, params);
+
+	bool check = data != nullptr && data->Read();
+	DatabaseConnector::Instance->Disconnect();
+	return check;
+
+}
+
 bool ProveidorRepository::CheckIfIsProveidor(Int64^ providerId) {
 	DatabaseConnector::Instance->Connect();
 	String^ sqlCheckIfProvider = "SELECT * FROM users_roles WHERE user_id = @User_Id and role_id = 3";
-	Dictionary<String^, Object^>^ params = gcnew Dictionary<String^, Object^>();
+	Dictionary<String^, Object^>^ params = gcnew Dictionary<String^, Object^>(0);
 	params->Add("@User_Id", providerId->ToString());
 	MySqlDataReader^ providerRoleChecker = DatabaseConnector::Instance->ExecuteClientCommand(sqlCheckIfProvider, params);
 	bool check = providerRoleChecker->Read();

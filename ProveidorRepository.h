@@ -4,12 +4,13 @@ public ref class ProveidorRepository
 {
 public:
 	ProveidorRepository();
-	bool AltaProveidor(String^ username, String^ email, String^ name, String^ password);
-	Int64^ CheckIfProveidorExists(String^username);
+	bool CreateNewProveidor(String^ username, String^ email, String^ name, String^ password);
+	bool CheckIfProveidorExists(String^username);
 	bool CreateUserRol(Int64^ id);
 	Proveidor^ GetProveidorByName(String^ username);
-	void BaixaProveidor(String^ name);
+	void DeleteProveidor(String^ name);
 	bool CheckIfIsProveidor(Int64^ providerId);
+	Int64^ CheckProveidorandGetId(String^ username);
 };
 
 
