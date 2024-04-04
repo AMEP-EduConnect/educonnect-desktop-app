@@ -21,7 +21,7 @@ namespace CppCLRWinFormsProject {
 
 	protected:
 		/// <summary>
-		/// Limpiar los recursos que se estén usando.
+		/// Limpiar los recursos que se estï¿½n usando.
 		/// </summary>
 		~AltaProveidorUI()
 		{
@@ -38,7 +38,7 @@ namespace CppCLRWinFormsProject {
 
 	private:
 		/// <summary>
-		/// Variable del diseñador necesaria.
+		/// Variable del diseï¿½ador necesaria.
 		/// </summary>
 
 	private: System::Windows::Forms::TextBox^ textBox2;
@@ -66,8 +66,8 @@ namespace CppCLRWinFormsProject {
 
 #pragma region Windows Form Designer generated code
 		   /// <summary>
-		   /// Método necesario para admitir el Diseñador. No se puede modificar
-		   /// el contenido de este método con el editor de código.
+		   /// Mï¿½todo necesario para admitir el Diseï¿½ador. No se puede modificar
+		   /// el contenido de este mï¿½todo con el editor de cï¿½digo.
 		   /// </summary>
 		   void InitializeComponent(void)
 		   {
@@ -195,7 +195,7 @@ namespace CppCLRWinFormsProject {
 			   this->label6->Name = L"label6";
 			   this->label6->Size = System::Drawing::Size(331, 31);
 			   this->label6->TabIndex = 13;
-			   this->label6->Text = L"Donar d\'Alta a Proveïdor";
+			   this->label6->Text = L"Donar d\'Alta a Proveï¿½dor";
 			   // 
 			   // pictureBox1
 			   // 

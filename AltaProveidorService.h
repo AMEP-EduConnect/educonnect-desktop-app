@@ -5,12 +5,12 @@
 public ref class AltaProveidorService
 {
 public:
-	AltaProveidorService();
+    AltaProveidorService();
 
-	bool AltaProveidor(String^ username, String^ email, String^ name, String^ password);
-	bool CheckIfProveidorExists(String^ username);
+    bool AltaProveidor(String^ username, String^ email, String^ name, String^ password);
+    bool CheckIfProveidorExists(String^ username);
 
 
 private:
-	ProveidorRepository^ proveidorRepository;
-};
+    ProveidorRepository^ proveidorRepository;
+}; 

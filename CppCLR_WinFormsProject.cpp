@@ -9,6 +9,7 @@ using namespace System;
 #include "AltaProveidorUI.h"
 #include "MainPageUI.h"
 #include "FirstPageUI.h"
+#include "BaixaProveidorUI.h"
 #include "GrupEstudi_EditarUI.h"
 #include "GrupEstudi_ConsultarUI.h"
 #include "GrupEstudi_CrearUI.h"
@@ -32,7 +33,7 @@ int main()
 	CurrentSession::Instance = gcnew CurrentSession();
 	Application::EnableVisualStyles();
 	Application::SetCompatibleTextRenderingDefault(false);
-	Application::Run(gcnew CppCLRWinFormsProject::FirstPageUI());
+	Application::Run(gcnew CppCLRWinFormsProject::BaixaProveidorUI());
 	//Application::Run(gcnew CppCLRWinFormsProject::InformacioPersonal_ConsultaUI());
 	//Application::Run(gcnew CppCLRWinFormsProject::IniciSessio());
 	//Application::Run(gcnew CppCLRWinFormsProject::RegistreUsuari());

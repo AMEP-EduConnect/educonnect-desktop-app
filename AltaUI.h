@@ -13,7 +13,7 @@ namespace CppCLRWinFormsProject {
 	{
 	public:
 		AltaUI(void);
-	protected: 
+	protected:
 		~AltaUI();
 
 	private:

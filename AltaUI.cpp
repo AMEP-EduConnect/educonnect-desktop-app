@@ -29,24 +29,26 @@ void AltaUI::InitializeComponent(void)
     // 
     // button1
     // 
-    this->button1->Location = System::Drawing::Point(250, 118);
+    this->button1->Location = System::Drawing::Point(333, 145);
+    this->button1->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
     this->button1->Name = L"button1";
-    this->button1->Size = System::Drawing::Size(75, 23);
+    this->button1->Size = System::Drawing::Size(100, 28);
     this->button1->TabIndex = 0;
     this->button1->Text = L"button1";
     this->button1->UseVisualStyleBackColor = true;
     this->button1->Click += gcnew System::EventHandler(this, &AltaUI::button1_Click);
     // 
-    // MyForm
+    // AltaUI
     // 
-    this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
+    this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
     this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-    this->ClientSize = System::Drawing::Size(720, 369);
+    this->ClientSize = System::Drawing::Size(960, 454);
     this->Controls->Add(this->button1);
+    this->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
     this->Name = L"AltaUI";
     this->Text = L"AltaUI";
     this->ResumeLayout(false);
-    this->PerformLayout();
+
 }
 
 // Manejador del evento clic para button1

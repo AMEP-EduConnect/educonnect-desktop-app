@@ -217,6 +217,7 @@
   <ItemGroup>
     <ClInclude Include="AcademicTag.h" />
     <ClInclude Include="AltaProveidorService.h" />
+    <ClInclude Include="BaixaProveidorService.h" />
     <ClInclude Include="GrupEstudi.h" />
     <ClInclude Include="GrupEstudiMembershipRepository.h" />
     <ClInclude Include="GrupEstudiMembershipService.h" />
@@ -254,6 +255,9 @@
     <ClInclude Include="AltaProveidorUI.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="BaixaProveidorUI.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="pch.h" />
     <ClInclude Include="PerfilPersonalModificaService.h" />
     <ClInclude Include="Proveidor.h" />
@@ -274,6 +278,8 @@
     <ClCompile Include="AltaProveidorService.cpp" />
     <ClCompile Include="AltaProveidorUI.cpp" />
     <ClCompile Include="AssemblyInfo.cpp" />
+    <ClCompile Include="BaixaProveidorService.cpp" />
+    <ClCompile Include="BaixaProveidorUI.cpp" />
     <ClCompile Include="CppCLR_WinFormsProject.cpp" />
     <ClCompile Include="CurrentSession.cpp" />
     <ClCompile Include="DatabaseConnector.cpp" />
