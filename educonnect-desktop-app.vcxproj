@@ -334,6 +334,9 @@
     <EmbeddedResource Include="AltaProveidorUI.resx">
       <DependentUpon>AltaProveidorUI.h</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="BaixaProveidorUI.resx">
+      <DependentUpon>BaixaProveidorUI.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FirstPageUI.resx">
       <DependentUpon>FirstPageUI.h</DependentUpon>
     </EmbeddedResource>

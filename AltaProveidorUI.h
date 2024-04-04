@@ -195,7 +195,7 @@ namespace CppCLRWinFormsProject {
 			   this->label6->Name = L"label6";
 			   this->label6->Size = System::Drawing::Size(331, 31);
 			   this->label6->TabIndex = 13;
-			   this->label6->Text = L"Donar d\'Alta a Prove�dor";
+			   this->label6->Text = L"Donar d\'Alta a Prove\u00EFdor";
 			   // 
 			   // pictureBox1
 			   // 
@@ -220,7 +220,7 @@ namespace CppCLRWinFormsProject {
 			   this->Cancelar_Button->BackColor = System::Drawing::Color::Transparent;
 			   this->Cancelar_Button->Cursor = System::Windows::Forms::Cursors::Hand;
 			   this->Cancelar_Button->ForeColor = System::Drawing::Color::Red;
-			   this->Cancelar_Button->Location = System::Drawing::Point(774, 486);
+			   this->Cancelar_Button->Location = System::Drawing::Point(800, 515);
 			   this->Cancelar_Button->Name = L"Cancelar_Button";
 			   this->Cancelar_Button->Size = System::Drawing::Size(75, 25);
 			   this->Cancelar_Button->TabIndex = 15;
