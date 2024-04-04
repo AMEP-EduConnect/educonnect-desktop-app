@@ -260,7 +260,6 @@
     </ClInclude>
     <ClInclude Include="pch.h" />
     <ClInclude Include="PerfilPersonalModificaService.h" />
-    <ClInclude Include="Proveidor.h" />
     <ClInclude Include="ProveidorRepository.h" />
     <ClInclude Include="RegistreUsuariUI.h">
       <FileType>CppForm</FileType>
@@ -308,7 +307,6 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="PerfilPersonalModificaService.cpp" />
-    <ClCompile Include="Proveidor.cpp" />
     <ClCompile Include="ProveidorRepository.cpp" />
     <ClCompile Include="PerfilPersonalConsultaService.cpp" />
     <ClCompile Include="Usuari.cpp" />

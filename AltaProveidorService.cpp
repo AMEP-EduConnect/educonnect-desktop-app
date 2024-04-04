@@ -1,7 +1,6 @@
 #include "pch.h"
 
 #include "DatabaseConnector.h"
-#include "Proveidor.h"
 #include "AltaProveidorService.h"
 #include "ProveidorRepository.h"
 #include "MessageManager.h"
