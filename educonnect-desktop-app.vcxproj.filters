@@ -119,9 +119,6 @@
     <ClInclude Include="InformacioPersonal_ModificaUI.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Proveidor.h">
-      <Filter>Source Files\entities</Filter>
-    </ClInclude>
     <ClInclude Include="ProveidorRepository.h">
       <Filter>Source Files\repositories</Filter>
     </ClInclude>
@@ -132,6 +129,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="PerfilPersonalModificaService.h">
+      <Filter>Source Files\services</Filter>
+    </ClInclude>
+    <ClInclude Include="BaixaProveidorUI.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BaixaProveidorService.h">
       <Filter>Source Files\services</Filter>
     </ClInclude>
   </ItemGroup>
@@ -232,9 +235,6 @@
     <ClCompile Include="PerfilPersonalConsultaService.cpp">
       <Filter>Source Files\services</Filter>
     </ClCompile>
-    <ClCompile Include="Proveidor.cpp">
-      <Filter>Source Files\entities</Filter>
-    </ClCompile>
     <ClCompile Include="ProveidorRepository.cpp">
       <Filter>Source Files\repositories</Filter>
     </ClCompile>
@@ -245,6 +245,12 @@
       <Filter>Source Files\ui</Filter>
     </ClCompile>
     <ClCompile Include="PerfilPersonalModificaService.cpp">
+      <Filter>Source Files\services</Filter>
+    </ClCompile>
+    <ClCompile Include="BaixaProveidorUI.cpp">
+      <Filter>Source Files\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="BaixaProveidorService.cpp">
       <Filter>Source Files\services</Filter>
     </ClCompile>
   </ItemGroup>

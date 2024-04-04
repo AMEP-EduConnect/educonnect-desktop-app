@@ -57,7 +57,7 @@ namespace CppCLRWinFormsProject {
 	private: System::Windows::Forms::Label^ EduConnectLabel;
 	private: System::Windows::Forms::Label^ PageTitleLabel;
 	private: System::Windows::Forms::PictureBox^ pictureBox1;
-	private: System::Windows::Forms::Button^ button1;
+	private: System::Windows::Forms::Button^ GoBack_Button;
 
 
 
@@ -73,13 +73,14 @@ namespace CppCLRWinFormsProject {
 		   /// </summary>
 		   void InitializeComponent(void)
 		   {
+			   this->Icon = gcnew System::Drawing::Icon("app.ico");
 			   this->BaixaProveidorButton = (gcnew System::Windows::Forms::Button());
 			   this->BaixaProveidorTextBox = (gcnew System::Windows::Forms::TextBox());
 			   this->BaixaProveidorLabel = (gcnew System::Windows::Forms::Label());
 			   this->EduConnectLabel = (gcnew System::Windows::Forms::Label());
 			   this->PageTitleLabel = (gcnew System::Windows::Forms::Label());
 			   this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
-			   this->button1 = (gcnew System::Windows::Forms::Button());
+			   this->GoBack_Button = (gcnew System::Windows::Forms::Button());
 			   (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			   this->SuspendLayout();
 			   // 
@@ -143,23 +144,23 @@ namespace CppCLRWinFormsProject {
 			   this->pictureBox1->TabIndex = 11;
 			   this->pictureBox1->TabStop = false;
 			   // 
-			   // button1
+			   // GoBack_Button
 			   // 
-			   this->button1->ForeColor = System::Drawing::Color::Red;
-			   this->button1->Location = System::Drawing::Point(675, 368);
-			   this->button1->Name = L"button1";
-			   this->button1->Size = System::Drawing::Size(91, 26);
-			   this->button1->TabIndex = 14;
-			   this->button1->Text = L"Cancelar";
-			   this->button1->UseVisualStyleBackColor = true;
-			   this->button1->Click += gcnew System::EventHandler(this, &BaixaProveidorUI::button1_Click);
+			   this->GoBack_Button->ForeColor = System::Drawing::Color::Red;
+			   this->GoBack_Button->Location = System::Drawing::Point(675, 368);
+			   this->GoBack_Button->Name = L"GoBack_Button";
+			   this->GoBack_Button->Size = System::Drawing::Size(91, 26);
+			   this->GoBack_Button->TabIndex = 14;
+			   this->GoBack_Button->Text = L"Cancelar";
+			   this->GoBack_Button->UseVisualStyleBackColor = true;
+			   this->GoBack_Button->Click += gcnew System::EventHandler(this, &BaixaProveidorUI::GoBackButton_Click);
 			   // 
 			   // BaixaProveidorUI
 			   // 
 			   this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			   this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			   this->ClientSize = System::Drawing::Size(917, 657);
-			   this->Controls->Add(this->button1);
+			   this->Controls->Add(this->GoBack_Button);
 			   this->Controls->Add(this->PageTitleLabel);
 			   this->Controls->Add(this->EduConnectLabel);
 			   this->Controls->Add(this->BaixaProveidorLabel);
@@ -168,7 +169,7 @@ namespace CppCLRWinFormsProject {
 			   this->Controls->Add(this->pictureBox1);
 			   this->ForeColor = System::Drawing::SystemColors::HotTrack;
 			   this->Name = L"BaixaProveidorUI";
-			   this->Text = L"MyForm";
+			   this->Text = L"EduConnect";
 			   (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
 			   this->ResumeLayout(false);
 			   this->PerformLayout();
@@ -176,16 +177,6 @@ namespace CppCLRWinFormsProject {
 		   }
 #pragma endregion
 	private: System::Void BaixaProveidorButton_Click(System::Object^ sender, System::EventArgs^ e);
-
-
-
-
-
-
-
-
-
-	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
-	}
+	private: System::Void GoBackButton_Click(System::Object^ sender, System::EventArgs^ e);
 };
 }

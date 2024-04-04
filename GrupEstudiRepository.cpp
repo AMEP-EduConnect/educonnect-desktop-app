@@ -90,8 +90,10 @@ void GrupEstudiRepository::DeleteGrupEstudi(String^ group_name)
 GrupEstudi^ GrupEstudiRepository::GetGrupEstudiById(Int64^ id)
 {
 	DatabaseConnector::Instance->Connect();
-	String^ sql = "SELECT * FROM studyGroups WHERE id = " + id;
-	MySqlDataReader^ data = DatabaseConnector::Instance->ExecuteInternCommand(sql);
+	String^ sql = "SELECT * FROM studyGroups WHERE id = @Id";
+	Dictionary<String^, Object^>^ params = gcnew Dictionary<String^, Object^>(0);
+	params->Add("@Id", id);
+	MySqlDataReader^ data = DatabaseConnector::Instance->ExecuteClientCommand(sql, params);
 	GrupEstudi^ grupestudi = gcnew GrupEstudi();
 	while (data->Read())
 	{
@@ -101,6 +103,7 @@ GrupEstudi^ GrupEstudiRepository::GetGrupEstudiById(Int64^ id)
 		grupestudi->SetGroupAcademicTag(data->GetInt64(3));
 		grupestudi->SetDescription(data->GetString(4));
 	}
+	DatabaseConnector::Instance->Disconnect();
 	return grupestudi;
 }
 

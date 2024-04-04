@@ -33,7 +33,7 @@ int main()
 	CurrentSession::Instance = gcnew CurrentSession();
 	Application::EnableVisualStyles();
 	Application::SetCompatibleTextRenderingDefault(false);
-	Application::Run(gcnew CppCLRWinFormsProject::BaixaProveidorUI());
+	Application::Run(gcnew CppCLRWinFormsProject::FirstPageUI());
 	//Application::Run(gcnew CppCLRWinFormsProject::InformacioPersonal_ConsultaUI());
 	//Application::Run(gcnew CppCLRWinFormsProject::IniciSessio());
 	//Application::Run(gcnew CppCLRWinFormsProject::RegistreUsuari());

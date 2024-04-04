@@ -98,15 +98,15 @@ bool ProveidorRepository::CheckIfIsProveidor(Int64^ providerId) {
 	return check;
 }
 
-Proveidor^ ProveidorRepository::GetProveidorByName(String^ username) {
+Usuari^ ProveidorRepository::GetProveidorByName(String^ username) {
 	DatabaseConnector::Instance->Connect();
 	String^ sql = "SELECT * FROM users WHERE username = '" + username + "'";
 	MySqlDataReader^ data = DatabaseConnector::Instance->ExecuteCommand(sql);
-	Proveidor^ proveidor = gcnew Proveidor();
+	Usuari^ proveidor = gcnew Usuari();
 
 	while (data->Read())
 	{
-		proveidor->SetProveidorName(data->GetString(0));
+		proveidor->SetName(data->GetString(0));
 
 	}
 	DatabaseConnector::Instance->Disconnect();

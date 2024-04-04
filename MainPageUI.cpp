@@ -14,7 +14,7 @@
 #include "GrupEstudi_EditarUI.h"
 #include "GrupEstudi_AssignarUI.h"
 #include "AltaProveidorUI.h"
-//#include "BaixaProveidorUI.h"
+#include "BaixaProveidorUI.h"
 
 namespace CppCLRWinFormsProject {
 
@@ -100,10 +100,10 @@ namespace CppCLRWinFormsProject {
 
     void MainPageUI::Baixa_Proveidor_Click(System::Object^ sender, System::EventArgs^ e) {
     
-		/*this->Hide();
-		FirstPageUI^ form = gcnew FirstPageUI();
+		this->Hide();
+		BaixaProveidorUI^ form = gcnew BaixaProveidorUI();
 		form->ShowDialog();
-		this->Close();*/
+		this->Close();
     
     }
 

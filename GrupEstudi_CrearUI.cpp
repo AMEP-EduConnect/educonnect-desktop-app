@@ -33,6 +33,9 @@ namespace CppCLRWinFormsProject {
     {
         if (FormGrupName_TextBox->Text != "" && FormGrupDescription_TextBox->Text != "" && AcademicTag_ComboBox->Text != "") {
             grupEstudiService->CreateNewGrupEstudi(FormGrupName_TextBox->Text, FormGrupDescription_TextBox->Text, AcademicTag_ComboBox->Text);
+            FormGrupDescription_TextBox->Text = "";
+            FormGrupName_TextBox->Text = "";
+            AcademicTag_ComboBox->Text = "";
 		}
         else {
             MessageManager::WarningMessage("Falten camps per omplir.");
