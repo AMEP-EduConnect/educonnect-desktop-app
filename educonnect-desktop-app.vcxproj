@@ -239,6 +239,9 @@
     <ClInclude Include="FirstPageUI.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="GrupEstudi_MembresUI.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="IniciSessioUI.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -282,6 +285,7 @@
     <ClCompile Include="CppCLR_WinFormsProject.cpp" />
     <ClCompile Include="CurrentSession.cpp" />
     <ClCompile Include="DatabaseConnector.cpp" />
+    <ClCompile Include="GrupEstudi_MembresUI.cpp" />
     <ClCompile Include="InformacioPersonal_ConsultaUI.cpp" />
     <ClCompile Include="InformacioPersonal_ModificaUI.cpp" />
     <ClCompile Include="IniciSessioUI.cpp" />
@@ -351,6 +355,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GrupEstudi_EditarUI.resx">
       <DependentUpon>GrupEstudi_EditarUI.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GrupEstudi_MembresUI.resx">
+      <DependentUpon>GrupEstudi_MembresUI.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="IniciSessioUI.resx">
       <DependentUpon>IniciSessioUI.h</DependentUpon>

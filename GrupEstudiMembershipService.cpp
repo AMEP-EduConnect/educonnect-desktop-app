@@ -13,6 +13,10 @@ array<Int64^>^ GrupEstudiMembershipService::LoadGrupsEstudiMembershipByUserId(In
 	return grupEstudiMembershipRepository->LoadGrupsEstudiMembershipByUserId(user_id);
 }
 
+array<Int64^>^ GrupEstudiMembershipService::LoadMembershipByGrupsEstudi(Int64^ group_id) {
+	return grupEstudiMembershipRepository->LoadMembershipByGrupsEstudi(group_id);
+}
+
 //array<GrupEstudi^>^ GrupEstudiMembershipService::LoadAllGrupEstudibyId(Int64^ group_id)
 //{
 //	return grupEstudiMembershipRepository->LoadAllGrupEstudibyId(group_id);
@@ -21,6 +25,11 @@ array<Int64^>^ GrupEstudiMembershipService::LoadGrupsEstudiMembershipByUserId(In
 GrupEstudi^ GrupEstudiMembershipService::LoadAllGrupEstudibyId(Int64^ group_id)
 {
 	return grupEstudiMembershipRepository->LoadAllGrupEstudibyId(group_id);
+}
+
+Usuari^ GrupEstudiMembershipService::LoadAllUsersById(Int64^ user_id) 
+{
+	return grupEstudiMembershipRepository->LoadAllUsersById(user_id);
 }
 
 void GrupEstudiMembershipService::UserToGroup(Int64^ user_id, Int64^ group_id) {

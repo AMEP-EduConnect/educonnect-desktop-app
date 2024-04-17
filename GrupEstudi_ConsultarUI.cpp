@@ -1,5 +1,6 @@
 #include "pch.h"
 #include "GrupEstudi_ConsultarUI.h"
+#include "GrupEstudi_MembresUI.h"
 #include "MainPageUI.h"
 
 namespace CppCLRWinFormsProject {
@@ -48,10 +49,12 @@ namespace CppCLRWinFormsProject {
         if (isOwner) {
 			Editar_Button->Visible = true;
 			Eliminar_Button->Visible = true;
+            consulta_membres->Visible = true;
 		}
-        else {
+        if (not isOwner and Noms_ListBox->Text != "") {
             Editar_Button->Visible = false;
             Eliminar_Button->Visible = false;
+            consulta_membres->Visible = true;
         }
     }
 
@@ -87,5 +90,15 @@ namespace CppCLRWinFormsProject {
     		GrupEstudi_EditarUI^ form = gcnew GrupEstudi_EditarUI();
             form->ShowDialog();
             this->Show();
+            this->Close();
     }
+
+    void GrupEstudi_ConsultarUI::consulta_membres_Click(System::Object^ sender, System::EventArgs^ e)
+    {
+            this->Hide();
+            GrupEstudi_Membres^ form = gcnew GrupEstudi_Membres();
+            form->ShowDialog();
+            this->Show();
+            this->Close();
+	}
 }

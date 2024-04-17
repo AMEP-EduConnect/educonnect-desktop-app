@@ -51,6 +51,47 @@ array<Int64^>^ GrupEstudiMembershipRepository::LoadGrupsEstudiMembershipByUserId
 	return user_groupEstudiMembership;
 }
 
+array<Int64^>^ GrupEstudiMembershipRepository::LoadMembershipByGrupsEstudi(Int64^ group_id) {
+	array<Int64^>^ membresgroupEstudiMembership = gcnew array<Int64^>(0);
+	DatabaseConnector::Instance->Connect();
+	String^ sql = "SELECT user_id FROM studyGroupsMembership WHERE group_id = @group_id";
+	Dictionary<String^, Object^>^ params = gcnew Dictionary<String^, Object^>(0);
+	params->Add("@group_id", group_id->ToString());
+	MySqlDataReader^ data = DatabaseConnector::Instance->ExecuteClientCommand(sql, params);
+	array<Int64^>^ tempArray = gcnew array<Int64^>(membresgroupEstudiMembership->Length + 1);
+	for (int i = 0; i < membresgroupEstudiMembership->Length; i++)
+	{
+		tempArray[i] = membresgroupEstudiMembership[i];
+	}
+	membresgroupEstudiMembership = tempArray;
+	int index = membresgroupEstudiMembership->Length;
+	// Obtener el n�mero de filas
+	int rowCount = 0;
+	while (data->Read())
+	{
+		rowCount++;
+	}
+	data->Close();
+
+	// Crear un nuevo arreglo con el tama�o correcto
+	tempArray = gcnew array<Int64^>(rowCount);
+
+	// Volver a ejecutar la consulta
+	data = DatabaseConnector::Instance->ExecuteClientCommand(sql, params);
+
+	index = 0;
+	while (data->Read())
+	{
+		tempArray[index++] = data->GetInt64(0);
+	}
+
+	// Asignar el nuevo arreglo al arreglo original
+	membresgroupEstudiMembership = tempArray;
+
+	DatabaseConnector::Instance->Disconnect();
+	return membresgroupEstudiMembership;
+}
+
 GrupEstudi^ GrupEstudiMembershipRepository::LoadAllGrupEstudibyId(Int64 ^ group_id)
 {
 	DatabaseConnector::Instance->Connect();
@@ -71,10 +112,29 @@ GrupEstudi^ GrupEstudiMembershipRepository::LoadAllGrupEstudibyId(Int64 ^ group_
 	return grupestudi;
 }
 
+Usuari^ GrupEstudiMembershipRepository::LoadAllUsersById(Int64^ user_id) 
+{
+	DatabaseConnector::Instance->Connect();
+	String^ sql = "SELECT * FROM users WHERE id = @id";
+	Dictionary<String^, Object^>^ params = gcnew Dictionary<String^, Object^>(0);
+	params->Add("@id", user_id->ToString());
+	MySqlDataReader^ data = DatabaseConnector::Instance->ExecuteClientCommand(sql, params);
+	Usuari^ user = gcnew Usuari();
+	while (data->Read())
+	{
+		user->SetUserId(data->GetInt64(0));
+		user->SetUsername(data->GetString(1));
+		user->SetPassword(data->GetString(2));
+		user->SetEmail(data->GetString(3));
+		user->SetName(data->GetString(4));
+	}
+	DatabaseConnector::Instance->Disconnect();
+	return user;
+}
+
 
 
 //Crear nova inst�ncia de membership;
-//PREGUNTAR SOBRE LA VARIABLE DateTime;
 void GrupEstudiMembershipRepository::UserToGroup(Int64 ^ user_id, Int64 ^ group_id)
 {
 	DatabaseConnector::Instance->Connect();

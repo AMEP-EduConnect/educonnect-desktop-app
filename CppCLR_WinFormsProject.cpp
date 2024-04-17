@@ -15,6 +15,7 @@ using namespace System;
 #include "GrupEstudi_CrearUI.h"
 #include "GrupEstudi_AssignarUI.h"
 #include "GrupEstudi_ConsultarUI.h"
+#include "GrupEstudi_MembresUI.h"
 #include "DatabaseConnector.h"
 #include "CurrentSession.h"
 #include "Usuari.h"
