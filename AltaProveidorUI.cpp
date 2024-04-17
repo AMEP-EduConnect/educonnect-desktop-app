@@ -12,7 +12,7 @@ namespace CppCLRWinFormsProject {
     {
         InitializeComponent();
         altaProveidorService = gcnew AltaProveidorService();
-        this->Background_PictureBox->Image = Image::FromFile("background.png");
+        //this->Background_PictureBox->Image = Image::FromFile("background.png");
         this->Icon = gcnew System::Drawing::Icon("app.ico");
 
     }

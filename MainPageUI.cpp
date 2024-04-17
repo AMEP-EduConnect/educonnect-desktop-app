@@ -22,7 +22,24 @@ namespace CppCLRWinFormsProject {
     {
         InitializeComponent();
         this->Text = L"EduConnect";
-        this->Background_PictureBox->Image = Image::FromFile("background.png");
+
+        //IMAGES
+        //this->Background_PictureBox->Image = Image::FromFile("background.png");
+        this->BotoPersonal->Image = Image::FromFile("resources/Icons/usuario.png");
+        this->BotoLogout->Image = Image::FromFile("resources/Icons/salida.png");
+        
+        this->BotoExplorar->Image = Image::FromFile("resources/Icons/busqueda.png");
+        this->BotoElsMeus->Image = Image::FromFile("resources/Icons/usuarios-alt.png");
+        this->BotoSessions->Image = Image::FromFile("resources/Icons/libro-cubierta-abierta.png");
+        this->BotoEspais->Image = Image::FromFile("resources/Icons/libro-cubierta-abierta.png");
+        this->BotoAdmin->Image = Image::FromFile("resources/Icons/herramientas.png");
+
+
+        //CONTROL BAR
+        this->Text = "";
+
+
+
     }
     void MainPageUI:: MainPageUI_Load(System::Object^ sender, System::EventArgs^ e) {
 
@@ -91,11 +108,20 @@ namespace CppCLRWinFormsProject {
 
     void MainPageUI::Alta_Proveidor_Click(System::Object^ sender, System::EventArgs^ e) {
     
-		this->Hide();
-		AltaProveidorUI^ form = gcnew AltaProveidorUI();
-		form->ShowDialog();
-		this->Close();
-    
+		//this->Hide();
+		//AltaProveidorUI^ form = gcnew AltaProveidorUI();
+		//form->ShowDialog();
+		//this->Close();
+
+        AltaProveidorUI^ PanelUI = gcnew AltaProveidorUI();
+        PanelUI->TopLevel = false;
+        PanelUI->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
+        PanelUI->Dock = System::Windows::Forms::DockStyle::Fill;
+
+        this->panel1->Controls->Clear();
+        this->panel1->Controls->Add(PanelUI);
+
+        PanelUI->Show();
     }
 
     void MainPageUI::Baixa_Proveidor_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -106,5 +132,14 @@ namespace CppCLRWinFormsProject {
 		this->Close();
     
     }
+
+    void MainPageUI::panelContenedor_Resize(Object^ sender, EventArgs^ e) {
+        AltaProveidorUI^ formHijo = dynamic_cast<AltaProveidorUI^>(panel1->Controls);
+        if (formHijo != nullptr) {
+            formHijo->Width = this->panel1->Width;
+            formHijo->Height = this->panel1->Height;
+        }
+    }
+
 
 }

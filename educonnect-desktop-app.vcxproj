@@ -371,6 +371,11 @@
   <ItemGroup>
     <Xml Include="credentials.xml" />
   </ItemGroup>
+  <ItemGroup>
+    <Font Include="resources\Inter\Inter-VariableFont_slnt,wght.ttf" />
+    <Font Include="resources\San-Francisco-Pro-Fonts\SF-Pro.ttf" />
+    <Font Include="resources\San-Francisco-Pro-Fonts\SF-Pro-Display-Regular.ttf" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

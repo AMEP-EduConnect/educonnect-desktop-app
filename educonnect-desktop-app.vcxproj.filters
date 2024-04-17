@@ -267,4 +267,15 @@
       <Filter>Resource Files</Filter>
     </Xml>
   </ItemGroup>
+  <ItemGroup>
+    <Font Include="resources\San-Francisco-Pro-Fonts\SF-Pro.ttf">
+      <Filter>Resource Files</Filter>
+    </Font>
+    <Font Include="resources\San-Francisco-Pro-Fonts\SF-Pro-Display-Regular.ttf">
+      <Filter>Resource Files</Filter>
+    </Font>
+    <Font Include="resources\Inter\Inter-VariableFont_slnt,wght.ttf">
+      <Filter>Resource Files</Filter>
+    </Font>
+  </ItemGroup>
 </Project>
