@@ -333,6 +333,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="FirstPageUI.resx">
+      <DependentUpon>FirstPageUI.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GrupEstudi_CrearUI.resx">
       <DependentUpon>GrupEstudi_CrearUI.h</DependentUpon>
     </EmbeddedResource>
