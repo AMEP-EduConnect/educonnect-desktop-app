@@ -20,7 +20,7 @@ namespace CppCLRWinFormsProject {
             }
         }
         else {
-            MessageManager::WarningMessage("Por favor, introduce el nombre del proveedor a eliminar.");
+            MessageManager::WarningMessage("Introdueix el nom del proveïdor que es esborrar!.");
         }
     }
 

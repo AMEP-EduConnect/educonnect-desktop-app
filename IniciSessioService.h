@@ -4,6 +4,7 @@
 #include "DatabaseConnector.h"
 #include "Usuari.h"
 #include "CurrentSession.h"
+#include "UsuariRolRepository.h"
 public ref class IniciSessioService
 {
 
@@ -17,5 +18,5 @@ public:
 
 private:
 	UsuariRepository^ usuariRepository;
-
+	UsuariRolRepository^ usuariRolRepository;
 };

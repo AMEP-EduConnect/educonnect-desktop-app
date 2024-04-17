@@ -13,7 +13,7 @@ namespace CppCLRWinFormsProject {
 		InitializeComponent();
 		baixaUsuariService = gcnew BaixaUsuariService();
 		//this->Background_PictureBox->Image = Image::FromFile("background.png");
-		//this->Icon = gcnew System::Drawing::Icon("app.ico");
+		this->Icon = gcnew System::Drawing::Icon("app.ico");
 	}
 
 	Void BaixaUsuariUI::Cancelar_Button_Click(System::Object^ sender, System::EventArgs^ e) {

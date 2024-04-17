@@ -72,6 +72,7 @@ namespace CppCLRWinFormsProject {
 			// 
 			this->textBox1->Location = System::Drawing::Point(157, 75);
 			this->textBox1->Name = L"textBox1";
+			this->textBox1->PasswordChar = '*';
 			this->textBox1->Size = System::Drawing::Size(167, 20);
 			this->textBox1->TabIndex = 1;
 			// 
@@ -110,6 +111,7 @@ namespace CppCLRWinFormsProject {
 			this->Controls->Add(this->textBox1);
 			this->Controls->Add(this->label1);
 			this->Name = L"BaixaUsuariUI";
+			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"BaixaUsuari";
 			this->ResumeLayout(false);
 			this->PerformLayout();

@@ -222,6 +222,7 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="BaixaUsuariService.h" />
+    <ClInclude Include="CurrentSession.h" />
     <ClInclude Include="GrupEstudi.h" />
     <ClInclude Include="GrupEstudiMembershipRepository.h" />
     <ClInclude Include="GrupEstudiMembershipService.h" />
@@ -264,7 +265,6 @@
     </ClInclude>
     <ClInclude Include="pch.h" />
     <ClInclude Include="PerfilPersonalModificaService.h" />
-    <ClInclude Include="ProveidorRepository.h" />
     <ClInclude Include="RegistreUsuariUI.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -274,6 +274,8 @@
     <ClInclude Include="PerfilPersonalConsultaService.h" />
     <ClInclude Include="Usuari.h" />
     <ClInclude Include="UsuariRepository.h" />
+    <ClInclude Include="UsuariRol.h" />
+    <ClInclude Include="UsuariRolRepository.h" />
     <ClInclude Include="Utils.h" />
   </ItemGroup>
   <ItemGroup>
@@ -313,13 +315,14 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="PerfilPersonalModificaService.cpp" />
-    <ClCompile Include="ProveidorRepository.cpp" />
     <ClCompile Include="PerfilPersonalConsultaService.cpp" />
     <ClCompile Include="Usuari.cpp" />
     <ClCompile Include="UsuariRepository.cpp" />
     <ClCompile Include="RegistreService.cpp" />
     <ClCompile Include="IniciSessioService.cpp" />
     <ClCompile Include="RegistreUsuariUI.cpp" />
+    <ClCompile Include="UsuariRol.cpp" />
+    <ClCompile Include="UsuariRolRepository.cpp" />
     <ClCompile Include="Utils.cpp" />
   </ItemGroup>
   <ItemGroup>

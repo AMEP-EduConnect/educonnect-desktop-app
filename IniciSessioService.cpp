@@ -5,6 +5,7 @@
 IniciSessioService::IniciSessioService()
 {
 	usuariRepository = gcnew UsuariRepository();
+	usuariRolRepository = gcnew UsuariRolRepository();
 }
 
 Usuari^ IniciSessioService::GetUsuariByPassUser(String^ username, String^ password)
@@ -18,7 +19,10 @@ bool IniciSessioService::CheckUsername(String^ username, String^ password)
 	Usuari^ checkuser = GetUsuariByPassUser(username, password);
 	if (checkuser->GetUsername() == username) {
 		bool checkpassword = CheckPassword(checkuser, password);
-		if(checkpassword) CurrentSession::Instance->LogNewUser(checkuser);
+		if (checkpassword) {
+			Int64^ id_rol = usuariRolRepository->GetRolId(checkuser->GetUserId());
+			CurrentSession::Instance->LogNewUser(checkuser,id_rol);
+		}
 		return checkpassword;
 	}
 	else return false;

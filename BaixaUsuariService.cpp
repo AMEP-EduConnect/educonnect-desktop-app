@@ -20,22 +20,22 @@ bool BaixaUsuariService::BaixaUsuari(String^ password) {
 		int i = 0;
 		// Mentre hi hagi grups als quals pertany l'usuari
 		while(i < grups->Length) {
-			// Eliminar usuari de tots els grups
-			grupEstudiMembershipRepository->DeleteUserFromGroup(id_user, grups[i]);
-			// Si el grup queda sense membres, eliminar el grup
-			if (grupEstudiMembershipRepository->CheckIfGroupHasUsers(grups[i]) == false) {
-				bool delete_group = grupEstudiRepository->DeleteGrupEstudiById(grups[i]);
-				return delete_group;
-			}
-			else {
+			// Verificar si es owner del grup i que hi hagui més d'un usuari al grup
+			Int64^ count = grupEstudiMembershipRepository->CheckIfGroupHasUsers(grups[i]);
+			if (grupEstudiRepository->CheckUserIsOwnerById(id_user, grups[i]) == true and *count > 1LL) {
 				Int64^ new_owner = grupEstudiMembershipRepository->GetOldestUserInGroup(grups[i]);
 				grupEstudiRepository->ChangeGroupOwner(grups[i], new_owner);
+			}
+			// Eliminar usuari del grup
+			grupEstudiMembershipRepository->DeleteUserFromGroup(id_user, grups[i]);
+			// Si el grup queda sense membres, elimina el grup
+			if (*count == 1LL) {
+				bool delete_group = grupEstudiRepository->DeleteGrupEstudiById(grups[i]);
 			}
 			i++;
 		}
 		// Eliminar usuari
 		usuariRepository->DeleteUser(id_user);
-		usuariRepository->DeleteUserRol(id_user);
 		CurrentSession::Instance->LogoutCurrentUser();
 		return true;
 	}

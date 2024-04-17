@@ -35,12 +35,11 @@ namespace CppCLRWinFormsProject {
         String^ name = textBox5->Text;
         if ((!String::IsNullOrWhiteSpace(username)) && (!String::IsNullOrWhiteSpace(password)) && (!String::IsNullOrWhiteSpace(email)) && (!String::IsNullOrWhiteSpace(name))) {
             this->altaProveidorService->AltaProveidor( username, email, name, password);
-            this->Close();
            // MessageManager::ShowMessage("Proveedor registrado con éxito.");
         }
         else {
             
-            MessageManager::WarningMessage("Falta información del proveedor.");
+            MessageManager::WarningMessage("Falta informació del proveïdor.");
         }
     }
 

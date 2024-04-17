@@ -5,13 +5,15 @@
 CurrentSession::CurrentSession()
 {
 	currentUser = nullptr;
+    currentUserRol = nullptr;
 }
 
-void CurrentSession::LogNewUser(Usuari^ newUser)
+void CurrentSession::LogNewUser(Usuari^ newUser, Int64^ id_rol)
 {
     if (currentUser == nullptr) {
         MessageManager::InfoMessage("USUARI INICIAT CORRECTAMENT!");
         currentUser = newUser;
+       currentUserRol = gcnew UsuariRol(newUser->GetUserId(), id_rol);
     }
     else MessageManager::WarningMessage("USUARI JA INICIAT");
 }
@@ -25,5 +27,8 @@ Usuari^ CurrentSession::GetCurrentUser()
 {
     return currentUser;
 }
-
+Int64^ CurrentSession::GetCurrentUserRol()
+{
+	return currentUserRol->GetRolId();
+}   
 

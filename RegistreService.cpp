@@ -5,6 +5,7 @@
 RegistreService::RegistreService()
 {
 	usuariRepository = gcnew UsuariRepository();
+	usuariRolRepository = gcnew UsuariRolRepository();;
 }
 
 bool RegistreService::CheckUsername(String^ username)
@@ -21,5 +22,6 @@ bool RegistreService::CreateUser(String^ username, String^ email, String^ name, 
 {
 	Int64^ id;
 	id = this->usuariRepository->CreateUser(username, email, name, password);
-	return this->usuariRepository->CreateUserRol(id);
+	Int64^ id_rol = 2LL;
+	return this->usuariRolRepository->CreateUserRol(id,id_rol);
 }
