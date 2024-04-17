@@ -31,6 +31,7 @@ int main()
 {
 	DatabaseConnector::Instance = gcnew DatabaseConnector();
 	CurrentSession::Instance = gcnew CurrentSession();
+	
 	Application::EnableVisualStyles();
 	Application::SetCompatibleTextRenderingDefault(false);
 	Application::Run(gcnew CppCLRWinFormsProject::FirstPageUI());

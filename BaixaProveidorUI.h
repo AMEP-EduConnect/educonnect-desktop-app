@@ -19,7 +19,7 @@ namespace CppCLRWinFormsProject {
 		BaixaProveidorUI(void){
 			InitializeComponent();
 			baixaProveidorService = gcnew BaixaProveidorService();
-			this->Background_PictureBox->Image = Image::FromFile("background.png");
+			//this->Background_PictureBox->Image = Image::FromFile("background.png");
 			this->Icon = gcnew System::Drawing::Icon("app.ico");
 		}
 
@@ -56,11 +56,13 @@ namespace CppCLRWinFormsProject {
 
 
 
-	private: System::Windows::Forms::Label^ EduConnectLabel;
+
 	private: System::Windows::Forms::Label^ PageTitleLabel;
-	private: System::Windows::Forms::PictureBox^ pictureBox1;
-	private: System::Windows::Forms::Button^ GoBack_Button;
-	private: System::Windows::Forms::PictureBox^ Background_PictureBox;
+
+	private: System::Windows::Forms::TableLayoutPanel^ tableLayoutPanel1;
+	private: System::Windows::Forms::Panel^ panel1;
+
+
 
 
 
@@ -79,20 +81,21 @@ namespace CppCLRWinFormsProject {
 			   this->BaixaProveidorButton = (gcnew System::Windows::Forms::Button());
 			   this->BaixaProveidorTextBox = (gcnew System::Windows::Forms::TextBox());
 			   this->BaixaProveidorLabel = (gcnew System::Windows::Forms::Label());
-			   this->EduConnectLabel = (gcnew System::Windows::Forms::Label());
 			   this->PageTitleLabel = (gcnew System::Windows::Forms::Label());
-			   this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
-			   this->GoBack_Button = (gcnew System::Windows::Forms::Button());
-			   this->Background_PictureBox = (gcnew System::Windows::Forms::PictureBox());
-			   (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
-			   (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->Background_PictureBox))->BeginInit();
+			   this->tableLayoutPanel1 = (gcnew System::Windows::Forms::TableLayoutPanel());
+			   this->panel1 = (gcnew System::Windows::Forms::Panel());
+			   this->tableLayoutPanel1->SuspendLayout();
+			   this->panel1->SuspendLayout();
 			   this->SuspendLayout();
 			   // 
 			   // BaixaProveidorButton
 			   // 
-			   this->BaixaProveidorButton->Location = System::Drawing::Point(392, 324);
+			   this->BaixaProveidorButton->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				   static_cast<System::Byte>(0)));
+			   this->BaixaProveidorButton->ForeColor = System::Drawing::SystemColors::HotTrack;
+			   this->BaixaProveidorButton->Location = System::Drawing::Point(88, 141);
 			   this->BaixaProveidorButton->Name = L"BaixaProveidorButton";
-			   this->BaixaProveidorButton->Size = System::Drawing::Size(135, 23);
+			   this->BaixaProveidorButton->Size = System::Drawing::Size(135, 34);
 			   this->BaixaProveidorButton->TabIndex = 0;
 			   this->BaixaProveidorButton->Text = L"Confirma";
 			   this->BaixaProveidorButton->UseVisualStyleBackColor = true;
@@ -100,95 +103,89 @@ namespace CppCLRWinFormsProject {
 			   // 
 			   // BaixaProveidorTextBox
 			   // 
-			   this->BaixaProveidorTextBox->Location = System::Drawing::Point(426, 263);
+			   this->BaixaProveidorTextBox->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				   static_cast<System::Byte>(0)));
+			   this->BaixaProveidorTextBox->Location = System::Drawing::Point(154, 58);
 			   this->BaixaProveidorTextBox->Name = L"BaixaProveidorTextBox";
-			   this->BaixaProveidorTextBox->Size = System::Drawing::Size(135, 20);
+			   this->BaixaProveidorTextBox->Size = System::Drawing::Size(135, 27);
 			   this->BaixaProveidorTextBox->TabIndex = 3;
 			   // 
 			   // BaixaProveidorLabel
 			   // 
 			   this->BaixaProveidorLabel->AutoSize = true;
 			   this->BaixaProveidorLabel->BackColor = System::Drawing::SystemColors::GradientInactiveCaption;
-			   this->BaixaProveidorLabel->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Regular,
-				   System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
-			   this->BaixaProveidorLabel->Location = System::Drawing::Point(331, 264);
+			   this->BaixaProveidorLabel->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				   static_cast<System::Byte>(0)));
+			   this->BaixaProveidorLabel->ForeColor = System::Drawing::SystemColors::HotTrack;
+			   this->BaixaProveidorLabel->Location = System::Drawing::Point(24, 61);
 			   this->BaixaProveidorLabel->Name = L"BaixaProveidorLabel";
-			   this->BaixaProveidorLabel->Size = System::Drawing::Size(89, 16);
+			   this->BaixaProveidorLabel->Size = System::Drawing::Size(113, 19);
 			   this->BaixaProveidorLabel->TabIndex = 7;
 			   this->BaixaProveidorLabel->Text = L"Nom d\'usuari:";
 			   // 
-			   // EduConnectLabel
-			   // 
-			   this->EduConnectLabel->AutoSize = true;
-			   this->EduConnectLabel->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				   static_cast<System::Byte>(0)));
-			   this->EduConnectLabel->Location = System::Drawing::Point(280, 121);
-			   this->EduConnectLabel->Name = L"EduConnectLabel";
-			   this->EduConnectLabel->Size = System::Drawing::Size(80, 16);
-			   this->EduConnectLabel->TabIndex = 12;
-			   this->EduConnectLabel->Text = L"EduConnect";
-			   // 
 			   // PageTitleLabel
 			   // 
+			   this->PageTitleLabel->Anchor = System::Windows::Forms::AnchorStyles::None;
 			   this->PageTitleLabel->AutoSize = true;
-			   this->PageTitleLabel->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			   this->PageTitleLabel->Font = (gcnew System::Drawing::Font(L"Inter", 20.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				   static_cast<System::Byte>(0)));
-			   this->PageTitleLabel->Location = System::Drawing::Point(277, 137);
+			   this->PageTitleLabel->Location = System::Drawing::Point(251, 25);
 			   this->PageTitleLabel->Name = L"PageTitleLabel";
-			   this->PageTitleLabel->Size = System::Drawing::Size(346, 31);
+			   this->PageTitleLabel->Size = System::Drawing::Size(347, 33);
 			   this->PageTitleLabel->TabIndex = 13;
 			   this->PageTitleLabel->Text = L"Donar de Baixa Proveïdor";
 			   // 
-			   // pictureBox1
+			   // tableLayoutPanel1
 			   // 
-			   this->pictureBox1->BackColor = System::Drawing::SystemColors::GradientInactiveCaption;
-			   this->pictureBox1->Location = System::Drawing::Point(283, 185);
-			   this->pictureBox1->Name = L"pictureBox1";
-			   this->pictureBox1->Size = System::Drawing::Size(358, 214);
-			   this->pictureBox1->TabIndex = 11;
-			   this->pictureBox1->TabStop = false;
+			   this->tableLayoutPanel1->ColumnCount = 3;
+			   this->tableLayoutPanel1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
+				   34.33544F)));
+			   this->tableLayoutPanel1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
+				   65.66456F)));
+			   this->tableLayoutPanel1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Absolute,
+				   181)));
+			   this->tableLayoutPanel1->Controls->Add(this->PageTitleLabel, 1, 0);
+			   this->tableLayoutPanel1->Controls->Add(this->panel1, 1, 1);
+			   this->tableLayoutPanel1->Dock = System::Windows::Forms::DockStyle::Fill;
+			   this->tableLayoutPanel1->Location = System::Drawing::Point(0, 0);
+			   this->tableLayoutPanel1->Name = L"tableLayoutPanel1";
+			   this->tableLayoutPanel1->RowCount = 3;
+			   this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 21.84211F)));
+			   this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 78.1579F)));
+			   this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Absolute, 156)));
+			   this->tableLayoutPanel1->Size = System::Drawing::Size(814, 537);
+			   this->tableLayoutPanel1->TabIndex = 14;
 			   // 
-			   // GoBack_Button
+			   // panel1
 			   // 
-			   this->GoBack_Button->ForeColor = System::Drawing::Color::Red;
-			   this->GoBack_Button->Location = System::Drawing::Point(800, 515);
-			   this->GoBack_Button->Name = L"GoBack_Button";
-			   this->GoBack_Button->Size = System::Drawing::Size(91, 26);
-			   this->GoBack_Button->TabIndex = 14;
-			   this->GoBack_Button->Text = L"Cancelar";
-			   this->GoBack_Button->UseVisualStyleBackColor = true;
-			   this->GoBack_Button->Click += gcnew System::EventHandler(this, &BaixaProveidorUI::GoBackButton_Click);
-			   // 
-			   // Background_PictureBox
-			   // 
-			   this->Background_PictureBox->Location = System::Drawing::Point(-5, 555);
-			   this->Background_PictureBox->Name = L"Background_PictureBox";
-			   this->Background_PictureBox->Size = System::Drawing::Size(928, 265);
-			   this->Background_PictureBox->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
-			   this->Background_PictureBox->TabIndex = 15;
-			   this->Background_PictureBox->TabStop = false;
+			   this->panel1->Anchor = System::Windows::Forms::AnchorStyles::None;
+			   this->panel1->BackColor = System::Drawing::SystemColors::GradientInactiveCaption;
+			   this->panel1->Controls->Add(this->BaixaProveidorLabel);
+			   this->panel1->Controls->Add(this->BaixaProveidorTextBox);
+			   this->panel1->Controls->Add(this->BaixaProveidorButton);
+			   this->panel1->ForeColor = System::Drawing::SystemColors::GradientInactiveCaption;
+			   this->panel1->Location = System::Drawing::Point(264, 131);
+			   this->panel1->Name = L"panel1";
+			   this->panel1->Size = System::Drawing::Size(321, 201);
+			   this->panel1->TabIndex = 15;
 			   // 
 			   // BaixaProveidorUI
 			   // 
 			   this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			   this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			   this->ClientSize = System::Drawing::Size(917, 657);
-			   this->Controls->Add(this->Background_PictureBox);
-			   this->Controls->Add(this->GoBack_Button);
-			   this->Controls->Add(this->PageTitleLabel);
-			   this->Controls->Add(this->EduConnectLabel);
-			   this->Controls->Add(this->BaixaProveidorLabel);
-			   this->Controls->Add(this->BaixaProveidorTextBox);
-			   this->Controls->Add(this->BaixaProveidorButton);
-			   this->Controls->Add(this->pictureBox1);
+			   this->ClientSize = System::Drawing::Size(814, 537);
+			   this->Controls->Add(this->tableLayoutPanel1);
 			   this->ForeColor = System::Drawing::SystemColors::HotTrack;
+			   this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
+			   this->MinimumSize = System::Drawing::Size(814, 537);
 			   this->Name = L"BaixaProveidorUI";
 			   this->StartPosition = System::Windows::Forms::FormStartPosition::CenterParent;
 			   this->Text = L"EduConnect";
-			   (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
-			   (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->Background_PictureBox))->EndInit();
+			   this->tableLayoutPanel1->ResumeLayout(false);
+			   this->tableLayoutPanel1->PerformLayout();
+			   this->panel1->ResumeLayout(false);
+			   this->panel1->PerformLayout();
 			   this->ResumeLayout(false);
-			   this->PerformLayout();
 
 		   }
 #pragma endregion

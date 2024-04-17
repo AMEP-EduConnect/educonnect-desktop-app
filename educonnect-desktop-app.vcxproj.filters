@@ -137,6 +137,15 @@
     <ClInclude Include="BaixaProveidorService.h">
       <Filter>Source Files\services</Filter>
     </ClInclude>
+    <ClInclude Include="AdministradorUI.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CurrentSession.h">
+      <Filter>Source Files\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="IniciUI.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AssemblyInfo.cpp">
@@ -252,6 +261,12 @@
     </ClCompile>
     <ClCompile Include="BaixaProveidorService.cpp">
       <Filter>Source Files\services</Filter>
+    </ClCompile>
+    <ClCompile Include="AdministradorUI.cpp">
+      <Filter>Source Files\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="IniciUI.cpp">
+      <Filter>Source Files\ui</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
