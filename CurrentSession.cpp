@@ -21,6 +21,7 @@ void CurrentSession::LogNewUser(Usuari^ newUser, Int64^ id_rol)
 void CurrentSession::LogoutCurrentUser()
 {
     currentUser = nullptr;
+    currentUserRol = nullptr;
 }
 
 Usuari^ CurrentSession::GetCurrentUser()
