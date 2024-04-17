@@ -1,21 +1,26 @@
 #include "pch.h"
 #include "BaixaUsuariService.h"
 #include "CurrentSession.h"
-#include "GrupEstudiMembershipRepository.h"
-#include "GrupEstudiRepository.h"
+
 BaixaUsuariService::BaixaUsuariService()
 {
 	usuariRepository = gcnew UsuariRepository();
+	grupEstudiRepository = gcnew GrupEstudiRepository();
+	grupEstudiMembershipRepository = gcnew GrupEstudiMembershipRepository();
 }
 
-bool BaixaUsuariService::BaixaUsuari(String^ password) {
-	Int64^ id_user = CurrentSession::Instance->GetCurrentUser()->GetUserId();
-	Int64^ not_id;
-	if (id_user != not_id) {
-		// Verificació de la contrasenya
-		if(CurrentSession::Instance->GetCurrentUser()->GetPassword() != password) return false;
-		GrupEstudiMembershipRepository^ grupEstudiMembershipRepository = gcnew GrupEstudiMembershipRepository();
-		GrupEstudiRepository^ grupEstudiRepository = gcnew GrupEstudiRepository();
+bool BaixaUsuariService::BaixaUsuari(String^ username) {
+		Int64^ id_user;
+		if (*CurrentSession::Instance->GetCurrentUserRol() == 1LL) {
+			bool check = usuariRepository->CheckUsuariByUser(username);
+			if(not check) return false;
+			id_user = usuariRepository->GetUserId(username);
+		}
+		else 
+		{
+			id_user = CurrentSession::Instance->GetCurrentUser()->GetUserId();
+			if(CurrentSession::Instance->GetCurrentUser()->GetUsername() != username) return false;
+		}
 		array<Int64^>^ grups = grupEstudiMembershipRepository->LoadGrupsEstudiMembershipByUserId(id_user);
 		int i = 0;
 		// Mentre hi hagi grups als quals pertany l'usuari
@@ -36,8 +41,6 @@ bool BaixaUsuariService::BaixaUsuari(String^ password) {
 		}
 		// Eliminar usuari
 		usuariRepository->DeleteUser(id_user);
-		CurrentSession::Instance->LogoutCurrentUser();
+		if(*CurrentSession::Instance->GetCurrentUserRol() != 1LL) CurrentSession::Instance->LogoutCurrentUser();
 		return true;
-	}
-	else return false;
 }

@@ -158,7 +158,7 @@ bool UsuariRepository::DeleteUser(Int64^ id) {
 	return true;
 }
 
-// Create a function that send a username and return the id of the user
+
 Int64^ UsuariRepository::GetUserId(String^ username) {
 	DatabaseConnector::Instance->Connect();
 	String^ sql = "SELECT id FROM users WHERE username = @Username";
@@ -173,15 +173,3 @@ Int64^ UsuariRepository::GetUserId(String^ username) {
 	DatabaseConnector::Instance->Disconnect();
 	return id;
 }
-/*
-bool UsuariRepository::DeleteUserRol(Int64^ id) {
-	DatabaseConnector::Instance->Connect();
-	String^ sql = "DELETE FROM users_roles WHERE user_id=@id";
-	Dictionary<String^, Object^>^ params = gcnew Dictionary<String^, Object^>(0);
-	params->Add("@id", id->ToString());
-	MySqlDataReader^ data = DatabaseConnector::Instance->ExecuteClientCommand(sql, params);
-	data->Close();
-	DatabaseConnector::Instance->Disconnect();
-	return true;
-}
-*/

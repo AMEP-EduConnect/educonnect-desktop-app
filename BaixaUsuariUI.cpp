@@ -32,10 +32,18 @@ namespace CppCLRWinFormsProject {
 			bool eliminar = baixaUsuariService->BaixaUsuari(password);
 			if (eliminar) {
 				MessageManager::InfoMessage("Usuari eliminat correctament");
-				this->Hide();
-				FirstPageUI^ form = gcnew FirstPageUI();
-				form->ShowDialog();
-				this->Close();
+				if (CurrentSession::Instance->GetCurrentUserRol() == nullptr) {
+					this->Hide();
+					FirstPageUI^ form = gcnew FirstPageUI();
+					form->ShowDialog();
+					this->Close();
+				}
+				else {
+					this->Hide();
+					InformacioPersonal_ConsultaUI^ form = gcnew InformacioPersonal_ConsultaUI();
+					form->ShowDialog();
+					this->Close();
+				}
 			}
 			else MessageManager::ErrorMessage("Contrasenya incorrecta");
 		}

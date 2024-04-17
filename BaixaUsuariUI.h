@@ -60,12 +60,11 @@ namespace CppCLRWinFormsProject {
 			this->label1->AutoSize = true;
 			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F));
 			this->label1->ForeColor = System::Drawing::SystemColors::HotTrack;
-			this->label1->Location = System::Drawing::Point(12, 38);
+			this->label1->Location = System::Drawing::Point(39, 39);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(498, 16);
+			this->label1->Size = System::Drawing::Size(452, 16);
 			this->label1->TabIndex = 0;
-			this->label1->Text = L"Està a punt d\'eliminar el compte. Si hi estàs d\'acord, introdueix la teva contras"
-				L"enya:";
+			this->label1->Text = L"Està a punt d\'eliminar el compte. Si hi estàs d\'acord, introdueix el teu usuari:";
 			this->label1->Click += gcnew System::EventHandler(this, &BaixaUsuariUI::label1_Click);
 			// 
 			// textBox1
