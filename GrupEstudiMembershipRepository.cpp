@@ -115,3 +115,32 @@ void GrupEstudiMembershipRepository::DeleteUserFromGroup(Int64^ user_id, Int64^ 
 	DatabaseConnector::Instance->ExecuteClientCommand(sql, params);
 	DatabaseConnector::Instance->Disconnect();
 }
+
+bool GrupEstudiMembershipRepository::CheckIfGroupHasUsers(Int64^ group_id)
+{
+	DatabaseConnector::Instance->Connect();
+	String^ sql = "SELECT * FROM studyGroupsMembership WHERE group_id = @group_id";
+	Dictionary<String^, Object^>^ params = gcnew Dictionary<String^, Object^>(0);
+	params->Add("@group_id", group_id->ToString());
+	MySqlDataReader^ data = DatabaseConnector::Instance->ExecuteClientCommand(sql, params);
+	bool check = data != nullptr && data->Read();
+	DatabaseConnector::Instance->Disconnect();
+	return check;
+}
+
+// Create a function that return the first user that member_since is the oldest
+Int64^ GrupEstudiMembershipRepository::GetOldestUserInGroup(Int64^ group_id)
+{
+	DatabaseConnector::Instance->Connect();
+	String^ sql = "SELECT user_id FROM studyGroupsMembership WHERE group_id = @group_id ORDER BY member_since ASC LIMIT 1";
+	Dictionary<String^, Object^>^ params = gcnew Dictionary<String^, Object^>(0);
+	params->Add("@group_id", group_id->ToString());
+	MySqlDataReader^ data = DatabaseConnector::Instance->ExecuteClientCommand(sql, params);
+	Int64^ user_id;
+	while (data->Read())
+	{
+		user_id = data->GetInt64(0);
+	}
+	DatabaseConnector::Instance->Disconnect();
+	return user_id;
+}

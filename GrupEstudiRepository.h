@@ -14,10 +14,10 @@ public:
 	array<AcademicTag^>^ LoadAllAcademicTags();
 	void CreateNewGrupEstudi(String^ group_name, String^ description, Int64^ academic_tag_id, Int64^ current_user_id);
 	void DeleteGrupEstudi(String^ group_name);
+	bool DeleteGrupEstudiById(Int64^ group_id);
 	Int64^ GetAcademicTagByTagName(String^ academic_tag);
 
 	GrupEstudi^ GetGrupEstudiById(Int64^ id);
-
 	GrupEstudi^ GetGrupEstudiByName(String^ group_name);
 	void UpdateGroupName(String^ group_name_act, String^ group_name_new);
 	void UpdateGroupDescription(String^ group_name_act, String^ description_new);
@@ -26,7 +26,7 @@ public:
 
 	Int64^ GetUserIdByName(String^ user_name);
 	Int64^ GetGroupIdByName(String^ group_name);
-
 	bool CheckUserIsOwner(String^ group_name);
 
+	void ChangeGroupOwner(Int64^ user_id, Int64^ group_id);
 };

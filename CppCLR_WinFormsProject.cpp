@@ -20,6 +20,7 @@ using namespace System;
 #include "Usuari.h"
 #include "RegistreUsuariUI.h"
 #include "IniciSessioUI.h"
+#include "BaixaUsuariUI.h"
 using namespace System;
 #include "InformacioPersonal_ConsultaUI.h"
 #include "InformacioPersonal_ModificaUI.h"

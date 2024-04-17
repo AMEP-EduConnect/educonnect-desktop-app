@@ -43,6 +43,7 @@ namespace CppCLRWinFormsProject {
 	private: System::Windows::Forms::Button^ button1;
 	private: System::Windows::Forms::Button^ button2;
 	private: System::Windows::Forms::PictureBox^ Background_PictureBox;
+	private: System::Windows::Forms::Button^ button3;
 
 	private:
 		/// <summary>
@@ -71,6 +72,7 @@ namespace CppCLRWinFormsProject {
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->button2 = (gcnew System::Windows::Forms::Button());
 			this->Background_PictureBox = (gcnew System::Windows::Forms::PictureBox());
+			this->button3 = (gcnew System::Windows::Forms::Button());
 			this->panel1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->Background_PictureBox))->BeginInit();
 			this->SuspendLayout();
@@ -220,11 +222,22 @@ namespace CppCLRWinFormsProject {
 			this->Background_PictureBox->TabIndex = 14;
 			this->Background_PictureBox->TabStop = false;
 			// 
+			// button3
+			// 
+			this->button3->Location = System::Drawing::Point(638, 514);
+			this->button3->Name = L"button3";
+			this->button3->Size = System::Drawing::Size(75, 35);
+			this->button3->TabIndex = 15;
+			this->button3->Text = L"Eliminar";
+			this->button3->UseVisualStyleBackColor = true;
+			this->button3->Click += gcnew System::EventHandler(this, &InformacioPersonal_ConsultaUI::Eliminar_Click);
+			// 
 			// InformacioPersonal_ConsultaUI
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(917, 657);
+			this->Controls->Add(this->button3);
 			this->Controls->Add(this->Background_PictureBox);
 			this->Controls->Add(this->button2);
 			this->Controls->Add(this->button1);
@@ -256,6 +269,7 @@ namespace CppCLRWinFormsProject {
 	}
 	private: System::Void Tanca_Click(System::Object^ sender, System::EventArgs^ e);
 	private: System::Void Edita_Click(System::Object^ sender, System::EventArgs^ e);
+	private: System::Void Eliminar_Click(System::Object^ sender, System::EventArgs^ e);
 	private: System::Void textBox1_TextChanged(System::Object^ sender, System::EventArgs^ e) {
 	}
 	private: System::Void label2_Click(System::Object^ sender, System::EventArgs^ e) {

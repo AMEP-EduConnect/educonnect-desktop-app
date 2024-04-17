@@ -218,6 +218,10 @@
     <ClInclude Include="AcademicTag.h" />
     <ClInclude Include="AltaProveidorService.h" />
     <ClInclude Include="BaixaProveidorService.h" />
+    <ClInclude Include="BaixaUsuariUI.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="BaixaUsuariService.h" />
     <ClInclude Include="GrupEstudi.h" />
     <ClInclude Include="GrupEstudiMembershipRepository.h" />
     <ClInclude Include="GrupEstudiMembershipService.h" />
@@ -279,6 +283,8 @@
     <ClCompile Include="AssemblyInfo.cpp" />
     <ClCompile Include="BaixaProveidorService.cpp" />
     <ClCompile Include="BaixaProveidorUI.cpp" />
+    <ClCompile Include="BaixaUsuariUI.cpp" />
+    <ClCompile Include="BaixaUsuariService.cpp" />
     <ClCompile Include="CppCLR_WinFormsProject.cpp" />
     <ClCompile Include="CurrentSession.cpp" />
     <ClCompile Include="DatabaseConnector.cpp" />
@@ -336,6 +342,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="BaixaProveidorUI.resx">
       <DependentUpon>BaixaProveidorUI.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BaixaUsuariUI.resx">
+      <DependentUpon>BaixaUsuariUI.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FirstPageUI.resx">
       <DependentUpon>FirstPageUI.h</DependentUpon>

@@ -5,7 +5,7 @@
 #include "PerfilPersonalConsultaService.h"
 #include "MessageManager.h"
 #include "MainPageUI.h"
-
+#include "BaixaUsuariUI.h"
 
 namespace CppCLRWinFormsProject {
 
@@ -38,6 +38,12 @@ namespace CppCLRWinFormsProject {
 	{
 		this->Hide();
 		InformacioPersonal_ModificaUI^ form = gcnew InformacioPersonal_ModificaUI();
+		form->ShowDialog();
+		this->Close();
+	}
+	Void InformacioPersonal_ConsultaUI::Eliminar_Click(System::Object^ sender, System::EventArgs^ e) {
+		this->Hide();
+		BaixaUsuariUI^ form = gcnew BaixaUsuariUI();
 		form->ShowDialog();
 		this->Close();
 	}
