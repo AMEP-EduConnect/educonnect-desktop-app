@@ -232,5 +232,6 @@ namespace CppCLRWinFormsProject {
 	private: System::Void EditarButton_Click(System::Object^ sender, System::EventArgs^ e);
 	private: System::Void CancelButton_Click(System::Object^ sender, System::EventArgs^ e);
 	private: System::Void Noms_ListBox_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e);
+	private: void GrupEstudi_ConsultarUIreload();
 	};
 }

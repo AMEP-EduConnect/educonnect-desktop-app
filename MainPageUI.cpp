@@ -68,13 +68,6 @@ namespace CppCLRWinFormsProject {
 		this->Close();
     }
 
-    void MainPageUI::Edita_Grup_Click(System::Object^ sender, System::EventArgs^ e) {
-		this->Hide();
-		GrupEstudi_EditarUI^ form = gcnew GrupEstudi_EditarUI();
-		form->ShowDialog();
-		this->Close();
-    }
-
     void MainPageUI::Gestiona_Grup_Click(System::Object^ sender, System::EventArgs^ e) {
 		this->Hide();
 		GrupEstudi_AssignarUI^ form = gcnew GrupEstudi_AssignarUI();

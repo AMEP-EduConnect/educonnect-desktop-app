@@ -14,9 +14,10 @@ namespace CppCLRWinFormsProject {
     }
     void GrupEstudi_ConsultarUI::GrupEstudi_ConsultarUI_Load(System::Object^ sender, System::EventArgs^ e)
     {
-        //possar que torni al menu anterior
-        //this->Close();
+        GrupEstudi_ConsultarUIreload();
+	}
 
+    void GrupEstudi_ConsultarUI::GrupEstudi_ConsultarUIreload(){
         Usuari^ currentUser = CurrentSession::Instance->GetCurrentUser();
         array<Int64^>^ arrayIdGroupEstudisOfUser = grupEstudiMembershipService->LoadGrupsEstudiMembershipByUserId(currentUser->GetUserId());
 
@@ -29,7 +30,7 @@ namespace CppCLRWinFormsProject {
         }
 
         //Falta que el estudiant pugui gestionar els grups d'estudi que te
-	}
+    }
 
     void GrupEstudi_ConsultarUI::CancelButton_Click(System::Object^ sender, System::EventArgs^ e)
     {
@@ -48,6 +49,10 @@ namespace CppCLRWinFormsProject {
 			Editar_Button->Visible = true;
 			Eliminar_Button->Visible = true;
 		}
+        else {
+            Editar_Button->Visible = false;
+            Eliminar_Button->Visible = false;
+        }
     }
 
     void GrupEstudi_ConsultarUI::EliminarButton_Click(System::Object^ sender, System::EventArgs^ e)
@@ -63,8 +68,10 @@ namespace CppCLRWinFormsProject {
             try {
                 grupEstudiService->DeleteGrupEstudi(Noms_ListBox->Text);
                 MessageManager::InfoMessage("Grup eliminat correctament.");
-                //FIXME: este refresh no va
-                this->Refresh();
+                // Reload the list of groups after deletion
+                GrupEstudi_ConsultarUIreload();
+                
+                
             }
             catch (Exception^ e) {
 				MessageManager::ErrorMessage(e->Message);
