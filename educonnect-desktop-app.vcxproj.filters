@@ -138,6 +138,9 @@
       <Filter>Source Files\services</Filter>
     </ClInclude>
     <ClInclude Include="BaixaUsuariUI.h">
+    <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="AdministradorUI.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="CurrentSession.h">
@@ -148,6 +151,9 @@
     </ClInclude>
     <ClInclude Include="UsuariRol.h">
       <Filter>Source Files\entities</Filter>
+    </ClInclude>
+    <ClInclude Include="IniciUI.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -273,6 +279,12 @@
     </ClCompile>
     <ClCompile Include="UsuariRol.cpp">
       <Filter>Source Files\entities</Filter>
+     </ClCompile>
+    <ClCompile Include="AdministradorUI.cpp">
+      <Filter>Source Files\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="IniciUI.cpp">
+      <Filter>Source Files\ui</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -287,5 +299,16 @@
     <Xml Include="credentials.xml">
       <Filter>Resource Files</Filter>
     </Xml>
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="resources\San-Francisco-Pro-Fonts\SF-Pro.ttf">
+      <Filter>Resource Files</Filter>
+    </Font>
+    <Font Include="resources\San-Francisco-Pro-Fonts\SF-Pro-Display-Regular.ttf">
+      <Filter>Resource Files</Filter>
+    </Font>
+    <Font Include="resources\Inter\Inter-VariableFont_slnt,wght.ttf">
+      <Filter>Resource Files</Filter>
+    </Font>
   </ItemGroup>
 </Project>

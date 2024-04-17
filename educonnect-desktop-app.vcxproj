@@ -216,6 +216,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AcademicTag.h" />
+    <ClInclude Include="AdministradorUI.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="AltaProveidorService.h" />
     <ClInclude Include="BaixaProveidorService.h" />
     <ClInclude Include="BaixaUsuariUI.h">
@@ -245,6 +248,9 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="IniciSessioUI.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="IniciUI.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="MainPageUI.h">
@@ -280,6 +286,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AcademicTag.cpp" />
+    <ClCompile Include="AdministradorUI.cpp" />
     <ClCompile Include="AltaProveidorService.cpp" />
     <ClCompile Include="AltaProveidorUI.cpp" />
     <ClCompile Include="AssemblyInfo.cpp" />
@@ -304,6 +311,7 @@
     <ClCompile Include="GrupEstudi_ConsultarUI.cpp" />
     <ClCompile Include="GrupEstudi_EditarUI.cpp" />
     <ClCompile Include="GrupEstudiMembership.cpp" />
+    <ClCompile Include="IniciUI.cpp" />
     <ClCompile Include="MainPageUI.cpp" />
     <ClCompile Include="MessageManager.cpp" />
     <ClCompile Include="pch.cpp">
@@ -340,6 +348,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="AdministradorUI.resx">
+      <DependentUpon>AdministradorUI.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AltaProveidorUI.resx">
       <DependentUpon>AltaProveidorUI.h</DependentUpon>
     </EmbeddedResource>
@@ -367,6 +378,9 @@
     <EmbeddedResource Include="IniciSessioUI.resx">
       <DependentUpon>IniciSessioUI.h</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="IniciUI.resx">
+      <DependentUpon>IniciUI.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainPageUI.resx">
       <DependentUpon>MainPageUI.h</DependentUpon>
     </EmbeddedResource>
@@ -382,6 +396,11 @@
   </ItemGroup>
   <ItemGroup>
     <Xml Include="credentials.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="resources\Inter\Inter-VariableFont_slnt,wght.ttf" />
+    <Font Include="resources\San-Francisco-Pro-Fonts\SF-Pro.ttf" />
+    <Font Include="resources\San-Francisco-Pro-Fonts\SF-Pro-Display-Regular.ttf" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -22,7 +22,7 @@ namespace CppCLRWinFormsProject {
 		textBox2->Text = password;
 		textBox3->Text = email;
 		textBox4->Text = name;	
-		this->Background_PictureBox->Image = Image::FromFile("background.png");
+		//this->Background_PictureBox->Image = Image::FromFile("background.png");
 		this->Icon = gcnew System::Drawing::Icon("app.ico");
 	}
 

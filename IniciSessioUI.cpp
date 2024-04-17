@@ -24,8 +24,8 @@ namespace CppCLRWinFormsProject {
 
             if (check == true) {
                 this->Hide();
-                MainPageUI^ form = gcnew MainPageUI();
-                form->ShowDialog();
+                MainPageUI::Instance = gcnew MainPageUI();
+                MainPageUI::Instance->ShowDialog();
                 this->Close();
             }
 
