@@ -28,5 +28,6 @@ public:
 	Int64^ GetGroupIdByName(String^ group_name);
 
 	bool CheckUserIsOwner(String^ group_name);
+	bool CheckUserIsOwnerByIds(Int64^ user_id, Int64^ group_id);
 
 };

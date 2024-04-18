@@ -30,7 +30,7 @@ void GrupEstudiService::CreateNewGrupEstudi(String^ group_name, String^ descript
 	catch (Exception^ e) {
 		MessageManager::ErrorMessage(e->Message);
 	}
-	
+
 }
 
 void GrupEstudiService::DeleteGrupEstudi(String^ grup_name)
@@ -39,7 +39,7 @@ void GrupEstudiService::DeleteGrupEstudi(String^ grup_name)
 	if (isOwner) {
 		grupEstudiRepository->DeleteGrupEstudi(grup_name);
 	}
-	
+
 }
 
 void GrupEstudiService::ModifyGroupName(String^ group_name_act, String^ group_name_new)
@@ -50,7 +50,7 @@ void GrupEstudiService::ModifyGroupName(String^ group_name_act, String^ group_na
 	catch (Exception^ e) {
 		MessageManager::ErrorMessage(e->Message);
 	}
-	
+
 }
 
 void GrupEstudiService::ModifyGroupDescription(String^ group_name_act, String^ description_new)
@@ -61,13 +61,13 @@ void GrupEstudiService::ModifyGroupDescription(String^ group_name_act, String^ d
 	catch (Exception^ e) {
 		MessageManager::ErrorMessage(e->Message);
 	}
-	
+
 }
 
 bool GrupEstudiService::CheckIfGroupExists(String^ group_name_act)
 {
 	GrupEstudi^ grup = grupEstudiRepository->GetGrupEstudiByName(group_name_act);
-	
+
 	return not System::String::IsNullOrEmpty(grup->GetGroupName());
 }
 
@@ -90,4 +90,9 @@ Int64^ GrupEstudiService::GetGroupIdByName(String^ group_name)
 bool GrupEstudiService::CheckUserIsOwner(String^ group_name)
 {
 	return grupEstudiRepository->CheckUserIsOwner(group_name);
+}
+
+bool GrupEstudiService::CheckUserIsOwnerByIds(Int64^ user_id, Int64^ group_id)
+{
+	return grupEstudiRepository->CheckUserIsOwnerByIds(user_id, group_id);
 }

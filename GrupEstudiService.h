@@ -13,13 +13,13 @@ public ref class GrupEstudiService
 {
 public:
 	GrupEstudiService();
-	
+
 	array<AcademicTag^>^ LoadAllAcademicTags();
 	void CreateNewGrupEstudi(String^ group_name, String^ description, String^ academic_tag);
 	void DeleteGrupEstudi(String^ grup_name);
-//ZITRO STUFF
-// 
-// 
+	//ZITRO STUFF
+	// 
+	// 
 	void ModifyGroupName(String^ group_name_act, String^ group_name_new);
 	void ModifyGroupDescription(String^ group_name_act, String^ description_new);
 
@@ -30,6 +30,7 @@ public:
 	Int64^ GetGroupIdByName(String^ group_name);
 
 	bool CheckUserIsOwner(String^ group_name);
+	bool CheckUserIsOwnerByIds(Int64^ user_id, Int64^ group_id);
 
 
 private:

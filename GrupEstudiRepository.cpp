@@ -35,7 +35,7 @@ void GrupEstudiRepository::CreateNewGrupEstudi(String^ group_name, String^ descr
 		command->Parameters->AddWithValue("@GroupName", group_name);
 		command->Parameters->AddWithValue("@AcademicId", academic_id);
 		command->Parameters->AddWithValue("@Description", description);
-		command->Parameters->AddWithValue("@CurrentUserId", current_user_id);	
+		command->Parameters->AddWithValue("@CurrentUserId", current_user_id);
 
 		command->ExecuteNonQuery();
 		MessageManager::InfoMessage("Grup d'estudi creat correctament!");
@@ -85,7 +85,7 @@ void GrupEstudiRepository::DeleteGrupEstudi(String^ group_name)
 	int rowsAffected = command->ExecuteNonQuery();
 
 	DatabaseConnector::Instance->Disconnect();
-}	
+}
 
 GrupEstudi^ GrupEstudiRepository::GetGrupEstudiById(Int64^ id)
 {
@@ -218,6 +218,23 @@ bool GrupEstudiRepository::CheckUserIsOwner(String^ group_name)
 	Usuari^ currentUser = CurrentSession::Instance->GetCurrentUser();
 	DatabaseConnector::Instance->Connect();
 	String^ sql = "SELECT * FROM studyGroups WHERE group_owner_id = " + currentUser->GetUserId() + " AND group_name = '" + group_name + "'";
+	MySqlDataReader^ data = DatabaseConnector::Instance->ExecuteInternCommand(sql);
+	bool owner = false;
+
+	if (data->Read()) {
+		owner = true;
+	}
+
+	data->Close();
+	DatabaseConnector::Instance->Disconnect();
+
+	return owner;
+}
+
+bool GrupEstudiRepository::CheckUserIsOwnerByIds(Int64^ user_id, Int64^ group_id)
+{
+	DatabaseConnector::Instance->Connect();
+	String^ sql = "SELECT * FROM studyGroups WHERE group_owner_id = " + user_id + " AND id = " + group_id;
 	MySqlDataReader^ data = DatabaseConnector::Instance->ExecuteInternCommand(sql);
 	bool owner = false;
 

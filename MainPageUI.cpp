@@ -120,9 +120,19 @@ namespace CppCLRWinFormsProject {
 
     }
 
-    //System::Void ElsMeus_Click(System::Object^ sender, System::EventArgs^ e) {
+    
         
-    //}
+    void MainPageUI::ElsMeus_Click(System::Object^ sender, System::EventArgs^ e) {
+        GrupEstudi_ConsultarUI^ PanelUI = gcnew GrupEstudi_ConsultarUI();
+        PanelUI->TopLevel = false;
+        PanelUI->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
+        PanelUI->Dock = System::Windows::Forms::DockStyle::Fill;
+
+        this->screen->Controls->Clear();
+        this->screen->Controls->Add(PanelUI);
+        PanelUI->Show();
+
+    }
 
 
 

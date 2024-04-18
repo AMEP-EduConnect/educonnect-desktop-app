@@ -291,6 +291,7 @@ namespace CppCLRWinFormsProject {
 			this->BotoElsMeus->TextAlign = System::Drawing::ContentAlignment::MiddleLeft;
 			this->BotoElsMeus->TextImageRelation = System::Windows::Forms::TextImageRelation::ImageBeforeText;
 			this->BotoElsMeus->UseVisualStyleBackColor = true;
+			this->BotoElsMeus->Click += gcnew System::EventHandler(this, &MainPageUI::ElsMeus_Click);
 			// 
 			// BotoExplorar
 			// 
@@ -396,7 +397,7 @@ namespace CppCLRWinFormsProject {
 		System::Void Perfil_Click(System::Object^ sender, System::EventArgs^ e);
 
 		System::Void BotoInici_Click(System::Object^ sender, System::EventArgs^ e);
-		//System::Void ElsMeus_Click(System::Object^ sender, System::EventArgs^ e);
+		System::Void ElsMeus_Click(System::Object^ sender, System::EventArgs^ e);
 		System::Void Admin_Click(System::Object^ sender, System::EventArgs^ e);
 		
 
