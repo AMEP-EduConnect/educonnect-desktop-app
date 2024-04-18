@@ -1,6 +1,7 @@
 #include "pch.h"
 #include "GrupEstudi_MembresUI.h"
 #include "GrupEstudi_ConsultarUI.h"
+#include "GrupEstudi_AssignarUI.h"
 #include "Usuari.h"
 #include "MainPageUI.h"
 
@@ -143,6 +144,20 @@ namespace CppCLRWinFormsProject {
 
     void GrupEstudi_Membres::Assignar_Button_Click(System::Object^ sender, System::EventArgs^ e)
     {
+        
+        GrupEstudi_AssignarUI^ PanelUI = gcnew GrupEstudi_AssignarUI(Noms_ListBox);
+
+        PanelUI->TopLevel = false;
+        PanelUI->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
+        PanelUI->Dock = System::Windows::Forms::DockStyle::Fill;
+
+        MainPageUI::Instance->screen->Controls->Clear();
+        MainPageUI::Instance->screen->Controls->Add(PanelUI);
+        PanelUI->Show();
+        
+        
+        
+        
         /*if (Membres_Box->Text != "") {
             if (Noms_ListBox != "") {
                 if (grupEstudiService->CheckIfUserExists(Membres_Box->Text)) {
