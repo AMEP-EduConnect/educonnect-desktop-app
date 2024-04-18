@@ -64,6 +64,7 @@ namespace CppCLRWinFormsProject {
 	private: GrupEstudiMembershipService^ grupEstudiMembershipService;
 	private: System::Windows::Forms::TableLayoutPanel^ tableLayoutPanel1;
 	private: System::Windows::Forms::Button^ consulta_membres;
+	private: System::Windows::Forms::Button^ abandonar_button;
 
 
 
@@ -86,6 +87,7 @@ namespace CppCLRWinFormsProject {
 			this->NomPertany_Label = (gcnew System::Windows::Forms::Label());
 			this->Pertany_Label = (gcnew System::Windows::Forms::Label());
 			this->tableLayoutPanel1 = (gcnew System::Windows::Forms::TableLayoutPanel());
+			this->abandonar_button = (gcnew System::Windows::Forms::Button());
 			this->Actual_Panel->SuspendLayout();
 			this->tableLayoutPanel1->SuspendLayout();
 			this->SuspendLayout();
@@ -106,6 +108,7 @@ namespace CppCLRWinFormsProject {
 			// Actual_Panel
 			// 
 			this->Actual_Panel->BackColor = System::Drawing::SystemColors::GradientInactiveCaption;
+			this->Actual_Panel->Controls->Add(this->abandonar_button);
 			this->Actual_Panel->Controls->Add(this->consulta_membres);
 			this->Actual_Panel->Controls->Add(this->Eliminar_Button);
 			this->Actual_Panel->Controls->Add(this->Editar_Button);
@@ -115,7 +118,7 @@ namespace CppCLRWinFormsProject {
 			this->Actual_Panel->Dock = System::Windows::Forms::DockStyle::Fill;
 			this->Actual_Panel->Location = System::Drawing::Point(182, 111);
 			this->Actual_Panel->Name = L"Actual_Panel";
-			this->Actual_Panel->Size = System::Drawing::Size(489, 319);
+			this->Actual_Panel->Size = System::Drawing::Size(488, 319);
 			this->Actual_Panel->TabIndex = 6;
 			// 
 			// consulta_membres
@@ -196,7 +199,7 @@ namespace CppCLRWinFormsProject {
 			this->tableLayoutPanel1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
 				73.34465F)));
 			this->tableLayoutPanel1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Absolute,
-				139)));
+				140)));
 			this->tableLayoutPanel1->Controls->Add(this->ConsultarGrupEstudi_Label, 1, 0);
 			this->tableLayoutPanel1->Controls->Add(this->Actual_Panel, 1, 1);
 			this->tableLayoutPanel1->Dock = System::Windows::Forms::DockStyle::Fill;
@@ -209,6 +212,18 @@ namespace CppCLRWinFormsProject {
 			this->tableLayoutPanel1->Size = System::Drawing::Size(814, 537);
 			this->tableLayoutPanel1->TabIndex = 7;
 			this->tableLayoutPanel1->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &GrupEstudi_ConsultarUI::tableLayoutPanel1_Paint);
+			// 
+			// abandonar_button
+			// 
+			this->abandonar_button->Location = System::Drawing::Point(146, 273);
+			this->abandonar_button->Margin = System::Windows::Forms::Padding(4);
+			this->abandonar_button->Name = L"abandonar_button";
+			this->abandonar_button->Size = System::Drawing::Size(75, 23);
+			this->abandonar_button->TabIndex = 10;
+			this->abandonar_button->Text = L"Abandonar";
+			this->abandonar_button->UseVisualStyleBackColor = true;
+			this->abandonar_button->Visible = false;
+			this->abandonar_button->Click += gcnew System::EventHandler(this, &GrupEstudi_ConsultarUI::abandonar_button_Click);
 			// 
 			// GrupEstudi_ConsultarUI
 			// 
@@ -237,6 +252,7 @@ namespace CppCLRWinFormsProject {
 	private: System::Void tableLayoutPanel1_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
 	}
 	private: System::Void consulta_membres_Click(System::Object^ sender, System::EventArgs^ e);
+	private: System::Void abandonar_button_Click(System::Object^ sender, System::EventArgs^ e);
 	private: void GrupEstudi_ConsultarUIreload();
 };
 }
