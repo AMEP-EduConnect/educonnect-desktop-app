@@ -5,6 +5,9 @@
 #include "InformacioPersonal_ConsultaUI.h"
 #include "BaixaUsuariService.h"
 #include "FirstPageUI.h"
+#include "CurrentSession.h"
+#include "MainPageUI.h"
+#include "AdministradorUI.h"
 using namespace System;
 namespace CppCLRWinFormsProject {
 
@@ -12,15 +15,36 @@ namespace CppCLRWinFormsProject {
 	{
 		InitializeComponent();
 		baixaUsuariService = gcnew BaixaUsuariService();
+		Int64^ rol = CurrentSession::Instance->GetCurrentUserRol();
+		if (*rol != 1) this->label1->Text = L"Està a punt d\'eliminar el compte. Si hi estàs d\'acord, introdueix el teu usuari:";
+		else {
+			//TODO: Fixe this label
+			this->label1->Text = L"Introdueix el usuari que es vol eliminar:";
+		}
 		//this->Background_PictureBox->Image = Image::FromFile("background.png");
 		this->Icon = gcnew System::Drawing::Icon("app.ico");
 	}
 
 	Void BaixaUsuariUI::Cancelar_Button_Click(System::Object^ sender, System::EventArgs^ e) {
-		this->Hide();
-		InformacioPersonal_ConsultaUI^ form = gcnew InformacioPersonal_ConsultaUI();
-		form->ShowDialog();
-		this->Close();
+		Int64^ rol = CurrentSession::Instance->GetCurrentUserRol();
+		if (*rol == 1) {
+			AdministradorUI^ PanelUI = gcnew AdministradorUI();
+			PanelUI->TopLevel = false;
+			PanelUI->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
+			PanelUI->Dock = System::Windows::Forms::DockStyle::Fill;
+			MainPageUI::Instance->screen->Controls->Clear();
+			MainPageUI::Instance->screen->Controls->Add(PanelUI);
+			PanelUI->Show();
+		}
+		else {
+			InformacioPersonal_ConsultaUI^ PanelUI = gcnew InformacioPersonal_ConsultaUI();
+			PanelUI->TopLevel = false;
+			PanelUI->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
+			PanelUI->Dock = System::Windows::Forms::DockStyle::Fill;
+			MainPageUI::Instance->screen->Controls->Clear();
+			MainPageUI::Instance->screen->Controls->Add(PanelUI);
+			PanelUI->Show();
+		}
 	}
 
 	Void BaixaUsuariUI::button1_Click(System::Object^ sender, System::EventArgs^ e) {

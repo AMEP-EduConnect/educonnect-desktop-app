@@ -64,14 +64,12 @@ namespace CppCLRWinFormsProject {
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(452, 16);
 			this->label1->TabIndex = 0;
-			this->label1->Text = L"Està a punt d\'eliminar el compte. Si hi estàs d\'acord, introdueix el teu usuari:";
 			this->label1->Click += gcnew System::EventHandler(this, &BaixaUsuariUI::label1_Click);
 			// 
 			// textBox1
 			// 
 			this->textBox1->Location = System::Drawing::Point(157, 75);
 			this->textBox1->Name = L"textBox1";
-			this->textBox1->PasswordChar = '*';
 			this->textBox1->Size = System::Drawing::Size(167, 20);
 			this->textBox1->TabIndex = 1;
 			// 

@@ -42,9 +42,14 @@ namespace CppCLRWinFormsProject {
 		this->Close();
 	}
 	Void InformacioPersonal_ConsultaUI::Eliminar_Click(System::Object^ sender, System::EventArgs^ e) {
-		this->Hide();
-		BaixaUsuariUI^ form = gcnew BaixaUsuariUI();
-		form->ShowDialog();
-		this->Close();
+		BaixaUsuariUI^ PanelUI = gcnew BaixaUsuariUI();
+		PanelUI->TopLevel = false;
+		PanelUI->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
+		PanelUI->Dock = System::Windows::Forms::DockStyle::Fill;
+
+		MainPageUI::Instance->screen->Controls->Clear();
+		MainPageUI::Instance->screen->Controls->Add(PanelUI);
+
+		PanelUI->Show();
 	}
 }
