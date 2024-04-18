@@ -228,6 +228,7 @@ namespace CppCLRWinFormsProject {
 			// button3
 			// 
 			this->button3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12));
+			this->button3->ForeColor = System::Drawing::Color::Red;
 			this->button3->Location = System::Drawing::Point(0, 65);
 			this->button3->Name = L"button3";
 			this->button3->Size = System::Drawing::Size(79, 34);

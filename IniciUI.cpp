@@ -18,7 +18,7 @@ namespace CppCLRWinFormsProject {
 
         else if (time->tm_hour >= 12 && time->tm_hour < 20) this->Benvinguda->Text = "Bona tarda, " + name;
 
-        else if (time->tm_hour >= 20 && time->tm_hour <= 6) this->Benvinguda->Text = "Bona nit, " + name;
+        else if (time->tm_hour >= 20 || time->tm_hour <= 6) this->Benvinguda->Text = "Bona nit, " + name;
      
 	}
 
