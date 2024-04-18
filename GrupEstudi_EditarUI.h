@@ -20,7 +20,7 @@ namespace CppCLRWinFormsProject {
 	public ref class GrupEstudi_EditarUI : public System::Windows::Forms::Form
 	{
 	public:
-		GrupEstudi_EditarUI(void);
+		GrupEstudi_EditarUI(String^ NomGrup);
 
 	protected:
 		/// <summary>
@@ -36,7 +36,7 @@ namespace CppCLRWinFormsProject {
 	private: System::Windows::Forms::Label^ EditarGrupEstudi_Label;
 	protected:
 
-	private: System::Windows::Forms::Label^ EduConnect_Label;
+
 	private: System::Windows::Forms::TextBox^ EditarNom_TextBox;
 
 	private: System::Windows::Forms::Label^ Nom_Label;
@@ -66,6 +66,7 @@ namespace CppCLRWinFormsProject {
 		/// </summary>
 		System::ComponentModel::Container ^components;
 	private: System::Windows::Forms::PictureBox^ Background_PictureBox;
+	private: System::Windows::Forms::TableLayoutPanel^ tableLayoutPanel1;
 
 	private: GrupEstudiService^ grupEstudiService;
 
@@ -77,7 +78,6 @@ namespace CppCLRWinFormsProject {
 		void InitializeComponent(void)
 		{
 			this->EditarGrupEstudi_Label = (gcnew System::Windows::Forms::Label());
-			this->EduConnect_Label = (gcnew System::Windows::Forms::Label());
 			this->EditarNom_TextBox = (gcnew System::Windows::Forms::TextBox());
 			this->Nom_Label = (gcnew System::Windows::Forms::Label());
 			this->Editar_Panel = (gcnew System::Windows::Forms::Panel());
@@ -91,35 +91,26 @@ namespace CppCLRWinFormsProject {
 			this->Actual_Label = (gcnew System::Windows::Forms::Label());
 			this->Cancelar_Button = (gcnew System::Windows::Forms::Button());
 			this->Background_PictureBox = (gcnew System::Windows::Forms::PictureBox());
+			this->tableLayoutPanel1 = (gcnew System::Windows::Forms::TableLayoutPanel());
 			this->Editar_Panel->SuspendLayout();
 			this->Actual_Panel->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->Background_PictureBox))->BeginInit();
+			this->tableLayoutPanel1->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// EditarGrupEstudi_Label
 			// 
+			this->EditarGrupEstudi_Label->Anchor = System::Windows::Forms::AnchorStyles::None;
 			this->EditarGrupEstudi_Label->AutoSize = true;
 			this->EditarGrupEstudi_Label->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20.25F, System::Drawing::FontStyle::Bold,
 				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
 			this->EditarGrupEstudi_Label->ForeColor = System::Drawing::SystemColors::HotTrack;
-			this->EditarGrupEstudi_Label->Location = System::Drawing::Point(258, 39);
+			this->EditarGrupEstudi_Label->Location = System::Drawing::Point(248, 22);
 			this->EditarGrupEstudi_Label->Name = L"EditarGrupEstudi_Label";
 			this->EditarGrupEstudi_Label->Size = System::Drawing::Size(275, 31);
 			this->EditarGrupEstudi_Label->TabIndex = 0;
 			this->EditarGrupEstudi_Label->Text = L"Editar Grup d\'Estudi";
-			// 
-			// EduConnect_Label
-			// 
-			this->EduConnect_Label->AutoSize = true;
-			this->EduConnect_Label->BackColor = System::Drawing::SystemColors::Control;
-			this->EduConnect_Label->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Regular,
-				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
-			this->EduConnect_Label->ForeColor = System::Drawing::SystemColors::HotTrack;
-			this->EduConnect_Label->Location = System::Drawing::Point(261, 26);
-			this->EduConnect_Label->Name = L"EduConnect_Label";
-			this->EduConnect_Label->Size = System::Drawing::Size(80, 16);
-			this->EduConnect_Label->TabIndex = 1;
-			this->EduConnect_Label->Text = L"EduConnect";
+			this->EditarGrupEstudi_Label->Click += gcnew System::EventHandler(this, &GrupEstudi_EditarUI::EditarGrupEstudi_Label_Click);
 			// 
 			// EditarNom_TextBox
 			// 
@@ -150,16 +141,17 @@ namespace CppCLRWinFormsProject {
 			this->Editar_Panel->Controls->Add(this->Descripcio_Label);
 			this->Editar_Panel->Controls->Add(this->Nom_Label);
 			this->Editar_Panel->Controls->Add(this->EditarNom_TextBox);
+			this->Editar_Panel->Dock = System::Windows::Forms::DockStyle::Fill;
 			this->Editar_Panel->ForeColor = System::Drawing::SystemColors::HotTrack;
-			this->Editar_Panel->Location = System::Drawing::Point(264, 253);
+			this->Editar_Panel->Location = System::Drawing::Point(158, 210);
 			this->Editar_Panel->Name = L"Editar_Panel";
-			this->Editar_Panel->Size = System::Drawing::Size(402, 252);
+			this->Editar_Panel->Size = System::Drawing::Size(456, 243);
 			this->Editar_Panel->TabIndex = 4;
 			// 
 			// Edita_Button
 			// 
 			this->Edita_Button->Cursor = System::Windows::Forms::Cursors::Hand;
-			this->Edita_Button->Location = System::Drawing::Point(304, 215);
+			this->Edita_Button->Location = System::Drawing::Point(369, 205);
 			this->Edita_Button->Name = L"Edita_Button";
 			this->Edita_Button->Size = System::Drawing::Size(75, 23);
 			this->Edita_Button->TabIndex = 7;
@@ -205,9 +197,10 @@ namespace CppCLRWinFormsProject {
 			this->Actual_Panel->Controls->Add(this->NomActual_TextBox);
 			this->Actual_Panel->Controls->Add(this->NomActual_Label);
 			this->Actual_Panel->Controls->Add(this->Actual_Label);
-			this->Actual_Panel->Location = System::Drawing::Point(264, 92);
+			this->Actual_Panel->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->Actual_Panel->Location = System::Drawing::Point(158, 78);
 			this->Actual_Panel->Name = L"Actual_Panel";
-			this->Actual_Panel->Size = System::Drawing::Size(402, 143);
+			this->Actual_Panel->Size = System::Drawing::Size(456, 126);
 			this->Actual_Panel->TabIndex = 5;
 			// 
 			// NomActual_TextBox
@@ -216,6 +209,7 @@ namespace CppCLRWinFormsProject {
 			this->NomActual_TextBox->Cursor = System::Windows::Forms::Cursors::Default;
 			this->NomActual_TextBox->Location = System::Drawing::Point(46, 92);
 			this->NomActual_TextBox->Name = L"NomActual_TextBox";
+			this->NomActual_TextBox->ReadOnly = true;
 			this->NomActual_TextBox->Size = System::Drawing::Size(195, 20);
 			this->NomActual_TextBox->TabIndex = 3;
 			// 
@@ -245,10 +239,11 @@ namespace CppCLRWinFormsProject {
 			// 
 			// Cancelar_Button
 			// 
+			this->Cancelar_Button->Anchor = System::Windows::Forms::AnchorStyles::None;
 			this->Cancelar_Button->BackColor = System::Drawing::Color::Transparent;
 			this->Cancelar_Button->Cursor = System::Windows::Forms::Cursors::Hand;
 			this->Cancelar_Button->ForeColor = System::Drawing::Color::Red;
-			this->Cancelar_Button->Location = System::Drawing::Point(800, 515);
+			this->Cancelar_Button->Location = System::Drawing::Point(678, 485);
 			this->Cancelar_Button->Name = L"Cancelar_Button";
 			this->Cancelar_Button->Size = System::Drawing::Size(75, 23);
 			this->Cancelar_Button->TabIndex = 6;
@@ -265,18 +260,39 @@ namespace CppCLRWinFormsProject {
 			this->Background_PictureBox->TabIndex = 15;
 			this->Background_PictureBox->TabStop = false;
 			// 
+			// tableLayoutPanel1
+			// 
+			this->tableLayoutPanel1->ColumnCount = 3;
+			this->tableLayoutPanel1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
+				25.21295F)));
+			this->tableLayoutPanel1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
+				74.78706F)));
+			this->tableLayoutPanel1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Absolute,
+				196)));
+			this->tableLayoutPanel1->Controls->Add(this->Actual_Panel, 1, 1);
+			this->tableLayoutPanel1->Controls->Add(this->Editar_Panel, 1, 2);
+			this->tableLayoutPanel1->Controls->Add(this->EditarGrupEstudi_Label, 1, 0);
+			this->tableLayoutPanel1->Controls->Add(this->Cancelar_Button, 2, 3);
+			this->tableLayoutPanel1->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->tableLayoutPanel1->Location = System::Drawing::Point(0, 0);
+			this->tableLayoutPanel1->Name = L"tableLayoutPanel1";
+			this->tableLayoutPanel1->RowCount = 4;
+			this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 36.05948F)));
+			this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 63.94052F)));
+			this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Absolute, 249)));
+			this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Absolute, 80)));
+			this->tableLayoutPanel1->Size = System::Drawing::Size(814, 537);
+			this->tableLayoutPanel1->TabIndex = 16;
+			this->tableLayoutPanel1->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &GrupEstudi_EditarUI::tableLayoutPanel1_Paint);
+			// 
 			// GrupEstudi_EditarUI
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(917, 657);
+			this->ClientSize = System::Drawing::Size(814, 537);
+			this->Controls->Add(this->tableLayoutPanel1);
 			this->Controls->Add(this->Background_PictureBox);
-			this->Controls->Add(this->Cancelar_Button);
-			this->Controls->Add(this->Actual_Panel);
-			this->Controls->Add(this->Editar_Panel);
-			this->Controls->Add(this->EduConnect_Label);
-			this->Controls->Add(this->EditarGrupEstudi_Label);
-			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedSingle;
+			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
 			this->Name = L"GrupEstudi_EditarUI";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterParent;
 			this->Text = L"EduConnect";
@@ -286,8 +302,9 @@ namespace CppCLRWinFormsProject {
 			this->Actual_Panel->ResumeLayout(false);
 			this->Actual_Panel->PerformLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->Background_PictureBox))->EndInit();
+			this->tableLayoutPanel1->ResumeLayout(false);
+			this->tableLayoutPanel1->PerformLayout();
 			this->ResumeLayout(false);
-			this->PerformLayout();
 
 		}
 #pragma endregion
@@ -295,5 +312,11 @@ namespace CppCLRWinFormsProject {
 	private: System::Void testEdita_Button(System::Object^ sender, System::EventArgs^ e);
 	private: System::Void GrupEstudi_EditarUI_Load(System::Object^ sender, System::EventArgs^ e) {
 	}
+private: System::Void EduConnect_Label_Click(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void EditarGrupEstudi_Label_Click(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void tableLayoutPanel1_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
+}
 };
 }

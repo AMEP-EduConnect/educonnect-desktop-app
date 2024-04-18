@@ -1,12 +1,14 @@
 #include "pch.h"
 #include "GrupEstudi_EditarUI.h"
+#include "GrupEstudi_ConsultarUI.h"
 #include "MainPageUI.h"
 
 namespace CppCLRWinFormsProject {
 
-    GrupEstudi_EditarUI::GrupEstudi_EditarUI(void)
+    GrupEstudi_EditarUI::GrupEstudi_EditarUI(String^ NomGrup)
     {
         InitializeComponent();
+        NomActual_TextBox->Text = NomGrup;
         grupEstudiService = gcnew GrupEstudiService();
         this->Background_PictureBox->Image = Image::FromFile("background.png");
         this->Icon = gcnew System::Drawing::Icon("app.ico");
@@ -14,10 +16,15 @@ namespace CppCLRWinFormsProject {
 
     void GrupEstudi_EditarUI::CancelarButton_Click(System::Object^ sender, System::EventArgs^ e)
     {
-        this->Hide();
-		MainPageUI^ form = gcnew MainPageUI();
-		form->ShowDialog();
-		this->Close();
+        GrupEstudi_ConsultarUI^ PanelUI = gcnew GrupEstudi_ConsultarUI();
+
+        PanelUI->TopLevel = false;
+        PanelUI->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
+        PanelUI->Dock = System::Windows::Forms::DockStyle::Fill;
+
+        MainPageUI::Instance->screen->Controls->Clear();
+        MainPageUI::Instance->screen->Controls->Add(PanelUI);
+        PanelUI->Show();
     }
 
     void GrupEstudi_EditarUI::testEdita_Button(System::Object^ sender, System::EventArgs^ e)
@@ -60,12 +67,15 @@ namespace CppCLRWinFormsProject {
 
                 if (checkD == true and checkN == false) {
                     MessageManager::InfoMessage("Descripció del grup modificada correctament.");
+                    CancelarButton_Click(sender, e);
                 }
                 else if (checkN == true and checkD == false) {
                     MessageManager::InfoMessage("Nom del grup modificat correctament.");
+                    CancelarButton_Click(sender, e);
                 }
                 else if (checkN == true and checkD == true) {
                     MessageManager::InfoMessage("Nom i descripció del grup modificats correctament.");
+                    CancelarButton_Click(sender, e);
                 }
             }
         }
