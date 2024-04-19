@@ -3,6 +3,7 @@
 #include "UsuariRolRepository.h"
 #include "DatabaseConnector.h"
 #include "Usuari.h"
+#include "CredentialManagementService.h"
 public ref class RegistreService
 {
 	
@@ -18,4 +19,5 @@ public ref class RegistreService
 
 		UsuariRepository^ usuariRepository;
 		UsuariRolRepository^ usuariRolRepository;
+		CredentialManagementService^ credentialMagamentService;
 };

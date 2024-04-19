@@ -48,10 +48,10 @@ Usuari^ UsuariRepository::GetUsuariByPassUser(String^ username, String^ password
 
 Usuari^ UsuariRepository::GetUsuariByUser(String^ username) {
 	DatabaseConnector::Instance->Connect();
-	String^ sql = "SELECT username FROM users WHERE username = @Username";
+	String^ sql = "SELECT * FROM users WHERE username = @Username";
 	Dictionary<String^, Object^>^ params = gcnew Dictionary<String^, Object^>(0);
 	params->Add("@Username", username);
-	MySqlDataReader^ data = DatabaseConnector::Instance->ExecuteInternCommand(sql);
+	MySqlDataReader^ data = DatabaseConnector::Instance->ExecuteClientCommand(sql,params);
 	Usuari^ usuari = gcnew Usuari();
 
 	while (data->Read())

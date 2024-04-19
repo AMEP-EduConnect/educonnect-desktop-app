@@ -138,7 +138,7 @@
       <Filter>Source Files\services</Filter>
     </ClInclude>
     <ClInclude Include="BaixaUsuariUI.h">
-    <Filter>Header Files</Filter>
+      <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="AdministradorUI.h">
       <Filter>Header Files</Filter>
@@ -154,6 +154,9 @@
     </ClInclude>
     <ClInclude Include="IniciUI.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CredentialManagementService.h">
+      <Filter>Source Files\services</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -279,12 +282,15 @@
     </ClCompile>
     <ClCompile Include="UsuariRol.cpp">
       <Filter>Source Files\entities</Filter>
-     </ClCompile>
+    </ClCompile>
     <ClCompile Include="AdministradorUI.cpp">
       <Filter>Source Files\ui</Filter>
     </ClCompile>
     <ClCompile Include="IniciUI.cpp">
       <Filter>Source Files\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="CredentialManagementService.cpp">
+      <Filter>Source Files\services</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

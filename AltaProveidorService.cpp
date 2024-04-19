@@ -6,6 +6,7 @@ AltaProveidorService::AltaProveidorService()
 {
 	usuariRepository = gcnew UsuariRepository();
 	usuariRolRepository = gcnew UsuariRolRepository();
+	credentialManagementService = gcnew CredentialManagementService();
 }
 bool AltaProveidorService::AltaProveidor( String^ username, String^ email, String^ name, String^ password)
 {
@@ -15,7 +16,8 @@ bool AltaProveidorService::AltaProveidor( String^ username, String^ email, Strin
 		}
 		else {
 			MessageManager::InfoMessage("Proveidor donat d'alta");
-			Int64^ id_user = usuariRepository->CreateUser(username, email, name, password);
+			String^ hash = credentialManagementService->HashPassword(password);
+			Int64^ id_user = usuariRepository->CreateUser(username, email, name, hash);
 			Int64^ id_rol = 3LL;
 			return usuariRolRepository->CreateUserRol(id_user, id_rol);
 		}

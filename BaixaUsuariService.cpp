@@ -7,6 +7,7 @@ BaixaUsuariService::BaixaUsuariService()
 	usuariRepository = gcnew UsuariRepository();
 	grupEstudiRepository = gcnew GrupEstudiRepository();
 	grupEstudiMembershipRepository = gcnew GrupEstudiMembershipRepository();
+	credentialMagamentService = gcnew CredentialManagementService();
 }
 
 bool BaixaUsuariService::BaixaUsuari(String^ value) {
@@ -19,7 +20,8 @@ bool BaixaUsuariService::BaixaUsuari(String^ value) {
 		else 
 		{
 			id_user = CurrentSession::Instance->GetCurrentUser()->GetUserId();
-			if(CurrentSession::Instance->GetCurrentUser()->GetPassword() != value) return false;
+			bool check = credentialMagamentService->VerifyPassword(value, CurrentSession::Instance->GetCurrentUser()->GetPassword());
+			if(check == false) return false;
 		}
 		array<Int64^>^ grups = grupEstudiMembershipRepository->LoadGrupsEstudiMembershipByUserId(id_user);
 		int i = 0;

@@ -3,6 +3,7 @@
 #include "UsuariRolRepository.h"
 #include "GrupEstudiMembershipRepository.h"
 #include "GrupEstudiRepository.h"
+#include "CredentialManagementService.h"
 public ref class BaixaUsuariService
 {
 public:
@@ -13,4 +14,5 @@ private:
 	UsuariRepository^ usuariRepository;
 	GrupEstudiMembershipRepository^ grupEstudiMembershipRepository;
 	GrupEstudiRepository^ grupEstudiRepository;
+	CredentialManagementService^ credentialMagamentService;
 };

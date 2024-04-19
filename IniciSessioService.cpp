@@ -6,19 +6,19 @@ IniciSessioService::IniciSessioService()
 {
 	usuariRepository = gcnew UsuariRepository();
 	usuariRolRepository = gcnew UsuariRolRepository();
+	credentialMagamentService = gcnew CredentialManagementService();
 }
 
-Usuari^ IniciSessioService::GetUsuariByPassUser(String^ username, String^ password)
+Usuari^ IniciSessioService::GetUsuariByUser(String^ username)
 {
-	
-	return usuariRepository->GetUsuariByPassUser(username, password);
+	return usuariRepository->GetUsuariByUser(username);
 }
 
 bool IniciSessioService::CheckUsername(String^ username, String^ password)
 {
-	Usuari^ checkuser = GetUsuariByPassUser(username, password);
+	Usuari^ checkuser = GetUsuariByUser(username);
 	if (checkuser->GetUsername() == username) {
-		bool checkpassword = CheckPassword(checkuser, password);
+		bool checkpassword = CheckPassword(checkuser->GetPassword(), password);
 		if (checkpassword) {
 			Int64^ id_rol = usuariRolRepository->GetRolId(checkuser->GetUserId());
 			CurrentSession::Instance->LogNewUser(checkuser,id_rol);
@@ -28,10 +28,9 @@ bool IniciSessioService::CheckUsername(String^ username, String^ password)
 	else return false;
 }
 
-bool IniciSessioService::CheckPassword(Usuari^ checkuser, String^ password)
+bool IniciSessioService::CheckPassword(String^ user_password, String^ password)
 {
-	if (checkuser->GetPassword() == password) return true;
-	else return false;
+	return credentialMagamentService->VerifyPassword(password, user_password);
 }
 
 Int64^ IniciSessioService::GetUserId(String^ username) 

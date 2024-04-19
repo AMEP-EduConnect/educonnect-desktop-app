@@ -2,7 +2,7 @@
 #include "UsuariRepository.h"
 #include "UsuariRolRepository.h"
 #include <vector>
-
+#include "CredentialManagementService.h"
 public ref class AltaProveidorService
 {
 public:
@@ -13,4 +13,5 @@ public:
 private:
     UsuariRepository^ usuariRepository;
     UsuariRolRepository^ usuariRolRepository;
+    CredentialManagementService^ credentialManagementService;
 }; 
