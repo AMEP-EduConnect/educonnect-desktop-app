@@ -110,7 +110,7 @@ namespace CppCLRWinFormsProject {
 
     void GrupEstudi_ConsultarUI::abandonar_button_Click(System::Object^ sender, System::EventArgs^ e) {
         Usuari^ currentUser = CurrentSession::Instance->GetCurrentUser();
-        String^ user_name = currentUser->GetName();
+        String^ user_name = currentUser->GetUsername();
         if (Noms_ListBox->Text != "") {
             if (grupEstudiService->CheckIfUserExists(user_name)) {
                 if (grupEstudiService->CheckIfGroupExists(Noms_ListBox->Text)) {
@@ -126,10 +126,11 @@ namespace CppCLRWinFormsProject {
                             bool owner = grupEstudiService->CheckUserIsOwner(Noms_ListBox->Text);
                             if (owner) {
                                 MessageManager::WarningMessage("Ets el owner del grup.");
+                                //PENDENT DE PROGRAMAR
                             }
                             else {
-                                int user_id_int = static_cast<int>(*user_id);
-                                int current_user_id_int = static_cast<int>(*currentUser->GetUserId());
+                                //int user_id_int = static_cast<int>(*user_id);
+                                //int current_user_id_int = static_cast<int>(*currentUser->GetUserId());
                                 //if (current_user_id_int == user_id_int) {
                                     //MessageManager::WarningMessage("No pots expulsar-te a tu mateix del grup.");
                                     //return;
@@ -138,7 +139,7 @@ namespace CppCLRWinFormsProject {
                                     grupEstudiMembershipService->DeleteUserFromGroup(user_id, group_id);
                                     //Membres_Box->Text = "";
                                     //Noms_ListBox = "";
-                                    MessageManager::InfoMessage("Usuari expulsat del grup d'estudi amb exit.");
+                                    MessageManager::InfoMessage("Has abandonat el grup d'estudi amb exit.");
 
                                     GrupEstudi_ConsultarUI^ PanelUI = gcnew GrupEstudi_ConsultarUI();
 
