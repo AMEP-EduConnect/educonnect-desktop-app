@@ -215,6 +215,9 @@
     <ResourceCompile Include="app.rc" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="GrupEstudi_ExplorarUI.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="GrupEstudi_MembresUI.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -283,6 +286,7 @@
     <ClInclude Include="Utils.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="GrupEstudi_ExplorarUI.cpp" />
     <ClCompile Include="GrupEstudi_MembresUI.cpp" />
     <ClCompile Include="AcademicTag.cpp" />
     <ClCompile Include="AdministradorUI.cpp" />
@@ -367,6 +371,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GrupEstudi_EditarUI.resx">
       <DependentUpon>GrupEstudi_EditarUI.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GrupEstudi_ExplorarUI.resx">
+      <DependentUpon>GrupEstudi_ExplorarUI.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GrupEstudi_MembresUI.resx">
       <DependentUpon>GrupEstudi_MembresUI.h</DependentUpon>

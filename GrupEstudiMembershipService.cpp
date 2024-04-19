@@ -18,6 +18,10 @@ array<Int64^>^ GrupEstudiMembershipService::LoadMembershipByGrupsEstudi(Int64^ g
 	return grupEstudiMembershipRepository->LoadMembershipByGrupsEstudi(group_id);
 }
 
+array<Int64^>^ GrupEstudiMembershipService::LoadAllGrupsEstudiNoIn(Int64^ user_id) {
+	return grupEstudiMembershipRepository->LoadAllGrupsEstudiNoIn(user_id);
+}
+
 //array<GrupEstudi^>^ GrupEstudiMembershipService::LoadAllGrupEstudibyId(Int64^ group_id)
 //{
 //	return grupEstudiMembershipRepository->LoadAllGrupEstudibyId(group_id);
@@ -44,3 +48,4 @@ bool GrupEstudiMembershipService::CheckIfUserIsInGroup(Int64^ user_id, Int64^ gr
 void GrupEstudiMembershipService::DeleteUserFromGroup(Int64^ user_id, Int64^ group_id) {
 	grupEstudiMembershipRepository->DeleteUserFromGroup(user_id, group_id);
 }
+

@@ -96,3 +96,18 @@ bool GrupEstudiService::CheckUserIsOwnerByIds(Int64^ user_id, Int64^ group_id)
 {
 	return grupEstudiRepository->CheckUserIsOwnerByIds(user_id, group_id);
 }
+
+GrupEstudi^ GrupEstudiService::GetGrupEstudiById(Int64^ id) 
+{
+	return grupEstudiRepository->GetGrupEstudiById(id);
+}
+
+GrupEstudi^ GrupEstudiService::GetGrupEstudiByName(String^ group_name) 
+{
+	return grupEstudiRepository->GetGrupEstudiByName(group_name);
+}
+
+String^ GrupEstudiService::GetAcademicTagNameById(Int64^ academic_tag_id) 
+{
+	return grupEstudiRepository->GetAcademicTagNameById(academic_tag_id);
+}

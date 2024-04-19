@@ -80,6 +80,7 @@ namespace CppCLRWinFormsProject {
 		{
 			this->ConsultarGrupEstudi_Label = (gcnew System::Windows::Forms::Label());
 			this->Actual_Panel = (gcnew System::Windows::Forms::Panel());
+			this->abandonar_button = (gcnew System::Windows::Forms::Button());
 			this->consulta_membres = (gcnew System::Windows::Forms::Button());
 			this->Eliminar_Button = (gcnew System::Windows::Forms::Button());
 			this->Editar_Button = (gcnew System::Windows::Forms::Button());
@@ -87,7 +88,6 @@ namespace CppCLRWinFormsProject {
 			this->NomPertany_Label = (gcnew System::Windows::Forms::Label());
 			this->Pertany_Label = (gcnew System::Windows::Forms::Label());
 			this->tableLayoutPanel1 = (gcnew System::Windows::Forms::TableLayoutPanel());
-			this->abandonar_button = (gcnew System::Windows::Forms::Button());
 			this->Actual_Panel->SuspendLayout();
 			this->tableLayoutPanel1->SuspendLayout();
 			this->SuspendLayout();
@@ -99,11 +99,11 @@ namespace CppCLRWinFormsProject {
 			this->ConsultarGrupEstudi_Label->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20.25F, System::Drawing::FontStyle::Bold,
 				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
 			this->ConsultarGrupEstudi_Label->ForeColor = System::Drawing::SystemColors::HotTrack;
-			this->ConsultarGrupEstudi_Label->Location = System::Drawing::Point(264, 38);
+			this->ConsultarGrupEstudi_Label->Location = System::Drawing::Point(268, 38);
 			this->ConsultarGrupEstudi_Label->Name = L"ConsultarGrupEstudi_Label";
-			this->ConsultarGrupEstudi_Label->Size = System::Drawing::Size(324, 31);
+			this->ConsultarGrupEstudi_Label->Size = System::Drawing::Size(314, 31);
 			this->ConsultarGrupEstudi_Label->TabIndex = 2;
-			this->ConsultarGrupEstudi_Label->Text = L"Consultar Grup d\'Estudi";
+			this->ConsultarGrupEstudi_Label->Text = L"Consulta Grup d\'Estudi";
 			// 
 			// Actual_Panel
 			// 
@@ -118,8 +118,20 @@ namespace CppCLRWinFormsProject {
 			this->Actual_Panel->Dock = System::Windows::Forms::DockStyle::Fill;
 			this->Actual_Panel->Location = System::Drawing::Point(182, 111);
 			this->Actual_Panel->Name = L"Actual_Panel";
-			this->Actual_Panel->Size = System::Drawing::Size(488, 319);
+			this->Actual_Panel->Size = System::Drawing::Size(487, 319);
 			this->Actual_Panel->TabIndex = 6;
+			// 
+			// abandonar_button
+			// 
+			this->abandonar_button->Location = System::Drawing::Point(146, 273);
+			this->abandonar_button->Margin = System::Windows::Forms::Padding(4);
+			this->abandonar_button->Name = L"abandonar_button";
+			this->abandonar_button->Size = System::Drawing::Size(75, 23);
+			this->abandonar_button->TabIndex = 10;
+			this->abandonar_button->Text = L"Abandonar";
+			this->abandonar_button->UseVisualStyleBackColor = true;
+			this->abandonar_button->Visible = false;
+			this->abandonar_button->Click += gcnew System::EventHandler(this, &GrupEstudi_ConsultarUI::abandonar_button_Click);
 			// 
 			// consulta_membres
 			// 
@@ -199,7 +211,7 @@ namespace CppCLRWinFormsProject {
 			this->tableLayoutPanel1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
 				73.34465F)));
 			this->tableLayoutPanel1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Absolute,
-				140)));
+				141)));
 			this->tableLayoutPanel1->Controls->Add(this->ConsultarGrupEstudi_Label, 1, 0);
 			this->tableLayoutPanel1->Controls->Add(this->Actual_Panel, 1, 1);
 			this->tableLayoutPanel1->Dock = System::Windows::Forms::DockStyle::Fill;
@@ -212,18 +224,6 @@ namespace CppCLRWinFormsProject {
 			this->tableLayoutPanel1->Size = System::Drawing::Size(814, 537);
 			this->tableLayoutPanel1->TabIndex = 7;
 			this->tableLayoutPanel1->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &GrupEstudi_ConsultarUI::tableLayoutPanel1_Paint);
-			// 
-			// abandonar_button
-			// 
-			this->abandonar_button->Location = System::Drawing::Point(146, 273);
-			this->abandonar_button->Margin = System::Windows::Forms::Padding(4);
-			this->abandonar_button->Name = L"abandonar_button";
-			this->abandonar_button->Size = System::Drawing::Size(75, 23);
-			this->abandonar_button->TabIndex = 10;
-			this->abandonar_button->Text = L"Abandonar";
-			this->abandonar_button->UseVisualStyleBackColor = true;
-			this->abandonar_button->Visible = false;
-			this->abandonar_button->Click += gcnew System::EventHandler(this, &GrupEstudi_ConsultarUI::abandonar_button_Click);
 			// 
 			// GrupEstudi_ConsultarUI
 			// 

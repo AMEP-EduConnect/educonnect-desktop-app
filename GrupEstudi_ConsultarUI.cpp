@@ -17,15 +17,6 @@ namespace CppCLRWinFormsProject {
         this->Icon = gcnew System::Drawing::Icon("app.ico");
     }
 
-    /*void GrupEstudi_ConsultarUI::CancelButton_Click(System::Object^ sender, System::EventArgs^ e)
-    {
-        //possar que torni al menu anterior
-        this->Hide();
-		MainPageUI^ form = gcnew MainPageUI();
-		form->ShowDialog();
-		this->Close();
-    }*/
-
     void GrupEstudi_ConsultarUI::EliminarButton_Click(System::Object^ sender, System::EventArgs^ e)
     {
         //dialog message box with an input to confirm the deletion of the group by introducing the group name
@@ -68,7 +59,7 @@ namespace CppCLRWinFormsProject {
     void GrupEstudi_ConsultarUI::consulta_membres_Click(System::Object^ sender, System::EventArgs^ e)
     {
 
-        GrupEstudi_Membres^ PanelUI = gcnew GrupEstudi_Membres(Noms_ListBox->Text);
+        GrupEstudi_Membres^ PanelUI = gcnew GrupEstudi_Membres(Noms_ListBox->Text, true);
 
         PanelUI->TopLevel = false;
         PanelUI->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
@@ -120,66 +111,62 @@ namespace CppCLRWinFormsProject {
     void GrupEstudi_ConsultarUI::abandonar_button_Click(System::Object^ sender, System::EventArgs^ e) {
         Usuari^ currentUser = CurrentSession::Instance->GetCurrentUser();
         String^ user_name = currentUser->GetName();
-            if (Noms_ListBox->Text != "") {
-                if (grupEstudiService->CheckIfUserExists(user_name)) {
-                    if (grupEstudiService->CheckIfGroupExists(Noms_ListBox->Text)) {
-                        try {
-                            Int64^ user_id = grupEstudiService->GetUserIdByName(user_name);
-                            Int64^ group_id = grupEstudiService->GetGroupIdByName(Noms_ListBox->Text);
-                            if (not (grupEstudiMembershipService->CheckIfUserIsInGroup(user_id, group_id))) {
-                                MessageManager::WarningMessage("L'usuari no esta assignat al grup d'estudi.");
-                                return;
+        if (Noms_ListBox->Text != "") {
+            if (grupEstudiService->CheckIfUserExists(user_name)) {
+                if (grupEstudiService->CheckIfGroupExists(Noms_ListBox->Text)) {
+                    try {
+                        Int64^ user_id = grupEstudiService->GetUserIdByName(user_name);
+                        Int64^ group_id = grupEstudiService->GetGroupIdByName(Noms_ListBox->Text);
+                        if (not (grupEstudiMembershipService->CheckIfUserIsInGroup(user_id, group_id))) {
+                            MessageManager::WarningMessage("L'usuari no esta assignat al grup d'estudi.");
+                            return;
+                        }
+                        else {
+                            //Usuari^ currentUser = CurrentSession::Instance->GetCurrentUser();
+                            bool owner = grupEstudiService->CheckUserIsOwner(Noms_ListBox->Text);
+                            if (owner) {
+                                MessageManager::WarningMessage("Ets el owner del grup.");
                             }
                             else {
-                                //Usuari^ currentUser = CurrentSession::Instance->GetCurrentUser();
-                                bool owner = grupEstudiService->CheckUserIsOwner(Noms_ListBox->Text);
-                                if (owner) {
-                                    MessageManager::WarningMessage("Ets el owner del grup.");
-                                }
-                                else {
-                                    int user_id_int = static_cast<int>(*user_id);
-                                    int current_user_id_int = static_cast<int>(*currentUser->GetUserId());
-                                    //if (current_user_id_int == user_id_int) {
-                                        //MessageManager::WarningMessage("No pots expulsar-te a tu mateix del grup.");
-                                        //return;
-                                    //}
-                                    //else {
-                                        grupEstudiMembershipService->DeleteUserFromGroup(user_id, group_id);
-                                        //Membres_Box->Text = "";
-                                        //Noms_ListBox = "";
-                                        MessageManager::InfoMessage("Usuari expulsat del grup d'estudi amb exit.");
+                                int user_id_int = static_cast<int>(*user_id);
+                                int current_user_id_int = static_cast<int>(*currentUser->GetUserId());
+                                //if (current_user_id_int == user_id_int) {
+                                    //MessageManager::WarningMessage("No pots expulsar-te a tu mateix del grup.");
+                                    //return;
+                                //}
+                                //else {
+                                    grupEstudiMembershipService->DeleteUserFromGroup(user_id, group_id);
+                                    //Membres_Box->Text = "";
+                                    //Noms_ListBox = "";
+                                    MessageManager::InfoMessage("Usuari expulsat del grup d'estudi amb exit.");
 
-                                        GrupEstudi_ConsultarUI^ PanelUI = gcnew GrupEstudi_ConsultarUI();
+                                    GrupEstudi_ConsultarUI^ PanelUI = gcnew GrupEstudi_ConsultarUI();
 
-                                        PanelUI->TopLevel = false;
-                                        PanelUI->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
-                                        PanelUI->Dock = System::Windows::Forms::DockStyle::Fill;
+                                    PanelUI->TopLevel = false;
+                                    PanelUI->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
+                                    PanelUI->Dock = System::Windows::Forms::DockStyle::Fill;
 
-                                        MainPageUI::Instance->screen->Controls->Clear();
-                                        MainPageUI::Instance->screen->Controls->Add(PanelUI);
-                                        PanelUI->Show();
-                                    //}
-                                }
+                                    MainPageUI::Instance->screen->Controls->Clear();
+                                    MainPageUI::Instance->screen->Controls->Add(PanelUI);
+                                    PanelUI->Show();
+                                //}
                             }
                         }
-                        catch (Exception^ e) {
-                            MessageManager::ErrorMessage(e->Message);
-                        }
                     }
-                    else {
-                        MessageManager::WarningMessage("El grup no existeix.");
+                    catch (Exception^ e) {
+                        MessageManager::ErrorMessage(e->Message);
                     }
                 }
                 else {
-                    MessageManager::WarningMessage("L'usuari no existeix");
+                    MessageManager::WarningMessage("El grup no existeix.");
                 }
             }
             else {
-                MessageManager::WarningMessage("Falten camps per omplir.");
+                MessageManager::WarningMessage("L'usuari no existeix");
             }
-        //}
-        //else {
-            //MessageManager::WarningMessage("Falten camps per omplir.");
-        //}
+        }
+        else {
+            MessageManager::WarningMessage("Falten camps per omplir.");
+        }
     }
 }

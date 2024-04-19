@@ -14,9 +14,12 @@ public:
 
 	array<Int64^>^ LoadGrupsEstudiMembershipByUserId(Int64^ user_id);
 	array<Int64^>^ LoadMembershipByGrupsEstudi(Int64^ group_id);
+	array<Int64^>^ LoadAllGrupsEstudiNoIn(Int64^ user_id);
+
 	//array<GrupEstudi^>^ LoadAllGrupEstudibyId(Int64^ group_id);
 	GrupEstudi^ LoadAllGrupEstudibyId(Int64^ group_id);
 	Usuari^ LoadAllUsersById(Int64^ user_id);
+	
 
 	void UserToGroup(Int64^ user_id, Int64^ group_id);
 	bool CheckIfUserIsInGroup(Int64^ user_id, Int64^ group_id);

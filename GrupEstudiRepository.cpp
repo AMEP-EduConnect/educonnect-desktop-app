@@ -247,3 +247,20 @@ bool GrupEstudiRepository::CheckUserIsOwnerByIds(Int64^ user_id, Int64^ group_id
 
 	return owner;
 }
+
+String^ GrupEstudiRepository::GetAcademicTagNameById(Int64^ academic_tag_id) {
+	DatabaseConnector::Instance->Connect();
+	String^ sql = "SELECT tag_name FROM academicTags WHERE id = " + academic_tag_id;
+	MySqlDataReader^ data = DatabaseConnector::Instance->ExecuteInternCommand(sql);
+	String^ academic_tag_name;
+
+	while (data->Read())
+	{
+		academic_tag_name = data->GetString(0);
+	}
+
+	data->Close();
+	DatabaseConnector::Instance->Disconnect();
+
+	return academic_tag_name;
+}

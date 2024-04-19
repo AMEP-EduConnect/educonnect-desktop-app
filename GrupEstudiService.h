@@ -29,6 +29,10 @@ public:
 	Int64^ GetUserIdByName(String^ user_name);
 	Int64^ GetGroupIdByName(String^ group_name);
 
+	GrupEstudi^ GetGrupEstudiById(Int64^ id);
+	GrupEstudi^ GetGrupEstudiByName(String^ group_name);
+	String^ GetAcademicTagNameById(Int64^ academic_tag_id);
+
 	bool CheckUserIsOwner(String^ group_name);
 	bool CheckUserIsOwnerByIds(Int64^ user_id, Int64^ group_id);
 
