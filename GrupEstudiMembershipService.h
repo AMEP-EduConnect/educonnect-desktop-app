@@ -25,6 +25,8 @@ public:
 	bool CheckIfUserIsInGroup(Int64^ user_id, Int64^ group_id);
 	void DeleteUserFromGroup(Int64^ user_id, Int64^ group_id);
 
+	Int64^ GetOldestUserInGroup(Int64^ group_id);
+
 private:
 	GrupEstudiMembershipRepository^ grupEstudiMembershipRepository;
 };

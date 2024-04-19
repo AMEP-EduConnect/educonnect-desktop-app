@@ -125,8 +125,29 @@ namespace CppCLRWinFormsProject {
                             //Usuari^ currentUser = CurrentSession::Instance->GetCurrentUser();
                             bool owner = grupEstudiService->CheckUserIsOwner(Noms_ListBox->Text);
                             if (owner) {
-                                MessageManager::WarningMessage("Ets el owner del grup.");
                                 //PENDENT DE PROGRAMAR
+                                Int64^ id_user = grupEstudiMembershipService->GetOldestUserInGroup(group_id);
+
+                                if (id_user == nullptr) {
+									MessageManager::WarningMessage("Ets el owner del grup i no hi ha cap usuari més per assignar com a owner, per tant es borrarà el grup d'estudi.");
+                                    //Int64^ idGE = GetGroupIdByName(Noms_ListBox->Text);
+                                    bool eliminat = grupEstudiService->DeleteGrupEstudiById(group_id);
+                                    if (eliminat) {
+										MessageManager::InfoMessage("Grup eliminat correctament.");
+										GrupEstudi_ConsultarUIreload();
+									}
+                                    else {
+										MessageManager::ErrorMessage("Error al eliminar el grup.");
+									}
+                                    //abandonar_button_Click(sender, e);
+								}
+
+
+                                else {
+                                    MessageManager::WarningMessage("Ets el owner del grup, ja no ho saràs i s'assiganrà al usuari més antic com a nou owner.");
+                                    grupEstudiService->ChangeGroupOwner(group_id, id_user);
+                                    abandonar_button_Click(sender, e);
+                                }
                             }
                             else {
                                 //int user_id_int = static_cast<int>(*user_id);

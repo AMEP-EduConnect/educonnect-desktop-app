@@ -111,3 +111,13 @@ String^ GrupEstudiService::GetAcademicTagNameById(Int64^ academic_tag_id)
 {
 	return grupEstudiRepository->GetAcademicTagNameById(academic_tag_id);
 }
+
+void GrupEstudiService::ChangeGroupOwner(Int64^ group_id, Int64^ new_owner_id)
+{
+	grupEstudiRepository->ChangeGroupOwner(group_id, new_owner_id);
+}
+
+bool GrupEstudiService::DeleteGrupEstudiById(Int64^ id)
+{
+	return grupEstudiRepository->DeleteGrupEstudiById(id);
+}

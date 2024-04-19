@@ -264,3 +264,26 @@ String^ GrupEstudiRepository::GetAcademicTagNameById(Int64^ academic_tag_id) {
 
 	return academic_tag_name;
 }
+
+void GrupEstudiRepository::ChangeGroupOwner(Int64^ group_id, Int64^ new_owner_id)
+{
+	DatabaseConnector::Instance->Connect();
+	String^ sql = "UPDATE studyGroups SET group_owner_id = @new_owner_id WHERE id = @group_id";
+	Dictionary<String^, Object^>^ params = gcnew Dictionary<String^, Object^>(0);
+	params->Add("@new_owner_id", new_owner_id->ToString());
+	params->Add("@group_id", group_id->ToString());
+	DatabaseConnector::Instance->ExecuteClientCommand(sql, params);
+	DatabaseConnector::Instance->Disconnect();
+}
+
+bool GrupEstudiRepository::DeleteGrupEstudiById(Int64^ id)
+{
+	DatabaseConnector::Instance->Connect();
+	String^ sql = "DELETE FROM studyGroups WHERE id=@id";
+	Dictionary<String^, Object^>^ params = gcnew Dictionary<String^, Object^>(0);
+	params->Add("@id", id->ToString());
+	MySqlDataReader^ data = DatabaseConnector::Instance->ExecuteClientCommand(sql, params);
+	data->Close();
+	DatabaseConnector::Instance->Disconnect();
+	return true;
+}

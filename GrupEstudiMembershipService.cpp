@@ -49,3 +49,6 @@ void GrupEstudiMembershipService::DeleteUserFromGroup(Int64^ user_id, Int64^ gro
 	grupEstudiMembershipRepository->DeleteUserFromGroup(user_id, group_id);
 }
 
+Int64^ GrupEstudiMembershipService::GetOldestUserInGroup(Int64^ group_id) {
+	return grupEstudiMembershipRepository->GetOldestUserInGroup(group_id);
+}
