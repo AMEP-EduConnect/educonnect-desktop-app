@@ -125,4 +125,19 @@ namespace CppCLRWinFormsProject {
 		Unirse_Button->Visible = true;
 		Cancela_Button->Visible = false;
 	}
+
+	void GrupEstudi_Explorar::buscar_button_Click(System::Object^ sender, System::EventArgs^ e) {
+		String^ buscar_grup = buscador_textBox->Text;
+		if (Noms_ListBox->Items->Contains(buscar_grup)) {
+			Noms_ListBox->SelectedItem = buscar_grup;
+		}
+		else {
+			MessageBox::Show("No s'ha trobat cap grup amb aquest nom", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+		}
+	}
+
+	void GrupEstudi_Explorar::buscador_textBox_Click(System::Object^ sender, System::EventArgs^ e) {
+		buscador_textBox->Clear();
+		buscador_textBox->ForeColor = Color::Black;
+	}
 }
