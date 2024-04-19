@@ -18,7 +18,7 @@ namespace CppCLRWinFormsProject {
 
     void GrupEstudi_AssignarUI::CancelarButton_Click(System::Object^ sender, System::EventArgs^ e)
     {
-        GrupEstudi_Membres^ PanelUI = gcnew GrupEstudi_Membres(Noms_ListBox);
+        GrupEstudi_Membres^ PanelUI = gcnew GrupEstudi_Membres(Noms_ListBox, true);
 
         PanelUI->TopLevel = false;
         PanelUI->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
@@ -53,7 +53,7 @@ namespace CppCLRWinFormsProject {
                                     NomGrup_TextBox->Text = "";
                                     MessageManager::InfoMessage("Usuari assignat al grup d'estudi amb exit.");
                                     
-                                    GrupEstudi_Membres^ PanelUI = gcnew GrupEstudi_Membres(Noms_ListBox);
+                                    GrupEstudi_Membres^ PanelUI = gcnew GrupEstudi_Membres(Noms_ListBox, true);
 
                                     PanelUI->TopLevel = false;
                                     PanelUI->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;

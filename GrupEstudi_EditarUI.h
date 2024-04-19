@@ -105,11 +105,11 @@ namespace CppCLRWinFormsProject {
 			this->EditarGrupEstudi_Label->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20.25F, System::Drawing::FontStyle::Bold,
 				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
 			this->EditarGrupEstudi_Label->ForeColor = System::Drawing::SystemColors::HotTrack;
-			this->EditarGrupEstudi_Label->Location = System::Drawing::Point(248, 22);
+			this->EditarGrupEstudi_Label->Location = System::Drawing::Point(253, 22);
 			this->EditarGrupEstudi_Label->Name = L"EditarGrupEstudi_Label";
-			this->EditarGrupEstudi_Label->Size = System::Drawing::Size(275, 31);
+			this->EditarGrupEstudi_Label->Size = System::Drawing::Size(265, 31);
 			this->EditarGrupEstudi_Label->TabIndex = 0;
-			this->EditarGrupEstudi_Label->Text = L"Editar Grup d\'Estudi";
+			this->EditarGrupEstudi_Label->Text = L"Edita Grup d\'Estudi";
 			this->EditarGrupEstudi_Label->Click += gcnew System::EventHandler(this, &GrupEstudi_EditarUI::EditarGrupEstudi_Label_Click);
 			// 
 			// EditarNom_TextBox
@@ -145,7 +145,7 @@ namespace CppCLRWinFormsProject {
 			this->Editar_Panel->ForeColor = System::Drawing::SystemColors::HotTrack;
 			this->Editar_Panel->Location = System::Drawing::Point(158, 210);
 			this->Editar_Panel->Name = L"Editar_Panel";
-			this->Editar_Panel->Size = System::Drawing::Size(456, 243);
+			this->Editar_Panel->Size = System::Drawing::Size(455, 243);
 			this->Editar_Panel->TabIndex = 4;
 			// 
 			// Edita_Button
@@ -200,7 +200,7 @@ namespace CppCLRWinFormsProject {
 			this->Actual_Panel->Dock = System::Windows::Forms::DockStyle::Fill;
 			this->Actual_Panel->Location = System::Drawing::Point(158, 78);
 			this->Actual_Panel->Name = L"Actual_Panel";
-			this->Actual_Panel->Size = System::Drawing::Size(456, 126);
+			this->Actual_Panel->Size = System::Drawing::Size(455, 126);
 			this->Actual_Panel->TabIndex = 5;
 			// 
 			// NomActual_TextBox
@@ -243,7 +243,7 @@ namespace CppCLRWinFormsProject {
 			this->Cancelar_Button->BackColor = System::Drawing::Color::Transparent;
 			this->Cancelar_Button->Cursor = System::Windows::Forms::Cursors::Hand;
 			this->Cancelar_Button->ForeColor = System::Drawing::Color::Red;
-			this->Cancelar_Button->Location = System::Drawing::Point(678, 485);
+			this->Cancelar_Button->Location = System::Drawing::Point(677, 485);
 			this->Cancelar_Button->Name = L"Cancelar_Button";
 			this->Cancelar_Button->Size = System::Drawing::Size(75, 23);
 			this->Cancelar_Button->TabIndex = 6;
@@ -268,7 +268,7 @@ namespace CppCLRWinFormsProject {
 			this->tableLayoutPanel1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
 				74.78706F)));
 			this->tableLayoutPanel1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Absolute,
-				196)));
+				197)));
 			this->tableLayoutPanel1->Controls->Add(this->Actual_Panel, 1, 1);
 			this->tableLayoutPanel1->Controls->Add(this->Editar_Panel, 1, 2);
 			this->tableLayoutPanel1->Controls->Add(this->EditarGrupEstudi_Label, 1, 0);

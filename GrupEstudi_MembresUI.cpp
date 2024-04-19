@@ -2,16 +2,18 @@
 #include "GrupEstudi_MembresUI.h"
 #include "GrupEstudi_ConsultarUI.h"
 #include "GrupEstudi_AssignarUI.h"
+#include "GrupEstudi_ExplorarUI.h"
 #include "Usuari.h"
 #include "MainPageUI.h"
 
 namespace CppCLRWinFormsProject {
-    GrupEstudi_Membres::GrupEstudi_Membres(String^ nomsListBox)
+    GrupEstudi_Membres::GrupEstudi_Membres(String^ nomsListBox, bool pagina)
     {
         InitializeComponent();
         grupEstudiMembershipService = gcnew GrupEstudiMembershipService();
         grupEstudiService = gcnew GrupEstudiService();
         Noms_ListBox = nomsListBox;
+        consulta = pagina;
         //Int64^ id_group = grupEstudiService->GetGroupIdByName(Noms_ListBox);
         //this->Background_PictureBox->Image = Image::FromFile("background.png");
         this->Icon = gcnew System::Drawing::Icon("app.ico");
@@ -44,15 +46,26 @@ namespace CppCLRWinFormsProject {
 
     void GrupEstudi_Membres::CancelButton_Click(System::Object^ sender, System::EventArgs^ e)
     {
-        GrupEstudi_ConsultarUI^ PanelUI = gcnew GrupEstudi_ConsultarUI();
+        if (consulta) {
+            GrupEstudi_ConsultarUI^ PanelUI = gcnew GrupEstudi_ConsultarUI();
+            PanelUI->TopLevel = false;
+            PanelUI->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
+            PanelUI->Dock = System::Windows::Forms::DockStyle::Fill;
 
-        PanelUI->TopLevel = false;
-        PanelUI->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
-        PanelUI->Dock = System::Windows::Forms::DockStyle::Fill;
+            MainPageUI::Instance->screen->Controls->Clear();
+            MainPageUI::Instance->screen->Controls->Add(PanelUI);
+            PanelUI->Show();
+        }
+        else if (not consulta) {
+			GrupEstudi_Explorar^ PanelUI = gcnew GrupEstudi_Explorar();
+            PanelUI->TopLevel = false;
+            PanelUI->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
+            PanelUI->Dock = System::Windows::Forms::DockStyle::Fill;
 
-        MainPageUI::Instance->screen->Controls->Clear();
-        MainPageUI::Instance->screen->Controls->Add(PanelUI);
-        PanelUI->Show();
+            MainPageUI::Instance->screen->Controls->Clear();
+            MainPageUI::Instance->screen->Controls->Add(PanelUI);
+            PanelUI->Show();
+		}
     }
 
 
@@ -154,52 +167,5 @@ namespace CppCLRWinFormsProject {
         MainPageUI::Instance->screen->Controls->Clear();
         MainPageUI::Instance->screen->Controls->Add(PanelUI);
         PanelUI->Show();
-        
-        
-        
-        
-        /*if (Membres_Box->Text != "") {
-            if (Noms_ListBox != "") {
-                if (grupEstudiService->CheckIfUserExists(Membres_Box->Text)) {
-                    if (grupEstudiService->CheckIfGroupExists(Noms_ListBox)) {
-                        try {
-                            Int64^ user_id = grupEstudiService->GetUserIdByName(Membres_Box->Text);
-                            Int64^ group_id = grupEstudiService->GetGroupIdByName(Noms_ListBox);
-                            if (grupEstudiMembershipService->CheckIfUserIsInGroup(user_id, group_id)) {
-                                MessageManager::WarningMessage("L'usuari ja esta assignat al grup d'estudi.");
-                                return;
-                            }
-                            else {
-                                bool owner = grupEstudiService->CheckUserIsOwner(Noms_ListBox);
-                                if (not owner) {
-                                    MessageManager::WarningMessage("No ets el propietari del grup.");
-                                }
-                                else {
-                                    grupEstudiMembershipService->UserToGroup(user_id, group_id);
-                                    Membres_Box->Text = "";
-                                    Noms_ListBox = "";
-                                    MessageManager::InfoMessage("Usuari assignat al grup d'estudi amb exit.");
-                                }
-                            }
-                        }
-                        catch (Exception^ e) {
-                            MessageManager::ErrorMessage(e->Message);
-                        }
-                    }
-                    else {
-                        MessageManager::WarningMessage("El grup no existeix.");
-                    }
-                }
-                else {
-                    MessageManager::WarningMessage("L'usuari no existeix");
-                }
-            }
-            else {
-                MessageManager::WarningMessage("Falten camps per omplir.");
-            }
-        }
-        else {
-            MessageManager::WarningMessage("Falten camps per omplir.");
-        }*/
     }
 }

@@ -24,7 +24,7 @@ namespace CppCLRWinFormsProject {
 	public ref class GrupEstudi_Membres : public System::Windows::Forms::Form
 	{
 	public:
-		GrupEstudi_Membres(String^ nomsListBox);
+		GrupEstudi_Membres(String^ nomsListBox, bool pagina);
 
 	protected:
 		/// <summary>
@@ -65,6 +65,7 @@ namespace CppCLRWinFormsProject {
 
 	private: GrupEstudiService^ grupEstudiService;
 	private: String^ Noms_ListBox;
+	private: bool consulta;
 
 #pragma region Windows Form Designer generated code
 		   /// <summary>
@@ -93,11 +94,11 @@ namespace CppCLRWinFormsProject {
 			   this->ConsultarGrupEstudi_Label->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20.25F, System::Drawing::FontStyle::Bold,
 				   System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
 			   this->ConsultarGrupEstudi_Label->ForeColor = System::Drawing::SystemColors::HotTrack;
-			   this->ConsultarGrupEstudi_Label->Location = System::Drawing::Point(158, 36);
+			   this->ConsultarGrupEstudi_Label->Location = System::Drawing::Point(163, 36);
 			   this->ConsultarGrupEstudi_Label->Name = L"ConsultarGrupEstudi_Label";
-			   this->ConsultarGrupEstudi_Label->Size = System::Drawing::Size(451, 31);
+			   this->ConsultarGrupEstudi_Label->Size = System::Drawing::Size(441, 31);
 			   this->ConsultarGrupEstudi_Label->TabIndex = 5;
-			   this->ConsultarGrupEstudi_Label->Text = L"Consultar Membres Grup d\'Estudi";
+			   this->ConsultarGrupEstudi_Label->Text = L"Consulta Membres Grup d\'Estudi";
 			   this->ConsultarGrupEstudi_Label->Click += gcnew System::EventHandler(this, &GrupEstudi_Membres::ConsultarGrupEstudi_Label_Click);
 			   // 
 			   // Panel_Membres
@@ -111,7 +112,7 @@ namespace CppCLRWinFormsProject {
 			   this->Panel_Membres->Dock = System::Windows::Forms::DockStyle::Fill;
 			   this->Panel_Membres->Location = System::Drawing::Point(141, 106);
 			   this->Panel_Membres->Name = L"Panel_Membres";
-			   this->Panel_Membres->Size = System::Drawing::Size(486, 316);
+			   this->Panel_Membres->Size = System::Drawing::Size(485, 316);
 			   this->Panel_Membres->TabIndex = 7;
 			   // 
 			   // Assignar_Button
@@ -181,7 +182,7 @@ namespace CppCLRWinFormsProject {
 			   this->tableLayoutPanel1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
 				   78.07571F)));
 			   this->tableLayoutPanel1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Absolute,
-				   183)));
+				   184)));
 			   this->tableLayoutPanel1->Controls->Add(this->Cancelar_Button, 2, 2);
 			   this->tableLayoutPanel1->Controls->Add(this->ConsultarGrupEstudi_Label, 1, 0);
 			   this->tableLayoutPanel1->Controls->Add(this->Panel_Membres, 1, 1);
@@ -201,7 +202,7 @@ namespace CppCLRWinFormsProject {
 			   this->Cancelar_Button->BackColor = System::Drawing::Color::Transparent;
 			   this->Cancelar_Button->Cursor = System::Windows::Forms::Cursors::Hand;
 			   this->Cancelar_Button->ForeColor = System::Drawing::Color::Red;
-			   this->Cancelar_Button->Location = System::Drawing::Point(634, 429);
+			   this->Cancelar_Button->Location = System::Drawing::Point(633, 429);
 			   this->Cancelar_Button->Margin = System::Windows::Forms::Padding(4);
 			   this->Cancelar_Button->Name = L"Cancelar_Button";
 			   this->Cancelar_Button->Size = System::Drawing::Size(100, 28);
