@@ -16,9 +16,10 @@ namespace CppCLRWinFormsProject {
 		InitializeComponent();
 		baixaUsuariService = gcnew BaixaUsuariService();
 		Int64^ rol = CurrentSession::Instance->GetCurrentUserRol();
-		if (*rol != 1) this->label1->Text = L"Està a punt d\'eliminar el compte. Si hi estàs d\'acord, introdueix el teu usuari:";
+		if (*rol != 1) this->label1->Text = L"Està a punt d\'eliminar el compte. Si hi estàs d\'acord, introdueix la teva contrasenya:";
 		else {
-			//TODO: Fixe this label
+			this->textBox1->UseSystemPasswordChar = false;
+			this->textBox1->PasswordChar = '\0';
 			this->label1->Text = L"Introdueix el usuari que es vol eliminar:";
 		}
 		//this->Background_PictureBox->Image = Image::FromFile("background.png");
@@ -48,14 +49,18 @@ namespace CppCLRWinFormsProject {
 	}
 
 	Void BaixaUsuariUI::button1_Click(System::Object^ sender, System::EventArgs^ e) {
-		String^ password = textBox1->Text;
-		if (password == "") {
-			MessageManager::ErrorMessage("Introdueix la contrasenya");
+		String^ value = textBox1->Text;
+		Int64^ rol = CurrentSession::Instance->GetCurrentUserRol();
+		if (value == "") {
+			if (*rol == 1)
+				MessageManager::ErrorMessage("Introdueix l'usuari que es vol eliminar");
+			else
+				MessageManager::ErrorMessage("Introdueix la contrasenya");
 		}
 		else {
-			bool eliminar = baixaUsuariService->BaixaUsuari(password);
+			bool eliminar = baixaUsuariService->BaixaUsuari(value);
 			if (eliminar) {
-				MessageManager::InfoMessage("Usuari eliminat correctament");
+				MessageManager::InfoMessage("Usuari eliminat correctament!");
 				if (CurrentSession::Instance->GetCurrentUserRol() == nullptr) {
 					this->Hide();
 					FirstPageUI^ form = gcnew FirstPageUI();
@@ -69,7 +74,11 @@ namespace CppCLRWinFormsProject {
 					this->Close();
 				}
 			}
-			else MessageManager::ErrorMessage("Contrasenya incorrecta");
+			else
+			{
+				if (*rol != 1) MessageManager::ErrorMessage("Contrasenya incorrecta!");
+				else MessageManager::ErrorMessage("Usuari no trobat!");
+			}
 		}
 	}
 }

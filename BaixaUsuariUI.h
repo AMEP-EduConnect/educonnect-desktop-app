@@ -58,12 +58,12 @@ namespace CppCLRWinFormsProject {
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->Cancelar_Button = (gcnew System::Windows::Forms::Button());
 			this->tableLayoutPanel1 = (gcnew System::Windows::Forms::TableLayoutPanel());
-			this->panel1 = (gcnew System::Windows::Forms::Panel());
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->panel2 = (gcnew System::Windows::Forms::Panel());
+			this->panel1 = (gcnew System::Windows::Forms::Panel());
 			this->tableLayoutPanel1->SuspendLayout();
-			this->panel1->SuspendLayout();
 			this->panel2->SuspendLayout();
+			this->panel1->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// label1
@@ -85,8 +85,10 @@ namespace CppCLRWinFormsProject {
 			this->textBox1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12));
 			this->textBox1->Location = System::Drawing::Point(177, 33);
 			this->textBox1->Name = L"textBox1";
+			this->textBox1->PasswordChar = '*';
 			this->textBox1->Size = System::Drawing::Size(208, 26);
-			this->textBox1->TabIndex = 1;
+			this->textBox1->TabIndex = 0;
+			this->textBox1->UseSystemPasswordChar = true;
 			// 
 			// button1
 			// 
@@ -95,7 +97,7 @@ namespace CppCLRWinFormsProject {
 			this->button1->Location = System::Drawing::Point(337, 74);
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(91, 34);
-			this->button1->TabIndex = 2;
+			this->button1->TabIndex = 1;
 			this->button1->Text = L"Confirma";
 			this->button1->UseVisualStyleBackColor = true;
 			this->button1->Click += gcnew System::EventHandler(this, &BaixaUsuariUI::button1_Click);
@@ -109,7 +111,7 @@ namespace CppCLRWinFormsProject {
 			this->Cancelar_Button->Location = System::Drawing::Point(434, 74);
 			this->Cancelar_Button->Name = L"Cancelar_Button";
 			this->Cancelar_Button->Size = System::Drawing::Size(88, 34);
-			this->Cancelar_Button->TabIndex = 16;
+			this->Cancelar_Button->TabIndex = 2;
 			this->Cancelar_Button->Text = L"Cancelar";
 			this->Cancelar_Button->UseVisualStyleBackColor = false;
 			this->Cancelar_Button->Click += gcnew System::EventHandler(this, &BaixaUsuariUI::Cancelar_Button_Click);
@@ -122,7 +124,7 @@ namespace CppCLRWinFormsProject {
 			this->tableLayoutPanel1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
 				96.47799F)));
 			this->tableLayoutPanel1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Absolute,
-				54)));
+				55)));
 			this->tableLayoutPanel1->Controls->Add(this->label2, 1, 0);
 			this->tableLayoutPanel1->Controls->Add(this->label1, 1, 1);
 			this->tableLayoutPanel1->Controls->Add(this->panel2, 1, 2);
@@ -138,6 +140,28 @@ namespace CppCLRWinFormsProject {
 			this->tableLayoutPanel1->TabIndex = 17;
 			this->tableLayoutPanel1->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &BaixaUsuariUI::tableLayoutPanel1_Paint);
 			// 
+			// label2
+			// 
+			this->label2->Anchor = System::Windows::Forms::AnchorStyles::None;
+			this->label2->AutoSize = true;
+			this->label2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label2->ForeColor = System::Drawing::SystemColors::HotTrack;
+			this->label2->Location = System::Drawing::Point(302, 9);
+			this->label2->Name = L"label2";
+			this->label2->Size = System::Drawing::Size(179, 31);
+			this->label2->TabIndex = 19;
+			this->label2->Text = L"Baixa Usuari";
+			// 
+			// panel2
+			// 
+			this->panel2->Anchor = System::Windows::Forms::AnchorStyles::None;
+			this->panel2->Controls->Add(this->panel1);
+			this->panel2->Location = System::Drawing::Point(66, 176);
+			this->panel2->Name = L"panel2";
+			this->panel2->Size = System::Drawing::Size(651, 171);
+			this->panel2->TabIndex = 20;
+			// 
 			// panel1
 			// 
 			this->panel1->Anchor = System::Windows::Forms::AnchorStyles::None;
@@ -150,28 +174,6 @@ namespace CppCLRWinFormsProject {
 			this->panel1->Size = System::Drawing::Size(561, 128);
 			this->panel1->TabIndex = 18;
 			this->panel1->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &BaixaUsuariUI::panel1_Paint);
-			// 
-			// label2
-			// 
-			this->label2->Anchor = System::Windows::Forms::AnchorStyles::None;
-			this->label2->AutoSize = true;
-			this->label2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->label2->ForeColor = System::Drawing::SystemColors::HotTrack;
-			this->label2->Location = System::Drawing::Point(303, 9);
-			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(179, 31);
-			this->label2->TabIndex = 19;
-			this->label2->Text = L"Baixa Usuari";
-			// 
-			// panel2
-			// 
-			this->panel2->Anchor = System::Windows::Forms::AnchorStyles::None;
-			this->panel2->Controls->Add(this->panel1);
-			this->panel2->Location = System::Drawing::Point(67, 176);
-			this->panel2->Name = L"panel2";
-			this->panel2->Size = System::Drawing::Size(651, 171);
-			this->panel2->TabIndex = 20;
 			// 
 			// BaixaUsuariUI
 			// 
@@ -187,9 +189,9 @@ namespace CppCLRWinFormsProject {
 			this->Load += gcnew System::EventHandler(this, &BaixaUsuariUI::BaixaUsuariUI_Load);
 			this->tableLayoutPanel1->ResumeLayout(false);
 			this->tableLayoutPanel1->PerformLayout();
+			this->panel2->ResumeLayout(false);
 			this->panel1->ResumeLayout(false);
 			this->panel1->PerformLayout();
-			this->panel2->ResumeLayout(false);
 			this->ResumeLayout(false);
 
 		}

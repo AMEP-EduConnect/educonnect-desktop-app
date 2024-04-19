@@ -7,7 +7,7 @@ public ref class BaixaProveidorService
 {
 public:
 	BaixaProveidorService();
-	bool BaixaProveidor(String^ username);
+	bool BaixaProveidor(String^ value);
 
 private:
 	UsuariRepository^ usuariRepository;

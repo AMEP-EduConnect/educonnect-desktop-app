@@ -9,17 +9,17 @@ BaixaUsuariService::BaixaUsuariService()
 	grupEstudiMembershipRepository = gcnew GrupEstudiMembershipRepository();
 }
 
-bool BaixaUsuariService::BaixaUsuari(String^ username) {
+bool BaixaUsuariService::BaixaUsuari(String^ value) {
 		Int64^ id_user;
 		if (*CurrentSession::Instance->GetCurrentUserRol() == 1LL) {
-			bool check = usuariRepository->CheckUsuariByUser(username);
+			bool check = usuariRepository->CheckUsuariByUser(value);
 			if(not check) return false;
-			id_user = usuariRepository->GetUserId(username);
+			id_user = usuariRepository->GetUserId(value);
 		}
 		else 
 		{
 			id_user = CurrentSession::Instance->GetCurrentUser()->GetUserId();
-			if(CurrentSession::Instance->GetCurrentUser()->GetUsername() != username) return false;
+			if(CurrentSession::Instance->GetCurrentUser()->GetPassword() != value) return false;
 		}
 		array<Int64^>^ grups = grupEstudiMembershipRepository->LoadGrupsEstudiMembershipByUserId(id_user);
 		int i = 0;
