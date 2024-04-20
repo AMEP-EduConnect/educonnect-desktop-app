@@ -1,6 +1,8 @@
 #pragma once
 #include "UsuariRepository.h"
-#include "InformacioPersonal_ConsultaUI.h"
+#include "Usuari.h"
+#include "DatabaseConnector.h"
+#include "CurrentSession.h"
 
 
 public ref class PerfilPersonalConsultaService

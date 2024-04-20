@@ -22,7 +22,6 @@ using namespace System;
 #include "IniciSessioUI.h"
 using namespace System;
 #include "InformacioPersonal_ConsultaUI.h"
-#include "InformacioPersonal_ModificaUI.h"
 
 using namespace System::Windows::Forms;
 

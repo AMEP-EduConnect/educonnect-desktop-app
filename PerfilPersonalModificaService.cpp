@@ -1,9 +1,6 @@
 #include "pch.h"
-#include "DatabaseConnector.h"
-#include "CurrentSession.h"
 #include "PerfilPersonalModificaService.h"
-#include "UsuariRepository.h"
-#include "Usuari.h"
+
 
 PerfilPersonalModificaService::PerfilPersonalModificaService()
 {

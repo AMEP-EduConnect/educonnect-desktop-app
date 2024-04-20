@@ -1,10 +1,5 @@
 #include "pch.h"
 #include "InformacioPersonal_ConsultaUI.h"
-#include "InformacioPersonal_ModificaUI.h"
-#include "Usuari.h"
-#include "PerfilPersonalConsultaService.h"
-#include "MessageManager.h"
-#include "MainPageUI.h"
 
 
 namespace CppCLRWinFormsProject {
@@ -12,33 +7,111 @@ namespace CppCLRWinFormsProject {
 	InformacioPersonal_ConsultaUI::InformacioPersonal_ConsultaUI(void)
 	{
 		InitializeComponent();
-		PerfilPersonalConsultaService^ txConsulta = gcnew PerfilPersonalConsultaService();
+		txConsulta = gcnew PerfilPersonalConsultaService();
+		txModifica = gcnew PerfilPersonalModificaService();
 		Usuari^ u = txConsulta->GetCurrentUser();
-		String^ username = u->GetUsername();
-		String^ password = u->GetPassword();
-		String^ email = u->GetEmail();
-		String^ name = u->GetName();
+		username = u->GetUsername();
+		password = u->GetPassword();
+		email = u->GetEmail();
+		name = u->GetName();
 		textBox1->Text = username;
-		textBox2->Text = password;
+		//textBox2->Text = password; //hash!
 		textBox3->Text = email;
-		textBox4->Text = name;	
+		textBox4->Text = name;
+		
+		this->textBox1->Validating += gcnew System::ComponentModel::CancelEventHandler(this, &InformacioPersonal_ConsultaUI::Nickname_Validating);
+		this->textBox2->Validating += gcnew System::ComponentModel::CancelEventHandler(this, &InformacioPersonal_ConsultaUI::Password_Validating);
+		this->textBox3->Validating += gcnew System::ComponentModel::CancelEventHandler(this, &InformacioPersonal_ConsultaUI::Email_Validating);
 		//this->Background_PictureBox->Image = Image::FromFile("background.png");
 		this->Icon = gcnew System::Drawing::Icon("app.ico");
 	}
 
-	void InformacioPersonal_ConsultaUI::Tanca_Click(System::Object^ sender, System::EventArgs^ e)
-	{
-		this->Hide();
-		MainPageUI^ form = gcnew MainPageUI();
-		form->ShowDialog();
-		this->Close();
-	}
-
 	void InformacioPersonal_ConsultaUI::Edita_Click(System::Object^ sender, System::EventArgs^ e)
 	{
-		this->Hide();
-		InformacioPersonal_ModificaUI^ form = gcnew InformacioPersonal_ModificaUI();
-		form->ShowDialog();
-		this->Close();
+		if (textBox1->Text == username and textBox3->Text == email and textBox4->Text == name and textBox2->Text == "") {
+			MessageBox::Show("Modifica almenys un camp per a actualitzar l'usuari!", "Actualitza usuari", MessageBoxButtons::OK);
+		}
+		else {
+			if (Repeat_Validating()) {
+				txModifica->ModificaUsuari(textBox1->Text, textBox2->Text, textBox3->Text, textBox4->Text);
+				textBox2->Text = "";
+				textBox5->Text = "";
+				MessageBox::Show("L'usuari s'ha actualitzat correctament!", "Actualitza usuari", MessageBoxButtons::OK);
+			}
+		}
+	}
+
+	void InformacioPersonal_ConsultaUI::Elimina_Click(System::Object^ sender, System::EventArgs^ e)
+	{
+
+	}
+
+	Void InformacioPersonal_ConsultaUI::Nickname_Validating(Object^ sender, System::ComponentModel::CancelEventArgs^ e)
+	{
+		TextBox^ textBox = dynamic_cast<TextBox^>(sender);
+		if (textBox->Text != "") {
+			bool isnotValid = txModifica->CheckUsername(textBox->Text);
+			if (isnotValid and textBox->Text != username) {
+				MessageBox::Show("El nom de l'usuari ja existeix o no és vàlid.", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+				textBox->Text = "";
+				//e->Cancel = true;
+			}
+		}
+	}
+
+	Void InformacioPersonal_ConsultaUI::Password_Validating(Object^ sender, System::ComponentModel::CancelEventArgs^ e)
+	{
+		TextBox^ textBox = dynamic_cast<TextBox^>(sender);
+		if (!IsPasswordStrong(textBox->Text) && textBox->Text != "") {
+			MessageBox::Show("La contrasenya no és prou robusta.\nHa de contenir 8 o més caràcters, caràcters especials i números.", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+			textBox->Text = "";
+			//e->Cancel = true; // Previene que el foco cambie de control hasta que la entrada sea válida.
+		}
+
+	}
+
+	Void InformacioPersonal_ConsultaUI::Email_Validating(Object^ sender, System::ComponentModel::CancelEventArgs^ e)
+	{
+		TextBox^ textBox = dynamic_cast<TextBox^>(sender);
+		if (textBox->Text != "") {
+			if (!IsValidEmail(textBox->Text) && textBox->Text != "") {
+				MessageBox::Show("El correu electrònic no té un format vàlid.", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+				//e->Cancel = true; // Esto previene que el foco cambie al siguiente control si la validación falla.
+			}
+			else {
+				bool isnotValid = txModifica->CheckEmail(textBox->Text);
+				if (isnotValid and textBox->Text != email) {
+					MessageBox::Show("El correu electrònic de l'usuari ja està registrat.", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+					textBox->Text = "";
+					//e->Cancel = true;
+				}
+			}
+		}
+	}
+
+	bool InformacioPersonal_ConsultaUI::Repeat_Validating()
+	{
+		if (textBox2->Text != "") {
+			if (textBox2->Text != textBox5->Text) {
+				MessageBox::Show("La contrasenya no és la mateixa que l'anterior.", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+				return false;
+			}
+		}
+		return true;
+	}
+
+	bool InformacioPersonal_ConsultaUI::IsValidEmail(String^ email) {
+		String^ pattern = R"(^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$)";
+		Regex^ regex = gcnew Regex(pattern);
+		return regex->IsMatch(email);
+	}
+
+	bool InformacioPersonal_ConsultaUI::IsPasswordStrong(String^ password) {
+		if (password->Length < 8) return false;
+		if (!Regex::IsMatch(password, R"([A-Z])")) return false;
+		if (!Regex::IsMatch(password, R"([a-z])")) return false;
+		if (!Regex::IsMatch(password, R"(\d)")) return false;
+		if (!Regex::IsMatch(password, R"([\!\@\#\$\%\^\&\*\(\)\-\=\+\[\]\{\}\;\:\'\"\<\>\,\.\?\/\~\`\|\\])")) return false;
+		return true;
 	}
 }
