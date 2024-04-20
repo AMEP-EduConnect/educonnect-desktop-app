@@ -1,5 +1,8 @@
 #pragma once
 #include "AltaProveidorService.h"
+#include "AdministradorUI.h"
+#include <iostream>
+#include <string>
 using namespace MySql::Data::MySqlClient;
 namespace CppCLRWinFormsProject {
 
@@ -9,6 +12,7 @@ namespace CppCLRWinFormsProject {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
+	using namespace System::Text::RegularExpressions;
 
 	/// <summary>
 	/// Resumen de MyForm
@@ -16,8 +20,20 @@ namespace CppCLRWinFormsProject {
 	public ref class AltaProveidorUI : public System::Windows::Forms::Form
 	{
 	public:
-		AltaProveidorUI(void);
-
+		AltaProveidorUI(void) {
+			InitializeComponent();
+			altaProveidorService = gcnew AltaProveidorService();
+			//this->Background_PictureBox->Image = Image::FromFile("background.png");
+			this->textBox3->Validating += gcnew System::ComponentModel::CancelEventHandler(this, &AltaProveidorUI::NomUsuari_TextBox_Validating);
+			this->textBox2->Validating += gcnew System::ComponentModel::CancelEventHandler(this, &AltaProveidorUI::Email_TextBox_Validating);
+			this->textBox5->Validating += gcnew System::ComponentModel::CancelEventHandler(this, &AltaProveidorUI::textBoxPassword_Validating);
+			this->Icon = gcnew System::Drawing::Icon("app.ico");
+		}
+		Void NomUsuari_TextBox_Validating(Object^ sender, System::ComponentModel::CancelEventArgs^ e);
+		Void Email_TextBox_Validating(Object^ sender, System::ComponentModel::CancelEventArgs^ e);
+		Void textBoxPassword_Validating(System::Object^ sender, System::ComponentModel::CancelEventArgs^ e);
+		bool IsValidEmail(String^ email);
+		bool IsPasswordStrong(String^ password);
 
 	protected:
 		/// <summary>
@@ -95,12 +111,12 @@ namespace CppCLRWinFormsProject {
 			   // button1
 			   // 
 			   this->button1->Anchor = System::Windows::Forms::AnchorStyles::None;
-			   this->button1->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			   this->button1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				   static_cast<System::Byte>(0)));
 			   this->button1->Location = System::Drawing::Point(135, 198);
 			   this->button1->Name = L"button1";
 			   this->button1->Size = System::Drawing::Size(105, 29);
-			   this->button1->TabIndex = 0;
+			   this->button1->TabIndex = 4;
 			   this->button1->Text = L"Confirma";
 			   this->button1->UseVisualStyleBackColor = true;
 			   this->button1->Click += gcnew System::EventHandler(this, &AltaProveidorUI::button1_Click);
@@ -108,53 +124,55 @@ namespace CppCLRWinFormsProject {
 			   // textBox2
 			   // 
 			   this->textBox2->Anchor = System::Windows::Forms::AnchorStyles::None;
-			   this->textBox2->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			   this->textBox2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				   static_cast<System::Byte>(0)));
 			   this->textBox2->Location = System::Drawing::Point(194, 87);
 			   this->textBox2->Name = L"textBox2";
-			   this->textBox2->Size = System::Drawing::Size(162, 27);
+			   this->textBox2->Size = System::Drawing::Size(162, 26);
 			   this->textBox2->TabIndex = 2;
 			   // 
 			   // textBox3
 			   // 
 			   this->textBox3->Anchor = System::Windows::Forms::AnchorStyles::None;
-			   this->textBox3->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			   this->textBox3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				   static_cast<System::Byte>(0)));
 			   this->textBox3->Location = System::Drawing::Point(194, 7);
 			   this->textBox3->Name = L"textBox3";
-			   this->textBox3->Size = System::Drawing::Size(162, 27);
-			   this->textBox3->TabIndex = 3;
+			   this->textBox3->Size = System::Drawing::Size(162, 26);
+			   this->textBox3->TabIndex = 0;
 			   // 
 			   // textBox4
 			   // 
 			   this->textBox4->Anchor = System::Windows::Forms::AnchorStyles::None;
-			   this->textBox4->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			   this->textBox4->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				   static_cast<System::Byte>(0)));
-			   this->textBox4->Location = System::Drawing::Point(194, 129);
+			   this->textBox4->Location = System::Drawing::Point(194, 130);
 			   this->textBox4->Name = L"textBox4";
-			   this->textBox4->Size = System::Drawing::Size(162, 27);
-			   this->textBox4->TabIndex = 4;
+			   this->textBox4->Size = System::Drawing::Size(162, 26);
+			   this->textBox4->TabIndex = 3;
 			   // 
 			   // textBox5
 			   // 
 			   this->textBox5->Anchor = System::Windows::Forms::AnchorStyles::None;
-			   this->textBox5->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			   this->textBox5->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				   static_cast<System::Byte>(0)));
 			   this->textBox5->Location = System::Drawing::Point(194, 48);
 			   this->textBox5->Name = L"textBox5";
-			   this->textBox5->Size = System::Drawing::Size(162, 27);
-			   this->textBox5->TabIndex = 5;
+			   this->textBox5->PasswordChar = '*';
+			   this->textBox5->Size = System::Drawing::Size(162, 26);
+			   this->textBox5->TabIndex = 1;
+			   this->textBox5->UseSystemPasswordChar = true;
 			   // 
 			   // label2
 			   // 
 			   this->label2->Anchor = System::Windows::Forms::AnchorStyles::Left;
 			   this->label2->AutoSize = true;
 			   this->label2->BackColor = System::Drawing::SystemColors::GradientInactiveCaption;
-			   this->label2->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			   this->label2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				   static_cast<System::Byte>(0)));
-			   this->label2->Location = System::Drawing::Point(3, 11);
+			   this->label2->Location = System::Drawing::Point(3, 10);
 			   this->label2->Name = L"label2";
-			   this->label2->Size = System::Drawing::Size(113, 19);
+			   this->label2->Size = System::Drawing::Size(105, 20);
 			   this->label2->TabIndex = 7;
 			   this->label2->Text = L"Nom d\'usuari:";
 			   // 
@@ -163,11 +181,11 @@ namespace CppCLRWinFormsProject {
 			   this->label3->Anchor = System::Windows::Forms::AnchorStyles::Left;
 			   this->label3->AutoSize = true;
 			   this->label3->BackColor = System::Drawing::SystemColors::GradientInactiveCaption;
-			   this->label3->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			   this->label3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				   static_cast<System::Byte>(0)));
-			   this->label3->Location = System::Drawing::Point(3, 52);
+			   this->label3->Location = System::Drawing::Point(3, 51);
 			   this->label3->Name = L"label3";
-			   this->label3->Size = System::Drawing::Size(109, 19);
+			   this->label3->Size = System::Drawing::Size(103, 20);
 			   this->label3->TabIndex = 8;
 			   this->label3->Text = L"Contrasenya:";
 			   // 
@@ -176,11 +194,11 @@ namespace CppCLRWinFormsProject {
 			   this->label4->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Left | System::Windows::Forms::AnchorStyles::Right));
 			   this->label4->AutoSize = true;
 			   this->label4->BackColor = System::Drawing::SystemColors::GradientInactiveCaption;
-			   this->label4->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			   this->label4->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				   static_cast<System::Byte>(0)));
-			   this->label4->Location = System::Drawing::Point(3, 91);
+			   this->label4->Location = System::Drawing::Point(3, 90);
 			   this->label4->Name = L"label4";
-			   this->label4->Size = System::Drawing::Size(183, 19);
+			   this->label4->Size = System::Drawing::Size(183, 20);
 			   this->label4->TabIndex = 9;
 			   this->label4->Text = L"Email:";
 			   // 
@@ -189,11 +207,11 @@ namespace CppCLRWinFormsProject {
 			   this->label5->Anchor = System::Windows::Forms::AnchorStyles::Left;
 			   this->label5->AutoSize = true;
 			   this->label5->BackColor = System::Drawing::SystemColors::GradientInactiveCaption;
-			   this->label5->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			   this->label5->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				   static_cast<System::Byte>(0)));
 			   this->label5->Location = System::Drawing::Point(3, 133);
 			   this->label5->Name = L"label5";
-			   this->label5->Size = System::Drawing::Size(116, 19);
+			   this->label5->Size = System::Drawing::Size(106, 20);
 			   this->label5->TabIndex = 10;
 			   this->label5->Text = L"Nom complet:";
 			   // 
@@ -201,11 +219,11 @@ namespace CppCLRWinFormsProject {
 			   // 
 			   this->label6->Anchor = System::Windows::Forms::AnchorStyles::None;
 			   this->label6->AutoSize = true;
-			   this->label6->Font = (gcnew System::Drawing::Font(L"Inter", 20.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			   this->label6->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				   static_cast<System::Byte>(0)));
-			   this->label6->Location = System::Drawing::Point(249, 22);
+			   this->label6->Location = System::Drawing::Point(250, 23);
 			   this->label6->Name = L"label6";
-			   this->label6->Size = System::Drawing::Size(309, 33);
+			   this->label6->Size = System::Drawing::Size(307, 31);
 			   this->label6->TabIndex = 13;
 			   this->label6->Text = L"Donar d\'Alta Proveidor";
 			   // 
@@ -296,7 +314,7 @@ namespace CppCLRWinFormsProject {
 		   }
 #pragma endregion
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e);
-		     System::Void Cancelar_Button_Click(System::Object^ sender, System::EventArgs^ e);
+		     //System::Void Cancelar_Button_Click(System::Object^ sender, System::EventArgs^ e);
 			
 };
 }
