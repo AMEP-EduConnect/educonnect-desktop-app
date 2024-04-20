@@ -13,8 +13,10 @@ array<Int64^>^ GrupEstudiMembershipRepository::LoadGrupsEstudiMembershipByUserId
 {
     array<Int64^>^ user_groupEstudiMembership = gcnew array<Int64^>(0);
     DatabaseConnector::Instance->Connect();
-    String^ sql = "SELECT group_id FROM studyGroupsMembership WHERE user_id = " + user_id;
-    MySqlDataReader^ data = DatabaseConnector::Instance->ExecuteInternCommand(sql);
+	String^ sql = "SELECT group_id FROM studyGroupsMembership WHERE user_id = @user_id";
+	Dictionary<String^, Object^>^ params = gcnew Dictionary<String^, Object^>(0);
+	params->Add("@user_id", user_id->ToString());
+	MySqlDataReader^ data = DatabaseConnector::Instance->ExecuteClientCommand(sql, params);
     array<Int64^>^ tempArray = gcnew array<Int64^>(user_groupEstudiMembership->Length + 1);
     for (int i = 0; i < user_groupEstudiMembership->Length; i++)
     {
@@ -22,7 +24,6 @@ array<Int64^>^ GrupEstudiMembershipRepository::LoadGrupsEstudiMembershipByUserId
     }
     user_groupEstudiMembership = tempArray;
     int index = user_groupEstudiMembership->Length;
-
 	// Obtener el n�mero de filas
 	int rowCount = 0;
 	while (data->Read())
@@ -35,7 +36,7 @@ array<Int64^>^ GrupEstudiMembershipRepository::LoadGrupsEstudiMembershipByUserId
 	tempArray = gcnew array<Int64^>(rowCount);
 
 	// Volver a ejecutar la consulta
-	data = DatabaseConnector::Instance->ExecuteInternCommand(sql);
+	data = DatabaseConnector::Instance->ExecuteClientCommand(sql, params);
 
 	index = 0;
 	while (data->Read())
@@ -53,8 +54,10 @@ array<Int64^>^ GrupEstudiMembershipRepository::LoadGrupsEstudiMembershipByUserId
 GrupEstudi^ GrupEstudiMembershipRepository::LoadAllGrupEstudibyId(Int64 ^ group_id)
 {
 	DatabaseConnector::Instance->Connect();
-	String^ sql = "SELECT * FROM studyGroups WHERE id = " + group_id;
-	MySqlDataReader^ data = DatabaseConnector::Instance->ExecuteInternCommand(sql);
+	String^ sql = "SELECT * FROM studyGroups WHERE id = @id";
+	Dictionary<String^, Object^>^ params = gcnew Dictionary<String^, Object^>(0);
+	params->Add("@id", group_id->ToString());
+	MySqlDataReader^ data = DatabaseConnector::Instance->ExecuteClientCommand(sql, params);
 	GrupEstudi^ grupestudi = gcnew GrupEstudi();
 	while (data->Read())
 	{
@@ -75,16 +78,12 @@ GrupEstudi^ GrupEstudiMembershipRepository::LoadAllGrupEstudibyId(Int64 ^ group_
 void GrupEstudiMembershipRepository::UserToGroup(Int64 ^ user_id, Int64 ^ group_id)
 {
 	DatabaseConnector::Instance->Connect();
-
 	// Utilizamos una consulta parametrizada para evitar problemas de sintaxis y de seguridad
 	String^ sql = "INSERT INTO studyGroupsMembership (user_id, group_id) VALUES (@UserId, @GroupId)";
 	try {
 		MySqlCommand^ command = gcnew MySqlCommand(sql, DatabaseConnector::Instance->GetConn());
-
-		// Agregamos los par�metros a la consulta
 		command->Parameters->AddWithValue("@UserId", user_id);
 		command->Parameters->AddWithValue("@GroupId", group_id);
-
 		command->ExecuteNonQuery();
 		DatabaseConnector::Instance->Disconnect();
 	}
@@ -96,8 +95,11 @@ void GrupEstudiMembershipRepository::UserToGroup(Int64 ^ user_id, Int64 ^ group_
 bool GrupEstudiMembershipRepository::CheckIfUserIsInGroup(Int64^ user_id, Int64^ group_id)
 {
 	DatabaseConnector::Instance->Connect();
-	String^ sql = "SELECT * FROM studyGroupsMembership WHERE user_id = " + user_id + " AND group_id = " + group_id;
-	MySqlDataReader^ data = DatabaseConnector::Instance->ExecuteInternCommand(sql);
+	String^ sql = "SELECT * FROM studyGroupsMembership WHERE user_id = @user_id AND group_id = @group_id";
+	Dictionary<String^, Object^>^ params = gcnew Dictionary<String^, Object^>(0);
+	params->Add("@user_id", user_id->ToString());
+	params->Add("@group_id", group_id->ToString());
+	MySqlDataReader^ data = DatabaseConnector::Instance->ExecuteClientCommand(sql, params);
 	bool exists = data->HasRows;
 	DatabaseConnector::Instance->Disconnect();
 	return exists;
@@ -106,7 +108,42 @@ bool GrupEstudiMembershipRepository::CheckIfUserIsInGroup(Int64^ user_id, Int64^
 void GrupEstudiMembershipRepository::DeleteUserFromGroup(Int64^ user_id, Int64^ group_id)
 {
 	DatabaseConnector::Instance->Connect();
-	String^ sql = "DELETE FROM studyGroupsMembership WHERE user_id = " + user_id + " AND group_id = " + group_id;
-	DatabaseConnector::Instance->ExecuteInternCommand(sql);
+	String^ sql = "DELETE FROM studyGroupsMembership WHERE user_id = @user_id AND group_id = @group_id";
+	Dictionary<String^, Object^>^ params = gcnew Dictionary<String^, Object^>(0);
+	params->Add("@user_id", user_id->ToString());
+	params->Add("@group_id", group_id->ToString());
+	DatabaseConnector::Instance->ExecuteClientCommand(sql, params);
 	DatabaseConnector::Instance->Disconnect();
+}
+
+Int64^ GrupEstudiMembershipRepository::CheckIfGroupHasUsers(Int64^ group_id)
+{
+	DatabaseConnector::Instance->Connect();
+	String^ sql = "SELECT * FROM studyGroupsMembership WHERE group_id = @group_id";
+	Dictionary<String^, Object^>^ params = gcnew Dictionary<String^, Object^>(0);
+	params->Add("@group_id", group_id->ToString());
+	MySqlDataReader^ data = DatabaseConnector::Instance->ExecuteClientCommand(sql, params);
+	Int64^ check = 0LL;
+	while (data->Read())
+	{
+		check = *check + 1LL;
+	}
+	DatabaseConnector::Instance->Disconnect();
+	return check;
+}
+
+Int64^ GrupEstudiMembershipRepository::GetOldestUserInGroup(Int64^ group_id)
+{
+	DatabaseConnector::Instance->Connect();
+	String^ sql = "SELECT user_id FROM studyGroupsMembership WHERE group_id = @group_id ORDER BY member_since ASC LIMIT 1, 1";
+	Dictionary<String^, Object^>^ params = gcnew Dictionary<String^, Object^>(0);
+	params->Add("@group_id", group_id->ToString());
+	MySqlDataReader^ data = DatabaseConnector::Instance->ExecuteClientCommand(sql, params);
+	Int64^ user_id;
+	while (data->Read())
+	{
+		user_id = data->GetInt64(0);
+	}
+	DatabaseConnector::Instance->Disconnect();
+	return user_id;
 }

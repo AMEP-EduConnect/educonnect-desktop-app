@@ -9,6 +9,7 @@ using namespace System;
 #include "AltaProveidorUI.h"
 #include "MainPageUI.h"
 #include "FirstPageUI.h"
+#include "BaixaProveidorUI.h"
 #include "GrupEstudi_EditarUI.h"
 #include "GrupEstudi_ConsultarUI.h"
 #include "GrupEstudi_CrearUI.h"
@@ -19,6 +20,7 @@ using namespace System;
 #include "Usuari.h"
 #include "RegistreUsuariUI.h"
 #include "IniciSessioUI.h"
+#include "BaixaUsuariUI.h"
 using namespace System;
 #include "InformacioPersonal_ConsultaUI.h"
 #include "InformacioPersonal_ModificaUI.h"
@@ -30,6 +32,7 @@ int main()
 {
 	DatabaseConnector::Instance = gcnew DatabaseConnector();
 	CurrentSession::Instance = gcnew CurrentSession();
+	
 	Application::EnableVisualStyles();
 	Application::SetCompatibleTextRenderingDefault(false);
 	Application::Run(gcnew CppCLRWinFormsProject::FirstPageUI());

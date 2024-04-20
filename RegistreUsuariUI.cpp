@@ -23,7 +23,8 @@ namespace CppCLRWinFormsProject {
 			TextBox^ textBox = dynamic_cast<TextBox^>(sender);
 			if (!IsPasswordStrong(textBox->Text) and textBox->Text != "") {
 				MessageBox::Show("La contrasenya no és prou robusta.\nHa de contenir 8 o més caràcters, caràcters especials i números.", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
-				//e->Cancel = true; // Previene que el foco cambie de control hasta que la entrada sea válida.
+				textBox->Text = "";
+                //e->Cancel = true; // Previene que el foco cambie de control hasta que la entrada sea válida.
 			}
 		}
 
@@ -71,11 +72,18 @@ namespace CppCLRWinFormsProject {
             else {
                 this->registreService->CreateUser(username,email,name,password);
                 MessageBox::Show("S'ha registrat correctament! Benvingut!", "Registre Correcte", MessageBoxButtons::OK);
+
+                this->Hide();
+                FirstPageUI^ form = gcnew FirstPageUI();
+                form->ShowDialog();
                 this->Close();
             }
         }
 
         Void RegistreUsuariUI::GoBackButton_Click(System::Object^ sender, System::EventArgs^ e) {
+            this->Hide();
+            FirstPageUI^ form = gcnew FirstPageUI();
+            form->ShowDialog();
             this->Close();
         }
 

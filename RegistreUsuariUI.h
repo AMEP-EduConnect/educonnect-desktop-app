@@ -33,6 +33,7 @@ namespace CppCLRWinFormsProject {
 			this->Email_TextBox->Validating += gcnew System::ComponentModel::CancelEventHandler(this, &RegistreUsuariUI::Email_TextBox_Validating);
 			this->Contrasenya_TextBox->Validating += gcnew System::ComponentModel::CancelEventHandler(this, &RegistreUsuariUI::textBoxPassword_Validating);
 			this->Icon = gcnew System::Drawing::Icon("app.ico");
+			this->Background_PictureBox->Image = Image::FromFile("background.png");
 		}
 		Void NomUsuari_TextBox_Validating(Object^ sender, System::ComponentModel::CancelEventArgs^ e);
 		Void Email_TextBox_Validating(Object^ sender, System::ComponentModel::CancelEventArgs^ e);
@@ -146,8 +147,8 @@ namespace CppCLRWinFormsProject {
 			// 
 			// NomUsuari_TextBox
 			// 
-			this->NomUsuari_TextBox->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
+			this->NomUsuari_TextBox->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Regular,
+				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
 			this->NomUsuari_TextBox->Location = System::Drawing::Point(31, 45);
 			this->NomUsuari_TextBox->Name = L"NomUsuari_TextBox";
 			this->NomUsuari_TextBox->Size = System::Drawing::Size(197, 22);
@@ -189,8 +190,8 @@ namespace CppCLRWinFormsProject {
 			// ContrasenyaTip_Label
 			// 
 			this->ContrasenyaTip_Label->AutoSize = true;
-			this->ContrasenyaTip_Label->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Italic, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
+			this->ContrasenyaTip_Label->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Italic,
+				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
 			this->ContrasenyaTip_Label->ForeColor = System::Drawing::SystemColors::ControlDarkDark;
 			this->ContrasenyaTip_Label->Location = System::Drawing::Point(28, 280);
 			this->ContrasenyaTip_Label->Name = L"ContrasenyaTip_Label";
@@ -201,8 +202,8 @@ namespace CppCLRWinFormsProject {
 			// ContrasenyaTip_Email_Label
 			// 
 			this->ContrasenyaTip_Email_Label->AutoSize = true;
-			this->ContrasenyaTip_Email_Label->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Italic, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
+			this->ContrasenyaTip_Email_Label->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Italic,
+				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
 			this->ContrasenyaTip_Email_Label->ForeColor = System::Drawing::SystemColors::ControlDarkDark;
 			this->ContrasenyaTip_Email_Label->Location = System::Drawing::Point(28, 267);
 			this->ContrasenyaTip_Email_Label->Name = L"ContrasenyaTip_Email_Label";
@@ -212,8 +213,8 @@ namespace CppCLRWinFormsProject {
 			// 
 			// Continuar_Button
 			// 
-			this->Continuar_Button->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
+			this->Continuar_Button->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Regular,
+				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
 			this->Continuar_Button->ForeColor = System::Drawing::SystemColors::HotTrack;
 			this->Continuar_Button->Location = System::Drawing::Point(31, 317);
 			this->Continuar_Button->Name = L"Continuar_Button";
@@ -225,8 +226,8 @@ namespace CppCLRWinFormsProject {
 			// 
 			// Contrasenya_TextBox
 			// 
-			this->Contrasenya_TextBox->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
+			this->Contrasenya_TextBox->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Regular,
+				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
 			this->Contrasenya_TextBox->Location = System::Drawing::Point(31, 242);
 			this->Contrasenya_TextBox->Name = L"Contrasenya_TextBox";
 			this->Contrasenya_TextBox->PasswordChar = '*';
@@ -246,8 +247,8 @@ namespace CppCLRWinFormsProject {
 			// 
 			this->Contrasenya_Label->AutoSize = true;
 			this->Contrasenya_Label->BackColor = System::Drawing::SystemColors::GradientInactiveCaption;
-			this->Contrasenya_Label->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
+			this->Contrasenya_Label->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Regular,
+				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
 			this->Contrasenya_Label->ForeColor = System::Drawing::SystemColors::HotTrack;
 			this->Contrasenya_Label->Location = System::Drawing::Point(28, 223);
 			this->Contrasenya_Label->Name = L"Contrasenya_Label";
@@ -298,14 +299,13 @@ namespace CppCLRWinFormsProject {
 			this->Background_PictureBox->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
 			this->Background_PictureBox->TabIndex = 12;
 			this->Background_PictureBox->TabStop = false;
-			this->Background_PictureBox->Image = Image::FromFile("background.png");
 			// 
 			// EmplenaTotsError_Label
 			// 
 			this->EmplenaTotsError_Label->AutoSize = true;
 			this->EmplenaTotsError_Label->BackColor = System::Drawing::SystemColors::Control;
-			this->EmplenaTotsError_Label->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
+			this->EmplenaTotsError_Label->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Regular,
+				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
 			this->EmplenaTotsError_Label->ForeColor = System::Drawing::Color::Red;
 			this->EmplenaTotsError_Label->Location = System::Drawing::Point(331, 510);
 			this->EmplenaTotsError_Label->Name = L"EmplenaTotsError_Label";
@@ -317,8 +317,8 @@ namespace CppCLRWinFormsProject {
 			// EduConnect_Label
 			// 
 			this->EduConnect_Label->AutoSize = true;
-			this->EduConnect_Label->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
+			this->EduConnect_Label->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Regular,
+				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
 			this->EduConnect_Label->ForeColor = System::Drawing::SystemColors::HotTrack;
 			this->EduConnect_Label->Location = System::Drawing::Point(332, 21);
 			this->EduConnect_Label->Name = L"EduConnect_Label";
@@ -342,6 +342,7 @@ namespace CppCLRWinFormsProject {
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedSingle;
 			this->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->Name = L"RegistreUsuariUI";
+			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterParent;
 			this->Text = L"EduConnect";
 			this->Main_Panel->ResumeLayout(false);
 			this->Main_Panel->PerformLayout();

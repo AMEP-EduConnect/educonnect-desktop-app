@@ -46,6 +46,7 @@ namespace CppCLRWinFormsProject {
 	private: System::Windows::Forms::Button^ CreateGrup_Button;
 	private: System::Windows::Forms::Panel^ FormPanel;
 	private: GrupEstudiService^ grupEstudiService;
+	private: System::Windows::Forms::PictureBox^ Background_PictureBox;
 
 
 	protected:
@@ -74,7 +75,9 @@ namespace CppCLRWinFormsProject {
 			this->GrupDescription_Label = (gcnew System::Windows::Forms::Label());
 			this->CreateGrup_Button = (gcnew System::Windows::Forms::Button());
 			this->FormPanel = (gcnew System::Windows::Forms::Panel());
+			this->Background_PictureBox = (gcnew System::Windows::Forms::PictureBox());
 			this->FormPanel->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->Background_PictureBox))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// PageTitle_Label
@@ -83,7 +86,7 @@ namespace CppCLRWinFormsProject {
 			this->PageTitle_Label->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->PageTitle_Label->ForeColor = System::Drawing::SystemColors::HotTrack;
-			this->PageTitle_Label->Location = System::Drawing::Point(85, 76);
+			this->PageTitle_Label->Location = System::Drawing::Point(218, 68);
 			this->PageTitle_Label->Name = L"PageTitle_Label";
 			this->PageTitle_Label->Size = System::Drawing::Size(262, 31);
 			this->PageTitle_Label->TabIndex = 0;
@@ -92,19 +95,19 @@ namespace CppCLRWinFormsProject {
 			// EduConnect_Label
 			// 
 			this->EduConnect_Label->AutoSize = true;
-			this->EduConnect_Label->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
+			this->EduConnect_Label->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Regular,
+				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
 			this->EduConnect_Label->ForeColor = System::Drawing::SystemColors::HotTrack;
-			this->EduConnect_Label->Location = System::Drawing::Point(91, 60);
+			this->EduConnect_Label->Location = System::Drawing::Point(224, 52);
 			this->EduConnect_Label->Name = L"EduConnect_Label";
-			this->EduConnect_Label->Size = System::Drawing::Size(95, 17);
+			this->EduConnect_Label->Size = System::Drawing::Size(80, 16);
 			this->EduConnect_Label->TabIndex = 1;
 			this->EduConnect_Label->Text = L"EduConnect";
 			// 
 			// GoBack_Button
 			// 
-			this->GoBack_Button->ForeColor = System::Drawing::SystemColors::HotTrack;
-			this->GoBack_Button->Location = System::Drawing::Point(1044, 621);
+			this->GoBack_Button->ForeColor = System::Drawing::Color::Red;
+			this->GoBack_Button->Location = System::Drawing::Point(800, 515);
 			this->GoBack_Button->Name = L"GoBack_Button";
 			this->GoBack_Button->Size = System::Drawing::Size(75, 23);
 			this->GoBack_Button->TabIndex = 2;
@@ -196,25 +199,38 @@ namespace CppCLRWinFormsProject {
 			this->FormPanel->Controls->Add(this->AcademicTag_ComboBox);
 			this->FormPanel->Controls->Add(this->FormGrupName_TextBox);
 			this->FormPanel->Controls->Add(this->AcademicTag_Label);
-			this->FormPanel->Location = System::Drawing::Point(91, 155);
+			this->FormPanel->Location = System::Drawing::Point(224, 118);
 			this->FormPanel->Name = L"FormPanel";
 			this->FormPanel->Size = System::Drawing::Size(454, 411);
 			this->FormPanel->TabIndex = 10;
+			// 
+			// Background_PictureBox
+			// 
+			this->Background_PictureBox->Location = System::Drawing::Point(-5, 555);
+			this->Background_PictureBox->Name = L"Background_PictureBox";
+			this->Background_PictureBox->Size = System::Drawing::Size(928, 265);
+			this->Background_PictureBox->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
+			this->Background_PictureBox->TabIndex = 16;
+			this->Background_PictureBox->TabStop = false;
 			// 
 			// GrupEstudi_CrearUI
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(1175, 680);
+			this->ClientSize = System::Drawing::Size(917, 657);
+			this->Controls->Add(this->Background_PictureBox);
 			this->Controls->Add(this->GoBack_Button);
 			this->Controls->Add(this->EduConnect_Label);
 			this->Controls->Add(this->PageTitle_Label);
 			this->Controls->Add(this->FormPanel);
+			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedSingle;
 			this->Name = L"GrupEstudi_CrearUI";
-			this->Text = L"Crear grup d\'estudi  - EduConnect";
+			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterParent;
+			this->Text = L"EduConnect";
 			this->Load += gcnew System::EventHandler(this, &GrupEstudi_CrearUI::GrupEstudi_CrearUI_Load);
 			this->FormPanel->ResumeLayout(false);
 			this->FormPanel->PerformLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->Background_PictureBox))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 

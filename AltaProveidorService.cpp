@@ -1,33 +1,25 @@
 #include "pch.h"
-
 #include "DatabaseConnector.h"
-#include "Proveidor.h"
 #include "AltaProveidorService.h"
-#include "ProveidorRepository.h"
 #include "MessageManager.h"
 AltaProveidorService::AltaProveidorService()
 {
-	proveidorRepository = gcnew ProveidorRepository();
+	usuariRepository = gcnew UsuariRepository();
+	usuariRolRepository = gcnew UsuariRolRepository();
+	credentialManagementService = gcnew CredentialManagementService();
 }
 bool AltaProveidorService::AltaProveidor( String^ username, String^ email, String^ name, String^ password)
 {
-	try {
-		if (this->CheckIfProveidorExists(username)) {
-			MessageManager::WarningMessage("El proveidor ja existeix!");
+		if (usuariRepository->CheckUsuariByUser(username) == true) {
+			MessageManager::WarningMessage("Existeix un proveidor/usuari amb aquest username!");
 			return false;
 		}
 		else {
 			MessageManager::InfoMessage("Proveidor donat d'alta");
-			return proveidorRepository->AltaProveidor(username, email, name, password);
-			
+			String^ hash = credentialManagementService->HashPassword(password);
+			Int64^ id_user = usuariRepository->CreateUser(username, email, name, hash);
+			Int64^ id_rol = 3LL;
+			return usuariRolRepository->CreateUserRol(id_user, id_rol);
 		}
-	}
-	catch (Exception^ e) {
-		MessageManager::ErrorMessage(e->Message);
-	}
 
-}
-bool AltaProveidorService::CheckIfProveidorExists(String^ username) {
-
-	return proveidorRepository->CheckIfProveidorExists(username);
 }

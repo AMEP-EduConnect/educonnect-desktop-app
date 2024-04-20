@@ -29,7 +29,7 @@ namespace CppCLRWinFormsProject {
 			//TODO: agregar código de constructor aquí
 			//
 			this->Icon = gcnew System::Drawing::Icon("app.ico");
-
+			this->Background_PictureBox->Image = Image::FromFile("background.png");
 
 		}
 
@@ -96,8 +96,7 @@ namespace CppCLRWinFormsProject {
 			this->NomUsuari_TextBox->Location = System::Drawing::Point(29, 46);
 			this->NomUsuari_TextBox->Name = L"NomUsuari_TextBox";
 			this->NomUsuari_TextBox->Size = System::Drawing::Size(197, 22);
-			this->NomUsuari_TextBox->TabIndex = 1;
-			this->NomUsuari_TextBox->TabStop = false;
+			this->NomUsuari_TextBox->TabIndex = 0;
 			// 
 			// Contrasenya_TextBox
 			// 
@@ -107,8 +106,7 @@ namespace CppCLRWinFormsProject {
 			this->Contrasenya_TextBox->Name = L"Contrasenya_TextBox";
 			this->Contrasenya_TextBox->PasswordChar = '*';
 			this->Contrasenya_TextBox->Size = System::Drawing::Size(197, 22);
-			this->Contrasenya_TextBox->TabIndex = 3;
-			this->Contrasenya_TextBox->TabStop = false;
+			this->Contrasenya_TextBox->TabIndex = 1;
 			// 
 			// IniciarSessio_Label
 			// 
@@ -130,7 +128,7 @@ namespace CppCLRWinFormsProject {
 			this->Continuar_Button->Location = System::Drawing::Point(29, 180);
 			this->Continuar_Button->Name = L"Continuar_Button";
 			this->Continuar_Button->Size = System::Drawing::Size(197, 23);
-			this->Continuar_Button->TabIndex = 5;
+			this->Continuar_Button->TabIndex = 2;
 			this->Continuar_Button->Text = L"Continuar";
 			this->Continuar_Button->UseVisualStyleBackColor = true;
 			this->Continuar_Button->Click += gcnew System::EventHandler(this, &IniciSessioUI::ContinuarIniciSessioButton_Click);
@@ -195,7 +193,7 @@ namespace CppCLRWinFormsProject {
 			this->GoBack_Button->Location = System::Drawing::Point(29, 224);
 			this->GoBack_Button->Name = L"GoBack_Button";
 			this->GoBack_Button->Size = System::Drawing::Size(197, 23);
-			this->GoBack_Button->TabIndex = 9;
+			this->GoBack_Button->TabIndex = 3;
 			this->GoBack_Button->Text = L"Tornar";
 			this->GoBack_Button->UseVisualStyleBackColor = true;
 			this->GoBack_Button->Click += gcnew System::EventHandler(this, &IniciSessioUI::GoBackButton_Click);
@@ -215,7 +213,7 @@ namespace CppCLRWinFormsProject {
 			// 
 			// Background_PictureBox
 			// 
-			this->Background_PictureBox->Location = System::Drawing::Point(-5, 544);
+			this->Background_PictureBox->Location = System::Drawing::Point(-5, 555);
 			this->Background_PictureBox->Name = L"Background_PictureBox";
 			this->Background_PictureBox->Size = System::Drawing::Size(928, 265);
 			this->Background_PictureBox->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
@@ -238,6 +236,7 @@ namespace CppCLRWinFormsProject {
 			this->ForeColor = System::Drawing::SystemColors::ActiveCaptionText;
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedSingle;
 			this->Name = L"IniciSessioUI";
+			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterParent;
 			this->Text = L"EduConnect";
 			this->Load += gcnew System::EventHandler(this, &IniciSessioUI::IniciSessioUI_Load);
 			this->Main_Panel->ResumeLayout(false);

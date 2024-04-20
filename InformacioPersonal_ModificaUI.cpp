@@ -12,14 +12,19 @@ namespace CppCLRWinFormsProject {
 	InformacioPersonal_ModificaUI::InformacioPersonal_ModificaUI(void)
 	{
 		InitializeComponent();
-		this->txModifica = gcnew TxPerfilPersonal_Modifica();
+		this->txModifica = gcnew PerfilPersonalModificaService();
 		this->textBox1->Validating += gcnew System::ComponentModel::CancelEventHandler(this, &InformacioPersonal_ModificaUI::Nickname_Validating);
 		this->textBox2->Validating += gcnew System::ComponentModel::CancelEventHandler(this, &InformacioPersonal_ModificaUI::Password_Validating);
 		this->textBox3->Validating += gcnew System::ComponentModel::CancelEventHandler(this, &InformacioPersonal_ModificaUI::Email_Validating);
+		this->Background_PictureBox->Image = Image::FromFile("background.png");
+		this->Icon = gcnew System::Drawing::Icon("app.ico");
 	}
 
 	void InformacioPersonal_ModificaUI::Cancelar_Click(System::Object^ sender, System::EventArgs^ e)
 	{
+		this->Hide();
+		InformacioPersonal_ConsultaUI^ form = gcnew InformacioPersonal_ConsultaUI();
+		form->ShowDialog();
 		this->Close();
 	}
 
@@ -30,7 +35,6 @@ namespace CppCLRWinFormsProject {
 			this->Hide();
 			InformacioPersonal_ConsultaUI^ form = gcnew InformacioPersonal_ConsultaUI();
 			form->ShowDialog();
-			this->Show();
 			this->Close();
 		}
 	}

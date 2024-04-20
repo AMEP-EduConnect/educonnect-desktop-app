@@ -22,7 +22,7 @@ namespace CppCLRWinFormsProject {
 			//TODO: agregar código de constructor aquí
 			//
 			this->Icon = gcnew System::Drawing::Icon("app.ico");
-
+			this->Background_PictureBox->Image = Image::FromFile("background.png");
 		}
 
 	protected:
@@ -73,22 +73,22 @@ namespace CppCLRWinFormsProject {
 			// Benvingut_Label
 			// 
 			this->Benvingut_Label->AutoSize = true;
-			this->Benvingut_Label->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->Benvingut_Label->Font = (gcnew System::Drawing::Font(L"SF Pro Display", 20.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->Benvingut_Label->ForeColor = System::Drawing::SystemColors::HotTrack;
-			this->Benvingut_Label->Location = System::Drawing::Point(263, 129);
+			this->Benvingut_Label->Location = System::Drawing::Point(282, 138);
 			this->Benvingut_Label->Name = L"Benvingut_Label";
-			this->Benvingut_Label->Size = System::Drawing::Size(377, 31);
+			this->Benvingut_Label->Size = System::Drawing::Size(340, 32);
 			this->Benvingut_Label->TabIndex = 7;
 			this->Benvingut_Label->Text = L"Benvingut/da a EduConnect";
 			// 
 			// EduConnect_Label
 			// 
 			this->EduConnect_Label->AutoSize = true;
-			this->EduConnect_Label->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->EduConnect_Label->Font = (gcnew System::Drawing::Font(L"SF Pro Display", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->EduConnect_Label->ForeColor = System::Drawing::SystemColors::HotTrack;
-			this->EduConnect_Label->Location = System::Drawing::Point(266, 116);
+			this->EduConnect_Label->Location = System::Drawing::Point(286, 125);
 			this->EduConnect_Label->Name = L"EduConnect_Label";
 			this->EduConnect_Label->Size = System::Drawing::Size(66, 13);
 			this->EduConnect_Label->TabIndex = 8;
@@ -106,7 +106,7 @@ namespace CppCLRWinFormsProject {
 			// 
 			// Registrarse_Button
 			// 
-			this->Registrarse_Button->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->Registrarse_Button->Font = (gcnew System::Drawing::Font(L"SF Pro Display", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->Registrarse_Button->ForeColor = System::Drawing::SystemColors::HotTrack;
 			this->Registrarse_Button->Location = System::Drawing::Point(28, 152);
@@ -119,7 +119,7 @@ namespace CppCLRWinFormsProject {
 			// 
 			// IniciSessio_Button
 			// 
-			this->IniciSessio_Button->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->IniciSessio_Button->Font = (gcnew System::Drawing::Font(L"SF Pro Display", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->IniciSessio_Button->ForeColor = System::Drawing::SystemColors::HotTrack;
 			this->IniciSessio_Button->Location = System::Drawing::Point(28, 45);
@@ -138,7 +138,6 @@ namespace CppCLRWinFormsProject {
 			this->Background_PictureBox->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
 			this->Background_PictureBox->TabIndex = 12;
 			this->Background_PictureBox->TabStop = false;
-			this->Background_PictureBox->Image = Image::FromFile("background.png");
 			// 
 			// FirstPageUI
 			// 
@@ -151,6 +150,7 @@ namespace CppCLRWinFormsProject {
 			this->Controls->Add(this->Benvingut_Label);
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedSingle;
 			this->Name = L"FirstPageUI";
+			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"EduConnect";
 			this->Main_Panel->ResumeLayout(false);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->Background_PictureBox))->EndInit();
