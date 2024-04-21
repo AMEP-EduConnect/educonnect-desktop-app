@@ -125,9 +125,6 @@
     <ClInclude Include="AltaProveidorUI.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="PerfilPersonalModificaService.h">
-      <Filter>Source Files\services</Filter>
-    </ClInclude>
     <ClInclude Include="BaixaProveidorUI.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -146,8 +143,8 @@
     <ClInclude Include="GrupUC.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="MyUserControl.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="PerfilPersonalModificaService.h">
+      <Filter>Source Files\services</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -253,9 +250,6 @@
     <ClCompile Include="AltaProveidorUI.cpp">
       <Filter>Source Files\ui</Filter>
     </ClCompile>
-    <ClCompile Include="PerfilPersonalModificaService.cpp">
-      <Filter>Source Files\services</Filter>
-    </ClCompile>
     <ClCompile Include="BaixaProveidorUI.cpp">
       <Filter>Source Files\ui</Filter>
     </ClCompile>
@@ -271,8 +265,8 @@
     <ClCompile Include="GrupUC.cpp">
       <Filter>Source Files\ui</Filter>
     </ClCompile>
-    <ClCompile Include="MyUserControl.cpp">
-      <Filter>Header Files</Filter>
+    <ClCompile Include="PerfilPersonalModificaService.cpp">
+      <Filter>Source Files\services</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

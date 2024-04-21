@@ -20,9 +20,9 @@ using namespace System;
 #include "Usuari.h"
 #include "RegistreUsuariUI.h"
 #include "IniciSessioUI.h"
-using namespace System;
 #include "InformacioPersonal_ConsultaUI.h"
 
+using namespace System;
 using namespace System::Windows::Forms;
 
 [STAThread]
