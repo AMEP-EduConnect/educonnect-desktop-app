@@ -13,8 +13,12 @@ using namespace System;
 namespace CppCLRWinFormsProject {
 
     void FirstPageUI::IniciSessioButton_Click(System::Object^ sender, System::EventArgs^ e) {
-        this->Hide();
+        /*this->Hide();
         IniciSessioUI^ form = gcnew IniciSessioUI();
+        form->ShowDialog();
+        this->Close();*/
+        this->Hide();
+        CaptchaUI^ form = gcnew CaptchaUI();
         form->ShowDialog();
         this->Close();
     }

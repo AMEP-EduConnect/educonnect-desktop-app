@@ -50,6 +50,7 @@ namespace CppCLRWinFormsProject {
         if (textBox != nullptr) {
             if (!IsValidEmail(textBox->Text) and textBox->Text != "") {
                 MessageBox::Show("El correu electrònic no té un format vàlid.", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+                this->textBox2->Text = "";
                 //e->Cancel = true; // Esto previene que el foco cambie al siguiente control si la validación falla.
             }
             else {

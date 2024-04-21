@@ -21,6 +21,7 @@ using namespace System;
 #include "RegistreUsuariUI.h"
 #include "IniciSessioUI.h"
 #include "BaixaUsuariUI.h"
+#include "CaptchaUI.h"
 using namespace System;
 #include "InformacioPersonal_ConsultaUI.h"
 #include "InformacioPersonal_ModificaUI.h"
@@ -36,6 +37,7 @@ int main()
 	Application::EnableVisualStyles();
 	Application::SetCompatibleTextRenderingDefault(false);
 	Application::Run(gcnew CppCLRWinFormsProject::FirstPageUI());
+	//Application::Run(gcnew CppCLRWinFormsProject::CaptchaUI());
 	//Application::Run(gcnew CppCLRWinFormsProject::InformacioPersonal_ConsultaUI());
 	//Application::Run(gcnew CppCLRWinFormsProject::IniciSessio());
 	//Application::Run(gcnew CppCLRWinFormsProject::RegistreUsuari());

@@ -1,5 +1,5 @@
 #pragma once
-
+#include "CaptchaUI.h"
 namespace CppCLRWinFormsProject {
 
 	using namespace System;

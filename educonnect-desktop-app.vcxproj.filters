@@ -158,6 +158,9 @@
     <ClInclude Include="CredentialManagementService.h">
       <Filter>Source Files\services</Filter>
     </ClInclude>
+    <ClInclude Include="CaptchaUI.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AssemblyInfo.cpp">
@@ -291,6 +294,9 @@
     </ClCompile>
     <ClCompile Include="CredentialManagementService.cpp">
       <Filter>Source Files\services</Filter>
+    </ClCompile>
+    <ClCompile Include="CaptchaUI.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
