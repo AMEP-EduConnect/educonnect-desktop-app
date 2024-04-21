@@ -4,7 +4,9 @@
 #include "PerfilPersonalModificaService.h"
 #include "MessageManager.h"
 #include "MainPageUI.h"
+#include "BaixaUsuariUI.h"
 #include "Utils.h"
+#include "CredentialManagementService.h"
 #include <iostream>
 #include <string>
 
@@ -57,6 +59,7 @@ namespace CppCLRWinFormsProject {
 	private: System::Windows::Forms::Label^ label2;
 	private: PerfilPersonalModificaService^ txModifica;
 	private: PerfilPersonalConsultaService^ txConsulta;
+	private: CredentialManagementService^ credentialManagementService;
 	private: String^ username;
 	private: String^ password;
 	private: String^ email;
@@ -101,9 +104,7 @@ namespace CppCLRWinFormsProject {
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->button2 = (gcnew System::Windows::Forms::Button());
 			this->panel1->SuspendLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->Background_PictureBox))->BeginInit();
 			this->tableLayoutPanel1->SuspendLayout();
-			this->panel2->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// panel1
@@ -211,7 +212,6 @@ namespace CppCLRWinFormsProject {
 			this->label5->Size = System::Drawing::Size(129, 20);
 			this->label5->TabIndex = 3;
 			this->label5->Text = L"Correu electr�nic";
-			this->label5->Click += gcnew System::EventHandler(this, &InformacioPersonal_ConsultaUI::label5_Click);
 			// 
 			// label3
 			// 
@@ -302,23 +302,11 @@ namespace CppCLRWinFormsProject {
 			this->button2->UseVisualStyleBackColor = true;
 			this->button2->Click += gcnew System::EventHandler(this, &InformacioPersonal_ConsultaUI::Elimina_Click);
 			// 
-			// panel2
-			// 
-			this->panel2->Controls->Add(this->button3);
-			this->panel2->Controls->Add(this->button2);
-			this->panel2->Location = System::Drawing::Point(649, 385);
-			this->panel2->Name = L"panel2";
-			this->panel2->Size = System::Drawing::Size(162, 100);
-			this->panel2->TabIndex = 16;
-			// 
 			// InformacioPersonal_ConsultaUI
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(814, 537);
-			this->Controls->Add(this->Background_PictureBox);
-			this->Controls->Add(this->label2);
-			this->Controls->Add(this->panel1);
 			this->Controls->Add(this->tableLayoutPanel1);
 			this->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
@@ -332,11 +320,9 @@ namespace CppCLRWinFormsProject {
 			this->Load += gcnew System::EventHandler(this, &InformacioPersonal_ConsultaUI::InformacioPersonal_ConsultaUI_Load);
 			this->panel1->ResumeLayout(false);
 			this->panel1->PerformLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->Background_PictureBox))->EndInit();
 			this->tableLayoutPanel1->ResumeLayout(false);
-			this->panel2->ResumeLayout(false);
+			this->tableLayoutPanel1->PerformLayout();
 			this->ResumeLayout(false);
-			this->PerformLayout();
 
 		}
 #pragma endregion
@@ -354,9 +340,9 @@ namespace CppCLRWinFormsProject {
 	}
 	private: System::Void panel1_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
 	}
-private: System::Void tableLayoutPanel1_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
-}
-private: System::Void textBox2_TextChanged(System::Object^ sender, System::EventArgs^ e) {
-}
-};
+	private: System::Void tableLayoutPanel1_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
+	}
+	private: System::Void textBox2_TextChanged(System::Object^ sender, System::EventArgs^ e) {
+	}
+	};
 }
