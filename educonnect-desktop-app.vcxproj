@@ -265,9 +265,6 @@
     <ClInclude Include="InformacioPersonal_ConsultaUI.h">
       <FileType>CppForm</FileType>
     </ClInclude>
-    <ClInclude Include="InformacioPersonal_ModificaUI.h">
-      <FileType>CppForm</FileType>
-    </ClInclude>
     <ClInclude Include="AltaProveidorUI.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -305,7 +302,6 @@
     <ClCompile Include="CurrentSession.cpp" />
     <ClCompile Include="DatabaseConnector.cpp" />
     <ClCompile Include="InformacioPersonal_ConsultaUI.cpp" />
-    <ClCompile Include="InformacioPersonal_ModificaUI.cpp" />
     <ClCompile Include="IniciSessioUI.cpp" />
     <ClCompile Include="FirstPageUI.cpp" />
     <ClCompile Include="GrupEstudi.cpp" />
@@ -396,9 +392,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="InformacioPersonal_ConsultaUI.resx">
       <DependentUpon>InformacioPersonal_ConsultaUI.h</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="InformacioPersonal_ModificaUI.resx">
-      <DependentUpon>InformacioPersonal_ModificaUI.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RegistreUsuariUI.resx">
       <DependentUpon>RegistreUsuariUI.h</DependentUpon>
