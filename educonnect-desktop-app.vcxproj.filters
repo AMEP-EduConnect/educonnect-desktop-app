@@ -146,6 +146,12 @@
     <ClInclude Include="IniciUI.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="GrupUC.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MyUserControl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AssemblyInfo.cpp">
@@ -267,6 +273,12 @@
     </ClCompile>
     <ClCompile Include="IniciUI.cpp">
       <Filter>Source Files\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="GrupUC.cpp">
+      <Filter>Source Files\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="MyUserControl.cpp">
+      <Filter>Header Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

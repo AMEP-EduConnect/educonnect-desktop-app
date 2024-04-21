@@ -243,6 +243,7 @@
     <ClInclude Include="FirstPageUI.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="GrupUC.h" />
     <ClInclude Include="IniciSessioUI.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -264,6 +265,9 @@
     </ClInclude>
     <ClInclude Include="BaixaProveidorUI.h">
       <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="MyUserControl.h">
+      <FileType>CppControl</FileType>
     </ClInclude>
     <ClInclude Include="pch.h" />
     <ClInclude Include="PerfilPersonalModificaService.h" />
@@ -290,6 +294,7 @@
     <ClCompile Include="CppCLR_WinFormsProject.cpp" />
     <ClCompile Include="CurrentSession.cpp" />
     <ClCompile Include="DatabaseConnector.cpp" />
+    <ClCompile Include="GrupUC.cpp" />
     <ClCompile Include="InformacioPersonal_ConsultaUI.cpp" />
     <ClCompile Include="InformacioPersonal_ModificaUI.cpp" />
     <ClCompile Include="IniciSessioUI.cpp" />
@@ -307,6 +312,7 @@
     <ClCompile Include="IniciUI.cpp" />
     <ClCompile Include="MainPageUI.cpp" />
     <ClCompile Include="MessageManager.cpp" />
+    <ClCompile Include="MyUserControl.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='EduConnect|x64'">Create</PrecompiledHeader>
@@ -378,6 +384,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="InformacioPersonal_ModificaUI.resx">
       <DependentUpon>InformacioPersonal_ModificaUI.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyUserControl.resx">
+      <DependentUpon>MyUserControl.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RegistreUsuariUI.resx">
       <DependentUpon>RegistreUsuariUI.h</DependentUpon>

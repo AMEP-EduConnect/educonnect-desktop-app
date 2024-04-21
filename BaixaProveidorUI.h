@@ -129,7 +129,7 @@ namespace CppCLRWinFormsProject {
 			   this->PageTitleLabel->AutoSize = true;
 			   this->PageTitleLabel->Font = (gcnew System::Drawing::Font(L"Inter", 20.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				   static_cast<System::Byte>(0)));
-			   this->PageTitleLabel->Location = System::Drawing::Point(251, 25);
+			   this->PageTitleLabel->Location = System::Drawing::Point(232, 23);
 			   this->PageTitleLabel->Name = L"PageTitleLabel";
 			   this->PageTitleLabel->Size = System::Drawing::Size(347, 33);
 			   this->PageTitleLabel->TabIndex = 13;
@@ -139,20 +139,20 @@ namespace CppCLRWinFormsProject {
 			   // 
 			   this->tableLayoutPanel1->ColumnCount = 3;
 			   this->tableLayoutPanel1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
-				   34.33544F)));
+				   20)));
 			   this->tableLayoutPanel1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
-				   65.66456F)));
-			   this->tableLayoutPanel1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Absolute,
-				   181)));
+				   60)));
+			   this->tableLayoutPanel1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
+				   20)));
 			   this->tableLayoutPanel1->Controls->Add(this->PageTitleLabel, 1, 0);
 			   this->tableLayoutPanel1->Controls->Add(this->panel1, 1, 1);
 			   this->tableLayoutPanel1->Dock = System::Windows::Forms::DockStyle::Fill;
 			   this->tableLayoutPanel1->Location = System::Drawing::Point(0, 0);
 			   this->tableLayoutPanel1->Name = L"tableLayoutPanel1";
 			   this->tableLayoutPanel1->RowCount = 3;
-			   this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 21.84211F)));
-			   this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 78.1579F)));
-			   this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Absolute, 156)));
+			   this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 15)));
+			   this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 60)));
+			   this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 25)));
 			   this->tableLayoutPanel1->Size = System::Drawing::Size(814, 537);
 			   this->tableLayoutPanel1->TabIndex = 14;
 			   // 
@@ -164,7 +164,7 @@ namespace CppCLRWinFormsProject {
 			   this->panel1->Controls->Add(this->BaixaProveidorTextBox);
 			   this->panel1->Controls->Add(this->BaixaProveidorButton);
 			   this->panel1->ForeColor = System::Drawing::SystemColors::GradientInactiveCaption;
-			   this->panel1->Location = System::Drawing::Point(264, 131);
+			   this->panel1->Location = System::Drawing::Point(245, 140);
 			   this->panel1->Name = L"panel1";
 			   this->panel1->Size = System::Drawing::Size(321, 201);
 			   this->panel1->TabIndex = 15;

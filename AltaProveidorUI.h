@@ -203,7 +203,7 @@ namespace CppCLRWinFormsProject {
 			   this->label6->AutoSize = true;
 			   this->label6->Font = (gcnew System::Drawing::Font(L"Inter", 20.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				   static_cast<System::Byte>(0)));
-			   this->label6->Location = System::Drawing::Point(249, 22);
+			   this->label6->Location = System::Drawing::Point(251, 23);
 			   this->label6->Name = L"label6";
 			   this->label6->Size = System::Drawing::Size(309, 33);
 			   this->label6->TabIndex = 13;
@@ -213,20 +213,20 @@ namespace CppCLRWinFormsProject {
 			   // 
 			   this->tableLayoutPanel1->ColumnCount = 3;
 			   this->tableLayoutPanel1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
-				   19.00258F)));
+				   20)));
 			   this->tableLayoutPanel1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
-				   61.30696F)));
+				   60)));
 			   this->tableLayoutPanel1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
-				   19.60447F)));
+				   20)));
 			   this->tableLayoutPanel1->Controls->Add(this->tableLayoutPanel3, 1, 1);
 			   this->tableLayoutPanel1->Controls->Add(this->label6, 1, 0);
 			   this->tableLayoutPanel1->Dock = System::Windows::Forms::DockStyle::Fill;
 			   this->tableLayoutPanel1->Location = System::Drawing::Point(0, 0);
 			   this->tableLayoutPanel1->Name = L"tableLayoutPanel1";
 			   this->tableLayoutPanel1->RowCount = 3;
-			   this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 14.33892F)));
-			   this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 58.65922F)));
-			   this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 26.82563F)));
+			   this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 15)));
+			   this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 60)));
+			   this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 25)));
 			   this->tableLayoutPanel1->Size = System::Drawing::Size(814, 537);
 			   this->tableLayoutPanel1->TabIndex = 16;
 			   // 
@@ -239,7 +239,7 @@ namespace CppCLRWinFormsProject {
 				   50)));
 			   this->tableLayoutPanel3->Controls->Add(this->button1, 0, 1);
 			   this->tableLayoutPanel3->Controls->Add(this->tableLayoutPanel2, 0, 0);
-			   this->tableLayoutPanel3->Location = System::Drawing::Point(215, 116);
+			   this->tableLayoutPanel3->Location = System::Drawing::Point(218, 122);
 			   this->tableLayoutPanel3->Name = L"tableLayoutPanel3";
 			   this->tableLayoutPanel3->RowCount = 2;
 			   this->tableLayoutPanel3->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 80)));

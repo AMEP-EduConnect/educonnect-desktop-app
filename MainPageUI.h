@@ -216,7 +216,7 @@ namespace CppCLRWinFormsProject {
 			this->BotoAdmin->Name = L"BotoAdmin";
 			this->BotoAdmin->Size = System::Drawing::Size(220, 40);
 			this->BotoAdmin->TabIndex = 33;
-			this->BotoAdmin->Text = L"Administrador";
+			this->BotoAdmin->Text = L"  Administrador";
 			this->BotoAdmin->TextAlign = System::Drawing::ContentAlignment::MiddleLeft;
 			this->BotoAdmin->TextImageRelation = System::Windows::Forms::TextImageRelation::ImageBeforeText;
 			this->BotoAdmin->UseVisualStyleBackColor = true;
@@ -243,7 +243,7 @@ namespace CppCLRWinFormsProject {
 			this->BotoEspais->Name = L"BotoEspais";
 			this->BotoEspais->Size = System::Drawing::Size(220, 40);
 			this->BotoEspais->TabIndex = 31;
-			this->BotoEspais->Text = L"Espais";
+			this->BotoEspais->Text = L"  Espais";
 			this->BotoEspais->TextAlign = System::Drawing::ContentAlignment::MiddleLeft;
 			this->BotoEspais->TextImageRelation = System::Windows::Forms::TextImageRelation::ImageBeforeText;
 			this->BotoEspais->UseVisualStyleBackColor = true;
@@ -269,7 +269,7 @@ namespace CppCLRWinFormsProject {
 			this->BotoSessions->Name = L"BotoSessions";
 			this->BotoSessions->Size = System::Drawing::Size(220, 40);
 			this->BotoSessions->TabIndex = 29;
-			this->BotoSessions->Text = L"Sessions";
+			this->BotoSessions->Text = L"  Sessions";
 			this->BotoSessions->TextAlign = System::Drawing::ContentAlignment::MiddleLeft;
 			this->BotoSessions->TextImageRelation = System::Windows::Forms::TextImageRelation::ImageBeforeText;
 			this->BotoSessions->UseVisualStyleBackColor = true;
@@ -287,7 +287,7 @@ namespace CppCLRWinFormsProject {
 			this->BotoElsMeus->Name = L"BotoElsMeus";
 			this->BotoElsMeus->Size = System::Drawing::Size(220, 40);
 			this->BotoElsMeus->TabIndex = 28;
-			this->BotoElsMeus->Text = L"Els meus grups";
+			this->BotoElsMeus->Text = L"  Els meus grups";
 			this->BotoElsMeus->TextAlign = System::Drawing::ContentAlignment::MiddleLeft;
 			this->BotoElsMeus->TextImageRelation = System::Windows::Forms::TextImageRelation::ImageBeforeText;
 			this->BotoElsMeus->UseVisualStyleBackColor = true;
@@ -305,7 +305,7 @@ namespace CppCLRWinFormsProject {
 			this->BotoExplorar->Name = L"BotoExplorar";
 			this->BotoExplorar->Size = System::Drawing::Size(220, 40);
 			this->BotoExplorar->TabIndex = 27;
-			this->BotoExplorar->Text = L"Explorar Grups";
+			this->BotoExplorar->Text = L"  Explorar Grups";
 			this->BotoExplorar->TextAlign = System::Drawing::ContentAlignment::MiddleLeft;
 			this->BotoExplorar->TextImageRelation = System::Windows::Forms::TextImageRelation::ImageBeforeText;
 			this->BotoExplorar->UseVisualStyleBackColor = true;
@@ -404,6 +404,7 @@ namespace CppCLRWinFormsProject {
 
 	
 		
+
 
 };
 }
