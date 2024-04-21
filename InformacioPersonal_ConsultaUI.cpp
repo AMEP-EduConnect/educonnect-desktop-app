@@ -28,7 +28,7 @@ namespace CppCLRWinFormsProject {
 
 	void InformacioPersonal_ConsultaUI::Edita_Click(System::Object^ sender, System::EventArgs^ e)
 	{
-		if (textBox1->Text == username and textBox1->Text == "" and textBox3->Text == email and textBox3->Text == "" and textBox4->Text == name and textBox2->Text == "") {
+		if ((textBox1->Text == username or textBox1->Text == "") and (textBox3->Text == email or textBox3->Text == "") and textBox4->Text == name and textBox2->Text == "") {
 			MessageBox::Show("Modifica almenys un camp per a actualitzar l'usuari!", "Actualitza usuari", MessageBoxButtons::OK);
 		}
 		else {
