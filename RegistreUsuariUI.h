@@ -344,6 +344,7 @@ namespace CppCLRWinFormsProject {
 			this->Name = L"RegistreUsuariUI";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterParent;
 			this->Text = L"EduConnect";
+			this->Load += gcnew System::EventHandler(this, &RegistreUsuariUI::RegistreUsuariUI_Load);
 			this->Main_Panel->ResumeLayout(false);
 			this->Main_Panel->PerformLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->Background_PictureBox))->EndInit();
@@ -358,5 +359,7 @@ namespace CppCLRWinFormsProject {
 	private: System::Void GoBackButton_Click(System::Object^ sender, System::EventArgs^ e);
 
 
-	};
+	private: System::Void RegistreUsuariUI_Load(System::Object^ sender, System::EventArgs^ e) {
+	}
+};
 }

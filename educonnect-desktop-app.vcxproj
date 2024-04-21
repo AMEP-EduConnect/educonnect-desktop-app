@@ -257,9 +257,6 @@
     <ClInclude Include="InformacioPersonal_ConsultaUI.h">
       <FileType>CppForm</FileType>
     </ClInclude>
-    <ClInclude Include="InformacioPersonal_ModificaUI.h">
-      <FileType>CppForm</FileType>
-    </ClInclude>
     <ClInclude Include="AltaProveidorUI.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -296,7 +293,6 @@
     <ClCompile Include="DatabaseConnector.cpp" />
     <ClCompile Include="GrupUC.cpp" />
     <ClCompile Include="InformacioPersonal_ConsultaUI.cpp" />
-    <ClCompile Include="InformacioPersonal_ModificaUI.cpp" />
     <ClCompile Include="IniciSessioUI.cpp" />
     <ClCompile Include="FirstPageUI.cpp" />
     <ClCompile Include="GrupEstudi.cpp" />
