@@ -130,7 +130,7 @@ namespace CppCLRWinFormsProject {
 			this->button_elim_usuari->Anchor = System::Windows::Forms::AnchorStyles::None;
 			this->button_elim_usuari->BackColor = System::Drawing::SystemColors::GradientInactiveCaption;
 			this->button_elim_usuari->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->button_elim_usuari->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->button_elim_usuari->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->button_elim_usuari->ImageAlign = System::Drawing::ContentAlignment::MiddleLeft;
 			this->button_elim_usuari->Location = System::Drawing::Point(7, 219);
@@ -146,7 +146,7 @@ namespace CppCLRWinFormsProject {
 			this->BotoReports->Anchor = System::Windows::Forms::AnchorStyles::None;
 			this->BotoReports->BackColor = System::Drawing::SystemColors::GradientInactiveCaption;
 			this->BotoReports->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->BotoReports->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->BotoReports->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->BotoReports->ImageAlign = System::Drawing::ContentAlignment::MiddleLeft;
 			this->BotoReports->Location = System::Drawing::Point(7, 172);
@@ -160,12 +160,12 @@ namespace CppCLRWinFormsProject {
 			// 
 			this->label2->Anchor = System::Windows::Forms::AnchorStyles::None;
 			this->label2->AutoSize = true;
-			this->label2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->label2->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label2->ForeColor = System::Drawing::SystemColors::HotTrack;
 			this->label2->Location = System::Drawing::Point(3, 150);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(70, 20);
+			this->label2->Size = System::Drawing::Size(69, 19);
 			this->label2->TabIndex = 21;
 			this->label2->Text = L"Usuaris";
 			// 
@@ -173,12 +173,12 @@ namespace CppCLRWinFormsProject {
 			// 
 			this->label1->Anchor = System::Windows::Forms::AnchorStyles::None;
 			this->label1->AutoSize = true;
-			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->label1->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label1->ForeColor = System::Drawing::SystemColors::HotTrack;
 			this->label1->Location = System::Drawing::Point(3, 12);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(93, 20);
+			this->label1->Size = System::Drawing::Size(95, 19);
 			this->label1->TabIndex = 20;
 			this->label1->Text = L"Proveidors";
 			// 
@@ -187,7 +187,7 @@ namespace CppCLRWinFormsProject {
 			this->BotoBaixa->Anchor = System::Windows::Forms::AnchorStyles::None;
 			this->BotoBaixa->BackColor = System::Drawing::SystemColors::GradientInactiveCaption;
 			this->BotoBaixa->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->BotoBaixa->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->BotoBaixa->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->BotoBaixa->ImageAlign = System::Drawing::ContentAlignment::MiddleLeft;
 			this->BotoBaixa->Location = System::Drawing::Point(7, 81);
@@ -203,7 +203,7 @@ namespace CppCLRWinFormsProject {
 			this->BotoAlta->Anchor = System::Windows::Forms::AnchorStyles::None;
 			this->BotoAlta->BackColor = System::Drawing::SystemColors::GradientInactiveCaption;
 			this->BotoAlta->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->BotoAlta->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->BotoAlta->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->BotoAlta->ImageAlign = System::Drawing::ContentAlignment::MiddleLeft;
 			this->BotoAlta->Location = System::Drawing::Point(7, 34);
@@ -218,12 +218,12 @@ namespace CppCLRWinFormsProject {
 			// 
 			this->label6->Anchor = System::Windows::Forms::AnchorStyles::None;
 			this->label6->AutoSize = true;
-			this->label6->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->label6->Font = (gcnew System::Drawing::Font(L"Inter", 20.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label6->ForeColor = System::Drawing::SystemColors::HotTrack;
-			this->label6->Location = System::Drawing::Point(268, 19);
+			this->label6->Location = System::Drawing::Point(264, 18);
 			this->label6->Name = L"label6";
-			this->label6->Size = System::Drawing::Size(302, 31);
+			this->label6->Size = System::Drawing::Size(310, 33);
 			this->label6->TabIndex = 14;
 			this->label6->Text = L"Panell d\'administrador";
 			// 

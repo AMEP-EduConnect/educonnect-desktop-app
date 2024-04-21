@@ -33,7 +33,9 @@ namespace CppCLRWinFormsProject {
 		bool Repeat_Validating();
 		bool IsValidEmail(String^ email);
 		bool IsPasswordStrong(String^ password);
-	private: System::Windows::Forms::Button^ BotoReports;
+	private: System::Windows::Forms::Button^ BotoElimina;
+	public:
+
 	private: System::Windows::Forms::Panel^ panel2;
 	public:
 		bool UserIsEditing = false;
@@ -108,9 +110,9 @@ namespace CppCLRWinFormsProject {
 			this->label4 = (gcnew System::Windows::Forms::Label());
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->tableLayoutPanel1 = (gcnew System::Windows::Forms::TableLayoutPanel());
-			this->button1 = (gcnew System::Windows::Forms::Button());
-			this->BotoReports = (gcnew System::Windows::Forms::Button());
 			this->panel2 = (gcnew System::Windows::Forms::Panel());
+			this->button1 = (gcnew System::Windows::Forms::Button());
+			this->BotoElimina = (gcnew System::Windows::Forms::Button());
 			this->panel1->SuspendLayout();
 			this->tableLayoutPanel1->SuspendLayout();
 			this->panel2->SuspendLayout();
@@ -233,7 +235,7 @@ namespace CppCLRWinFormsProject {
 				static_cast<System::Byte>(0)));
 			this->label5->Location = System::Drawing::Point(12, 128);
 			this->label5->Name = L"label5";
-			this->label5->Size = System::Drawing::Size(141, 19);
+			this->label5->Size = System::Drawing::Size(138, 19);
 			this->label5->TabIndex = 3;
 			this->label5->Text = L"Correu electr�nic";
 			// 
@@ -284,7 +286,7 @@ namespace CppCLRWinFormsProject {
 				20)));
 			this->tableLayoutPanel1->Controls->Add(this->label2, 1, 0);
 			this->tableLayoutPanel1->Controls->Add(this->panel2, 1, 1);
-			this->tableLayoutPanel1->Controls->Add(this->BotoReports, 1, 2);
+			this->tableLayoutPanel1->Controls->Add(this->BotoElimina, 1, 2);
 			this->tableLayoutPanel1->Dock = System::Windows::Forms::DockStyle::Fill;
 			this->tableLayoutPanel1->Location = System::Drawing::Point(0, 0);
 			this->tableLayoutPanel1->Name = L"tableLayoutPanel1";
@@ -295,6 +297,16 @@ namespace CppCLRWinFormsProject {
 			this->tableLayoutPanel1->Size = System::Drawing::Size(814, 537);
 			this->tableLayoutPanel1->TabIndex = 9;
 			this->tableLayoutPanel1->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &InformacioPersonal_ConsultaUI::tableLayoutPanel1_Paint);
+			// 
+			// panel2
+			// 
+			this->panel2->Anchor = System::Windows::Forms::AnchorStyles::None;
+			this->panel2->Controls->Add(this->panel1);
+			this->panel2->Controls->Add(this->button1);
+			this->panel2->Location = System::Drawing::Point(165, 88);
+			this->panel2->Name = L"panel2";
+			this->panel2->Size = System::Drawing::Size(482, 357);
+			this->panel2->TabIndex = 24;
 			// 
 			// button1
 			// 
@@ -309,31 +321,22 @@ namespace CppCLRWinFormsProject {
 			this->button1->UseVisualStyleBackColor = true;
 			this->button1->Click += gcnew System::EventHandler(this, &InformacioPersonal_ConsultaUI::Edita_Click);
 			// 
-			// BotoReports
+			// BotoElimina
 			// 
-			this->BotoReports->Anchor = System::Windows::Forms::AnchorStyles::None;
-			this->BotoReports->BackColor = System::Drawing::SystemColors::GradientInactiveCaption;
-			this->BotoReports->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->BotoReports->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->BotoElimina->Anchor = System::Windows::Forms::AnchorStyles::None;
+			this->BotoElimina->BackColor = System::Drawing::SystemColors::GradientInactiveCaption;
+			this->BotoElimina->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->BotoElimina->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->BotoReports->ForeColor = System::Drawing::SystemColors::ControlText;
-			this->BotoReports->ImageAlign = System::Drawing::ContentAlignment::MiddleLeft;
-			this->BotoReports->Location = System::Drawing::Point(284, 474);
-			this->BotoReports->Name = L"BotoReports";
-			this->BotoReports->Size = System::Drawing::Size(243, 41);
-			this->BotoReports->TabIndex = 23;
-			this->BotoReports->Text = L"Eliminar usuari";
-			this->BotoReports->UseVisualStyleBackColor = false;
-			// 
-			// panel2
-			// 
-			this->panel2->Anchor = System::Windows::Forms::AnchorStyles::None;
-			this->panel2->Controls->Add(this->panel1);
-			this->panel2->Controls->Add(this->button1);
-			this->panel2->Location = System::Drawing::Point(165, 83);
-			this->panel2->Name = L"panel2";
-			this->panel2->Size = System::Drawing::Size(482, 357);
-			this->panel2->TabIndex = 24;
+			this->BotoElimina->ForeColor = System::Drawing::SystemColors::ControlText;
+			this->BotoElimina->ImageAlign = System::Drawing::ContentAlignment::MiddleLeft;
+			this->BotoElimina->Location = System::Drawing::Point(284, 474);
+			this->BotoElimina->Name = L"BotoElimina";
+			this->BotoElimina->Size = System::Drawing::Size(243, 41);
+			this->BotoElimina->TabIndex = 23;
+			this->BotoElimina->Text = L"Eliminar usuari";
+			this->BotoElimina->UseVisualStyleBackColor = false;
+			this->BotoElimina->Click += gcnew System::EventHandler(this, &InformacioPersonal_ConsultaUI::BotoElimina_Click);
 			// 
 			// InformacioPersonal_ConsultaUI
 			// 
@@ -367,7 +370,6 @@ namespace CppCLRWinFormsProject {
 	private: System::Void label3_Click(System::Object^ sender, System::EventArgs^ e) {
 	}
 	private: System::Void Edita_Click(System::Object^ sender, System::EventArgs^ e);
-	private: System::Void Elimina_Click(System::Object^ sender, System::EventArgs^ e);
 	private: System::Void textBox1_TextChanged(System::Object^ sender, System::EventArgs^ e) {
 	}
 	private: System::Void label2_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -378,5 +380,6 @@ namespace CppCLRWinFormsProject {
 	}
 	private: System::Void textBox2_TextChanged(System::Object^ sender, System::EventArgs^ e) {
 	}
-	};
+	private: System::Void BotoElimina_Click(System::Object^ sender, System::EventArgs^ e);
+};
 }

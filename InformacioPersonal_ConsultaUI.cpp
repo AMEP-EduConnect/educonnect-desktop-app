@@ -83,7 +83,7 @@ namespace CppCLRWinFormsProject {
 		}
 	}
 
-	void InformacioPersonal_ConsultaUI::Elimina_Click(System::Object^ sender, System::EventArgs^ e)
+	void InformacioPersonal_ConsultaUI::BotoElimina_Click(System::Object^ sender, System::EventArgs^ e)
 	{
 		BaixaUsuariUI^ PanelUI = gcnew BaixaUsuariUI();
 		PanelUI->TopLevel = false;
