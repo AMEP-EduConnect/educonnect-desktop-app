@@ -93,9 +93,9 @@ namespace CppCLRWinFormsProject {
 			   this->BaixaProveidorButton->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				   static_cast<System::Byte>(0)));
 			   this->BaixaProveidorButton->ForeColor = System::Drawing::SystemColors::HotTrack;
-			   this->BaixaProveidorButton->Location = System::Drawing::Point(88, 141);
+			   this->BaixaProveidorButton->Location = System::Drawing::Point(92, 155);
 			   this->BaixaProveidorButton->Name = L"BaixaProveidorButton";
-			   this->BaixaProveidorButton->Size = System::Drawing::Size(135, 34);
+			   this->BaixaProveidorButton->Size = System::Drawing::Size(135, 35);
 			   this->BaixaProveidorButton->TabIndex = 0;
 			   this->BaixaProveidorButton->Text = L"Confirma";
 			   this->BaixaProveidorButton->UseVisualStyleBackColor = true;
@@ -119,9 +119,9 @@ namespace CppCLRWinFormsProject {
 			   this->BaixaProveidorLabel->ForeColor = System::Drawing::SystemColors::HotTrack;
 			   this->BaixaProveidorLabel->Location = System::Drawing::Point(24, 61);
 			   this->BaixaProveidorLabel->Name = L"BaixaProveidorLabel";
-			   this->BaixaProveidorLabel->Size = System::Drawing::Size(113, 19);
+			   this->BaixaProveidorLabel->Size = System::Drawing::Size(109, 19);
 			   this->BaixaProveidorLabel->TabIndex = 7;
-			   this->BaixaProveidorLabel->Text = L"Nom d\'usuari:";
+			   this->BaixaProveidorLabel->Text = L"Nom d\'usuari";
 			   // 
 			   // PageTitleLabel
 			   // 

@@ -28,16 +28,58 @@ namespace CppCLRWinFormsProject {
 
 	void InformacioPersonal_ConsultaUI::Edita_Click(System::Object^ sender, System::EventArgs^ e)
 	{
-		if ((textBox1->Text == username or textBox1->Text == "") and (textBox3->Text == email or textBox3->Text == "") and textBox4->Text == name and textBox2->Text == "") {
-			MessageBox::Show("Modifica almenys un camp per a actualitzar l'usuari!", "Actualitza usuari", MessageBoxButtons::OK);
-		}
-		else {
-			if (Repeat_Validating()) {
-				txModifica->ModificaUsuari(textBox1->Text, textBox2->Text, textBox3->Text, textBox4->Text);
-				textBox2->Text = "";
-				textBox5->Text = "";
-				MessageBox::Show("L'usuari s'ha actualitzat correctament!", "Actualitza usuari", MessageBoxButtons::OK);
+		if (UserIsEditing) {
+			if ((textBox1->Text == username or textBox1->Text == "") and (textBox3->Text == email or textBox3->Text == "") and textBox4->Text == name and textBox2->Text == "") {
+				MessageBox::Show("Modifica almenys un camp per a actualitzar l'usuari!", "Actualitza usuari", MessageBoxButtons::OK);
 			}
+			else {
+				if (Repeat_Validating()) {
+					UserIsEditing = false;
+
+					txModifica->ModificaUsuari(textBox1->Text, textBox2->Text, textBox3->Text, textBox4->Text);
+					textBox2->Text = "";
+					textBox5->Text = "";
+					MessageBox::Show("L'usuari s'ha actualitzat correctament!", "Actualitza usuari", MessageBoxButtons::OK);
+					
+					textBox1->Enabled = false;
+					textBox2->Enabled = false;
+					textBox3->Enabled = false;
+					textBox4->Enabled = false;
+					textBox5->Enabled = false;
+					
+					this->textBox1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(224)), static_cast<System::Int32>(static_cast<System::Byte>(224)),
+						static_cast<System::Int32>(static_cast<System::Byte>(224)));
+					this->textBox2->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(224)), static_cast<System::Int32>(static_cast<System::Byte>(224)),
+						static_cast<System::Int32>(static_cast<System::Byte>(224)));
+					this->textBox3->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(224)), static_cast<System::Int32>(static_cast<System::Byte>(224)),
+						static_cast<System::Int32>(static_cast<System::Byte>(224)));
+					this->textBox4->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(224)), static_cast<System::Int32>(static_cast<System::Byte>(224)),
+						static_cast<System::Int32>(static_cast<System::Byte>(224)));
+					this->textBox5->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(224)), static_cast<System::Int32>(static_cast<System::Byte>(224)),
+						static_cast<System::Int32>(static_cast<System::Byte>(224)));
+
+					this->button1->Text = "Editar";
+				}
+			}
+		}
+
+		else {
+			UserIsEditing = true;
+
+			textBox1->Enabled = true;
+			textBox2->Enabled = true;
+			textBox3->Enabled = true;
+			textBox4->Enabled = true;
+			textBox5->Enabled = true;
+
+			this->textBox1->BackColor = SystemColors::Window;
+			this->textBox2->BackColor = SystemColors::Window;
+			this->textBox3->BackColor = SystemColors::Window;
+			this->textBox4->BackColor = SystemColors::Window;
+			this->textBox5->BackColor = SystemColors::Window;
+
+			this->button1->Text = "Confirmar";
+
 		}
 	}
 

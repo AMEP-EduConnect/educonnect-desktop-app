@@ -97,9 +97,9 @@ namespace CppCLRWinFormsProject {
 			   this->button1->Anchor = System::Windows::Forms::AnchorStyles::None;
 			   this->button1->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				   static_cast<System::Byte>(0)));
-			   this->button1->Location = System::Drawing::Point(135, 198);
+			   this->button1->Location = System::Drawing::Point(120, 195);
 			   this->button1->Name = L"button1";
-			   this->button1->Size = System::Drawing::Size(105, 29);
+			   this->button1->Size = System::Drawing::Size(135, 35);
 			   this->button1->TabIndex = 0;
 			   this->button1->Text = L"Confirma";
 			   this->button1->UseVisualStyleBackColor = true;
@@ -154,9 +154,9 @@ namespace CppCLRWinFormsProject {
 				   static_cast<System::Byte>(0)));
 			   this->label2->Location = System::Drawing::Point(3, 11);
 			   this->label2->Name = L"label2";
-			   this->label2->Size = System::Drawing::Size(113, 19);
+			   this->label2->Size = System::Drawing::Size(109, 19);
 			   this->label2->TabIndex = 7;
-			   this->label2->Text = L"Nom d\'usuari:";
+			   this->label2->Text = L"Nom d\'usuari";
 			   // 
 			   // label3
 			   // 
@@ -167,9 +167,9 @@ namespace CppCLRWinFormsProject {
 				   static_cast<System::Byte>(0)));
 			   this->label3->Location = System::Drawing::Point(3, 52);
 			   this->label3->Name = L"label3";
-			   this->label3->Size = System::Drawing::Size(109, 19);
+			   this->label3->Size = System::Drawing::Size(105, 19);
 			   this->label3->TabIndex = 8;
-			   this->label3->Text = L"Contrasenya:";
+			   this->label3->Text = L"Contrasenya";
 			   // 
 			   // label4
 			   // 
@@ -182,7 +182,7 @@ namespace CppCLRWinFormsProject {
 			   this->label4->Name = L"label4";
 			   this->label4->Size = System::Drawing::Size(183, 19);
 			   this->label4->TabIndex = 9;
-			   this->label4->Text = L"Email:";
+			   this->label4->Text = L"Email";
 			   // 
 			   // label5
 			   // 
@@ -193,9 +193,9 @@ namespace CppCLRWinFormsProject {
 				   static_cast<System::Byte>(0)));
 			   this->label5->Location = System::Drawing::Point(3, 133);
 			   this->label5->Name = L"label5";
-			   this->label5->Size = System::Drawing::Size(116, 19);
+			   this->label5->Size = System::Drawing::Size(112, 19);
 			   this->label5->TabIndex = 10;
-			   this->label5->Text = L"Nom complet:";
+			   this->label5->Text = L"Nom complet";
 			   // 
 			   // label6
 			   // 
