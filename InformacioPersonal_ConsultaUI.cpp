@@ -28,7 +28,7 @@ namespace CppCLRWinFormsProject {
 
 	void InformacioPersonal_ConsultaUI::Edita_Click(System::Object^ sender, System::EventArgs^ e)
 	{
-		if (textBox1->Text == username and textBox3->Text == email and textBox4->Text == name and textBox2->Text == "") {
+		if (textBox1->Text == username and textBox1->Text == "" and textBox3->Text == email and textBox3->Text == "" and textBox4->Text == name and textBox2->Text == "") {
 			MessageBox::Show("Modifica almenys un camp per a actualitzar l'usuari!", "Actualitza usuari", MessageBoxButtons::OK);
 		}
 		else {
@@ -67,6 +67,10 @@ namespace CppCLRWinFormsProject {
 			textBox->Text = "";
 			//e->Cancel = true; // Previene que el foco cambie de control hasta que la entrada sea válida.
 		}
+		else if (textBox->Text == password) {
+			MessageBox::Show("La contrasenya no pot ser igual a l'actual", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+			textBox->Text = "";
+		}
 
 	}
 
@@ -76,6 +80,7 @@ namespace CppCLRWinFormsProject {
 		if (textBox->Text != "") {
 			if (!IsValidEmail(textBox->Text) && textBox->Text != "") {
 				MessageBox::Show("El correu electrònic no té un format vàlid.", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+				textBox->Text = "";
 				//e->Cancel = true; // Esto previene que el foco cambie al siguiente control si la validación falla.
 			}
 			else {
