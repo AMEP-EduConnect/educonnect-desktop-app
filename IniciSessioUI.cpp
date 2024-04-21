@@ -2,7 +2,7 @@
 #include "IniciSessioUI.h"
 #include "MainPageUI.h"
 #include "FirstPageUI.h"
-
+#include "CaptchaUI.h"
 using namespace System;
 
 

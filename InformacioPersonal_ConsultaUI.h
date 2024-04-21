@@ -4,7 +4,9 @@
 #include "PerfilPersonalModificaService.h"
 #include "MessageManager.h"
 #include "MainPageUI.h"
+#include "BaixaUsuariUI.h"
 #include "Utils.h"
+#include "CredentialManagementService.h"
 #include <iostream>
 #include <string>
 
@@ -38,7 +40,7 @@ namespace CppCLRWinFormsProject {
 
 	protected:
 		/// <summary>
-		/// Limpiar los recursos que se estén usando.
+		/// Limpiar los recursos que se estï¿½n usando.
 		/// </summary>
 		~InformacioPersonal_ConsultaUI()
 		{
@@ -61,6 +63,7 @@ namespace CppCLRWinFormsProject {
 	private: System::Windows::Forms::Label^ label2;
 	private: PerfilPersonalModificaService^ txModifica;
 	private: PerfilPersonalConsultaService^ txConsulta;
+	private: CredentialManagementService^ credentialManagementService;
 	private: String^ username;
 	private: String^ password;
 	private: String^ email;
@@ -81,14 +84,14 @@ namespace CppCLRWinFormsProject {
 
 	private:
 		/// <summary>
-		/// Variable del diseñador necesaria.
+		/// Variable del diseï¿½ador necesaria.
 		/// </summary>
 		System::ComponentModel::Container^ components;
 		//TxPerfilPersonal_Consulta^ txPerfilPersonal_Consulta;
 #pragma region Windows Form Designer generated code
 		/// <summary>
-		/// Método necesario para admitir el Diseñador. No se puede modificar
-		/// el contenido de este método con el editor de código.
+		/// Mï¿½todo necesario para admitir el Diseï¿½ador. No se puede modificar
+		/// el contenido de este mï¿½todo con el editor de cï¿½digo.
 		/// </summary>
 		void InitializeComponent(void)
 		{
@@ -232,7 +235,7 @@ namespace CppCLRWinFormsProject {
 			this->label5->Name = L"label5";
 			this->label5->Size = System::Drawing::Size(141, 19);
 			this->label5->TabIndex = 3;
-			this->label5->Text = L"Correu electrònic";
+			this->label5->Text = L"Correu electrï¿½nic";
 			// 
 			// label3
 			// 
@@ -371,9 +374,9 @@ namespace CppCLRWinFormsProject {
 	}
 	private: System::Void panel1_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
 	}
-private: System::Void tableLayoutPanel1_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
-}
-private: System::Void textBox2_TextChanged(System::Object^ sender, System::EventArgs^ e) {
-}
-};
+	private: System::Void tableLayoutPanel1_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
+	}
+	private: System::Void textBox2_TextChanged(System::Object^ sender, System::EventArgs^ e) {
+	}
+	};
 }

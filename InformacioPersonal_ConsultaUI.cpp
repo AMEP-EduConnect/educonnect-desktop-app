@@ -9,16 +9,16 @@ namespace CppCLRWinFormsProject {
 		InitializeComponent();
 		txConsulta = gcnew PerfilPersonalConsultaService();
 		txModifica = gcnew PerfilPersonalModificaService();
+		credentialManagementService = gcnew CredentialManagementService();
 		Usuari^ u = txConsulta->GetCurrentUser();
 		username = u->GetUsername();
 		password = u->GetPassword();
 		email = u->GetEmail();
 		name = u->GetName();
 		textBox1->Text = username;
-		//textBox2->Text = password; //hash!
 		textBox3->Text = email;
 		textBox4->Text = name;
-		
+
 		this->textBox1->Validating += gcnew System::ComponentModel::CancelEventHandler(this, &InformacioPersonal_ConsultaUI::Nickname_Validating);
 		this->textBox2->Validating += gcnew System::ComponentModel::CancelEventHandler(this, &InformacioPersonal_ConsultaUI::Password_Validating);
 		this->textBox3->Validating += gcnew System::ComponentModel::CancelEventHandler(this, &InformacioPersonal_ConsultaUI::Email_Validating);
@@ -85,7 +85,15 @@ namespace CppCLRWinFormsProject {
 
 	void InformacioPersonal_ConsultaUI::Elimina_Click(System::Object^ sender, System::EventArgs^ e)
 	{
+		BaixaUsuariUI^ PanelUI = gcnew BaixaUsuariUI();
+		PanelUI->TopLevel = false;
+		PanelUI->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
+		PanelUI->Dock = System::Windows::Forms::DockStyle::Fill;
 
+		MainPageUI::Instance->screen->Controls->Clear();
+		MainPageUI::Instance->screen->Controls->Add(PanelUI);
+
+		PanelUI->Show();
 	}
 
 	Void InformacioPersonal_ConsultaUI::Nickname_Validating(Object^ sender, System::ComponentModel::CancelEventArgs^ e)
@@ -94,7 +102,7 @@ namespace CppCLRWinFormsProject {
 		if (textBox->Text != "") {
 			bool isnotValid = txModifica->CheckUsername(textBox->Text);
 			if (isnotValid and textBox->Text != username) {
-				MessageBox::Show("El nom de l'usuari ja existeix o no és vàlid.", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+				MessageBox::Show("El nom de l'usuari ja existeix o no ï¿½s vï¿½lid.", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
 				textBox->Text = "";
 				//e->Cancel = true;
 			}
@@ -105,11 +113,11 @@ namespace CppCLRWinFormsProject {
 	{
 		TextBox^ textBox = dynamic_cast<TextBox^>(sender);
 		if (!IsPasswordStrong(textBox->Text) && textBox->Text != "") {
-			MessageBox::Show("La contrasenya no és prou robusta.\nHa de contenir 8 o més caràcters, caràcters especials i números.", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+			MessageBox::Show("La contrasenya no ï¿½s prou robusta.\nHa de contenir 8 o mï¿½s carï¿½cters, carï¿½cters especials i nï¿½meros.", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
 			textBox->Text = "";
-			//e->Cancel = true; // Previene que el foco cambie de control hasta que la entrada sea válida.
+			//e->Cancel = true; // Previene que el foco cambie de control hasta que la entrada sea vï¿½lida.
 		}
-		else if (textBox->Text == password) {
+		else if (credentialManagementService->VerifyPassword(textBox->Text, password) == true) {
 			MessageBox::Show("La contrasenya no pot ser igual a l'actual", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
 			textBox->Text = "";
 		}
@@ -121,14 +129,14 @@ namespace CppCLRWinFormsProject {
 		TextBox^ textBox = dynamic_cast<TextBox^>(sender);
 		if (textBox->Text != "") {
 			if (!IsValidEmail(textBox->Text) && textBox->Text != "") {
-				MessageBox::Show("El correu electrònic no té un format vàlid.", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+				MessageBox::Show("El correu electrï¿½nic no tï¿½ un format vï¿½lid.", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
 				textBox->Text = "";
-				//e->Cancel = true; // Esto previene que el foco cambie al siguiente control si la validación falla.
+				//e->Cancel = true; // Esto previene que el foco cambie al siguiente control si la validaciï¿½n falla.
 			}
 			else {
 				bool isnotValid = txModifica->CheckEmail(textBox->Text);
 				if (isnotValid and textBox->Text != email) {
-					MessageBox::Show("El correu electrònic de l'usuari ja està registrat.", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+					MessageBox::Show("El correu electrï¿½nic de l'usuari ja estï¿½ registrat.", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
 					textBox->Text = "";
 					//e->Cancel = true;
 				}
@@ -140,7 +148,7 @@ namespace CppCLRWinFormsProject {
 	{
 		if (textBox2->Text != "") {
 			if (textBox2->Text != textBox5->Text) {
-				MessageBox::Show("La contrasenya no és la mateixa que l'anterior.", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+				MessageBox::Show("La contrasenya no ï¿½s la mateixa que l'anterior.", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
 				return false;
 			}
 		}
@@ -162,3 +170,4 @@ namespace CppCLRWinFormsProject {
 		return true;
 	}
 }
+
