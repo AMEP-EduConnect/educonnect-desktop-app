@@ -137,22 +137,30 @@ namespace CppCLRWinFormsProject {
                                 Int64^ id_user = grupEstudiMembershipService->GetOldestUserInGroup(group_id);
 
                                 if (id_user == nullptr) {
-									MessageManager::WarningMessage("Ets el owner del grup i no hi ha cap usuari més per assignar com a owner, per tant es borrarà el grup d'estudi.");
+									//MessageManager::WarningMessage("Ets el owner del grup i no hi ha cap usuari més per assignar com a owner, per tant es borrarà el grup d'estudi.");
                                     //Int64^ idGE = GetGroupIdByName(Noms_ListBox->Text);
-                                    bool eliminat = grupEstudiService->DeleteGrupEstudiById(group_id);
-                                    if (eliminat) {
-										MessageManager::InfoMessage("Grup eliminat correctament.");
-                                        if (not grupEstudiMembershipService->UserInSomeGroup(currentUser->GetUserId())) {
-                                            consulta_membres->Visible = false;
-                                            abandonar_button->Visible = false;
-                                            Editar_Button->Visible = false;
-                                            Eliminar_Button->Visible = false;
+                                    
+                                    MessageBoxButtons buttons = MessageBoxButtons::YesNo;
+                                    System::Windows::Forms::DialogResult result = MessageBox::Show("Ets el owner del grup '" + Noms_ListBox->Text + "' i no hi ha cap usuari més per assignar com a owner, per tant es borrarà el grup d'estudi. Vols continuar?", "Confirmation", buttons);
+
+                                    // Check the user's response
+                                    if (result == System::Windows::Forms::DialogResult::Yes)
+                                    {
+                                        bool eliminat = grupEstudiService->DeleteGrupEstudiById(group_id);
+                                        if (eliminat) {
+                                            MessageManager::InfoMessage("Grup eliminat correctament.");
+                                            if (not grupEstudiMembershipService->UserInSomeGroup(currentUser->GetUserId())) {
+                                                consulta_membres->Visible = false;
+                                                abandonar_button->Visible = false;
+                                                Editar_Button->Visible = false;
+                                                Eliminar_Button->Visible = false;
+                                            }
+                                            GrupEstudi_ConsultarUIreload();
                                         }
-										GrupEstudi_ConsultarUIreload();
-									}
-                                    else {
-										MessageManager::ErrorMessage("Error al eliminar el grup.");
-									}
+                                        else {
+                                            MessageManager::ErrorMessage("Error al eliminar el grup.");
+                                        }
+                                    }
                                     //abandonar_button_Click(sender, e);
 								}
 
