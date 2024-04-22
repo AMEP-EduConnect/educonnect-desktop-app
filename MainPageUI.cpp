@@ -16,6 +16,7 @@
 #include "GrupEstudi_AssignarUI.h"
 #include "AltaProveidorUI.h"
 #include "BaixaProveidorUI.h"
+#include "UsuariRolRepository.h"
 
 namespace CppCLRWinFormsProject {
 
@@ -48,7 +49,21 @@ namespace CppCLRWinFormsProject {
         //CONTROL BAR
         this->Text = "";
 
+        //ROLS
+        Int64^ rol = CurrentSession::Instance->GetCurrentUserRol();
 
+        if (*rol == 1) {
+            this->BotoAdmin->Visible = true;
+            this->BotoEspais->Visible = true;
+        }
+        else if (*rol == 3) {
+            this->BotoAdmin->Visible = false;
+            this->BotoEspais->Visible = true;
+        }
+        else {
+            this->BotoAdmin->Visible = false;
+            this->BotoEspais->Visible = false;
+        }
 
     }
     void MainPageUI:: MainPageUI_Load(System::Object^ sender, System::EventArgs^ e) {

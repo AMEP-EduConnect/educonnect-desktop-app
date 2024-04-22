@@ -24,6 +24,12 @@ namespace CppCLRWinFormsProject {
 		this->textBox3->Validating += gcnew System::ComponentModel::CancelEventHandler(this, &InformacioPersonal_ConsultaUI::Email_Validating);
 		//this->Background_PictureBox->Image = Image::FromFile("background.png");
 		this->Icon = gcnew System::Drawing::Icon("app.ico");
+		
+		//ROLS
+		Int64^ rol = CurrentSession::Instance->GetCurrentUserRol();
+		if (*rol != 1LL) this->BotoElimina->Visible = true;
+		else this->BotoElimina->Visible = false;
+
 	}
 
 	void InformacioPersonal_ConsultaUI::Edita_Click(System::Object^ sender, System::EventArgs^ e)
@@ -37,6 +43,10 @@ namespace CppCLRWinFormsProject {
 					UserIsEditing = false;
 
 					txModifica->ModificaUsuari(textBox1->Text, textBox2->Text, textBox3->Text, textBox4->Text);
+					if (textBox1->Text != "" or textBox1->Text != username) username = textBox1->Text;
+					if (textBox2->Text != "" or textBox2->Text != password) password = textBox2->Text;
+					if (textBox3->Text != "" or textBox3->Text != email) email = textBox3->Text;
+					if (textBox4->Text != "" or textBox4->Text != name) name = textBox4->Text;
 					textBox2->Text = "";
 					textBox5->Text = "";
 					MessageBox::Show("L'usuari s'ha actualitzat correctament!", "Actualitza usuari", MessageBoxButtons::OK);
