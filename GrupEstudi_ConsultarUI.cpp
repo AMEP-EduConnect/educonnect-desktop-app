@@ -74,8 +74,9 @@ namespace CppCLRWinFormsProject {
     void GrupEstudi_ConsultarUI::Noms_ListBox_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e)
     {
         bool isOwner = grupEstudiService->CheckUserIsOwner(Noms_ListBox->Text);
+        Usuari^ currentUser = CurrentSession::Instance->GetCurrentUser();
 
-        if (isOwner) {
+        if (isOwner and Noms_ListBox->Text != "") {
             Editar_Button->Visible = true;
             Eliminar_Button->Visible = true;
             consulta_membres->Visible = true;
@@ -87,6 +88,12 @@ namespace CppCLRWinFormsProject {
             consulta_membres->Visible = true;
             abandonar_button->Visible = true;
         }
+        if (not grupEstudiMembershipService->UserInSomeGroup(currentUser->GetUserId())) {
+            consulta_membres->Visible = false;
+            abandonar_button->Visible = false;
+            Editar_Button->Visible = false;
+            Eliminar_Button->Visible = false;
+		}
     }
 
     void GrupEstudi_ConsultarUI::GrupEstudi_ConsultarUIreload() {
@@ -135,6 +142,12 @@ namespace CppCLRWinFormsProject {
                                     bool eliminat = grupEstudiService->DeleteGrupEstudiById(group_id);
                                     if (eliminat) {
 										MessageManager::InfoMessage("Grup eliminat correctament.");
+                                        if (not grupEstudiMembershipService->UserInSomeGroup(currentUser->GetUserId())) {
+                                            consulta_membres->Visible = false;
+                                            abandonar_button->Visible = false;
+                                            Editar_Button->Visible = false;
+                                            Eliminar_Button->Visible = false;
+                                        }
 										GrupEstudi_ConsultarUIreload();
 									}
                                     else {

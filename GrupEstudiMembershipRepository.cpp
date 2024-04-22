@@ -234,3 +234,13 @@ Int64^ GrupEstudiMembershipRepository::GetOldestUserInGroup(Int64^ group_id)
 	return user_id;
 }
 
+bool GrupEstudiMembershipRepository::UserInSomeGroup(Int64^ user_id) {
+	DatabaseConnector::Instance->Connect();
+	String^ sql = "SELECT * FROM studyGroupsMembership WHERE user_id = @user_id";
+	Dictionary<String^, Object^>^ params = gcnew Dictionary<String^, Object^>(0);
+	params->Add("@user_id", user_id->ToString());
+	MySqlDataReader^ data = DatabaseConnector::Instance->ExecuteClientCommand(sql, params);
+	bool exists = data->HasRows;
+	DatabaseConnector::Instance->Disconnect();
+	return exists;
+}
