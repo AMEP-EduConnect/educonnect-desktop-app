@@ -75,6 +75,7 @@ namespace CppCLRWinFormsProject {
 	private: System::Windows::Forms::TableLayoutPanel^ tableLayoutPanel1;
 	private: System::Windows::Forms::TableLayoutPanel^ tableLayoutPanel2;
 	private: System::Windows::Forms::TableLayoutPanel^ tableLayoutPanel3;
+	private: System::Windows::Forms::Button^ Cancelar_Button;
 
 
 
@@ -101,6 +102,7 @@ namespace CppCLRWinFormsProject {
 			   this->label5 = (gcnew System::Windows::Forms::Label());
 			   this->label6 = (gcnew System::Windows::Forms::Label());
 			   this->tableLayoutPanel1 = (gcnew System::Windows::Forms::TableLayoutPanel());
+			   this->Cancelar_Button = (gcnew System::Windows::Forms::Button());
 			   this->tableLayoutPanel3 = (gcnew System::Windows::Forms::TableLayoutPanel());
 			   this->tableLayoutPanel2 = (gcnew System::Windows::Forms::TableLayoutPanel());
 			   this->tableLayoutPanel1->SuspendLayout();
@@ -111,9 +113,9 @@ namespace CppCLRWinFormsProject {
 			   // button1
 			   // 
 			   this->button1->Anchor = System::Windows::Forms::AnchorStyles::None;
-			   this->button1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			   this->button1->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				   static_cast<System::Byte>(0)));
-			   this->button1->Location = System::Drawing::Point(120, 195);
+			   this->button1->Location = System::Drawing::Point(120, 177);
 			   this->button1->Name = L"button1";
 			   this->button1->Size = System::Drawing::Size(135, 35);
 			   this->button1->TabIndex = 0;
@@ -168,9 +170,9 @@ namespace CppCLRWinFormsProject {
 			   this->label2->Anchor = System::Windows::Forms::AnchorStyles::Left;
 			   this->label2->AutoSize = true;
 			   this->label2->BackColor = System::Drawing::SystemColors::GradientInactiveCaption;
-			   this->label2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			   this->label2->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				   static_cast<System::Byte>(0)));
-			   this->label2->Location = System::Drawing::Point(3, 10);
+			   this->label2->Location = System::Drawing::Point(3, 11);
 			   this->label2->Name = L"label2";
 			   this->label2->Size = System::Drawing::Size(109, 19);
 			   this->label2->TabIndex = 7;
@@ -181,9 +183,9 @@ namespace CppCLRWinFormsProject {
 			   this->label3->Anchor = System::Windows::Forms::AnchorStyles::Left;
 			   this->label3->AutoSize = true;
 			   this->label3->BackColor = System::Drawing::SystemColors::GradientInactiveCaption;
-			   this->label3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			   this->label3->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				   static_cast<System::Byte>(0)));
-			   this->label3->Location = System::Drawing::Point(3, 51);
+			   this->label3->Location = System::Drawing::Point(3, 52);
 			   this->label3->Name = L"label3";
 			   this->label3->Size = System::Drawing::Size(105, 19);
 			   this->label3->TabIndex = 8;
@@ -194,11 +196,11 @@ namespace CppCLRWinFormsProject {
 			   this->label4->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Left | System::Windows::Forms::AnchorStyles::Right));
 			   this->label4->AutoSize = true;
 			   this->label4->BackColor = System::Drawing::SystemColors::GradientInactiveCaption;
-			   this->label4->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			   this->label4->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				   static_cast<System::Byte>(0)));
-			   this->label4->Location = System::Drawing::Point(3, 90);
+			   this->label4->Location = System::Drawing::Point(3, 91);
 			   this->label4->Name = L"label4";
-			   this->label4->Size = System::Drawing::Size(183, 20);
+			   this->label4->Size = System::Drawing::Size(183, 19);
 			   this->label4->TabIndex = 9;
 			   this->label4->Text = L"Email";
 			   // 
@@ -207,7 +209,7 @@ namespace CppCLRWinFormsProject {
 			   this->label5->Anchor = System::Windows::Forms::AnchorStyles::Left;
 			   this->label5->AutoSize = true;
 			   this->label5->BackColor = System::Drawing::SystemColors::GradientInactiveCaption;
-			   this->label5->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			   this->label5->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				   static_cast<System::Byte>(0)));
 			   this->label5->Location = System::Drawing::Point(3, 133);
 			   this->label5->Name = L"label5";
@@ -219,11 +221,11 @@ namespace CppCLRWinFormsProject {
 			   // 
 			   this->label6->Anchor = System::Windows::Forms::AnchorStyles::None;
 			   this->label6->AutoSize = true;
-			   this->label6->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			   this->label6->Font = (gcnew System::Drawing::Font(L"Inter", 20.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				   static_cast<System::Byte>(0)));
 			   this->label6->Location = System::Drawing::Point(251, 23);
 			   this->label6->Name = L"label6";
-			   this->label6->Size = System::Drawing::Size(307, 31);
+			   this->label6->Size = System::Drawing::Size(309, 33);
 			   this->label6->TabIndex = 13;
 			   this->label6->Text = L"Donar d\'Alta Proveidor";
 			   // 
@@ -236,6 +238,7 @@ namespace CppCLRWinFormsProject {
 				   60)));
 			   this->tableLayoutPanel1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
 				   20)));
+			   this->tableLayoutPanel1->Controls->Add(this->Cancelar_Button, 2, 2);
 			   this->tableLayoutPanel1->Controls->Add(this->tableLayoutPanel3, 1, 1);
 			   this->tableLayoutPanel1->Controls->Add(this->label6, 1, 0);
 			   this->tableLayoutPanel1->Dock = System::Windows::Forms::DockStyle::Fill;
@@ -248,6 +251,22 @@ namespace CppCLRWinFormsProject {
 			   this->tableLayoutPanel1->Size = System::Drawing::Size(814, 537);
 			   this->tableLayoutPanel1->TabIndex = 16;
 			   // 
+			   // Cancelar_Button
+			   // 
+			   this->Cancelar_Button->Anchor = System::Windows::Forms::AnchorStyles::None;
+			   this->Cancelar_Button->BackColor = System::Drawing::Color::Transparent;
+			   this->Cancelar_Button->Cursor = System::Windows::Forms::Cursors::Hand;
+			   this->Cancelar_Button->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				   static_cast<System::Byte>(0)));
+			   this->Cancelar_Button->ForeColor = System::Drawing::Color::Red;
+			   this->Cancelar_Button->Location = System::Drawing::Point(688, 452);
+			   this->Cancelar_Button->Name = L"Cancelar_Button";
+			   this->Cancelar_Button->Size = System::Drawing::Size(88, 34);
+			   this->Cancelar_Button->TabIndex = 18;
+			   this->Cancelar_Button->Text = L"Cancelar";
+			   this->Cancelar_Button->UseVisualStyleBackColor = false;
+			   this->Cancelar_Button->Click += gcnew System::EventHandler(this, &AltaProveidorUI::Cancelar_Button_Click);
+			   // 
 			   // tableLayoutPanel3
 			   // 
 			   this->tableLayoutPanel3->Anchor = System::Windows::Forms::AnchorStyles::None;
@@ -258,10 +277,12 @@ namespace CppCLRWinFormsProject {
 			   this->tableLayoutPanel3->Controls->Add(this->button1, 0, 1);
 			   this->tableLayoutPanel3->Controls->Add(this->tableLayoutPanel2, 0, 0);
 			   this->tableLayoutPanel3->Location = System::Drawing::Point(218, 122);
+			   this->tableLayoutPanel3->MinimumSize = System::Drawing::Size(376, 237);
 			   this->tableLayoutPanel3->Name = L"tableLayoutPanel3";
-			   this->tableLayoutPanel3->RowCount = 2;
+			   this->tableLayoutPanel3->RowCount = 3;
 			   this->tableLayoutPanel3->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 80)));
 			   this->tableLayoutPanel3->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 20)));
+			   this->tableLayoutPanel3->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Absolute, 20)));
 			   this->tableLayoutPanel3->Size = System::Drawing::Size(376, 237);
 			   this->tableLayoutPanel3->TabIndex = 18;
 			   // 
@@ -282,7 +303,7 @@ namespace CppCLRWinFormsProject {
 			   this->tableLayoutPanel2->Controls->Add(this->label5, 0, 3);
 			   this->tableLayoutPanel2->Controls->Add(this->textBox3, 1, 0);
 			   this->tableLayoutPanel2->Controls->Add(this->textBox2, 1, 2);
-			   this->tableLayoutPanel2->Location = System::Drawing::Point(7, 11);
+			   this->tableLayoutPanel2->Location = System::Drawing::Point(7, 3);
 			   this->tableLayoutPanel2->Name = L"tableLayoutPanel2";
 			   this->tableLayoutPanel2->RowCount = 4;
 			   this->tableLayoutPanel2->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 24.85549F)));
@@ -314,7 +335,6 @@ namespace CppCLRWinFormsProject {
 		   }
 #pragma endregion
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e);
-		     //System::Void Cancelar_Button_Click(System::Object^ sender, System::EventArgs^ e);
-			
+	private: System::Void Cancelar_Button_Click(System::Object^ sender, System::EventArgs^ e);
 };
 }

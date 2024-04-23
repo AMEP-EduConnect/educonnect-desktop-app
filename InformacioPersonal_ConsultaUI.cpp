@@ -25,6 +25,8 @@ namespace CppCLRWinFormsProject {
 		//this->Background_PictureBox->Image = Image::FromFile("background.png");
 		this->Icon = gcnew System::Drawing::Icon("app.ico");
 		
+		this->BotoCancela->Visible = false;
+
 		//ROLS
 		Int64^ rol = CurrentSession::Instance->GetCurrentUserRol();
 		if (*rol != 1LL) this->BotoElimina->Visible = true;
@@ -69,6 +71,8 @@ namespace CppCLRWinFormsProject {
 						static_cast<System::Int32>(static_cast<System::Byte>(224)));
 
 					this->button1->Text = "Editar";
+					this->BotoCancela->Visible = false;
+
 				}
 			}
 		}
@@ -89,7 +93,7 @@ namespace CppCLRWinFormsProject {
 			this->textBox5->BackColor = SystemColors::Window;
 
 			this->button1->Text = "Confirmar";
-
+			this->BotoCancela->Visible = true;
 		}
 	}
 
@@ -179,5 +183,36 @@ namespace CppCLRWinFormsProject {
 		if (!Regex::IsMatch(password, R"([\!\@\#\$\%\^\&\*\(\)\-\=\+\[\]\{\}\;\:\'\"\<\>\,\.\?\/\~\`\|\\])")) return false;
 		return true;
 	}
+
+	Void InformacioPersonal_ConsultaUI::BotoCancela_Click(System::Object^ sender, System::EventArgs^ e) {
+		textBox1->Enabled = false;
+		textBox2->Enabled = false;
+		textBox3->Enabled = false;
+		textBox4->Enabled = false;
+		textBox5->Enabled = false;
+
+		textBox1->Text = username;
+		textBox3->Text = email;
+		textBox4->Text = name;
+		textBox2->Text = "";
+		textBox5->Text = "";
+
+		this->textBox1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(224)), static_cast<System::Int32>(static_cast<System::Byte>(224)),
+			static_cast<System::Int32>(static_cast<System::Byte>(224)));
+		this->textBox2->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(224)), static_cast<System::Int32>(static_cast<System::Byte>(224)),
+			static_cast<System::Int32>(static_cast<System::Byte>(224)));
+		this->textBox3->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(224)), static_cast<System::Int32>(static_cast<System::Byte>(224)),
+			static_cast<System::Int32>(static_cast<System::Byte>(224)));
+		this->textBox4->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(224)), static_cast<System::Int32>(static_cast<System::Byte>(224)),
+			static_cast<System::Int32>(static_cast<System::Byte>(224)));
+		this->textBox5->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(224)), static_cast<System::Int32>(static_cast<System::Byte>(224)),
+			static_cast<System::Int32>(static_cast<System::Byte>(224)));
+
+		this->button1->Text = "Editar";
+		this->BotoCancela->Visible = false;
+		UserIsEditing = false;
+	
+	}
+
 }
 

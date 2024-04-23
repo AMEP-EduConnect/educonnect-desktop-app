@@ -61,6 +61,7 @@ namespace CppCLRWinFormsProject {
 
 	private: System::Windows::Forms::TableLayoutPanel^ tableLayoutPanel1;
 	private: System::Windows::Forms::Panel^ panel1;
+	private: System::Windows::Forms::Button^ Cancelar_Button;
 
 
 
@@ -84,6 +85,7 @@ namespace CppCLRWinFormsProject {
 			   this->PageTitleLabel = (gcnew System::Windows::Forms::Label());
 			   this->tableLayoutPanel1 = (gcnew System::Windows::Forms::TableLayoutPanel());
 			   this->panel1 = (gcnew System::Windows::Forms::Panel());
+			   this->Cancelar_Button = (gcnew System::Windows::Forms::Button());
 			   this->tableLayoutPanel1->SuspendLayout();
 			   this->panel1->SuspendLayout();
 			   this->SuspendLayout();
@@ -93,9 +95,9 @@ namespace CppCLRWinFormsProject {
 			   this->BaixaProveidorButton->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				   static_cast<System::Byte>(0)));
 			   this->BaixaProveidorButton->ForeColor = System::Drawing::SystemColors::HotTrack;
-			   this->BaixaProveidorButton->Location = System::Drawing::Point(92, 155);
+			   this->BaixaProveidorButton->Location = System::Drawing::Point(358, 80);
 			   this->BaixaProveidorButton->Name = L"BaixaProveidorButton";
-			   this->BaixaProveidorButton->Size = System::Drawing::Size(135, 35);
+			   this->BaixaProveidorButton->Size = System::Drawing::Size(91, 34);
 			   this->BaixaProveidorButton->TabIndex = 0;
 			   this->BaixaProveidorButton->Text = L"Confirma";
 			   this->BaixaProveidorButton->UseVisualStyleBackColor = true;
@@ -105,9 +107,9 @@ namespace CppCLRWinFormsProject {
 			   // 
 			   this->BaixaProveidorTextBox->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				   static_cast<System::Byte>(0)));
-			   this->BaixaProveidorTextBox->Location = System::Drawing::Point(154, 58);
+			   this->BaixaProveidorTextBox->Location = System::Drawing::Point(129, 48);
 			   this->BaixaProveidorTextBox->Name = L"BaixaProveidorTextBox";
-			   this->BaixaProveidorTextBox->Size = System::Drawing::Size(135, 27);
+			   this->BaixaProveidorTextBox->Size = System::Drawing::Size(208, 27);
 			   this->BaixaProveidorTextBox->TabIndex = 3;
 			   // 
 			   // BaixaProveidorLabel
@@ -117,7 +119,7 @@ namespace CppCLRWinFormsProject {
 			   this->BaixaProveidorLabel->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				   static_cast<System::Byte>(0)));
 			   this->BaixaProveidorLabel->ForeColor = System::Drawing::SystemColors::HotTrack;
-			   this->BaixaProveidorLabel->Location = System::Drawing::Point(24, 61);
+			   this->BaixaProveidorLabel->Location = System::Drawing::Point(14, 51);
 			   this->BaixaProveidorLabel->Name = L"BaixaProveidorLabel";
 			   this->BaixaProveidorLabel->Size = System::Drawing::Size(109, 19);
 			   this->BaixaProveidorLabel->TabIndex = 7;
@@ -144,6 +146,7 @@ namespace CppCLRWinFormsProject {
 				   60)));
 			   this->tableLayoutPanel1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
 				   20)));
+			   this->tableLayoutPanel1->Controls->Add(this->Cancelar_Button, 2, 2);
 			   this->tableLayoutPanel1->Controls->Add(this->PageTitleLabel, 1, 0);
 			   this->tableLayoutPanel1->Controls->Add(this->panel1, 1, 1);
 			   this->tableLayoutPanel1->Dock = System::Windows::Forms::DockStyle::Fill;
@@ -151,8 +154,8 @@ namespace CppCLRWinFormsProject {
 			   this->tableLayoutPanel1->Name = L"tableLayoutPanel1";
 			   this->tableLayoutPanel1->RowCount = 3;
 			   this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 15)));
-			   this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 60)));
-			   this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 25)));
+			   this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 55.12104F)));
+			   this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 29.98138F)));
 			   this->tableLayoutPanel1->Size = System::Drawing::Size(814, 537);
 			   this->tableLayoutPanel1->TabIndex = 14;
 			   // 
@@ -160,14 +163,31 @@ namespace CppCLRWinFormsProject {
 			   // 
 			   this->panel1->Anchor = System::Windows::Forms::AnchorStyles::None;
 			   this->panel1->BackColor = System::Drawing::SystemColors::GradientInactiveCaption;
+			   this->panel1->Controls->Add(this->BaixaProveidorButton);
 			   this->panel1->Controls->Add(this->BaixaProveidorLabel);
 			   this->panel1->Controls->Add(this->BaixaProveidorTextBox);
-			   this->panel1->Controls->Add(this->BaixaProveidorButton);
 			   this->panel1->ForeColor = System::Drawing::SystemColors::GradientInactiveCaption;
-			   this->panel1->Location = System::Drawing::Point(245, 140);
+			   this->panel1->Location = System::Drawing::Point(175, 163);
+			   this->panel1->MinimumSize = System::Drawing::Size(461, 128);
 			   this->panel1->Name = L"panel1";
-			   this->panel1->Size = System::Drawing::Size(321, 201);
+			   this->panel1->Size = System::Drawing::Size(461, 128);
 			   this->panel1->TabIndex = 15;
+			   // 
+			   // Cancelar_Button
+			   // 
+			   this->Cancelar_Button->Anchor = System::Windows::Forms::AnchorStyles::None;
+			   this->Cancelar_Button->BackColor = System::Drawing::Color::Transparent;
+			   this->Cancelar_Button->Cursor = System::Windows::Forms::Cursors::Hand;
+			   this->Cancelar_Button->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				   static_cast<System::Byte>(0)));
+			   this->Cancelar_Button->ForeColor = System::Drawing::Color::Red;
+			   this->Cancelar_Button->Location = System::Drawing::Point(688, 439);
+			   this->Cancelar_Button->Name = L"Cancelar_Button";
+			   this->Cancelar_Button->Size = System::Drawing::Size(88, 34);
+			   this->Cancelar_Button->TabIndex = 15;
+			   this->Cancelar_Button->Text = L"Cancelar";
+			   this->Cancelar_Button->UseVisualStyleBackColor = false;
+			   this->Cancelar_Button->Click += gcnew System::EventHandler(this, &BaixaProveidorUI::Cancelar_Button_Click);
 			   // 
 			   // BaixaProveidorUI
 			   // 
@@ -190,6 +210,6 @@ namespace CppCLRWinFormsProject {
 		   }
 #pragma endregion
 	private: System::Void BaixaProveidorButton_Click(System::Object^ sender, System::EventArgs^ e);
-	private: System::Void GoBackButton_Click(System::Object^ sender, System::EventArgs^ e);
+    private: System::Void Cancelar_Button_Click(System::Object^ sender, System::EventArgs^ e);
 };
 }

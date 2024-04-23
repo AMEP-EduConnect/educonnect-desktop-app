@@ -17,7 +17,7 @@ namespace CppCLRWinFormsProject {
 		InitializeComponent();
 		baixaUsuariService = gcnew BaixaUsuariService();
 		Int64^ rol = CurrentSession::Instance->GetCurrentUserRol();
-		if (*rol != 1) this->label1->Text = L"Està a punt d\'eliminar el compte. Si hi estàs d\'acord, introdueix la teva contrasenya.";
+		if (*rol != 1) this->label1->Text = L"Està a punt d\'eliminar el teu compte. Si hi estàs d\'acord, introdueix la teva contrasenya.";
 		else {
 			this->textBox1->UseSystemPasswordChar = false;
 			this->textBox1->PasswordChar = '\0';

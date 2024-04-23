@@ -94,6 +94,17 @@ namespace CppCLRWinFormsProject {
         }
     }
 
+    Void AltaProveidorUI::Cancelar_Button_Click(System::Object^ sender, System::EventArgs^ e) {
+        AdministradorUI^ PanelUI = gcnew AdministradorUI();
+        PanelUI->TopLevel = false;
+        PanelUI->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
+        PanelUI->Dock = System::Windows::Forms::DockStyle::Fill;
+        MainPageUI::Instance->screen->Controls->Clear();
+        MainPageUI::Instance->screen->Controls->Add(PanelUI);
+        PanelUI->Show();
+    
+    }
+
    
 }
 

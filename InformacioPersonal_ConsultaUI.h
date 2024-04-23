@@ -37,6 +37,8 @@ namespace CppCLRWinFormsProject {
 	public:
 
 	private: System::Windows::Forms::Panel^ panel2;
+	private: System::Windows::Forms::Button^ BotoCancela;
+
 	public:
 		bool UserIsEditing = false;
 
@@ -113,6 +115,7 @@ namespace CppCLRWinFormsProject {
 			this->panel2 = (gcnew System::Windows::Forms::Panel());
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->BotoElimina = (gcnew System::Windows::Forms::Button());
+			this->BotoCancela = (gcnew System::Windows::Forms::Button());
 			this->panel1->SuspendLayout();
 			this->tableLayoutPanel1->SuspendLayout();
 			this->panel2->SuspendLayout();
@@ -235,9 +238,9 @@ namespace CppCLRWinFormsProject {
 				static_cast<System::Byte>(0)));
 			this->label5->Location = System::Drawing::Point(12, 128);
 			this->label5->Name = L"label5";
-			this->label5->Size = System::Drawing::Size(138, 19);
+			this->label5->Size = System::Drawing::Size(141, 19);
 			this->label5->TabIndex = 3;
-			this->label5->Text = L"Correu electr�nic";
+			this->label5->Text = L"Correu electronic";
 			// 
 			// label3
 			// 
@@ -301,6 +304,7 @@ namespace CppCLRWinFormsProject {
 			// panel2
 			// 
 			this->panel2->Anchor = System::Windows::Forms::AnchorStyles::None;
+			this->panel2->Controls->Add(this->BotoCancela);
 			this->panel2->Controls->Add(this->panel1);
 			this->panel2->Controls->Add(this->button1);
 			this->panel2->Location = System::Drawing::Point(165, 88);
@@ -337,6 +341,19 @@ namespace CppCLRWinFormsProject {
 			this->BotoElimina->Text = L"Eliminar usuari";
 			this->BotoElimina->UseVisualStyleBackColor = false;
 			this->BotoElimina->Click += gcnew System::EventHandler(this, &InformacioPersonal_ConsultaUI::BotoElimina_Click);
+			// 
+			// BotoCancela
+			// 
+			this->BotoCancela->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->BotoCancela->ForeColor = System::Drawing::Color::Red;
+			this->BotoCancela->Location = System::Drawing::Point(16, 310);
+			this->BotoCancela->Name = L"BotoCancela";
+			this->BotoCancela->Size = System::Drawing::Size(135, 35);
+			this->BotoCancela->TabIndex = 6;
+			this->BotoCancela->Text = L"Cancelar";
+			this->BotoCancela->UseVisualStyleBackColor = true;
+			this->BotoCancela->Click += gcnew System::EventHandler(this, &InformacioPersonal_ConsultaUI::BotoCancela_Click);
 			// 
 			// InformacioPersonal_ConsultaUI
 			// 
@@ -381,5 +398,6 @@ namespace CppCLRWinFormsProject {
 	private: System::Void textBox2_TextChanged(System::Object^ sender, System::EventArgs^ e) {
 	}
 	private: System::Void BotoElimina_Click(System::Object^ sender, System::EventArgs^ e);
+private: System::Void BotoCancela_Click(System::Object^ sender, System::EventArgs^ e);
 };
 }
