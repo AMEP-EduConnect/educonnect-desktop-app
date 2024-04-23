@@ -287,3 +287,20 @@ bool GrupEstudiRepository::DeleteGrupEstudiById(Int64^ id)
 	DatabaseConnector::Instance->Disconnect();
 	return true;
 }
+
+String^ GrupEstudiRepository::GetGroupDescription(String^ NomGrup) {
+	DatabaseConnector::Instance->Connect();
+	String^ sql = "SELECT description FROM studyGroups WHERE group_name = '" + NomGrup + "'";
+	MySqlDataReader^ data = DatabaseConnector::Instance->ExecuteInternCommand(sql);
+	String^ descripcio;
+
+	while (data->Read())
+	{
+		descripcio = data->GetString(0);
+	}
+
+	data->Close();
+	DatabaseConnector::Instance->Disconnect();
+
+	return descripcio;
+}

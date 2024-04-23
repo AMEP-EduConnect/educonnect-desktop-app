@@ -28,6 +28,7 @@ public:
 
 	Int64^ GetUserIdByName(String^ user_name);
 	Int64^ GetGroupIdByName(String^ group_name);
+	String^ GetGroupDescription(String^ NomGrup);
 
 	GrupEstudi^ GetGrupEstudiById(Int64^ id);
 	GrupEstudi^ GetGrupEstudiByName(String^ group_name);

@@ -23,6 +23,7 @@ public:
 	void UpdateGroupDescription(String^ group_name_act, String^ description_new);
 
 	bool CheckIfUserExists(String^ user_name);
+	String^ GetGroupDescription(String^ NomGrup);
 
 	Int64^ GetUserIdByName(String^ user_name);
 	Int64^ GetGroupIdByName(String^ group_name);
