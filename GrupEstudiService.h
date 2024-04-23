@@ -31,6 +31,11 @@ public:
 
 	bool CheckUserIsOwner(String^ group_name);
 
+//MAIN PAGE
+//
+//
+	List<GrupEstudi^>^ CheckNrecentGroups(Int64^ N, Int64^ user_id);
+
 
 private:
 	GrupEstudiRepository^ grupEstudiRepository;

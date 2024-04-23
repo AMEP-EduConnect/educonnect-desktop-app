@@ -116,7 +116,6 @@
     <ClInclude Include="InformacioPersonal_ConsultaUI.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-
     <ClInclude Include="AltaProveidorService.h">
       <Filter>Source Files\services</Filter>
     </ClInclude>
@@ -154,6 +153,9 @@
       <Filter>Source Files\services</Filter>
     </ClInclude>
     <ClInclude Include="CaptchaUI.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PerfilPersonalModificaService.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -285,6 +287,9 @@
       <Filter>Source Files\services</Filter>
     </ClCompile>
     <ClCompile Include="CaptchaUI.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PerfilPersonalModificaService.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

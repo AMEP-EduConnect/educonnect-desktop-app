@@ -252,7 +252,6 @@
     <ClInclude Include="FirstPageUI.h">
       <FileType>CppForm</FileType>
     </ClInclude>
-    <ClInclude Include="GrupUC.h" />
     <ClInclude Include="IniciSessioUI.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -302,7 +301,6 @@
     <ClCompile Include="CredentialManagementService.cpp" />
     <ClCompile Include="CurrentSession.cpp" />
     <ClCompile Include="DatabaseConnector.cpp" />
-    <ClCompile Include="GrupUC.cpp" />
     <ClCompile Include="InformacioPersonal_ConsultaUI.cpp" />
     <ClCompile Include="IniciSessioUI.cpp" />
     <ClCompile Include="FirstPageUI.cpp" />

@@ -91,3 +91,16 @@ bool GrupEstudiService::CheckUserIsOwner(String^ group_name)
 {
 	return grupEstudiRepository->CheckUserIsOwner(group_name);
 }
+
+List<GrupEstudi^>^ GrupEstudiService::CheckNrecentGroups(Int64^ N, Int64^ user_id)
+{
+	List<GrupEstudi^>^ groups = gcnew List<GrupEstudi^>(0);
+	List<Int64>^ groups_id = gcnew List<Int64>(0);
+
+	groups_id = grupEstudiMembershipService->CheckNRecentGroups(N, user_id);
+
+	//TODO: Bucle for que use 
+	//grupEstudiRepository->GetGrupEstudiById();
+
+	return groups;
+}

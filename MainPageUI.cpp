@@ -38,7 +38,6 @@ namespace CppCLRWinFormsProject {
         //this->Background_PictureBox->Image = Image::FromFile("resources/Images/background2.png");
         this->BotoPersonal->Image = Image::FromFile("resources/Icons/usuario.png");
         this->BotoLogout->Image = Image::FromFile("resources/Icons/salida.png");
-        
         this->BotoExplorar->Image = Image::FromFile("resources/Icons/busqueda.png");
         this->BotoElsMeus->Image = Image::FromFile("resources/Icons/usuarios-alt.png");
         this->BotoSessions->Image = Image::FromFile("resources/Icons/libro-cubierta-abierta.png");

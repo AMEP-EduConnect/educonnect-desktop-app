@@ -1,13 +1,21 @@
 #include "pch.h"
 #include "IniciUI.h"
 #include "CurrentSession.h"
-#include "GrupUC.h"
 #include <ctime>
 #include <iostream>
 using namespace std;
 using namespace System;
 
 namespace CppCLRWinFormsProject {
+
+    IniciUI::IniciUI(void) {
+        InitializeComponent();
+        SetWelcomeMessage();
+        
+        this->pictureBox4->Image = Image::FromFile("resources/Icons/square-plus.png");
+        
+    }
+
 	Void IniciUI::SetWelcomeMessage() {
 
         String^ name = CurrentSession::Instance->GetCurrentUser()->GetName();

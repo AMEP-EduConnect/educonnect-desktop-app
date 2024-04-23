@@ -11,11 +11,11 @@ CurrentSession::CurrentSession()
 void CurrentSession::LogNewUser(Usuari^ newUser, Int64^ id_rol)
 {
     if (currentUser == nullptr) {
-        MessageManager::InfoMessage("USUARI INICIAT CORRECTAMENT!");
+        //MessageManager::InfoMessage("USUARI INICIAT CORRECTAMENT!");
         currentUser = newUser;
        currentUserRol = gcnew UsuariRol(newUser->GetUserId(), id_rol);
     }
-    else MessageManager::WarningMessage("USUARI JA INICIAT");
+    //else //MessageManager::WarningMessage("USUARI JA INICIAT");
 }
 
 void CurrentSession::LogoutCurrentUser()
