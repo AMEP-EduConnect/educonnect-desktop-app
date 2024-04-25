@@ -1,7 +1,8 @@
 #include "pch.h"
 #include "GrupEstudiMembershipRepository.h"
+#include <vector>
 
-
+using namespace System::Collections::Generic;
 using namespace System;
 
 GrupEstudiMembershipRepository::GrupEstudiMembershipRepository()
@@ -148,20 +149,24 @@ Int64^ GrupEstudiMembershipRepository::GetOldestUserInGroup(Int64^ group_id)
 	return user_id;
 }
 
-List<Int64>^ GrupEstudiMembershipRepository::CheckNRecentGroups(Int64^ N, Int64^ user_id)
+std::vector<Int64> GrupEstudiMembershipRepository::CheckNRecentGroups(Int64^ N, Int64^ user_id)
 {
 	DatabaseConnector::Instance->Connect();
-	String^ sql = "SELECT group_id FROM user_groups WHERE user_id = @user_id ORDER BY joined_at DESC LIMIT @N";
+	String^ sql = "SELECT group_id FROM studyGroupsMembership WHERE user_id = @user_id ORDER BY member_since DESC LIMIT 3";
 	Dictionary<String^, Object^>^ params = gcnew Dictionary<String^, Object^>(0);
 	params->Add("@user_id", user_id->ToString());
-	params->Add("@N", N->ToString());
+	//params->Add("@N", N->ToString());
 	MySqlDataReader^ data = DatabaseConnector::Instance->ExecuteClientCommand(sql, params);
 
-	List<Int64>^ temp = gcnew List<Int64>(0);
+	List<int>^ mylist = gcnew List<int>();
+	int firstelement = mylist[0];
+
+	std::vector<Int64> temp;
+	int index = 0;
 
 	while (data->Read())
 	{
-		temp->Add(data->GetInt64(0));
+		temp.push_back(data->GetInt64(0));
 	}
 
 	DatabaseConnector::Instance->Disconnect();

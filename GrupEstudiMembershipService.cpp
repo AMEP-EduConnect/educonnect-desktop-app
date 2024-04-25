@@ -35,6 +35,6 @@ void GrupEstudiMembershipService::DeleteUserFromGroup(Int64^ user_id, Int64^ gro
 	grupEstudiMembershipRepository->DeleteUserFromGroup(user_id, group_id);
 }
 
-List<Int64>^ GrupEstudiMembershipService::CheckNRecentGroups(Int64^ N, Int64^ user_id) {
+std::vector<Int64> GrupEstudiMembershipService::CheckNRecentGroups(Int64^ N, Int64^ user_id) {
 	return grupEstudiMembershipRepository->CheckNRecentGroups(N, user_id);
 }
