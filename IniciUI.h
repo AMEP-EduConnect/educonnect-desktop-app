@@ -218,7 +218,7 @@ namespace CppCLRWinFormsProject {
 			this->Benvinguda->Font = (gcnew System::Drawing::Font(L"Inter", 20.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->Benvinguda->ForeColor = System::Drawing::SystemColors::HotTrack;
-			this->Benvinguda->Location = System::Drawing::Point(0, 7);
+			this->Benvinguda->Location = System::Drawing::Point(0, 16);
 			this->Benvinguda->Name = L"Benvinguda";
 			this->Benvinguda->Size = System::Drawing::Size(172, 33);
 			this->Benvinguda->TabIndex = 0;
@@ -237,8 +237,8 @@ namespace CppCLRWinFormsProject {
 			this->tableLayoutPanel1->Location = System::Drawing::Point(0, 0);
 			this->tableLayoutPanel1->Name = L"tableLayoutPanel1";
 			this->tableLayoutPanel1->RowCount = 2;
-			this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 10.24209F)));
-			this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 89.75791F)));
+			this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 13.59404F)));
+			this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 86.40596F)));
 			this->tableLayoutPanel1->Size = System::Drawing::Size(814, 537);
 			this->tableLayoutPanel1->TabIndex = 1;
 			// 
@@ -247,9 +247,9 @@ namespace CppCLRWinFormsProject {
 			this->panel4->Controls->Add(this->panel5);
 			this->panel4->Controls->Add(this->panel1);
 			this->panel4->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->panel4->Location = System::Drawing::Point(38, 58);
+			this->panel4->Location = System::Drawing::Point(38, 76);
 			this->panel4->Name = L"panel4";
-			this->panel4->Size = System::Drawing::Size(773, 476);
+			this->panel4->Size = System::Drawing::Size(773, 458);
 			this->panel4->TabIndex = 2;
 			// 
 			// panel5
@@ -259,9 +259,9 @@ namespace CppCLRWinFormsProject {
 				| System::Windows::Forms::AnchorStyles::Right));
 			this->panel5->Controls->Add(this->label2);
 			this->panel5->Controls->Add(this->label3);
-			this->panel5->Location = System::Drawing::Point(0, 272);
+			this->panel5->Location = System::Drawing::Point(0, 267);
 			this->panel5->Name = L"panel5";
-			this->panel5->Size = System::Drawing::Size(770, 207);
+			this->panel5->Size = System::Drawing::Size(770, 189);
 			this->panel5->TabIndex = 5;
 			// 
 			// label2
@@ -269,7 +269,7 @@ namespace CppCLRWinFormsProject {
 			this->label2->AutoSize = true;
 			this->label2->Font = (gcnew System::Drawing::Font(L"Inter Light", 14));
 			this->label2->ForeColor = System::Drawing::SystemColors::HotTrack;
-			this->label2->Location = System::Drawing::Point(3, 19);
+			this->label2->Location = System::Drawing::Point(2, 8);
 			this->label2->Name = L"label2";
 			this->label2->Size = System::Drawing::Size(126, 23);
 			this->label2->TabIndex = 2;
@@ -281,7 +281,7 @@ namespace CppCLRWinFormsProject {
 			this->label3->AutoSize = true;
 			this->label3->Font = (gcnew System::Drawing::Font(L"Inter Light", 14));
 			this->label3->ForeColor = System::Drawing::SystemColors::HotTrack;
-			this->label3->Location = System::Drawing::Point(355, 19);
+			this->label3->Location = System::Drawing::Point(332, 8);
 			this->label3->Name = L"label3";
 			this->label3->Size = System::Drawing::Size(234, 23);
 			this->label3->TabIndex = 3;
@@ -309,6 +309,7 @@ namespace CppCLRWinFormsProject {
 			this->flowLayoutPanel1->Name = L"flowLayoutPanel1";
 			this->flowLayoutPanel1->Size = System::Drawing::Size(767, 187);
 			this->flowLayoutPanel1->TabIndex = 4;
+			this->flowLayoutPanel1->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &IniciUI::flowLayoutPanel1_Paint_1);
 			// 
 			// Grup1
 			// 
@@ -317,6 +318,7 @@ namespace CppCLRWinFormsProject {
 			this->Grup1->Controls->Add(this->Grup1label, 0, 1);
 			this->Grup1->Controls->Add(this->pictureBox3, 0, 0);
 			this->Grup1->Location = System::Drawing::Point(3, 3);
+			this->Grup1->Margin = System::Windows::Forms::Padding(3, 3, 30, 3);
 			this->Grup1->Name = L"Grup1";
 			this->Grup1->RowCount = 2;
 			this->Grup1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 50)));
@@ -354,7 +356,8 @@ namespace CppCLRWinFormsProject {
 			this->Grup2->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent, 50)));
 			this->Grup2->Controls->Add(this->Grup2label, 0, 1);
 			this->Grup2->Controls->Add(this->pictureBox2, 0, 0);
-			this->Grup2->Location = System::Drawing::Point(141, 3);
+			this->Grup2->Location = System::Drawing::Point(168, 3);
+			this->Grup2->Margin = System::Windows::Forms::Padding(3, 3, 30, 3);
 			this->Grup2->Name = L"Grup2";
 			this->Grup2->RowCount = 2;
 			this->Grup2->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 50)));
@@ -391,7 +394,8 @@ namespace CppCLRWinFormsProject {
 			this->Grup3->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent, 50)));
 			this->Grup3->Controls->Add(this->Grup3label, 0, 1);
 			this->Grup3->Controls->Add(this->pictureBox1, 0, 0);
-			this->Grup3->Location = System::Drawing::Point(279, 3);
+			this->Grup3->Location = System::Drawing::Point(333, 3);
+			this->Grup3->Margin = System::Windows::Forms::Padding(3, 3, 30, 3);
 			this->Grup3->Name = L"Grup3";
 			this->Grup3->RowCount = 2;
 			this->Grup3->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 50)));
@@ -429,11 +433,11 @@ namespace CppCLRWinFormsProject {
 			this->tableLayoutPanel2->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
 				50)));
 			this->tableLayoutPanel2->Controls->Add(this->panel2, 0, 0);
-			this->tableLayoutPanel2->Location = System::Drawing::Point(417, 3);
+			this->tableLayoutPanel2->Location = System::Drawing::Point(498, 3);
 			this->tableLayoutPanel2->Name = L"tableLayoutPanel2";
 			this->tableLayoutPanel2->RowCount = 1;
 			this->tableLayoutPanel2->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 50)));
-			this->tableLayoutPanel2->Size = System::Drawing::Size(328, 184);
+			this->tableLayoutPanel2->Size = System::Drawing::Size(169, 184);
 			this->tableLayoutPanel2->TabIndex = 11;
 			// 
 			// panel2
@@ -443,7 +447,7 @@ namespace CppCLRWinFormsProject {
 			this->panel2->Dock = System::Windows::Forms::DockStyle::Fill;
 			this->panel2->Location = System::Drawing::Point(3, 3);
 			this->panel2->Name = L"panel2";
-			this->panel2->Size = System::Drawing::Size(322, 178);
+			this->panel2->Size = System::Drawing::Size(163, 178);
 			this->panel2->TabIndex = 12;
 			// 
 			// label7
@@ -453,7 +457,7 @@ namespace CppCLRWinFormsProject {
 			this->label7->Font = (gcnew System::Drawing::Font(L"Inter Light", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label7->ForeColor = System::Drawing::SystemColors::HotTrack;
-			this->label7->Location = System::Drawing::Point(45, 51);
+			this->label7->Location = System::Drawing::Point(28, 50);
 			this->label7->Margin = System::Windows::Forms::Padding(3, 0, 3, 24);
 			this->label7->Name = L"label7";
 			this->label7->Size = System::Drawing::Size(108, 19);
@@ -463,7 +467,7 @@ namespace CppCLRWinFormsProject {
 			// pictureBox4
 			// 
 			this->pictureBox4->Anchor = System::Windows::Forms::AnchorStyles::None;
-			this->pictureBox4->Location = System::Drawing::Point(19, 48);
+			this->pictureBox4->Location = System::Drawing::Point(2, 47);
 			this->pictureBox4->Margin = System::Windows::Forms::Padding(78, 3, 3, 25);
 			this->pictureBox4->MaximumSize = System::Drawing::Size(24, 24);
 			this->pictureBox4->MinimumSize = System::Drawing::Size(24, 24);
@@ -490,13 +494,15 @@ namespace CppCLRWinFormsProject {
 			this->panel3->Controls->Add(this->Benvinguda);
 			this->panel3->Location = System::Drawing::Point(38, 3);
 			this->panel3->Name = L"panel3";
-			this->panel3->Size = System::Drawing::Size(455, 49);
+			this->panel3->Size = System::Drawing::Size(455, 67);
 			this->panel3->TabIndex = 2;
 			// 
 			// IniciUI
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
+			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(243)), static_cast<System::Int32>(static_cast<System::Byte>(243)),
+				static_cast<System::Int32>(static_cast<System::Byte>(243)));
 			this->ClientSize = System::Drawing::Size(814, 537);
 			this->Controls->Add(this->tableLayoutPanel1);
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
@@ -537,6 +543,8 @@ namespace CppCLRWinFormsProject {
 
 
 private: System::Void flowLayoutPanel1_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
+}
+private: System::Void flowLayoutPanel1_Paint_1(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
 }
 };
 }

@@ -135,7 +135,8 @@ namespace CppCLRWinFormsProject {
 			// 
 			// tableLayoutPanel3
 			// 
-			this->tableLayoutPanel3->BackColor = System::Drawing::SystemColors::GradientInactiveCaption;
+			this->tableLayoutPanel3->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(243)),
+				static_cast<System::Int32>(static_cast<System::Byte>(243)), static_cast<System::Int32>(static_cast<System::Byte>(243)));
 			this->tableLayoutPanel3->ColumnCount = 2;
 			this->tableLayoutPanel3->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
 				74.17583F)));
@@ -163,7 +164,8 @@ namespace CppCLRWinFormsProject {
 			// 
 			// tableLayoutPanel2
 			// 
-			this->tableLayoutPanel2->BackColor = System::Drawing::SystemColors::GradientInactiveCaption;
+			this->tableLayoutPanel2->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(243)),
+				static_cast<System::Int32>(static_cast<System::Byte>(243)), static_cast<System::Int32>(static_cast<System::Byte>(243)));
 			this->tableLayoutPanel2->ColumnCount = 1;
 			this->tableLayoutPanel2->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
 				50)));
@@ -191,7 +193,8 @@ namespace CppCLRWinFormsProject {
 			// 
 			// panel3
 			// 
-			this->panel3->BackColor = System::Drawing::Color::Gainsboro;
+			this->panel3->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(230)), static_cast<System::Int32>(static_cast<System::Byte>(230)),
+				static_cast<System::Int32>(static_cast<System::Byte>(230)));
 			this->panel3->Controls->Add(this->BotoAdmin);
 			this->panel3->Controls->Add(this->panel6);
 			this->panel3->Controls->Add(this->BotoEspais);

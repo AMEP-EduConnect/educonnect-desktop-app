@@ -47,7 +47,7 @@ namespace CppCLRWinFormsProject {
 
 
         //CONTROL BAR
-        this->Text = "EduConnect";
+        this->Text = "";
 
         //ROLS
         Int64^ rol = CurrentSession::Instance->GetCurrentUserRol();

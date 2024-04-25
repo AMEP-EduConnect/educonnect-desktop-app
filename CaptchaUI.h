@@ -148,6 +148,7 @@ namespace CppCLRWinFormsProject {
 			this->Controls->Add(this->textBox1);
 			this->Controls->Add(this->button1);
 			this->Controls->Add(this->pictureBox1);
+			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedSingle;
 			this->Name = L"CaptchaUI";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterParent;
 			this->Text = L"Captcha";

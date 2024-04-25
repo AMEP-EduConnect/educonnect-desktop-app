@@ -231,6 +231,8 @@ namespace CppCLRWinFormsProject {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
+			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(243)), static_cast<System::Int32>(static_cast<System::Byte>(243)),
+				static_cast<System::Int32>(static_cast<System::Byte>(243)));
 			this->ClientSize = System::Drawing::Size(814, 537);
 			this->Controls->Add(this->tableLayoutPanel1);
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;

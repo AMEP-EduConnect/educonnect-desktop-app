@@ -23,6 +23,8 @@ namespace CppCLRWinFormsProject {
 
             bool check = inici.CheckUsername(username, password);
 
+            //CaptchaUI^ form = gcnew CaptchaUI();
+            //form->ShowDialog();
 
             if (check == true) {
                 StartPageUI::Instance->Hide();
