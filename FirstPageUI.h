@@ -132,6 +132,8 @@ namespace CppCLRWinFormsProject {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
+			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(243)), static_cast<System::Int32>(static_cast<System::Byte>(243)),
+				static_cast<System::Int32>(static_cast<System::Byte>(243)));
 			this->ClientSize = System::Drawing::Size(933, 696);
 			this->Controls->Add(this->Main_Panel);
 			this->Controls->Add(this->EduConnect_Label);
@@ -151,5 +153,6 @@ namespace CppCLRWinFormsProject {
 	private: System::Void IniciSessioButton_Click(System::Object^ sender, System::EventArgs^ e);
 
 	private: System::Void RegistrarseButton_Click(System::Object^ sender, System::EventArgs^ e);
-	};
+
+};
 }

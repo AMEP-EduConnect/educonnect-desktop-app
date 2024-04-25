@@ -69,15 +69,16 @@ namespace CppCLRWinFormsProject {
 			// 
 			// pictureBox1
 			// 
-			this->pictureBox1->Location = System::Drawing::Point(31, 56);
+			this->pictureBox1->Location = System::Drawing::Point(47, 56);
 			this->pictureBox1->Name = L"pictureBox1";
-			this->pictureBox1->Size = System::Drawing::Size(358, 100);
+			this->pictureBox1->Size = System::Drawing::Size(354, 100);
 			this->pictureBox1->TabIndex = 0;
 			this->pictureBox1->TabStop = false;
 			// 
 			// button1
 			// 
-			this->button1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12));
+			this->button1->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->button1->ForeColor = System::Drawing::SystemColors::HotTrack;
 			this->button1->Location = System::Drawing::Point(439, 176);
 			this->button1->Name = L"button1";
@@ -89,28 +90,31 @@ namespace CppCLRWinFormsProject {
 			// 
 			// textBox1
 			// 
-			this->textBox1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12));
-			this->textBox1->Location = System::Drawing::Point(90, 176);
+			this->textBox1->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox1->Location = System::Drawing::Point(115, 176);
 			this->textBox1->Name = L"textBox1";
-			this->textBox1->Size = System::Drawing::Size(208, 26);
+			this->textBox1->Size = System::Drawing::Size(208, 27);
 			this->textBox1->TabIndex = 2;
 			// 
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12));
+			this->label1->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->label1->ForeColor = System::Drawing::SystemColors::HotTrack;
-			this->label1->Location = System::Drawing::Point(43, 19);
+			this->label1->Location = System::Drawing::Point(43, 24);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(336, 20);
+			this->label1->Size = System::Drawing::Size(358, 19);
 			this->label1->TabIndex = 3;
-			this->label1->Text = L"Escriu els caràcters que apareixen a la imatge:";
+			this->label1->Text = L"Escriu els caràcters que apareixen a la imatge";
 			// 
 			// button2
 			// 
-			this->button2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12));
+			this->button2->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->button2->ForeColor = System::Drawing::SystemColors::HotTrack;
-			this->button2->Location = System::Drawing::Point(418, 86);
+			this->button2->Location = System::Drawing::Point(439, 86);
 			this->button2->Name = L"button2";
 			this->button2->Size = System::Drawing::Size(101, 34);
 			this->button2->TabIndex = 4;
@@ -120,7 +124,8 @@ namespace CppCLRWinFormsProject {
 			// 
 			// button3
 			// 
-			this->button3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12));
+			this->button3->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->button3->ForeColor = System::Drawing::Color::Red;
 			this->button3->Location = System::Drawing::Point(537, 176);
 			this->button3->Name = L"button3";
@@ -134,6 +139,8 @@ namespace CppCLRWinFormsProject {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
+			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(243)), static_cast<System::Int32>(static_cast<System::Byte>(243)),
+				static_cast<System::Int32>(static_cast<System::Byte>(243)));
 			this->ClientSize = System::Drawing::Size(640, 231);
 			this->Controls->Add(this->button3);
 			this->Controls->Add(this->button2);
@@ -143,7 +150,7 @@ namespace CppCLRWinFormsProject {
 			this->Controls->Add(this->pictureBox1);
 			this->Name = L"CaptchaUI";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterParent;
-			this->Text = L"CaptchaUI";
+			this->Text = L"Captcha";
 			this->Load += gcnew System::EventHandler(this, &CaptchaUI::CaptchaUI_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
 			this->ResumeLayout(false);
