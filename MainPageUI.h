@@ -1,5 +1,6 @@
 #pragma once
 using namespace MySql::Data::MySqlClient;
+
 namespace CppCLRWinFormsProject {
 
 	using namespace System;

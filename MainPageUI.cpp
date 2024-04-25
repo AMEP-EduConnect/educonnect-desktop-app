@@ -17,6 +17,7 @@
 #include "AltaProveidorUI.h"
 #include "BaixaProveidorUI.h"
 #include "UsuariRolRepository.h"
+#include "StartPageUI.h"
 
 namespace CppCLRWinFormsProject {
 
@@ -88,8 +89,8 @@ namespace CppCLRWinFormsProject {
     {
         CurrentSession::Instance->LogoutCurrentUser();
         this->Hide();
-        FirstPageUI^ form = gcnew FirstPageUI();
-        form->ShowDialog();
+        StartPageUI::Instance = gcnew StartPageUI();
+        StartPageUI::Instance->ShowDialog();
         this->Close();
 
     }

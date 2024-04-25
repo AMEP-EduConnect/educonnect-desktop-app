@@ -280,6 +280,9 @@
     <ClInclude Include="IniciSessioService.h" />
     <ClInclude Include="RegistreService.h" />
     <ClInclude Include="PerfilPersonalConsultaService.h" />
+    <ClInclude Include="StartPageUI.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="Usuari.h" />
     <ClInclude Include="UsuariRepository.h" />
     <ClInclude Include="UsuariRol.h" />
@@ -327,6 +330,7 @@
     </ClCompile>
     <ClCompile Include="PerfilPersonalModificaService.cpp" />
     <ClCompile Include="PerfilPersonalConsultaService.cpp" />
+    <ClCompile Include="StartPageUI.cpp" />
     <ClCompile Include="Usuari.cpp" />
     <ClCompile Include="UsuariRepository.cpp" />
     <ClCompile Include="RegistreService.cpp" />
@@ -395,6 +399,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="RegistreUsuariUI.resx">
       <DependentUpon>RegistreUsuariUI.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StartPageUI.resx">
+      <DependentUpon>StartPageUI.h</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

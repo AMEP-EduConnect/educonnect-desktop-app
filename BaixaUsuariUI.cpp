@@ -9,6 +9,7 @@
 #include "MainPageUI.h"
 #include "AdministradorUI.h"
 #include "UsuariRolRepository.h"
+#include "StartPageUI.h"
 using namespace System;
 namespace CppCLRWinFormsProject {
 
@@ -68,10 +69,9 @@ namespace CppCLRWinFormsProject {
 			if (eliminar) {
 				if(*rol != 1) {
 					MessageManager::InfoMessage("Usuari eliminat correctament!");
-				
-					FirstPageUI^ form = gcnew FirstPageUI();
 					MainPageUI::Instance->Hide();
-					form->ShowDialog();
+					StartPageUI::Instance = gcnew StartPageUI();
+					StartPageUI::Instance->ShowDialog();
 					MainPageUI::Instance->Close();
 				}
 				else {
