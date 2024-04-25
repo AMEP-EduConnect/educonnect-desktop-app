@@ -58,26 +58,29 @@ namespace CppCLRWinFormsProject {
 			else
 				MessageManager::ErrorMessage("Introdueix la contrasenya");
 		}
+		else if(value == CurrentSession::Instance->GetCurrentUser()->GetUsername() and *rol == 1) {
+			MessageManager::ErrorMessage("No pots eliminar el teu usuari");
+		}
 		else {
+
 			bool eliminar = baixaUsuariService->BaixaUsuari(value);
+
 			if (eliminar) {
-				MessageManager::InfoMessage("Usuari eliminat correctament!");
-				if (CurrentSession::Instance->GetCurrentUserRol() == nullptr) {
-					this->Hide();
+				if(*rol != 1) {
+					MessageManager::InfoMessage("Usuari eliminat correctament!");
+				
 					FirstPageUI^ form = gcnew FirstPageUI();
+					MainPageUI::Instance->Hide();
 					form->ShowDialog();
-					this->Close();
+					MainPageUI::Instance->Close();
 				}
 				else {
-					this->Hide();
-					InformacioPersonal_ConsultaUI^ form = gcnew InformacioPersonal_ConsultaUI();
-					form->ShowDialog();
-					this->Close();
+					MessageManager::InfoMessage("Usuari eliminat correctament!");
 				}
 			}
 			else
 			{
-				if (*rol != 1) MessageManager::ErrorMessage("Contrasenya incorrecta!");
+				if (*rol != 1) MessageManager::ErrorMessage("Contrasenya incorrecte!");
 				else MessageManager::ErrorMessage("Usuari no trobat!");
 			}
 		}

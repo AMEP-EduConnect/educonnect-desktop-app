@@ -46,7 +46,7 @@ namespace CppCLRWinFormsProject {
 
 
         //CONTROL BAR
-        this->Text = "";
+        this->Text = "EduConnect";
 
         //ROLS
         Int64^ rol = CurrentSession::Instance->GetCurrentUserRol();
@@ -91,15 +91,11 @@ namespace CppCLRWinFormsProject {
         FirstPageUI^ form = gcnew FirstPageUI();
         form->ShowDialog();
         this->Close();
+
     }
 
     void MainPageUI::Perfil_Click(System::Object^ sender, System::EventArgs^ e)
 	{
-		//this->Hide();
-		//InformacioPersonal_ConsultaUI^ form = gcnew InformacioPersonal_ConsultaUI();
-		//form->ShowDialog();
-		//this->Close();
-
         InformacioPersonal_ConsultaUI^ PanelUI = gcnew InformacioPersonal_ConsultaUI();
         PanelUI->TopLevel = false;
         PanelUI->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
@@ -109,9 +105,16 @@ namespace CppCLRWinFormsProject {
         this->screen->Controls->Add(PanelUI);
         PanelUI->Show();
 
+        this->BotoAdmin->Font = (gcnew System::Drawing::Font(L"Inter Light", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+            static_cast<System::Byte>(0)));
+
+        this->BotoInici->Font = (gcnew System::Drawing::Font(L"Inter", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+            static_cast<System::Byte>(0)));
+
 	}
 
-    void MainPageUI::BotoInici_Click(System::Object^ sender, System::EventArgs^ e) {
+    void MainPageUI::BotoInici_Click(System::Object^ sender, System::EventArgs^ e) 
+    {
         IniciUI^ PanelUI = gcnew IniciUI();
         PanelUI->TopLevel = false;
         PanelUI->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
@@ -120,6 +123,13 @@ namespace CppCLRWinFormsProject {
         this->screen->Controls->Clear();
         this->screen->Controls->Add(PanelUI);
         PanelUI->Show();
+
+        this->BotoInici->Font = (gcnew System::Drawing::Font(L"Inter ExtraBold", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+            static_cast<System::Byte>(0)));
+
+        this->BotoAdmin->Font = (gcnew System::Drawing::Font(L"Inter Light", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+            static_cast<System::Byte>(0)));
+
     }
 
     void MainPageUI::Admin_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -131,6 +141,12 @@ namespace CppCLRWinFormsProject {
         this->screen->Controls->Clear();
         this->screen->Controls->Add(PanelUI);
         PanelUI->Show();
+
+        this->BotoAdmin->Font = (gcnew System::Drawing::Font(L"Inter Medium", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+            static_cast<System::Byte>(0)));
+
+        this->BotoInici->Font = (gcnew System::Drawing::Font(L"Inter", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+            static_cast<System::Byte>(0)));
 
     }
 

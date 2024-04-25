@@ -1,7 +1,6 @@
 #include "pch.h"
 #include "InformacioPersonal_ConsultaUI.h"
 
-
 namespace CppCLRWinFormsProject {
 
 	InformacioPersonal_ConsultaUI::InformacioPersonal_ConsultaUI(void)
@@ -38,7 +37,7 @@ namespace CppCLRWinFormsProject {
 	{
 		if (UserIsEditing) {
 			if ((textBox1->Text == username or textBox1->Text == "") and (textBox3->Text == email or textBox3->Text == "") and textBox4->Text == name and textBox2->Text == "") {
-				MessageBox::Show("Modifica almenys un camp per a actualitzar l'usuari!", "Actualitza usuari", MessageBoxButtons::OK);
+				MessageManager::WarningMessage("Modifica almenys un camp per a actualitzar l'usuari!");
 			}
 			else {
 				if (Repeat_Validating()) {
@@ -51,8 +50,7 @@ namespace CppCLRWinFormsProject {
 					if (textBox4->Text != "" or textBox4->Text != name) name = textBox4->Text;
 					textBox2->Text = "";
 					textBox5->Text = "";
-					MessageBox::Show("L'usuari s'ha actualitzat correctament!", "Actualitza usuari", MessageBoxButtons::OK);
-					
+					MessageManager::InfoMessage("L'usuari s'ha actualitzat correctament!");
 					textBox1->Enabled = false;
 					textBox2->Enabled = false;
 					textBox3->Enabled = false;
@@ -116,7 +114,7 @@ namespace CppCLRWinFormsProject {
 		if (textBox->Text != "") {
 			bool isnotValid = txModifica->CheckUsername(textBox->Text);
 			if (isnotValid and textBox->Text != username) {
-				MessageBox::Show("El nom de l'usuari ja existeix o no �s v�lid.", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+				MessageManager::ErrorMessage("El nom de l'usuari ja existeix o no es valid");
 				textBox->Text = "";
 				//e->Cancel = true;
 			}
@@ -127,12 +125,12 @@ namespace CppCLRWinFormsProject {
 	{
 		TextBox^ textBox = dynamic_cast<TextBox^>(sender);
 		if (!IsPasswordStrong(textBox->Text) && textBox->Text != "") {
-			MessageBox::Show("La contrasenya no �s prou robusta.\nHa de contenir 8 o m�s car�cters, car�cters especials i n�meros.", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+			MessageManager::WarningMessage("La contrasenya no es prou robusta.\nHa de contenir 8 o mes caracters, caracters especials i numeros");
 			textBox->Text = "";
 			//e->Cancel = true; // Previene que el foco cambie de control hasta que la entrada sea v�lida.
 		}
 		else if (credentialManagementService->VerifyPassword(textBox->Text, password) == true) {
-			MessageBox::Show("La contrasenya no pot ser igual a l'actual", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+			MessageManager::ErrorMessage("La contrasenya no pot ser igual a l'actual");
 			textBox->Text = "";
 		}
 
@@ -143,14 +141,14 @@ namespace CppCLRWinFormsProject {
 		TextBox^ textBox = dynamic_cast<TextBox^>(sender);
 		if (textBox->Text != "") {
 			if (!IsValidEmail(textBox->Text) && textBox->Text != "") {
-				MessageBox::Show("El correu electr�nic no t� un format v�lid.", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+				MessageManager::ErrorMessage("El correu electronic no te un format valid");
 				textBox->Text = "";
 				//e->Cancel = true; // Esto previene que el foco cambie al siguiente control si la validaci�n falla.
 			}
 			else {
 				bool isnotValid = txModifica->CheckEmail(textBox->Text);
 				if (isnotValid and textBox->Text != email) {
-					MessageBox::Show("El correu electr�nic de l'usuari ja est� registrat.", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+					MessageManager::ErrorMessage("El correu electronic de l'usuari ja esta registrat");
 					textBox->Text = "";
 					//e->Cancel = true;
 				}
@@ -162,7 +160,7 @@ namespace CppCLRWinFormsProject {
 	{
 		if (textBox2->Text != "") {
 			if (textBox2->Text != textBox5->Text) {
-				MessageBox::Show("La contrasenya no �s la mateixa que l'anterior.", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+				MessageManager::ErrorMessage("Les contrasenyes no coincideixen");
 				return false;
 			}
 		}

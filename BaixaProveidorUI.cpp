@@ -16,7 +16,7 @@ namespace CppCLRWinFormsProject {
                 this->BaixaProveidorTextBox->Text = "";
             }
             else {
-                MessageManager::InfoMessage("No existeix el Proveidor " + username + "!");
+                MessageManager::ErrorMessage("No existeix el Proveidor " + username + "!");
                 this->BaixaProveidorTextBox->Text = "";
             }
         }

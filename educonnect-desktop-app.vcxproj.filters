@@ -286,11 +286,11 @@
     <ClCompile Include="CredentialManagementService.cpp">
       <Filter>Source Files\services</Filter>
     </ClCompile>
-    <ClCompile Include="CaptchaUI.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="PerfilPersonalModificaService.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\services</Filter>
+    </ClCompile>
+    <ClCompile Include="CaptchaUI.cpp">
+      <Filter>Source Files\ui</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

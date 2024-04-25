@@ -92,18 +92,18 @@ bool GrupEstudiService::CheckUserIsOwner(String^ group_name)
 	return grupEstudiRepository->CheckUserIsOwner(group_name);
 }
 
-std::vector<GrupEstudi^> GrupEstudiService::CheckNrecentGroups(Int64^ N, Int64^ user_id)
+List<GrupEstudi^>^ GrupEstudiService::CheckNrecentGroups(Int64^ N, Int64^ user_id)
 {
+	List<GrupEstudi^>^ groups = gcnew List<GrupEstudi^>(0);
 
-	std::vector<GrupEstudi^> groups;
-
-	std::vector<Int64> groups_id;
+	List<Int64>^ groups_id = gcnew List<Int64>(0);
 
 	groups_id = grupEstudiMembershipService->CheckNRecentGroups(N, user_id);
+	IEnumerator<Int64>^ enumerator = groups_id->GetEnumerator();
 
-	for (int i = 0; i < groups_id.size(); ++i)
-		groups[i] = grupEstudiRepository->GetGrupEstudiById(groups_id[i]);
-	
+	while(enumerator->MoveNext())
+		groups->Add(grupEstudiRepository->GetGrupEstudiById(enumerator->Current));
+		
 
 	return groups; 
 }

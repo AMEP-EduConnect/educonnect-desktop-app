@@ -211,7 +211,7 @@ namespace CppCLRWinFormsProject {
 			this->BotoAdmin->Dock = System::Windows::Forms::DockStyle::Top;
 			this->BotoAdmin->FlatAppearance->BorderSize = 0;
 			this->BotoAdmin->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->BotoAdmin->Font = (gcnew System::Drawing::Font(L"Inter", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->BotoAdmin->Font = (gcnew System::Drawing::Font(L"Inter Light", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->BotoAdmin->ImageAlign = System::Drawing::ContentAlignment::MiddleLeft;
 			this->BotoAdmin->Location = System::Drawing::Point(0, 332);
@@ -238,7 +238,7 @@ namespace CppCLRWinFormsProject {
 			this->BotoEspais->Dock = System::Windows::Forms::DockStyle::Top;
 			this->BotoEspais->FlatAppearance->BorderSize = 0;
 			this->BotoEspais->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->BotoEspais->Font = (gcnew System::Drawing::Font(L"Inter", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->BotoEspais->Font = (gcnew System::Drawing::Font(L"Inter Light", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->BotoEspais->ImageAlign = System::Drawing::ContentAlignment::MiddleLeft;
 			this->BotoEspais->Location = System::Drawing::Point(0, 248);
@@ -265,7 +265,7 @@ namespace CppCLRWinFormsProject {
 			this->BotoSessions->Dock = System::Windows::Forms::DockStyle::Top;
 			this->BotoSessions->FlatAppearance->BorderSize = 0;
 			this->BotoSessions->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->BotoSessions->Font = (gcnew System::Drawing::Font(L"Inter", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->BotoSessions->Font = (gcnew System::Drawing::Font(L"Inter Light", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->BotoSessions->ImageAlign = System::Drawing::ContentAlignment::MiddleLeft;
 			this->BotoSessions->Location = System::Drawing::Point(0, 164);
@@ -283,7 +283,7 @@ namespace CppCLRWinFormsProject {
 			this->BotoElsMeus->Dock = System::Windows::Forms::DockStyle::Top;
 			this->BotoElsMeus->FlatAppearance->BorderSize = 0;
 			this->BotoElsMeus->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->BotoElsMeus->Font = (gcnew System::Drawing::Font(L"Inter", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->BotoElsMeus->Font = (gcnew System::Drawing::Font(L"Inter Light", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->BotoElsMeus->ImageAlign = System::Drawing::ContentAlignment::MiddleLeft;
 			this->BotoElsMeus->Location = System::Drawing::Point(0, 124);
@@ -301,7 +301,7 @@ namespace CppCLRWinFormsProject {
 			this->BotoExplorar->Dock = System::Windows::Forms::DockStyle::Top;
 			this->BotoExplorar->FlatAppearance->BorderSize = 0;
 			this->BotoExplorar->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->BotoExplorar->Font = (gcnew System::Drawing::Font(L"Inter", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->BotoExplorar->Font = (gcnew System::Drawing::Font(L"Inter Light", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->BotoExplorar->ImageAlign = System::Drawing::ContentAlignment::MiddleLeft;
 			this->BotoExplorar->Location = System::Drawing::Point(0, 84);
@@ -309,7 +309,7 @@ namespace CppCLRWinFormsProject {
 			this->BotoExplorar->Name = L"BotoExplorar";
 			this->BotoExplorar->Size = System::Drawing::Size(220, 40);
 			this->BotoExplorar->TabIndex = 27;
-			this->BotoExplorar->Text = L"  Explorar Grups";
+			this->BotoExplorar->Text = L"  Explorar grups";
 			this->BotoExplorar->TextAlign = System::Drawing::ContentAlignment::MiddleLeft;
 			this->BotoExplorar->TextImageRelation = System::Windows::Forms::TextImageRelation::ImageBeforeText;
 			this->BotoExplorar->UseVisualStyleBackColor = true;
@@ -327,7 +327,7 @@ namespace CppCLRWinFormsProject {
 			this->BotoInici->Dock = System::Windows::Forms::DockStyle::Top;
 			this->BotoInici->FlatAppearance->BorderSize = 0;
 			this->BotoInici->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->BotoInici->Font = (gcnew System::Drawing::Font(L"Inter", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->BotoInici->Font = (gcnew System::Drawing::Font(L"Inter ExtraBold", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->BotoInici->ImageAlign = System::Drawing::ContentAlignment::MiddleLeft;
 			this->BotoInici->Location = System::Drawing::Point(0, 0);

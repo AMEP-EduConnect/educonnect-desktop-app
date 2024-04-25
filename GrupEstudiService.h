@@ -34,7 +34,7 @@ public:
 //MAIN PAGE
 //
 //
-	std::vector<GrupEstudi^> CheckNrecentGroups(Int64^ N, Int64^ user_id);
+	List<GrupEstudi^>^ CheckNrecentGroups(Int64^ N, Int64^ user_id);
 
 
 private:
