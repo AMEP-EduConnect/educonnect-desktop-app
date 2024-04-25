@@ -12,12 +12,13 @@ namespace CppCLRWinFormsProject {
 		InitializeComponent();
 		grupEstudiMembershipService = gcnew GrupEstudiMembershipService();
 		grupEstudiService = gcnew GrupEstudiService();
+		arrayIdGroupEstudisOfUserNoIn = GrupEstudi_Explorar_Array();
+		buscar_button->Visible = false;
 		//this->Background_PictureBox->Image = Image::FromFile("background.png");
 		this->Icon = gcnew System::Drawing::Icon("app.ico");
 	}
-	
-	void GrupEstudi_Explorar::GrupEstudi_Explorar_Load(System::Object^ sender, System::EventArgs^ e) {
 
+	array<Int64>^ GrupEstudi_Explorar::GrupEstudi_Explorar_Array() {
 		Usuari^ currentUser = CurrentSession::Instance->GetCurrentUser();
 		array<Int64^>^ arrayIdGroupEstudisOfUser = grupEstudiMembershipService->LoadAllGrupsEstudiNoIn(currentUser->GetUserId());
 		array<Int64^>^ arrayIdGrupsEstudiMembershipOfUser = grupEstudiMembershipService->LoadGrupsEstudiMembershipByUserId(currentUser->GetUserId());
@@ -43,7 +44,13 @@ namespace CppCLRWinFormsProject {
 		// Crear un nuevo array del tamaño correcto para almacenar los elementos únicos
 		array<Int64>^ arrayIdGroupEstudisOfUserNoIn = gcnew array<Int64>(uniqueCount);
 		Array::Copy(uniqueIds, arrayIdGroupEstudisOfUserNoIn, uniqueCount);
-		
+
+		return arrayIdGroupEstudisOfUserNoIn;
+	}
+	
+	void GrupEstudi_Explorar::GrupEstudi_Explorar_Load(System::Object^ sender, System::EventArgs^ e) {
+
+		//array<Int64>^  arrayIdGroupEstudisOfUserNoIn = GrupEstudi_Explorar_Array();
 		// Limpiar el ListBox antes de cargar los nuevos grupos
 		Noms_ListBox->Items->Clear();
 
@@ -76,6 +83,20 @@ namespace CppCLRWinFormsProject {
 			Description_ListBox->Items->Clear();
 			Description_ListBox->Visible = true;
 			Description_ListBox_Load(sender, e);
+	}
+
+	void GrupEstudi_Explorar::GrupEstudi_Explorar_FormClosed() {
+		Membres_Button->Visible = false;
+		Unirse_Button->Visible = false;
+		Cancela_Button->Visible = false;
+
+		Description_titulo->Visible = false;
+		Num_membres->Visible = false;
+		academicTag_titulo->Visible = false;
+
+		nummem->Visible = false;
+		academictag->Visible = false;
+		Description_ListBox->Visible = false;
 	}
 
 	void GrupEstudi_Explorar::academic_tag(System::Object^ sender, System::EventArgs^ e) {
@@ -127,17 +148,48 @@ namespace CppCLRWinFormsProject {
 	}
 
 	void GrupEstudi_Explorar::buscar_button_Click(System::Object^ sender, System::EventArgs^ e) {
+		//BOTON EN INVISIBLE
 		String^ buscar_grup = buscador_textBox->Text;
 		if (Noms_ListBox->Items->Contains(buscar_grup)) {
 			Noms_ListBox->SelectedItem = buscar_grup;
 		}
 		else {
 			MessageBox::Show("No s'ha trobat cap grup amb aquest nom", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+			buscador_textBox->Clear();
+			//buscar_button->Visible = false;
+			GrupEstudi_Explorar_FormClosed();
 		}
 	}
 
 	void GrupEstudi_Explorar::buscador_textBox_Click(System::Object^ sender, System::EventArgs^ e) {
-		buscador_textBox->Clear();
+		if (buscador_textBox->Text == "Buscar Grup d'Estudi...") { buscador_textBox->Clear(); }
 		buscador_textBox->ForeColor = Color::Black;
+	}
+
+	void GrupEstudi_Explorar::buscador_textBox_TextChanged(System::Object^ sender, System::EventArgs^ e) {
+		if (buscador_textBox->Text == "Buscar Grup d'Estudi...") {
+			GrupEstudi_Explorar_Load(sender, e);
+		}
+		else {
+			String^ buscar_grup = buscador_textBox->Text;
+			Noms_ListBox->Items->Clear();
+			GrupEstudi_Explorar_FormClosed();
+			//array<Int64>^ arrayIdGroupEstudisOfUserNoIn = GrupEstudi_Explorar_Array();
+			for (int i = 0; i < arrayIdGroupEstudisOfUserNoIn->Length; i++) {
+				GrupEstudi^ grupEstudiUser = grupEstudiMembershipService->LoadAllGrupEstudibyId(arrayIdGroupEstudisOfUserNoIn[i]);
+				String^ groupName = grupEstudiUser->GetGroupName();
+				if (groupName->Contains(buscar_grup)) {
+					Noms_ListBox->Items->Add(groupName);
+				}
+			}
+
+			if (Noms_ListBox->Items->Count == 0) {
+				MessageBox::Show("No s'ha trobat cap grup amb aquest nom", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+				buscador_textBox->ForeColor = System::Drawing::SystemColors::ActiveCaption;
+				buscador_textBox->Text = L"Buscar Grup d\'Estudi...";
+				//buscar_button->Visible = false;
+				GrupEstudi_Explorar_FormClosed();
+			}
+		}
 	}
 }

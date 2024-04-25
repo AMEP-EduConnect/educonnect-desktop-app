@@ -133,7 +133,6 @@ namespace CppCLRWinFormsProject {
                             //Usuari^ currentUser = CurrentSession::Instance->GetCurrentUser();
                             bool owner = grupEstudiService->CheckUserIsOwner(Noms_ListBox->Text);
                             if (owner) {
-                                //PENDENT DE PROGRAMAR
                                 Int64^ id_user = grupEstudiMembershipService->GetOldestUserInGroup(group_id);
 
                                 if (id_user == nullptr) {

@@ -57,6 +57,7 @@ namespace CppCLRWinFormsProject {
 
 	private: GrupEstudiService^ grupEstudiService;
 	private: GrupEstudiMembershipService^ grupEstudiMembershipService;
+	private: array<Int64>^ arrayIdGroupEstudisOfUserNoIn;
 	private: System::Windows::Forms::Label^ Description_titulo;
 	//private: System::Windows::Forms::Label^ num_mem;
 
@@ -68,7 +69,6 @@ namespace CppCLRWinFormsProject {
 	private: System::Windows::Forms::TextBox^ nummem;
 	private: System::Windows::Forms::TextBox^ buscador_textBox;
 	private: System::Windows::Forms::Button^ buscar_button;
-
 
 
 
@@ -128,7 +128,7 @@ namespace CppCLRWinFormsProject {
 			this->tableLayoutPanel1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Absolute,
 				183)));
 			this->tableLayoutPanel1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Absolute,
-				160)));
+				168)));
 			this->tableLayoutPanel1->Controls->Add(this->ExplorarGrupEstudi_Label, 1, 0);
 			this->tableLayoutPanel1->Controls->Add(this->Actual_Panel, 1, 2);
 			this->tableLayoutPanel1->Controls->Add(this->buscador_textBox, 1, 1);
@@ -154,7 +154,7 @@ namespace CppCLRWinFormsProject {
 			this->ExplorarGrupEstudi_Label->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20.25F, System::Drawing::FontStyle::Bold,
 				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
 			this->ExplorarGrupEstudi_Label->ForeColor = System::Drawing::SystemColors::HotTrack;
-			this->ExplorarGrupEstudi_Label->Location = System::Drawing::Point(261, 25);
+			this->ExplorarGrupEstudi_Label->Location = System::Drawing::Point(256, 25);
 			this->ExplorarGrupEstudi_Label->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->ExplorarGrupEstudi_Label->Name = L"ExplorarGrupEstudi_Label";
 			this->ExplorarGrupEstudi_Label->Size = System::Drawing::Size(367, 39);
@@ -177,10 +177,10 @@ namespace CppCLRWinFormsProject {
 			this->Actual_Panel->Controls->Add(this->NomPertany_Label);
 			this->Actual_Panel->Controls->Add(this->Pertany_Label);
 			this->Actual_Panel->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->Actual_Panel->Location = System::Drawing::Point(153, 135);
+			this->Actual_Panel->Location = System::Drawing::Point(151, 135);
 			this->Actual_Panel->Margin = System::Windows::Forms::Padding(4);
 			this->Actual_Panel->Name = L"Actual_Panel";
-			this->Actual_Panel->Size = System::Drawing::Size(584, 486);
+			this->Actual_Panel->Size = System::Drawing::Size(578, 486);
 			this->Actual_Panel->TabIndex = 7;
 			this->Actual_Panel->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &GrupEstudi_Explorar::Actual_Panel_Paint);
 			// 
@@ -281,7 +281,7 @@ namespace CppCLRWinFormsProject {
 			this->Description_ListBox->FormattingEnabled = true;
 			this->Description_ListBox->HorizontalScrollbar = true;
 			this->Description_ListBox->ItemHeight = 16;
-			this->Description_ListBox->Location = System::Drawing::Point(82, 289);
+			this->Description_ListBox->Location = System::Drawing::Point(79, 289);
 			this->Description_ListBox->Margin = System::Windows::Forms::Padding(4);
 			this->Description_ListBox->Name = L"Description_ListBox";
 			this->Description_ListBox->SelectionMode = System::Windows::Forms::SelectionMode::None;
@@ -348,16 +348,17 @@ namespace CppCLRWinFormsProject {
 			this->buscador_textBox->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			this->buscador_textBox->Dock = System::Windows::Forms::DockStyle::Fill;
 			this->buscador_textBox->ForeColor = System::Drawing::SystemColors::ActiveCaption;
-			this->buscador_textBox->Location = System::Drawing::Point(152, 93);
+			this->buscador_textBox->Location = System::Drawing::Point(150, 93);
 			this->buscador_textBox->Name = L"buscador_textBox";
-			this->buscador_textBox->Size = System::Drawing::Size(586, 22);
+			this->buscador_textBox->Size = System::Drawing::Size(580, 22);
 			this->buscador_textBox->TabIndex = 8;
 			this->buscador_textBox->Text = L"Buscar Grup d\'Estudi...";
 			this->buscador_textBox->Click += gcnew System::EventHandler(this, &GrupEstudi_Explorar::buscador_textBox_Click);
+			this->buscador_textBox->TextChanged += gcnew System::EventHandler(this, &GrupEstudi_Explorar::buscador_textBox_TextChanged);
 			// 
 			// buscar_button
 			// 
-			this->buscar_button->Location = System::Drawing::Point(744, 93);
+			this->buscar_button->Location = System::Drawing::Point(736, 93);
 			this->buscar_button->Name = L"buscar_button";
 			this->buscar_button->Size = System::Drawing::Size(75, 23);
 			this->buscar_button->TabIndex = 9;
@@ -406,5 +407,9 @@ namespace CppCLRWinFormsProject {
 	
 	private: System::Void buscador_textBox_Click(System::Object^ sender, System::EventArgs^ e);
 	private: System::Void buscar_button_Click(System::Object^ sender, System::EventArgs^ e);
+
+	private: System::Void buscador_textBox_TextChanged(System::Object^ sender, System::EventArgs^ e);
+	array<Int64>^ GrupEstudi_Explorar_Array();
+	void GrupEstudi_Explorar_FormClosed();
+	};
 };
-}
