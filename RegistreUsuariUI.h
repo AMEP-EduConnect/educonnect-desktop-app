@@ -36,6 +36,8 @@ namespace CppCLRWinFormsProject {
 			this->Contrasenya_TextBox->Validating += gcnew System::ComponentModel::CancelEventHandler(this, &RegistreUsuariUI::textBoxPassword_Validating);
 			this->Icon = gcnew System::Drawing::Icon("app.ico");
 			//this->Background_PictureBox->Image = Image::FromFile("background.png");
+			this->EmplenaTots->Visible = false;
+
 		}
 		Void NomUsuari_TextBox_Validating(Object^ sender, System::ComponentModel::CancelEventArgs^ e);
 		Void Email_TextBox_Validating(Object^ sender, System::ComponentModel::CancelEventArgs^ e);
@@ -71,7 +73,7 @@ namespace CppCLRWinFormsProject {
 	private: System::Windows::Forms::TextBox^ Email_TextBox;
 	private: System::Windows::Forms::Label^ Nom_Label;
 
-	private: System::Windows::Forms::Label^ EmplenaTotsError_Label;
+
 
 
 
@@ -79,6 +81,14 @@ namespace CppCLRWinFormsProject {
 	private: System::Windows::Forms::Label^ label1;
 	private: System::Windows::Forms::Label^ IniciarSessio_Label;
 	private: System::Windows::Forms::PictureBox^ pictureBox1;
+	private: System::Windows::Forms::Label^ label2;
+	private: System::Windows::Forms::Label^ label3;
+
+
+	private: System::Windows::Forms::Label^ EmplenaTots;
+
+
+
 
 
 
@@ -106,6 +116,8 @@ namespace CppCLRWinFormsProject {
 			this->NomUsuari_Label = (gcnew System::Windows::Forms::Label());
 			this->NomUsuari_TextBox = (gcnew System::Windows::Forms::TextBox());
 			this->Main_Panel = (gcnew System::Windows::Forms::Panel());
+			this->label3 = (gcnew System::Windows::Forms::Label());
+			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
 			this->GoBack_Button = (gcnew System::Windows::Forms::Button());
 			this->Contrasenya_TextBox = (gcnew System::Windows::Forms::TextBox());
@@ -115,9 +127,9 @@ namespace CppCLRWinFormsProject {
 			this->Email_Label = (gcnew System::Windows::Forms::Label());
 			this->Email_TextBox = (gcnew System::Windows::Forms::TextBox());
 			this->Nom_Label = (gcnew System::Windows::Forms::Label());
-			this->EmplenaTotsError_Label = (gcnew System::Windows::Forms::Label());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->IniciarSessio_Label = (gcnew System::Windows::Forms::Label());
+			this->EmplenaTots = (gcnew System::Windows::Forms::Label());
 			this->Main_Panel->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			this->SuspendLayout();
@@ -147,6 +159,8 @@ namespace CppCLRWinFormsProject {
 			// Main_Panel
 			// 
 			this->Main_Panel->BackColor = System::Drawing::SystemColors::GradientInactiveCaption;
+			this->Main_Panel->Controls->Add(this->label3);
+			this->Main_Panel->Controls->Add(this->label2);
 			this->Main_Panel->Controls->Add(this->pictureBox1);
 			this->Main_Panel->Controls->Add(this->GoBack_Button);
 			this->Main_Panel->Controls->Add(this->Contrasenya_TextBox);
@@ -158,10 +172,33 @@ namespace CppCLRWinFormsProject {
 			this->Main_Panel->Controls->Add(this->Email_Label);
 			this->Main_Panel->Controls->Add(this->Email_TextBox);
 			this->Main_Panel->Controls->Add(this->Nom_Label);
-			this->Main_Panel->Location = System::Drawing::Point(318, 90);
+			this->Main_Panel->Location = System::Drawing::Point(318, 73);
 			this->Main_Panel->Name = L"Main_Panel";
-			this->Main_Panel->Size = System::Drawing::Size(303, 401);
+			this->Main_Panel->Size = System::Drawing::Size(303, 410);
 			this->Main_Panel->TabIndex = 9;
+			// 
+			// label3
+			// 
+			this->label3->AutoSize = true;
+			this->label3->Font = (gcnew System::Drawing::Font(L"Inter Italic", 11.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label3->Location = System::Drawing::Point(32, 289);
+			this->label3->Name = L"label3";
+			this->label3->Size = System::Drawing::Size(225, 19);
+			this->label3->TabIndex = 25;
+			this->label3->Text = L"caràcters especials i números.";
+			// 
+			// label2
+			// 
+			this->label2->AutoSize = true;
+			this->label2->BackColor = System::Drawing::SystemColors::GradientInactiveCaption;
+			this->label2->Font = (gcnew System::Drawing::Font(L"Inter Italic", 11.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label2->Location = System::Drawing::Point(32, 270);
+			this->label2->Name = L"label2";
+			this->label2->Size = System::Drawing::Size(251, 19);
+			this->label2->TabIndex = 23;
+			this->label2->Text = L"Ha de contenir 8 o més caràcters, ";
 			// 
 			// pictureBox1
 			// 
@@ -171,16 +208,18 @@ namespace CppCLRWinFormsProject {
 			this->pictureBox1->MinimumSize = System::Drawing::Size(24, 24);
 			this->pictureBox1->Name = L"pictureBox1";
 			this->pictureBox1->Size = System::Drawing::Size(24, 24);
+			this->pictureBox1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
 			this->pictureBox1->TabIndex = 23;
 			this->pictureBox1->TabStop = false;
 			this->pictureBox1->Click += gcnew System::EventHandler(this, &RegistreUsuariUI::pictureBox1_Click);
+			this->pictureBox1->MouseDown += gcnew MouseEventHandler(this, &RegistreUsuariUI::pictureBox1_MouseDown);
 			// 
 			// GoBack_Button
 			// 
 			this->GoBack_Button->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->GoBack_Button->ForeColor = System::Drawing::SystemColors::HotTrack;
-			this->GoBack_Button->Location = System::Drawing::Point(34, 344);
+			this->GoBack_Button->Location = System::Drawing::Point(35, 359);
 			this->GoBack_Button->Name = L"GoBack_Button";
 			this->GoBack_Button->Size = System::Drawing::Size(226, 35);
 			this->GoBack_Button->TabIndex = 21;
@@ -213,7 +252,7 @@ namespace CppCLRWinFormsProject {
 			this->Continuar_Button->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->Continuar_Button->ForeColor = System::Drawing::SystemColors::HotTrack;
-			this->Continuar_Button->Location = System::Drawing::Point(35, 303);
+			this->Continuar_Button->Location = System::Drawing::Point(35, 318);
 			this->Continuar_Button->Name = L"Continuar_Button";
 			this->Continuar_Button->Size = System::Drawing::Size(225, 35);
 			this->Continuar_Button->TabIndex = 18;
@@ -269,27 +308,13 @@ namespace CppCLRWinFormsProject {
 			this->Nom_Label->TabIndex = 12;
 			this->Nom_Label->Text = L"Nom";
 			// 
-			// EmplenaTotsError_Label
-			// 
-			this->EmplenaTotsError_Label->AutoSize = true;
-			this->EmplenaTotsError_Label->BackColor = System::Drawing::SystemColors::Control;
-			this->EmplenaTotsError_Label->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->EmplenaTotsError_Label->ForeColor = System::Drawing::Color::Red;
-			this->EmplenaTotsError_Label->Location = System::Drawing::Point(314, 500);
-			this->EmplenaTotsError_Label->Name = L"EmplenaTotsError_Label";
-			this->EmplenaTotsError_Label->Size = System::Drawing::Size(190, 19);
-			this->EmplenaTotsError_Label->TabIndex = 19;
-			this->EmplenaTotsError_Label->Text = L"Emplena tots els camps";
-			this->EmplenaTotsError_Label->Visible = false;
-			// 
 			// label1
 			// 
 			this->label1->AutoSize = true;
 			this->label1->Font = (gcnew System::Drawing::Font(L"SF Pro Display", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label1->ForeColor = System::Drawing::SystemColors::HotTrack;
-			this->label1->Location = System::Drawing::Point(314, 27);
+			this->label1->Location = System::Drawing::Point(314, 10);
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(91, 19);
 			this->label1->TabIndex = 22;
@@ -301,11 +326,23 @@ namespace CppCLRWinFormsProject {
 			this->IniciarSessio_Label->Font = (gcnew System::Drawing::Font(L"Inter", 20.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->IniciarSessio_Label->ForeColor = System::Drawing::SystemColors::HotTrack;
-			this->IniciarSessio_Label->Location = System::Drawing::Point(312, 41);
+			this->IniciarSessio_Label->Location = System::Drawing::Point(312, 24);
 			this->IniciarSessio_Label->Name = L"IniciarSessio_Label";
 			this->IniciarSessio_Label->Size = System::Drawing::Size(135, 33);
 			this->IniciarSessio_Label->TabIndex = 21;
 			this->IniciarSessio_Label->Text = L"Registrat";
+			// 
+			// EmplenaTots
+			// 
+			this->EmplenaTots->AutoSize = true;
+			this->EmplenaTots->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->EmplenaTots->ForeColor = System::Drawing::Color::Red;
+			this->EmplenaTots->Location = System::Drawing::Point(314, 489);
+			this->EmplenaTots->Name = L"EmplenaTots";
+			this->EmplenaTots->Size = System::Drawing::Size(194, 19);
+			this->EmplenaTots->TabIndex = 25;
+			this->EmplenaTots->Text = L"Emplena tots els camps.";
 			// 
 			// RegistreUsuariUI
 			// 
@@ -314,9 +351,9 @@ namespace CppCLRWinFormsProject {
 			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(243)), static_cast<System::Int32>(static_cast<System::Byte>(243)),
 				static_cast<System::Int32>(static_cast<System::Byte>(243)));
 			this->ClientSize = System::Drawing::Size(933, 696);
+			this->Controls->Add(this->EmplenaTots);
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->IniciarSessio_Label);
-			this->Controls->Add(this->EmplenaTotsError_Label);
 			this->Controls->Add(this->Main_Panel);
 			this->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
@@ -345,5 +382,7 @@ namespace CppCLRWinFormsProject {
 	private: System::Void RegistreUsuariUI_Load(System::Object^ sender, System::EventArgs^ e) {
 	}
 private: System::Void pictureBox1_Click(System::Object^ sender, System::EventArgs^ e);
+	   Void pictureBox1_MouseDown(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e);
+
 };
 }

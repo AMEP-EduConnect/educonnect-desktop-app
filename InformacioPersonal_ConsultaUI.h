@@ -26,6 +26,8 @@ namespace CppCLRWinFormsProject {
 	public ref class InformacioPersonal_ConsultaUI : public System::Windows::Forms::Form
 	{
 	public:
+		bool password_visible1 = false;
+		bool password_visible2 = false;
 		InformacioPersonal_ConsultaUI(void);
 		Void Nickname_Validating(Object^ sender, System::ComponentModel::CancelEventArgs^ e);
 		Void Password_Validating(Object^ sender, System::ComponentModel::CancelEventArgs^ e);
@@ -38,6 +40,11 @@ namespace CppCLRWinFormsProject {
 
 	private: System::Windows::Forms::Panel^ panel2;
 	private: System::Windows::Forms::Button^ BotoCancela;
+	private: System::Windows::Forms::PictureBox^ pictureBox1;
+	private: System::Windows::Forms::PictureBox^ pictureBox2;
+
+
+
 
 	public:
 		bool UserIsEditing = false;
@@ -100,7 +107,9 @@ namespace CppCLRWinFormsProject {
 		void InitializeComponent(void)
 		{
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
+			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
 			this->label1 = (gcnew System::Windows::Forms::Label());
+			this->pictureBox2 = (gcnew System::Windows::Forms::PictureBox());
 			this->textBox5 = (gcnew System::Windows::Forms::TextBox());
 			this->textBox4 = (gcnew System::Windows::Forms::TextBox());
 			this->textBox3 = (gcnew System::Windows::Forms::TextBox());
@@ -113,10 +122,12 @@ namespace CppCLRWinFormsProject {
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->tableLayoutPanel1 = (gcnew System::Windows::Forms::TableLayoutPanel());
 			this->panel2 = (gcnew System::Windows::Forms::Panel());
+			this->BotoCancela = (gcnew System::Windows::Forms::Button());
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->BotoElimina = (gcnew System::Windows::Forms::Button());
-			this->BotoCancela = (gcnew System::Windows::Forms::Button());
 			this->panel1->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->BeginInit();
 			this->tableLayoutPanel1->SuspendLayout();
 			this->panel2->SuspendLayout();
 			this->SuspendLayout();
@@ -125,7 +136,9 @@ namespace CppCLRWinFormsProject {
 			// 
 			this->panel1->Anchor = System::Windows::Forms::AnchorStyles::None;
 			this->panel1->BackColor = System::Drawing::SystemColors::GradientInactiveCaption;
+			this->panel1->Controls->Add(this->pictureBox1);
 			this->panel1->Controls->Add(this->label1);
+			this->panel1->Controls->Add(this->pictureBox2);
 			this->panel1->Controls->Add(this->textBox5);
 			this->panel1->Controls->Add(this->textBox4);
 			this->panel1->Controls->Add(this->textBox3);
@@ -142,6 +155,20 @@ namespace CppCLRWinFormsProject {
 			this->panel1->TabIndex = 0;
 			this->panel1->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &InformacioPersonal_ConsultaUI::panel1_Paint);
 			// 
+			// pictureBox1
+			// 
+			this->pictureBox1->BackColor = System::Drawing::SystemColors::Window;
+			this->pictureBox1->Location = System::Drawing::Point(408, 176);
+			this->pictureBox1->MaximumSize = System::Drawing::Size(24, 24);
+			this->pictureBox1->MinimumSize = System::Drawing::Size(24, 24);
+			this->pictureBox1->Name = L"pictureBox1";
+			this->pictureBox1->Size = System::Drawing::Size(24, 24);
+			this->pictureBox1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
+			this->pictureBox1->TabIndex = 26;
+			this->pictureBox1->TabStop = false;
+			this->pictureBox1->Visible = false;
+			this->pictureBox1->Click += gcnew System::EventHandler(this, &InformacioPersonal_ConsultaUI::pictureBox1_Click);
+			// 
 			// label1
 			// 
 			this->label1->AutoSize = true;
@@ -152,6 +179,20 @@ namespace CppCLRWinFormsProject {
 			this->label1->Size = System::Drawing::Size(176, 19);
 			this->label1->TabIndex = 9;
 			this->label1->Text = L"Repeteix Contrasenya";
+			// 
+			// pictureBox2
+			// 
+			this->pictureBox2->BackColor = System::Drawing::SystemColors::Window;
+			this->pictureBox2->Location = System::Drawing::Point(408, 225);
+			this->pictureBox2->MaximumSize = System::Drawing::Size(24, 24);
+			this->pictureBox2->MinimumSize = System::Drawing::Size(24, 24);
+			this->pictureBox2->Name = L"pictureBox2";
+			this->pictureBox2->Size = System::Drawing::Size(24, 24);
+			this->pictureBox2->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
+			this->pictureBox2->TabIndex = 25;
+			this->pictureBox2->TabStop = false;
+			this->pictureBox2->Visible = false;
+			this->pictureBox2->Click += gcnew System::EventHandler(this, &InformacioPersonal_ConsultaUI::pictureBox2_Click);
 			// 
 			// textBox5
 			// 
@@ -312,6 +353,19 @@ namespace CppCLRWinFormsProject {
 			this->panel2->Size = System::Drawing::Size(482, 357);
 			this->panel2->TabIndex = 24;
 			// 
+			// BotoCancela
+			// 
+			this->BotoCancela->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->BotoCancela->ForeColor = System::Drawing::Color::Red;
+			this->BotoCancela->Location = System::Drawing::Point(16, 310);
+			this->BotoCancela->Name = L"BotoCancela";
+			this->BotoCancela->Size = System::Drawing::Size(135, 35);
+			this->BotoCancela->TabIndex = 6;
+			this->BotoCancela->Text = L"Cancelar";
+			this->BotoCancela->UseVisualStyleBackColor = true;
+			this->BotoCancela->Click += gcnew System::EventHandler(this, &InformacioPersonal_ConsultaUI::BotoCancela_Click);
+			// 
 			// button1
 			// 
 			this->button1->Anchor = System::Windows::Forms::AnchorStyles::None;
@@ -342,19 +396,6 @@ namespace CppCLRWinFormsProject {
 			this->BotoElimina->UseVisualStyleBackColor = false;
 			this->BotoElimina->Click += gcnew System::EventHandler(this, &InformacioPersonal_ConsultaUI::BotoElimina_Click);
 			// 
-			// BotoCancela
-			// 
-			this->BotoCancela->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->BotoCancela->ForeColor = System::Drawing::Color::Red;
-			this->BotoCancela->Location = System::Drawing::Point(16, 310);
-			this->BotoCancela->Name = L"BotoCancela";
-			this->BotoCancela->Size = System::Drawing::Size(135, 35);
-			this->BotoCancela->TabIndex = 6;
-			this->BotoCancela->Text = L"Cancelar";
-			this->BotoCancela->UseVisualStyleBackColor = true;
-			this->BotoCancela->Click += gcnew System::EventHandler(this, &InformacioPersonal_ConsultaUI::BotoCancela_Click);
-			// 
 			// InformacioPersonal_ConsultaUI
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
@@ -373,6 +414,8 @@ namespace CppCLRWinFormsProject {
 			this->Load += gcnew System::EventHandler(this, &InformacioPersonal_ConsultaUI::InformacioPersonal_ConsultaUI_Load);
 			this->panel1->ResumeLayout(false);
 			this->panel1->PerformLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->EndInit();
 			this->tableLayoutPanel1->ResumeLayout(false);
 			this->tableLayoutPanel1->PerformLayout();
 			this->panel2->ResumeLayout(false);
@@ -399,5 +442,7 @@ namespace CppCLRWinFormsProject {
 	}
 	private: System::Void BotoElimina_Click(System::Object^ sender, System::EventArgs^ e);
 private: System::Void BotoCancela_Click(System::Object^ sender, System::EventArgs^ e);
+private: System::Void pictureBox2_Click(System::Object^ sender, System::EventArgs^ e);
+private: System::Void pictureBox1_Click(System::Object^ sender, System::EventArgs^ e);
 };
 }

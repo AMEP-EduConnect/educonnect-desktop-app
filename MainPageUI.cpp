@@ -59,6 +59,8 @@ namespace CppCLRWinFormsProject {
         else if (*rol == 3) {
             this->BotoAdmin->Visible = false;
             this->BotoEspais->Visible = true;
+            this->BotoElsMeus->Visible = false;
+            this->BotoExplorar->Visible = false;
         }
         else {
             this->BotoAdmin->Visible = false;
@@ -91,8 +93,9 @@ namespace CppCLRWinFormsProject {
         this->Hide();
         StartPageUI::Instance = gcnew StartPageUI();
         StartPageUI::Instance->ShowDialog();
+        StartPageUI::Instance->captcha_ok = false;
         this->Close();
-
+    
     }
 
     void MainPageUI::Perfil_Click(System::Object^ sender, System::EventArgs^ e)

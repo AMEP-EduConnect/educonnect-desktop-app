@@ -69,9 +69,9 @@ namespace CppCLRWinFormsProject {
 			// 
 			// pictureBox1
 			// 
-			this->pictureBox1->Location = System::Drawing::Point(47, 56);
+			this->pictureBox1->Location = System::Drawing::Point(47, 31);
 			this->pictureBox1->Name = L"pictureBox1";
-			this->pictureBox1->Size = System::Drawing::Size(354, 100);
+			this->pictureBox1->Size = System::Drawing::Size(354, 139);
 			this->pictureBox1->TabIndex = 0;
 			this->pictureBox1->TabStop = false;
 			// 
@@ -103,7 +103,7 @@ namespace CppCLRWinFormsProject {
 			this->label1->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label1->ForeColor = System::Drawing::SystemColors::HotTrack;
-			this->label1->Location = System::Drawing::Point(43, 24);
+			this->label1->Location = System::Drawing::Point(43, 9);
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(358, 19);
 			this->label1->TabIndex = 3;

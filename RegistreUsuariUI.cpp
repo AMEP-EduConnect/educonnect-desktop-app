@@ -23,12 +23,7 @@ namespace CppCLRWinFormsProject {
         }
 
 		Void RegistreUsuariUI::textBoxPassword_Validating(System::Object^ sender, System::ComponentModel::CancelEventArgs^ e) {
-			TextBox^ textBox = dynamic_cast<TextBox^>(sender);
-			if (!IsPasswordStrong(textBox->Text) and textBox->Text != "") {
-                MessageManager::InfoMessage("La contrasenya no és prou robusta.\nHa de contenir 8 o més caràcters, caràcters especials i números");
-                textBox->Text = "";
-                //e->Cancel = true; // Previene que el foco cambie de control hasta que la entrada sea válida.
-			}
+
 		}
 
         Void RegistreUsuariUI::NomUsuari_TextBox_Validating(Object^ sender, System::ComponentModel::CancelEventArgs^ e) {
@@ -49,6 +44,7 @@ namespace CppCLRWinFormsProject {
 			if (textBox != nullptr) {
 				if (!IsValidEmail(textBox->Text) and textBox->Text != "") {
                     MessageManager::ErrorMessage("El correu electrònic no té un format vàlid");
+                    textBox->Text = "";
 					//e->Cancel = true; // Esto previene que el foco cambie al siguiente control si la validación falla.
 				}
                 else {
@@ -70,21 +66,31 @@ namespace CppCLRWinFormsProject {
             String^ name = Nom_TextBox->Text;
             String^ password = Contrasenya_TextBox->Text;
 
-            if (username == "" or email == "" or name == "" or password == "") EmplenaTotsError_Label->Visible = true;
+            if (!IsPasswordStrong(Contrasenya_TextBox->Text) and Contrasenya_TextBox->Text != "") {
+                MessageManager::InfoMessage("La contrasenya no és prou robusta.\nHa de contenir 8 o més caràcters, caràcters especials i números");
+                Contrasenya_TextBox->Text = "";
+                //e->Cancel = true;
+                if (username == "" or email == "" or name == "" or password == "") this->EmplenaTots->Visible = true;
 
+            }
             else {
-                this->registreService->CreateUser(username,email,name,password);
-                
-                MessageManager::InfoMessage("S'ha registrat correctament!");
-                FirstPageUI^ PanelUI = gcnew FirstPageUI();
-                PanelUI->TopLevel = false;
-                PanelUI->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
-                PanelUI->Dock = System::Windows::Forms::DockStyle::Fill;
 
-                StartPageUI::Instance->screen->Controls->Clear();
-                StartPageUI::Instance->screen->Controls->Add(PanelUI);
-                PanelUI->Show();
-                
+                if (username == "" or email == "" or name == "" or password == "") this->EmplenaTots->Visible = true;
+
+                else {
+                    this->registreService->CreateUser(username, email, name, password);
+
+                    MessageManager::InfoMessage("S'ha registrat correctament!");
+                    FirstPageUI^ PanelUI = gcnew FirstPageUI();
+                    PanelUI->TopLevel = false;
+                    PanelUI->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
+                    PanelUI->Dock = System::Windows::Forms::DockStyle::Fill;
+
+                    StartPageUI::Instance->screen->Controls->Clear();
+                    StartPageUI::Instance->screen->Controls->Add(PanelUI);
+                    PanelUI->Show();
+
+                }
             }
         }
 
@@ -114,6 +120,10 @@ namespace CppCLRWinFormsProject {
                 password_visible = true;
                 this->Contrasenya_TextBox->UseSystemPasswordChar = false;
             }
+        }
+
+        Void RegistreUsuariUI::pictureBox1_MouseDown(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
+            this->Contrasenya_TextBox->Focus();
         }
 
 }

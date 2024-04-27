@@ -1,5 +1,6 @@
 #include "pch.h"
 #include "CaptchaUI.h"
+#include "StartPageUI.h"
 #include <random>
 #include <ctime>
 #include <iostream>
@@ -43,7 +44,7 @@ namespace CppCLRWinFormsProject {
         Random^ rand = gcnew Random((int)DateTime::Now.Ticks);
 
 
-        int fontSize = 17; 
+        int fontSize = 20; 
         SizeF textSize;
         do
         {
@@ -83,8 +84,7 @@ namespace CppCLRWinFormsProject {
         if (textBox1->Text->Equals(textBox1->Tag->ToString()))
         {
             this->Hide();
-            IniciSessioUI^ form = gcnew IniciSessioUI();
-            form->ShowDialog();
+            StartPageUI::Instance->captcha_ok = true;
             this->Close();
         }
         else
@@ -92,10 +92,10 @@ namespace CppCLRWinFormsProject {
             MessageManager::WarningMessage("Captcha incorrecte. Si us plau, torna-ho a intentar!");
         }
     }
-    Void CaptchaUI::Cancelar_Click(System::Object^ sender, System::EventArgs^ e) {
+
+    Void CaptchaUI::Cancelar_Click(System::Object^ sender, System::EventArgs^ e) 
+    {
 		this->Hide();
-		FirstPageUI^ form = gcnew FirstPageUI();
-		form->ShowDialog();
 		this->Close();
 	}
 

@@ -62,6 +62,8 @@ namespace CppCLRWinFormsProject {
 	private: System::Windows::Forms::Button^ GoBack_Button;
 	private: System::Windows::Forms::Label^ label1;
 	private: System::Windows::Forms::PictureBox^ pictureBox1;
+	private: System::Windows::Forms::Label^ CredencialsIncorrectes_Label2;
+
 
 	protected:
 
@@ -89,6 +91,7 @@ namespace CppCLRWinFormsProject {
 			this->GoBack_Button = (gcnew System::Windows::Forms::Button());
 			this->CredencialsIncorrectes_Label = (gcnew System::Windows::Forms::Label());
 			this->label1 = (gcnew System::Windows::Forms::Label());
+			this->CredencialsIncorrectes_Label2 = (gcnew System::Windows::Forms::Label());
 			this->Main_Panel->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			this->SuspendLayout();
@@ -187,6 +190,7 @@ namespace CppCLRWinFormsProject {
 			this->pictureBox1->MinimumSize = System::Drawing::Size(24, 24);
 			this->pictureBox1->Name = L"pictureBox1";
 			this->pictureBox1->Size = System::Drawing::Size(24, 24);
+			this->pictureBox1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
 			this->pictureBox1->TabIndex = 13;
 			this->pictureBox1->TabStop = false;
 			this->pictureBox1->Click += gcnew System::EventHandler(this, &IniciSessioUI::pictureBox1_Click);
@@ -212,9 +216,9 @@ namespace CppCLRWinFormsProject {
 			this->CredencialsIncorrectes_Label->ForeColor = System::Drawing::Color::Red;
 			this->CredencialsIncorrectes_Label->Location = System::Drawing::Point(314, 479);
 			this->CredencialsIncorrectes_Label->Name = L"CredencialsIncorrectes_Label";
-			this->CredencialsIncorrectes_Label->Size = System::Drawing::Size(188, 19);
+			this->CredencialsIncorrectes_Label->Size = System::Drawing::Size(213, 19);
 			this->CredencialsIncorrectes_Label->TabIndex = 10;
-			this->CredencialsIncorrectes_Label->Text = L"Credencials incorrectes";
+			this->CredencialsIncorrectes_Label->Text = L"Credencials incorrectes i/o";
 			this->CredencialsIncorrectes_Label->Visible = false;
 			// 
 			// label1
@@ -229,6 +233,19 @@ namespace CppCLRWinFormsProject {
 			this->label1->TabIndex = 12;
 			this->label1->Text = L"EduConnect";
 			// 
+			// CredencialsIncorrectes_Label2
+			// 
+			this->CredencialsIncorrectes_Label2->AutoSize = true;
+			this->CredencialsIncorrectes_Label2->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->CredencialsIncorrectes_Label2->ForeColor = System::Drawing::Color::Red;
+			this->CredencialsIncorrectes_Label2->Location = System::Drawing::Point(314, 500);
+			this->CredencialsIncorrectes_Label2->Name = L"CredencialsIncorrectes_Label2";
+			this->CredencialsIncorrectes_Label2->Size = System::Drawing::Size(159, 19);
+			this->CredencialsIncorrectes_Label2->TabIndex = 13;
+			this->CredencialsIncorrectes_Label2->Text = L"Captcha incorrecte.";
+			this->CredencialsIncorrectes_Label2->Visible = false;
+			// 
 			// IniciSessioUI
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
@@ -236,6 +253,7 @@ namespace CppCLRWinFormsProject {
 			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(243)), static_cast<System::Int32>(static_cast<System::Byte>(243)),
 				static_cast<System::Int32>(static_cast<System::Byte>(243)));
 			this->ClientSize = System::Drawing::Size(933, 696);
+			this->Controls->Add(this->CredencialsIncorrectes_Label2);
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->CredencialsIncorrectes_Label);
 			this->Controls->Add(this->IniciarSessio_Label);

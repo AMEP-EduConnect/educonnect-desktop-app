@@ -25,7 +25,8 @@ namespace CppCLRWinFormsProject {
 		this->Icon = gcnew System::Drawing::Icon("app.ico");
 		
 		this->BotoCancela->Visible = false;
-
+		this->pictureBox1->Image = Image::FromFile("resources/Icons/eye-crossed.png");
+		this->pictureBox2->Image = Image::FromFile("resources/Icons/eye-crossed.png");
 		//ROLS
 		Int64^ rol = CurrentSession::Instance->GetCurrentUserRol();
 		if (*rol != 1LL) this->BotoElimina->Visible = true;
@@ -38,7 +39,22 @@ namespace CppCLRWinFormsProject {
 		if (UserIsEditing) {
 			if ((textBox1->Text == username or textBox1->Text == "") and (textBox3->Text == email or textBox3->Text == "") and textBox4->Text == name and textBox2->Text == "") {
 				MessageManager::WarningMessage("Modifica almenys un camp per a actualitzar l'usuari!");
+				textBox5->Text = "";
 			}
+			else if(textBox2->Text != "" and textBox2->Text != password) {
+				if (!IsPasswordStrong(textBox2->Text) && textBox2->Text != "") {
+					MessageManager::WarningMessage("La contrasenya no es prou robusta.\nHa de contenir 8 o mes caracters, caracters especials i numeros");
+					textBox2->Text = "";
+					textBox5->Text = "";
+					//e->Cancel = true; // Previene que el foco cambie de control hasta que la entrada sea v�lida.
+				}
+				else if (credentialManagementService->VerifyPassword(textBox2->Text, password) == true) {
+					MessageManager::ErrorMessage("La contrasenya no pot ser igual a l'actual");
+					textBox2->Text = "";
+					textBox5->Text = "";
+				}
+			}
+
 			else {
 				if (Repeat_Validating()) {
 					UserIsEditing = false;
@@ -70,6 +86,12 @@ namespace CppCLRWinFormsProject {
 
 					this->button1->Text = "Editar";
 					this->BotoCancela->Visible = false;
+					this->pictureBox1->Visible = false;
+					this->pictureBox1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(224)), static_cast<System::Int32>(static_cast<System::Byte>(224)),
+						static_cast<System::Int32>(static_cast<System::Byte>(224)));
+					this->pictureBox2->Visible = false;
+					this->pictureBox2->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(224)), static_cast<System::Int32>(static_cast<System::Byte>(224)),
+						static_cast<System::Int32>(static_cast<System::Byte>(224)));
 
 				}
 			}
@@ -92,6 +114,10 @@ namespace CppCLRWinFormsProject {
 
 			this->button1->Text = "Confirmar";
 			this->BotoCancela->Visible = true;
+			this->pictureBox1->Visible = true;
+			this->pictureBox1->BackColor = SystemColors::Window;
+			this->pictureBox2->Visible = true;
+			this->pictureBox2->BackColor = SystemColors::Window;
 		}
 	}
 
@@ -123,16 +149,7 @@ namespace CppCLRWinFormsProject {
 
 	Void InformacioPersonal_ConsultaUI::Password_Validating(Object^ sender, System::ComponentModel::CancelEventArgs^ e)
 	{
-		TextBox^ textBox = dynamic_cast<TextBox^>(sender);
-		if (!IsPasswordStrong(textBox->Text) && textBox->Text != "") {
-			MessageManager::WarningMessage("La contrasenya no es prou robusta.\nHa de contenir 8 o mes caracters, caracters especials i numeros");
-			textBox->Text = "";
-			//e->Cancel = true; // Previene que el foco cambie de control hasta que la entrada sea v�lida.
-		}
-		else if (credentialManagementService->VerifyPassword(textBox->Text, password) == true) {
-			MessageManager::ErrorMessage("La contrasenya no pot ser igual a l'actual");
-			textBox->Text = "";
-		}
+
 
 	}
 
@@ -194,6 +211,8 @@ namespace CppCLRWinFormsProject {
 		textBox4->Text = name;
 		textBox2->Text = "";
 		textBox5->Text = "";
+		pictureBox1->Visible = false;
+		pictureBox2->Visible = false;
 
 		this->textBox1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(224)), static_cast<System::Int32>(static_cast<System::Byte>(224)),
 			static_cast<System::Int32>(static_cast<System::Byte>(224)));
@@ -211,6 +230,39 @@ namespace CppCLRWinFormsProject {
 		UserIsEditing = false;
 	
 	}
+
+	Void InformacioPersonal_ConsultaUI::pictureBox1_Click(System::Object^ sender, System::EventArgs^ e) {
+		if (password_visible1) {
+			this->pictureBox1->Image = Image::FromFile("resources/Icons/eye-crossed.png");
+			this->textBox2->PasswordChar = true;
+			password_visible1 = false;
+			this->textBox2->UseSystemPasswordChar = true;
+		}
+		else {
+			this->pictureBox1->Image = Image::FromFile("resources/Icons/eye.png");
+			this->textBox2->PasswordChar = false;
+			password_visible1 = true;
+			this->textBox2->UseSystemPasswordChar = false;
+		}
+	
+	}
+
+
+	Void InformacioPersonal_ConsultaUI::pictureBox2_Click(System::Object^ sender, System::EventArgs^ e) {
+		if (password_visible2) {
+			this->pictureBox2->Image = Image::FromFile("resources/Icons/eye-crossed.png");
+			this->textBox5->PasswordChar = true;
+			password_visible2 = false;
+			this->textBox5->UseSystemPasswordChar = true;
+		}
+		else {
+			this->pictureBox2->Image = Image::FromFile("resources/Icons/eye.png");
+			this->textBox5->PasswordChar = false;
+			password_visible2 = true;
+			this->textBox5->UseSystemPasswordChar = false;
+		}
+	}
+
 
 }
 

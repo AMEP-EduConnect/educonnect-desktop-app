@@ -16,6 +16,7 @@ namespace CppCLRWinFormsProject {
 	{
 	public:
 		static StartPageUI^ Instance;
+		bool captcha_ok = false;
 	private: System::Windows::Forms::PictureBox^ pictureBox1;
 	public:
 		System::Windows::Forms::Panel^ screen;
@@ -67,6 +68,8 @@ namespace CppCLRWinFormsProject {
 			// 
 			// pictureBox1
 			// 
+			this->pictureBox1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(243)), static_cast<System::Int32>(static_cast<System::Byte>(243)),
+				static_cast<System::Int32>(static_cast<System::Byte>(243)));
 			this->pictureBox1->Location = System::Drawing::Point(0, 524);
 			this->pictureBox1->Name = L"pictureBox1";
 			this->pictureBox1->Size = System::Drawing::Size(933, 356);

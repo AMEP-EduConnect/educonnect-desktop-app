@@ -17,23 +17,28 @@ namespace CppCLRWinFormsProject {
         String^ username = NomUsuari_TextBox->Text;
         String^ password = Contrasenya_TextBox->Text;
 
-        if (username == "" or password == "") CredencialsIncorrectes_Label->Visible = true;
-
+        if (username == "" or password == "") {
+            CredencialsIncorrectes_Label->Visible = true;
+            CredencialsIncorrectes_Label2->Visible = true;
+        }
         else {
 
             bool check = inici.CheckUsername(username, password);
-
-            //CaptchaUI^ form = gcnew CaptchaUI();
-            //form->ShowDialog();
-
-            if (check == true) {
+            
+            CaptchaUI^ form = gcnew CaptchaUI();
+            form->ShowDialog();
+            //REMOVE StartPageUI::Instance->captcha_ok TO AVOID CAPTCHA
+            if (check == true and StartPageUI::Instance->captcha_ok) {
                 StartPageUI::Instance->Hide();
                 MainPageUI::Instance = gcnew MainPageUI();
                 MainPageUI::Instance->ShowDialog();
                 StartPageUI::Instance->Close();
             }
 
-            else CredencialsIncorrectes_Label->Visible = true;
+            else {
+                CredencialsIncorrectes_Label->Visible = true;
+                CredencialsIncorrectes_Label2->Visible = true;
+            }
         }
     }
 
