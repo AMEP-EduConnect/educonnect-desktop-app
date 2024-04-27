@@ -4,6 +4,7 @@
 #include "DatabaseConnector.h"
 #include "AcademicTag.h"
 #include "MessageManager.h"
+#include <vector>
 
 using namespace System;
 public ref class GrupEstudiMembershipRepository
@@ -17,5 +18,9 @@ public:
 	GrupEstudi^ LoadAllGrupEstudibyId(Int64^ group_id);
 	bool CheckIfUserIsInGroup(Int64^ user_id, Int64^ group_id);
 	void DeleteUserFromGroup(Int64^ user_id, Int64^ group_id);
+	Int64^ CheckIfGroupHasUsers(Int64^ group_id);
+	Int64^ GetOldestUserInGroup(Int64^ group_id);
+	List<Int64>^ CheckNRecentGroups(Int64^ N, Int64^ user_id);
 
 };
+	

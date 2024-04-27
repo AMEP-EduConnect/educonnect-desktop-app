@@ -34,3 +34,7 @@ bool GrupEstudiMembershipService::CheckIfUserIsInGroup(Int64^ user_id, Int64^ gr
 void GrupEstudiMembershipService::DeleteUserFromGroup(Int64^ user_id, Int64^ group_id) {
 	grupEstudiMembershipRepository->DeleteUserFromGroup(user_id, group_id);
 }
+
+List<Int64>^ GrupEstudiMembershipService::CheckNRecentGroups(Int64^ N, Int64^ user_id) {
+	return grupEstudiMembershipRepository->CheckNRecentGroups(N, user_id);
+}

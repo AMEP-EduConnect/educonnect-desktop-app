@@ -20,10 +20,13 @@ using namespace System;
 #include "Usuari.h"
 #include "RegistreUsuariUI.h"
 #include "IniciSessioUI.h"
+#include "BaixaUsuariUI.h"
+#include "CaptchaUI.h"
+#include "StartPageUI.h"
 using namespace System;
 #include "InformacioPersonal_ConsultaUI.h"
-#include "InformacioPersonal_ModificaUI.h"
 
+using namespace System;
 using namespace System::Windows::Forms;
 
 [STAThread]
@@ -31,9 +34,14 @@ int main()
 {
 	DatabaseConnector::Instance = gcnew DatabaseConnector();
 	CurrentSession::Instance = gcnew CurrentSession();
+	
 	Application::EnableVisualStyles();
 	Application::SetCompatibleTextRenderingDefault(false);
-	Application::Run(gcnew CppCLRWinFormsProject::FirstPageUI());
+
+	CppCLRWinFormsProject::StartPageUI::Instance = gcnew CppCLRWinFormsProject::StartPageUI();
+	
+	Application::Run(CppCLRWinFormsProject::StartPageUI::Instance);
+	//Application::Run(gcnew CppCLRWinFormsProject::CaptchaUI());
 	//Application::Run(gcnew CppCLRWinFormsProject::InformacioPersonal_ConsultaUI());
 	//Application::Run(gcnew CppCLRWinFormsProject::IniciSessio());
 	//Application::Run(gcnew CppCLRWinFormsProject::RegistreUsuari());

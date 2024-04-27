@@ -86,7 +86,18 @@ void GrupEstudiRepository::DeleteGrupEstudi(String^ group_name)
 
 	DatabaseConnector::Instance->Disconnect();
 }	
-
+// Create a function that delete a group by id
+bool GrupEstudiRepository::DeleteGrupEstudiById(Int64^ id)
+{
+	DatabaseConnector::Instance->Connect();
+	String^ sql = "DELETE FROM studyGroups WHERE id=@id";
+	Dictionary<String^, Object^>^ params = gcnew Dictionary<String^, Object^>(0);
+	params->Add("@id", id->ToString());
+	MySqlDataReader^ data = DatabaseConnector::Instance->ExecuteClientCommand(sql, params);
+	data->Close();
+	DatabaseConnector::Instance->Disconnect();
+	return true;
+}
 GrupEstudi^ GrupEstudiRepository::GetGrupEstudiById(Int64^ id)
 {
 	DatabaseConnector::Instance->Connect();
@@ -229,4 +240,28 @@ bool GrupEstudiRepository::CheckUserIsOwner(String^ group_name)
 	DatabaseConnector::Instance->Disconnect();
 
 	return owner;
+}
+void GrupEstudiRepository::ChangeGroupOwner(Int64^ group_id, Int64^ new_owner_id)
+{
+	DatabaseConnector::Instance->Connect();
+	String^ sql = "UPDATE studyGroups SET group_owner_id = @new_owner_id WHERE id = @group_id";
+	Dictionary<String^, Object^>^ params = gcnew Dictionary<String^, Object^>(0);
+	params->Add("@new_owner_id", new_owner_id->ToString());
+	params->Add("@group_id", group_id->ToString());
+	DatabaseConnector::Instance->ExecuteClientCommand(sql, params);
+	DatabaseConnector::Instance->Disconnect();
+}
+
+bool GrupEstudiRepository::CheckUserIsOwnerById(Int64^ id_user, Int64^ id_group)
+{
+	DatabaseConnector::Instance->Connect();
+	String^ sql = "SELECT * FROM studyGroups WHERE group_owner_id = @id_user AND id = @id_group";
+	Dictionary<String^, Object^>^ params = gcnew Dictionary<String^, Object^>(0);
+	params->Add("@id_user", id_user->ToString());
+	params->Add("@id_group", id_group->ToString());
+	MySqlDataReader^ data = DatabaseConnector::Instance->ExecuteClientCommand(sql, params);
+	bool check = data != nullptr && data->Read();
+	data->Close();
+	DatabaseConnector::Instance->Disconnect();
+	return check;
 }

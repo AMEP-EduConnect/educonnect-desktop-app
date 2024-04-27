@@ -6,6 +6,7 @@
 #include "DatabaseConnector.h"
 #include "GrupEstudiMembership.h"
 #include "MessageManager.h"
+#include <vector>
 public ref class GrupEstudiMembershipService
 {
 public:
@@ -18,6 +19,7 @@ public:
 	void UserToGroup(Int64^ user_id, Int64^ group_id);
 	bool CheckIfUserIsInGroup(Int64^ user_id, Int64^ group_id);
 	void DeleteUserFromGroup(Int64^ user_id, Int64^ group_id);
+	List<Int64>^ CheckNRecentGroups(Int64^ N, Int64^ user_id);
 
 private:
 	GrupEstudiMembershipRepository^ grupEstudiMembershipRepository;

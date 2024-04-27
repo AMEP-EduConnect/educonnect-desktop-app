@@ -3,6 +3,7 @@
 #include "BaixaProveidorService.h"
 #include "MessageManager.h"
 #include "MainPageUI.h"
+#include "AdministradorUI.h"
 
 using namespace System;
 namespace CppCLRWinFormsProject {
@@ -15,19 +16,25 @@ namespace CppCLRWinFormsProject {
                 this->BaixaProveidorTextBox->Text = "";
             }
             else {
-                MessageManager::InfoMessage("No existeix el Proveidor " + username + "!");
+                MessageManager::ErrorMessage("No existeix el Proveidor " + username + "!");
                 this->BaixaProveidorTextBox->Text = "";
             }
         }
         else {
-            MessageManager::WarningMessage("Por favor, introduce el nombre del proveedor a eliminar.");
+            MessageManager::WarningMessage("Introdueix el nom del proveïdor que es esborrar!.");
         }
     }
 
-    void BaixaProveidorUI::GoBackButton_Click(System::Object^ sender, System::EventArgs^ e) {
-		this->Hide();
-		MainPageUI^ form = gcnew MainPageUI();
-		form->ShowDialog();
-		this->Close();
-	}
+    Void BaixaProveidorUI::Cancelar_Button_Click(System::Object^ sender, System::EventArgs^ e) {
+        AdministradorUI^ PanelUI = gcnew AdministradorUI();
+        PanelUI->TopLevel = false;
+        PanelUI->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
+        PanelUI->Dock = System::Windows::Forms::DockStyle::Fill;
+        MainPageUI::Instance->screen->Controls->Clear();
+        MainPageUI::Instance->screen->Controls->Add(PanelUI);
+        PanelUI->Show();
+    
+    }
+    
+
 }

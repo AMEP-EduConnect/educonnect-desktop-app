@@ -48,10 +48,10 @@ Usuari^ UsuariRepository::GetUsuariByPassUser(String^ username, String^ password
 
 Usuari^ UsuariRepository::GetUsuariByUser(String^ username) {
 	DatabaseConnector::Instance->Connect();
-	String^ sql = "SELECT username FROM users WHERE username = @Username";
+	String^ sql = "SELECT * FROM users WHERE username = @Username";
 	Dictionary<String^, Object^>^ params = gcnew Dictionary<String^, Object^>(0);
 	params->Add("@Username", username);
-	MySqlDataReader^ data = DatabaseConnector::Instance->ExecuteInternCommand(sql);
+	MySqlDataReader^ data = DatabaseConnector::Instance->ExecuteClientCommand(sql,params);
 	Usuari^ usuari = gcnew Usuari();
 
 	while (data->Read())
@@ -115,7 +115,7 @@ Int64^ UsuariRepository::CreateUser(String^ username, String^ email, String^ nam
 	DatabaseConnector::Instance->Disconnect();
 	return id;
 }
-
+/*
 bool UsuariRepository::CreateUserRol(Int64^ id) {
 	DatabaseConnector::Instance->Connect();
 	String^ sql = "INSERT INTO users_roles (user_id, role_id) VALUES (@id,2)";
@@ -125,7 +125,7 @@ bool UsuariRepository::CreateUserRol(Int64^ id) {
 	data3->Close();
 	DatabaseConnector::Instance->Disconnect();
 	return true;
-}
+}*/
 
 bool UsuariRepository::UpdateUser(String^ username, String^ password, String^ email, String^ name) {
 	Usuari^ currentUser = CurrentSession::Instance->GetCurrentUser();
@@ -147,3 +147,29 @@ bool UsuariRepository::UpdateUser(String^ username, String^ password, String^ em
 	return true;
 }
 
+bool UsuariRepository::DeleteUser(Int64^ id) {
+	DatabaseConnector::Instance->Connect();
+	String^ sql = "DELETE FROM users WHERE id=@id";
+	Dictionary<String^, Object^>^ params = gcnew Dictionary<String^, Object^>(0);
+	params->Add("@id", id->ToString());
+	MySqlDataReader^ data = DatabaseConnector::Instance->ExecuteClientCommand(sql, params);
+	data->Close();
+	DatabaseConnector::Instance->Disconnect();
+	return true;
+}
+
+
+Int64^ UsuariRepository::GetUserId(String^ username) {
+	DatabaseConnector::Instance->Connect();
+	String^ sql = "SELECT id FROM users WHERE username = @Username";
+	Dictionary<String^, Object^>^ params = gcnew Dictionary<String^, Object^>(0);
+	params->Add("@Username", username);
+	MySqlDataReader^ data = DatabaseConnector::Instance->ExecuteClientCommand(sql, params);
+	Int64^ id;
+	while (data->Read()) {
+		id = data->GetInt64(0);
+	}
+	data->Close();
+	DatabaseConnector::Instance->Disconnect();
+	return id;
+}
