@@ -90,10 +90,10 @@ namespace CppCLRWinFormsProject {
 			   this->Cancelar_Button = (gcnew System::Windows::Forms::Button());
 			   this->tableLayoutPanel3 = (gcnew System::Windows::Forms::TableLayoutPanel());
 			   this->tableLayoutPanel2 = (gcnew System::Windows::Forms::TableLayoutPanel());
+			   this->textBox1 = (gcnew System::Windows::Forms::TextBox());
 			   this->label2 = (gcnew System::Windows::Forms::Label());
 			   this->label3 = (gcnew System::Windows::Forms::Label());
 			   this->textBox3 = (gcnew System::Windows::Forms::TextBox());
-			   this->textBox1 = (gcnew System::Windows::Forms::TextBox());
 			   this->tableLayoutPanel1->SuspendLayout();
 			   this->tableLayoutPanel3->SuspendLayout();
 			   this->tableLayoutPanel2->SuspendLayout();
@@ -118,11 +118,11 @@ namespace CppCLRWinFormsProject {
 			   this->label6->AutoSize = true;
 			   this->label6->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				   static_cast<System::Byte>(0)));
-			   this->label6->Location = System::Drawing::Point(278, 24);
+			   this->label6->Location = System::Drawing::Point(333, 24);
 			   this->label6->Name = L"label6";
-			   this->label6->Size = System::Drawing::Size(255, 31);
+			   this->label6->Size = System::Drawing::Size(146, 31);
 			   this->label6->TabIndex = 13;
-			   this->label6->Text = L"Donar d\'Alta Espai";
+			   this->label6->Text = L"Alta Espai";
 			   // 
 			   // tableLayoutPanel1
 			   // 
@@ -204,6 +204,16 @@ namespace CppCLRWinFormsProject {
 			   this->tableLayoutPanel2->Size = System::Drawing::Size(362, 167);
 			   this->tableLayoutPanel2->TabIndex = 17;
 			   // 
+			   // textBox1
+			   // 
+			   this->textBox1->Anchor = System::Windows::Forms::AnchorStyles::None;
+			   this->textBox1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				   static_cast<System::Byte>(0)));
+			   this->textBox1->Location = System::Drawing::Point(194, 112);
+			   this->textBox1->Name = L"textBox1";
+			   this->textBox1->Size = System::Drawing::Size(162, 26);
+			   this->textBox1->TabIndex = 19;
+			   // 
 			   // label2
 			   // 
 			   this->label2->Anchor = System::Windows::Forms::AnchorStyles::Left;
@@ -239,16 +249,6 @@ namespace CppCLRWinFormsProject {
 			   this->textBox3->Name = L"textBox3";
 			   this->textBox3->Size = System::Drawing::Size(162, 26);
 			   this->textBox3->TabIndex = 0;
-			   // 
-			   // textBox1
-			   // 
-			   this->textBox1->Anchor = System::Windows::Forms::AnchorStyles::None;
-			   this->textBox1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				   static_cast<System::Byte>(0)));
-			   this->textBox1->Location = System::Drawing::Point(194, 112);
-			   this->textBox1->Name = L"textBox1";
-			   this->textBox1->Size = System::Drawing::Size(162, 26);
-			   this->textBox1->TabIndex = 19;
 			   // 
 			   // AltaEspaisUI
 			   // 

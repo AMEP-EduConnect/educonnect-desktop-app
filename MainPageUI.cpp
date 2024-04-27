@@ -19,6 +19,7 @@
 #include "UsuariRolRepository.h"
 #include "StartPageUI.h"
 #include "AltaEspaisUI.h"
+#include "ConsultaEspaisUI.h"
 namespace CppCLRWinFormsProject {
 
     MainPageUI::MainPageUI(void)
@@ -154,7 +155,7 @@ namespace CppCLRWinFormsProject {
 
     }
     Void MainPageUI::BotoEspais_Click(System::Object^ sender, System::EventArgs^ e) {
-        AltaEspaisUI^ PanelUI = gcnew AltaEspaisUI();
+        ConsultaEspaisUI^ PanelUI = gcnew ConsultaEspaisUI();
         PanelUI->TopLevel = false;
         PanelUI->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
         PanelUI->Dock = System::Windows::Forms::DockStyle::Fill;
