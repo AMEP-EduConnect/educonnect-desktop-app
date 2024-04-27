@@ -5,13 +5,13 @@ EspaisRepository::EspaisRepository() {
 
 }
 
-bool EspaisRepository::CreateEspai(String^ nombre, Int64^ capacidad_grupos, Int64^ provider_id) {
+bool EspaisRepository::CreateEspai(String^ name, Int64^ capacity, Int64^ user_id) {
 	DatabaseConnector::Instance->Connect();
-	String^ sql = "INSERT INTO espais (nombre, capacidad_grupos, provider_id) VALUES (@Nombre, @Capacidad_grupos, @Provider_id)";
+	String^ sql = "INSERT INTO espais (name, capacity, user_id) VALUES (@name, @capacity, @user_id)";
 	Dictionary<String^, Object^>^ params = gcnew Dictionary<String^, Object^>(0);
-	params->Add("@Nombre", nombre);
-	params->Add("@Capacidad_grupos", capacidad_grupos);
-	params->Add("@Provider_id", provider_id);
+	params->Add("@name", name);
+	params->Add("@capacity", capacity);
+	params->Add("@user_id", user_id);
 
 
 	MySqlDataReader^ data = DatabaseConnector::Instance->ExecuteClientCommand(sql, params);
