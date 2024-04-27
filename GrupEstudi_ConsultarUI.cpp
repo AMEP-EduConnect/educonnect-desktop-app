@@ -103,12 +103,25 @@ namespace CppCLRWinFormsProject {
         // Limpiar el ListBox antes de cargar los nuevos grupos
         Noms_ListBox->Items->Clear();
 
-        for (int i = 0; i < arrayIdGroupEstudisOfUser->Length; i++) {
-            GrupEstudi^ grupEstudiUser = grupEstudiMembershipService->LoadAllGrupEstudibyId(arrayIdGroupEstudisOfUser[i]);
-            Noms_ListBox->Items->Add(grupEstudiUser->GetGroupName());
-        }
+        if (arrayIdGroupEstudisOfUser->Length == 0) {
+			consulta_membres->Visible = false;
+			abandonar_button->Visible = false;
+			Editar_Button->Visible = false;
+			Eliminar_Button->Visible = false;
+            
+            Noms_ListBox->Items->Add("No tens cap grup d'estudi assignat.");
+            Noms_ListBox->ForeColor = System::Drawing::Color::Gray;
+            Noms_ListBox->Enabled = false;
+		}
+        else {
+            Noms_ListBox->ForeColor = System::Drawing::Color::Black;
+            Noms_ListBox->Enabled = true;
 
-        //Falta que el estudiant pugui gestionar els grups d'estudi que te
+            for (int i = 0; i < arrayIdGroupEstudisOfUser->Length; i++) {
+                GrupEstudi^ grupEstudiUser = grupEstudiMembershipService->LoadAllGrupEstudibyId(arrayIdGroupEstudisOfUser[i]);
+                Noms_ListBox->Items->Add(grupEstudiUser->GetGroupName());
+            }
+		}
     }
 
     void GrupEstudi_ConsultarUI::GrupEstudi_ConsultarUI_Load(System::Object^ sender, System::EventArgs^ e)
