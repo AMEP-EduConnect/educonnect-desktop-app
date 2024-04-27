@@ -23,7 +23,7 @@ using namespace System;
 #include "BaixaUsuariUI.h"
 #include "CaptchaUI.h"
 #include "StartPageUI.h"
-using namespace System;
+#include "AltaEspaisUI.h"
 #include "InformacioPersonal_ConsultaUI.h"
 
 using namespace System;

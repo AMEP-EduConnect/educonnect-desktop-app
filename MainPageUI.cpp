@@ -9,16 +9,16 @@
 #include "InformacioPersonal_ConsultaUI.h"
 #include "FirstPageUI.h"
 #include "IniciUI.h"
-
 #include "GrupEstudi_ConsultarUI.h"
 #include "GrupEstudi_CrearUI.h"
 #include "GrupEstudi_EditarUI.h"
 #include "GrupEstudi_AssignarUI.h"
 #include "AltaProveidorUI.h"
 #include "BaixaProveidorUI.h"
+#include "EspaisRepository.h"
 #include "UsuariRolRepository.h"
 #include "StartPageUI.h"
-
+#include "AltaEspaisUI.h"
 namespace CppCLRWinFormsProject {
 
     MainPageUI::MainPageUI(void)
@@ -153,7 +153,23 @@ namespace CppCLRWinFormsProject {
             static_cast<System::Byte>(0)));
 
     }
+    Void MainPageUI::BotoEspais_Click(System::Object^ sender, System::EventArgs^ e) {
+        AltaEspaisUI^ PanelUI = gcnew AltaEspaisUI();
+        PanelUI->TopLevel = false;
+        PanelUI->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
+        PanelUI->Dock = System::Windows::Forms::DockStyle::Fill;
 
+        this->screen->Controls->Clear();
+        this->screen->Controls->Add(PanelUI);
+        PanelUI->Show();
+
+        this->BotoAdmin->Font = (gcnew System::Drawing::Font(L"Inter Medium", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+            static_cast<System::Byte>(0)));
+
+        this->BotoInici->Font = (gcnew System::Drawing::Font(L"Inter", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+            static_cast<System::Byte>(0)));
+
+	}
     //System::Void ElsMeus_Click(System::Object^ sender, System::EventArgs^ e) {
         
     //}

@@ -404,7 +404,6 @@ namespace CppCLRWinFormsProject {
 		
 
 
-private: System::Void BotoEspais_Click(System::Object^ sender, System::EventArgs^ e) {
-}
+private: System::Void BotoEspais_Click(System::Object^ sender, System::EventArgs^ e);
 };
 }
