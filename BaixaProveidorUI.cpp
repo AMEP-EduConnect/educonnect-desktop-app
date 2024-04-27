@@ -1,40 +1,40 @@
 #include "pch.h"
 #include "BaixaProveidorUI.h"
-#include "BaixaProveidorService.h"
-#include "MessageManager.h"
-#include "MainPageUI.h"
-#include "AdministradorUI.h"
 
 using namespace System;
 namespace CppCLRWinFormsProject {
+
+    Void BaixaProveidorUI::LoadProvidersList(System::Object^ sender, System::EventArgs^ e) {
+        //Creem array amb tots els proveuidors
+        List<Usuari^>^ providers = baixaProveidorService->ListProveidors();
+        System::Collections::Generic::IEnumerator<Usuari^>^ enumerator = providers->GetEnumerator();
+        while (enumerator->MoveNext())
+            Llista_Proveidors->Items->Add(enumerator->Current->GetUsername());
+    }
+
     void BaixaProveidorUI::BaixaProveidorButton_Click(System::Object^ sender, System::EventArgs^ e) {
-        String^ username = this->BaixaProveidorTextBox->Text;
-        if(username!=nullptr and username!="") {
-            bool success = baixaProveidorService->BaixaProveidor(username);
-            if(success) {
-                MessageManager::InfoMessage("Proveidor donat de baixa correctament");
-                this->BaixaProveidorTextBox->Text = "";
-            }
-            else {
-                MessageManager::ErrorMessage("No existeix el Proveidor " + username + "!");
-                this->BaixaProveidorTextBox->Text = "";
+        if (Llista_Proveidors->SelectedItem != nullptr) {
+            String^ selectedProvider = Llista_Proveidors->SelectedItem->ToString();
+            if (baixaProveidorService->BaixaProveidor(selectedProvider)) {
+                MessageManager::InfoMessage("Proveidor " + selectedProvider + " donat de baixa correctament.");
+                Llista_Proveidors->Items->Clear();
+                LoadProvidersList(sender, e);
             }
         }
         else {
-            MessageManager::WarningMessage("Introdueix el nom del proveïdor que es esborrar!.");
+            MessageManager::WarningMessage("Selecciona un proveïdor de la llista.");
         }
     }
 
-    Void BaixaProveidorUI::Cancelar_Button_Click(System::Object^ sender, System::EventArgs^ e) {
+    void BaixaProveidorUI::Cancelar_Button_Click(System::Object^ sender, System::EventArgs^ e) {
         AdministradorUI^ PanelUI = gcnew AdministradorUI();
         PanelUI->TopLevel = false;
-        PanelUI->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
-        PanelUI->Dock = System::Windows::Forms::DockStyle::Fill;
-        MainPageUI::Instance->screen->Controls->Clear();
-        MainPageUI::Instance->screen->Controls->Add(PanelUI);
-        PanelUI->Show();
-    
+         PanelUI->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
+         PanelUI->Dock = System::Windows::Forms::DockStyle::Fill;
+         MainPageUI::Instance->screen->Controls->Clear();
+         MainPageUI::Instance->screen->Controls->Add(PanelUI);
+         PanelUI->Show();
     }
-    
+
 
 }
