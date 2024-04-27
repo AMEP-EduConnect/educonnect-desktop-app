@@ -41,3 +41,17 @@ Int64^ UsuariRolRepository::GetRolId(Int64^ user_id) {
 	DatabaseConnector::Instance->Disconnect();
 	return rol_id;
 }
+List<Int64>^ UsuariRolRepository::GetUsersByRolId(Int64^ rol_id) {
+	DatabaseConnector::Instance->Connect();
+	String^ sql = "SELECT user_id FROM users_roles WHERE role_id=@rol_id";
+	Dictionary<String^, Object^>^ params = gcnew Dictionary<String^, Object^>(0);
+	params->Add("@rol_id", rol_id);
+	MySqlDataReader^ data = DatabaseConnector::Instance->ExecuteClientCommand(sql, params);
+	List<Int64>^ users = gcnew List<Int64>(0);
+	while (data->Read()) {
+		users->Add(data->GetInt64(0));
+	}
+	data->Close();
+	DatabaseConnector::Instance->Disconnect();
+	return users;
+}
