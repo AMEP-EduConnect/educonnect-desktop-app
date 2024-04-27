@@ -54,12 +54,21 @@ namespace CppCLRWinFormsProject {
 		// Limpiar el ListBox antes de cargar los nuevos grupos
 		Noms_ListBox->Items->Clear();
 
-		for (int i = 0; i < arrayIdGroupEstudisOfUserNoIn->Length; i++) {
-			GrupEstudi^ grupEstudiUser = grupEstudiMembershipService->LoadAllGrupEstudibyId(arrayIdGroupEstudisOfUserNoIn[i]);
-			Noms_ListBox->Items->Add(grupEstudiUser->GetGroupName());
+		if (arrayIdGroupEstudisOfUserNoIn->Length == 0) {
+			//buscar_button->Visible = true;
+			Noms_ListBox->Items->Add("No hi ha cap grup d'estudi disponible per a tu.");
+			Noms_ListBox->ForeColor = System::Drawing::Color::Gray;
+			Noms_ListBox->Enabled = false;
 		}
+		else {
+			Noms_ListBox->ForeColor = System::Drawing::Color::Black;
+			Noms_ListBox->Enabled = true;
 
-		//Falta que el estudiant pugui gestionar els grups d'estudi que te
+			for (int i = 0; i < arrayIdGroupEstudisOfUserNoIn->Length; i++) {
+				GrupEstudi^ grupEstudiUser = grupEstudiMembershipService->LoadAllGrupEstudibyId(arrayIdGroupEstudisOfUserNoIn[i]);
+				Noms_ListBox->Items->Add(grupEstudiUser->GetGroupName());
+			}
+		}
 	}
 
 	void GrupEstudi_Explorar::Noms_ListBox_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e)
