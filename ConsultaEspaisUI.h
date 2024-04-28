@@ -62,7 +62,7 @@ namespace CppCLRWinFormsProject {
 
 	private: System::Windows::Forms::Label^ PageTitleLabel;
 	private: System::Windows::Forms::TableLayoutPanel^ tableLayoutPanel1;
-	private: System::Windows::Forms::Button^ Cancelar_Button;
+
 	private: System::Windows::Forms::ListBox^ Llista_Espais;
 	private: System::Windows::Forms::Button^ GestioEspaiButton;
 
@@ -85,7 +85,6 @@ namespace CppCLRWinFormsProject {
 		   {
 			   this->PageTitleLabel = (gcnew System::Windows::Forms::Label());
 			   this->tableLayoutPanel1 = (gcnew System::Windows::Forms::TableLayoutPanel());
-			   this->Cancelar_Button = (gcnew System::Windows::Forms::Button());
 			   this->Actual_Panel = (gcnew System::Windows::Forms::Panel());
 			   this->ButtonAltaEspais = (gcnew System::Windows::Forms::Button());
 			   this->ButtonEliminar = (gcnew System::Windows::Forms::Button());
@@ -101,13 +100,13 @@ namespace CppCLRWinFormsProject {
 			   // 
 			   this->PageTitleLabel->Anchor = System::Windows::Forms::AnchorStyles::None;
 			   this->PageTitleLabel->AutoSize = true;
-			   this->PageTitleLabel->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			   this->PageTitleLabel->Font = (gcnew System::Drawing::Font(L"Inter", 20.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				   static_cast<System::Byte>(0)));
-			   this->PageTitleLabel->Location = System::Drawing::Point(293, 24);
+			   this->PageTitleLabel->Location = System::Drawing::Point(355, 23);
 			   this->PageTitleLabel->Name = L"PageTitleLabel";
-			   this->PageTitleLabel->Size = System::Drawing::Size(226, 31);
+			   this->PageTitleLabel->Size = System::Drawing::Size(102, 33);
 			   this->PageTitleLabel->TabIndex = 13;
-			   this->PageTitleLabel->Text = L"Consulta Espais";
+			   this->PageTitleLabel->Text = L"Espais";
 			   // 
 			   // tableLayoutPanel1
 			   // 
@@ -118,7 +117,6 @@ namespace CppCLRWinFormsProject {
 				   60)));
 			   this->tableLayoutPanel1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
 				   20)));
-			   this->tableLayoutPanel1->Controls->Add(this->Cancelar_Button, 2, 2);
 			   this->tableLayoutPanel1->Controls->Add(this->PageTitleLabel, 1, 0);
 			   this->tableLayoutPanel1->Controls->Add(this->Actual_Panel, 1, 1);
 			   this->tableLayoutPanel1->Dock = System::Windows::Forms::DockStyle::Fill;
@@ -130,22 +128,6 @@ namespace CppCLRWinFormsProject {
 			   this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 29.98138F)));
 			   this->tableLayoutPanel1->Size = System::Drawing::Size(814, 537);
 			   this->tableLayoutPanel1->TabIndex = 14;
-			   // 
-			   // Cancelar_Button
-			   // 
-			   this->Cancelar_Button->Anchor = System::Windows::Forms::AnchorStyles::None;
-			   this->Cancelar_Button->BackColor = System::Drawing::Color::Transparent;
-			   this->Cancelar_Button->Cursor = System::Windows::Forms::Cursors::Hand;
-			   this->Cancelar_Button->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				   static_cast<System::Byte>(0)));
-			   this->Cancelar_Button->ForeColor = System::Drawing::Color::Red;
-			   this->Cancelar_Button->Location = System::Drawing::Point(688, 439);
-			   this->Cancelar_Button->Name = L"Cancelar_Button";
-			   this->Cancelar_Button->Size = System::Drawing::Size(88, 34);
-			   this->Cancelar_Button->TabIndex = 15;
-			   this->Cancelar_Button->Text = L"Cancelar";
-			   this->Cancelar_Button->UseVisualStyleBackColor = false;
-			   this->Cancelar_Button->Click += gcnew System::EventHandler(this, &ConsultaEspaisUI::Cancelar_Button_Click);
 			   // 
 			   // Actual_Panel
 			   // 
@@ -164,7 +146,7 @@ namespace CppCLRWinFormsProject {
 			   // 
 			   // ButtonAltaEspais
 			   // 
-			   this->ButtonAltaEspais->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			   this->ButtonAltaEspais->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				   static_cast<System::Byte>(0)));
 			   this->ButtonAltaEspais->ForeColor = System::Drawing::SystemColors::HotTrack;
 			   this->ButtonAltaEspais->Location = System::Drawing::Point(43, 239);
@@ -177,7 +159,7 @@ namespace CppCLRWinFormsProject {
 			   // 
 			   // ButtonEliminar
 			   // 
-			   this->ButtonEliminar->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			   this->ButtonEliminar->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				   static_cast<System::Byte>(0)));
 			   this->ButtonEliminar->ForeColor = System::Drawing::Color::Red;
 			   this->ButtonEliminar->Location = System::Drawing::Point(342, 239);
@@ -190,7 +172,7 @@ namespace CppCLRWinFormsProject {
 			   // 
 			   // GestioEspaiButton
 			   // 
-			   this->GestioEspaiButton->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			   this->GestioEspaiButton->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				   static_cast<System::Byte>(0)));
 			   this->GestioEspaiButton->ForeColor = System::Drawing::SystemColors::HotTrack;
 			   this->GestioEspaiButton->Location = System::Drawing::Point(234, 239);
@@ -205,14 +187,14 @@ namespace CppCLRWinFormsProject {
 			   // 
 			   this->BaixaProveidorLabel->AutoSize = true;
 			   this->BaixaProveidorLabel->BackColor = System::Drawing::SystemColors::GradientInactiveCaption;
-			   this->BaixaProveidorLabel->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular,
-				   System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
+			   this->BaixaProveidorLabel->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				   static_cast<System::Byte>(0)));
 			   this->BaixaProveidorLabel->ForeColor = System::Drawing::SystemColors::HotTrack;
-			   this->BaixaProveidorLabel->Location = System::Drawing::Point(39, 39);
+			   this->BaixaProveidorLabel->Location = System::Drawing::Point(39, 41);
 			   this->BaixaProveidorLabel->Name = L"BaixaProveidorLabel";
-			   this->BaixaProveidorLabel->Size = System::Drawing::Size(102, 20);
+			   this->BaixaProveidorLabel->Size = System::Drawing::Size(58, 19);
 			   this->BaixaProveidorLabel->TabIndex = 7;
-			   this->BaixaProveidorLabel->Text = L"Llista Espais:";
+			   this->BaixaProveidorLabel->Text = L"Espais";
 			   // 
 			   // Pertany_Label
 			   // 
@@ -230,11 +212,11 @@ namespace CppCLRWinFormsProject {
 			   this->Llista_Espais->Anchor = System::Windows::Forms::AnchorStyles::None;
 			   this->Llista_Espais->BackColor = System::Drawing::Color::Lavender;
 			   this->Llista_Espais->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-			   this->Llista_Espais->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			   this->Llista_Espais->Font = (gcnew System::Drawing::Font(L"Inter", 11.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				   static_cast<System::Byte>(0)));
 			   this->Llista_Espais->FormattingEnabled = true;
 			   this->Llista_Espais->IntegralHeight = false;
-			   this->Llista_Espais->ItemHeight = 16;
+			   this->Llista_Espais->ItemHeight = 19;
 			   this->Llista_Espais->Location = System::Drawing::Point(43, 66);
 			   this->Llista_Espais->Name = L"Llista_Espais";
 			   this->Llista_Espais->Size = System::Drawing::Size(390, 156);
