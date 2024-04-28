@@ -70,6 +70,7 @@ namespace CppCLRWinFormsProject {
 	private: System::Windows::Forms::Label^ BaixaProveidorLabel;
 	private: System::Windows::Forms::Label^ Pertany_Label;
 	private: System::Windows::Forms::Button^ ButtonEliminar;
+	private: System::Windows::Forms::Button^ ButtonAltaEspais;
 
 
 		   System::ComponentModel::Container^ components;
@@ -85,11 +86,12 @@ namespace CppCLRWinFormsProject {
 			   this->tableLayoutPanel1 = (gcnew System::Windows::Forms::TableLayoutPanel());
 			   this->Cancelar_Button = (gcnew System::Windows::Forms::Button());
 			   this->Actual_Panel = (gcnew System::Windows::Forms::Panel());
+			   this->ButtonAltaEspais = (gcnew System::Windows::Forms::Button());
+			   this->ButtonEliminar = (gcnew System::Windows::Forms::Button());
 			   this->GestioEspaiButton = (gcnew System::Windows::Forms::Button());
 			   this->BaixaProveidorLabel = (gcnew System::Windows::Forms::Label());
 			   this->Pertany_Label = (gcnew System::Windows::Forms::Label());
 			   this->Llista_Espais = (gcnew System::Windows::Forms::ListBox());
-			   this->ButtonEliminar = (gcnew System::Windows::Forms::Button());
 			   this->tableLayoutPanel1->SuspendLayout();
 			   this->Actual_Panel->SuspendLayout();
 			   this->SuspendLayout();
@@ -148,6 +150,7 @@ namespace CppCLRWinFormsProject {
 			   // 
 			   this->Actual_Panel->Anchor = System::Windows::Forms::AnchorStyles::None;
 			   this->Actual_Panel->BackColor = System::Drawing::SystemColors::GradientInactiveCaption;
+			   this->Actual_Panel->Controls->Add(this->ButtonAltaEspais);
 			   this->Actual_Panel->Controls->Add(this->ButtonEliminar);
 			   this->Actual_Panel->Controls->Add(this->GestioEspaiButton);
 			   this->Actual_Panel->Controls->Add(this->BaixaProveidorLabel);
@@ -158,16 +161,42 @@ namespace CppCLRWinFormsProject {
 			   this->Actual_Panel->Size = System::Drawing::Size(475, 288);
 			   this->Actual_Panel->TabIndex = 17;
 			   // 
+			   // ButtonAltaEspais
+			   // 
+			   this->ButtonAltaEspais->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				   static_cast<System::Byte>(0)));
+			   this->ButtonAltaEspais->ForeColor = System::Drawing::SystemColors::HotTrack;
+			   this->ButtonAltaEspais->Location = System::Drawing::Point(43, 239);
+			   this->ButtonAltaEspais->Name = L"ButtonAltaEspais";
+			   this->ButtonAltaEspais->Size = System::Drawing::Size(91, 34);
+			   this->ButtonAltaEspais->TabIndex = 19;
+			   this->ButtonAltaEspais->Text = L"Crear";
+			   this->ButtonAltaEspais->UseVisualStyleBackColor = true;
+			   this->ButtonAltaEspais->Click += gcnew System::EventHandler(this, &ConsultaEspaisUI::ButtonAlta_Click);
+			   // 
+			   // ButtonEliminar
+			   // 
+			   this->ButtonEliminar->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				   static_cast<System::Byte>(0)));
+			   this->ButtonEliminar->ForeColor = System::Drawing::Color::Red;
+			   this->ButtonEliminar->Location = System::Drawing::Point(342, 239);
+			   this->ButtonEliminar->Name = L"ButtonEliminar";
+			   this->ButtonEliminar->Size = System::Drawing::Size(91, 34);
+			   this->ButtonEliminar->TabIndex = 18;
+			   this->ButtonEliminar->Text = L"Eliminar";
+			   this->ButtonEliminar->UseVisualStyleBackColor = true;
+			   this->ButtonEliminar->Click += gcnew System::EventHandler(this, &ConsultaEspaisUI::ButtonEliminar_Click);
+			   // 
 			   // GestioEspaiButton
 			   // 
 			   this->GestioEspaiButton->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				   static_cast<System::Byte>(0)));
 			   this->GestioEspaiButton->ForeColor = System::Drawing::SystemColors::HotTrack;
-			   this->GestioEspaiButton->Location = System::Drawing::Point(356, 239);
+			   this->GestioEspaiButton->Location = System::Drawing::Point(234, 239);
 			   this->GestioEspaiButton->Name = L"GestioEspaiButton";
 			   this->GestioEspaiButton->Size = System::Drawing::Size(91, 34);
 			   this->GestioEspaiButton->TabIndex = 0;
-			   this->GestioEspaiButton->Text = L"Gestionar";
+			   this->GestioEspaiButton->Text = L"Modificar";
 			   this->GestioEspaiButton->UseVisualStyleBackColor = true;
 			   this->GestioEspaiButton->Click += gcnew System::EventHandler(this, &ConsultaEspaisUI::ButtonGestio_Click);
 			   // 
@@ -210,19 +239,6 @@ namespace CppCLRWinFormsProject {
 			   this->Llista_Espais->Size = System::Drawing::Size(390, 156);
 			   this->Llista_Espais->TabIndex = 17;
 			   // 
-			   // ButtonEliminar
-			   // 
-			   this->ButtonEliminar->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				   static_cast<System::Byte>(0)));
-			   this->ButtonEliminar->ForeColor = System::Drawing::Color::Red;
-			   this->ButtonEliminar->Location = System::Drawing::Point(247, 239);
-			   this->ButtonEliminar->Name = L"ButtonEliminar";
-			   this->ButtonEliminar->Size = System::Drawing::Size(91, 34);
-			   this->ButtonEliminar->TabIndex = 18;
-			   this->ButtonEliminar->Text = L"Eliminar";
-			   this->ButtonEliminar->UseVisualStyleBackColor = true;
-			   this->ButtonEliminar->Click += gcnew System::EventHandler(this, &ConsultaEspaisUI::ButtonEliminar_Click);
-			   // 
 			   // ConsultaEspaisUI
 			   // 
 			   this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
@@ -247,5 +263,6 @@ namespace CppCLRWinFormsProject {
 	private: System::Void ButtonGestio_Click(System::Object^ sender, System::EventArgs^ e);
 	private: System::Void Cancelar_Button_Click(System::Object^ sender, System::EventArgs^ e);
 	private: System::Void ButtonEliminar_Click(System::Object^ sender, System::EventArgs^ e);
+	private: System::Void ButtonAlta_Click(System::Object^ sender, System::EventArgs^ e);
 };
 }

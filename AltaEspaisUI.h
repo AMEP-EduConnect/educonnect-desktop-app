@@ -1,6 +1,9 @@
 #pragma once
 #include "AltaEspaisService.h"
 #include "AdministradorUI.h"
+#include "Espais.h"
+#include "EspaisRepository.h"
+#include "ConsultaEspaisUI.h"
 #include <iostream>
 #include <string>
 using namespace MySql::Data::MySqlClient;

@@ -31,7 +31,7 @@ namespace CppCLRWinFormsProject {
     }
 
     Void AltaEspaisUI::Cancelar_Button_Click(System::Object^ sender, System::EventArgs^ e) {
-        AdministradorUI^ PanelUI = gcnew AdministradorUI();
+        ConsultaEspaisUI^ PanelUI = gcnew ConsultaEspaisUI();
         PanelUI->TopLevel = false;
         PanelUI->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
         PanelUI->Dock = System::Windows::Forms::DockStyle::Fill;
