@@ -5,6 +5,7 @@
 #include "GrupEstudi_AssignarUI.h"
 #include "Usuari.h"
 #include "GrupEstudi_CrearUI.h"
+#include "GrupEstudi_InfoUI.h"
 
 
 namespace CppCLRWinFormsProject {
@@ -237,4 +238,15 @@ namespace CppCLRWinFormsProject {
 		MainPageUI::Instance->screen->Controls->Add(PanelUI);
 		PanelUI->Show();
 	}
+    System::Void GrupEstudi_ConsultarUI::MoreInfo_GrupEstudi_Button_Click(System::Object^ sender, System::EventArgs^ e)
+    {
+        GrupEstudi_InfoUI^ PanelUI = gcnew GrupEstudi_InfoUI();
+        PanelUI->TopLevel = false;
+        PanelUI->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
+        PanelUI->Dock = System::Windows::Forms::DockStyle::Fill;
+
+        MainPageUI::Instance->screen->Controls->Clear();
+        MainPageUI::Instance->screen->Controls->Add(PanelUI);
+        PanelUI->Show();
+    }
 }
