@@ -7,6 +7,7 @@
 #include "MainPageUI.h"
 #include "AdministradorUI.h"
 //#include "ModificarEspaiUI.h"
+#include "IniciUI.h"
 #include "AltaEspaisUI.h"
 #include "EliminarEspaisService.h"
 using namespace MySql::Data::MySqlClient;

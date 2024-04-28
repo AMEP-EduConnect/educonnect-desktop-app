@@ -6,7 +6,7 @@
 AltaEspaisService::AltaEspaisService()
 {
 	espaisRepository = gcnew EspaisRepository();
-	espais = gcnew Espais();
+	espais = gcnew Espai();
 	usuari = gcnew Usuari();
 }
 

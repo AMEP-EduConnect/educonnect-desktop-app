@@ -1,70 +1,65 @@
 #include "pch.h"
 #include "Espais.h"
 
-Espais::Espais()
+Espai::Espai()
 {
-	espai_id;
-	nom = "";
-	capacitat;
-	id_proveidor;
-	
 
 }
 
-Espais::Espais(Int64^ espai_id, String^ nom, Int64^ capacitat, Int64^ id_proveidor)
+Espai::Espai(Int64^ espai_id, String^ name, Int64^ capacity, Int64^ proveidor_id)
 {
 	this->espai_id = espai_id;
-	this->nom = nom;
-	this->capacitat = capacitat;
-	this->id_proveidor = id_proveidor;
+	this->name = name;
+	this->capacity = capacity;
+	this->proveidor_id = proveidor_id;
 }
 
-void Espais::SetEspaiId(Int64^ value)
+void Espai::SetEspaiId(Int64^ value)
 {
     this->espai_id = value;
 }
 
 
-Int64^ Espais::GetEspaiId()
+Int64^ Espai::GetEspaiId()
 {
     return this->espai_id;
 }
 
 
 
-void Espais::SetNom(String^ value)
+void Espai::SetNom(String^ value)
 {
-    this->nom = value;
+    this->name = value;
 }
 
 
-String^ Espais::GetNom()
+String^ Espai::GetNom()
 {
-    return this->nom;
+    return this->name;
 }
 
 
-void Espais::SetCapacitat(Int64^ value)
+void Espai::SetCapacitat(Int64^ value)
 {
-    this->capacitat = value;
+    this->capacity = value;
 }
 
 
-Int64^ Espais::GetCapacitat()
+Int64^ Espai::GetCapacitat()
 {
-    return this->capacitat;
+    return this->capacity;
 }
 
 
-void Espais::SetId_proveidor(Int64^ value)
+void Espai::SetId_proveidor(Int64^ value)
 {
-    this->id_proveidor = value;
+    this->proveidor_id = value;
 }
 
 
-Int64^ Espais::GetId_proveidor()
+Int64^ Espai::GetId_proveidor()
 {
-    return this->id_proveidor;
+    return this->proveidor_id;
 }
 
 

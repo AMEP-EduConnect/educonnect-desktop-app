@@ -6,7 +6,7 @@ public ref class ConsultaEspaisService
 {
 public:
     ConsultaEspaisService();
-    List<Espais^>^ ListEspais(Int64^ id_prov);
+    List<Espai^>^ ListEspais(Int64^ id_prov);
 private:
     EspaisRepository^ espaisRepository;
 

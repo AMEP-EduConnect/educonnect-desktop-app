@@ -8,8 +8,8 @@ namespace CppCLRWinFormsProject {
     Void ConsultaEspaisUI::LoadEspaisList(System::Object^ sender, System::EventArgs^ e) {
         Usuari^ currentUser = CurrentSession::Instance->GetCurrentUser();
         Int64^ id_provider = currentUser->GetUserId();
-        List<Espais^>^ espais = consultaEspaisService->ListEspais(id_provider);
-        System::Collections::Generic::IEnumerator<Espais^>^ enumerator = espais->GetEnumerator();
+        List<Espai^>^ espais = consultaEspaisService->ListEspais(id_provider);
+        System::Collections::Generic::IEnumerator<Espai^>^ enumerator = espais->GetEnumerator();
         while (enumerator->MoveNext())
             Llista_Espais->Items->Add(enumerator->Current->GetNom());
     }
@@ -25,7 +25,7 @@ namespace CppCLRWinFormsProject {
     }
 
     Void ConsultaEspaisUI::Cancelar_Button_Click(System::Object^ sender, System::EventArgs^ e) {
-        MainPageUI^ PanelUI = gcnew MainPageUI();
+        IniciUI^ PanelUI = gcnew IniciUI();
         PanelUI->TopLevel = false;
         PanelUI->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
         PanelUI->Dock = System::Windows::Forms::DockStyle::Fill;

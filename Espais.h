@@ -2,12 +2,12 @@
 
 using namespace System;
 
-public ref class Espais
+public ref class Espai
 {
 public:
-	Espais();
+	Espai();
 
-	Espais(Int64^ espai_id, String^ nom, Int64^ capacitat, Int64^ id_proveidor);
+	Espai(Int64^ espai_id, String^ name, Int64^ capacity, Int64^ proveidor_id);
 
 	void SetEspaiId(Int64^ value);
 	Int64^ GetEspaiId();
@@ -27,8 +27,8 @@ public:
 
 private:
 	property Int64^ espai_id;
-	property String^ nom;
-	property Int64^ capacitat;
-	property Int64^ id_proveidor;
+	property String^ name;
+	property Int64^ capacity;
+	property Int64^ proveidor_id;
 
 };

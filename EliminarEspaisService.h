@@ -6,7 +6,7 @@ public ref class EliminarEspaisService
 public:
 	EliminarEspaisService();
 	bool eliminarEspais(String^ name);
-	Espais^ getEspai(String^ name);
+	Espai^ getEspai(String^ name);
 
 private:
 	EspaisRepository^ espaisRepository;

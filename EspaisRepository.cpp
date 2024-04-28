@@ -5,52 +5,42 @@ EspaisRepository::EspaisRepository() {
 
 }
 
-bool EspaisRepository::CreateEspai(String^ name, Int64^ capacity, Int64^ user_id) {
+bool EspaisRepository::CreateEspai(String^ name, Int64^ capacity, Int64^ proveidor_id) {
 	DatabaseConnector::Instance->Connect();
-	String^ sql = "INSERT INTO espais (name, capacity, user_id) VALUES (@name, @capacity, @user_id)";
+	String^ sql = "INSERT INTO espais (name, capacity, proveidor_id) VALUES (@name, @capacity, @proveidor_id)";
 	Dictionary<String^, Object^>^ params = gcnew Dictionary<String^, Object^>(0);
 	params->Add("@name", name);
 	params->Add("@capacity", capacity);
-	params->Add("@user_id", user_id);
-
-
+	params->Add("@proveidor_id", proveidor_id);
 	MySqlDataReader^ data = DatabaseConnector::Instance->ExecuteClientCommand(sql, params);
-	bool check = false;
 	data->Close();
-	sql = "SELECT LAST_INSERT_ID();";
-	MySqlDataReader^ data2 = DatabaseConnector::Instance->ExecuteInternCommand(sql);
-	Int64^ id;
-	while (data2->Read()) {
-		id = data2->GetInt64(0);
-	}
-	data2->Close();
 	DatabaseConnector::Instance->Disconnect();
 	return true;
 }
-List<Espais^>^ EspaisRepository::GetEspaisById(Int64^ id_prov) {
+List<Espai^>^ EspaisRepository::GetEspaisById(Int64^ proveidor_id) {
 	DatabaseConnector::Instance->Connect();
-	String^ sql = "SELECT * FROM espais WHERE user_id=@id_prov";
+	String^ sql = "SELECT * FROM espais WHERE proveidor_id=@proveidor_id";
 	Dictionary<String^, Object^>^ params = gcnew Dictionary<String^, Object^>(0);
-	params->Add("@id_prov", id_prov);
+	params->Add("@proveidor_id", proveidor_id);
 	MySqlDataReader^ data = DatabaseConnector::Instance->ExecuteClientCommand(sql, params);
-	List<Espais^>^ espais = gcnew List<Espais^>(0);
+	List<Espai^>^ espais = gcnew List<Espai^>(0);
 	while (data->Read()) {
-		Espais^ espai = gcnew Espais(data->GetInt64(0),data->GetString(1), data->GetInt64(2), data->GetInt64(3));
+		Espai^ espai = gcnew Espai(data->GetInt64(0),data->GetString(1), data->GetInt64(2), data->GetInt64(3));
 		espais->Add(espai);
 	}
 	data->Close();
 	DatabaseConnector::Instance->Disconnect();
 	return espais;
 }
-Espais^ EspaisRepository::GetEspaiByName(String^ name) {
+Espai^ EspaisRepository::GetEspaiByName(String^ name) {
 	DatabaseConnector::Instance->Connect();
 	String^ sql = "SELECT * FROM espais WHERE name=@name";
 	Dictionary<String^, Object^>^ params = gcnew Dictionary<String^, Object^>(0);
 	params->Add("@name", name);
 	MySqlDataReader^ data = DatabaseConnector::Instance->ExecuteClientCommand(sql, params);
-	Espais^ espai;
+	Espai^ espai;
 	while (data->Read()) {
-		espai = gcnew Espais(data->GetInt64(0), data->GetString(1), data->GetInt64(2), data->GetInt64(3));
+		espai = gcnew Espai(data->GetInt64(0), data->GetString(1), data->GetInt64(2), data->GetInt64(3));
 	}
 	data->Close();
 	DatabaseConnector::Instance->Disconnect();

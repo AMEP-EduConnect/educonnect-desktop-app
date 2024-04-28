@@ -6,11 +6,11 @@ EliminarEspaisService::EliminarEspaisService() {
 }
 
 bool EliminarEspaisService::eliminarEspais(String^ name) {
-	Espais ^ espai = getEspai(name);
+	Espai ^ espai = getEspai(name);
 	if (espai != nullptr) return espaisRepository->DeleteEspai(espai->GetEspaiId());
 	else return false;
 }
 
-Espais^ EliminarEspaisService::getEspai(String^ name) {
+Espai^ EliminarEspaisService::getEspai(String^ name) {
 	return espaisRepository->GetEspaiByName(name);
 }

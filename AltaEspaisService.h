@@ -13,6 +13,6 @@ public:
 private:
     EspaisRepository^ espaisRepository;
     Usuari^ usuari;
-    Espais^ espais;
+    Espai^ espais;
 
 };
