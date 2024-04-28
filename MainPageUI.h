@@ -127,7 +127,8 @@ namespace CppCLRWinFormsProject {
 			this->BotoLogout->Name = L"BotoLogout";
 			this->BotoLogout->Size = System::Drawing::Size(146, 41);
 			this->BotoLogout->TabIndex = 2;
-			this->BotoLogout->Text = L"Tancar sessi�";
+			//FIXME: cambiar por sortir
+			this->BotoLogout->Text = L"Tancar sessió";
 			this->BotoLogout->TextAlign = System::Drawing::ContentAlignment::MiddleRight;
 			this->BotoLogout->UseVisualStyleBackColor = true;
 			this->BotoLogout->Click += gcnew System::EventHandler(this, &MainPageUI::Tancar_Sessio_Click);
@@ -296,7 +297,6 @@ namespace CppCLRWinFormsProject {
 			this->BotoExplorar->Dock = System::Windows::Forms::DockStyle::Top;
 			this->BotoExplorar->FlatAppearance->BorderSize = 0;
 			this->BotoExplorar->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->BotoExplorar->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 			this->BotoExplorar->Font = (gcnew System::Drawing::Font(L"Inter Light", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->BotoExplorar->ImageAlign = System::Drawing::ContentAlignment::MiddleLeft;

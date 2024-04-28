@@ -94,7 +94,7 @@ bool GrupEstudiService::CheckUserIsOwner(String^ group_name)
 
 bool GrupEstudiService::CheckUserIsOwnerByIds(Int64^ user_id, Int64^ group_id)
 {
-	return grupEstudiRepository->CheckUserIsOwnerByIds(user_id, group_id);
+	return grupEstudiRepository->CheckUserIsOwnerById(user_id, group_id);
 }
 
 GrupEstudi^ GrupEstudiService::GetGrupEstudiById(Int64^ id) 

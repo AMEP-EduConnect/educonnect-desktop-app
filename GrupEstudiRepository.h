@@ -29,12 +29,10 @@ public:
 	Int64^ GetUserIdByName(String^ user_name);
 	Int64^ GetGroupIdByName(String^ group_name);
 	bool CheckUserIsOwner(String^ group_name);
-	bool CheckUserIsOwnerById(Int64^ id_user, Int64^ id_group);
-	void ChangeGroupOwner(Int64^ user_id, Int64^ group_id);
+	
+	
 	String^ GetAcademicTagNameById(Int64^ academic_tag_id);
 
-	bool CheckUserIsOwnerByIds(Int64^ user_id, Int64^ group_id);
-
+	bool CheckUserIsOwnerById(Int64^ id_user, Int64^ id_group);
 	void ChangeGroupOwner(Int64^ group_id, Int64^ new_owner_id);
-	bool DeleteGrupEstudiById(Int64^ id);
 };
