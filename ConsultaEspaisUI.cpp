@@ -14,21 +14,17 @@ namespace CppCLRWinFormsProject {
             Llista_Espais->Items->Add(enumerator->Current->GetNom());
     }
 
-    void ConsultaEspaisUI::BaixaProveidorButton_Click(System::Object^ sender, System::EventArgs^ e) {
-        /*if (Llista_Espais->SelectedItem != nullptr) {
-            String^ selectedProvider = Llista_Espais->SelectedItem->ToString();
-            if (baixaProveidorService->BaixaProveidor(selectedProvider)) {
-                MessageManager::InfoMessage("Proveidor " + selectedProvider + " donat de baixa correctament.");
-                Llista_Espais->Items->Clear();
-                LoadEspaisList(sender, e);
-            }
+    Void ConsultaEspaisUI::ButtonGestio_Click(System::Object^ sender, System::EventArgs^ e) {
+        if (Llista_Espais->SelectedItem != nullptr) {
+           // String^ selectedEspais = Llista_Espais->SelectedItem->ToString();
+           //GOTO: Agafar el Espai i transportarlo al modificar espai 
         }
         else {
-            MessageManager::WarningMessage("Selecciona un proveïdor de la llista.");
-        }*/
+            MessageManager::WarningMessage("Selecciona un espai de la llista per gestionar-la.");
+        }
     }
 
-    void ConsultaEspaisUI::Cancelar_Button_Click(System::Object^ sender, System::EventArgs^ e) {
+    Void ConsultaEspaisUI::Cancelar_Button_Click(System::Object^ sender, System::EventArgs^ e) {
         MainPageUI^ PanelUI = gcnew MainPageUI();
         PanelUI->TopLevel = false;
         PanelUI->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
@@ -37,6 +33,20 @@ namespace CppCLRWinFormsProject {
         MainPageUI::Instance->screen->Controls->Add(PanelUI);
         PanelUI->Show();
     }
-
+    // create a function that eliminates the selected item from the list
+    Void ConsultaEspaisUI::ButtonEliminar_Click(System::Object^ sender, System::EventArgs^ e) {
+        if (Llista_Espais->SelectedItem != nullptr) {
+			String^ selectedEspais = Llista_Espais->SelectedItem->ToString(); 
+			if(eliminarEspaisService->eliminarEspais(selectedEspais) == true) 
+            {
+                Llista_Espais->Items->Remove(Llista_Espais->SelectedItem);
+                MessageManager::InfoMessage("Espai eliminat correctament!");
+            }
+            else MessageManager::ErrorMessage("No s'ha pogut eliminar l'espai.");
+		}
+        else {
+			MessageManager::WarningMessage("Selecciona un espai de la llista per eliminar-la.");
+		}
+	}
 
 }

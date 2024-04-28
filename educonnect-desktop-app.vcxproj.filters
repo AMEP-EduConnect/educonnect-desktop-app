@@ -173,6 +173,15 @@
     <ClInclude Include="EspaisRepository.h">
       <Filter>Source Files\repositories</Filter>
     </ClInclude>
+    <ClInclude Include="ConsultaEspaisUI.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ConsultaEspaisService.h">
+      <Filter>Source Files\services</Filter>
+    </ClInclude>
+    <ClInclude Include="EliminarEspaisService.h">
+      <Filter>Source Files\services</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AssemblyInfo.cpp">
@@ -321,6 +330,15 @@
     </ClCompile>
     <ClCompile Include="EspaisRepository.cpp">
       <Filter>Source Files\repositories</Filter>
+    </ClCompile>
+    <ClCompile Include="ConsultaEspaisService.cpp">
+      <Filter>Source Files\services</Filter>
+    </ClCompile>
+    <ClCompile Include="ConsultaEspaisUI.cpp">
+      <Filter>Source Files\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="EliminarEspaisService.cpp">
+      <Filter>Source Files\services</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -6,6 +6,9 @@
 #include "MessageManager.h"
 #include "MainPageUI.h"
 #include "AdministradorUI.h"
+//#include "ModificarEspaiUI.h"
+#include "AltaEspaisUI.h"
+#include "EliminarEspaisService.h"
 using namespace MySql::Data::MySqlClient;
 namespace CppCLRWinFormsProject {
 
@@ -25,6 +28,7 @@ namespace CppCLRWinFormsProject {
 		ConsultaEspaisUI(void) {
 			InitializeComponent();
 			consultaEspaisService = gcnew ConsultaEspaisService();
+			eliminarEspaisService = gcnew EliminarEspaisService();
 			this->Load += gcnew System::EventHandler(this, &ConsultaEspaisUI::LoadEspaisList);
 			this->Icon = gcnew System::Drawing::Icon("app.ico");
 		}
@@ -47,6 +51,7 @@ namespace CppCLRWinFormsProject {
 
 
 	private: ConsultaEspaisService^ consultaEspaisService;
+	private: EliminarEspaisService^ eliminarEspaisService;
 	protected:
 
 	private:
@@ -58,11 +63,14 @@ namespace CppCLRWinFormsProject {
 	private: System::Windows::Forms::TableLayoutPanel^ tableLayoutPanel1;
 	private: System::Windows::Forms::Button^ Cancelar_Button;
 	private: System::Windows::Forms::ListBox^ Llista_Espais;
+	private: System::Windows::Forms::Button^ GestioEspaiButton;
 
-	private: System::Windows::Forms::Button^ BaixaProveidorButton;
+
 	private: System::Windows::Forms::Panel^ Actual_Panel;
 	private: System::Windows::Forms::Label^ BaixaProveidorLabel;
 	private: System::Windows::Forms::Label^ Pertany_Label;
+	private: System::Windows::Forms::Button^ ButtonEliminar;
+
 
 		   System::ComponentModel::Container^ components;
 
@@ -77,10 +85,11 @@ namespace CppCLRWinFormsProject {
 			   this->tableLayoutPanel1 = (gcnew System::Windows::Forms::TableLayoutPanel());
 			   this->Cancelar_Button = (gcnew System::Windows::Forms::Button());
 			   this->Actual_Panel = (gcnew System::Windows::Forms::Panel());
-			   this->BaixaProveidorButton = (gcnew System::Windows::Forms::Button());
+			   this->GestioEspaiButton = (gcnew System::Windows::Forms::Button());
 			   this->BaixaProveidorLabel = (gcnew System::Windows::Forms::Label());
 			   this->Pertany_Label = (gcnew System::Windows::Forms::Label());
 			   this->Llista_Espais = (gcnew System::Windows::Forms::ListBox());
+			   this->ButtonEliminar = (gcnew System::Windows::Forms::Button());
 			   this->tableLayoutPanel1->SuspendLayout();
 			   this->Actual_Panel->SuspendLayout();
 			   this->SuspendLayout();
@@ -139,7 +148,8 @@ namespace CppCLRWinFormsProject {
 			   // 
 			   this->Actual_Panel->Anchor = System::Windows::Forms::AnchorStyles::None;
 			   this->Actual_Panel->BackColor = System::Drawing::SystemColors::GradientInactiveCaption;
-			   this->Actual_Panel->Controls->Add(this->BaixaProveidorButton);
+			   this->Actual_Panel->Controls->Add(this->ButtonEliminar);
+			   this->Actual_Panel->Controls->Add(this->GestioEspaiButton);
 			   this->Actual_Panel->Controls->Add(this->BaixaProveidorLabel);
 			   this->Actual_Panel->Controls->Add(this->Pertany_Label);
 			   this->Actual_Panel->Controls->Add(this->Llista_Espais);
@@ -148,18 +158,18 @@ namespace CppCLRWinFormsProject {
 			   this->Actual_Panel->Size = System::Drawing::Size(475, 288);
 			   this->Actual_Panel->TabIndex = 17;
 			   // 
-			   // BaixaProveidorButton
+			   // GestioEspaiButton
 			   // 
-			   this->BaixaProveidorButton->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular,
-				   System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
-			   this->BaixaProveidorButton->ForeColor = System::Drawing::SystemColors::HotTrack;
-			   this->BaixaProveidorButton->Location = System::Drawing::Point(356, 239);
-			   this->BaixaProveidorButton->Name = L"BaixaProveidorButton";
-			   this->BaixaProveidorButton->Size = System::Drawing::Size(91, 34);
-			   this->BaixaProveidorButton->TabIndex = 0;
-			   this->BaixaProveidorButton->Text = L"Confirma";
-			   this->BaixaProveidorButton->UseVisualStyleBackColor = true;
-			   this->BaixaProveidorButton->Click += gcnew System::EventHandler(this, &ConsultaEspaisUI::BaixaProveidorButton_Click);
+			   this->GestioEspaiButton->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				   static_cast<System::Byte>(0)));
+			   this->GestioEspaiButton->ForeColor = System::Drawing::SystemColors::HotTrack;
+			   this->GestioEspaiButton->Location = System::Drawing::Point(356, 239);
+			   this->GestioEspaiButton->Name = L"GestioEspaiButton";
+			   this->GestioEspaiButton->Size = System::Drawing::Size(91, 34);
+			   this->GestioEspaiButton->TabIndex = 0;
+			   this->GestioEspaiButton->Text = L"Gestionar";
+			   this->GestioEspaiButton->UseVisualStyleBackColor = true;
+			   this->GestioEspaiButton->Click += gcnew System::EventHandler(this, &ConsultaEspaisUI::ButtonGestio_Click);
 			   // 
 			   // BaixaProveidorLabel
 			   // 
@@ -190,15 +200,28 @@ namespace CppCLRWinFormsProject {
 			   this->Llista_Espais->Anchor = System::Windows::Forms::AnchorStyles::None;
 			   this->Llista_Espais->BackColor = System::Drawing::Color::Lavender;
 			   this->Llista_Espais->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-			   this->Llista_Espais->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			   this->Llista_Espais->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				   static_cast<System::Byte>(0)));
 			   this->Llista_Espais->FormattingEnabled = true;
 			   this->Llista_Espais->IntegralHeight = false;
-			   this->Llista_Espais->ItemHeight = 20;
-			   this->Llista_Espais->Location = System::Drawing::Point(60, 66);
+			   this->Llista_Espais->ItemHeight = 16;
+			   this->Llista_Espais->Location = System::Drawing::Point(43, 66);
 			   this->Llista_Espais->Name = L"Llista_Espais";
-			   this->Llista_Espais->Size = System::Drawing::Size(350, 156);
+			   this->Llista_Espais->Size = System::Drawing::Size(390, 156);
 			   this->Llista_Espais->TabIndex = 17;
+			   // 
+			   // ButtonEliminar
+			   // 
+			   this->ButtonEliminar->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				   static_cast<System::Byte>(0)));
+			   this->ButtonEliminar->ForeColor = System::Drawing::Color::Red;
+			   this->ButtonEliminar->Location = System::Drawing::Point(247, 239);
+			   this->ButtonEliminar->Name = L"ButtonEliminar";
+			   this->ButtonEliminar->Size = System::Drawing::Size(91, 34);
+			   this->ButtonEliminar->TabIndex = 18;
+			   this->ButtonEliminar->Text = L"Eliminar";
+			   this->ButtonEliminar->UseVisualStyleBackColor = true;
+			   this->ButtonEliminar->Click += gcnew System::EventHandler(this, &ConsultaEspaisUI::ButtonEliminar_Click);
 			   // 
 			   // ConsultaEspaisUI
 			   // 
@@ -221,7 +244,8 @@ namespace CppCLRWinFormsProject {
 		   }
 #pragma endregion
 	private: System::Void LoadEspaisList(System::Object^ sender, System::EventArgs^ e);
-	private: System::Void BaixaProveidorButton_Click(System::Object^ sender, System::EventArgs^ e);
+	private: System::Void ButtonGestio_Click(System::Object^ sender, System::EventArgs^ e);
 	private: System::Void Cancelar_Button_Click(System::Object^ sender, System::EventArgs^ e);
-	};
+	private: System::Void ButtonEliminar_Click(System::Object^ sender, System::EventArgs^ e);
+};
 }

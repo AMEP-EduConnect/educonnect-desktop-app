@@ -42,3 +42,27 @@ List<Espais^>^ EspaisRepository::GetEspaisById(Int64^ id_prov) {
 	DatabaseConnector::Instance->Disconnect();
 	return espais;
 }
+Espais^ EspaisRepository::GetEspaiByName(String^ name) {
+	DatabaseConnector::Instance->Connect();
+	String^ sql = "SELECT * FROM espais WHERE name=@name";
+	Dictionary<String^, Object^>^ params = gcnew Dictionary<String^, Object^>(0);
+	params->Add("@name", name);
+	MySqlDataReader^ data = DatabaseConnector::Instance->ExecuteClientCommand(sql, params);
+	Espais^ espai;
+	while (data->Read()) {
+		espai = gcnew Espais(data->GetInt64(0), data->GetString(1), data->GetInt64(2), data->GetInt64(3));
+	}
+	data->Close();
+	DatabaseConnector::Instance->Disconnect();
+	return espai;
+}
+bool EspaisRepository::DeleteEspai(Int64^ id) {
+	DatabaseConnector::Instance->Connect();
+	String^ sql = "DELETE FROM espais WHERE id=@id";
+	Dictionary<String^, Object^>^ params = gcnew Dictionary<String^, Object^>(0);
+	params->Add("@id", id);
+	MySqlDataReader^ data = DatabaseConnector::Instance->ExecuteClientCommand(sql, params);
+	data->Close();
+	DatabaseConnector::Instance->Disconnect();
+	return true;
+}
