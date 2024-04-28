@@ -192,7 +192,7 @@ namespace CppCLRWinFormsProject {
 			   this->GestioEspaiButton->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				   static_cast<System::Byte>(0)));
 			   this->GestioEspaiButton->ForeColor = System::Drawing::SystemColors::HotTrack;
-			   this->GestioEspaiButton->Location = System::Drawing::Point(245, 239);
+			   this->GestioEspaiButton->Location = System::Drawing::Point(234, 239);
 			   this->GestioEspaiButton->Name = L"GestioEspaiButton";
 			   this->GestioEspaiButton->Size = System::Drawing::Size(91, 34);
 			   this->GestioEspaiButton->TabIndex = 0;
