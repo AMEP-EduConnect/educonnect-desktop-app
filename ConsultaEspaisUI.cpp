@@ -16,7 +16,7 @@ namespace CppCLRWinFormsProject {
 
     Void ConsultaEspaisUI::ButtonGestio_Click(System::Object^ sender, System::EventArgs^ e) {
         if (Llista_Espais->SelectedItem != nullptr) {
-           // String^ selectedEspais = Llista_Espais->SelectedItem->ToString();
+           String^ selectedEspais = Llista_Espais->SelectedItem->ToString();
            //GOTO: Agafar el Espai i transportarlo al modificar espai 
         }
         else {

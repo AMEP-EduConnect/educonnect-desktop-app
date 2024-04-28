@@ -72,12 +72,12 @@ namespace CppCLRWinFormsProject {
 		   {
 			   this->PageTitleLabel = (gcnew System::Windows::Forms::Label());
 			   this->tableLayoutPanel1 = (gcnew System::Windows::Forms::TableLayoutPanel());
-			   this->Cancelar_Button = (gcnew System::Windows::Forms::Button());
 			   this->Actual_Panel = (gcnew System::Windows::Forms::Panel());
 			   this->BaixaProveidorButton = (gcnew System::Windows::Forms::Button());
 			   this->BaixaProveidorLabel = (gcnew System::Windows::Forms::Label());
 			   this->Pertany_Label = (gcnew System::Windows::Forms::Label());
 			   this->Llista_Proveidors = (gcnew System::Windows::Forms::ListBox());
+			   this->Cancelar_Button = (gcnew System::Windows::Forms::Button());
 			   this->tableLayoutPanel1->SuspendLayout();
 			   this->Actual_Panel->SuspendLayout();
 			   this->SuspendLayout();
@@ -115,22 +115,6 @@ namespace CppCLRWinFormsProject {
 			   this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 29.98138F)));
 			   this->tableLayoutPanel1->Size = System::Drawing::Size(814, 537);
 			   this->tableLayoutPanel1->TabIndex = 14;
-			   // 
-			   // Cancelar_Button
-			   // 
-			   this->Cancelar_Button->Anchor = System::Windows::Forms::AnchorStyles::None;
-			   this->Cancelar_Button->BackColor = System::Drawing::Color::Transparent;
-			   this->Cancelar_Button->Cursor = System::Windows::Forms::Cursors::Hand;
-			   this->Cancelar_Button->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				   static_cast<System::Byte>(0)));
-			   this->Cancelar_Button->ForeColor = System::Drawing::Color::Red;
-			   this->Cancelar_Button->Location = System::Drawing::Point(688, 438);
-			   this->Cancelar_Button->Name = L"Cancelar_Button";
-			   this->Cancelar_Button->Size = System::Drawing::Size(88, 35);
-			   this->Cancelar_Button->TabIndex = 15;
-			   this->Cancelar_Button->Text = L"Cancelar";
-			   this->Cancelar_Button->UseVisualStyleBackColor = false;
-			   this->Cancelar_Button->Click += gcnew System::EventHandler(this, &BaixaProveidorUI::Cancelar_Button_Click);
 			   // 
 			   // Actual_Panel
 			   // 
@@ -196,6 +180,22 @@ namespace CppCLRWinFormsProject {
 			   this->Llista_Proveidors->Name = L"Llista_Proveidors";
 			   this->Llista_Proveidors->Size = System::Drawing::Size(387, 156);
 			   this->Llista_Proveidors->TabIndex = 17;
+			   // 
+			   // Cancelar_Button
+			   // 
+			   this->Cancelar_Button->Anchor = System::Windows::Forms::AnchorStyles::None;
+			   this->Cancelar_Button->BackColor = System::Drawing::Color::Transparent;
+			   this->Cancelar_Button->Cursor = System::Windows::Forms::Cursors::Hand;
+			   this->Cancelar_Button->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				   static_cast<System::Byte>(0)));
+			   this->Cancelar_Button->ForeColor = System::Drawing::Color::Red;
+			   this->Cancelar_Button->Location = System::Drawing::Point(688, 438);
+			   this->Cancelar_Button->Name = L"Cancelar_Button";
+			   this->Cancelar_Button->Size = System::Drawing::Size(88, 35);
+			   this->Cancelar_Button->TabIndex = 1;
+			   this->Cancelar_Button->Text = L"Cancelar";
+			   this->Cancelar_Button->UseVisualStyleBackColor = false;
+			   this->Cancelar_Button->Click += gcnew System::EventHandler(this, &BaixaProveidorUI::Cancelar_Button_Click);
 			   // 
 			   // BaixaProveidorUI
 			   // 

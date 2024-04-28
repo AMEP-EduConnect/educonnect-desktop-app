@@ -56,3 +56,16 @@ bool EspaisRepository::DeleteEspai(Int64^ id) {
 	DatabaseConnector::Instance->Disconnect();
 	return true;
 }
+
+bool EspaisRepository::CheckEspaiByName(String^ name) {
+	DatabaseConnector::Instance->Connect();
+	String^ sql = "SELECT name FROM espais WHERE name = @Name";
+	Dictionary<String^, Object^>^ params = gcnew Dictionary<String^, Object^>(0);
+	params->Add("@Name", name);
+
+	MySqlDataReader^ data = DatabaseConnector::Instance->ExecuteClientCommand(sql, params);
+
+	bool check = data != nullptr && data->Read();
+	DatabaseConnector::Instance->Disconnect();
+	return check;
+}

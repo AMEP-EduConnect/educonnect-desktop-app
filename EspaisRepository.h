@@ -12,4 +12,5 @@ public:
 	List<Espai^>^ GetEspaisById(Int64^ proveidor_id);
 	Espai^ GetEspaiByName(String^ name);
 	bool DeleteEspai(Int64^ id);
+	bool CheckEspaiByName(String^ name);
 };

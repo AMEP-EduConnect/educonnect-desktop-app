@@ -9,6 +9,7 @@ public ref class AltaEspaisService
 public:
     AltaEspaisService();
     bool AltaEspai(String^ nom, Int64^ capacitat);
+    bool CheckNameEspai(String^ name);
 
 private:
     EspaisRepository^ espaisRepository;

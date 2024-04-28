@@ -83,7 +83,7 @@ namespace CppCLRWinFormsProject {
 			this->button1->Location = System::Drawing::Point(439, 176);
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(91, 34);
-			this->button1->TabIndex = 1;
+			this->button1->TabIndex = 2;
 			this->button1->Text = L"Verificar";
 			this->button1->UseVisualStyleBackColor = true;
 			this->button1->Click += gcnew System::EventHandler(this, &CaptchaUI::button1_Click);
@@ -95,7 +95,7 @@ namespace CppCLRWinFormsProject {
 			this->textBox1->Location = System::Drawing::Point(115, 176);
 			this->textBox1->Name = L"textBox1";
 			this->textBox1->Size = System::Drawing::Size(208, 27);
-			this->textBox1->TabIndex = 2;
+			this->textBox1->TabIndex = 1;
 			// 
 			// label1
 			// 
@@ -117,7 +117,7 @@ namespace CppCLRWinFormsProject {
 			this->button2->Location = System::Drawing::Point(439, 86);
 			this->button2->Name = L"button2";
 			this->button2->Size = System::Drawing::Size(101, 34);
-			this->button2->TabIndex = 4;
+			this->button2->TabIndex = 0;
 			this->button2->Text = L"Regenerar";
 			this->button2->UseVisualStyleBackColor = true;
 			this->button2->Click += gcnew System::EventHandler(this, &CaptchaUI::button2_Click);
@@ -130,7 +130,7 @@ namespace CppCLRWinFormsProject {
 			this->button3->Location = System::Drawing::Point(537, 176);
 			this->button3->Name = L"button3";
 			this->button3->Size = System::Drawing::Size(91, 34);
-			this->button3->TabIndex = 5;
+			this->button3->TabIndex = 3;
 			this->button3->Text = L"Cancelar";
 			this->button3->UseVisualStyleBackColor = true;
 			this->button3->Click += gcnew System::EventHandler(this, &CaptchaUI::Cancelar_Click);

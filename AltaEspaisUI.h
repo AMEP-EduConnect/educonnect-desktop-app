@@ -26,11 +26,15 @@ namespace CppCLRWinFormsProject {
 		AltaEspaisUI(void) {
 			InitializeComponent();
 			altaEspaisService = gcnew AltaEspaisService();
+			this->textBox3->Validating += gcnew System::ComponentModel::CancelEventHandler(this, &AltaEspaisUI::NomEspai_TextBox_Validating);
+			this->textBox1->Validating += gcnew System::ComponentModel::CancelEventHandler(this, &AltaEspaisUI::Capacitat_TextBox_Validating);
 			//this->Background_PictureBox->Image = Image::FromFile("background.png");
 
 			this->Icon = gcnew System::Drawing::Icon("app.ico");
 		}
-
+		Void NomEspai_TextBox_Validating(Object^ sender, System::ComponentModel::CancelEventArgs^ e);
+		bool IsValidCapacitat(String^ capacitat);
+		Void Capacitat_TextBox_Validating(Object^ sender, System::ComponentModel::CancelEventArgs^ e);
 
 	protected:
 		/// <summary>
@@ -93,11 +97,11 @@ namespace CppCLRWinFormsProject {
 			   this->tableLayoutPanel1 = (gcnew System::Windows::Forms::TableLayoutPanel());
 			   this->Cancelar_Button = (gcnew System::Windows::Forms::Button());
 			   this->tableLayoutPanel3 = (gcnew System::Windows::Forms::TableLayoutPanel());
-			   this->textBox1 = (gcnew System::Windows::Forms::TextBox());
-			   this->label2 = (gcnew System::Windows::Forms::Label());
-			   this->label3 = (gcnew System::Windows::Forms::Label());
-			   this->textBox3 = (gcnew System::Windows::Forms::TextBox());
 			   this->panel1 = (gcnew System::Windows::Forms::Panel());
+			   this->textBox3 = (gcnew System::Windows::Forms::TextBox());
+			   this->label2 = (gcnew System::Windows::Forms::Label());
+			   this->textBox1 = (gcnew System::Windows::Forms::TextBox());
+			   this->label3 = (gcnew System::Windows::Forms::Label());
 			   this->tableLayoutPanel1->SuspendLayout();
 			   this->tableLayoutPanel3->SuspendLayout();
 			   this->panel1->SuspendLayout();
@@ -111,7 +115,7 @@ namespace CppCLRWinFormsProject {
 			   this->button1->Location = System::Drawing::Point(120, 186);
 			   this->button1->Name = L"button1";
 			   this->button1->Size = System::Drawing::Size(135, 35);
-			   this->button1->TabIndex = 0;
+			   this->button1->TabIndex = 2;
 			   this->button1->Text = L"Confirma";
 			   this->button1->UseVisualStyleBackColor = true;
 			   this->button1->Click += gcnew System::EventHandler(this, &AltaEspaisUI::button1_Click);
@@ -161,7 +165,7 @@ namespace CppCLRWinFormsProject {
 			   this->Cancelar_Button->Location = System::Drawing::Point(688, 452);
 			   this->Cancelar_Button->Name = L"Cancelar_Button";
 			   this->Cancelar_Button->Size = System::Drawing::Size(88, 35);
-			   this->Cancelar_Button->TabIndex = 18;
+			   this->Cancelar_Button->TabIndex = 3;
 			   this->Cancelar_Button->Text = L"Cancelar";
 			   this->Cancelar_Button->UseVisualStyleBackColor = false;
 			   this->Cancelar_Button->Click += gcnew System::EventHandler(this, &AltaEspaisUI::Cancelar_Button_Click);
@@ -184,15 +188,27 @@ namespace CppCLRWinFormsProject {
 			   this->tableLayoutPanel3->Size = System::Drawing::Size(376, 237);
 			   this->tableLayoutPanel3->TabIndex = 18;
 			   // 
-			   // textBox1
+			   // panel1
 			   // 
-			   this->textBox1->Anchor = System::Windows::Forms::AnchorStyles::None;
-			   this->textBox1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			   this->panel1->Anchor = System::Windows::Forms::AnchorStyles::None;
+			   this->panel1->Controls->Add(this->textBox3);
+			   this->panel1->Controls->Add(this->label2);
+			   this->panel1->Controls->Add(this->textBox1);
+			   this->panel1->Controls->Add(this->label3);
+			   this->panel1->Location = System::Drawing::Point(3, 32);
+			   this->panel1->Name = L"panel1";
+			   this->panel1->Size = System::Drawing::Size(370, 106);
+			   this->panel1->TabIndex = 1;
+			   // 
+			   // textBox3
+			   // 
+			   this->textBox3->Anchor = System::Windows::Forms::AnchorStyles::None;
+			   this->textBox3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				   static_cast<System::Byte>(0)));
-			   this->textBox1->Location = System::Drawing::Point(165, 60);
-			   this->textBox1->Name = L"textBox1";
-			   this->textBox1->Size = System::Drawing::Size(158, 26);
-			   this->textBox1->TabIndex = 19;
+			   this->textBox3->Location = System::Drawing::Point(165, 18);
+			   this->textBox3->Name = L"textBox3";
+			   this->textBox3->Size = System::Drawing::Size(158, 26);
+			   this->textBox3->TabIndex = 0;
 			   // 
 			   // label2
 			   // 
@@ -207,6 +223,16 @@ namespace CppCLRWinFormsProject {
 			   this->label2->TabIndex = 7;
 			   this->label2->Text = L"Nom de l\'espai";
 			   // 
+			   // textBox1
+			   // 
+			   this->textBox1->Anchor = System::Windows::Forms::AnchorStyles::None;
+			   this->textBox1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				   static_cast<System::Byte>(0)));
+			   this->textBox1->Location = System::Drawing::Point(165, 60);
+			   this->textBox1->Name = L"textBox1";
+			   this->textBox1->Size = System::Drawing::Size(158, 26);
+			   this->textBox1->TabIndex = 1;
+			   // 
 			   // label3
 			   // 
 			   this->label3->Anchor = System::Windows::Forms::AnchorStyles::Left;
@@ -219,28 +245,6 @@ namespace CppCLRWinFormsProject {
 			   this->label3->Size = System::Drawing::Size(83, 19);
 			   this->label3->TabIndex = 8;
 			   this->label3->Text = L"Capacitat";
-			   // 
-			   // textBox3
-			   // 
-			   this->textBox3->Anchor = System::Windows::Forms::AnchorStyles::None;
-			   this->textBox3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				   static_cast<System::Byte>(0)));
-			   this->textBox3->Location = System::Drawing::Point(165, 18);
-			   this->textBox3->Name = L"textBox3";
-			   this->textBox3->Size = System::Drawing::Size(158, 26);
-			   this->textBox3->TabIndex = 0;
-			   // 
-			   // panel1
-			   // 
-			   this->panel1->Anchor = System::Windows::Forms::AnchorStyles::None;
-			   this->panel1->Controls->Add(this->textBox3);
-			   this->panel1->Controls->Add(this->label2);
-			   this->panel1->Controls->Add(this->textBox1);
-			   this->panel1->Controls->Add(this->label3);
-			   this->panel1->Location = System::Drawing::Point(3, 32);
-			   this->panel1->Name = L"panel1";
-			   this->panel1->Size = System::Drawing::Size(370, 106);
-			   this->panel1->TabIndex = 1;
 			   // 
 			   // AltaEspaisUI
 			   // 

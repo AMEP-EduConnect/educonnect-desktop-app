@@ -9,6 +9,11 @@ AltaEspaisService::AltaEspaisService()
 	espais = gcnew Espai();
 	usuari = gcnew Usuari();
 }
+bool AltaEspaisService::CheckNameEspai(String^ name)
+{
+	return this->espaisRepository->CheckEspaiByName(name);
+}
+
 
 bool AltaEspaisService::AltaEspai(String^ nom, Int64^ capacitat)
 {
