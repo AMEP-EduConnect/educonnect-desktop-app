@@ -1,4 +1,5 @@
 #pragma once
+
 using namespace MySql::Data::MySqlClient;
 
 namespace CppCLRWinFormsProject {
@@ -407,8 +408,7 @@ namespace CppCLRWinFormsProject {
 		
 
 
-private: System::Void BotoEspais_Click(System::Object^ sender, System::EventArgs^ e) {
-}
-		System::Void BotoExplorar_Click(System::Object^ sender, System::EventArgs^ e);
+private: System::Void BotoEspais_Click(System::Object^ sender, System::EventArgs^ e);
+System::Void BotoExplorar_Click(System::Object^ sender, System::EventArgs^ e);
 };
 }

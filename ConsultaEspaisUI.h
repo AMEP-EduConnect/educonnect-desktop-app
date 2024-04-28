@@ -1,9 +1,15 @@
 ﻿#pragma once
-#include "BaixaProveidorService.h"
-#include "BaixaProveidorUI.h"
+
+#include "Espais.h"
+#include "CurrentSession.h"
+#include "ConsultaEspaisService.h"
 #include "MessageManager.h"
 #include "MainPageUI.h"
 #include "AdministradorUI.h"
+//#include "ModificarEspaiUI.h"
+#include "IniciUI.h"
+#include "AltaEspaisUI.h"
+#include "EliminarEspaisService.h"
 using namespace MySql::Data::MySqlClient;
 namespace CppCLRWinFormsProject {
 
@@ -17,13 +23,14 @@ namespace CppCLRWinFormsProject {
 	/// <summary>
 	/// Resumen de MyForm
 	/// </summary>
-	public ref class BaixaProveidorUI : public System::Windows::Forms::Form
+	public ref class ConsultaEspaisUI : public System::Windows::Forms::Form
 	{
 	public:
-		BaixaProveidorUI(void) {
+		ConsultaEspaisUI(void) {
 			InitializeComponent();
-			baixaProveidorService = gcnew BaixaProveidorService();
-			this->Load += gcnew System::EventHandler(this, &BaixaProveidorUI::LoadProvidersList);
+			consultaEspaisService = gcnew ConsultaEspaisService();
+			eliminarEspaisService = gcnew EliminarEspaisService();
+			this->Load += gcnew System::EventHandler(this, &ConsultaEspaisUI::LoadEspaisList);
 			this->Icon = gcnew System::Drawing::Icon("app.ico");
 		}
 
@@ -34,7 +41,7 @@ namespace CppCLRWinFormsProject {
 		/// <summary>
 		/// Limpiar los recursos que se est�n usando.
 		/// </summary>
-		~BaixaProveidorUI()
+		~ConsultaEspaisUI()
 		{
 			if (components)
 			{
@@ -44,7 +51,8 @@ namespace CppCLRWinFormsProject {
 
 
 
-	private: BaixaProveidorService^ baixaProveidorService;
+	private: ConsultaEspaisService^ consultaEspaisService;
+	private: EliminarEspaisService^ eliminarEspaisService;
 	protected:
 
 	private:
@@ -54,12 +62,17 @@ namespace CppCLRWinFormsProject {
 
 	private: System::Windows::Forms::Label^ PageTitleLabel;
 	private: System::Windows::Forms::TableLayoutPanel^ tableLayoutPanel1;
-	private: System::Windows::Forms::Button^ Cancelar_Button;
-	private: System::Windows::Forms::ListBox^ Llista_Proveidors;
-	private: System::Windows::Forms::Button^ BaixaProveidorButton;
+
+	private: System::Windows::Forms::ListBox^ Llista_Espais;
+	private: System::Windows::Forms::Button^ GestioEspaiButton;
+
+
 	private: System::Windows::Forms::Panel^ Actual_Panel;
 	private: System::Windows::Forms::Label^ BaixaProveidorLabel;
 	private: System::Windows::Forms::Label^ Pertany_Label;
+	private: System::Windows::Forms::Button^ ButtonEliminar;
+	private: System::Windows::Forms::Button^ ButtonAltaEspais;
+
 
 		   System::ComponentModel::Container^ components;
 
@@ -73,11 +86,12 @@ namespace CppCLRWinFormsProject {
 			   this->PageTitleLabel = (gcnew System::Windows::Forms::Label());
 			   this->tableLayoutPanel1 = (gcnew System::Windows::Forms::TableLayoutPanel());
 			   this->Actual_Panel = (gcnew System::Windows::Forms::Panel());
-			   this->BaixaProveidorButton = (gcnew System::Windows::Forms::Button());
+			   this->ButtonAltaEspais = (gcnew System::Windows::Forms::Button());
+			   this->ButtonEliminar = (gcnew System::Windows::Forms::Button());
+			   this->GestioEspaiButton = (gcnew System::Windows::Forms::Button());
 			   this->BaixaProveidorLabel = (gcnew System::Windows::Forms::Label());
 			   this->Pertany_Label = (gcnew System::Windows::Forms::Label());
-			   this->Llista_Proveidors = (gcnew System::Windows::Forms::ListBox());
-			   this->Cancelar_Button = (gcnew System::Windows::Forms::Button());
+			   this->Llista_Espais = (gcnew System::Windows::Forms::ListBox());
 			   this->tableLayoutPanel1->SuspendLayout();
 			   this->Actual_Panel->SuspendLayout();
 			   this->SuspendLayout();
@@ -88,11 +102,11 @@ namespace CppCLRWinFormsProject {
 			   this->PageTitleLabel->AutoSize = true;
 			   this->PageTitleLabel->Font = (gcnew System::Drawing::Font(L"Inter", 20.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				   static_cast<System::Byte>(0)));
-			   this->PageTitleLabel->Location = System::Drawing::Point(233, 23);
+			   this->PageTitleLabel->Location = System::Drawing::Point(355, 23);
 			   this->PageTitleLabel->Name = L"PageTitleLabel";
-			   this->PageTitleLabel->Size = System::Drawing::Size(346, 33);
+			   this->PageTitleLabel->Size = System::Drawing::Size(102, 33);
 			   this->PageTitleLabel->TabIndex = 13;
-			   this->PageTitleLabel->Text = L"Donar de baixa proveïdor";
+			   this->PageTitleLabel->Text = L"Espais";
 			   // 
 			   // tableLayoutPanel1
 			   // 
@@ -105,7 +119,6 @@ namespace CppCLRWinFormsProject {
 				   20)));
 			   this->tableLayoutPanel1->Controls->Add(this->PageTitleLabel, 1, 0);
 			   this->tableLayoutPanel1->Controls->Add(this->Actual_Panel, 1, 1);
-			   this->tableLayoutPanel1->Controls->Add(this->Cancelar_Button, 2, 2);
 			   this->tableLayoutPanel1->Dock = System::Windows::Forms::DockStyle::Fill;
 			   this->tableLayoutPanel1->Location = System::Drawing::Point(0, 0);
 			   this->tableLayoutPanel1->Name = L"tableLayoutPanel1";
@@ -120,27 +133,55 @@ namespace CppCLRWinFormsProject {
 			   // 
 			   this->Actual_Panel->Anchor = System::Windows::Forms::AnchorStyles::None;
 			   this->Actual_Panel->BackColor = System::Drawing::SystemColors::GradientInactiveCaption;
-			   this->Actual_Panel->Controls->Add(this->BaixaProveidorButton);
+			   this->Actual_Panel->Controls->Add(this->ButtonAltaEspais);
+			   this->Actual_Panel->Controls->Add(this->ButtonEliminar);
+			   this->Actual_Panel->Controls->Add(this->GestioEspaiButton);
 			   this->Actual_Panel->Controls->Add(this->BaixaProveidorLabel);
 			   this->Actual_Panel->Controls->Add(this->Pertany_Label);
-			   this->Actual_Panel->Controls->Add(this->Llista_Proveidors);
+			   this->Actual_Panel->Controls->Add(this->Llista_Espais);
 			   this->Actual_Panel->Location = System::Drawing::Point(168, 83);
 			   this->Actual_Panel->Name = L"Actual_Panel";
 			   this->Actual_Panel->Size = System::Drawing::Size(475, 288);
 			   this->Actual_Panel->TabIndex = 17;
 			   // 
-			   // BaixaProveidorButton
+			   // ButtonAltaEspais
 			   // 
-			   this->BaixaProveidorButton->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			   this->ButtonAltaEspais->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				   static_cast<System::Byte>(0)));
-			   this->BaixaProveidorButton->ForeColor = System::Drawing::SystemColors::HotTrack;
-			   this->BaixaProveidorButton->Location = System::Drawing::Point(339, 238);
-			   this->BaixaProveidorButton->Name = L"BaixaProveidorButton";
-			   this->BaixaProveidorButton->Size = System::Drawing::Size(91, 35);
-			   this->BaixaProveidorButton->TabIndex = 0;
-			   this->BaixaProveidorButton->Text = L"Confirma";
-			   this->BaixaProveidorButton->UseVisualStyleBackColor = true;
-			   this->BaixaProveidorButton->Click += gcnew System::EventHandler(this, &BaixaProveidorUI::BaixaProveidorButton_Click);
+			   this->ButtonAltaEspais->ForeColor = System::Drawing::SystemColors::HotTrack;
+			   this->ButtonAltaEspais->Location = System::Drawing::Point(43, 239);
+			   this->ButtonAltaEspais->Name = L"ButtonAltaEspais";
+			   this->ButtonAltaEspais->Size = System::Drawing::Size(91, 34);
+			   this->ButtonAltaEspais->TabIndex = 19;
+			   this->ButtonAltaEspais->Text = L"Crear";
+			   this->ButtonAltaEspais->UseVisualStyleBackColor = true;
+			   this->ButtonAltaEspais->Click += gcnew System::EventHandler(this, &ConsultaEspaisUI::ButtonAlta_Click);
+			   // 
+			   // ButtonEliminar
+			   // 
+			   this->ButtonEliminar->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				   static_cast<System::Byte>(0)));
+			   this->ButtonEliminar->ForeColor = System::Drawing::Color::Red;
+			   this->ButtonEliminar->Location = System::Drawing::Point(342, 239);
+			   this->ButtonEliminar->Name = L"ButtonEliminar";
+			   this->ButtonEliminar->Size = System::Drawing::Size(91, 34);
+			   this->ButtonEliminar->TabIndex = 18;
+			   this->ButtonEliminar->Text = L"Eliminar";
+			   this->ButtonEliminar->UseVisualStyleBackColor = true;
+			   this->ButtonEliminar->Click += gcnew System::EventHandler(this, &ConsultaEspaisUI::ButtonEliminar_Click);
+			   // 
+			   // GestioEspaiButton
+			   // 
+			   this->GestioEspaiButton->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				   static_cast<System::Byte>(0)));
+			   this->GestioEspaiButton->ForeColor = System::Drawing::SystemColors::HotTrack;
+			   this->GestioEspaiButton->Location = System::Drawing::Point(234, 239);
+			   this->GestioEspaiButton->Name = L"GestioEspaiButton";
+			   this->GestioEspaiButton->Size = System::Drawing::Size(91, 34);
+			   this->GestioEspaiButton->TabIndex = 0;
+			   this->GestioEspaiButton->Text = L"Modificar";
+			   this->GestioEspaiButton->UseVisualStyleBackColor = true;
+			   this->GestioEspaiButton->Click += gcnew System::EventHandler(this, &ConsultaEspaisUI::ButtonGestio_Click);
 			   // 
 			   // BaixaProveidorLabel
 			   // 
@@ -149,11 +190,11 @@ namespace CppCLRWinFormsProject {
 			   this->BaixaProveidorLabel->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				   static_cast<System::Byte>(0)));
 			   this->BaixaProveidorLabel->ForeColor = System::Drawing::SystemColors::HotTrack;
-			   this->BaixaProveidorLabel->Location = System::Drawing::Point(39, 39);
+			   this->BaixaProveidorLabel->Location = System::Drawing::Point(39, 41);
 			   this->BaixaProveidorLabel->Name = L"BaixaProveidorLabel";
-			   this->BaixaProveidorLabel->Size = System::Drawing::Size(91, 19);
+			   this->BaixaProveidorLabel->Size = System::Drawing::Size(58, 19);
 			   this->BaixaProveidorLabel->TabIndex = 7;
-			   this->BaixaProveidorLabel->Text = L"Proveïdors";
+			   this->BaixaProveidorLabel->Text = L"Espais";
 			   // 
 			   // Pertany_Label
 			   // 
@@ -166,38 +207,22 @@ namespace CppCLRWinFormsProject {
 			   this->Pertany_Label->Size = System::Drawing::Size(0, 16);
 			   this->Pertany_Label->TabIndex = 0;
 			   // 
-			   // Llista_Proveidors
+			   // Llista_Espais
 			   // 
-			   this->Llista_Proveidors->Anchor = System::Windows::Forms::AnchorStyles::None;
-			   this->Llista_Proveidors->BackColor = System::Drawing::Color::Lavender;
-			   this->Llista_Proveidors->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-			   this->Llista_Proveidors->Font = (gcnew System::Drawing::Font(L"Inter", 11.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			   this->Llista_Espais->Anchor = System::Windows::Forms::AnchorStyles::None;
+			   this->Llista_Espais->BackColor = System::Drawing::Color::Lavender;
+			   this->Llista_Espais->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			   this->Llista_Espais->Font = (gcnew System::Drawing::Font(L"Inter", 11.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				   static_cast<System::Byte>(0)));
-			   this->Llista_Proveidors->FormattingEnabled = true;
-			   this->Llista_Proveidors->IntegralHeight = false;
-			   this->Llista_Proveidors->ItemHeight = 19;
-			   this->Llista_Proveidors->Location = System::Drawing::Point(43, 66);
-			   this->Llista_Proveidors->Name = L"Llista_Proveidors";
-			   this->Llista_Proveidors->Size = System::Drawing::Size(387, 156);
-			   this->Llista_Proveidors->TabIndex = 17;
+			   this->Llista_Espais->FormattingEnabled = true;
+			   this->Llista_Espais->IntegralHeight = false;
+			   this->Llista_Espais->ItemHeight = 19;
+			   this->Llista_Espais->Location = System::Drawing::Point(43, 66);
+			   this->Llista_Espais->Name = L"Llista_Espais";
+			   this->Llista_Espais->Size = System::Drawing::Size(390, 156);
+			   this->Llista_Espais->TabIndex = 17;
 			   // 
-			   // Cancelar_Button
-			   // 
-			   this->Cancelar_Button->Anchor = System::Windows::Forms::AnchorStyles::None;
-			   this->Cancelar_Button->BackColor = System::Drawing::Color::Transparent;
-			   this->Cancelar_Button->Cursor = System::Windows::Forms::Cursors::Hand;
-			   this->Cancelar_Button->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				   static_cast<System::Byte>(0)));
-			   this->Cancelar_Button->ForeColor = System::Drawing::Color::Red;
-			   this->Cancelar_Button->Location = System::Drawing::Point(688, 438);
-			   this->Cancelar_Button->Name = L"Cancelar_Button";
-			   this->Cancelar_Button->Size = System::Drawing::Size(88, 35);
-			   this->Cancelar_Button->TabIndex = 1;
-			   this->Cancelar_Button->Text = L"Cancelar";
-			   this->Cancelar_Button->UseVisualStyleBackColor = false;
-			   this->Cancelar_Button->Click += gcnew System::EventHandler(this, &BaixaProveidorUI::Cancelar_Button_Click);
-			   // 
-			   // BaixaProveidorUI
+			   // ConsultaEspaisUI
 			   // 
 			   this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			   this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
@@ -206,7 +231,7 @@ namespace CppCLRWinFormsProject {
 			   this->ForeColor = System::Drawing::SystemColors::HotTrack;
 			   this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
 			   this->MinimumSize = System::Drawing::Size(814, 537);
-			   this->Name = L"BaixaProveidorUI";
+			   this->Name = L"ConsultaEspaisUI";
 			   this->StartPosition = System::Windows::Forms::FormStartPosition::CenterParent;
 			   this->Text = L"EduConnect";
 			   this->tableLayoutPanel1->ResumeLayout(false);
@@ -217,8 +242,10 @@ namespace CppCLRWinFormsProject {
 
 		   }
 #pragma endregion
-	private: System::Void LoadProvidersList(System::Object^ sender, System::EventArgs^ e);
-	private: System::Void BaixaProveidorButton_Click(System::Object^ sender, System::EventArgs^ e);
+	private: System::Void LoadEspaisList(System::Object^ sender, System::EventArgs^ e);
+	private: System::Void ButtonGestio_Click(System::Object^ sender, System::EventArgs^ e);
 	private: System::Void Cancelar_Button_Click(System::Object^ sender, System::EventArgs^ e);
-	};
+	private: System::Void ButtonEliminar_Click(System::Object^ sender, System::EventArgs^ e);
+	private: System::Void ButtonAlta_Click(System::Object^ sender, System::EventArgs^ e);
+};
 }
