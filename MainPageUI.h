@@ -103,7 +103,7 @@ namespace CppCLRWinFormsProject {
 			this->BotoPersonal->Anchor = System::Windows::Forms::AnchorStyles::None;
 			this->BotoPersonal->FlatAppearance->BorderSize = 0;
 			this->BotoPersonal->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->BotoPersonal->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->BotoPersonal->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->BotoPersonal->ImageAlign = System::Drawing::ContentAlignment::MiddleLeft;
 			this->BotoPersonal->Location = System::Drawing::Point(3, 3);
@@ -120,14 +120,14 @@ namespace CppCLRWinFormsProject {
 			this->BotoLogout->Anchor = System::Windows::Forms::AnchorStyles::None;
 			this->BotoLogout->FlatAppearance->BorderSize = 0;
 			this->BotoLogout->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->BotoLogout->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->BotoLogout->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->BotoLogout->ImageAlign = System::Drawing::ContentAlignment::MiddleLeft;
 			this->BotoLogout->Location = System::Drawing::Point(167, 3);
 			this->BotoLogout->Name = L"BotoLogout";
 			this->BotoLogout->Size = System::Drawing::Size(146, 41);
 			this->BotoLogout->TabIndex = 2;
-			this->BotoLogout->Text = L"Tancar sessió";
+			this->BotoLogout->Text = L"Tancar sessiï¿½";
 			this->BotoLogout->TextAlign = System::Drawing::ContentAlignment::MiddleRight;
 			this->BotoLogout->UseVisualStyleBackColor = true;
 			this->BotoLogout->Click += gcnew System::EventHandler(this, &MainPageUI::Tancar_Sessio_Click);
@@ -180,13 +180,13 @@ namespace CppCLRWinFormsProject {
 			// 
 			this->label1->Anchor = System::Windows::Forms::AnchorStyles::None;
 			this->label1->AutoSize = true;
-			this->label1->Font = (gcnew System::Drawing::Font(L"SF Pro Display", 21.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 21.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label1->ForeColor = System::Drawing::SystemColors::HotTrack;
 			this->label1->ImageAlign = System::Drawing::ContentAlignment::MiddleRight;
 			this->label1->Location = System::Drawing::Point(25, 16);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(166, 35);
+			this->label1->Size = System::Drawing::Size(174, 33);
 			this->label1->TabIndex = 0;
 			this->label1->Text = L"EduConnect";
 			// 
@@ -289,12 +289,14 @@ namespace CppCLRWinFormsProject {
 			this->BotoElsMeus->TextAlign = System::Drawing::ContentAlignment::MiddleLeft;
 			this->BotoElsMeus->TextImageRelation = System::Windows::Forms::TextImageRelation::ImageBeforeText;
 			this->BotoElsMeus->UseVisualStyleBackColor = true;
+			this->BotoElsMeus->Click += gcnew System::EventHandler(this, &MainPageUI::ElsMeus_Click);
 			// 
 			// BotoExplorar
 			// 
 			this->BotoExplorar->Dock = System::Windows::Forms::DockStyle::Top;
 			this->BotoExplorar->FlatAppearance->BorderSize = 0;
 			this->BotoExplorar->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->BotoExplorar->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 			this->BotoExplorar->Font = (gcnew System::Drawing::Font(L"Inter Light", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->BotoExplorar->ImageAlign = System::Drawing::ContentAlignment::MiddleLeft;
@@ -307,6 +309,7 @@ namespace CppCLRWinFormsProject {
 			this->BotoExplorar->TextAlign = System::Drawing::ContentAlignment::MiddleLeft;
 			this->BotoExplorar->TextImageRelation = System::Windows::Forms::TextImageRelation::ImageBeforeText;
 			this->BotoExplorar->UseVisualStyleBackColor = true;
+			this->BotoExplorar->Click += gcnew System::EventHandler(this, &MainPageUI::BotoExplorar_Click);
 			// 
 			// panel4
 			// 
@@ -394,7 +397,7 @@ namespace CppCLRWinFormsProject {
 		System::Void Perfil_Click(System::Object^ sender, System::EventArgs^ e);
 
 		System::Void BotoInici_Click(System::Object^ sender, System::EventArgs^ e);
-		//System::Void ElsMeus_Click(System::Object^ sender, System::EventArgs^ e);
+		System::Void ElsMeus_Click(System::Object^ sender, System::EventArgs^ e);
 		System::Void Admin_Click(System::Object^ sender, System::EventArgs^ e);
 		
 
@@ -406,5 +409,6 @@ namespace CppCLRWinFormsProject {
 
 private: System::Void BotoEspais_Click(System::Object^ sender, System::EventArgs^ e) {
 }
+		System::Void BotoExplorar_Click(System::Object^ sender, System::EventArgs^ e);
 };
 }

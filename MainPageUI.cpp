@@ -14,6 +14,7 @@
 #include "GrupEstudi_CrearUI.h"
 #include "GrupEstudi_EditarUI.h"
 #include "GrupEstudi_AssignarUI.h"
+#include "GrupEstudi_ExplorarUI.h"
 #include "AltaProveidorUI.h"
 #include "BaixaProveidorUI.h"
 #include "UsuariRolRepository.h"
@@ -154,9 +155,29 @@ namespace CppCLRWinFormsProject {
 
     }
 
-    //System::Void ElsMeus_Click(System::Object^ sender, System::EventArgs^ e) {
+    
         
-    //}
+    void MainPageUI::ElsMeus_Click(System::Object^ sender, System::EventArgs^ e) {
+        GrupEstudi_ConsultarUI^ PanelUI = gcnew GrupEstudi_ConsultarUI();
+        PanelUI->TopLevel = false;
+        PanelUI->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
+        PanelUI->Dock = System::Windows::Forms::DockStyle::Fill;
+
+        this->screen->Controls->Clear();
+        this->screen->Controls->Add(PanelUI);
+        PanelUI->Show();
+    }
+
+    void MainPageUI::BotoExplorar_Click(System::Object^ sender, System::EventArgs^ e) {
+        GrupEstudi_Explorar^ PanelUI = gcnew GrupEstudi_Explorar();
+        PanelUI->TopLevel = false;
+        PanelUI->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
+        PanelUI->Dock = System::Windows::Forms::DockStyle::Fill;
+
+        this->screen->Controls->Clear();
+        this->screen->Controls->Add(PanelUI);
+        PanelUI->Show();
+    }
 
 
 

@@ -1,33 +1,63 @@
 #include "pch.h"
 #include "GrupEstudi_EditarUI.h"
+#include "GrupEstudi_ConsultarUI.h"
 #include "MainPageUI.h"
 
 namespace CppCLRWinFormsProject {
 
-    GrupEstudi_EditarUI::GrupEstudi_EditarUI(void)
+    GrupEstudi_EditarUI::GrupEstudi_EditarUI(String^ NomGrup)
     {
         InitializeComponent();
+        NomActual_TextBox->Text = NomGrup;
         grupEstudiService = gcnew GrupEstudiService();
-        this->Background_PictureBox->Image = Image::FromFile("background.png");
+        EditarDescripcio_TextBox->Text = grupEstudiService->GetGroupDescription(NomGrup);
+        nomActual = NomActual_TextBox->Text;
+        descripcioActual = EditarDescripcio_TextBox->Text;
+        this->NomActual_TextBox->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(224)), static_cast<System::Int32>(static_cast<System::Byte>(224)),
+            static_cast<System::Int32>(static_cast<System::Byte>(224)));
+        this->EditarDescripcio_TextBox->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(224)), static_cast<System::Int32>(static_cast<System::Byte>(224)),
+            static_cast<System::Int32>(static_cast<System::Byte>(224)));
+        //this->NomActual_TextBox->ReadOnly = true;
+        this->NomActual_TextBox->Enabled = false;
+        //this->NomActual_TextBox->BorderStyle = System::Windows::Forms::BorderStyle::None;
+        //this->EditarDescripcio_TextBox->BorderStyle = System::Windows::Forms::BorderStyle::None;
+        this->EditarDescripcio_TextBox->Multiline = true;
+        //this->EditarDescripcio_TextBox->WordWrap = true;
+        //this->EditarDescripcio_TextBox->ReadOnly = true;
+        this->EditarDescripcio_TextBox->Enabled = false;
+        //this->Background_PictureBox->Image = Image::FromFile("background.png");
         this->Icon = gcnew System::Drawing::Icon("app.ico");
     }
 
     void GrupEstudi_EditarUI::CancelarButton_Click(System::Object^ sender, System::EventArgs^ e)
     {
-        this->Hide();
-		MainPageUI^ form = gcnew MainPageUI();
-		form->ShowDialog();
-		this->Close();
+        GrupEstudi_ConsultarUI^ PanelUI = gcnew GrupEstudi_ConsultarUI();
+
+        PanelUI->TopLevel = false;
+        PanelUI->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
+        PanelUI->Dock = System::Windows::Forms::DockStyle::Fill;
+
+        MainPageUI::Instance->screen->Controls->Clear();
+        MainPageUI::Instance->screen->Controls->Add(PanelUI);
+        PanelUI->Show();
     }
 
     void GrupEstudi_EditarUI::testEdita_Button(System::Object^ sender, System::EventArgs^ e)
     {
-        if (grupEstudiService->CheckIfGroupExists(NomActual_TextBox->Text)) {
+        if (grupEstudiService->CheckIfGroupExists(nomActual)) {
             bool checkD = false;
             bool checkN = false;
             Usuari^ currentUser = CurrentSession::Instance->GetCurrentUser();
             Int64^ currentUser_id = currentUser->GetUserId();
-            bool owner = grupEstudiService->CheckUserIsOwner(NomActual_TextBox->Text);
+            bool owner = grupEstudiService->CheckUserIsOwner(nomActual);
+
+			this->NomActual_TextBox->BackColor = SystemColors::Window;
+            this->EditarDescripcio_TextBox->BackColor = SystemColors::Window;
+            NomActual_TextBox->Enabled = true;
+            EditarDescripcio_TextBox->Enabled = true;
+
+            Cancelar_Button->Visible = false;
+            Edita_Button->Text = "Guardar";
 
             if (owner == false) {
                 MessageManager::WarningMessage("No pots editar un grup que no siguis propietari.");
@@ -35,16 +65,16 @@ namespace CppCLRWinFormsProject {
             }
 
             else {
-                if (EditarDescripcio_TextBox->Text != "") {
-                    grupEstudiService->ModifyGroupDescription(NomActual_TextBox->Text, EditarDescripcio_TextBox->Text);
+                if (EditarDescripcio_TextBox->Text != descripcioActual) {
+                    grupEstudiService->ModifyGroupDescription(nomActual, EditarDescripcio_TextBox->Text);
                     checkD = true;
                     //MessageManager::InfoMessage("Descripció del grup modificat correctament.");
                 }
 
-                if (EditarNom_TextBox->Text != "") {
-                    if (grupEstudiService->CheckIfGroupExists(EditarNom_TextBox->Text) == false) {
+                if (NomActual_TextBox->Text != nomActual) {
+                    if (grupEstudiService->CheckIfGroupExists(NomActual_TextBox->Text) == false) {
                         try {
-                            grupEstudiService->ModifyGroupName(NomActual_TextBox->Text, EditarNom_TextBox->Text);
+                            grupEstudiService->ModifyGroupName(nomActual, NomActual_TextBox->Text);
                             checkN = true;
                             //MessageManager::InfoMessage("Nom del grup modificat correctament.");
                         }
@@ -60,12 +90,54 @@ namespace CppCLRWinFormsProject {
 
                 if (checkD == true and checkN == false) {
                     MessageManager::InfoMessage("Descripció del grup modificada correctament.");
+                    this->NomActual_TextBox->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(224)), static_cast<System::Int32>(static_cast<System::Byte>(224)),
+                        static_cast<System::Int32>(static_cast<System::Byte>(224)));
+                    this->EditarDescripcio_TextBox->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(224)), static_cast<System::Int32>(static_cast<System::Byte>(224)),
+                        static_cast<System::Int32>(static_cast<System::Byte>(224)));
+
+                    this->NomActual_TextBox->Enabled = false;
+                    this->EditarDescripcio_TextBox->Enabled = false;
+
+                    Cancelar_Button->Visible = true;
+                    Edita_Button->Text = "Modificar";
+
+                    nomActual = NomActual_TextBox->Text;
+                    descripcioActual = EditarDescripcio_TextBox->Text;
+                    //CancelarButton_Click(sender, e);
                 }
                 else if (checkN == true and checkD == false) {
                     MessageManager::InfoMessage("Nom del grup modificat correctament.");
+                    this->NomActual_TextBox->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(224)), static_cast<System::Int32>(static_cast<System::Byte>(224)),
+                        static_cast<System::Int32>(static_cast<System::Byte>(224)));
+                    this->EditarDescripcio_TextBox->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(224)), static_cast<System::Int32>(static_cast<System::Byte>(224)),
+                        static_cast<System::Int32>(static_cast<System::Byte>(224)));
+
+                    this->NomActual_TextBox->Enabled = false;
+                    this->EditarDescripcio_TextBox->Enabled = false;
+
+                    Cancelar_Button->Visible = true;
+                    Edita_Button->Text = "Modificar";
+
+                    nomActual = NomActual_TextBox->Text;
+                    descripcioActual = EditarDescripcio_TextBox->Text;
+                    //CancelarButton_Click(sender, e);
                 }
                 else if (checkN == true and checkD == true) {
                     MessageManager::InfoMessage("Nom i descripció del grup modificats correctament.");
+                    this->NomActual_TextBox->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(224)), static_cast<System::Int32>(static_cast<System::Byte>(224)),
+                        static_cast<System::Int32>(static_cast<System::Byte>(224)));
+                    this->EditarDescripcio_TextBox->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(224)), static_cast<System::Int32>(static_cast<System::Byte>(224)),
+                        static_cast<System::Int32>(static_cast<System::Byte>(224)));
+
+                    this->NomActual_TextBox->Enabled = false;
+                    this->EditarDescripcio_TextBox->Enabled = false;
+
+                    Cancelar_Button->Visible = true;
+                    Edita_Button->Text = "Modificar";
+
+                    nomActual = NomActual_TextBox->Text;
+                    descripcioActual = EditarDescripcio_TextBox->Text;
+                    //CancelarButton_Click(sender, e);
                 }
             }
         }

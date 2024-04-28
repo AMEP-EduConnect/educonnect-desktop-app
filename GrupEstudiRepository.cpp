@@ -35,7 +35,7 @@ void GrupEstudiRepository::CreateNewGrupEstudi(String^ group_name, String^ descr
 		command->Parameters->AddWithValue("@GroupName", group_name);
 		command->Parameters->AddWithValue("@AcademicId", academic_id);
 		command->Parameters->AddWithValue("@Description", description);
-		command->Parameters->AddWithValue("@CurrentUserId", current_user_id);	
+		command->Parameters->AddWithValue("@CurrentUserId", current_user_id);
 
 		command->ExecuteNonQuery();
 		MessageManager::InfoMessage("Grup d'estudi creat correctament!");
@@ -241,6 +241,41 @@ bool GrupEstudiRepository::CheckUserIsOwner(String^ group_name)
 
 	return owner;
 }
+
+bool GrupEstudiRepository::CheckUserIsOwnerByIds(Int64^ user_id, Int64^ group_id)
+{
+	DatabaseConnector::Instance->Connect();
+	String^ sql = "SELECT * FROM studyGroups WHERE group_owner_id = " + user_id + " AND id = " + group_id;
+	MySqlDataReader^ data = DatabaseConnector::Instance->ExecuteInternCommand(sql);
+	bool owner = false;
+
+	if (data->Read()) {
+		owner = true;
+	}
+
+	data->Close();
+	DatabaseConnector::Instance->Disconnect();
+
+	return owner;
+}
+
+String^ GrupEstudiRepository::GetAcademicTagNameById(Int64^ academic_tag_id) {
+	DatabaseConnector::Instance->Connect();
+	String^ sql = "SELECT tag_name FROM academicTags WHERE id = " + academic_tag_id;
+	MySqlDataReader^ data = DatabaseConnector::Instance->ExecuteInternCommand(sql);
+	String^ academic_tag_name;
+
+	while (data->Read())
+	{
+		academic_tag_name = data->GetString(0);
+	}
+
+	data->Close();
+	DatabaseConnector::Instance->Disconnect();
+
+	return academic_tag_name;
+}
+
 void GrupEstudiRepository::ChangeGroupOwner(Int64^ group_id, Int64^ new_owner_id)
 {
 	DatabaseConnector::Instance->Connect();
@@ -252,6 +287,34 @@ void GrupEstudiRepository::ChangeGroupOwner(Int64^ group_id, Int64^ new_owner_id
 	DatabaseConnector::Instance->Disconnect();
 }
 
+bool GrupEstudiRepository::DeleteGrupEstudiById(Int64^ id)
+{
+	DatabaseConnector::Instance->Connect();
+	String^ sql = "DELETE FROM studyGroups WHERE id=@id";
+	Dictionary<String^, Object^>^ params = gcnew Dictionary<String^, Object^>(0);
+	params->Add("@id", id->ToString());
+	MySqlDataReader^ data = DatabaseConnector::Instance->ExecuteClientCommand(sql, params);
+	data->Close();
+	DatabaseConnector::Instance->Disconnect();
+	return true;
+}
+
+String^ GrupEstudiRepository::GetGroupDescription(String^ NomGrup) {
+	DatabaseConnector::Instance->Connect();
+	String^ sql = "SELECT description FROM studyGroups WHERE group_name = '" + NomGrup + "'";
+	MySqlDataReader^ data = DatabaseConnector::Instance->ExecuteInternCommand(sql);
+	String^ descripcio;
+
+	while (data->Read())
+	{
+		descripcio = data->GetString(0);
+	}
+
+	data->Close();
+	DatabaseConnector::Instance->Disconnect();
+
+	return descripcio;
+}
 bool GrupEstudiRepository::CheckUserIsOwnerById(Int64^ id_user, Int64^ id_group)
 {
 	DatabaseConnector::Instance->Connect();

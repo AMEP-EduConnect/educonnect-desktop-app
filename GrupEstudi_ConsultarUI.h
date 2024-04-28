@@ -37,7 +37,7 @@ namespace CppCLRWinFormsProject {
 				delete components;
 			}
 		}
-	private: System::Windows::Forms::Label^ EduConnect_Label;
+
 	private: System::Windows::Forms::Label^ ConsultarGrupEstudi_Label;
 	private: System::Windows::Forms::Panel^ Actual_Panel;
 	private: System::Windows::Forms::Label^ NomPertany_Label;
@@ -47,7 +47,7 @@ namespace CppCLRWinFormsProject {
 	private: System::Windows::Forms::ListBox^ Noms_ListBox;
 
 
-	private: System::Windows::Forms::Button^ Cancelar_Button;
+
 	private: System::Windows::Forms::Button^ Eliminar_Button;
 	private: System::Windows::Forms::Button^ Editar_Button;
 
@@ -62,7 +62,15 @@ namespace CppCLRWinFormsProject {
 		/// </summary>
 		System::ComponentModel::Container^ components;
 	private: GrupEstudiMembershipService^ grupEstudiMembershipService;
-	private: System::Windows::Forms::PictureBox^ Background_PictureBox;
+	private: System::Windows::Forms::TableLayoutPanel^ tableLayoutPanel1;
+	private: System::Windows::Forms::Button^ consulta_membres;
+	private: System::Windows::Forms::Button^ abandonar_button;
+	private: System::Windows::Forms::Button^ crearGrup_button;
+
+
+
+
+
 	private: GrupEstudiService^ grupEstudiService;
 
 #pragma region Windows Form Designer generated code
@@ -72,57 +80,84 @@ namespace CppCLRWinFormsProject {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			this->EduConnect_Label = (gcnew System::Windows::Forms::Label());
 			this->ConsultarGrupEstudi_Label = (gcnew System::Windows::Forms::Label());
 			this->Actual_Panel = (gcnew System::Windows::Forms::Panel());
+			this->abandonar_button = (gcnew System::Windows::Forms::Button());
+			this->consulta_membres = (gcnew System::Windows::Forms::Button());
+			this->crearGrup_button = (gcnew System::Windows::Forms::Button());
 			this->Eliminar_Button = (gcnew System::Windows::Forms::Button());
 			this->Editar_Button = (gcnew System::Windows::Forms::Button());
 			this->Noms_ListBox = (gcnew System::Windows::Forms::ListBox());
 			this->NomPertany_Label = (gcnew System::Windows::Forms::Label());
 			this->Pertany_Label = (gcnew System::Windows::Forms::Label());
-			this->Cancelar_Button = (gcnew System::Windows::Forms::Button());
-			this->Background_PictureBox = (gcnew System::Windows::Forms::PictureBox());
+			this->tableLayoutPanel1 = (gcnew System::Windows::Forms::TableLayoutPanel());
 			this->Actual_Panel->SuspendLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->Background_PictureBox))->BeginInit();
+			this->tableLayoutPanel1->SuspendLayout();
 			this->SuspendLayout();
-			// 
-			// EduConnect_Label
-			// 
-			this->EduConnect_Label->AutoSize = true;
-			this->EduConnect_Label->BackColor = System::Drawing::SystemColors::Control;
-			this->EduConnect_Label->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Regular,
-				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
-			this->EduConnect_Label->ForeColor = System::Drawing::SystemColors::HotTrack;
-			this->EduConnect_Label->Location = System::Drawing::Point(198, 82);
-			this->EduConnect_Label->Name = L"EduConnect_Label";
-			this->EduConnect_Label->Size = System::Drawing::Size(80, 16);
-			this->EduConnect_Label->TabIndex = 3;
-			this->EduConnect_Label->Text = L"EduConnect";
 			// 
 			// ConsultarGrupEstudi_Label
 			// 
+			this->ConsultarGrupEstudi_Label->Anchor = System::Windows::Forms::AnchorStyles::None;
 			this->ConsultarGrupEstudi_Label->AutoSize = true;
 			this->ConsultarGrupEstudi_Label->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20.25F, System::Drawing::FontStyle::Bold,
 				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
 			this->ConsultarGrupEstudi_Label->ForeColor = System::Drawing::SystemColors::HotTrack;
-			this->ConsultarGrupEstudi_Label->Location = System::Drawing::Point(195, 98);
+			this->ConsultarGrupEstudi_Label->Location = System::Drawing::Point(261, 38);
 			this->ConsultarGrupEstudi_Label->Name = L"ConsultarGrupEstudi_Label";
-			this->ConsultarGrupEstudi_Label->Size = System::Drawing::Size(324, 31);
+			this->ConsultarGrupEstudi_Label->Size = System::Drawing::Size(326, 31);
 			this->ConsultarGrupEstudi_Label->TabIndex = 2;
-			this->ConsultarGrupEstudi_Label->Text = L"Consultar Grup d\'Estudi";
+			this->ConsultarGrupEstudi_Label->Text = L"Els meus grups d\'Estudi";
 			// 
 			// Actual_Panel
 			// 
 			this->Actual_Panel->BackColor = System::Drawing::SystemColors::GradientInactiveCaption;
+			this->Actual_Panel->Controls->Add(this->abandonar_button);
+			this->Actual_Panel->Controls->Add(this->consulta_membres);
+			this->Actual_Panel->Controls->Add(this->crearGrup_button);
 			this->Actual_Panel->Controls->Add(this->Eliminar_Button);
 			this->Actual_Panel->Controls->Add(this->Editar_Button);
 			this->Actual_Panel->Controls->Add(this->Noms_ListBox);
 			this->Actual_Panel->Controls->Add(this->NomPertany_Label);
 			this->Actual_Panel->Controls->Add(this->Pertany_Label);
-			this->Actual_Panel->Location = System::Drawing::Point(201, 149);
+			this->Actual_Panel->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->Actual_Panel->Location = System::Drawing::Point(181, 111);
 			this->Actual_Panel->Name = L"Actual_Panel";
-			this->Actual_Panel->Size = System::Drawing::Size(475, 309);
+			this->Actual_Panel->Size = System::Drawing::Size(486, 319);
 			this->Actual_Panel->TabIndex = 6;
+			// 
+			// abandonar_button
+			// 
+			this->abandonar_button->Location = System::Drawing::Point(146, 273);
+			this->abandonar_button->Margin = System::Windows::Forms::Padding(4);
+			this->abandonar_button->Name = L"abandonar_button";
+			this->abandonar_button->Size = System::Drawing::Size(75, 23);
+			this->abandonar_button->TabIndex = 10;
+			this->abandonar_button->Text = L"Abandonar";
+			this->abandonar_button->UseVisualStyleBackColor = true;
+			this->abandonar_button->Visible = false;
+			this->abandonar_button->Click += gcnew System::EventHandler(this, &GrupEstudi_ConsultarUI::abandonar_button_Click);
+			// 
+			// consulta_membres
+			// 
+			this->consulta_membres->Location = System::Drawing::Point(63, 273);
+			this->consulta_membres->Margin = System::Windows::Forms::Padding(4);
+			this->consulta_membres->Name = L"consulta_membres";
+			this->consulta_membres->Size = System::Drawing::Size(75, 23);
+			this->consulta_membres->TabIndex = 9;
+			this->consulta_membres->Text = L"Membres";
+			this->consulta_membres->UseVisualStyleBackColor = true;
+			this->consulta_membres->Visible = false;
+			this->consulta_membres->Click += gcnew System::EventHandler(this, &GrupEstudi_ConsultarUI::consulta_membres_Click);
+			// 
+			// crearGrup_button
+			// 
+			this->crearGrup_button->Location = System::Drawing::Point(387, 22);
+			this->crearGrup_button->Name = L"crearGrup_button";
+			this->crearGrup_button->Size = System::Drawing::Size(75, 23);
+			this->crearGrup_button->TabIndex = 7;
+			this->crearGrup_button->Text = L"Nou grup";
+			this->crearGrup_button->UseVisualStyleBackColor = true;
+			this->crearGrup_button->Click += gcnew System::EventHandler(this, &GrupEstudi_ConsultarUI::CrearGrupEstudi_Click);
 			// 
 			// Eliminar_Button
 			// 
@@ -182,55 +217,58 @@ namespace CppCLRWinFormsProject {
 			this->Pertany_Label->TabIndex = 0;
 			this->Pertany_Label->Text = L"Grups d\'Estudis que pertanys:";
 			// 
-			// Cancelar_Button
+			// tableLayoutPanel1
 			// 
-			this->Cancelar_Button->BackColor = System::Drawing::Color::Transparent;
-			this->Cancelar_Button->Cursor = System::Windows::Forms::Cursors::Hand;
-			this->Cancelar_Button->ForeColor = System::Drawing::Color::Red;
-			this->Cancelar_Button->Location = System::Drawing::Point(800, 515);
-			this->Cancelar_Button->Name = L"Cancelar_Button";
-			this->Cancelar_Button->Size = System::Drawing::Size(75, 23);
-			this->Cancelar_Button->TabIndex = 7;
-			this->Cancelar_Button->Text = L"Cancelar";
-			this->Cancelar_Button->UseVisualStyleBackColor = false;
-			this->Cancelar_Button->Click += gcnew System::EventHandler(this, &GrupEstudi_ConsultarUI::CancelButton_Click);
-			// 
-			// Background_PictureBox
-			// 
-			this->Background_PictureBox->Location = System::Drawing::Point(-5, 555);
-			this->Background_PictureBox->Name = L"Background_PictureBox";
-			this->Background_PictureBox->Size = System::Drawing::Size(928, 265);
-			this->Background_PictureBox->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
-			this->Background_PictureBox->TabIndex = 17;
-			this->Background_PictureBox->TabStop = false;
+			this->tableLayoutPanel1->ColumnCount = 3;
+			this->tableLayoutPanel1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
+				26.65535F)));
+			this->tableLayoutPanel1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
+				73.34465F)));
+			this->tableLayoutPanel1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Absolute,
+				143)));
+			this->tableLayoutPanel1->Controls->Add(this->ConsultarGrupEstudi_Label, 1, 0);
+			this->tableLayoutPanel1->Controls->Add(this->Actual_Panel, 1, 1);
+			this->tableLayoutPanel1->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->tableLayoutPanel1->Location = System::Drawing::Point(0, 0);
+			this->tableLayoutPanel1->Name = L"tableLayoutPanel1";
+			this->tableLayoutPanel1->RowCount = 3;
+			this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 25)));
+			this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 75)));
+			this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Absolute, 103)));
+			this->tableLayoutPanel1->Size = System::Drawing::Size(814, 537);
+			this->tableLayoutPanel1->TabIndex = 7;
+			this->tableLayoutPanel1->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &GrupEstudi_ConsultarUI::tableLayoutPanel1_Paint);
 			// 
 			// GrupEstudi_ConsultarUI
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(917, 657);
-			this->Controls->Add(this->Background_PictureBox);
-			this->Controls->Add(this->Cancelar_Button);
-			this->Controls->Add(this->Actual_Panel);
-			this->Controls->Add(this->EduConnect_Label);
-			this->Controls->Add(this->ConsultarGrupEstudi_Label);
-			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedSingle;
+			this->ClientSize = System::Drawing::Size(814, 537);
+			this->Controls->Add(this->tableLayoutPanel1);
+			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
 			this->Name = L"GrupEstudi_ConsultarUI";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterParent;
 			this->Text = L"EduConnect";
 			this->Load += gcnew System::EventHandler(this, &GrupEstudi_ConsultarUI::GrupEstudi_ConsultarUI_Load);
 			this->Actual_Panel->ResumeLayout(false);
 			this->Actual_Panel->PerformLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->Background_PictureBox))->EndInit();
+			this->tableLayoutPanel1->ResumeLayout(false);
+			this->tableLayoutPanel1->PerformLayout();
 			this->ResumeLayout(false);
-			this->PerformLayout();
 
 		}
 #pragma endregion
 	private: System::Void GrupEstudi_ConsultarUI_Load(System::Object^ sender, System::EventArgs^ e);
 	private: System::Void EliminarButton_Click(System::Object^ sender, System::EventArgs^ e);
 	private: System::Void EditarButton_Click(System::Object^ sender, System::EventArgs^ e);
-	private: System::Void CancelButton_Click(System::Object^ sender, System::EventArgs^ e);
+	//private: System::Void CancelButton_Click(System::Object^ sender, System::EventArgs^ e);
 	private: System::Void Noms_ListBox_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e);
-	};
+	private: System::Void tableLayoutPanel1_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
+	}
+	private: System::Void consulta_membres_Click(System::Object^ sender, System::EventArgs^ e);
+	private: System::Void abandonar_button_Click(System::Object^ sender, System::EventArgs^ e);
+	private: void GrupEstudi_ConsultarUIreload();
+	private: System::Void CrearGrupEstudi_Click(System::Object^ sender, System::EventArgs^ e);
+
+};
 }
