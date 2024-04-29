@@ -125,3 +125,7 @@ bool GrupEstudiService::DeleteGrupEstudiById(Int64^ id)
 String^ GrupEstudiService::GetGroupDescription(String^ NomGrup) {
 	return grupEstudiRepository->GetGroupDescription(NomGrup);
 }
+
+array<GrupEstudi^>^ GrupEstudiService::LoadGrupsNoMembers(Int64^ user_id) {
+		return grupEstudiRepository->LoadGrupsNoMembers(user_id);
+}

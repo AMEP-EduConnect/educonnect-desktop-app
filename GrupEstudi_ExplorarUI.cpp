@@ -18,9 +18,9 @@ namespace CppCLRWinFormsProject {
 		this->Icon = gcnew System::Drawing::Icon("app.ico");
 	}
 
-	array<Int64>^ GrupEstudi_Explorar::GrupEstudi_Explorar_Array() {
+	array<GrupEstudi^>^ GrupEstudi_Explorar::GrupEstudi_Explorar_Array() {
 		Usuari^ currentUser = CurrentSession::Instance->GetCurrentUser();
-		array<Int64^>^ arrayIdGroupEstudisOfUser = grupEstudiMembershipService->LoadAllGrupsEstudiNoIn(currentUser->GetUserId());
+		/*array<Int64^>^ arrayIdGroupEstudisOfUser = grupEstudiMembershipService->LoadAllGrupsEstudiNoIn(currentUser->GetUserId());
 		array<Int64^>^ arrayIdGrupsEstudiMembershipOfUser = grupEstudiMembershipService->LoadGrupsEstudiMembershipByUserId(currentUser->GetUserId());
 
 		// Crear un nuevo array para almacenar los elementos únicos
@@ -43,9 +43,9 @@ namespace CppCLRWinFormsProject {
 		}
 		// Crear un nuevo array del tamaño correcto para almacenar los elementos únicos
 		array<Int64>^ arrayIdGroupEstudisOfUserNoIn = gcnew array<Int64>(uniqueCount);
-		Array::Copy(uniqueIds, arrayIdGroupEstudisOfUserNoIn, uniqueCount);
-
-		return arrayIdGroupEstudisOfUserNoIn;
+		Array::Copy(uniqueIds, arrayIdGroupEstudisOfUserNoIn, uniqueCount);*/
+		array<GrupEstudi^>^ arrayIdGroupEstudisOfUser = grupEstudiService->LoadGrupsNoMembers(currentUser->GetUserId());
+		return arrayIdGroupEstudisOfUser;
 	}
 	
 	void GrupEstudi_Explorar::GrupEstudi_Explorar_Load(System::Object^ sender, System::EventArgs^ e) {
@@ -65,8 +65,11 @@ namespace CppCLRWinFormsProject {
 			Noms_ListBox->Enabled = true;
 
 			for (int i = 0; i < arrayIdGroupEstudisOfUserNoIn->Length; i++) {
-				GrupEstudi^ grupEstudiUser = grupEstudiMembershipService->LoadAllGrupEstudibyId(arrayIdGroupEstudisOfUserNoIn[i]);
-				Noms_ListBox->Items->Add(grupEstudiUser->GetGroupName());
+				//GrupEstudi^ grupEstudiUser = grupEstudiMembershipService->LoadAllGrupEstudibyId(arrayIdGroupEstudisOfUserNoIn[i]);
+				//Noms_ListBox->Items->Add(grupEstudiUser->GetGroupName());
+				//GrupEstudi^ grupEstudiUser = grupEstudiMembershipService->LoadAllGrupEstudibyId(arrayIdGroupEstudisOfUserNoIn[i]);
+				Noms_ListBox->Items->Add(arrayIdGroupEstudisOfUserNoIn[i]->GetGroupName());
+
 			}
 		}
 	}
@@ -185,7 +188,8 @@ namespace CppCLRWinFormsProject {
 			GrupEstudi_Explorar_FormClosed();
 			//array<Int64>^ arrayIdGroupEstudisOfUserNoIn = GrupEstudi_Explorar_Array();
 			for (int i = 0; i < arrayIdGroupEstudisOfUserNoIn->Length; i++) {
-				GrupEstudi^ grupEstudiUser = grupEstudiMembershipService->LoadAllGrupEstudibyId(arrayIdGroupEstudisOfUserNoIn[i]);
+				//GrupEstudi^ grupEstudiUser = grupEstudiMembershipService->LoadAllGrupEstudibyId(arrayIdGroupEstudisOfUserNoIn[i]);
+				GrupEstudi^ grupEstudiUser = arrayIdGroupEstudisOfUserNoIn[i];
 				String^ groupName = grupEstudiUser->GetGroupName();
 				if (groupName->Contains(buscar_grup)) {
 					Noms_ListBox->Items->Add(groupName);

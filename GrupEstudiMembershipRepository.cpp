@@ -244,3 +244,29 @@ bool GrupEstudiMembershipRepository::UserInSomeGroup(Int64^ user_id) {
 	DatabaseConnector::Instance->Disconnect();
 	return exists;
 }
+
+array<GrupEstudiMembership^>^ GrupEstudiMembershipRepository::LoadAllGrupsEstudiMembershipByUserId(Int64^ user_id) {
+	array<GrupEstudiMembership^>^ user_groupEstudiMembership = gcnew array<GrupEstudiMembership^>(0);
+	DatabaseConnector::Instance->Connect();
+	String^ sql = "SELECT * FROM studyGroupsMembership WHERE user_id = @user_id";
+	Dictionary<String^, Object^>^ params = gcnew Dictionary<String^, Object^>(0);
+	params->Add("@user_id", user_id->ToString());
+	MySqlDataReader^ data = DatabaseConnector::Instance->ExecuteClientCommand(sql, params);
+	array<GrupEstudiMembership^>^ tempArray = gcnew array<GrupEstudiMembership^>(user_groupEstudiMembership->Length + 1);
+	for (int i = 0; i < user_groupEstudiMembership->Length; i++)
+	{
+		tempArray[i] = user_groupEstudiMembership[i];
+	}
+	user_groupEstudiMembership = tempArray;
+	int index = user_groupEstudiMembership->Length;
+	
+	// Obtener el n�mero de filas
+	int rowCount = 0;
+	while (data->Read())
+	{
+		rowCount++;
+	}
+	data->Close();
+
+	return user_groupEstudiMembership;
+}

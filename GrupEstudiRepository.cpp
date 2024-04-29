@@ -304,3 +304,27 @@ String^ GrupEstudiRepository::GetGroupDescription(String^ NomGrup) {
 
 	return descripcio;
 }
+
+array<GrupEstudi^>^ GrupEstudiRepository::LoadGrupsNoMembers(Int64^ user_id) {
+	DatabaseConnector::Instance->Connect();
+	//SELECT * FROM studyGroups WHERE id NOT IN ( SELECT group_id FROM studyGroupsMembership WHERE user_id = @user_id)";
+	String^ sql = "SELECT * FROM studyGroups WHERE id NOT IN ( SELECT group_id FROM studyGroupsMembership WHERE user_id = @user_id)";
+	Dictionary<String^, Object^>^ params = gcnew Dictionary<String^, Object^>(0);
+	params->Add("@user_id", user_id->ToString());
+	MySqlDataReader^ data = DatabaseConnector::Instance->ExecuteClientCommand(sql, params);
+	array<GrupEstudi^>^ grups = gcnew array<GrupEstudi^>(0);
+	while (data->Read())
+	{
+		GrupEstudi^ grup = gcnew GrupEstudi();
+		grup->SetId(data->GetInt64(0));
+		grup->SetGroupName(data->GetString(1));
+		grup->SetGroupOwnerId(data->GetInt64(2));
+		grup->SetGroupAcademicTag(data->GetInt64(3));
+		grup->SetDescription(data->GetString(4));
+		Array::Resize(grups, grups->Length + 1);
+		grups[grups->Length - 1] = grup;
+	}
+	data->Close();
+	DatabaseConnector::Instance->Disconnect();
+	return grups;
+}

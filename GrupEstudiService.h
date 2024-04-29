@@ -40,6 +40,8 @@ public:
 	void ChangeGroupOwner(Int64^ group_id, Int64^ new_owner_id);
 	bool DeleteGrupEstudiById(Int64^ id);
 
+	array<GrupEstudi^>^ LoadGrupsNoMembers(Int64^ user_id);
+
 private:
 	GrupEstudiRepository^ grupEstudiRepository;
 	GrupEstudiMembershipService^ grupEstudiMembershipService;

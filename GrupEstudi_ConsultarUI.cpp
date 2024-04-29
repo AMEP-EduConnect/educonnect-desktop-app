@@ -99,7 +99,8 @@ namespace CppCLRWinFormsProject {
     void GrupEstudi_ConsultarUI::GrupEstudi_ConsultarUIreload() {
         Usuari^ currentUser = CurrentSession::Instance->GetCurrentUser();
         array<Int64^>^ arrayIdGroupEstudisOfUser = grupEstudiMembershipService->LoadGrupsEstudiMembershipByUserId(currentUser->GetUserId());
-
+        //array<GrupEstudiMembership^>^ arrayIdGroupEstudisOfUser = grupEstudiMembershipService->LoadAllGrupsEstudiMembershipByUserId(currentUser->GetUserId());
+        
         // Limpiar el ListBox antes de cargar los nuevos grupos
         Noms_ListBox->Items->Clear();
 
@@ -120,6 +121,9 @@ namespace CppCLRWinFormsProject {
             for (int i = 0; i < arrayIdGroupEstudisOfUser->Length; i++) {
                 GrupEstudi^ grupEstudiUser = grupEstudiMembershipService->LoadAllGrupEstudibyId(arrayIdGroupEstudisOfUser[i]);
                 Noms_ListBox->Items->Add(grupEstudiUser->GetGroupName());
+                /*Int64^ grupEstudiUser = arrayIdGroupEstudisOfUser[i]->GetUserId();
+                GrupEstudi^ grupEstudi = grupEstudiService->GetGrupEstudiById(grupEstudiUser);
+                Noms_ListBox->Items->Add(grupEstudi->GetGroupName());*/
             }
 		}
     }

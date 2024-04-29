@@ -56,3 +56,7 @@ Int64^ GrupEstudiMembershipService::GetOldestUserInGroup(Int64^ group_id) {
 bool GrupEstudiMembershipService::UserInSomeGroup(Int64^ user_id) {
 	return grupEstudiMembershipRepository->UserInSomeGroup(user_id);
 }
+
+array<GrupEstudiMembership^>^ GrupEstudiMembershipService::LoadAllGrupsEstudiMembershipByUserId(Int64^ user_id) {
+	return grupEstudiMembershipRepository->LoadAllGrupsEstudiMembershipByUserId(user_id);
+}
