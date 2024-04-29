@@ -161,6 +161,12 @@
     <ClInclude Include="PerfilPersonalModificaService.h">
       <Filter>Source Files\services</Filter>
     </ClInclude>
+    <ClInclude Include="GrupEstudi_MembresUI.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GrupEstudi_ExplorarUI.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AssemblyInfo.cpp">
@@ -296,6 +302,12 @@
       <Filter>Source Files\ui</Filter>
     </ClCompile>
     <ClCompile Include="StartPageUI.cpp">
+          <Filter>Source Files\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="GrupEstudi_MembresUI.cpp">
+      <Filter>Source Files\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="GrupEstudi_ExplorarUI.cpp">
       <Filter>Source Files\ui</Filter>
     </ClCompile>
   </ItemGroup>
