@@ -30,11 +30,9 @@ public:
 	Int64^ GetGroupIdByName(String^ group_name);
 
 	bool CheckUserIsOwnerById(Int64^ id_user, Int64^ id_group);
-	void ChangeGroupOwner(Int64^ user_id, Int64^ group_id);
 	String^ GetAcademicTagNameById(Int64^ academic_tag_id);
 
 	bool CheckUserIsOwner(String^ group_name);
-	bool CheckUserIsOwnerByIds(Int64^ user_id, Int64^ group_id);
 
 	array<GrupEstudi^>^ LoadGrupsNoMembers(Int64^ user_id);
 
