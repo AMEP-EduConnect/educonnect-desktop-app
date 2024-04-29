@@ -44,6 +44,8 @@ namespace CppCLRWinFormsProject {
 	private: System::Windows::Forms::Button^ BotoAlta;
 
 	private: System::Windows::Forms::Label^ label6;
+	private: System::Windows::Forms::Button^ button_elim_usuari;
+
 
 
 
@@ -81,6 +83,7 @@ namespace CppCLRWinFormsProject {
 		{
 			this->tableLayoutPanel1 = (gcnew System::Windows::Forms::TableLayoutPanel());
 			this->panel2 = (gcnew System::Windows::Forms::Panel());
+			this->button_elim_usuari = (gcnew System::Windows::Forms::Button());
 			this->BotoReports = (gcnew System::Windows::Forms::Button());
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->label1 = (gcnew System::Windows::Forms::Label());
@@ -111,6 +114,7 @@ namespace CppCLRWinFormsProject {
 			// 
 			// panel2
 			// 
+			this->panel2->Controls->Add(this->button_elim_usuari);
 			this->panel2->Controls->Add(this->BotoReports);
 			this->panel2->Controls->Add(this->label2);
 			this->panel2->Controls->Add(this->label1);
@@ -120,6 +124,22 @@ namespace CppCLRWinFormsProject {
 			this->panel2->Name = L"panel2";
 			this->panel2->Size = System::Drawing::Size(561, 334);
 			this->panel2->TabIndex = 1;
+			// 
+			// button_elim_usuari
+			// 
+			this->button_elim_usuari->Anchor = System::Windows::Forms::AnchorStyles::None;
+			this->button_elim_usuari->BackColor = System::Drawing::SystemColors::GradientInactiveCaption;
+			this->button_elim_usuari->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->button_elim_usuari->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->button_elim_usuari->ImageAlign = System::Drawing::ContentAlignment::MiddleLeft;
+			this->button_elim_usuari->Location = System::Drawing::Point(7, 219);
+			this->button_elim_usuari->Name = L"button_elim_usuari";
+			this->button_elim_usuari->Size = System::Drawing::Size(243, 41);
+			this->button_elim_usuari->TabIndex = 23;
+			this->button_elim_usuari->Text = L"Donar de baixa usuari";
+			this->button_elim_usuari->UseVisualStyleBackColor = false;
+			this->button_elim_usuari->Click += gcnew System::EventHandler(this, &AdministradorUI::BotoBaixaUser_Click);
 			// 
 			// BotoReports
 			// 
@@ -211,6 +231,8 @@ namespace CppCLRWinFormsProject {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
+			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(243)), static_cast<System::Int32>(static_cast<System::Byte>(243)),
+				static_cast<System::Int32>(static_cast<System::Byte>(243)));
 			this->ClientSize = System::Drawing::Size(814, 537);
 			this->Controls->Add(this->tableLayoutPanel1);
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
@@ -228,5 +250,6 @@ namespace CppCLRWinFormsProject {
 
 	private: System::Void BotoAltaProveidor_Click(System::Object^ sender, System::EventArgs^ e);
 	private: System::Void BotoBaixa_Click(System::Object^ sender, System::EventArgs^ e);
+private: System::Void BotoBaixaUser_Click(System::Object^ sender, System::EventArgs^ e);
 };
 }

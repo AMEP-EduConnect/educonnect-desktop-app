@@ -1,6 +1,6 @@
 #include "pch.h"
 #include "GrupEstudiService.h"
-
+#include <vector>
 
 GrupEstudiService::GrupEstudiService()
 {
@@ -90,6 +90,22 @@ Int64^ GrupEstudiService::GetGroupIdByName(String^ group_name)
 bool GrupEstudiService::CheckUserIsOwner(String^ group_name)
 {
 	return grupEstudiRepository->CheckUserIsOwner(group_name);
+}
+
+List<GrupEstudi^>^ GrupEstudiService::CheckNrecentGroups(Int64^ N, Int64^ user_id)
+{
+	List<GrupEstudi^>^ groups = gcnew List<GrupEstudi^>(0);
+
+	List<Int64>^ groups_id = gcnew List<Int64>(0);
+
+	groups_id = grupEstudiMembershipService->CheckNRecentGroups(N, user_id);
+	IEnumerator<Int64>^ enumerator = groups_id->GetEnumerator();
+
+	while(enumerator->MoveNext())
+		groups->Add(grupEstudiRepository->GetGrupEstudiById(enumerator->Current));
+		
+
+	return groups; 
 }
 
 bool GrupEstudiService::CheckUserIsOwnerByIds(Int64^ user_id, Int64^ group_id)

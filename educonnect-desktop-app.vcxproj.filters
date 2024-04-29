@@ -35,9 +35,6 @@
     </ResourceCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Resource.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="pch.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -116,20 +113,11 @@
     <ClInclude Include="InformacioPersonal_ConsultaUI.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="InformacioPersonal_ModificaUI.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ProveidorRepository.h">
-      <Filter>Source Files\repositories</Filter>
-    </ClInclude>
     <ClInclude Include="AltaProveidorService.h">
       <Filter>Source Files\services</Filter>
     </ClInclude>
     <ClInclude Include="AltaProveidorUI.h">
       <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="PerfilPersonalModificaService.h">
-      <Filter>Source Files\services</Filter>
     </ClInclude>
     <ClInclude Include="BaixaProveidorUI.h">
       <Filter>Header Files</Filter>
@@ -137,14 +125,41 @@
     <ClInclude Include="BaixaProveidorService.h">
       <Filter>Source Files\services</Filter>
     </ClInclude>
+    <ClInclude Include="BaixaUsuariService.h">
+      <Filter>Source Files\services</Filter>
+    </ClInclude>
+    <ClInclude Include="BaixaUsuariUI.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="AdministradorUI.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="CurrentSession.h">
       <Filter>Source Files\utils</Filter>
     </ClInclude>
+    <ClInclude Include="UsuariRolRepository.h">
+      <Filter>Source Files\repositories</Filter>
+    </ClInclude>
+    <ClInclude Include="UsuariRol.h">
+      <Filter>Source Files\entities</Filter>
+    </ClInclude>
     <ClInclude Include="IniciUI.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CredentialManagementService.h">
+      <Filter>Source Files\services</Filter>
+    </ClInclude>
+    <ClInclude Include="CaptchaUI.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="StartPageUI.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>Resource Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PerfilPersonalModificaService.h">
+      <Filter>Source Files\services</Filter>
     </ClInclude>
     <ClInclude Include="GrupEstudi_MembresUI.h">
       <Filter>Header Files</Filter>
@@ -244,14 +259,8 @@
     <ClCompile Include="InformacioPersonal_ConsultaUI.cpp">
       <Filter>Source Files\ui</Filter>
     </ClCompile>
-    <ClCompile Include="InformacioPersonal_ModificaUI.cpp">
-      <Filter>Source Files\ui</Filter>
-    </ClCompile>
     <ClCompile Include="PerfilPersonalConsultaService.cpp">
       <Filter>Source Files\services</Filter>
-    </ClCompile>
-    <ClCompile Include="ProveidorRepository.cpp">
-      <Filter>Source Files\repositories</Filter>
     </ClCompile>
     <ClCompile Include="AltaProveidorService.cpp">
       <Filter>Source Files\services</Filter>
@@ -259,20 +268,41 @@
     <ClCompile Include="AltaProveidorUI.cpp">
       <Filter>Source Files\ui</Filter>
     </ClCompile>
-    <ClCompile Include="PerfilPersonalModificaService.cpp">
-      <Filter>Source Files\services</Filter>
-    </ClCompile>
     <ClCompile Include="BaixaProveidorUI.cpp">
       <Filter>Source Files\ui</Filter>
     </ClCompile>
     <ClCompile Include="BaixaProveidorService.cpp">
       <Filter>Source Files\services</Filter>
     </ClCompile>
+    <ClCompile Include="BaixaUsuariService.cpp">
+      <Filter>Source Files\services</Filter>
+    </ClCompile>
+    <ClCompile Include="BaixaUsuariUI.cpp">
+      <Filter>Source Files\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="UsuariRolRepository.cpp">
+      <Filter>Source Files\repositories</Filter>
+    </ClCompile>
+    <ClCompile Include="UsuariRol.cpp">
+      <Filter>Source Files\entities</Filter>
+    </ClCompile>
     <ClCompile Include="AdministradorUI.cpp">
       <Filter>Source Files\ui</Filter>
     </ClCompile>
     <ClCompile Include="IniciUI.cpp">
       <Filter>Source Files\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="CredentialManagementService.cpp">
+      <Filter>Source Files\services</Filter>
+    </ClCompile>
+    <ClCompile Include="PerfilPersonalModificaService.cpp">
+      <Filter>Source Files\services</Filter>
+    </ClCompile>
+    <ClCompile Include="CaptchaUI.cpp">
+      <Filter>Source Files\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="StartPageUI.cpp">
+          <Filter>Source Files\ui</Filter>
     </ClCompile>
     <ClCompile Include="GrupEstudi_MembresUI.cpp">
       <Filter>Source Files\ui</Filter>

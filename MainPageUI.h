@@ -1,5 +1,6 @@
 #pragma once
 using namespace MySql::Data::MySqlClient;
+
 namespace CppCLRWinFormsProject {
 
 	using namespace System;
@@ -49,13 +50,15 @@ namespace CppCLRWinFormsProject {
 	 System::Windows::Forms::Button^ BotoInici;
 	 System::Windows::Forms::Button^ BotoExplorar;
 	 System::Windows::Forms::Panel^ panel4;
-	 System::Windows::Forms::Panel^ panel5;
+
      System::Windows::Forms::Button^ BotoSessions;
 	 System::Windows::Forms::Button^ BotoElsMeus;
 	 System::Windows::Forms::Button^ BotoAdmin;
 	 System::Windows::Forms::Panel^ panel6;
 	 System::Windows::Forms::Button^ BotoEspais;
 	 System::Windows::Forms::Panel^ panel7;
+
+
 
 	private:
 		/// <summary>
@@ -80,7 +83,6 @@ namespace CppCLRWinFormsProject {
 			this->BotoAdmin = (gcnew System::Windows::Forms::Button());
 			this->panel6 = (gcnew System::Windows::Forms::Panel());
 			this->BotoEspais = (gcnew System::Windows::Forms::Button());
-			this->panel5 = (gcnew System::Windows::Forms::Panel());
 			this->BotoSessions = (gcnew System::Windows::Forms::Button());
 			this->BotoElsMeus = (gcnew System::Windows::Forms::Button());
 			this->BotoExplorar = (gcnew System::Windows::Forms::Button());
@@ -125,14 +127,15 @@ namespace CppCLRWinFormsProject {
 			this->BotoLogout->Name = L"BotoLogout";
 			this->BotoLogout->Size = System::Drawing::Size(146, 41);
 			this->BotoLogout->TabIndex = 2;
-			this->BotoLogout->Text = L"Tancar sessió";
+			this->BotoLogout->Text = L"Tancar sessiï¿½";
 			this->BotoLogout->TextAlign = System::Drawing::ContentAlignment::MiddleRight;
 			this->BotoLogout->UseVisualStyleBackColor = true;
 			this->BotoLogout->Click += gcnew System::EventHandler(this, &MainPageUI::Tancar_Sessio_Click);
 			// 
 			// tableLayoutPanel3
 			// 
-			this->tableLayoutPanel3->BackColor = System::Drawing::SystemColors::GradientInactiveCaption;
+			this->tableLayoutPanel3->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(243)),
+				static_cast<System::Int32>(static_cast<System::Byte>(243)), static_cast<System::Int32>(static_cast<System::Byte>(243)));
 			this->tableLayoutPanel3->ColumnCount = 2;
 			this->tableLayoutPanel3->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
 				74.17583F)));
@@ -160,7 +163,8 @@ namespace CppCLRWinFormsProject {
 			// 
 			// tableLayoutPanel2
 			// 
-			this->tableLayoutPanel2->BackColor = System::Drawing::SystemColors::GradientInactiveCaption;
+			this->tableLayoutPanel2->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(243)),
+				static_cast<System::Int32>(static_cast<System::Byte>(243)), static_cast<System::Int32>(static_cast<System::Byte>(243)));
 			this->tableLayoutPanel2->ColumnCount = 1;
 			this->tableLayoutPanel2->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
 				50)));
@@ -179,7 +183,8 @@ namespace CppCLRWinFormsProject {
 			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 21.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label1->ForeColor = System::Drawing::SystemColors::HotTrack;
-			this->label1->Location = System::Drawing::Point(21, 17);
+			this->label1->ImageAlign = System::Drawing::ContentAlignment::MiddleRight;
+			this->label1->Location = System::Drawing::Point(25, 16);
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(174, 33);
 			this->label1->TabIndex = 0;
@@ -187,11 +192,11 @@ namespace CppCLRWinFormsProject {
 			// 
 			// panel3
 			// 
-			this->panel3->BackColor = System::Drawing::Color::Gainsboro;
+			this->panel3->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(230)), static_cast<System::Int32>(static_cast<System::Byte>(230)),
+				static_cast<System::Int32>(static_cast<System::Byte>(230)));
 			this->panel3->Controls->Add(this->BotoAdmin);
 			this->panel3->Controls->Add(this->panel6);
 			this->panel3->Controls->Add(this->BotoEspais);
-			this->panel3->Controls->Add(this->panel5);
 			this->panel3->Controls->Add(this->BotoSessions);
 			this->panel3->Controls->Add(this->BotoElsMeus);
 			this->panel3->Controls->Add(this->BotoExplorar);
@@ -200,7 +205,7 @@ namespace CppCLRWinFormsProject {
 			this->panel3->Dock = System::Windows::Forms::DockStyle::Left;
 			this->panel3->Location = System::Drawing::Point(0, 74);
 			this->panel3->Name = L"panel3";
-			this->panel3->Size = System::Drawing::Size(220, 537);
+			this->panel3->Size = System::Drawing::Size(220, 535);
 			this->panel3->TabIndex = 24;
 			// 
 			// BotoAdmin
@@ -208,15 +213,15 @@ namespace CppCLRWinFormsProject {
 			this->BotoAdmin->Dock = System::Windows::Forms::DockStyle::Top;
 			this->BotoAdmin->FlatAppearance->BorderSize = 0;
 			this->BotoAdmin->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->BotoAdmin->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->BotoAdmin->Font = (gcnew System::Drawing::Font(L"Inter Light", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->BotoAdmin->ImageAlign = System::Drawing::ContentAlignment::MiddleLeft;
-			this->BotoAdmin->Location = System::Drawing::Point(0, 332);
+			this->BotoAdmin->Location = System::Drawing::Point(0, 288);
 			this->BotoAdmin->Margin = System::Windows::Forms::Padding(3, 3, 3, 100);
 			this->BotoAdmin->Name = L"BotoAdmin";
 			this->BotoAdmin->Size = System::Drawing::Size(220, 40);
 			this->BotoAdmin->TabIndex = 33;
-			this->BotoAdmin->Text = L"Administrador";
+			this->BotoAdmin->Text = L"  Administrador";
 			this->BotoAdmin->TextAlign = System::Drawing::ContentAlignment::MiddleLeft;
 			this->BotoAdmin->TextImageRelation = System::Windows::Forms::TextImageRelation::ImageBeforeText;
 			this->BotoAdmin->UseVisualStyleBackColor = true;
@@ -225,7 +230,7 @@ namespace CppCLRWinFormsProject {
 			// panel6
 			// 
 			this->panel6->Dock = System::Windows::Forms::DockStyle::Top;
-			this->panel6->Location = System::Drawing::Point(0, 288);
+			this->panel6->Location = System::Drawing::Point(0, 244);
 			this->panel6->Name = L"panel6";
 			this->panel6->Size = System::Drawing::Size(220, 44);
 			this->panel6->TabIndex = 32;
@@ -235,33 +240,26 @@ namespace CppCLRWinFormsProject {
 			this->BotoEspais->Dock = System::Windows::Forms::DockStyle::Top;
 			this->BotoEspais->FlatAppearance->BorderSize = 0;
 			this->BotoEspais->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->BotoEspais->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->BotoEspais->Font = (gcnew System::Drawing::Font(L"Inter Light", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->BotoEspais->ImageAlign = System::Drawing::ContentAlignment::MiddleLeft;
-			this->BotoEspais->Location = System::Drawing::Point(0, 248);
+			this->BotoEspais->Location = System::Drawing::Point(0, 204);
 			this->BotoEspais->Margin = System::Windows::Forms::Padding(3, 3, 3, 100);
 			this->BotoEspais->Name = L"BotoEspais";
 			this->BotoEspais->Size = System::Drawing::Size(220, 40);
 			this->BotoEspais->TabIndex = 31;
-			this->BotoEspais->Text = L"Espais";
+			this->BotoEspais->Text = L"  Espais";
 			this->BotoEspais->TextAlign = System::Drawing::ContentAlignment::MiddleLeft;
 			this->BotoEspais->TextImageRelation = System::Windows::Forms::TextImageRelation::ImageBeforeText;
 			this->BotoEspais->UseVisualStyleBackColor = true;
-			// 
-			// panel5
-			// 
-			this->panel5->Dock = System::Windows::Forms::DockStyle::Top;
-			this->panel5->Location = System::Drawing::Point(0, 204);
-			this->panel5->Name = L"panel5";
-			this->panel5->Size = System::Drawing::Size(220, 44);
-			this->panel5->TabIndex = 30;
+			this->BotoEspais->Click += gcnew System::EventHandler(this, &MainPageUI::BotoEspais_Click);
 			// 
 			// BotoSessions
 			// 
 			this->BotoSessions->Dock = System::Windows::Forms::DockStyle::Top;
 			this->BotoSessions->FlatAppearance->BorderSize = 0;
 			this->BotoSessions->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->BotoSessions->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->BotoSessions->Font = (gcnew System::Drawing::Font(L"Inter Light", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->BotoSessions->ImageAlign = System::Drawing::ContentAlignment::MiddleLeft;
 			this->BotoSessions->Location = System::Drawing::Point(0, 164);
@@ -269,7 +267,7 @@ namespace CppCLRWinFormsProject {
 			this->BotoSessions->Name = L"BotoSessions";
 			this->BotoSessions->Size = System::Drawing::Size(220, 40);
 			this->BotoSessions->TabIndex = 29;
-			this->BotoSessions->Text = L"Sessions";
+			this->BotoSessions->Text = L"  Sessions";
 			this->BotoSessions->TextAlign = System::Drawing::ContentAlignment::MiddleLeft;
 			this->BotoSessions->TextImageRelation = System::Windows::Forms::TextImageRelation::ImageBeforeText;
 			this->BotoSessions->UseVisualStyleBackColor = true;
@@ -279,7 +277,7 @@ namespace CppCLRWinFormsProject {
 			this->BotoElsMeus->Dock = System::Windows::Forms::DockStyle::Top;
 			this->BotoElsMeus->FlatAppearance->BorderSize = 0;
 			this->BotoElsMeus->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->BotoElsMeus->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->BotoElsMeus->Font = (gcnew System::Drawing::Font(L"Inter Light", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->BotoElsMeus->ImageAlign = System::Drawing::ContentAlignment::MiddleLeft;
 			this->BotoElsMeus->Location = System::Drawing::Point(0, 124);
@@ -287,7 +285,7 @@ namespace CppCLRWinFormsProject {
 			this->BotoElsMeus->Name = L"BotoElsMeus";
 			this->BotoElsMeus->Size = System::Drawing::Size(220, 40);
 			this->BotoElsMeus->TabIndex = 28;
-			this->BotoElsMeus->Text = L"Els meus grups";
+			this->BotoElsMeus->Text = L"  Els meus grups";
 			this->BotoElsMeus->TextAlign = System::Drawing::ContentAlignment::MiddleLeft;
 			this->BotoElsMeus->TextImageRelation = System::Windows::Forms::TextImageRelation::ImageBeforeText;
 			this->BotoElsMeus->UseVisualStyleBackColor = true;
@@ -298,7 +296,7 @@ namespace CppCLRWinFormsProject {
 			this->BotoExplorar->Dock = System::Windows::Forms::DockStyle::Top;
 			this->BotoExplorar->FlatAppearance->BorderSize = 0;
 			this->BotoExplorar->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->BotoExplorar->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->BotoExplorar->Font = (gcnew System::Drawing::Font(L"Inter Light", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->BotoExplorar->ImageAlign = System::Drawing::ContentAlignment::MiddleLeft;
 			this->BotoExplorar->Location = System::Drawing::Point(0, 84);
@@ -306,7 +304,7 @@ namespace CppCLRWinFormsProject {
 			this->BotoExplorar->Name = L"BotoExplorar";
 			this->BotoExplorar->Size = System::Drawing::Size(220, 40);
 			this->BotoExplorar->TabIndex = 27;
-			this->BotoExplorar->Text = L"Explorar Grups";
+			this->BotoExplorar->Text = L"  Explorar grups";
 			this->BotoExplorar->TextAlign = System::Drawing::ContentAlignment::MiddleLeft;
 			this->BotoExplorar->TextImageRelation = System::Windows::Forms::TextImageRelation::ImageBeforeText;
 			this->BotoExplorar->UseVisualStyleBackColor = true;
@@ -325,7 +323,7 @@ namespace CppCLRWinFormsProject {
 			this->BotoInici->Dock = System::Windows::Forms::DockStyle::Top;
 			this->BotoInici->FlatAppearance->BorderSize = 0;
 			this->BotoInici->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->BotoInici->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->BotoInici->Font = (gcnew System::Drawing::Font(L"Inter ExtraBold", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->BotoInici->ImageAlign = System::Drawing::ContentAlignment::MiddleLeft;
 			this->BotoInici->Location = System::Drawing::Point(0, 0);
@@ -364,7 +362,7 @@ namespace CppCLRWinFormsProject {
 			this->screen->Dock = System::Windows::Forms::DockStyle::Fill;
 			this->screen->Location = System::Drawing::Point(220, 74);
 			this->screen->Name = L"screen";
-			this->screen->Size = System::Drawing::Size(814, 537);
+			this->screen->Size = System::Drawing::Size(814, 535);
 			this->screen->TabIndex = 14;
 			// 
 			// MainPageUI
@@ -372,11 +370,11 @@ namespace CppCLRWinFormsProject {
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::Color::White;
-			this->ClientSize = System::Drawing::Size(1034, 611);
+			this->ClientSize = System::Drawing::Size(1034, 609);
 			this->Controls->Add(this->screen);
 			this->Controls->Add(this->panel3);
 			this->Controls->Add(this->panel2);
-			this->MinimumSize = System::Drawing::Size(1050, 650);
+			this->MinimumSize = System::Drawing::Size(1050, 648);
 			this->Name = L"MainPageUI";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterParent;
 			this->Load += gcnew System::EventHandler(this, &MainPageUI::MainPageUI_Load);
@@ -400,6 +398,16 @@ namespace CppCLRWinFormsProject {
 		System::Void BotoInici_Click(System::Object^ sender, System::EventArgs^ e);
 		System::Void ElsMeus_Click(System::Object^ sender, System::EventArgs^ e);
 		System::Void Admin_Click(System::Object^ sender, System::EventArgs^ e);
+		
+
+		
+
+	
+		
+
+
+private: System::Void BotoEspais_Click(System::Object^ sender, System::EventArgs^ e) {
+}
 		System::Void BotoExplorar_Click(System::Object^ sender, System::EventArgs^ e);
 };
 }
