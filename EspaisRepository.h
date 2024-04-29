@@ -1,6 +1,6 @@
 #pragma once
 #include "DatabaseConnector.h"
-#include "Espais.h"
+#include "Espai.h"
 #include <vector>
 using namespace System::Collections::Generic;
 public ref class EspaisRepository

@@ -23,14 +23,6 @@ bool BaixaProveidorService::BaixaProveidor(String^ username) {
 
 List<Usuari^>^ BaixaProveidorService::ListProveidors() {
     List<Usuari^>^ providers = gcnew List<Usuari^>(0);
-
-    List<Int64>^ providers_id = gcnew List<Int64>(0);
-    Int64 rol = 3LL;
-    providers_id = usuariRolRepository->GetUsersByRolId(rol);
-    IEnumerator<Int64>^ enumerator = providers_id->GetEnumerator();
-
-    while (enumerator->MoveNext())
-        providers->Add(usuariRepository->GetUsuariById(enumerator->Current));
-
+    providers = usuariRepository->GetUsersByRolId(3LL);
     return providers;
 }

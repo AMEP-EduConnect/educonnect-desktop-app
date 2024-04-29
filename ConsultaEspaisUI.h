@@ -1,6 +1,6 @@
 ﻿#pragma once
 
-#include "Espais.h"
+#include "Espai.h"
 #include "CurrentSession.h"
 #include "ConsultaEspaisService.h"
 #include "MessageManager.h"

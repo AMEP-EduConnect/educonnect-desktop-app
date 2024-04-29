@@ -26,7 +26,7 @@ bool UsuariRolRepository::DeleteUserRol(Int64^ id) {
 	DatabaseConnector::Instance->Disconnect();
 	return true;
 }
-//create a fuction that returns the rol_id of a user
+
 Int64^ UsuariRolRepository::GetRolId(Int64^ user_id) {
 	DatabaseConnector::Instance->Connect();
 	String^ sql = "SELECT role_id FROM users_roles WHERE user_id=@user_id";

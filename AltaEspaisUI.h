@@ -1,7 +1,7 @@
 #pragma once
 #include "AltaEspaisService.h"
 #include "AdministradorUI.h"
-#include "Espais.h"
+#include "Espai.h"
 #include "EspaisRepository.h"
 #include "ConsultaEspaisUI.h"
 #include <iostream>

@@ -1,5 +1,5 @@
 #include "pch.h"
-#include "Espais.h"
+#include "Espai.h"
 
 Espai::Espai()
 {

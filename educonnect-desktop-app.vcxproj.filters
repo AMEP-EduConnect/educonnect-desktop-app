@@ -161,7 +161,7 @@
     <ClInclude Include="PerfilPersonalModificaService.h">
       <Filter>Source Files\services</Filter>
     </ClInclude>
-    <ClInclude Include="Espais.h">
+    <ClInclude Include="Espai.h">
       <Filter>Source Files\entities</Filter>
     </ClInclude>
     <ClInclude Include="AltaEspaisService.h">
@@ -319,7 +319,7 @@
     <ClCompile Include="StartPageUI.cpp">
       <Filter>Source Files\ui</Filter>
     </ClCompile>
-    <ClCompile Include="Espais.cpp">
+    <ClCompile Include="Espai.cpp">
       <Filter>Source Files\entities</Filter>
     </ClCompile>
     <ClCompile Include="AltaEspaisService.cpp">

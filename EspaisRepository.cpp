@@ -19,7 +19,7 @@ bool EspaisRepository::CreateEspai(String^ name, Int64^ capacity, Int64^ proveid
 }
 List<Espai^>^ EspaisRepository::GetEspaisById(Int64^ proveidor_id) {
 	DatabaseConnector::Instance->Connect();
-	String^ sql = "SELECT * FROM espais WHERE proveidor_id=@proveidor_id";
+	String^ sql = "SELECT * FROM espais WHERE proveidor_id=@proveidor_id ORDER BY name ASC";
 	Dictionary<String^, Object^>^ params = gcnew Dictionary<String^, Object^>(0);
 	params->Add("@proveidor_id", proveidor_id);
 	MySqlDataReader^ data = DatabaseConnector::Instance->ExecuteClientCommand(sql, params);

@@ -240,7 +240,7 @@
     <ClInclude Include="CredentialManagementService.h" />
     <ClInclude Include="CurrentSession.h" />
     <ClInclude Include="EliminarEspaisService.h" />
-    <ClInclude Include="Espais.h" />
+    <ClInclude Include="Espai.h" />
     <ClInclude Include="EspaisRepository.h" />
     <ClInclude Include="GrupEstudi.h" />
     <ClInclude Include="GrupEstudiMembershipRepository.h" />
@@ -320,7 +320,7 @@
     <ClCompile Include="CurrentSession.cpp" />
     <ClCompile Include="DatabaseConnector.cpp" />
     <ClCompile Include="EliminarEspaisService.cpp" />
-    <ClCompile Include="Espais.cpp" />
+    <ClCompile Include="Espai.cpp" />
     <ClCompile Include="EspaisRepository.cpp" />
     <ClCompile Include="InformacioPersonal_ConsultaUI.cpp" />
     <ClCompile Include="IniciSessioUI.cpp" />

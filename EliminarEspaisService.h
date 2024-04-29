@@ -1,5 +1,5 @@
 #pragma once
-#include "Espais.h"
+#include "Espai.h"
 #include "EspaisRepository.h"
 public ref class EliminarEspaisService
 {
