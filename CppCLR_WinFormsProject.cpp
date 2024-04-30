@@ -18,11 +18,13 @@ using namespace System;
 #include "DatabaseConnector.h"
 #include "CurrentSession.h"
 #include "Usuari.h"
+#include "ChatMessage.h"
 #include "RegistreUsuariUI.h"
 #include "IniciSessioUI.h"
 #include "BaixaUsuariUI.h"
 #include "CaptchaUI.h"
 #include "StartPageUI.h"
+#include "ChatGrupEstudiUI.h"
 using namespace System;
 #include "InformacioPersonal_ConsultaUI.h"
 

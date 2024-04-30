@@ -216,6 +216,12 @@
     <ResourceCompile Include="app.rc" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ChatGrupEstudiService.h" />
+    <ClInclude Include="ChatGrupEstudiUI.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="ChatMessage.h" />
+    <ClInclude Include="ChatMessageRepository.h" />
     <ClInclude Include="GrupEstudi_ExplorarUI.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -296,6 +302,10 @@
     <ClInclude Include="Utils.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="ChatGrupEstudiService.cpp" />
+    <ClCompile Include="ChatGrupEstudiUI.cpp" />
+    <ClCompile Include="ChatMessage.cpp" />
+    <ClCompile Include="ChatMessageRepository.cpp" />
     <ClCompile Include="GrupEstudi_ExplorarUI.cpp" />
     <ClCompile Include="GrupEstudi_MembresUI.cpp" />
     <ClCompile Include="AcademicTag.cpp" />
@@ -377,6 +387,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CaptchaUI.resx">
       <DependentUpon>CaptchaUI.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChatGrupEstudiUI.resx">
+      <DependentUpon>ChatGrupEstudiUI.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FirstPageUI.resx">
       <DependentUpon>FirstPageUI.h</DependentUpon>

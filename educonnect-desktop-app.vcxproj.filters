@@ -167,6 +167,18 @@
     <ClInclude Include="GrupEstudi_ExplorarUI.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="ChatGrupEstudiUI.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ChatGrupEstudiService.h">
+      <Filter>Source Files\services</Filter>
+    </ClInclude>
+    <ClInclude Include="ChatMessage.h">
+      <Filter>Source Files\entities</Filter>
+    </ClInclude>
+    <ClInclude Include="ChatMessageRepository.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AssemblyInfo.cpp">
@@ -302,12 +314,24 @@
       <Filter>Source Files\ui</Filter>
     </ClCompile>
     <ClCompile Include="StartPageUI.cpp">
-          <Filter>Source Files\ui</Filter>
+      <Filter>Source Files\ui</Filter>
     </ClCompile>
     <ClCompile Include="GrupEstudi_MembresUI.cpp">
       <Filter>Source Files\ui</Filter>
     </ClCompile>
     <ClCompile Include="GrupEstudi_ExplorarUI.cpp">
+      <Filter>Source Files\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="ChatMessage.cpp">
+      <Filter>Source Files\entities</Filter>
+    </ClCompile>
+    <ClCompile Include="ChatGrupEstudiService.cpp">
+      <Filter>Source Files\services</Filter>
+    </ClCompile>
+    <ClCompile Include="ChatMessageRepository.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ChatGrupEstudiUI.cpp">
       <Filter>Source Files\ui</Filter>
     </ClCompile>
   </ItemGroup>

@@ -8,7 +8,7 @@
 #include "CurrentSession.h"
 #include "GrupEstudi_EditarUI.h"
 #include "MessageManager.h"
-
+#include "ChatGrupEstudiUI.h"
 namespace CppCLRWinFormsProject {
 
 	using namespace System;
@@ -66,6 +66,7 @@ namespace CppCLRWinFormsProject {
 	private: System::Windows::Forms::Button^ consulta_membres;
 	private: System::Windows::Forms::Button^ abandonar_button;
 	private: System::Windows::Forms::Button^ crearGrup_button;
+	private: System::Windows::Forms::Button^ ButtonChat;
 
 
 
@@ -91,6 +92,7 @@ namespace CppCLRWinFormsProject {
 			this->NomPertany_Label = (gcnew System::Windows::Forms::Label());
 			this->Pertany_Label = (gcnew System::Windows::Forms::Label());
 			this->tableLayoutPanel1 = (gcnew System::Windows::Forms::TableLayoutPanel());
+			this->ButtonChat = (gcnew System::Windows::Forms::Button());
 			this->Actual_Panel->SuspendLayout();
 			this->tableLayoutPanel1->SuspendLayout();
 			this->SuspendLayout();
@@ -102,7 +104,7 @@ namespace CppCLRWinFormsProject {
 			this->ConsultarGrupEstudi_Label->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20.25F, System::Drawing::FontStyle::Bold,
 				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
 			this->ConsultarGrupEstudi_Label->ForeColor = System::Drawing::SystemColors::HotTrack;
-			this->ConsultarGrupEstudi_Label->Location = System::Drawing::Point(261, 38);
+			this->ConsultarGrupEstudi_Label->Location = System::Drawing::Point(260, 38);
 			this->ConsultarGrupEstudi_Label->Name = L"ConsultarGrupEstudi_Label";
 			this->ConsultarGrupEstudi_Label->Size = System::Drawing::Size(326, 31);
 			this->ConsultarGrupEstudi_Label->TabIndex = 2;
@@ -122,7 +124,7 @@ namespace CppCLRWinFormsProject {
 			this->Actual_Panel->Dock = System::Windows::Forms::DockStyle::Fill;
 			this->Actual_Panel->Location = System::Drawing::Point(181, 111);
 			this->Actual_Panel->Name = L"Actual_Panel";
-			this->Actual_Panel->Size = System::Drawing::Size(486, 319);
+			this->Actual_Panel->Size = System::Drawing::Size(485, 319);
 			this->Actual_Panel->TabIndex = 6;
 			// 
 			// abandonar_button
@@ -225,7 +227,8 @@ namespace CppCLRWinFormsProject {
 			this->tableLayoutPanel1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
 				73.34465F)));
 			this->tableLayoutPanel1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Absolute,
-				143)));
+				144)));
+			this->tableLayoutPanel1->Controls->Add(this->ButtonChat, 1, 2);
 			this->tableLayoutPanel1->Controls->Add(this->ConsultarGrupEstudi_Label, 1, 0);
 			this->tableLayoutPanel1->Controls->Add(this->Actual_Panel, 1, 1);
 			this->tableLayoutPanel1->Dock = System::Windows::Forms::DockStyle::Fill;
@@ -238,6 +241,17 @@ namespace CppCLRWinFormsProject {
 			this->tableLayoutPanel1->Size = System::Drawing::Size(814, 537);
 			this->tableLayoutPanel1->TabIndex = 7;
 			this->tableLayoutPanel1->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &GrupEstudi_ConsultarUI::tableLayoutPanel1_Paint);
+			// 
+			// ButtonChat
+			// 
+			this->ButtonChat->Location = System::Drawing::Point(181, 436);
+			this->ButtonChat->Name = L"ButtonChat";
+			this->ButtonChat->Size = System::Drawing::Size(75, 23);
+			this->ButtonChat->TabIndex = 11;
+			this->ButtonChat->Text = L"Chat";
+			this->ButtonChat->UseVisualStyleBackColor = true;
+			this->ButtonChat->Visible = false;
+			this->ButtonChat->Click += gcnew System::EventHandler(this, &GrupEstudi_ConsultarUI::ButtonChat_Click);
 			// 
 			// GrupEstudi_ConsultarUI
 			// 
@@ -270,5 +284,6 @@ namespace CppCLRWinFormsProject {
 	private: void GrupEstudi_ConsultarUIreload();
 	private: System::Void CrearGrupEstudi_Click(System::Object^ sender, System::EventArgs^ e);
 
+private: System::Void ButtonChat_Click(System::Object^ sender, System::EventArgs^ e);
 };
 }
