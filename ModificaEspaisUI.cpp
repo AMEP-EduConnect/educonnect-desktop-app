@@ -8,10 +8,13 @@ namespace CppCLRWinFormsProject {
 
 	ModificaEspaisUI::ModificaEspaisUI(String^ selectedEspais)
 	{
+        
 		InitializeComponent();
 		modificaEspaisService = gcnew ModificaEspaisService();
 		espai = this->modificaEspaisService->GetEspaiByName(selectedEspais);
+        
 		String^ name = espai->GetName();  
+        this->label6->Text = L"Informació de " + name;
         String^ capacity = espai->GetCapacity()->ToString();
 		textBox3->Text = name;
 		textBox1->Text = capacity;
@@ -68,7 +71,7 @@ namespace CppCLRWinFormsProject {
     {
         if(this->button1->Text == L"Confirmar")
         {
-
+            this->label6->Text = L"Informació de " + espai->GetName();
             String^ nom = textBox3->Text;
             String^ capacitatText = textBox1->Text;
        
@@ -82,9 +85,12 @@ namespace CppCLRWinFormsProject {
                 else{
                     this->modificaEspaisService->UpdateEspai(nom, capacitat, id_espai);
                     MessageManager::InfoMessage("Espai modificat!");
+                    espai = this->modificaEspaisService->GetEspaiByName(nom);
+                    this->label6->Text = L"Informació de " + espai->GetName();
                     this->textBox3->Text = nom;
                     this->textBox1->Text = capacitatText;
                     this->button1->Text = L"Modifica";
+                    this->Button_Cancelar_Edita->Visible = false;
                     textBox3->Enabled = false;
                     textBox1->Enabled = false;
                     this->textBox3->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(224)), static_cast<System::Int32>(static_cast<System::Byte>(224)),
@@ -101,6 +107,7 @@ namespace CppCLRWinFormsProject {
         }
         else {
            this->button1->Text = L"Confirmar";
+           this->label6->Text = L"Modificació de " + espai->GetName();
            textBox3->Enabled = true;
            textBox1->Enabled = true;
            this->textBox1->BackColor = SystemColors::Window;
@@ -122,6 +129,7 @@ namespace CppCLRWinFormsProject {
 
     System::Void ModificaEspaisUI::Button_Cancelar_Edita_Click(System::Object^ sender, System::EventArgs^ e)
     {
+        this->label6->Text = L"Informació de " + espai->GetName();
         this->Button_Cancelar_Edita->Visible = false;
         this->button1->Text = L"Modificar";
         String^ name = espai->GetName();
