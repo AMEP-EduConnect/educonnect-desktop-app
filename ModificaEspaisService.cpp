@@ -21,19 +21,19 @@ Espai^ ModificaEspaisService::GetEspaiByName(String^ name) {
 	return espai;
 }
 
-bool ModificaEspaisService::UpdateEspaiCapacity (String^ name) {
+bool ModificaEspaisService::UpdateEspai (String^ name, Int64^ capacity, Int64^ id_espai) {
 	Espai^ espai = espaisRepository->GetEspaiByName(name);
-	Int64^ capacity = espai->GetCapacity();
+	
 	String^ capacityString = capacity->ToString();
 	if (name == "") {
 		name = espai->GetName();
 		
 	}
-	return espaisRepository->UpdateEspaiName(name);
+	
 	if (capacityString == "") {
 		capacity = espai->GetCapacity();
 	}
 
 	
-	return espaisRepository->UpdateEspaiCapacity(capacity);
+	return espaisRepository->UpdateEspai(name, capacity, id_espai);
 }

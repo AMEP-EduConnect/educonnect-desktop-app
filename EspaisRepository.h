@@ -8,8 +8,8 @@ public ref class EspaisRepository
 public:
 
 	EspaisRepository();
-	bool UpdateEspaiName(String^ name);
-	bool UpdateEspaiCapacity(Int64^ capacity);
+	
+	bool UpdateEspai(String^ name, Int64^ capacity, Int64^ id_espai);
 	bool CreateEspai(String^ name, Int64^ capacity, Int64^ proveidor_id);
 	List<Espai^>^ GetEspaiById(Int64^ proveidor_id);
 	Espai^ GetEspaiByName(String^ name);

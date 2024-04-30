@@ -10,19 +10,19 @@ namespace CppCLRWinFormsProject {
 	{
 		InitializeComponent();
 		modificaEspaisService = gcnew ModificaEspaisService();
-		Espai^ espai = this->modificaEspaisService->GetEspaiByName(selectedEspais);
+		espai = this->modificaEspaisService->GetEspaiByName(selectedEspais);
 		String^ name = espai->GetName();  
         String^ capacity = espai->GetCapacity()->ToString();
 		textBox3->Text = name;
 		textBox1->Text = capacity;
-		
+		id_espai = espai->GetEspaiId();
 		
 		this->textBox3->Validating += gcnew System::ComponentModel::CancelEventHandler(this, &ModificaEspaisUI::NomEspai_TextBox_Validating);
         this->textBox1->Validating += gcnew System::ComponentModel::CancelEventHandler(this, &ModificaEspaisUI::Capacitat_TextBox_Validating);
 		//this->Background_PictureBox->Image = Image::FromFile("background.png");
 		this->Icon = gcnew System::Drawing::Icon("app.ico");
 
-		this->Cancelar_Button->Visible = false;
+		this->Cancelar_Button->Visible = true;
 		
 		//ROLS
 		
@@ -53,8 +53,9 @@ namespace CppCLRWinFormsProject {
     Void ModificaEspaisUI::Capacitat_TextBox_Validating(Object^ sender, System::ComponentModel::CancelEventArgs^ e) {
         TextBox^ textBox = dynamic_cast<TextBox^>(sender);
         if (textBox != nullptr) {
-            if ((!IsValidCapacitat(textBox->Text) and textBox->Text != "") or (textBox->Text == "0")) {
-                MessageManager::WarningMessage("La capacitat ha de ser un número enter major a 0.");
+            Int64^ t = Int64::Parse(textBox->Text);
+            if ((!IsValidCapacitat(textBox->Text) and textBox->Text != "") or (*t < 4LL)) {
+                MessageManager::WarningMessage("La capacitat ha de ser un número enter major o igual a 4.");
                 this->textBox1->Text = "";
 
             }
@@ -65,26 +66,46 @@ namespace CppCLRWinFormsProject {
 
     void ModificaEspaisUI::button1_Click(System::Object^ sender, System::EventArgs^ e)
     {
-        
-        String^ nom = textBox3->Text;
-        String^ capacitatText = textBox1->Text;
-        Int64^ capacitat;
+        if(this->button1->Text == L"Confirma")
+        {
 
-        if (!String::IsNullOrWhiteSpace(nom) && !String::IsNullOrWhiteSpace(capacitatText)) {
+            String^ nom = textBox3->Text;
+            String^ capacitatText = textBox1->Text;
+       
+            if (!String::IsNullOrWhiteSpace(nom) && !String::IsNullOrWhiteSpace(capacitatText)) {
+				
+                Int64^ capacitat = Int64::Parse(capacitatText);
+                Int64^ cap = espai->GetCapacity();
+                if (nom == espai->GetName() && *capacitat == *cap){
+                    MessageManager::WarningMessage("Has de modificar com a mínim un camp.");
+                }
+                else{
+                    this->modificaEspaisService->UpdateEspai(nom, capacitat, id_espai);
+                    MessageManager::InfoMessage("Espai modificat!");
+                    this->textBox3->Text = nom;
+                    this->textBox1->Text = capacitatText;
+                    this->button1->Text = L"Modifica";
+                    textBox3->Enabled = false;
+                    textBox1->Enabled = false;
+                    this->textBox3->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(224)), static_cast<System::Int32>(static_cast<System::Byte>(224)),
+				       static_cast<System::Int32>(static_cast<System::Byte>(224)));
+                    this->textBox1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(224)), static_cast<System::Int32>(static_cast<System::Byte>(224)),
+				       static_cast<System::Int32>(static_cast<System::Byte>(224)));
+                }
+            }
 
-            Int64^ capacitat = Int64::Parse(capacitatText);
-
-            this->modificaEspaisService->UpdateEspai(nom);
-            MessageManager::InfoMessage("Espai modificat!");
-            this->textBox3->Text = nom;
-            this->textBox1->Text = capacitatText;
+            else {
+                MessageBox::Show("Falta informació de l'espai.", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+                return;
+            }
         }
-
         else {
-            MessageBox::Show("Falta informació de l'espai.", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
-            return;
+           this->button1->Text = L"Confirma";
+           textBox3->Enabled = true;
+           textBox1->Enabled = true;
+           this->textBox1->BackColor = SystemColors::Window;
+		   this->textBox3->BackColor = SystemColors::Window;
         }
-
     }
 
     Void ModificaEspaisUI::Cancelar_Button_Click(System::Object^ sender, System::EventArgs^ e) {

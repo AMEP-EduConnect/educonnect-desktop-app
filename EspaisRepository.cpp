@@ -5,27 +5,14 @@ EspaisRepository::EspaisRepository() {
 
 }
 
-bool EspaisRepository::UpdateEspaiName(String^ name)
+bool EspaisRepository::UpdateEspai(String^ name , Int64^ capacity, Int64^ id_espai)
 {
 	DatabaseConnector::Instance->Connect();
-	String^ sql = "UPDATE users SET name=@Name WHERE name=@name";
+	String^ sql = "UPDATE espais SET name=@name, capacity=@capacity WHERE id=@id";
 	Dictionary<String^, Object^>^ params = gcnew Dictionary<String^, Object^>(0);
-	params->Add("@Name", name);
-	
-	MySqlDataReader^ data = DatabaseConnector::Instance->ExecuteClientCommand(sql, params);
-	data->Close();
-	DatabaseConnector::Instance->Disconnect();
-	return true;
-}
-
-bool EspaisRepository::UpdateEspaiCapacity(Int64^ capacity) {
-	
-	DatabaseConnector::Instance->Connect();
-	String^ sql = "UPDATE users SET capacity=@Capacity WHERE name=@name";
-	Dictionary<String^, Object^>^ params = gcnew Dictionary<String^, Object^>(0);
-	
-	params->Add("@Capacity", capacity);
-	
+	params->Add("@name", name);
+	params->Add("@capacity",capacity);
+	params->Add("@id", id_espai);
 	MySqlDataReader^ data = DatabaseConnector::Instance->ExecuteClientCommand(sql, params);
 	data->Close();
 	DatabaseConnector::Instance->Disconnect();
