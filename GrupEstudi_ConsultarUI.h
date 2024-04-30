@@ -65,7 +65,7 @@ namespace CppCLRWinFormsProject {
 	private: System::Windows::Forms::TableLayoutPanel^ tableLayoutPanel1;
 	private: System::Windows::Forms::Button^ consulta_membres;
 	private: System::Windows::Forms::Button^ abandonar_button;
-	private: System::Windows::Forms::Button^ crearGrup_button;
+
 
 
 
@@ -84,7 +84,6 @@ namespace CppCLRWinFormsProject {
 			this->Actual_Panel = (gcnew System::Windows::Forms::Panel());
 			this->abandonar_button = (gcnew System::Windows::Forms::Button());
 			this->consulta_membres = (gcnew System::Windows::Forms::Button());
-			this->crearGrup_button = (gcnew System::Windows::Forms::Button());
 			this->Eliminar_Button = (gcnew System::Windows::Forms::Button());
 			this->Editar_Button = (gcnew System::Windows::Forms::Button());
 			this->Noms_ListBox = (gcnew System::Windows::Forms::ListBox());
@@ -99,30 +98,29 @@ namespace CppCLRWinFormsProject {
 			// 
 			this->ConsultarGrupEstudi_Label->Anchor = System::Windows::Forms::AnchorStyles::None;
 			this->ConsultarGrupEstudi_Label->AutoSize = true;
-			this->ConsultarGrupEstudi_Label->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20.25F, System::Drawing::FontStyle::Bold,
-				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
+			this->ConsultarGrupEstudi_Label->Font = (gcnew System::Drawing::Font(L"Inter", 20.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->ConsultarGrupEstudi_Label->ForeColor = System::Drawing::SystemColors::HotTrack;
-			this->ConsultarGrupEstudi_Label->Location = System::Drawing::Point(261, 38);
+			this->ConsultarGrupEstudi_Label->Location = System::Drawing::Point(242, 37);
 			this->ConsultarGrupEstudi_Label->Name = L"ConsultarGrupEstudi_Label";
-			this->ConsultarGrupEstudi_Label->Size = System::Drawing::Size(326, 31);
+			this->ConsultarGrupEstudi_Label->Size = System::Drawing::Size(328, 33);
 			this->ConsultarGrupEstudi_Label->TabIndex = 2;
 			this->ConsultarGrupEstudi_Label->Text = L"Els meus grups d\'Estudi";
 			// 
 			// Actual_Panel
 			// 
+			this->Actual_Panel->Anchor = System::Windows::Forms::AnchorStyles::None;
 			this->Actual_Panel->BackColor = System::Drawing::SystemColors::GradientInactiveCaption;
 			this->Actual_Panel->Controls->Add(this->abandonar_button);
 			this->Actual_Panel->Controls->Add(this->consulta_membres);
-			this->Actual_Panel->Controls->Add(this->crearGrup_button);
 			this->Actual_Panel->Controls->Add(this->Eliminar_Button);
 			this->Actual_Panel->Controls->Add(this->Editar_Button);
 			this->Actual_Panel->Controls->Add(this->Noms_ListBox);
 			this->Actual_Panel->Controls->Add(this->NomPertany_Label);
 			this->Actual_Panel->Controls->Add(this->Pertany_Label);
-			this->Actual_Panel->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->Actual_Panel->Location = System::Drawing::Point(181, 111);
+			this->Actual_Panel->Location = System::Drawing::Point(165, 111);
 			this->Actual_Panel->Name = L"Actual_Panel";
-			this->Actual_Panel->Size = System::Drawing::Size(486, 319);
+			this->Actual_Panel->Size = System::Drawing::Size(482, 319);
 			this->Actual_Panel->TabIndex = 6;
 			// 
 			// abandonar_button
@@ -149,16 +147,6 @@ namespace CppCLRWinFormsProject {
 			this->consulta_membres->Visible = false;
 			this->consulta_membres->Click += gcnew System::EventHandler(this, &GrupEstudi_ConsultarUI::consulta_membres_Click);
 			// 
-			// crearGrup_button
-			// 
-			this->crearGrup_button->Location = System::Drawing::Point(387, 22);
-			this->crearGrup_button->Name = L"crearGrup_button";
-			this->crearGrup_button->Size = System::Drawing::Size(75, 23);
-			this->crearGrup_button->TabIndex = 7;
-			this->crearGrup_button->Text = L"Nou grup";
-			this->crearGrup_button->UseVisualStyleBackColor = true;
-			this->crearGrup_button->Click += gcnew System::EventHandler(this, &GrupEstudi_ConsultarUI::CrearGrupEstudi_Click);
-			// 
 			// Eliminar_Button
 			// 
 			this->Eliminar_Button->Location = System::Drawing::Point(257, 273);
@@ -183,10 +171,13 @@ namespace CppCLRWinFormsProject {
 			// 
 			// Noms_ListBox
 			// 
-			this->Noms_ListBox->BackColor = System::Drawing::Color::Lavender;
+			this->Noms_ListBox->BackColor = System::Drawing::SystemColors::Window;
 			this->Noms_ListBox->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			this->Noms_ListBox->Font = (gcnew System::Drawing::Font(L"Inter", 11.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->Noms_ListBox->FormattingEnabled = true;
 			this->Noms_ListBox->IntegralHeight = false;
+			this->Noms_ListBox->ItemHeight = 19;
 			this->Noms_ListBox->Location = System::Drawing::Point(63, 83);
 			this->Noms_ListBox->Name = L"Noms_ListBox";
 			this->Noms_ListBox->Size = System::Drawing::Size(350, 171);
@@ -196,36 +187,36 @@ namespace CppCLRWinFormsProject {
 			// NomPertany_Label
 			// 
 			this->NomPertany_Label->AutoSize = true;
-			this->NomPertany_Label->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Regular,
-				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
+			this->NomPertany_Label->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->NomPertany_Label->ForeColor = System::Drawing::SystemColors::HotTrack;
-			this->NomPertany_Label->Location = System::Drawing::Point(60, 55);
+			this->NomPertany_Label->Location = System::Drawing::Point(59, 60);
 			this->NomPertany_Label->Name = L"NomPertany_Label";
-			this->NomPertany_Label->Size = System::Drawing::Size(105, 16);
+			this->NomPertany_Label->Size = System::Drawing::Size(45, 19);
 			this->NomPertany_Label->TabIndex = 1;
-			this->NomPertany_Label->Text = L"Nom dels grups:";
+			this->NomPertany_Label->Text = L"Nom";
 			// 
 			// Pertany_Label
 			// 
 			this->Pertany_Label->AutoSize = true;
-			this->Pertany_Label->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->Pertany_Label->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->Pertany_Label->ForeColor = System::Drawing::SystemColors::HotTrack;
-			this->Pertany_Label->Location = System::Drawing::Point(40, 29);
+			this->Pertany_Label->Location = System::Drawing::Point(59, 23);
 			this->Pertany_Label->Name = L"Pertany_Label";
-			this->Pertany_Label->Size = System::Drawing::Size(214, 16);
+			this->Pertany_Label->Size = System::Drawing::Size(232, 19);
 			this->Pertany_Label->TabIndex = 0;
-			this->Pertany_Label->Text = L"Grups d\'Estudis que pertanys:";
+			this->Pertany_Label->Text = L"Grups d\'Estudi que pertanys";
 			// 
 			// tableLayoutPanel1
 			// 
 			this->tableLayoutPanel1->ColumnCount = 3;
 			this->tableLayoutPanel1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
-				26.65535F)));
+				20)));
 			this->tableLayoutPanel1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
-				73.34465F)));
-			this->tableLayoutPanel1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Absolute,
-				143)));
+				60)));
+			this->tableLayoutPanel1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
+				20)));
 			this->tableLayoutPanel1->Controls->Add(this->ConsultarGrupEstudi_Label, 1, 0);
 			this->tableLayoutPanel1->Controls->Add(this->Actual_Panel, 1, 1);
 			this->tableLayoutPanel1->Dock = System::Windows::Forms::DockStyle::Fill;

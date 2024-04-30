@@ -38,9 +38,6 @@
     <ClInclude Include="pch.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="MainPageUI.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Utils.h">
       <Filter>Source Files\utils</Filter>
     </ClInclude>
@@ -167,6 +164,9 @@
     <ClInclude Include="GrupEstudi_ExplorarUI.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="MainPageUI.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AssemblyInfo.cpp">
@@ -177,9 +177,6 @@
     </ClCompile>
     <ClCompile Include="Utils.cpp">
       <Filter>Source Files\utils</Filter>
-    </ClCompile>
-    <ClCompile Include="MainPageUI.cpp">
-      <Filter>Source Files\ui</Filter>
     </ClCompile>
     <ClCompile Include="DatabaseConnector.cpp">
       <Filter>Source Files\utils</Filter>
@@ -302,12 +299,15 @@
       <Filter>Source Files\ui</Filter>
     </ClCompile>
     <ClCompile Include="StartPageUI.cpp">
-          <Filter>Source Files\ui</Filter>
+      <Filter>Source Files\ui</Filter>
     </ClCompile>
     <ClCompile Include="GrupEstudi_MembresUI.cpp">
       <Filter>Source Files\ui</Filter>
     </ClCompile>
     <ClCompile Include="GrupEstudi_ExplorarUI.cpp">
+      <Filter>Source Files\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="MainPageUI.cpp">
       <Filter>Source Files\ui</Filter>
     </ClCompile>
   </ItemGroup>

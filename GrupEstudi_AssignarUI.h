@@ -86,57 +86,60 @@ namespace CppCLRWinFormsProject {
 			// 
 			this->AssignarGrupEstudi_Label->Anchor = System::Windows::Forms::AnchorStyles::None;
 			this->AssignarGrupEstudi_Label->AutoSize = true;
-			this->AssignarGrupEstudi_Label->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20.25F, System::Drawing::FontStyle::Bold,
-				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
+			this->AssignarGrupEstudi_Label->Font = (gcnew System::Drawing::Font(L"Inter", 20.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->AssignarGrupEstudi_Label->ForeColor = System::Drawing::SystemColors::HotTrack;
-			this->AssignarGrupEstudi_Label->Location = System::Drawing::Point(148, 44);
+			this->AssignarGrupEstudi_Label->Location = System::Drawing::Point(176, 43);
 			this->AssignarGrupEstudi_Label->Name = L"AssignarGrupEstudi_Label";
-			this->AssignarGrupEstudi_Label->Size = System::Drawing::Size(429, 31);
+			this->AssignarGrupEstudi_Label->Size = System::Drawing::Size(444, 33);
 			this->AssignarGrupEstudi_Label->TabIndex = 2;
-			this->AssignarGrupEstudi_Label->Text = L"Assigna Membres Grup d\'Estudi";
+			this->AssignarGrupEstudi_Label->Text = L"Assigna Membre a Grup d\'Estudi";
 			// 
 			// NomUsuari_TextBox
 			// 
-			this->NomUsuari_TextBox->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			this->NomUsuari_TextBox->Cursor = System::Windows::Forms::Cursors::Default;
-			this->NomUsuari_TextBox->Location = System::Drawing::Point(38, 110);
+			this->NomUsuari_TextBox->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->NomUsuari_TextBox->Location = System::Drawing::Point(116, 110);
 			this->NomUsuari_TextBox->Name = L"NomUsuari_TextBox";
-			this->NomUsuari_TextBox->Size = System::Drawing::Size(195, 20);
+			this->NomUsuari_TextBox->Size = System::Drawing::Size(195, 27);
 			this->NomUsuari_TextBox->TabIndex = 3;
 			// 
 			// NomUsuari_Label
 			// 
 			this->NomUsuari_Label->AutoSize = true;
-			this->NomUsuari_Label->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->NomUsuari_Label->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->NomUsuari_Label->ForeColor = System::Drawing::SystemColors::HotTrack;
-			this->NomUsuari_Label->Location = System::Drawing::Point(35, 91);
+			this->NomUsuari_Label->Location = System::Drawing::Point(113, 88);
 			this->NomUsuari_Label->Name = L"NomUsuari_Label";
-			this->NomUsuari_Label->Size = System::Drawing::Size(118, 16);
+			this->NomUsuari_Label->Size = System::Drawing::Size(148, 19);
 			this->NomUsuari_Label->TabIndex = 1;
-			this->NomUsuari_Label->Text = L"Nom del estudiant:";
+			this->NomUsuari_Label->Text = L"Nom del estudiant";
 			// 
 			// Assignar_Panel
 			// 
+			this->Assignar_Panel->Anchor = System::Windows::Forms::AnchorStyles::None;
 			this->Assignar_Panel->BackColor = System::Drawing::SystemColors::GradientInactiveCaption;
 			this->Assignar_Panel->Controls->Add(this->Assigna_Button);
 			this->Assignar_Panel->Controls->Add(this->NomGrup_TextBox);
 			this->Assignar_Panel->Controls->Add(this->NomGrup_Label);
 			this->Assignar_Panel->Controls->Add(this->NomUsuari_TextBox);
 			this->Assignar_Panel->Controls->Add(this->NomUsuari_Label);
-			this->Assignar_Panel->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->Assignar_Panel->Location = System::Drawing::Point(138, 123);
+			this->Assignar_Panel->Location = System::Drawing::Point(188, 127);
 			this->Assignar_Panel->Name = L"Assignar_Panel";
-			this->Assignar_Panel->Size = System::Drawing::Size(449, 206);
+			this->Assignar_Panel->Size = System::Drawing::Size(420, 198);
 			this->Assignar_Panel->TabIndex = 6;
 			// 
 			// Assigna_Button
 			// 
 			this->Assigna_Button->Cursor = System::Windows::Forms::Cursors::Hand;
+			this->Assigna_Button->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->Assigna_Button->ForeColor = System::Drawing::SystemColors::HotTrack;
-			this->Assigna_Button->Location = System::Drawing::Point(38, 158);
+			this->Assigna_Button->Location = System::Drawing::Point(318, 149);
 			this->Assigna_Button->Name = L"Assigna_Button";
-			this->Assigna_Button->Size = System::Drawing::Size(75, 23);
+			this->Assigna_Button->Size = System::Drawing::Size(85, 35);
 			this->Assigna_Button->TabIndex = 8;
 			this->Assigna_Button->Text = L"Assignar";
 			this->Assigna_Button->UseVisualStyleBackColor = true;
@@ -144,35 +147,41 @@ namespace CppCLRWinFormsProject {
 			// 
 			// NomGrup_TextBox
 			// 
-			this->NomGrup_TextBox->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			this->NomGrup_TextBox->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(224)), static_cast<System::Int32>(static_cast<System::Byte>(224)),
+				static_cast<System::Int32>(static_cast<System::Byte>(224)));
 			this->NomGrup_TextBox->Cursor = System::Windows::Forms::Cursors::Default;
-			this->NomGrup_TextBox->Location = System::Drawing::Point(38, 41);
+			this->NomGrup_TextBox->Enabled = false;
+			this->NomGrup_TextBox->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->NomGrup_TextBox->Location = System::Drawing::Point(116, 38);
 			this->NomGrup_TextBox->Name = L"NomGrup_TextBox";
 			this->NomGrup_TextBox->ReadOnly = true;
-			this->NomGrup_TextBox->Size = System::Drawing::Size(195, 20);
+			this->NomGrup_TextBox->Size = System::Drawing::Size(195, 27);
 			this->NomGrup_TextBox->TabIndex = 5;
 			// 
 			// NomGrup_Label
 			// 
 			this->NomGrup_Label->AutoSize = true;
-			this->NomGrup_Label->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->NomGrup_Label->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->NomGrup_Label->ForeColor = System::Drawing::SystemColors::HotTrack;
-			this->NomGrup_Label->Location = System::Drawing::Point(35, 22);
+			this->NomGrup_Label->Location = System::Drawing::Point(113, 16);
 			this->NomGrup_Label->Name = L"NomGrup_Label";
-			this->NomGrup_Label->Size = System::Drawing::Size(91, 16);
+			this->NomGrup_Label->Size = System::Drawing::Size(113, 19);
 			this->NomGrup_Label->TabIndex = 4;
-			this->NomGrup_Label->Text = L"Nom del grup:";
+			this->NomGrup_Label->Text = L"Nom del grup";
 			// 
 			// Cancelar_Button
 			// 
 			this->Cancelar_Button->Anchor = System::Windows::Forms::AnchorStyles::None;
 			this->Cancelar_Button->BackColor = System::Drawing::Color::Transparent;
 			this->Cancelar_Button->Cursor = System::Windows::Forms::Cursors::Hand;
+			this->Cancelar_Button->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->Cancelar_Button->ForeColor = System::Drawing::Color::Red;
-			this->Cancelar_Button->Location = System::Drawing::Point(656, 403);
+			this->Cancelar_Button->Location = System::Drawing::Point(674, 397);
 			this->Cancelar_Button->Name = L"Cancelar_Button";
-			this->Cancelar_Button->Size = System::Drawing::Size(75, 23);
+			this->Cancelar_Button->Size = System::Drawing::Size(87, 35);
 			this->Cancelar_Button->TabIndex = 7;
 			this->Cancelar_Button->Text = L"Cancelar";
 			this->Cancelar_Button->UseVisualStyleBackColor = false;
@@ -182,14 +191,14 @@ namespace CppCLRWinFormsProject {
 			// 
 			this->tableLayoutPanel1->ColumnCount = 3;
 			this->tableLayoutPanel1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
-				22.90862F)));
+				20)));
 			this->tableLayoutPanel1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
-				77.09138F)));
-			this->tableLayoutPanel1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Absolute,
-				207)));
+				60)));
+			this->tableLayoutPanel1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
+				20)));
 			this->tableLayoutPanel1->Controls->Add(this->Assignar_Panel, 1, 1);
-			this->tableLayoutPanel1->Controls->Add(this->Cancelar_Button, 2, 2);
 			this->tableLayoutPanel1->Controls->Add(this->AssignarGrupEstudi_Label, 1, 0);
+			this->tableLayoutPanel1->Controls->Add(this->Cancelar_Button, 2, 2);
 			this->tableLayoutPanel1->Dock = System::Windows::Forms::DockStyle::Fill;
 			this->tableLayoutPanel1->Location = System::Drawing::Point(0, 0);
 			this->tableLayoutPanel1->Name = L"tableLayoutPanel1";
@@ -230,5 +239,6 @@ private: System::Void GrupEstudi_AssignarUI_Load(System::Object^ sender, System:
 }
 private: System::Void tableLayoutPanel1_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
 }
+
 };
 }
