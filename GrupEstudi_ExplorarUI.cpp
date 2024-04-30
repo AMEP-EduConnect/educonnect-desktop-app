@@ -78,8 +78,6 @@ namespace CppCLRWinFormsProject {
 	{
 			Membres_Button->Visible = true;
 			Unirse_Button->Visible = true;
-			Cancela_Button->Visible = false;
-
 			Description_titulo->Visible = true;
 			Num_membres->Visible = true;
 			academicTag_titulo->Visible = true;
@@ -99,8 +97,6 @@ namespace CppCLRWinFormsProject {
 
 	void GrupEstudi_Explorar::GrupEstudi_Explorar_FormClosed() {
 		Membres_Button->Visible = false;
-		Unirse_Button->Visible = false;
-		Cancela_Button->Visible = false;
 
 		Description_titulo->Visible = false;
 		Num_membres->Visible = false;
@@ -148,15 +144,15 @@ namespace CppCLRWinFormsProject {
 	void GrupEstudi_Explorar::Unirse_Button_Click(System::Object^ sender, System::EventArgs^ e) {
 		//Solicita unirse al grupo
 		//FALTA IMPLEMENTAR SPRINT 3
-		Unirse_Button->Visible = false;
-		Cancela_Button->Visible = true;
+		//Unirse_Button->Visible = true;
+
 	}
 		
 	void GrupEstudi_Explorar::Cancela_Button_Click(System::Object^ sender, System::EventArgs^ e) {
 		//Cancela solicitud unirse al grupo
 		//FALTA IMPLEMENTAR SPRINT 3
-		Unirse_Button->Visible = true;
-		Cancela_Button->Visible = false;
+		//Unirse_Button->Visible = true;
+
 	}
 
 	void GrupEstudi_Explorar::buscar_button_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -166,7 +162,8 @@ namespace CppCLRWinFormsProject {
 			Noms_ListBox->SelectedItem = buscar_grup;
 		}
 		else {
-			MessageBox::Show("No s'ha trobat cap grup amb aquest nom", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+			MessageManager::ErrorMessage("No s'ha trobat cap grup amb aquest nom");
+			
 			buscador_textBox->Clear();
 			//buscar_button->Visible = false;
 			GrupEstudi_Explorar_FormClosed();
@@ -197,7 +194,9 @@ namespace CppCLRWinFormsProject {
 			}
 
 			if (Noms_ListBox->Items->Count == 0) {
-				MessageBox::Show("No s'ha trobat cap grup amb aquest nom", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+				MessageManager::ErrorMessage("No s'ha trobat cap grup amb aquest nom");
+				buscador_textBox->Enabled = false;
+				buscador_textBox->Enabled = true;
 				buscador_textBox->ForeColor = System::Drawing::SystemColors::ActiveCaption;
 				buscador_textBox->Text = L"Buscar Grup d\'Estudi...";
 				//buscar_button->Visible = false;

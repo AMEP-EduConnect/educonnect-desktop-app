@@ -31,6 +31,8 @@ namespace CppCLRWinFormsProject {
         //Usuari^ currentUser = CurrentSession::Instance->GetCurrentUser();
         Int64^ id_group = grupEstudiService->GetGroupIdByName(Noms_ListBox);
         //Int64^ id_group = gcnew Int64(61);
+        String^ name = grupEstudiService->GetGrupEstudiById(id_group)->GetGroupName();
+        this->ConsultarGrupEstudi_Label->Text = "Membres de " + name;
         array<Int64^>^ arrayIdMemberOfGroupEstudis = grupEstudiMembershipService->LoadMembershipByGrupsEstudi(id_group);
 
         // Limpiar el ListBox antes de cargar los nuevos miembros
