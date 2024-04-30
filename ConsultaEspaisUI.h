@@ -210,7 +210,7 @@ namespace CppCLRWinFormsProject {
 			   // Llista_Espais
 			   // 
 			   this->Llista_Espais->Anchor = System::Windows::Forms::AnchorStyles::None;
-			   this->Llista_Espais->BackColor = System::Drawing::Color::Lavender;
+			   this->Llista_Espais->BackColor = System::Drawing::SystemColors::Window;
 			   this->Llista_Espais->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			   this->Llista_Espais->Font = (gcnew System::Drawing::Font(L"Inter", 11.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				   static_cast<System::Byte>(0)));
