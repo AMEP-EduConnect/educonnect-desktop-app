@@ -6,7 +6,7 @@
 #include "MessageManager.h"
 #include "MainPageUI.h"
 #include "AdministradorUI.h"
-//#include "ModificarEspaiUI.h"
+#include "ModificaEspaisUI.h"
 #include "IniciUI.h"
 #include "AltaEspaisUI.h"
 #include "EliminarEspaisService.h"

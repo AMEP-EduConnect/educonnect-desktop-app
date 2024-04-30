@@ -282,6 +282,10 @@
     <ClInclude Include="BaixaProveidorUI.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="ModificaEspaisService.h" />
+    <ClInclude Include="ModificaEspaisUI.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="pch.h" />
     <ClInclude Include="PerfilPersonalModificaService.h" />
     <ClInclude Include="RegistreUsuariUI.h">
@@ -338,6 +342,8 @@
     <ClCompile Include="IniciUI.cpp" />
     <ClCompile Include="MainPageUI.cpp" />
     <ClCompile Include="MessageManager.cpp" />
+    <ClCompile Include="ModificaEspaisService.cpp" />
+    <ClCompile Include="ModificaEspaisUI.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='EduConnect|x64'">Create</PrecompiledHeader>
@@ -420,6 +426,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="InformacioPersonal_ConsultaUI.resx">
       <DependentUpon>InformacioPersonal_ConsultaUI.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModificaEspaisUI.resx">
+      <DependentUpon>ModificaEspaisUI.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RegistreUsuariUI.resx">
       <DependentUpon>RegistreUsuariUI.h</DependentUpon>

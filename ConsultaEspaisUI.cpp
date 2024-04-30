@@ -11,13 +11,22 @@ namespace CppCLRWinFormsProject {
         List<Espai^>^ espais = consultaEspaisService->ListEspais(id_provider);
         System::Collections::Generic::IEnumerator<Espai^>^ enumerator = espais->GetEnumerator();
         while (enumerator->MoveNext())
-            Llista_Espais->Items->Add(enumerator->Current->GetNom());
+            Llista_Espais->Items->Add(enumerator->Current->GetName());
     }
 
     Void ConsultaEspaisUI::ButtonGestio_Click(System::Object^ sender, System::EventArgs^ e) {
         if (Llista_Espais->SelectedItem != nullptr) {
+           // Espai^ espai = Llista_Espais->SelectedItem();
            String^ selectedEspais = Llista_Espais->SelectedItem->ToString();
+          
            //GOTO: Agafar el Espai i transportarlo al modificar espai 
+           ModificaEspaisUI^ PanelUI = gcnew ModificaEspaisUI(selectedEspais);
+           PanelUI->TopLevel = false;
+           PanelUI->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
+           PanelUI->Dock = System::Windows::Forms::DockStyle::Fill;
+           MainPageUI::Instance->screen->Controls->Clear();
+           MainPageUI::Instance->screen->Controls->Add(PanelUI);
+           PanelUI->Show();
         }
         else {
             MessageManager::WarningMessage("Selecciona un espai de la llista per gestionar-la.");

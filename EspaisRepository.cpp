@@ -5,6 +5,33 @@ EspaisRepository::EspaisRepository() {
 
 }
 
+bool EspaisRepository::UpdateEspaiName(String^ name)
+{
+	DatabaseConnector::Instance->Connect();
+	String^ sql = "UPDATE users SET name=@Name WHERE name=@name";
+	Dictionary<String^, Object^>^ params = gcnew Dictionary<String^, Object^>(0);
+	params->Add("@Name", name);
+	
+	MySqlDataReader^ data = DatabaseConnector::Instance->ExecuteClientCommand(sql, params);
+	data->Close();
+	DatabaseConnector::Instance->Disconnect();
+	return true;
+}
+
+bool EspaisRepository::UpdateEspaiCapacity(Int64^ capacity) {
+	
+	DatabaseConnector::Instance->Connect();
+	String^ sql = "UPDATE users SET capacity=@Capacity WHERE name=@name";
+	Dictionary<String^, Object^>^ params = gcnew Dictionary<String^, Object^>(0);
+	
+	params->Add("@Capacity", capacity);
+	
+	MySqlDataReader^ data = DatabaseConnector::Instance->ExecuteClientCommand(sql, params);
+	data->Close();
+	DatabaseConnector::Instance->Disconnect();
+	return true;
+}
+
 bool EspaisRepository::CreateEspai(String^ name, Int64^ capacity, Int64^ proveidor_id) {
 	DatabaseConnector::Instance->Connect();
 	String^ sql = "INSERT INTO espais (name, capacity, proveidor_id) VALUES (@name, @capacity, @proveidor_id)";
@@ -17,7 +44,7 @@ bool EspaisRepository::CreateEspai(String^ name, Int64^ capacity, Int64^ proveid
 	DatabaseConnector::Instance->Disconnect();
 	return true;
 }
-List<Espai^>^ EspaisRepository::GetEspaisById(Int64^ proveidor_id) {
+List<Espai^>^ EspaisRepository::GetEspaiById(Int64^ proveidor_id) {
 	DatabaseConnector::Instance->Connect();
 	String^ sql = "SELECT * FROM espais WHERE proveidor_id=@proveidor_id ORDER BY name ASC";
 	Dictionary<String^, Object^>^ params = gcnew Dictionary<String^, Object^>(0);

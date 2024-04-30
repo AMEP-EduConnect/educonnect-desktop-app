@@ -182,6 +182,12 @@
     <ClInclude Include="EliminarEspaisService.h">
       <Filter>Source Files\services</Filter>
     </ClInclude>
+    <ClInclude Include="ModificaEspaisUI.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ModificaEspaisService.h">
+      <Filter>Source Files\services</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AssemblyInfo.cpp">
@@ -338,6 +344,12 @@
       <Filter>Source Files\ui</Filter>
     </ClCompile>
     <ClCompile Include="EliminarEspaisService.cpp">
+      <Filter>Source Files\services</Filter>
+    </ClCompile>
+    <ClCompile Include="ModificaEspaisUI.cpp">
+      <Filter>Source Files\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="ModificaEspaisService.cpp">
       <Filter>Source Files\services</Filter>
     </ClCompile>
   </ItemGroup>

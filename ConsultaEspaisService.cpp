@@ -7,6 +7,6 @@ ConsultaEspaisService::ConsultaEspaisService() {
 
 List<Espai^>^ ConsultaEspaisService::ListEspais(Int64^ id_prov) {
     List<Espai^>^ espais = gcnew List<Espai^>(0);
-    espais = espaisRepository->GetEspaisById(id_prov);
+    espais = espaisRepository->GetEspaiById(id_prov);
     return espais;
 }
