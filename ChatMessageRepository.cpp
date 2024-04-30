@@ -37,14 +37,14 @@ List<ChatMessage^>^ ChatMessageRepository::GetMessages(Int64^ group_id)
 	DatabaseConnector::Instance->Disconnect();
 	return messages;
 }
-List<ChatMessage^>^ ChatMessageRepository::GetLastsMessages(Int64^ group_id, Int64^ user_id, String^ formattedTimestamp)
+List<ChatMessage^>^ ChatMessageRepository::GetLastsMessages(Int64^ group_id, Int64^ user_id, Int64^ message_id)//String^ formattedTimestamp)
 {
 	DatabaseConnector::Instance->Connect();
-	String^ sql = "SELECT * FROM ChatMessage WHERE group_id = @groupId AND user_id != @user_id AND timestamp > @timestamp ORDER BY timestamp ASC";
+	String^ sql = "SELECT * FROM ChatMessage WHERE group_id = @groupId AND user_id != @user_id AND timestamp > NOW() ORDER BY timestamp ASC";
 	Dictionary<String^, Object^>^ params = gcnew Dictionary<String^, Object^>(0);
 	params->Add("@groupId", group_id);
 	params->Add("@user_id", user_id);
-	params->Add("@timestamp", formattedTimestamp);
+	//params->Add("@timestamp", formattedTimestamp);
 	MySqlDataReader^ data = DatabaseConnector::Instance->ExecuteClientCommand(sql, params);
 	List<ChatMessage^>^ messages = gcnew List<ChatMessage^>(0);
 	while (data->Read())

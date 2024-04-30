@@ -177,7 +177,7 @@
       <Filter>Source Files\entities</Filter>
     </ClInclude>
     <ClInclude Include="ChatMessageRepository.h">
-      <Filter>Header Files</Filter>
+      <Filter>Source Files\repositories</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -328,11 +328,11 @@
     <ClCompile Include="ChatGrupEstudiService.cpp">
       <Filter>Source Files\services</Filter>
     </ClCompile>
-    <ClCompile Include="ChatMessageRepository.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="ChatGrupEstudiUI.cpp">
       <Filter>Source Files\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="ChatMessageRepository.cpp">
+      <Filter>Source Files\repositories</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

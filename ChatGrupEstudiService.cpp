@@ -16,8 +16,12 @@ List<ChatMessage^>^ ChatGrupEstudiService::GetChatMembers(Int64^ group_id)
 {
 	return chatMessageRepository->GetMessages(group_id);
 }
-List<ChatMessage^>^ ChatGrupEstudiService::CheckLastsMessage(Int64^ group_id, Int64^ user_id, DateTime^ timestamp)
+/*List<ChatMessage^>^ ChatGrupEstudiService::CheckLastsMessage(Int64^ group_id, Int64^ user_id, DateTime^ timestamp)
 {
 	String^ formattedTimestamp = timestamp->ToString("yyyy-MM-dd HH:mm:ss", CultureInfo::InvariantCulture);
 	return chatMessageRepository->GetLastsMessages(group_id, user_id, formattedTimestamp);
+}*/
+List<ChatMessage^>^ ChatGrupEstudiService::CheckLastsMessage(Int64^ group_id, Int64^ user_id, Int64^ messageid)
+{
+	return chatMessageRepository->GetLastsMessages(group_id, user_id, messageid);
 }

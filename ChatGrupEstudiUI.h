@@ -44,7 +44,7 @@ namespace CppCLRWinFormsProject {
     private: System::Windows::Forms::Timer^ chatTimer;
     private: System::Windows::Forms::Button^ Button_Cancelar;
     private: List<ChatMessage^>^ chatMembers_Refresh;
-
+    public: Int64^ messagelast_id;
     private:
         System::ComponentModel::Container^ components;
     
@@ -55,7 +55,7 @@ namespace CppCLRWinFormsProject {
             this->chatTimer = gcnew System::Windows::Forms::Timer(this->components);
 
             // Configuración del Timer
-            this->chatTimer->Interval = 2000; // Intervalo en milisegundos
+            this->chatTimer->Interval = 500; // Intervalo en milisegundos
             this->chatTimer->Tick += gcnew System::EventHandler(this, &ChatGrupEstudiUI::TimerTickHandler);
             this->chatTimer->Start(); // Inicia el timer
             this->messageTextBox = (gcnew System::Windows::Forms::TextBox());

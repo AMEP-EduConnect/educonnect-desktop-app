@@ -29,17 +29,26 @@ namespace CppCLRWinFormsProject {
         while (enumerator->MoveNext()) {
 			ChatMessage^ chatMessage = enumerator->Current;
             chatListBox->Items->Add(chatMessage->getUserId() + ": " + chatMessage->getMessage());
+            if (enumerator->MoveNext() == false)
+            {
+				messagelast_id = chatMessage->getId();
+			}
 		}
 	}
     Void ChatGrupEstudiUI::ChatGrupEstudiUI_Refresh(System::Object^ sender, System::EventArgs^ e) {
         Int64^ user_id = CurrentSession::Instance->GetCurrentUser()->GetUserId();
-        chatMembers_Refresh = chatGrupEstudiService->CheckLastsMessage(94LL, user_id,DateTime::Now);
+        chatMembers_Refresh = chatGrupEstudiService->CheckLastsMessage(94LL, user_id, messagelast_id);
+        //chatMembers_Refresh = chatGrupEstudiService->CheckLastsMessage(94LL, user_id,DateTime::Now);
         if (chatMembers_Refresh->Count > 0)
         {
 			System::Collections::Generic::IEnumerator<ChatMessage^>^ enumerator = chatMembers_Refresh->GetEnumerator();
             while (enumerator->MoveNext()) {
 				ChatMessage^ chatMessage = enumerator->Current;
 				chatListBox->Items->Add(chatMessage->getUserId() + ": " + chatMessage->getMessage());
+                if (enumerator->MoveNext() == false)
+                {
+                    messagelast_id = chatMessage->getId();
+                }
 			}
             chatMembers_Refresh->Clear();
 		}

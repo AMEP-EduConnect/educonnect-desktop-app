@@ -9,7 +9,9 @@ public:
 	bool SendMenssage(Int64^ group_id, Int64^ user_id, String^ message);
 	List<ChatMessage^>^ GetChatMembers(Int64^ group_id);
 
-	List<ChatMessage^>^ CheckLastsMessage(Int64^ group_id, Int64^ user_id, DateTime^ timestamp);
+	//List<ChatMessage^>^ CheckLastsMessage(Int64^ group_id, Int64^ user_id, DateTime^ timestamp);
+
+	List<ChatMessage^>^ CheckLastsMessage(Int64^ group_id, Int64^ user_id, Int64^ messageid);
 
 
 private:
