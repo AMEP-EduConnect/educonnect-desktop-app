@@ -22,6 +22,7 @@ namespace CppCLRWinFormsProject {
                 chatListBox->Select(start, length);
                 chatListBox->SelectionAlignment = HorizontalAlignment::Right;
                 messageTextBox->Clear();
+                chatListBox->SelectionCharOffset = 5;
                 chatListBox->SelectionStart = chatListBox->TextLength;
                 chatListBox->ScrollToCaret();
             }
@@ -57,7 +58,7 @@ namespace CppCLRWinFormsProject {
             int start = chatListBox->TextLength;
             String^ message = FormatMessage(chatMessage->getMessage());
             if(chatMessage->getMessage()->Length > 50) message = FormatMessage(chatMessage->getMessage());
-            if (*chatMessage->getUserId() != *id_user) chatListBox->AppendText(chatGrupEstudiService->GetUsernameMessageById(chatMessage->getUserId()) + ": " + message + "\n");
+            if (*chatMessage->getUserId() != *id_user) chatListBox->AppendText(chatMessage->getUsername() + ": " + message + "\n");
             else chatListBox->AppendText("Tú: " + message + "\n");
             int length = chatListBox->TextLength - start;
             chatListBox->Select(start, length);
@@ -113,10 +114,11 @@ namespace CppCLRWinFormsProject {
                 int start = chatListBox->TextLength;
                 String^ message = FormatMessage(chatMessage->getMessage());
                 if (chatMessage->getMessage()->Length > 50) message = FormatMessage(chatMessage->getMessage());
-                chatListBox->AppendText(chatGrupEstudiService->GetUsernameMessageById(chatMessage->getUserId()) + ": " + message + "\n");
+                chatListBox->AppendText(chatMessage->getUsername() + ": " + message + "\n");
                 int length = chatListBox->TextLength - start;
                 chatListBox->Select(start, length);
                 chatListBox->SelectionAlignment = HorizontalAlignment::Left;
+                chatListBox->SelectionCharOffset = 5;
                 chatListBox->SelectionStart = chatListBox->TextLength;
                 chatListBox->ScrollToCaret();
                 lastMessage = chatMessage;

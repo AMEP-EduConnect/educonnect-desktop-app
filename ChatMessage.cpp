@@ -2,8 +2,9 @@
 #include "ChatMessage.h"
 ChatMessage::ChatMessage() {}
 
-ChatMessage::ChatMessage(Int64^ userId, Int64^ groupId, String^ message)
+ChatMessage::ChatMessage(String^ username, Int64^ userId, Int64^ groupId, String^ message)
 {
+	this->username = username;
     this->userId = userId;
     this->groupId = groupId;
     this->message = message;
@@ -54,5 +55,15 @@ void ChatMessage::setMessage(String^ message)
 void ChatMessage::setUserId(Int64^ userId)
 {
 	this->userId = userId;
+}
+
+String^ ChatMessage::getUsername()
+{
+	return this->username;
+}
+
+void ChatMessage::setUsername(String^ username)
+{
+	this->username = username;
 }
 

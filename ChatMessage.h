@@ -4,7 +4,7 @@ public ref class ChatMessage
 {
 public:
 	ChatMessage();
-	ChatMessage(System::Int64^ userId, System::Int64^ groupId, String^ message);
+	ChatMessage(String^ username, Int64^ userId, Int64^ groupId, String^ message);
 	String^ getMessage();
 	Int64^ getUserId();
 	DateTime^ getTimestamp();
@@ -15,7 +15,10 @@ public:
 	void setTimestamp(DateTime^ timestamp);
 	void setMessage(String^ message);
 	void setUserId(Int64^ userId);
+	String^ getUsername();
+	void setUsername(String^ username);
 private:
+	String^ username;
 	Int64^ id;
 	Int64^ userId;
 	Int64^ groupId;

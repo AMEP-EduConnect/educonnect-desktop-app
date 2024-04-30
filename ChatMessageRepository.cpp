@@ -19,13 +19,15 @@ List<ChatMessage^>^ ChatMessageRepository::GetMessages(Int64^ group_id)
 {
 	DatabaseConnector::Instance->Connect();
 	//String^ sql = "SELECT * FROM ChatMessage WHERE group_id = @groupId ORDER BY timestamp ASC LIMIT 20";
-	String^ sql = "SELECT * FROM ("
+	String^ sql = "SELECT subquery.*, users.username "
+		"FROM ("
 		"    SELECT * FROM ChatMessage "
 		"    WHERE group_id = @groupId "
 		"    ORDER BY id DESC "
 		"    LIMIT 20"
 		") AS subquery "
-		"ORDER BY id ASC;";
+		"INNER JOIN users ON subquery.user_id = users.id "
+		"ORDER BY subquery.id ASC;";
 	Dictionary<String^, Object^>^ params = gcnew Dictionary<String^, Object^>(0);
 	params->Add("@groupId", group_id->ToString());
 	MySqlDataReader^ data = DatabaseConnector::Instance->ExecuteClientCommand(sql, params);
@@ -38,6 +40,7 @@ List<ChatMessage^>^ ChatMessageRepository::GetMessages(Int64^ group_id)
 		message->setGroupId(data->GetInt64(2));
 		message->setMessage(data->GetString(3));
 		message->setTimestamp(data->GetDateTime(4));
+		message->setUsername(data->GetString(5));
 		messages->Add(message);
 	}
 	data->Close();
@@ -47,7 +50,11 @@ List<ChatMessage^>^ ChatMessageRepository::GetMessages(Int64^ group_id)
 List<ChatMessage^>^ ChatMessageRepository::GetLastsMessages(Int64^ group_id, Int64^ user_id, Int64^ message_id)//String^ formattedTimestamp)
 {
 	DatabaseConnector::Instance->Connect();
-	String^ sql = "SELECT * FROM ChatMessage WHERE group_id = @groupId AND user_id != @user_id AND id > @message_id";
+	//String^ sql = "SELECT * FROM ChatMessage WHERE group_id = @groupId AND user_id != @user_id AND id > @message_id";
+	String^ sql = "SELECT ChatMessage.*, users.username "
+		"FROM ChatMessage "
+		"INNER JOIN users ON ChatMessage.user_id = users.id "
+		"WHERE ChatMessage.group_id = @groupId AND ChatMessage.user_id != @user_id AND ChatMessage.id > @message_id;";
 	Dictionary<String^, Object^>^ params = gcnew Dictionary<String^, Object^>(0);
 	params->Add("@groupId", group_id);
 	params->Add("@user_id", user_id);
@@ -63,6 +70,7 @@ List<ChatMessage^>^ ChatMessageRepository::GetLastsMessages(Int64^ group_id, Int
 		message->setGroupId(data->GetInt64(2));
 		message->setMessage(data->GetString(3));
 		message->setTimestamp(data->GetDateTime(4));
+		message->setUsername(data->GetString(5));
 		messages->Add(message);
 	}
 	data->Close();
