@@ -1,6 +1,8 @@
 #include "pch.h"
 #include "GrupEstudi_CrearUI.h"
 #include "MainPageUI.h"
+#include "GrupEstudi_ConsultarUI.h"
+#include "IniciUI.h"
 
 namespace CppCLRWinFormsProject {
 
@@ -21,14 +23,6 @@ namespace CppCLRWinFormsProject {
         }
 	}
 
-    void GrupEstudi_CrearUI::GoBack_Button_Click(System::Object^ sender, System::EventArgs^ e)
-	{
-        this->Hide();
-		MainPageUI^ form = gcnew MainPageUI();
-		form->ShowDialog();
-		this->Close();
-    }
-
     void GrupEstudi_CrearUI::CreateGrup_Button_Click(System::Object^ sender, System::EventArgs^ e)
     {
         if (FormGrupName_TextBox->Text != "" && FormGrupDescription_TextBox->Text != "" && AcademicTag_ComboBox->Text != "") {
@@ -36,6 +30,7 @@ namespace CppCLRWinFormsProject {
             FormGrupDescription_TextBox->Text = "";
             FormGrupName_TextBox->Text = "";
             AcademicTag_ComboBox->Text = "";
+            this->Cancelar_Button_Click(sender, e);
 		}
         else {
             MessageManager::WarningMessage("Falten camps per omplir.");
@@ -50,5 +45,17 @@ namespace CppCLRWinFormsProject {
     void GrupEstudi_CrearUI::FormGrupDescription_TextBox_TextChanged(System::Object^ sender, System::EventArgs^ e)
     {
 
+    }
+    System::Void GrupEstudi_CrearUI::Cancelar_Button_Click(System::Object^ sender, System::EventArgs^ e)
+    {
+        IniciUI^ PanelUI = gcnew  IniciUI();
+
+        PanelUI->TopLevel = false;
+        PanelUI->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
+        PanelUI->Dock = System::Windows::Forms::DockStyle::Fill;
+
+        MainPageUI::Instance->screen->Controls->Clear();
+        MainPageUI::Instance->screen->Controls->Add(PanelUI);
+        PanelUI->Show();
     }
 }

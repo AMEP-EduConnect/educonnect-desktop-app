@@ -21,10 +21,10 @@ namespace CppCLRWinFormsProject {
 		MainPageUI(void);
 
 
-	//protected:
-		/// <summary>
-		/// Clean up any resources being used.
-		/// </summary>
+		//protected:
+			/// <summary>
+			/// Clean up any resources being used.
+			/// </summary>
 		~MainPageUI()
 		{
 			if (components)
@@ -33,31 +33,31 @@ namespace CppCLRWinFormsProject {
 			}
 		}
 
-	public: 
-	
-	//MAIN PANEL
-	System::Windows::Forms::Panel^ screen;
+	public:
 
-	private: 
-	
-	 System::Windows::Forms::Button^ BotoPersonal;
-     System::Windows::Forms::Button^ BotoLogout;
-	 System::Windows::Forms::TableLayoutPanel^ tableLayoutPanel3;
-	 System::Windows::Forms::FlowLayoutPanel^ flowLayoutPanel1;
-	 System::Windows::Forms::TableLayoutPanel^ tableLayoutPanel2;
-	 System::Windows::Forms::Label^ label1;
-	 System::Windows::Forms::Panel^ panel3;
-	 System::Windows::Forms::Panel^ panel2;
-	 System::Windows::Forms::Button^ BotoInici;
-	 System::Windows::Forms::Button^ BotoExplorar;
-	 System::Windows::Forms::Panel^ panel4;
+		//MAIN PANEL
+		System::Windows::Forms::Panel^ screen;
 
-     System::Windows::Forms::Button^ BotoSessions;
-	 System::Windows::Forms::Button^ BotoElsMeus;
-	 System::Windows::Forms::Button^ BotoAdmin;
-	 System::Windows::Forms::Panel^ panel6;
-	 System::Windows::Forms::Button^ BotoEspais;
-	 System::Windows::Forms::Panel^ panel7;
+	private:
+
+		System::Windows::Forms::Button^ BotoPersonal;
+		System::Windows::Forms::Button^ BotoLogout;
+		System::Windows::Forms::TableLayoutPanel^ tableLayoutPanel3;
+		System::Windows::Forms::FlowLayoutPanel^ flowLayoutPanel1;
+		System::Windows::Forms::TableLayoutPanel^ tableLayoutPanel2;
+		System::Windows::Forms::Label^ label1;
+		System::Windows::Forms::Panel^ panel3;
+		System::Windows::Forms::Panel^ panel2;
+		System::Windows::Forms::Button^ BotoInici;
+		System::Windows::Forms::Button^ BotoExplorar;
+		System::Windows::Forms::Panel^ panel4;
+
+		System::Windows::Forms::Button^ BotoSessions;
+		System::Windows::Forms::Button^ BotoElsMeus;
+		System::Windows::Forms::Button^ BotoAdmin;
+		System::Windows::Forms::Panel^ panel6;
+		System::Windows::Forms::Button^ BotoEspais;
+		System::Windows::Forms::Panel^ panel7;
 
 
 
@@ -128,7 +128,7 @@ namespace CppCLRWinFormsProject {
 			this->BotoLogout->Name = L"BotoLogout";
 			this->BotoLogout->Size = System::Drawing::Size(146, 41);
 			this->BotoLogout->TabIndex = 2;
-			this->BotoLogout->Text = L"Tancar sessió";
+			this->BotoLogout->Text = L"Tancar sessiï¿½";
 			this->BotoLogout->TextAlign = System::Drawing::ContentAlignment::MiddleRight;
 			this->BotoLogout->UseVisualStyleBackColor = true;
 			this->BotoLogout->Click += gcnew System::EventHandler(this, &MainPageUI::Tancar_Sessio_Click);
@@ -253,7 +253,6 @@ namespace CppCLRWinFormsProject {
 			this->BotoEspais->TextAlign = System::Drawing::ContentAlignment::MiddleLeft;
 			this->BotoEspais->TextImageRelation = System::Windows::Forms::TextImageRelation::ImageBeforeText;
 			this->BotoEspais->UseVisualStyleBackColor = true;
-			this->BotoEspais->Click += gcnew System::EventHandler(this, &MainPageUI::BotoEspais_Click);
 			// 
 			// BotoSessions
 			// 
@@ -290,6 +289,7 @@ namespace CppCLRWinFormsProject {
 			this->BotoElsMeus->TextAlign = System::Drawing::ContentAlignment::MiddleLeft;
 			this->BotoElsMeus->TextImageRelation = System::Windows::Forms::TextImageRelation::ImageBeforeText;
 			this->BotoElsMeus->UseVisualStyleBackColor = true;
+			this->BotoElsMeus->Click += gcnew System::EventHandler(this, &MainPageUI::ElsMeus_Click);
 			// 
 			// BotoExplorar
 			// 
@@ -308,6 +308,7 @@ namespace CppCLRWinFormsProject {
 			this->BotoExplorar->TextAlign = System::Drawing::ContentAlignment::MiddleLeft;
 			this->BotoExplorar->TextImageRelation = System::Windows::Forms::TextImageRelation::ImageBeforeText;
 			this->BotoExplorar->UseVisualStyleBackColor = true;
+			this->BotoExplorar->Click += gcnew System::EventHandler(this, &MainPageUI::BotoExplorar_Click);
 			// 
 			// panel4
 			// 
@@ -395,8 +396,9 @@ namespace CppCLRWinFormsProject {
 		System::Void Perfil_Click(System::Object^ sender, System::EventArgs^ e);
 
 		System::Void BotoInici_Click(System::Object^ sender, System::EventArgs^ e);
-		//System::Void ElsMeus_Click(System::Object^ sender, System::EventArgs^ e);
 		System::Void Admin_Click(System::Object^ sender, System::EventArgs^ e);
+		System::Void ElsMeus_Click(System::Object^ sender, System::EventArgs^ e);
+		System::Void BotoExplorar_Click(System::Object^ sender, System::EventArgs^ e);
 		
 
 		

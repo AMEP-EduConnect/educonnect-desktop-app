@@ -38,9 +38,6 @@
     <ClInclude Include="pch.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="MainPageUI.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Utils.h">
       <Filter>Source Files\utils</Filter>
     </ClInclude>
@@ -161,6 +158,15 @@
     <ClInclude Include="PerfilPersonalModificaService.h">
       <Filter>Source Files\services</Filter>
     </ClInclude>
+    <ClInclude Include="GrupEstudi_MembresUI.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GrupEstudi_ExplorarUI.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MainPageUI.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="Espai.h">
       <Filter>Source Files\entities</Filter>
     </ClInclude>
@@ -198,9 +204,6 @@
     </ClCompile>
     <ClCompile Include="Utils.cpp">
       <Filter>Source Files\utils</Filter>
-    </ClCompile>
-    <ClCompile Include="MainPageUI.cpp">
-      <Filter>Source Files\ui</Filter>
     </ClCompile>
     <ClCompile Include="DatabaseConnector.cpp">
       <Filter>Source Files\utils</Filter>
@@ -351,6 +354,15 @@
     </ClCompile>
     <ClCompile Include="ModificaEspaisService.cpp">
       <Filter>Source Files\services</Filter>
+    </ClCompile>
+    <ClCompile Include="GrupEstudi_MembresUI.cpp">
+      <Filter>Source Files\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="GrupEstudi_ExplorarUI.cpp">
+      <Filter>Source Files\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="MainPageUI.cpp">
+      <Filter>Source Files\ui</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
