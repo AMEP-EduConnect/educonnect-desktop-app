@@ -130,11 +130,11 @@ namespace CppCLRWinFormsProject {
 			   this->label6->AutoSize = true;
 			   this->label6->Font = (gcnew System::Drawing::Font(L"Inter", 20.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				   static_cast<System::Byte>(0)));
-			   this->label6->Location = System::Drawing::Point(287, 23);
+			   this->label6->Location = System::Drawing::Point(294, 23);
 			   this->label6->Name = L"label6";
-			   this->label6->Size = System::Drawing::Size(238, 33);
+			   this->label6->Size = System::Drawing::Size(223, 33);
 			   this->label6->TabIndex = 13;
-			   this->label6->Text = L"Gestionar Espais";
+			   this->label6->Text = L"Gestionar Espai";
 			   // 
 			   // tableLayoutPanel1
 			   // 
@@ -195,11 +195,10 @@ namespace CppCLRWinFormsProject {
 			   this->textBox3->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(224)), static_cast<System::Int32>(static_cast<System::Byte>(224)),
 				   static_cast<System::Int32>(static_cast<System::Byte>(224)));
 			   this->textBox3->Enabled = false;
-			   this->textBox3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				   static_cast<System::Byte>(0)));
+			   this->textBox3->Font = (gcnew System::Drawing::Font(L"Inter", 12));
 			   this->textBox3->Location = System::Drawing::Point(165, 36);
 			   this->textBox3->Name = L"textBox3";
-			   this->textBox3->Size = System::Drawing::Size(158, 26);
+			   this->textBox3->Size = System::Drawing::Size(158, 27);
 			   this->textBox3->TabIndex = 0;
 			   // 
 			   // label2
@@ -221,11 +220,10 @@ namespace CppCLRWinFormsProject {
 			   this->textBox1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(224)), static_cast<System::Int32>(static_cast<System::Byte>(224)),
 				   static_cast<System::Int32>(static_cast<System::Byte>(224)));
 			   this->textBox1->Enabled = false;
-			   this->textBox1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				   static_cast<System::Byte>(0)));
+			   this->textBox1->Font = (gcnew System::Drawing::Font(L"Inter", 12));
 			   this->textBox1->Location = System::Drawing::Point(165, 90);
 			   this->textBox1->Name = L"textBox1";
-			   this->textBox1->Size = System::Drawing::Size(158, 26);
+			   this->textBox1->Size = System::Drawing::Size(158, 27);
 			   this->textBox1->TabIndex = 1;
 			   // 
 			   // label3

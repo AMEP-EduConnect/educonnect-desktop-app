@@ -112,9 +112,9 @@ namespace CppCLRWinFormsProject {
 			   this->button1->Anchor = System::Windows::Forms::AnchorStyles::None;
 			   this->button1->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				   static_cast<System::Byte>(0)));
-			   this->button1->Location = System::Drawing::Point(120, 186);
+			   this->button1->Location = System::Drawing::Point(128, 186);
 			   this->button1->Name = L"button1";
-			   this->button1->Size = System::Drawing::Size(135, 35);
+			   this->button1->Size = System::Drawing::Size(119, 35);
 			   this->button1->TabIndex = 2;
 			   this->button1->Text = L"Confirmar";
 			   this->button1->UseVisualStyleBackColor = true;
@@ -203,11 +203,10 @@ namespace CppCLRWinFormsProject {
 			   // textBox3
 			   // 
 			   this->textBox3->Anchor = System::Windows::Forms::AnchorStyles::None;
-			   this->textBox3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				   static_cast<System::Byte>(0)));
+			   this->textBox3->Font = (gcnew System::Drawing::Font(L"Inter", 12));
 			   this->textBox3->Location = System::Drawing::Point(165, 36);
 			   this->textBox3->Name = L"textBox3";
-			   this->textBox3->Size = System::Drawing::Size(158, 26);
+			   this->textBox3->Size = System::Drawing::Size(158, 27);
 			   this->textBox3->TabIndex = 0;
 			   // 
 			   // label2
@@ -226,11 +225,10 @@ namespace CppCLRWinFormsProject {
 			   // textBox1
 			   // 
 			   this->textBox1->Anchor = System::Windows::Forms::AnchorStyles::None;
-			   this->textBox1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				   static_cast<System::Byte>(0)));
+			   this->textBox1->Font = (gcnew System::Drawing::Font(L"Inter", 12));
 			   this->textBox1->Location = System::Drawing::Point(165, 90);
 			   this->textBox1->Name = L"textBox1";
-			   this->textBox1->Size = System::Drawing::Size(158, 26);
+			   this->textBox1->Size = System::Drawing::Size(158, 27);
 			   this->textBox1->TabIndex = 1;
 			   // 
 			   // label3
