@@ -66,7 +66,7 @@ namespace CppCLRWinFormsProject {
 
     void ModificaEspaisUI::button1_Click(System::Object^ sender, System::EventArgs^ e)
     {
-        if(this->button1->Text == L"Confirma")
+        if(this->button1->Text == L"Confirmar")
         {
 
             String^ nom = textBox3->Text;
@@ -100,11 +100,12 @@ namespace CppCLRWinFormsProject {
             }
         }
         else {
-           this->button1->Text = L"Confirma";
+           this->button1->Text = L"Confirmar";
            textBox3->Enabled = true;
            textBox1->Enabled = true;
            this->textBox1->BackColor = SystemColors::Window;
 		   this->textBox3->BackColor = SystemColors::Window;
+           this->Button_Cancelar_Edita->Visible = true;
         }
     }
 
@@ -117,6 +118,23 @@ namespace CppCLRWinFormsProject {
         MainPageUI::Instance->screen->Controls->Add(PanelUI);
         PanelUI->Show();
 
+    }
+
+    System::Void ModificaEspaisUI::Button_Cancelar_Edita_Click(System::Object^ sender, System::EventArgs^ e)
+    {
+        this->Button_Cancelar_Edita->Visible = false;
+        this->button1->Text = L"Modificar";
+        String^ name = espai->GetName();
+        String^ capacity = espai->GetCapacity()->ToString();
+        textBox3->Text = name;
+        textBox1->Text = capacity;
+        textBox3->Enabled = false;
+        textBox1->Enabled = false;
+        this->textBox3->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(224)), static_cast<System::Int32>(static_cast<System::Byte>(224)),
+            static_cast<System::Int32>(static_cast<System::Byte>(224)));
+        this->textBox1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(224)), static_cast<System::Int32>(static_cast<System::Byte>(224)),
+            static_cast<System::Int32>(static_cast<System::Byte>(224)));
+        
     }
 
 

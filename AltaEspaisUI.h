@@ -116,7 +116,7 @@ namespace CppCLRWinFormsProject {
 			   this->button1->Name = L"button1";
 			   this->button1->Size = System::Drawing::Size(135, 35);
 			   this->button1->TabIndex = 2;
-			   this->button1->Text = L"Confirma";
+			   this->button1->Text = L"Confirmar";
 			   this->button1->UseVisualStyleBackColor = true;
 			   this->button1->Click += gcnew System::EventHandler(this, &AltaEspaisUI::button1_Click);
 			   // 
@@ -195,9 +195,9 @@ namespace CppCLRWinFormsProject {
 			   this->panel1->Controls->Add(this->label2);
 			   this->panel1->Controls->Add(this->textBox1);
 			   this->panel1->Controls->Add(this->label3);
-			   this->panel1->Location = System::Drawing::Point(3, 32);
+			   this->panel1->Location = System::Drawing::Point(3, 11);
 			   this->panel1->Name = L"panel1";
-			   this->panel1->Size = System::Drawing::Size(370, 106);
+			   this->panel1->Size = System::Drawing::Size(370, 148);
 			   this->panel1->TabIndex = 1;
 			   // 
 			   // textBox3
@@ -205,7 +205,7 @@ namespace CppCLRWinFormsProject {
 			   this->textBox3->Anchor = System::Windows::Forms::AnchorStyles::None;
 			   this->textBox3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				   static_cast<System::Byte>(0)));
-			   this->textBox3->Location = System::Drawing::Point(165, 18);
+			   this->textBox3->Location = System::Drawing::Point(165, 36);
 			   this->textBox3->Name = L"textBox3";
 			   this->textBox3->Size = System::Drawing::Size(158, 26);
 			   this->textBox3->TabIndex = 0;
@@ -217,7 +217,7 @@ namespace CppCLRWinFormsProject {
 			   this->label2->BackColor = System::Drawing::SystemColors::GradientInactiveCaption;
 			   this->label2->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				   static_cast<System::Byte>(0)));
-			   this->label2->Location = System::Drawing::Point(34, 18);
+			   this->label2->Location = System::Drawing::Point(23, 40);
 			   this->label2->Name = L"label2";
 			   this->label2->Size = System::Drawing::Size(122, 19);
 			   this->label2->TabIndex = 7;
@@ -228,7 +228,7 @@ namespace CppCLRWinFormsProject {
 			   this->textBox1->Anchor = System::Windows::Forms::AnchorStyles::None;
 			   this->textBox1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				   static_cast<System::Byte>(0)));
-			   this->textBox1->Location = System::Drawing::Point(165, 60);
+			   this->textBox1->Location = System::Drawing::Point(165, 90);
 			   this->textBox1->Name = L"textBox1";
 			   this->textBox1->Size = System::Drawing::Size(158, 26);
 			   this->textBox1->TabIndex = 1;
@@ -240,7 +240,7 @@ namespace CppCLRWinFormsProject {
 			   this->label3->BackColor = System::Drawing::SystemColors::GradientInactiveCaption;
 			   this->label3->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				   static_cast<System::Byte>(0)));
-			   this->label3->Location = System::Drawing::Point(34, 60);
+			   this->label3->Location = System::Drawing::Point(62, 94);
 			   this->label3->Name = L"label3";
 			   this->label3->Size = System::Drawing::Size(83, 19);
 			   this->label3->TabIndex = 8;

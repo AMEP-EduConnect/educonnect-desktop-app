@@ -179,7 +179,7 @@ namespace CppCLRWinFormsProject {
 			   this->GestioEspaiButton->Name = L"GestioEspaiButton";
 			   this->GestioEspaiButton->Size = System::Drawing::Size(91, 34);
 			   this->GestioEspaiButton->TabIndex = 0;
-			   this->GestioEspaiButton->Text = L"Modificar";
+			   this->GestioEspaiButton->Text = L"Gestionar";
 			   this->GestioEspaiButton->UseVisualStyleBackColor = true;
 			   this->GestioEspaiButton->Click += gcnew System::EventHandler(this, &ConsultaEspaisUI::ButtonGestio_Click);
 			   // 
