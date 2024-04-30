@@ -88,11 +88,11 @@ namespace CppCLRWinFormsProject {
 			   this->PageTitleLabel->AutoSize = true;
 			   this->PageTitleLabel->Font = (gcnew System::Drawing::Font(L"Inter", 20.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				   static_cast<System::Byte>(0)));
-			   this->PageTitleLabel->Location = System::Drawing::Point(233, 23);
+			   this->PageTitleLabel->Location = System::Drawing::Point(252, 23);
 			   this->PageTitleLabel->Name = L"PageTitleLabel";
-			   this->PageTitleLabel->Size = System::Drawing::Size(346, 33);
+			   this->PageTitleLabel->Size = System::Drawing::Size(308, 33);
 			   this->PageTitleLabel->TabIndex = 13;
-			   this->PageTitleLabel->Text = L"Donar de baixa proveïdor";
+			   this->PageTitleLabel->Text = L"Donar Baixa Proveïdor";
 			   // 
 			   // tableLayoutPanel1
 			   // 

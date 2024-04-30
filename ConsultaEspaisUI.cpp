@@ -46,12 +46,17 @@ namespace CppCLRWinFormsProject {
     Void ConsultaEspaisUI::ButtonEliminar_Click(System::Object^ sender, System::EventArgs^ e) {
         if (Llista_Espais->SelectedItem != nullptr) {
 			String^ selectedEspais = Llista_Espais->SelectedItem->ToString(); 
-			if(eliminarEspaisService->eliminarEspais(selectedEspais) == true) 
+            MessageBoxButtons buttons = MessageBoxButtons::YesNo;
+            System::Windows::Forms::DialogResult result = MessageBox::Show("Vols suprimir l'espai '" + selectedEspais + "'?", "Confirmation", buttons);
+            if (result == System::Windows::Forms::DialogResult::Yes) 
             {
-                Llista_Espais->Items->Remove(Llista_Espais->SelectedItem);
-                MessageManager::InfoMessage("Espai eliminat correctament!");
+                if (eliminarEspaisService->eliminarEspais(selectedEspais) == true)
+                {
+                    Llista_Espais->Items->Remove(Llista_Espais->SelectedItem);
+                    MessageManager::InfoMessage("Espai eliminat correctament!");
+                }
+                else MessageManager::ErrorMessage("No s'ha pogut eliminar l'espai.");
             }
-            else MessageManager::ErrorMessage("No s'ha pogut eliminar l'espai.");
 		}
         else {
 			MessageManager::WarningMessage("Selecciona un espai de la llista per eliminar-la.");

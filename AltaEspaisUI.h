@@ -126,11 +126,11 @@ namespace CppCLRWinFormsProject {
 			   this->label6->AutoSize = true;
 			   this->label6->Font = (gcnew System::Drawing::Font(L"Inter", 20.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				   static_cast<System::Byte>(0)));
-			   this->label6->Location = System::Drawing::Point(333, 23);
+			   this->label6->Location = System::Drawing::Point(280, 23);
 			   this->label6->Name = L"label6";
-			   this->label6->Size = System::Drawing::Size(146, 33);
+			   this->label6->Size = System::Drawing::Size(252, 33);
 			   this->label6->TabIndex = 13;
-			   this->label6->Text = L"Alta Espai";
+			   this->label6->Text = L"Donar d\'alta Espai";
 			   // 
 			   // tableLayoutPanel1
 			   // 

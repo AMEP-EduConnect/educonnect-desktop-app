@@ -59,9 +59,9 @@ namespace CppCLRWinFormsProject {
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->Cancelar_Button = (gcnew System::Windows::Forms::Button());
 			this->tableLayoutPanel1 = (gcnew System::Windows::Forms::TableLayoutPanel());
-			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->panel2 = (gcnew System::Windows::Forms::Panel());
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
+			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->tableLayoutPanel1->SuspendLayout();
 			this->panel2->SuspendLayout();
 			this->panel1->SuspendLayout();
@@ -146,19 +146,6 @@ namespace CppCLRWinFormsProject {
 			this->tableLayoutPanel1->TabIndex = 17;
 			this->tableLayoutPanel1->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &BaixaUsuariUI::tableLayoutPanel1_Paint);
 			// 
-			// label2
-			// 
-			this->label2->Anchor = System::Windows::Forms::AnchorStyles::None;
-			this->label2->AutoSize = true;
-			this->label2->Font = (gcnew System::Drawing::Font(L"Inter", 20.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->label2->ForeColor = System::Drawing::SystemColors::HotTrack;
-			this->label2->Location = System::Drawing::Point(316, 11);
-			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(180, 33);
-			this->label2->TabIndex = 19;
-			this->label2->Text = L"Baixa Usuari";
-			// 
 			// panel2
 			// 
 			this->panel2->Anchor = System::Windows::Forms::AnchorStyles::None;
@@ -180,6 +167,19 @@ namespace CppCLRWinFormsProject {
 			this->panel1->Size = System::Drawing::Size(461, 128);
 			this->panel1->TabIndex = 18;
 			this->panel1->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &BaixaUsuariUI::panel1_Paint);
+			// 
+			// label2
+			// 
+			this->label2->Anchor = System::Windows::Forms::AnchorStyles::None;
+			this->label2->AutoSize = true;
+			this->label2->Font = (gcnew System::Drawing::Font(L"Inter", 20.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label2->ForeColor = System::Drawing::SystemColors::HotTrack;
+			this->label2->Location = System::Drawing::Point(272, 11);
+			this->label2->Name = L"label2";
+			this->label2->Size = System::Drawing::Size(267, 33);
+			this->label2->TabIndex = 19;
+			this->label2->Text = L"Donar Baixa Usuari";
 			// 
 			// BaixaUsuariUI
 			// 
