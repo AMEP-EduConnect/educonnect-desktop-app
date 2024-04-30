@@ -18,7 +18,14 @@ bool ChatMessageRepository::AddMessage(Int64^ group_id, Int64^ user_id, String^ 
 List<ChatMessage^>^ ChatMessageRepository::GetMessages(Int64^ group_id)
 {
 	DatabaseConnector::Instance->Connect();
-	String^ sql = "SELECT * FROM ChatMessage WHERE group_id = @groupId ORDER BY timestamp ASC LIMIT 20";
+	//String^ sql = "SELECT * FROM ChatMessage WHERE group_id = @groupId ORDER BY timestamp ASC LIMIT 20";
+	String^ sql = "SELECT * FROM ("
+		"    SELECT * FROM ChatMessage "
+		"    WHERE group_id = @groupId "
+		"    ORDER BY id DESC "
+		"    LIMIT 20"
+		") AS subquery "
+		"ORDER BY id ASC;";
 	Dictionary<String^, Object^>^ params = gcnew Dictionary<String^, Object^>(0);
 	params->Add("@groupId", group_id->ToString());
 	MySqlDataReader^ data = DatabaseConnector::Instance->ExecuteClientCommand(sql, params);
@@ -40,7 +47,7 @@ List<ChatMessage^>^ ChatMessageRepository::GetMessages(Int64^ group_id)
 List<ChatMessage^>^ ChatMessageRepository::GetLastsMessages(Int64^ group_id, Int64^ user_id, Int64^ message_id)//String^ formattedTimestamp)
 {
 	DatabaseConnector::Instance->Connect();
-	String^ sql = "SELECT * FROM ChatMessage WHERE group_id = @groupId AND user_id != @user_id AND id > @message_id ORDER BY timestamp ASC";
+	String^ sql = "SELECT * FROM ChatMessage WHERE group_id = @groupId AND user_id != @user_id AND id > @message_id";
 	Dictionary<String^, Object^>^ params = gcnew Dictionary<String^, Object^>(0);
 	params->Add("@groupId", group_id);
 	params->Add("@user_id", user_id);

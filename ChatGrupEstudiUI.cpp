@@ -26,30 +26,35 @@ namespace CppCLRWinFormsProject {
         List<ChatMessage^>^ chatMembers = chatGrupEstudiService->GetChatMembers(94LL);
         //chatMembers->Reverse();
         System::Collections::Generic::IEnumerator<ChatMessage^>^ enumerator = chatMembers->GetEnumerator();
+        ChatMessage^ lastMessage = nullptr;
         while (enumerator->MoveNext()) {
 			ChatMessage^ chatMessage = enumerator->Current;
             chatListBox->Items->Add(chatMessage->getUserId() + ": " + chatMessage->getMessage());
-            if (enumerator->MoveNext() == false)
-            {
-				messagelast_id = chatMessage->getId();
-			}
+            lastMessage = chatMessage;
+		}
+        if (lastMessage != nullptr)
+        {
+			messagelast_id = lastMessage->getId();
 		}
 	}
     Void ChatGrupEstudiUI::ChatGrupEstudiUI_Refresh(System::Object^ sender, System::EventArgs^ e) {
         Int64^ user_id = CurrentSession::Instance->GetCurrentUser()->GetUserId();
         chatMembers_Refresh = chatGrupEstudiService->CheckLastsMessage(94LL, user_id, messagelast_id);
         //chatMembers_Refresh = chatGrupEstudiService->CheckLastsMessage(94LL, user_id,DateTime::Now);
+        
         if (chatMembers_Refresh->Count > 0)
         {
+            ChatMessage^ lastMessage = nullptr;
 			System::Collections::Generic::IEnumerator<ChatMessage^>^ enumerator = chatMembers_Refresh->GetEnumerator();
             while (enumerator->MoveNext()) {
 				ChatMessage^ chatMessage = enumerator->Current;
 				chatListBox->Items->Add(chatMessage->getUserId() + ": " + chatMessage->getMessage());
-                if (enumerator->MoveNext() == false)
-                {
-                    messagelast_id = chatMessage->getId();
-                }
+                lastMessage = chatMessage;
 			}
+            if (lastMessage != nullptr)
+            {
+                messagelast_id = lastMessage->getId();
+            }
             chatMembers_Refresh->Clear();
 		}
         
