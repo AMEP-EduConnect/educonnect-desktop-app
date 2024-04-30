@@ -19,14 +19,15 @@
 #include "BaixaProveidorUI.h"
 #include "UsuariRolRepository.h"
 #include "StartPageUI.h"
-
+#include "ChatGrupEstudiUI.h"
 namespace CppCLRWinFormsProject {
 
     MainPageUI::MainPageUI(void)
     {
+        
         InitializeComponent();
         this->Text = L"EduConnect";
-
+        
         IniciUI^ PanelUI = gcnew IniciUI();
         PanelUI->TopLevel = false;
         PanelUI->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
@@ -90,6 +91,7 @@ namespace CppCLRWinFormsProject {
 
     void MainPageUI::Tancar_Sessio_Click(System::Object^ sender, System::EventArgs^ e)
     {
+        ChatGrupEstudiUI::Instance->chatTimer->Stop();
         CurrentSession::Instance->LogoutCurrentUser();
         this->Hide();
         StartPageUI::Instance = gcnew StartPageUI();

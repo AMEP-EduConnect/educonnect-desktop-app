@@ -31,6 +31,7 @@ namespace CppCLRWinFormsProject {
     protected:
         ~ChatGrupEstudiUI()
         {
+            this->chatTimer->Stop();
             if (components)
             {
                 delete components;
@@ -41,10 +42,11 @@ namespace CppCLRWinFormsProject {
     private: System::Windows::Forms::Button^ sendButton;
     private: System::Windows::Forms::ListBox^ chatListBox;
     private: ChatGrupEstudiService^ chatGrupEstudiService;
-    private: System::Windows::Forms::Timer^ chatTimer;
+    public: System::Windows::Forms::Timer^ chatTimer;
     private: System::Windows::Forms::Button^ Button_Cancelar;
     private: List<ChatMessage^>^ chatMembers_Refresh;
     public: Int64^ messagelast_id;
+    public: static ChatGrupEstudiUI^ Instance;
     private:
         System::ComponentModel::Container^ components;
     

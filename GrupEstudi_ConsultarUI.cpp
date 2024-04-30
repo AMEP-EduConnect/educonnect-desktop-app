@@ -18,14 +18,14 @@ namespace CppCLRWinFormsProject {
         this->Icon = gcnew System::Drawing::Icon("app.ico");
     }
     Void GrupEstudi_ConsultarUI::ButtonChat_Click(System::Object^ sender, System::EventArgs^ e) {
-		ChatGrupEstudiUI^ PanelUI = gcnew ChatGrupEstudiUI();
-		PanelUI->TopLevel = false;
-		PanelUI->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
-		PanelUI->Dock = System::Windows::Forms::DockStyle::Fill;
+        ChatGrupEstudiUI::Instance = gcnew ChatGrupEstudiUI();
+        ChatGrupEstudiUI::Instance->TopLevel = false;
+        ChatGrupEstudiUI::Instance->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
+        ChatGrupEstudiUI::Instance->Dock = System::Windows::Forms::DockStyle::Fill;
 
 		MainPageUI::Instance->screen->Controls->Clear();
-		MainPageUI::Instance->screen->Controls->Add(PanelUI);
-		PanelUI->Show();
+		MainPageUI::Instance->screen->Controls->Add(ChatGrupEstudiUI::Instance);
+        ChatGrupEstudiUI::Instance->Show();
 	}
     void GrupEstudi_ConsultarUI::EliminarButton_Click(System::Object^ sender, System::EventArgs^ e)
     {
