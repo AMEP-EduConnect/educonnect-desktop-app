@@ -40,31 +40,33 @@ namespace CppCLRWinFormsProject {
 
     private: System::Windows::Forms::TextBox^ messageTextBox;
     private: System::Windows::Forms::Button^ sendButton;
-    private: System::Windows::Forms::ListBox^ chatListBox;
+    private: System::Windows::Forms::RichTextBox^ chatListBox;
     private: ChatGrupEstudiService^ chatGrupEstudiService;
     public: System::Windows::Forms::Timer^ chatTimer;
     private: System::Windows::Forms::Button^ Button_Cancelar;
     private: List<ChatMessage^>^ chatMembers_Refresh;
     public: Int64^ messagelast_id;
     public: static ChatGrupEstudiUI^ Instance;
+    private: System::ComponentModel::IContainer^ components;
     private:
-        System::ComponentModel::Container^ components;
+
     
 #pragma region Windows Form Designer generated code
         void InitializeComponent(void)
         {
-            this->components = gcnew System::ComponentModel::Container();
-            this->chatTimer = gcnew System::Windows::Forms::Timer(this->components);
-
-            // Configuración del Timer
-            this->chatTimer->Interval = 500; // Intervalo en milisegundos
-            this->chatTimer->Tick += gcnew System::EventHandler(this, &ChatGrupEstudiUI::TimerTickHandler);
-            this->chatTimer->Start(); // Inicia el timer
+            this->components = (gcnew System::ComponentModel::Container());
+            this->chatTimer = (gcnew System::Windows::Forms::Timer(this->components));
             this->messageTextBox = (gcnew System::Windows::Forms::TextBox());
             this->sendButton = (gcnew System::Windows::Forms::Button());
-            this->chatListBox = (gcnew System::Windows::Forms::ListBox());
+            this->chatListBox = (gcnew System::Windows::Forms::RichTextBox());
             this->Button_Cancelar = (gcnew System::Windows::Forms::Button());
             this->SuspendLayout();
+            // 
+            // chatTimer
+            // 
+            this->chatTimer->Enabled = true;
+            this->chatTimer->Interval = 500;
+            this->chatTimer->Tick += gcnew System::EventHandler(this, &ChatGrupEstudiUI::TimerTickHandler);
             // 
             // messageTextBox
             // 
@@ -85,11 +87,15 @@ namespace CppCLRWinFormsProject {
             // 
             // chatListBox
             // 
-            this->chatListBox->FormattingEnabled = true;
+            this->chatListBox->BackColor = System::Drawing::SystemColors::ControlLightLight;
+            this->chatListBox->Font = (gcnew System::Drawing::Font(L"Inter", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+                static_cast<System::Byte>(0)));
             this->chatListBox->Location = System::Drawing::Point(162, 75);
             this->chatListBox->Name = L"chatListBox";
+            this->chatListBox->ReadOnly = true;
             this->chatListBox->Size = System::Drawing::Size(611, 290);
             this->chatListBox->TabIndex = 2;
+            this->chatListBox->Text = L"";
             // 
             // Button_Cancelar
             // 
@@ -120,6 +126,7 @@ namespace CppCLRWinFormsProject {
 
     private: System::Void sendButton_Click(System::Object^ sender, System::EventArgs^ e);
            System::Void ChatGrupEstudiUI_Load(System::Object^ sender, System::EventArgs^ e);
+           String^ FormatMessage(System::String^ message);
            System::Void ChatGrupEstudiUI_Refresh(System::Object^ sender, System::EventArgs^ e);
     private: System::Void Button_Cancelar_Click(System::Object^ sender, System::EventArgs^ e) {
         		this->chatTimer->Stop();
