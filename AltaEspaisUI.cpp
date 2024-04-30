@@ -47,7 +47,6 @@ namespace CppCLRWinFormsProject {
 
         String^ nom = textBox3->Text;
         String^ capacitatText = textBox1->Text;
-        Int64^ capacitat;
 
         if (!String::IsNullOrWhiteSpace(nom) && !String::IsNullOrWhiteSpace(capacitatText)) {           
           
