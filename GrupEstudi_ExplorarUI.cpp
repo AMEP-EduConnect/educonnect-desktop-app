@@ -13,7 +13,7 @@ namespace CppCLRWinFormsProject {
 		grupEstudiMembershipService = gcnew GrupEstudiMembershipService();
 		grupEstudiService = gcnew GrupEstudiService();
 		arrayIdGroupEstudisOfUserNoIn = GrupEstudi_Explorar_Array();
-		buscar_button->Visible = false;
+		//buscar_button->Visible = false;
 		//this->Background_PictureBox->Image = Image::FromFile("background.png");
 		this->Icon = gcnew System::Drawing::Icon("app.ico");
 	}
