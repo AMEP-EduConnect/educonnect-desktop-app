@@ -31,7 +31,7 @@ namespace CppCLRWinFormsProject {
     protected:
         ~ChatGrupEstudiUI()
         {
-            this->chatTimer->Stop();
+            //this->chatTimer->Stop();
             if (components)
             {
                 delete components;

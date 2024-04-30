@@ -17,7 +17,10 @@ namespace CppCLRWinFormsProject {
             else 
             {
                 int start = chatListBox->TextLength;  
-                chatListBox->AppendText("Tú: " + message + "\n");
+                chatListBox->SelectionFont = gcnew System::Drawing::Font(chatListBox->Font, FontStyle::Bold);
+                chatListBox->AppendText("Tú: ");
+                chatListBox->SelectionFont = gcnew System::Drawing::Font(chatListBox->Font, FontStyle::Regular);
+                chatListBox->AppendText(message + "\n");
                 int length = chatListBox->TextLength - start;  
                 chatListBox->Select(start, length);
                 chatListBox->SelectionAlignment = HorizontalAlignment::Right;
@@ -57,9 +60,22 @@ namespace CppCLRWinFormsProject {
             ChatMessage^ chatMessage = enumerator->Current;
             int start = chatListBox->TextLength;
             String^ message = FormatMessage(chatMessage->getMessage());
-            if(chatMessage->getMessage()->Length > 50) message = FormatMessage(chatMessage->getMessage());
-            if (*chatMessage->getUserId() != *id_user) chatListBox->AppendText(chatMessage->getUsername() + ": " + message + "\n");
-            else chatListBox->AppendText("Tú: " + message + "\n");
+            if (chatMessage->getMessage()->Length > 50) message = FormatMessage(chatMessage->getMessage());
+
+            if (*chatMessage->getUserId() != *id_user) {
+                chatListBox->SelectionFont = gcnew System::Drawing::Font(chatListBox->Font, FontStyle::Bold);
+                chatListBox->AppendText(chatMessage->getUsername() + ": ");
+                    chatListBox->SelectionFont = gcnew System::Drawing::Font(chatListBox->Font, FontStyle::Regular);
+                    chatListBox->AppendText(message + "\n");
+            }
+            else {
+                // Aplicar negrita solo a "Tú:"
+                chatListBox->SelectionFont = gcnew System::Drawing::Font(chatListBox->Font, FontStyle::Bold);
+                chatListBox->AppendText("Tú: ");
+                chatListBox->SelectionFont = gcnew System::Drawing::Font(chatListBox->Font, FontStyle::Regular);
+                chatListBox->AppendText(message + "\n");
+            }
+
             int length = chatListBox->TextLength - start;
             chatListBox->Select(start, length);
             if (*chatMessage->getUserId() != *id_user) {
@@ -78,6 +94,7 @@ namespace CppCLRWinFormsProject {
             messagelast_id = lastMessage->getId();
         }
     }
+
     System::String^ ChatGrupEstudiUI::FormatMessage(System::String^ message) {
         int maxLineLength = 43;  // Límite de caracteres antes de intentar un salto de línea
         for (int i = maxLineLength; i < message->Length; i += maxLineLength) {
@@ -114,7 +131,10 @@ namespace CppCLRWinFormsProject {
                 int start = chatListBox->TextLength;
                 String^ message = FormatMessage(chatMessage->getMessage());
                 if (chatMessage->getMessage()->Length > 50) message = FormatMessage(chatMessage->getMessage());
-                chatListBox->AppendText(chatMessage->getUsername() + ": " + message + "\n");
+                chatListBox->SelectionFont = gcnew System::Drawing::Font(chatListBox->Font, FontStyle::Bold);
+                chatListBox->AppendText(chatMessage->getUsername() + ": ");
+                chatListBox->SelectionFont = gcnew System::Drawing::Font(chatListBox->Font, FontStyle::Regular);
+                chatListBox->AppendText(message + "\n");
                 int length = chatListBox->TextLength - start;
                 chatListBox->Select(start, length);
                 chatListBox->SelectionAlignment = HorizontalAlignment::Left;
