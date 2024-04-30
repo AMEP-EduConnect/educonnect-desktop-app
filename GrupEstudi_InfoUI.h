@@ -15,7 +15,7 @@ namespace CppCLRWinFormsProject {
 	public ref class GrupEstudi_InfoUI : public System::Windows::Forms::Form
 	{
 	public:
-		GrupEstudi_InfoUI(void);
+		GrupEstudi_InfoUI(String^ CurrentGrup);
 
 	protected:
 		/// <summary>
@@ -78,6 +78,7 @@ namespace CppCLRWinFormsProject {
 		/// Variable del diseñador necesaria.
 		/// </summary>
 		System::ComponentModel::Container ^components;
+		String^ CurrentGrup;
 
 #pragma region Windows Form Designer generated code
 		/// <summary>

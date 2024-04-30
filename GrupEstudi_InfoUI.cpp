@@ -6,9 +6,10 @@
 
 namespace CppCLRWinFormsProject {
 
-    GrupEstudi_InfoUI::GrupEstudi_InfoUI(void)
+    GrupEstudi_InfoUI::GrupEstudi_InfoUI(String^ CurrentGrup)
     {
         InitializeComponent();
+        this->CurrentGrup = CurrentGrup;
         this->Icon = gcnew System::Drawing::Icon("app.ico");
     }
 
