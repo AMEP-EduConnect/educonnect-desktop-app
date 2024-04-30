@@ -57,7 +57,8 @@ namespace CppCLRWinFormsProject {
             int start = chatListBox->TextLength;
             String^ message = FormatMessage(chatMessage->getMessage());
             if(chatMessage->getMessage()->Length > 50) message = FormatMessage(chatMessage->getMessage());
-            chatListBox->AppendText(chatMessage->getUserId() + ": " + message + "\n");
+            if (*chatMessage->getUserId() != *id_user) chatListBox->AppendText(chatGrupEstudiService->GetUsernameMessageById(chatMessage->getUserId()) + ": " + message + "\n");
+            else chatListBox->AppendText("Tú: " + message + "\n");
             int length = chatListBox->TextLength - start;
             chatListBox->Select(start, length);
             if (*chatMessage->getUserId() != *id_user) {
@@ -112,10 +113,10 @@ namespace CppCLRWinFormsProject {
                 int start = chatListBox->TextLength;
                 String^ message = FormatMessage(chatMessage->getMessage());
                 if (chatMessage->getMessage()->Length > 50) message = FormatMessage(chatMessage->getMessage());
-                chatListBox->AppendText(chatMessage->getUserId() + ": " + message + "\n");
+                chatListBox->AppendText(chatGrupEstudiService->GetUsernameMessageById(chatMessage->getUserId()) + ": " + message + "\n");
                 int length = chatListBox->TextLength - start;
                 chatListBox->Select(start, length);
-                chatListBox->SelectionAlignment = HorizontalAlignment::Right;
+                chatListBox->SelectionAlignment = HorizontalAlignment::Left;
                 chatListBox->SelectionStart = chatListBox->TextLength;
                 chatListBox->ScrollToCaret();
                 lastMessage = chatMessage;
