@@ -25,6 +25,8 @@ namespace CppCLRWinFormsProject {
             chatMembers_Refresh = gcnew List<ChatMessage^>(0);
             InitializeComponent();
             this->Load += gcnew System::EventHandler(this, &ChatGrupEstudiUI::ChatGrupEstudiUI_Load);
+            listBoxFiles->Items->Clear();
+            LoadFiles();
         }
 
     protected:
@@ -45,10 +47,13 @@ namespace CppCLRWinFormsProject {
     private: System::Windows::Forms::Button^ Button_Cancelar;
     private: List<ChatMessage^>^ chatMembers_Refresh;
     public: Int64^ messagelast_id;
+    public: List<Files^>^ files;
     public: static ChatGrupEstudiUI^ Instance;
     private: System::Windows::Forms::Button^ Button_Send_Files;
     private: System::ComponentModel::IContainer^ components;
     private: System::Windows::Forms::Button^ Button_Download;
+    private: System::Windows::Forms::ListBox^ listBoxFiles;
+
     private: FileByteConverterService^ fileByteConverterService;
 
     
@@ -63,6 +68,7 @@ namespace CppCLRWinFormsProject {
             this->Button_Cancelar = (gcnew System::Windows::Forms::Button());
             this->Button_Send_Files = (gcnew System::Windows::Forms::Button());
             this->Button_Download = (gcnew System::Windows::Forms::Button());
+            this->listBoxFiles = (gcnew System::Windows::Forms::ListBox());
             this->SuspendLayout();
             // 
             // chatTimer
@@ -82,7 +88,7 @@ namespace CppCLRWinFormsProject {
             // 
             // sendButton
             // 
-            this->sendButton->Location = System::Drawing::Point(563, 394);
+            this->sendButton->Location = System::Drawing::Point(262, 438);
             this->sendButton->Name = L"sendButton";
             this->sendButton->Size = System::Drawing::Size(75, 23);
             this->sendButton->TabIndex = 1;
@@ -114,7 +120,7 @@ namespace CppCLRWinFormsProject {
             // 
             // Button_Send_Files
             // 
-            this->Button_Send_Files->Location = System::Drawing::Point(671, 394);
+            this->Button_Send_Files->Location = System::Drawing::Point(357, 438);
             this->Button_Send_Files->Name = L"Button_Send_Files";
             this->Button_Send_Files->Size = System::Drawing::Size(75, 23);
             this->Button_Send_Files->TabIndex = 4;
@@ -124,7 +130,7 @@ namespace CppCLRWinFormsProject {
             // 
             // Button_Download
             // 
-            this->Button_Download->Location = System::Drawing::Point(671, 423);
+            this->Button_Download->Location = System::Drawing::Point(454, 438);
             this->Button_Download->Name = L"Button_Download";
             this->Button_Download->Size = System::Drawing::Size(75, 23);
             this->Button_Download->TabIndex = 5;
@@ -132,11 +138,20 @@ namespace CppCLRWinFormsProject {
             this->Button_Download->UseVisualStyleBackColor = true;
             this->Button_Download->Click += gcnew System::EventHandler(this, &ChatGrupEstudiUI::Button_DownloadFile_Click);
             // 
+            // listBoxFiles
+            // 
+            this->listBoxFiles->FormattingEnabled = true;
+            this->listBoxFiles->Location = System::Drawing::Point(584, 371);
+            this->listBoxFiles->Name = L"listBoxFiles";
+            this->listBoxFiles->Size = System::Drawing::Size(129, 121);
+            this->listBoxFiles->TabIndex = 6;
+            // 
             // ChatGrupEstudiUI
             // 
             this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
             this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-            this->ClientSize = System::Drawing::Size(1034, 609);
+            this->ClientSize = System::Drawing::Size(798, 498);
+            this->Controls->Add(this->listBoxFiles);
             this->Controls->Add(this->Button_Download);
             this->Controls->Add(this->Button_Send_Files);
             this->Controls->Add(this->Button_Cancelar);
@@ -144,6 +159,7 @@ namespace CppCLRWinFormsProject {
             this->Controls->Add(this->sendButton);
             this->Controls->Add(this->messageTextBox);
             this->Name = L"ChatGrupEstudiUI";
+            this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
             this->Text = L"Chat de Grupo de Estudio";
             this->ResumeLayout(false);
             this->PerformLayout();
@@ -178,8 +194,9 @@ namespace CppCLRWinFormsProject {
     }
     private: System::Void Button_Send_Files_Click(System::Object^ sender, System::EventArgs^ e);
 
-           Void Button_DownloadFile_Click(System::Object^ sender, System::EventArgs^ e);
-           
+    private: Void Button_DownloadFile_Click(System::Object^ sender, System::EventArgs^ e);
 
+    private: Void LoadFiles();
+           
 };
 }

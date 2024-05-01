@@ -168,7 +168,11 @@ namespace CppCLRWinFormsProject {
             array<Byte>^ fileData = fileByteConverterService->FileToBytes(filePath);
             if (fileData != nullptr) {
                 bool check = chatGrupEstudiService->SendFile(94LL, CurrentSession::Instance->GetCurrentUser()->GetUserId(), fileName, fileType, fileData);
-                if(check == true)MessageManager::InfoMessage("Archivo almacenado en la base de datos.");
+                if (check == true) {
+                    MessageManager::InfoMessage("Archivo almacenado en la base de datos.");
+                    files->Clear();
+                    LoadFiles();
+                }
                 else MessageManager::ErrorMessage("Error al enviar el archivo.");
             }
 			else {
@@ -178,33 +182,62 @@ namespace CppCLRWinFormsProject {
     }
     Void ChatGrupEstudiUI::Button_DownloadFile_Click(System::Object^ sender, System::EventArgs^ e)
     {
-        // Suponemos que obtienes un fileId de alguna parte, como un campo de texto o una selección de lista
-        Int64^ id_file = 1LL;
-        Files^ file = chatGrupEstudiService->GetFileById(id_file);
-        array<Byte>^ file_content = file->get_file_content();
-
-        if (file_content != nullptr) {
-			SaveFileDialog^ saveFileDialog = gcnew SaveFileDialog();
-			saveFileDialog->Filter = "All files (*.*)|*.*";
-			saveFileDialog->Title = "Guardar archivo";
-			saveFileDialog->FileName = file->get_filename() + file->get_file_type();
-
-			if (saveFileDialog->ShowDialog() == System::Windows::Forms::DialogResult::OK)
-			{
-				String^ filePath = saveFileDialog->FileName;
-				FileStream^ fs = gcnew FileStream(filePath, FileMode::Create);
-				BinaryWriter^ bw = gcnew BinaryWriter(fs);
-				bw->Write(file_content);
-				bw->Close();
-				fs->Close();
-				MessageManager::InfoMessage("Archivo guardado con éxito.");
-			}
-			else {
-				MessageManager::ErrorMessage("Error al descargar el archivo.");
-			}
+       
+        if (listBoxFiles->SelectedIndex == -1)
+        {
+			MessageManager::ErrorMessage("Seleccione un archivo para descargar.");
+			return;
 		}
+        else {
+            int select_index = listBoxFiles->SelectedIndex;
+            System::Collections::Generic::IEnumerator<Files^>^ enumerator = files->GetEnumerator();
+            int i = 0;
+            Files^ file = nullptr;
+            while (enumerator->MoveNext()) {
+                if (i == select_index) {
+                    file = enumerator->Current;
+                    break;
+                }
+                i++;
+            }
+
+            array<Byte>^ file_content = file->get_file_content();
+            if (file_content != nullptr) {
+                SaveFileDialog^ saveFileDialog = gcnew SaveFileDialog();
+                saveFileDialog->Filter = "All files (*.*)|*.*";
+                saveFileDialog->Title = "Guardar archivo";
+                saveFileDialog->FileName = file->get_filename() + file->get_file_type();
+
+                if (saveFileDialog->ShowDialog() == System::Windows::Forms::DialogResult::OK)
+                {
+                    String^ filePath = saveFileDialog->FileName;
+                    FileStream^ fs = gcnew FileStream(filePath, FileMode::Create);
+                    BinaryWriter^ bw = gcnew BinaryWriter(fs);
+                    bw->Write(file_content);
+                    bw->Close();
+                    fs->Close();
+                    MessageManager::InfoMessage("Archivo guardado con éxito.");
+                }
+                else {
+                    MessageManager::ErrorMessage("Error al descargar el archivo.");
+                }
+            }
+        }
        
     }
+
+    Void ChatGrupEstudiUI::LoadFiles()
+    {
+        
+        files = chatGrupEstudiService->GetFiles(94LL);
+        System::Collections::Generic::IEnumerator<Files^>^ enumerator = files->GetEnumerator();
+        while (enumerator->MoveNext()) {
+			Files^ file = enumerator->Current;
+			listBoxFiles->Items->Add(file->get_filename());
+		}
+    }
+
+
 
     
 }

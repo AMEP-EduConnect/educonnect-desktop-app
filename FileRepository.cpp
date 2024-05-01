@@ -47,13 +47,14 @@ List<Files^>^ FileRepository::GetFiles(Int64^ group_id)
 	DatabaseConnector::Instance->Connect();
 	String^ sql = "SELECT * FROM files WHERE group_id = @group_id";
 	Dictionary<String^, Object^>^ params = gcnew Dictionary<String^, Object^>(0);
-	params->Add("@file_id", group_id);
+	params->Add("@group_id", group_id);
 	MySqlDataReader^ data = DatabaseConnector::Instance->ExecuteClientCommand(sql, params);
-	Files^ file = gcnew Files();
+	
 	array<Byte>^ file_content = gcnew array<Byte>(0);
 	List<Files^>^ files = gcnew List<Files^>(0);
 	while(data->Read())
 	{
+		Files^ file = gcnew Files();
 		file->set_id(data->GetInt64(0));
 		file->set_user_id(data->GetInt64(1));
 		file->set_group_id(data->GetInt64(2));
@@ -67,4 +68,16 @@ List<Files^>^ FileRepository::GetFiles(Int64^ group_id)
 	data->Close();
 	DatabaseConnector::Instance->Disconnect();
 	return files;
+}
+
+bool FileRepository::DeleteFileById(Int64^ file_id)
+{
+	DatabaseConnector::Instance->Connect();
+	String^ sql = "DELETE FROM files WHERE id = @file_id";
+	Dictionary<String^, Object^>^ params = gcnew Dictionary<String^, Object^>(0);
+	params->Add("@file_id", file_id);
+	MySqlDataReader^ data = DatabaseConnector::Instance->ExecuteClientCommand(sql, params);
+	data->Close();
+	DatabaseConnector::Instance->Disconnect();
+	return true;
 }
