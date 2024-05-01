@@ -5,6 +5,7 @@
 #include "MainPageUI.h"
 #include "Usuari.h"
 #include "CurrentSession.h"
+#include "FileByteConverterService.h"
 namespace CppCLRWinFormsProject {
 
     using namespace System;
@@ -20,12 +21,10 @@ namespace CppCLRWinFormsProject {
         ChatGrupEstudiUI(void)
         {
             chatGrupEstudiService = gcnew ChatGrupEstudiService();
-            
+            fileByteConverterService = gcnew FileByteConverterService();
             chatMembers_Refresh = gcnew List<ChatMessage^>(0);
             InitializeComponent();
             this->Load += gcnew System::EventHandler(this, &ChatGrupEstudiUI::ChatGrupEstudiUI_Load);
-            //this->Activated += gcnew System::EventHandler(this, &ChatGrupEstudiUI::FormActivated);
-            //this->Deactivate += gcnew System::EventHandler(this, &ChatGrupEstudiUI::Button_Cancelar_Click);
         }
 
     protected:
@@ -47,8 +46,10 @@ namespace CppCLRWinFormsProject {
     private: List<ChatMessage^>^ chatMembers_Refresh;
     public: Int64^ messagelast_id;
     public: static ChatGrupEstudiUI^ Instance;
+    private: System::Windows::Forms::Button^ Button_Send_Files;
     private: System::ComponentModel::IContainer^ components;
-    private:
+    private: System::Windows::Forms::Button^ Button_Download;
+    private: FileByteConverterService^ fileByteConverterService;
 
     
 #pragma region Windows Form Designer generated code
@@ -60,6 +61,8 @@ namespace CppCLRWinFormsProject {
             this->sendButton = (gcnew System::Windows::Forms::Button());
             this->chatListBox = (gcnew System::Windows::Forms::RichTextBox());
             this->Button_Cancelar = (gcnew System::Windows::Forms::Button());
+            this->Button_Send_Files = (gcnew System::Windows::Forms::Button());
+            this->Button_Download = (gcnew System::Windows::Forms::Button());
             this->SuspendLayout();
             // 
             // chatTimer
@@ -70,9 +73,11 @@ namespace CppCLRWinFormsProject {
             // 
             // messageTextBox
             // 
+            this->messageTextBox->Font = (gcnew System::Drawing::Font(L"Inter", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+                static_cast<System::Byte>(0)));
             this->messageTextBox->Location = System::Drawing::Point(162, 394);
             this->messageTextBox->Name = L"messageTextBox";
-            this->messageTextBox->Size = System::Drawing::Size(351, 20);
+            this->messageTextBox->Size = System::Drawing::Size(351, 23);
             this->messageTextBox->TabIndex = 0;
             // 
             // sendButton
@@ -87,7 +92,7 @@ namespace CppCLRWinFormsProject {
             // 
             // chatListBox
             // 
-            this->chatListBox->BackColor = System::Drawing::SystemColors::ControlLightLight;
+            this->chatListBox->BackColor = System::Drawing::SystemColors::Window;
             this->chatListBox->Font = (gcnew System::Drawing::Font(L"Inter", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
             this->chatListBox->Location = System::Drawing::Point(162, 75);
@@ -107,11 +112,33 @@ namespace CppCLRWinFormsProject {
             this->Button_Cancelar->UseVisualStyleBackColor = true;
             this->Button_Cancelar->Click += gcnew System::EventHandler(this, &ChatGrupEstudiUI::Button_Cancelar_Click);
             // 
+            // Button_Send_Files
+            // 
+            this->Button_Send_Files->Location = System::Drawing::Point(671, 394);
+            this->Button_Send_Files->Name = L"Button_Send_Files";
+            this->Button_Send_Files->Size = System::Drawing::Size(75, 23);
+            this->Button_Send_Files->TabIndex = 4;
+            this->Button_Send_Files->Text = L"Ficheros";
+            this->Button_Send_Files->UseVisualStyleBackColor = true;
+            this->Button_Send_Files->Click += gcnew System::EventHandler(this, &ChatGrupEstudiUI::Button_Send_Files_Click);
+            // 
+            // Button_Download
+            // 
+            this->Button_Download->Location = System::Drawing::Point(671, 423);
+            this->Button_Download->Name = L"Button_Download";
+            this->Button_Download->Size = System::Drawing::Size(75, 23);
+            this->Button_Download->TabIndex = 5;
+            this->Button_Download->Text = L"Download";
+            this->Button_Download->UseVisualStyleBackColor = true;
+            this->Button_Download->Click += gcnew System::EventHandler(this, &ChatGrupEstudiUI::Button_DownloadFile_Click);
+            // 
             // ChatGrupEstudiUI
             // 
             this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
             this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
             this->ClientSize = System::Drawing::Size(1034, 609);
+            this->Controls->Add(this->Button_Download);
+            this->Controls->Add(this->Button_Send_Files);
             this->Controls->Add(this->Button_Cancelar);
             this->Controls->Add(this->chatListBox);
             this->Controls->Add(this->sendButton);
@@ -149,5 +176,10 @@ namespace CppCLRWinFormsProject {
     {
         this->chatTimer->Start(); // Inicia el timer cuando el formulario es activado.
     }
-    };
+    private: System::Void Button_Send_Files_Click(System::Object^ sender, System::EventArgs^ e);
+
+           Void Button_DownloadFile_Click(System::Object^ sender, System::EventArgs^ e);
+           
+
+};
 }

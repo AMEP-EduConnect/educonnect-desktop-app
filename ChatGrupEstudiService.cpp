@@ -8,6 +8,7 @@ ChatGrupEstudiService::ChatGrupEstudiService()
 {
     chatMessageRepository = gcnew ChatMessageRepository();
 	usuariRepository = gcnew UsuariRepository();
+	filesRepository = gcnew FileRepository();
 }
 
 bool ChatGrupEstudiService::SendMenssage(Int64^ group_id, Int64^ user_id, String^ message)
@@ -30,4 +31,16 @@ List<ChatMessage^>^ ChatGrupEstudiService::CheckLastsMessage(Int64^ group_id, In
 String^ ChatGrupEstudiService::GetUsernameMessageById(Int64^ user_id)
 {
 	return usuariRepository->GetUsuariById(user_id)->GetUsername();
+}
+bool ChatGrupEstudiService::SendFile(Int64^ group_id, Int64^ user_id, String^ file_name, String^ file_type, array<Byte>^ file_content)
+{
+	return filesRepository->AddFile(group_id, user_id, file_name, file_type, file_content);
+}
+List<Files^>^ ChatGrupEstudiService::GetFiles(Int64^ group_id)
+{
+	return filesRepository->GetFiles(group_id);
+}
+Files^ ChatGrupEstudiService::GetFileById(Int64^ file_id)
+{
+	return filesRepository->GetFile(file_id);
 }

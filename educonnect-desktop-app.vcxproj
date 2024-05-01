@@ -123,7 +123,8 @@
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <LanguageStandard>stdcpp20</LanguageStandard>
-      <AdditionalIncludeDirectories>.\resources\libs\cryptopp890\</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>
+      </AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <AdditionalDependencies>
@@ -222,6 +223,9 @@
     </ClInclude>
     <ClInclude Include="ChatMessage.h" />
     <ClInclude Include="ChatMessageRepository.h" />
+    <ClInclude Include="File.h" />
+    <ClInclude Include="FileByteConverterService.h" />
+    <ClInclude Include="FileRepository.h" />
     <ClInclude Include="GrupEstudi_ExplorarUI.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -306,6 +310,9 @@
     <ClCompile Include="ChatGrupEstudiUI.cpp" />
     <ClCompile Include="ChatMessage.cpp" />
     <ClCompile Include="ChatMessageRepository.cpp" />
+    <ClCompile Include="File.cpp" />
+    <ClCompile Include="FileByteConverterService.cpp" />
+    <ClCompile Include="FileRepository.cpp" />
     <ClCompile Include="GrupEstudi_ExplorarUI.cpp" />
     <ClCompile Include="GrupEstudi_MembresUI.cpp" />
     <ClCompile Include="AcademicTag.cpp" />
@@ -363,8 +370,17 @@
     <Image Include="background.png" />
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.VisualStudio.Shell.15.0">
+      <HintPath>Microsoft.VisualStudio.Shell.15.0</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.Shell.Framework">
+      <HintPath>Microsoft.VisualStudio.Shell.Framework</HintPath>
+    </Reference>
     <Reference Include="MySql.Data">
       <HintPath>C:\Program Files (x86)\MySQL\MySQL Connector NET 8.3.0\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="RuWizard">
+      <HintPath>..\appdata\local\microsoft\visualstudio\17.0_7a097949\extensions\pkersg22.q5n\RuWizard.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
