@@ -20,8 +20,7 @@ namespace CppCLRWinFormsProject {
 		textBox1->Text = capacity;
 		id_espai = espai->GetEspaiId();
 		
-		this->textBox3->Validating += gcnew System::ComponentModel::CancelEventHandler(this, &ModificaEspaisUI::NomEspai_TextBox_Validating);
-        this->textBox1->Validating += gcnew System::ComponentModel::CancelEventHandler(this, &ModificaEspaisUI::Capacitat_TextBox_Validating);
+        
 		//this->Background_PictureBox->Image = Image::FromFile("background.png");
 		this->Icon = gcnew System::Drawing::Icon("app.ico");
 
@@ -32,14 +31,14 @@ namespace CppCLRWinFormsProject {
 
 	}
 
-    Void ModificaEspaisUI::NomEspai_TextBox_Validating(Object^ sender, System::ComponentModel::CancelEventArgs^ e) {
-        TextBox^ textBox = dynamic_cast<TextBox^>(sender);
-        if (textBox != nullptr) {
-            bool isnotValid = this->modificaEspaisService->CheckNameEspai(textBox->Text);
+    bool ModificaEspaisUI::NomEspai_TextBox_Validating(String^ nom) {
+    
+        if (nom != nullptr) {
+            bool isnotValid = this->modificaEspaisService->CheckNameEspai(nom);
             if (isnotValid) {
                 MessageManager::WarningMessage("El nom de l'espai ja existeix.");
-                textBox->Text = "";
-                e->Cancel = true;
+                this->textBox3->Text = "";
+                
             }
 
         }
@@ -53,20 +52,25 @@ namespace CppCLRWinFormsProject {
     }
 
 
-    Void ModificaEspaisUI::Capacitat_TextBox_Validating(Object^ sender, System::ComponentModel::CancelEventArgs^ e) {
-        TextBox^ textBox = dynamic_cast<TextBox^>(sender);
-        if (textBox != nullptr) {
-            Int64^ t = Int64::Parse(textBox->Text);
-            if ((!IsValidCapacitat(textBox->Text) and textBox->Text != "") or (*t < 4LL)) {
+    bool ModificaEspaisUI::Capacitat_TextBox_Validating(String^ capacitat) {
+
+        if ((capacitat != "") && (capacitat != nullptr)) {
+
+            if (IsValidCapacitat(capacitat) == false) {
                 MessageManager::WarningMessage("La capacitat ha de ser un número enter major o igual a 4.");
                 this->textBox1->Text = "";
-
+                return false;
+            }
+            else {
+                Int64^ cap = Int64::Parse(capacitat);
+                if (*cap >= 4LL)return true;
+                else return false;
             }
 
 
         }
+        else return false;
     }
-
     void ModificaEspaisUI::button1_Click(System::Object^ sender, System::EventArgs^ e)
     {
         if(this->button1->Text == L"Confirmar")
@@ -75,8 +79,16 @@ namespace CppCLRWinFormsProject {
             String^ nom = textBox3->Text;
             String^ capacitatText = textBox1->Text;
        
-            if (!String::IsNullOrWhiteSpace(nom) && !String::IsNullOrWhiteSpace(capacitatText)) {
-				
+            if (nom != "" && capacitatText!= "") {
+
+                if (Capacitat_TextBox_Validating(capacitatText)==false) {
+              
+                    return;
+                }
+                if (NomEspai_TextBox_Validating(nom) == false) {
+
+                    return;
+                }
                 Int64^ capacitat = Int64::Parse(capacitatText);
                 Int64^ cap = espai->GetCapacity();
                 if (nom == espai->GetName() && *capacitat == *cap){

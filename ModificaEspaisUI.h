@@ -28,9 +28,10 @@ namespace CppCLRWinFormsProject {
 	{
 	public:
 		ModificaEspaisUI(String^ selectedEspais);
-		Void NomEspai_TextBox_Validating(Object^ sender, System::ComponentModel::CancelEventArgs^ e);
+		bool NomEspai_TextBox_Validating(String^ nom);
+		
 		bool IsValidCapacitat(String^ capacitat);
-		Void Capacitat_TextBox_Validating(Object^ sender, System::ComponentModel::CancelEventArgs^ e);
+		
 
 	protected:
 		/// <summary>
@@ -299,7 +300,9 @@ namespace CppCLRWinFormsProject {
 
 		   }
 #pragma endregion
-	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e);
+	private:
+		bool Capacitat_TextBox_Validating(String^ capacitat);
+		System::Void button1_Click(System::Object^ sender, System::EventArgs^ e);
 	private: System::Void Cancelar_Button_Click(System::Object^ sender, System::EventArgs^ e);
 private: System::Void Button_Cancelar_Edita_Click(System::Object^ sender, System::EventArgs^ e);
 };
