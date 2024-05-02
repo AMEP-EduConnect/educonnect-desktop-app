@@ -240,7 +240,7 @@ namespace CppCLRWinFormsProject {
 	}
     System::Void GrupEstudi_ConsultarUI::MoreInfo_GrupEstudi_Button_Click(System::Object^ sender, System::EventArgs^ e)
     {
-        GrupEstudi_InfoUI^ PanelUI = gcnew GrupEstudi_InfoUI();
+        GrupEstudi_InfoUI^ PanelUI = gcnew GrupEstudi_InfoUI(Noms_ListBox->Text);
         PanelUI->TopLevel = false;
         PanelUI->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
         PanelUI->Dock = System::Windows::Forms::DockStyle::Fill;

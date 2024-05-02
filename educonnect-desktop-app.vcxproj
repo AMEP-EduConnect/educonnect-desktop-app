@@ -455,6 +455,9 @@
     <EmbeddedResource Include="RegistreUsuariUI.resx">
       <DependentUpon>RegistreUsuariUI.h</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Session_CrearUI.resx">
+      <DependentUpon>Session_CrearUI.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="StartPageUI.resx">
       <DependentUpon>StartPageUI.h</DependentUpon>
     </EmbeddedResource>
