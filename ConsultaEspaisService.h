@@ -7,6 +7,8 @@ public ref class ConsultaEspaisService
 public:
     ConsultaEspaisService();
     List<Espai^>^ ListEspais(Int64^ id_prov);
+    bool CheckIfEspaiExistsByName(String^ name);
+    Int64^ GetEspaiIdByName(String^ name);
 private:
     EspaisRepository^ espaisRepository;
 

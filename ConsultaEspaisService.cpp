@@ -10,3 +10,23 @@ List<Espai^>^ ConsultaEspaisService::ListEspais(Int64^ id_prov) {
     espais = espaisRepository->GetEspaisById(id_prov);
     return espais;
 }
+
+bool ConsultaEspaisService::CheckIfEspaiExistsByName(String^ name)
+{
+
+	Espai^ exists = this->espaisRepository->GetEspaiByName(name);
+	if (exists == nullptr)
+	{
+		return false;
+	}
+	else
+	{
+		return true;
+	}
+}
+
+Int64^ ConsultaEspaisService::GetEspaiIdByName(String^ name)
+{
+	Espai^ espai = this->espaisRepository->GetEspaiByName(name);
+	return espai->GetEspaiId();
+}

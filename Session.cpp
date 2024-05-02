@@ -7,11 +7,11 @@ Session::Session()
 	group_id = nullptr;
 	espai_id = nullptr;
 	session_name = "";
-	session_start_date = "";
-	session_end_date = "";
+	session_start_date = nullptr;
+	session_end_date = nullptr;
 }	
 
-Session::Session(Int64^ id, Int64^ group_id, Int64^ espai_id, String^ session_name, String^ session_start_date, String^ session_end_date)
+Session::Session(Int64^ id, Int64^ group_id, Int64^ espai_id, String^ session_name, DateTime^ session_start_date, DateTime^ session_end_date)
 {
 	this->id = id;
 	this->group_id = group_id;
@@ -41,12 +41,12 @@ String^ Session::GetSessionName()
 	return session_name;
 }
 
-String^ Session::GetSessionStartDate()
+DateTime^ Session::GetSessionStartDate()
 {
 	return session_start_date;
 }
 
-String^ Session::GetSessionEndDate()
+DateTime^ Session::GetSessionEndDate()
 {
 	return session_end_date;
 }
@@ -71,12 +71,12 @@ void Session::SetSessionName(String^ session_name)
 	this->session_name = session_name;
 }
 
-void Session::SetSessionStartDate(String^ session_start_date)
+void Session::SetSessionStartDate(DateTime^ session_start_date)
 {
 	this->session_start_date = session_start_date;
 }
 
-void Session::SetSessionEndDate(String^ session_end_date)
+void Session::SetSessionEndDate(DateTime^ session_end_date)
 {
 	this->session_end_date = session_end_date;
 }
