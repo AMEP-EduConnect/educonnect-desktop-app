@@ -163,7 +163,7 @@ namespace CppCLRWinFormsProject {
         if (openFileDialog->ShowDialog() == System::Windows::Forms::DialogResult::OK)
         {
             String^ filePath = openFileDialog->FileName;
-            String^ fileName = Path::GetFileName(filePath);
+            String^ fileName = Path::GetFileNameWithoutExtension(filePath);
             String^ fileType = Path::GetExtension(filePath);
             array<Byte>^ fileData = fileByteConverterService->FileToBytes(filePath);
             if (fileData != nullptr) {
@@ -171,6 +171,7 @@ namespace CppCLRWinFormsProject {
                 if (check == true) {
                     MessageManager::InfoMessage("Archivo almacenado en la base de datos.");
                     files->Clear();
+                    listBoxFiles->Items->Clear();
                     LoadFiles();
                 }
                 else MessageManager::ErrorMessage("Error al enviar el archivo.");
@@ -204,9 +205,16 @@ namespace CppCLRWinFormsProject {
             array<Byte>^ file_content = file->get_file_content();
             if (file_content != nullptr) {
                 SaveFileDialog^ saveFileDialog = gcnew SaveFileDialog();
-                saveFileDialog->Filter = "All files (*.*)|*.*";
+                String^ fileType = file->get_file_type();
+                String ^ name = file->get_filename();
+               
+                saveFileDialog->Filter = "Specific files (*" + fileType + ")|*" + fileType + "|All files (*.*)|*.*";
+                saveFileDialog->FilterIndex = 1; 
                 saveFileDialog->Title = "Guardar archivo";
-                saveFileDialog->FileName = file->get_filename() + file->get_file_type();
+                String^ defaultExt = fileType->TrimStart('.'); 
+                saveFileDialog->DefaultExt = defaultExt;
+                
+                saveFileDialog->FileName = name;
 
                 if (saveFileDialog->ShowDialog() == System::Windows::Forms::DialogResult::OK)
                 {
@@ -233,7 +241,7 @@ namespace CppCLRWinFormsProject {
         System::Collections::Generic::IEnumerator<Files^>^ enumerator = files->GetEnumerator();
         while (enumerator->MoveNext()) {
 			Files^ file = enumerator->Current;
-			listBoxFiles->Items->Add(file->get_filename());
+			listBoxFiles->Items->Add(file->get_filename()+file->get_file_type());
 		}
     }
 
