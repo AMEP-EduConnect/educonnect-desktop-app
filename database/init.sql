@@ -53,6 +53,16 @@ create table if not exists studyGroups(
 	foreign key (group_owner_id) references users(id)
 
 );
+
+-- tabla de espacios
+create table if not exists espais(
+	id int auto_increment primary key,
+	name varchar(255) not null,
+	proveidor_id int,
+	capacity int not null,
+	foreign key (proveidor_id) references users(id)
+
+);
 -- tabla intermedia para miembros de grupos de estudio
 create table if not exists studyGroupsMembership (
     id int auto_increment primary key,
@@ -61,6 +71,25 @@ create table if not exists studyGroupsMembership (
     member_since timestamp default current_timestamp,
     foreign key (user_id) references users(id) on delete cascade,
     foreign key (group_id) references studyGroups(id) on delete cascade
+);
+-- tabla de sesiones de grupo
+create table if not exists grupSessions(
+	id int auto_increment primary key,
+	group_id int,
+	espai_id int,
+	session_name varchar(255) not null,
+	session_start_date timestamp not null,
+	session_end_date timestamp not null,
+	foreign key (espai_id) references espais(id) on delete cascade,
+	foreign key (group_id) references studyGroups(id) on delete cascade
+);
+-- tabla intermedia para asistentes a sesiones de grupo
+create table if not exists grupSessionsAttendants(
+	id int auto_increment primary key,
+	session_id int,
+	user_id int,
+	foreign key (session_id) references grupSessions(id) on delete cascade,
+	foreign key (user_id) references users(id) on delete cascade
 );
 
 insert into academicTags(tag_name) values("AMEP");

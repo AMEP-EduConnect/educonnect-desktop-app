@@ -239,7 +239,6 @@ namespace CppCLRWinFormsProject {
 			this->SessionName_TextBox->Name = L"SessionName_TextBox";
 			this->SessionName_TextBox->Size = System::Drawing::Size(246, 22);
 			this->SessionName_TextBox->TabIndex = 3;
-			this->SessionName_TextBox->TextChanged += gcnew System::EventHandler(this, &Session_CrearUI::SessionName_TextBox_TextChanged);
 			// 
 			// DayMonth_Calendar
 			// 
