@@ -127,7 +127,7 @@ namespace CppCLRWinFormsProject {
 			tableLayoutPanel1->ColumnCount = 3;
 			tableLayoutPanel1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent, 37.73585F)));
 			tableLayoutPanel1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent, 62.26415F)));
-			tableLayoutPanel1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Absolute, 309)));
+			tableLayoutPanel1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Absolute, 310)));
 			tableLayoutPanel1->Controls->Add(this->flowLayoutPanel1, 1, 6);
 			tableLayoutPanel1->Controls->Add(this->label1, 1, 4);
 			tableLayoutPanel1->Controls->Add(this->DescGrupEstudi_Label, 1, 3);
@@ -135,10 +135,10 @@ namespace CppCLRWinFormsProject {
 			tableLayoutPanel1->Controls->Add(this->panel1, 1, 5);
 			tableLayoutPanel1->Controls->Add(this->NewSession_Button, 0, 6);
 			tableLayoutPanel1->Controls->Add(this->panel2, 2, 1);
-			tableLayoutPanel1->Controls->Add(this->GoBack_Button, 2, 6);
 			tableLayoutPanel1->Controls->Add(this->Sessions_ListBox, 0, 5);
 			tableLayoutPanel1->Controls->Add(this->SessionsList_Label, 0, 4);
 			tableLayoutPanel1->Controls->Add(this->InfoGrupEstudi_Label, 1, 1);
+			tableLayoutPanel1->Controls->Add(this->GoBack_Button, 2, 6);
 			tableLayoutPanel1->Dock = System::Windows::Forms::DockStyle::Fill;
 			tableLayoutPanel1->Location = System::Drawing::Point(0, 0);
 			tableLayoutPanel1->Margin = System::Windows::Forms::Padding(4);
@@ -164,7 +164,7 @@ namespace CppCLRWinFormsProject {
 			this->flowLayoutPanel1->Location = System::Drawing::Point(296, 509);
 			this->flowLayoutPanel1->Margin = System::Windows::Forms::Padding(4);
 			this->flowLayoutPanel1->Name = L"flowLayoutPanel1";
-			this->flowLayoutPanel1->Size = System::Drawing::Size(475, 92);
+			this->flowLayoutPanel1->Size = System::Drawing::Size(474, 92);
 			this->flowLayoutPanel1->TabIndex = 5;
 			// 
 			// ConfirmAttent_Button
@@ -264,7 +264,7 @@ namespace CppCLRWinFormsProject {
 			this->panel1->Location = System::Drawing::Point(296, 291);
 			this->panel1->Margin = System::Windows::Forms::Padding(4);
 			this->panel1->Name = L"panel1";
-			this->panel1->Size = System::Drawing::Size(475, 210);
+			this->panel1->Size = System::Drawing::Size(474, 210);
 			this->panel1->TabIndex = 10;
 			this->panel1->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &GrupEstudi_InfoUI::panel1_Paint);
 			// 
@@ -347,13 +347,14 @@ namespace CppCLRWinFormsProject {
 			this->NewSession_Button->Text = L"Nova sessió";
 			this->NewSession_Button->UseVisualStyleBackColor = true;
 			this->NewSession_Button->Visible = false;
+			this->NewSession_Button->Click += gcnew System::EventHandler(this, &GrupEstudi_InfoUI::NewSession_Button_Click);
 			// 
 			// panel2
 			// 
 			this->panel2->Controls->Add(this->MembersGrupEstudi_Button);
 			this->panel2->Controls->Add(this->ModifyGrupEstudi_Button);
 			this->panel2->Controls->Add(this->DeleteGrupEstudi_Button);
-			this->panel2->Location = System::Drawing::Point(779, 29);
+			this->panel2->Location = System::Drawing::Point(778, 29);
 			this->panel2->Margin = System::Windows::Forms::Padding(4);
 			this->panel2->Name = L"panel2";
 			this->panel2->Size = System::Drawing::Size(299, 115);
@@ -394,7 +395,7 @@ namespace CppCLRWinFormsProject {
 			// GoBack_Button
 			// 
 			this->GoBack_Button->Anchor = System::Windows::Forms::AnchorStyles::None;
-			this->GoBack_Button->Location = System::Drawing::Point(880, 541);
+			this->GoBack_Button->Location = System::Drawing::Point(879, 541);
 			this->GoBack_Button->Margin = System::Windows::Forms::Padding(4);
 			this->GoBack_Button->Name = L"GoBack_Button";
 			this->GoBack_Button->Size = System::Drawing::Size(100, 28);
@@ -438,7 +439,7 @@ namespace CppCLRWinFormsProject {
 			this->InfoGrupEstudi_Label->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20.25F, System::Drawing::FontStyle::Bold,
 				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
 			this->InfoGrupEstudi_Label->ForeColor = System::Drawing::SystemColors::HotTrack;
-			this->InfoGrupEstudi_Label->Location = System::Drawing::Point(510, 67);
+			this->InfoGrupEstudi_Label->Location = System::Drawing::Point(509, 67);
 			this->InfoGrupEstudi_Label->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->InfoGrupEstudi_Label->Name = L"InfoGrupEstudi_Label";
 			this->InfoGrupEstudi_Label->Size = System::Drawing::Size(47, 39);
@@ -498,5 +499,6 @@ private: System::Void InfoGrupEstudi_Label_Click(System::Object^ sender, System:
 }
 private: System::Void panel1_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
 }
+private: System::Void NewSession_Button_Click(System::Object^ sender, System::EventArgs^ e);
 };
 }

@@ -2,6 +2,7 @@
 #include "GrupEstudi_InfoUI.h"
 #include "GrupEstudi_ConsultarUI.h"
 #include "MainPageUI.h"
+#include "Session_CrearUI.h"
 
 
 namespace CppCLRWinFormsProject {
@@ -17,8 +18,8 @@ namespace CppCLRWinFormsProject {
     void GrupEstudi_InfoUI::GrupEstudi_InfoUI_Load(System::Object^ sender, System::EventArgs^ e)
     {
         this->AcademicTagsInfo_Label->Text = this->grupEstudiService->GetAcademicTagNameById(this->CurrentGrupEntity->GetGroupAcademicTag());
-        this->InfoGrupEstudi_Label->Text = this->CurrentGrupEntity->GetDescription();
-        this->DescGrupEstudi_Label->Text = this->CurrentGrupEntity->GetGroupName();
+        this->InfoGrupEstudi_Label->Text = this->CurrentGrupEntity->GetGroupName();
+        this->DescGrupEstudi_Label->Text = this->CurrentGrupEntity->GetDescription();
         this->ActivateButtonsIfOwner();
         this->SelectLastSessionOrPlaceholder();
 
@@ -48,6 +49,19 @@ namespace CppCLRWinFormsProject {
     
     }
 
+    System::Void GrupEstudi_InfoUI::NewSession_Button_Click(System::Object^ sender, System::EventArgs^ e)
+    {
+        Session_CrearUI^ PanelUI = gcnew Session_CrearUI(this->CurrentGrupEntity);
+
+        PanelUI->TopLevel = false;
+        PanelUI->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
+        PanelUI->Dock = System::Windows::Forms::DockStyle::Fill;
+
+        MainPageUI::Instance->screen->Controls->Clear();
+        MainPageUI::Instance->screen->Controls->Add(PanelUI);
+        PanelUI->Show();
+    }
+
     System::Void GrupEstudi_InfoUI::GoBack_Button_Click(System::Object^ sender, System::EventArgs^ e)
     {
         GrupEstudi_ConsultarUI^ PanelUI = gcnew GrupEstudi_ConsultarUI();
@@ -60,4 +74,5 @@ namespace CppCLRWinFormsProject {
         MainPageUI::Instance->screen->Controls->Add(PanelUI);
         PanelUI->Show();
     }
+
 }
