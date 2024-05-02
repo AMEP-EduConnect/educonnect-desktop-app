@@ -30,5 +30,30 @@ namespace CppCLRWinFormsProject {
 		PanelUI->Show();
 	}
 
+	System::Void Session_CrearUI::DayMonth_Calendar_DateChanged(System::Object^ sender, System::Windows::Forms::DateRangeEventArgs^ e)
+	{
+		return System::Void();
+	}
+
+	System::Void Session_CrearUI::Proveidor_ListBox_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e)
+	{
+		return System::Void();
+	}
+
+	System::Void Session_CrearUI::Espai_ComboBox_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e)
+	{
+		return System::Void();
+	}
+
+	System::Void Session_CrearUI::TimeHour_ComboBox_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e)
+	{
+		return System::Void();
+	}
+
+	System::Void Session_CrearUI::CreateSession_Button_Click(System::Object^ sender, System::EventArgs^ e)
+	{
+		return System::Void();
+	}
+
 };
 

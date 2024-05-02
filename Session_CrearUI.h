@@ -1,5 +1,11 @@
 #pragma once
 #include "GrupEstudi.h"
+#include "GrupEstudiService.h"
+#include "SessionService.h"
+#include "ConsultaEspaisService.h"
+#include "BaixaProveidorService.h"
+#include "Session.h"
+
 
 namespace CppCLRWinFormsProject {
 
@@ -62,7 +68,12 @@ namespace CppCLRWinFormsProject {
 
 
 
-		   GrupEstudi^ CurrentGrupEntity;
+	private: GrupEstudi^ CurrentGrupEntity;
+	private: Session^ CurrentSessionEntity;
+	private: GrupEstudiService^ grupEstudiService;
+	private: SessionService^ sessionService;
+	private: BaixaProveidorService^ baixaProveidorService;
+	private: ConsultaEspaisService^ consultaEspaisService;
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
@@ -164,6 +175,7 @@ namespace CppCLRWinFormsProject {
 			this->CreateSession_Button->TabIndex = 10;
 			this->CreateSession_Button->Text = L"Crear sessió";
 			this->CreateSession_Button->UseVisualStyleBackColor = true;
+			this->CreateSession_Button->Click += gcnew System::EventHandler(this, &Session_CrearUI::CreateSession_Button_Click);
 			// 
 			// label2
 			// 
@@ -181,6 +193,7 @@ namespace CppCLRWinFormsProject {
 			this->TimeHour_ComboBox->Name = L"TimeHour_ComboBox";
 			this->TimeHour_ComboBox->Size = System::Drawing::Size(220, 24);
 			this->TimeHour_ComboBox->TabIndex = 8;
+			this->TimeHour_ComboBox->SelectedIndexChanged += gcnew System::EventHandler(this, &Session_CrearUI::TimeHour_ComboBox_SelectedIndexChanged);
 			// 
 			// Espai_Label
 			// 
@@ -208,6 +221,7 @@ namespace CppCLRWinFormsProject {
 			this->Espai_ComboBox->Name = L"Espai_ComboBox";
 			this->Espai_ComboBox->Size = System::Drawing::Size(246, 24);
 			this->Espai_ComboBox->TabIndex = 5;
+			this->Espai_ComboBox->SelectedIndexChanged += gcnew System::EventHandler(this, &Session_CrearUI::Espai_ComboBox_SelectedIndexChanged);
 			// 
 			// SessionName_Label
 			// 
@@ -225,12 +239,14 @@ namespace CppCLRWinFormsProject {
 			this->SessionName_TextBox->Name = L"SessionName_TextBox";
 			this->SessionName_TextBox->Size = System::Drawing::Size(246, 22);
 			this->SessionName_TextBox->TabIndex = 3;
+			this->SessionName_TextBox->TextChanged += gcnew System::EventHandler(this, &Session_CrearUI::SessionName_TextBox_TextChanged);
 			// 
 			// DayMonth_Calendar
 			// 
 			this->DayMonth_Calendar->Location = System::Drawing::Point(367, 60);
 			this->DayMonth_Calendar->Name = L"DayMonth_Calendar";
 			this->DayMonth_Calendar->TabIndex = 2;
+			this->DayMonth_Calendar->DateChanged += gcnew System::Windows::Forms::DateRangeEventHandler(this, &Session_CrearUI::DayMonth_Calendar_DateChanged);
 			// 
 			// Proveidor_ListBox
 			// 
@@ -240,6 +256,7 @@ namespace CppCLRWinFormsProject {
 			this->Proveidor_ListBox->Name = L"Proveidor_ListBox";
 			this->Proveidor_ListBox->Size = System::Drawing::Size(246, 84);
 			this->Proveidor_ListBox->TabIndex = 0;
+			this->Proveidor_ListBox->SelectedIndexChanged += gcnew System::EventHandler(this, &Session_CrearUI::Proveidor_ListBox_SelectedIndexChanged);
 			// 
 			// GoBack_Button
 			// 
@@ -276,5 +293,10 @@ namespace CppCLRWinFormsProject {
 private: System::Void tableLayoutPanel2_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
 }
 private: System::Void GoBack_Button_Click(System::Object^ sender, System::EventArgs^ e);
+private: System::Void DayMonth_Calendar_DateChanged(System::Object^ sender, System::Windows::Forms::DateRangeEventArgs^ e);
+private: System::Void Proveidor_ListBox_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e);
+private: System::Void Espai_ComboBox_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e);
+private: System::Void TimeHour_ComboBox_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e);
+private: System::Void CreateSession_Button_Click(System::Object^ sender, System::EventArgs^ e);
 };
 }
