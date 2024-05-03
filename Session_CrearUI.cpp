@@ -25,17 +25,6 @@ namespace CppCLRWinFormsProject {
 		this->LoadProveidorsOnList();
 	}
 
-	void Session_CrearUI::LoadProveidorsOnList()
-	{
-		List<Usuari^>^ Proveidors = this->baixaProveidorService->ListProveidors();
-		System::Collections::Generic::IEnumerator<Usuari^>^ enumerator = Proveidors->GetEnumerator();
-		while (enumerator->MoveNext())
-		{
-			this->Proveidor_ListBox->Items->Add(enumerator->Current->GetUsername());
-		}
-		
-	}
-
 	System::Void Session_CrearUI::GoBack_Button_Click(System::Object^ sender, System::EventArgs^ e)
 	{
 		GrupEstudi_InfoUI^ PanelUI = gcnew GrupEstudi_InfoUI((this->CurrentGrupEntity)->GetGroupName());
@@ -54,35 +43,10 @@ namespace CppCLRWinFormsProject {
 		this->LoadEspaisFromSelectedProveidor();
 	}
 
-	void Session_CrearUI::LoadEspaisFromSelectedProveidor()
-	{
-		this->Espai_ComboBox->Items->Clear();
-		this->Espai_ComboBox->Enabled = true;
-		Usuari^ Proveidor = this->iniciSessioService->GetUsuariByUser(this->Proveidor_ListBox->Text);
-		List<Espai^>^ Espais = this->consultaEspaisService->ListEspais(Proveidor->GetUserId());
-		System::Collections::Generic::IEnumerator<Espai^>^ enumerator = Espais->GetEnumerator();
-		while (enumerator->MoveNext())
-		{
-			this->Espai_ComboBox->Items->Add(enumerator->Current->GetNom() + " - max: " + enumerator->Current->GetCapacitat());
-		}
-	}
-
 	System::Void Session_CrearUI::DayMonth_Calendar_DateChanged(System::Object^ sender, System::Windows::Forms::DateRangeEventArgs^ e)
 	{
 		this->FullyFormatedSessionDate = this->DayMonth_Calendar->SelectionStart;
 		this->LoadEspaiTimeStampsOfCurrentDay();
-	}
-
-	void Session_CrearUI::LoadEspaiTimeStampsOfCurrentDay()
-	{
-		this->TimeHour_ComboBox->Items->Clear();
-		this->TimeHour_ComboBox->Enabled = true;
-		List<String^>^ TimeStamps = this->sessionService->GenerateAllTimeStamps();
-		System::Collections::Generic::IEnumerator<String^>^ enumerator = TimeStamps->GetEnumerator();
-		while (enumerator->MoveNext())
-		{
-			this->TimeHour_ComboBox->Items->Add(enumerator->Current);
-		}
 	}
 
 	System::Void Session_CrearUI::Espai_ComboBox_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e)
@@ -94,10 +58,8 @@ namespace CppCLRWinFormsProject {
 	{
 		if (this->FullyFormatedSessionDate != nullptr && this->TimeHour_ComboBox->Text != "")
 		{
-			Double formattedHour = this->sessionService->GetFormattedHour(this->TimeHour_ComboBox->Text);
-			DateTime sessionDate = *FullyFormatedSessionDate;
-			sessionDate = sessionDate.AddHours(formattedHour);
-			*FullyFormatedSessionDate = sessionDate;
+
+			*FullyFormatedSessionDate = this->FormatEspaiStringIntoDateTime(this->TimeHour_ComboBox->Text);
 			bool isFree = this->sessionService->CheckIfTimeStampIsFree(FullyFormatedSessionDate);
 			if (isFree)
 			{
@@ -166,5 +128,53 @@ namespace CppCLRWinFormsProject {
 		return true;
 	}
 
+	DateTime Session_CrearUI::FormatEspaiStringIntoDateTime(String^ espaiString)
+	{
+		Double formattedHour = this->sessionService->GetFormattedHour(espaiString);
+		DateTime sessionDate = *FullyFormatedSessionDate;
+		sessionDate = sessionDate.AddHours(formattedHour);
+		return sessionDate;
+	}
+
+	void Session_CrearUI::LoadEspaiTimeStampsOfCurrentDay()
+	{
+		this->TimeHour_ComboBox->Items->Clear();
+		this->TimeHour_ComboBox->Enabled = true;
+		List<String^>^ TimeStamps = this->sessionService->GenerateAllTimeStamps();
+		System::Collections::Generic::IEnumerator<String^>^ enumerator = TimeStamps->GetEnumerator();
+		while (enumerator->MoveNext())
+		{
+			DateTime CurrentTimeStamp = this->FormatEspaiStringIntoDateTime(enumerator->Current);
+			bool isFree = this->sessionService->CheckIfTimeStampIsFree(CurrentTimeStamp);
+			if (isFree)
+			{
+				this->TimeHour_ComboBox->Items->Add(enumerator->Current);
+			}
+		}
+	}
+
+	void Session_CrearUI::LoadEspaisFromSelectedProveidor()
+	{
+		this->Espai_ComboBox->Items->Clear();
+		this->Espai_ComboBox->Enabled = true;
+		Usuari^ Proveidor = this->iniciSessioService->GetUsuariByUser(this->Proveidor_ListBox->Text);
+		List<Espai^>^ Espais = this->consultaEspaisService->ListEspais(Proveidor->GetUserId());
+		System::Collections::Generic::IEnumerator<Espai^>^ enumerator = Espais->GetEnumerator();
+		while (enumerator->MoveNext())
+		{
+			this->Espai_ComboBox->Items->Add(enumerator->Current->GetNom() + " - max: " + enumerator->Current->GetCapacitat());
+		}
+	}
+
+	void Session_CrearUI::LoadProveidorsOnList()
+	{
+		List<Usuari^>^ Proveidors = this->baixaProveidorService->ListProveidors();
+		System::Collections::Generic::IEnumerator<Usuari^>^ enumerator = Proveidors->GetEnumerator();
+		while (enumerator->MoveNext())
+		{
+			this->Proveidor_ListBox->Items->Add(enumerator->Current->GetUsername());
+		}
+
+	}
 };
 

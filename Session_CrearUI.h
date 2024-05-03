@@ -316,6 +316,7 @@ private: System::Void LoadEspaiTimeStampsOfCurrentDay();
 private: System::Void Proveidor_ListBox_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e);
 private: System::Void LoadEspaisFromSelectedProveidor();
 private: System::Void Espai_ComboBox_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e);
+private: DateTime FormatEspaiStringIntoDateTime(String^ espaiString);
 private: System::Void TimeHour_ComboBox_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e);
 private: System::Void CreateSession_Button_Click(System::Object^ sender, System::EventArgs^ e);
 private: bool FieldsNotEmpty();
