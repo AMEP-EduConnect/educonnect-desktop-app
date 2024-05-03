@@ -67,11 +67,12 @@ List<String^>^ SessionService::GenerateAllTimeStamps()
 	List<String^>^ allTimeStamps = gcnew List<String^>(0);
 	for (int i = 8; i < 21; i++)
 	{
-		allTimeStamps->Add(i.ToString() + ":00 - " + i.ToString() + ":30");
-		allTimeStamps->Add(i.ToString() + ":30 - " + (i + 1).ToString() + ":00");
+		allTimeStamps->Add(i.ToString() + ":00 - " + (i + 1).ToString() + ":00");
 	}
+	allTimeStamps->Add("20:00 - 21:00");
 	return allTimeStamps;
 }
+
 String^ SessionService::GetFormattedEspai(String^ name)
 {
 	int separator = name->IndexOf("-");

@@ -66,7 +66,7 @@ namespace CppCLRWinFormsProject {
 
     System::Void GrupEstudi_InfoUI::ModifySession_Click(System::Object^ sender, System::EventArgs^ e)
     {
-        Session_EditarUI^ PanelUI = gcnew Session_EditarUI(this->CurrentGrupEntity, 1LL);
+        Session_EditarUI^ PanelUI = gcnew Session_EditarUI(this->CurrentGrupEntity, 10LL);
 
         PanelUI->TopLevel = false;
         PanelUI->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
