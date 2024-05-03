@@ -106,6 +106,7 @@ namespace CppCLRWinFormsProject {
             this->messageTextBox->Name = L"messageTextBox";
             this->messageTextBox->Size = System::Drawing::Size(339, 27);
             this->messageTextBox->TabIndex = 0;
+            this->messageTextBox->KeyDown += gcnew System::Windows::Forms::KeyEventHandler(this, &ChatGrupEstudiUI::messageTextBox_KeyDown);
             // 
             // chatListBox
             // 
@@ -113,7 +114,7 @@ namespace CppCLRWinFormsProject {
             this->chatListBox->BackColor = System::Drawing::SystemColors::Window;
             this->chatListBox->Font = (gcnew System::Drawing::Font(L"Inter", 11.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
-            this->chatListBox->Location = System::Drawing::Point(19, 24);
+            this->chatListBox->Location = System::Drawing::Point(14, 24);
             this->chatListBox->Name = L"chatListBox";
             this->chatListBox->ReadOnly = true;
             this->chatListBox->Size = System::Drawing::Size(560, 288);
@@ -127,7 +128,7 @@ namespace CppCLRWinFormsProject {
             this->Button_Cancelar->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
             this->Button_Cancelar->ForeColor = System::Drawing::Color::Red;
-            this->Button_Cancelar->Location = System::Drawing::Point(3, 74);
+            this->Button_Cancelar->Location = System::Drawing::Point(14, 79);
             this->Button_Cancelar->Name = L"Button_Cancelar";
             this->Button_Cancelar->Size = System::Drawing::Size(87, 29);
             this->Button_Cancelar->TabIndex = 3;
@@ -142,7 +143,7 @@ namespace CppCLRWinFormsProject {
                 static_cast<System::Byte>(0)));
             this->Button_Send_Files->Location = System::Drawing::Point(13, 8);
             this->Button_Send_Files->Name = L"Button_Send_Files";
-            this->Button_Send_Files->Size = System::Drawing::Size(99, 36);
+            this->Button_Send_Files->Size = System::Drawing::Size(99, 34);
             this->Button_Send_Files->TabIndex = 4;
             this->Button_Send_Files->Text = L"Adjuntar";
             this->Button_Send_Files->UseVisualStyleBackColor = true;
@@ -153,7 +154,7 @@ namespace CppCLRWinFormsProject {
             this->Button_Download->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
             this->Button_Download->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
-            this->Button_Download->Location = System::Drawing::Point(13, 76);
+            this->Button_Download->Location = System::Drawing::Point(13, 64);
             this->Button_Download->Name = L"Button_Download";
             this->Button_Download->Size = System::Drawing::Size(99, 34);
             this->Button_Download->TabIndex = 5;
@@ -163,14 +164,14 @@ namespace CppCLRWinFormsProject {
             // 
             // listBoxFiles
             // 
-            this->listBoxFiles->Dock = System::Windows::Forms::DockStyle::Fill;
+            this->listBoxFiles->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->listBoxFiles->Font = (gcnew System::Drawing::Font(L"Inter", 11.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
             this->listBoxFiles->FormattingEnabled = true;
             this->listBoxFiles->ItemHeight = 19;
-            this->listBoxFiles->Location = System::Drawing::Point(0, 0);
+            this->listBoxFiles->Location = System::Drawing::Point(0, 24);
             this->listBoxFiles->Name = L"listBoxFiles";
-            this->listBoxFiles->Size = System::Drawing::Size(121, 337);
+            this->listBoxFiles->Size = System::Drawing::Size(121, 299);
             this->listBoxFiles->TabIndex = 6;
             // 
             // tableLayoutPanel1
@@ -179,14 +180,14 @@ namespace CppCLRWinFormsProject {
             this->tableLayoutPanel1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
                 10)));
             this->tableLayoutPanel1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
-                74.52935F)));
+                73.34152F)));
             this->tableLayoutPanel1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
-                15.50388F)));
+                16.70762F)));
             this->tableLayoutPanel1->Controls->Add(this->panel1, 1, 1);
-            this->tableLayoutPanel1->Controls->Add(this->label_grup_name, 1, 0);
             this->tableLayoutPanel1->Controls->Add(this->panel2, 1, 2);
             this->tableLayoutPanel1->Controls->Add(this->panel3, 2, 1);
             this->tableLayoutPanel1->Controls->Add(this->panel4, 2, 2);
+            this->tableLayoutPanel1->Controls->Add(this->label_grup_name, 1, 0);
             this->tableLayoutPanel1->Location = System::Drawing::Point(0, 0);
             this->tableLayoutPanel1->Name = L"tableLayoutPanel1";
             this->tableLayoutPanel1->RowCount = 3;
@@ -203,7 +204,7 @@ namespace CppCLRWinFormsProject {
             this->panel1->Dock = System::Windows::Forms::DockStyle::Fill;
             this->panel1->Location = System::Drawing::Point(84, 72);
             this->panel1->Name = L"panel1";
-            this->panel1->Size = System::Drawing::Size(600, 337);
+            this->panel1->Size = System::Drawing::Size(590, 337);
             this->panel1->TabIndex = 8;
             // 
             // label_grup_name
@@ -213,47 +214,50 @@ namespace CppCLRWinFormsProject {
             this->label_grup_name->Font = (gcnew System::Drawing::Font(L"Inter", 20.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
             this->label_grup_name->ForeColor = System::Drawing::SystemColors::HotTrack;
-            this->label_grup_name->Location = System::Drawing::Point(264, 18);
+            this->label_grup_name->Location = System::Drawing::Point(259, 18);
             this->label_grup_name->Name = L"label_grup_name";
             this->label_grup_name->Size = System::Drawing::Size(239, 33);
             this->label_grup_name->TabIndex = 3;
             this->label_grup_name->Text = L"Chat Grup Estudi";
+            this->label_grup_name->TextAlign = System::Drawing::ContentAlignment::TopCenter;
             // 
             // panel2
             // 
             this->panel2->Anchor = System::Windows::Forms::AnchorStyles::None;
+            this->panel2->BackColor = System::Drawing::SystemColors::GradientInactiveCaption;
             this->panel2->Controls->Add(this->pictureBox1);
             this->panel2->Controls->Add(this->Button_Cancelar);
             this->panel2->Controls->Add(this->messageTextBox);
-            this->panel2->Location = System::Drawing::Point(84, 423);
+            this->panel2->Location = System::Drawing::Point(84, 417);
             this->panel2->Name = L"panel2";
-            this->panel2->Size = System::Drawing::Size(600, 103);
+            this->panel2->Size = System::Drawing::Size(590, 115);
             this->panel2->TabIndex = 9;
             // 
             // pictureBox1
             // 
-            this->pictureBox1->Location = System::Drawing::Point(389, 23);
+            this->pictureBox1->Location = System::Drawing::Point(377, 23);
             this->pictureBox1->Name = L"pictureBox1";
             this->pictureBox1->Size = System::Drawing::Size(30, 27);
             this->pictureBox1->TabIndex = 4;
             this->pictureBox1->TabStop = false;
-            this->pictureBox1->Click += gcnew System::EventHandler(this, &ChatGrupEstudiUI::Button_Send_Files_Click);
+            this->pictureBox1->Click += gcnew System::EventHandler(this, &ChatGrupEstudiUI::sendButton_Click);
             // 
             // panel3
             // 
             this->panel3->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->panel3->BackColor = System::Drawing::SystemColors::GradientInactiveCaption;
             this->panel3->Controls->Add(this->listBoxFiles);
-            this->panel3->Location = System::Drawing::Point(690, 72);
+            this->panel3->Location = System::Drawing::Point(685, 72);
             this->panel3->Name = L"panel3";
             this->panel3->Size = System::Drawing::Size(121, 337);
             this->panel3->TabIndex = 10;
             // 
             // panel4
             // 
+            this->panel4->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->panel4->Controls->Add(this->Button_Download);
             this->panel4->Controls->Add(this->Button_Send_Files);
-            this->panel4->Location = System::Drawing::Point(690, 415);
+            this->panel4->Location = System::Drawing::Point(685, 415);
             this->panel4->Name = L"panel4";
             this->panel4->Size = System::Drawing::Size(121, 119);
             this->panel4->TabIndex = 11;
@@ -300,5 +304,10 @@ namespace CppCLRWinFormsProject {
 
     private: Void LoadFiles();
            
+    private: System::Void messageTextBox_KeyDown(System::Object^ sender, System::Windows::Forms::KeyEventArgs^ e) {
+    if (e->KeyCode == Keys::Enter) {
+		sendButton_Click(sender, e);
+	}
+    }
 };
 }

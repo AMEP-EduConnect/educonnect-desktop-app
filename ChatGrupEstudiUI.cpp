@@ -17,6 +17,7 @@ namespace CppCLRWinFormsProject {
 			}
             else 
             {
+                if (message->Length > 15) message = FormatMessage(message);
                 int start = chatListBox->TextLength;  
                 chatListBox->SelectionFont = gcnew System::Drawing::Font(chatListBox->Font, FontStyle::Bold);
                 chatListBox->AppendText("Tú: ");
@@ -42,8 +43,8 @@ namespace CppCLRWinFormsProject {
         while (enumerator->MoveNext()) {
             ChatMessage^ chatMessage = enumerator->Current;
             int start = chatListBox->TextLength;
-            String^ message = FormatMessage(chatMessage->getMessage());
-            if (chatMessage->getMessage()->Length > 50) message = FormatMessage(chatMessage->getMessage());
+            String^ message = chatMessage->getMessage();
+            if (chatMessage->getMessage()->Length > 15) message = FormatMessage(chatMessage->getMessage());
 
             if (*chatMessage->getUserId() != *id_user) {
                 chatListBox->SelectionFont = gcnew System::Drawing::Font(chatListBox->Font, FontStyle::Bold);
@@ -79,7 +80,7 @@ namespace CppCLRWinFormsProject {
     }
 
     System::String^ ChatGrupEstudiUI::FormatMessage(System::String^ message) {
-        int maxLineLength = 43;  // Límite de caracteres antes de intentar un salto de línea
+        int maxLineLength = 35;  // Límite de caracteres antes de intentar un salto de línea
         for (int i = maxLineLength; i < message->Length; i += maxLineLength) {
             // Busca el espacio más cercano a la izquierda desde la posición i
             int spacePos = message->LastIndexOf(' ', i);
@@ -238,9 +239,6 @@ namespace CppCLRWinFormsProject {
 			Files^ file = enumerator->Current;
 			listBoxFiles->Items->Add(file->get_filename()+file->get_file_type());
 		}
-    }
-
-   
-    
+    }  
 }
 
