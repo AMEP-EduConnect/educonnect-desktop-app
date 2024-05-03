@@ -79,11 +79,6 @@ namespace CppCLRWinFormsProject {
 		PanelUI->Show();
 	}
 
-	System::Void Session_EditarUI::CreateSession_Button_Click(System::Object^ sender, System::EventArgs^ e)
-	{
-		return System::Void();
-	}
-
 	System::Void Session_EditarUI::EditarNom_Button_Click(System::Object^ sender, System::EventArgs^ e)
 	{
 		return System::Void();

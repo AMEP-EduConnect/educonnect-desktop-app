@@ -353,7 +353,6 @@ private: System::Void Proveidor_ListBox_SelectedIndexChanged(System::Object^ sen
 private: System::Void TimeHour_ComboBox_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e);
 private: System::Void DayMonth_Calendar_DateChanged(System::Object^ sender, System::Windows::Forms::DateRangeEventArgs^ e);
 private: System::Void GoBack_Button_Click(System::Object^ sender, System::EventArgs^ e);
-private: System::Void CreateSession_Button_Click(System::Object^ sender, System::EventArgs^ e);
 private: System::Void EditarNom_Button_Click(System::Object^ sender, System::EventArgs^ e);
 private: System::Void EditarProveidor_Button_Click(System::Object^ sender, System::EventArgs^ e);
 private: System::Void EditarEspai_Button_Click(System::Object^ sender, System::EventArgs^ e);
