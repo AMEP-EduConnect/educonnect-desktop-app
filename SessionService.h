@@ -19,6 +19,8 @@ public:
 	String^ GetFormattedEspai(String^ name);
 	Double GetFormattedHour(String^ hour);
 
+	Session^ GetSessionById(Int64^ user_id);
+
 private:
 	SessionRepository^ sessionRepository;
 	ConsultaEspaisService^ consultaEspaisService;

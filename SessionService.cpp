@@ -92,4 +92,9 @@ Double SessionService::GetFormattedHour(String^ hour)
 	return System::Convert::ToDouble(formattedHour);
 }
 
+Session^ SessionService::GetSessionById(Int64^ user_id)
+{
+	return sessionRepository->GetSessionById(user_id);
+}
+
 

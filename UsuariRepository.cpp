@@ -173,3 +173,24 @@ Int64^ UsuariRepository::GetUserId(String^ username) {
 	DatabaseConnector::Instance->Disconnect();
 	return id;
 }
+
+Usuari^ UsuariRepository::GetProveidorByEspaiId(Int64^ espai_id)
+{
+	DatabaseConnector::Instance->Connect();
+	String^ sql = "SELECT * FROM users WHERE id = (SELECT proveidor_id FROM espais WHERE id = @id)";
+	Dictionary<String^, Object^>^ params = gcnew Dictionary<String^, Object^>(0);
+	params->Add("@id", espai_id->ToString());
+	MySqlDataReader^ data = DatabaseConnector::Instance->ExecuteClientCommand(sql, params);
+	Usuari^ usuari = gcnew Usuari();
+	while (data->Read())
+	{
+		usuari->SetUserId(data->GetInt64(0));
+		usuari->SetUsername(data->GetString(1));
+		usuari->SetPassword(data->GetString(2));
+		usuari->SetEmail(data->GetString(3));
+		usuari->SetName(data->GetString(4));
+	}
+	DatabaseConnector::Instance->Disconnect();
+	return usuari;
+
+}

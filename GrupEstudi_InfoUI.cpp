@@ -3,6 +3,8 @@
 #include "GrupEstudi_ConsultarUI.h"
 #include "MainPageUI.h"
 #include "Session_CrearUI.h"
+#include "Session_EditarUI.h"
+#include "Session.h"
 
 
 namespace CppCLRWinFormsProject {
@@ -52,6 +54,19 @@ namespace CppCLRWinFormsProject {
     System::Void GrupEstudi_InfoUI::NewSession_Button_Click(System::Object^ sender, System::EventArgs^ e)
     {
         Session_CrearUI^ PanelUI = gcnew Session_CrearUI(this->CurrentGrupEntity);
+
+        PanelUI->TopLevel = false;
+        PanelUI->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
+        PanelUI->Dock = System::Windows::Forms::DockStyle::Fill;
+
+        MainPageUI::Instance->screen->Controls->Clear();
+        MainPageUI::Instance->screen->Controls->Add(PanelUI);
+        PanelUI->Show();
+    }
+
+    System::Void GrupEstudi_InfoUI::ModifySession_Click(System::Object^ sender, System::EventArgs^ e)
+    {
+        Session_EditarUI^ PanelUI = gcnew Session_EditarUI(this->CurrentGrupEntity, 1LL);
 
         PanelUI->TopLevel = false;
         PanelUI->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;

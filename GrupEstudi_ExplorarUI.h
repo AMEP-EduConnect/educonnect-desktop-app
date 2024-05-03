@@ -128,7 +128,7 @@ namespace CppCLRWinFormsProject {
 			this->tableLayoutPanel1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Absolute,
 				137)));
 			this->tableLayoutPanel1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Absolute,
-				129)));
+				130)));
 			this->tableLayoutPanel1->Controls->Add(this->ExplorarGrupEstudi_Label, 1, 0);
 			this->tableLayoutPanel1->Controls->Add(this->Actual_Panel, 1, 2);
 			this->tableLayoutPanel1->Controls->Add(this->buscador_textBox, 1, 1);
@@ -177,7 +177,7 @@ namespace CppCLRWinFormsProject {
 			this->Actual_Panel->Dock = System::Windows::Forms::DockStyle::Fill;
 			this->Actual_Panel->Location = System::Drawing::Point(113, 109);
 			this->Actual_Panel->Name = L"Actual_Panel";
-			this->Actual_Panel->Size = System::Drawing::Size(431, 395);
+			this->Actual_Panel->Size = System::Drawing::Size(430, 395);
 			this->Actual_Panel->TabIndex = 7;
 			this->Actual_Panel->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &GrupEstudi_Explorar::Actual_Panel_Paint);
 			// 
@@ -335,7 +335,7 @@ namespace CppCLRWinFormsProject {
 			this->buscador_textBox->Location = System::Drawing::Point(112, 75);
 			this->buscador_textBox->Margin = System::Windows::Forms::Padding(2);
 			this->buscador_textBox->Name = L"buscador_textBox";
-			this->buscador_textBox->Size = System::Drawing::Size(433, 20);
+			this->buscador_textBox->Size = System::Drawing::Size(432, 20);
 			this->buscador_textBox->TabIndex = 8;
 			this->buscador_textBox->Text = L"Buscar Grup d\'Estudi...";
 			this->buscador_textBox->Click += gcnew System::EventHandler(this, &GrupEstudi_Explorar::buscador_textBox_Click);
@@ -343,7 +343,7 @@ namespace CppCLRWinFormsProject {
 			// 
 			// buscar_button
 			// 
-			this->buscar_button->Location = System::Drawing::Point(549, 75);
+			this->buscar_button->Location = System::Drawing::Point(548, 75);
 			this->buscar_button->Margin = System::Windows::Forms::Padding(2);
 			this->buscar_button->Name = L"buscar_button";
 			this->buscar_button->Size = System::Drawing::Size(56, 19);

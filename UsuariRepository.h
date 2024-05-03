@@ -20,4 +20,5 @@ public:
 	//bool DeleteUserRol(Int64^ id);
 	bool UpdateUser(String^ username, String^ password, String^ email, String^ name);
 	Int64^ GetUserId(String^ username);
+	Usuari^ GetProveidorByEspaiId(Int64^ espai_id);
 };

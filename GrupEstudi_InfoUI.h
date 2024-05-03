@@ -326,7 +326,7 @@ namespace CppCLRWinFormsProject {
 			this->ModifySession_Button->Text = L"Modificar";
 			this->ModifySession_Button->UseVisualStyleBackColor = true;
 			this->ModifySession_Button->Visible = false;
-			this->ModifySession_Button->Click += gcnew System::EventHandler(this, &GrupEstudi_InfoUI::button1_Click);
+			this->ModifySession_Button->Click += gcnew System::EventHandler(this, &GrupEstudi_InfoUI::ModifySession_Click);
 			// 
 			// DeleteSession_Button
 			// 
@@ -576,8 +576,7 @@ private: System::Void SessionsList_Label_Click_1(System::Object^ sender, System:
 }
 private: System::Void Sessions_ListBox_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
 }
-private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
-}
+private: System::Void ModifySession_Click(System::Object^ sender, System::EventArgs^ e);
 private: System::Void label1_Click(System::Object^ sender, System::EventArgs^ e) {
 }
 private: System::Void AcademicTagsInfo_Label_Click(System::Object^ sender, System::EventArgs^ e) {

@@ -10,6 +10,7 @@ public:
 	EspaisRepository();
 	bool CreateEspai(String^ name, Int64^ capacity, Int64^ proveidor_id);
 	List<Espai^>^ GetEspaisById(Int64^ proveidor_id);
+	Espai^ GetEspaiByEspaiId(Int64^ espai_id);
 	Espai^ GetEspaiByName(String^ name);
 	bool DeleteEspai(Int64^ id);
 	bool CheckEspaiByName(String^ name);

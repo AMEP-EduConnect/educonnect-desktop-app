@@ -63,7 +63,7 @@ namespace CppCLRWinFormsProject {
 	private: System::Windows::Forms::Label^ Proveidor_Label;
 	private: System::Windows::Forms::ComboBox^ Espai_ComboBox;
 	private: System::Windows::Forms::Label^ label2;
-	private: System::Windows::Forms::Button^ CreateSession_Button;
+
 	private: System::Windows::Forms::Button^ GoBack_Button;
 
 
@@ -76,6 +76,8 @@ namespace CppCLRWinFormsProject {
 	private: BaixaProveidorService^ baixaProveidorService;
 	private: ConsultaEspaisService^ consultaEspaisService;
 	private: IniciSessioService^ iniciSessioService;
+	private: System::Windows::Forms::Button^ CreateSession_Button;
+
 	private: DateTime^ FullyFormatedSessionDate;
 
 #pragma region Windows Form Designer generated code
@@ -89,7 +91,6 @@ namespace CppCLRWinFormsProject {
 			this->NewSession_Label = (gcnew System::Windows::Forms::Label());
 			this->CurrentGrupName_Label = (gcnew System::Windows::Forms::Label());
 			this->NewSessionInput_Panel = (gcnew System::Windows::Forms::Panel());
-			this->CreateSession_Button = (gcnew System::Windows::Forms::Button());
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->TimeHour_ComboBox = (gcnew System::Windows::Forms::ComboBox());
 			this->Espai_Label = (gcnew System::Windows::Forms::Label());
@@ -100,6 +101,7 @@ namespace CppCLRWinFormsProject {
 			this->DayMonth_Calendar = (gcnew System::Windows::Forms::MonthCalendar());
 			this->Proveidor_ListBox = (gcnew System::Windows::Forms::ListBox());
 			this->GoBack_Button = (gcnew System::Windows::Forms::Button());
+			this->CreateSession_Button = (gcnew System::Windows::Forms::Button());
 			this->tableLayoutPanel1->SuspendLayout();
 			this->NewSessionInput_Panel->SuspendLayout();
 			this->SuspendLayout();
@@ -119,7 +121,7 @@ namespace CppCLRWinFormsProject {
 			this->tableLayoutPanel1->Controls->Add(this->GoBack_Button, 2, 3);
 			this->tableLayoutPanel1->Dock = System::Windows::Forms::DockStyle::Fill;
 			this->tableLayoutPanel1->Location = System::Drawing::Point(0, 0);
-			this->tableLayoutPanel1->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->tableLayoutPanel1->Margin = System::Windows::Forms::Padding(2);
 			this->tableLayoutPanel1->Name = L"tableLayoutPanel1";
 			this->tableLayoutPanel1->RowCount = 5;
 			this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 44.68085F)));
@@ -169,22 +171,10 @@ namespace CppCLRWinFormsProject {
 			this->NewSessionInput_Panel->Controls->Add(this->Proveidor_ListBox);
 			this->NewSessionInput_Panel->Dock = System::Windows::Forms::DockStyle::Fill;
 			this->NewSessionInput_Panel->Location = System::Drawing::Point(158, 79);
-			this->NewSessionInput_Panel->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->NewSessionInput_Panel->Margin = System::Windows::Forms::Padding(2);
 			this->NewSessionInput_Panel->Name = L"NewSessionInput_Panel";
 			this->NewSessionInput_Panel->Size = System::Drawing::Size(494, 350);
 			this->NewSessionInput_Panel->TabIndex = 2;
-			// 
-			// CreateSession_Button
-			// 
-			this->CreateSession_Button->Enabled = false;
-			this->CreateSession_Button->Location = System::Drawing::Point(346, 313);
-			this->CreateSession_Button->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
-			this->CreateSession_Button->Name = L"CreateSession_Button";
-			this->CreateSession_Button->Size = System::Drawing::Size(94, 19);
-			this->CreateSession_Button->TabIndex = 10;
-			this->CreateSession_Button->Text = L"Crear sessió";
-			this->CreateSession_Button->UseVisualStyleBackColor = true;
-			this->CreateSession_Button->Click += gcnew System::EventHandler(this, &Session_CrearUI::CreateSession_Button_Click);
 			// 
 			// label2
 			// 
@@ -200,7 +190,7 @@ namespace CppCLRWinFormsProject {
 			// 
 			this->TimeHour_ComboBox->FormattingEnabled = true;
 			this->TimeHour_ComboBox->Location = System::Drawing::Point(275, 258);
-			this->TimeHour_ComboBox->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->TimeHour_ComboBox->Margin = System::Windows::Forms::Padding(2);
 			this->TimeHour_ComboBox->Name = L"TimeHour_ComboBox";
 			this->TimeHour_ComboBox->Size = System::Drawing::Size(166, 21);
 			this->TimeHour_ComboBox->TabIndex = 8;
@@ -231,7 +221,7 @@ namespace CppCLRWinFormsProject {
 			this->Espai_ComboBox->Enabled = false;
 			this->Espai_ComboBox->FormattingEnabled = true;
 			this->Espai_ComboBox->Location = System::Drawing::Point(36, 258);
-			this->Espai_ComboBox->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->Espai_ComboBox->Margin = System::Windows::Forms::Padding(2);
 			this->Espai_ComboBox->Name = L"Espai_ComboBox";
 			this->Espai_ComboBox->Size = System::Drawing::Size(186, 21);
 			this->Espai_ComboBox->TabIndex = 5;
@@ -251,7 +241,7 @@ namespace CppCLRWinFormsProject {
 			// SessionName_TextBox
 			// 
 			this->SessionName_TextBox->Location = System::Drawing::Point(36, 77);
-			this->SessionName_TextBox->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->SessionName_TextBox->Margin = System::Windows::Forms::Padding(2);
 			this->SessionName_TextBox->Name = L"SessionName_TextBox";
 			this->SessionName_TextBox->Size = System::Drawing::Size(186, 20);
 			this->SessionName_TextBox->TabIndex = 3;
@@ -259,7 +249,7 @@ namespace CppCLRWinFormsProject {
 			// DayMonth_Calendar
 			// 
 			this->DayMonth_Calendar->Location = System::Drawing::Point(275, 49);
-			this->DayMonth_Calendar->Margin = System::Windows::Forms::Padding(7, 7, 7, 7);
+			this->DayMonth_Calendar->Margin = System::Windows::Forms::Padding(7);
 			this->DayMonth_Calendar->Name = L"DayMonth_Calendar";
 			this->DayMonth_Calendar->TabIndex = 2;
 			this->DayMonth_Calendar->DateChanged += gcnew System::Windows::Forms::DateRangeEventHandler(this, &Session_CrearUI::DayMonth_Calendar_DateChanged);
@@ -268,7 +258,7 @@ namespace CppCLRWinFormsProject {
 			// 
 			this->Proveidor_ListBox->FormattingEnabled = true;
 			this->Proveidor_ListBox->Location = System::Drawing::Point(36, 149);
-			this->Proveidor_ListBox->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->Proveidor_ListBox->Margin = System::Windows::Forms::Padding(2);
 			this->Proveidor_ListBox->Name = L"Proveidor_ListBox";
 			this->Proveidor_ListBox->Size = System::Drawing::Size(186, 69);
 			this->Proveidor_ListBox->TabIndex = 0;
@@ -285,6 +275,18 @@ namespace CppCLRWinFormsProject {
 			this->GoBack_Button->UseVisualStyleBackColor = true;
 			this->GoBack_Button->Click += gcnew System::EventHandler(this, &Session_CrearUI::GoBack_Button_Click);
 			// 
+			// CreateSession_Button
+			// 
+			this->CreateSession_Button->Enabled = false;
+			this->CreateSession_Button->Location = System::Drawing::Point(346, 313);
+			this->CreateSession_Button->Margin = System::Windows::Forms::Padding(2);
+			this->CreateSession_Button->Name = L"CreateSession_Button";
+			this->CreateSession_Button->Size = System::Drawing::Size(94, 19);
+			this->CreateSession_Button->TabIndex = 10;
+			this->CreateSession_Button->Text = L"Crear sessió";
+			this->CreateSession_Button->UseVisualStyleBackColor = true;
+			this->CreateSession_Button->Click += gcnew System::EventHandler(this, &Session_CrearUI::CreateSession_Button_Click);
+			// 
 			// Session_CrearUI
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
@@ -292,7 +294,7 @@ namespace CppCLRWinFormsProject {
 			this->ClientSize = System::Drawing::Size(814, 537);
 			this->Controls->Add(this->tableLayoutPanel1);
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
-			this->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->Margin = System::Windows::Forms::Padding(2);
 			this->Name = L"Session_CrearUI";
 			this->Text = L"Session_CrearUI";
 			this->Load += gcnew System::EventHandler(this, &Session_CrearUI::Session_CrearUI_Load);
@@ -320,5 +322,9 @@ private: DateTime FormatEspaiStringIntoDateTime(String^ espaiString);
 private: System::Void TimeHour_ComboBox_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e);
 private: System::Void CreateSession_Button_Click(System::Object^ sender, System::EventArgs^ e);
 private: bool FieldsNotEmpty();
+
+
+
+
 };
 }

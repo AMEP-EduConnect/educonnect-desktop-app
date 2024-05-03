@@ -306,6 +306,9 @@
     <ClInclude Include="Session_CrearUI.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="Session_EditarUI.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="StartPageUI.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -370,6 +373,7 @@
     <ClCompile Include="SessionRepository.cpp" />
     <ClCompile Include="SessionService.cpp" />
     <ClCompile Include="Session_CrearUI.cpp" />
+    <ClCompile Include="Session_EditarUI.cpp" />
     <ClCompile Include="StartPageUI.cpp" />
     <ClCompile Include="Usuari.cpp" />
     <ClCompile Include="UsuariRepository.cpp" />
@@ -457,6 +461,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Session_CrearUI.resx">
       <DependentUpon>Session_CrearUI.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Session_EditarUI.resx">
+      <DependentUpon>Session_EditarUI.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="StartPageUI.resx">
       <DependentUpon>StartPageUI.h</DependentUpon>

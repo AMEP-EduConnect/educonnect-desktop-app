@@ -30,3 +30,8 @@ Int64^ ConsultaEspaisService::GetEspaiIdByName(String^ name)
 	Espai^ espai = this->espaisRepository->GetEspaiByName(name);
 	return espai->GetEspaiId();
 }
+
+Espai^ ConsultaEspaisService::GetEspaiByEspaiId(Int64^ id)
+{
+	return this->espaisRepository->GetEspaiByEspaiId(id);
+}
