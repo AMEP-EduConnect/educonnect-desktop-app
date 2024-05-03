@@ -7,7 +7,7 @@
 using namespace System;
 
 namespace CppCLRWinFormsProject {
-
+    /*
     Void AltaEspaisUI::NomEspai_TextBox_Validating(Object^ sender, System::ComponentModel::CancelEventArgs^ e) {
         TextBox^ textBox = dynamic_cast<TextBox^>(sender);
         if (textBox != nullptr) {
@@ -19,6 +19,19 @@ namespace CppCLRWinFormsProject {
             }
 
         }
+    }
+    */
+    bool AltaEspaisUI::NomEspai_TextBox_Validating(String^ nom) {
+        if (nom != nullptr) {
+            bool isValid = this->altaEspaisService->CheckNameEspai(nom);
+            if (!isValid) {
+                MessageManager::WarningMessage("El nom de l'espai ja existeix.");
+                this->textBox3->Text = "";
+                return false;
+            }
+            else return true;
+        }
+        else return false;
     }
 
     bool AltaEspaisUI::IsValidCapacitat(String^ capacitat) {
@@ -49,7 +62,10 @@ namespace CppCLRWinFormsProject {
         String^ capacitatText = textBox1->Text;
 
         if (!String::IsNullOrWhiteSpace(nom) && !String::IsNullOrWhiteSpace(capacitatText)) {           
-          
+            if (NomEspai_TextBox_Validating(nom) == false) {
+
+                return;
+            }
             Int64^ capacitat = Int64::Parse(capacitatText);
 
             this->altaEspaisService->AltaEspai(nom, capacitat);

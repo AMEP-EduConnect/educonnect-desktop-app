@@ -34,14 +34,15 @@ namespace CppCLRWinFormsProject {
     bool ModificaEspaisUI::NomEspai_TextBox_Validating(String^ nom) {
     
         if (nom != nullptr) {
-            bool isnotValid = this->modificaEspaisService->CheckNameEspai(nom);
-            if (isnotValid) {
+            bool isValid = this->modificaEspaisService->CheckNameEspai(nom);
+            if (!isValid) {
                 MessageManager::WarningMessage("El nom de l'espai ja existeix.");
                 this->textBox3->Text = "";
-                
+                return false;
             }
-
+            else return true;
         }
+        else return false;
     }
 
     bool ModificaEspaisUI::IsValidCapacitat(String^ capacitat) {

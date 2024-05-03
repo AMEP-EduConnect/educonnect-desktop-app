@@ -12,6 +12,7 @@ public:
 	void SetEspaiId(Int64^ value);
 	Int64^ GetEspaiId();
 
+	
 
 	void SetName(String^ value);
 	String^ GetName();

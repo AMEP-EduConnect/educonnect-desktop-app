@@ -9,11 +9,16 @@ AltaEspaisService::AltaEspaisService()
 	espais = gcnew Espai();
 	usuari = gcnew Usuari();
 }
+
+
+
 bool AltaEspaisService::CheckNameEspai(String^ name)
 {
-	return this->espaisRepository->CheckEspaiByName(name);
+	Usuari^ currentUser = CurrentSession::Instance->GetCurrentUser();
+	Int64^ id_provider = currentUser->GetUserId();
+	bool exist = espaisRepository->CheckEspaiByName(name, id_provider);
+	return false;
 }
-
 
 bool AltaEspaisService::AltaEspai(String^ nom, Int64^ capacitat)
 {

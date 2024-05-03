@@ -26,13 +26,13 @@ namespace CppCLRWinFormsProject {
 		AltaEspaisUI(void) {
 			InitializeComponent();
 			altaEspaisService = gcnew AltaEspaisService();
-			this->textBox3->Validating += gcnew System::ComponentModel::CancelEventHandler(this, &AltaEspaisUI::NomEspai_TextBox_Validating);
+			//this->textBox3->Validating += gcnew System::ComponentModel::CancelEventHandler(this, &AltaEspaisUI::NomEspai_TextBox_Validating);
 			this->textBox1->Validating += gcnew System::ComponentModel::CancelEventHandler(this, &AltaEspaisUI::Capacitat_TextBox_Validating);
 			//this->Background_PictureBox->Image = Image::FromFile("background.png");
 
 			this->Icon = gcnew System::Drawing::Icon("app.ico");
 		}
-		Void NomEspai_TextBox_Validating(Object^ sender, System::ComponentModel::CancelEventArgs^ e);
+		bool NomEspai_TextBox_Validating(String^ nom);
 		bool IsValidCapacitat(String^ capacitat);
 		Void Capacitat_TextBox_Validating(Object^ sender, System::ComponentModel::CancelEventArgs^ e);
 

@@ -1,4 +1,5 @@
 #include "pch.h"
+#include "Usuari.h"
 #include "ModificaEspaisService.h"
 #include "CurrentSession.h"
 #include "DatabaseConnector.h"
@@ -12,14 +13,20 @@ ModificaEspaisService::ModificaEspaisService()
 }
 
 bool ModificaEspaisService::CheckNameEspai(String^ name)
-{
+{    
+	Usuari ^ currentUser = CurrentSession::Instance->GetCurrentUser();
+	Int64^ id_provider = currentUser->GetUserId();
+	bool exist = espaisRepository->CheckEspaiByName(name, id_provider);
 	return false;
 }
 
+
 Espai^ ModificaEspaisService::GetEspaiByName(String^ name) {
+
 	Espai^ espai = espaisRepository->GetEspaiByName(name);
 	return espai;
 }
+
 
 bool ModificaEspaisService::UpdateEspai (String^ name, Int64^ capacity, Int64^ id_espai) {
 	Espai^ espai = espaisRepository->GetEspaiByName(name);
