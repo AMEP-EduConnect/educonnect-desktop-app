@@ -9,7 +9,7 @@ using namespace System::Windows::Forms;
 using namespace System::IO;
 namespace CppCLRWinFormsProject {
     Void ChatGrupEstudiUI::sendButton_Click(System::Object^ sender, System::EventArgs^ e) {
-        String^ message = this->messageTextBox->Text->Trim();
+       String^ message = this->messageTextBox->Text->Trim();
         if (!String::IsNullOrWhiteSpace(message)) {
             if(chatGrupEstudiService->SendMenssage(94LL, CurrentSession::Instance->GetCurrentUser()->GetUserId(), message) == false)
 			{
@@ -32,25 +32,7 @@ namespace CppCLRWinFormsProject {
             }
         }
     }
-    /*Void ChatGrupEstudiUI::ChatGrupEstudiUI_Load(System::Object^ sender, System::EventArgs^ e) {
-        //String^ user = CurrentSession::Instance->GetCurrentUser()->GetUsername();
-        List<ChatMessage^>^ chatMembers = chatGrupEstudiService->GetChatMembers(94LL);
-        Int64^ id_user = CurrentSession::Instance->GetCurrentUser()->GetUserId();
-        //chatMembers->Reverse();
-        System::Collections::Generic::IEnumerator<ChatMessage^>^ enumerator = chatMembers->GetEnumerator();
-        ChatMessage^ lastMessage = nullptr;
-        while (enumerator->MoveNext()) {
-			ChatMessage^ chatMessage = enumerator->Current;
-            chatListBox->AppendText(chatMessage->getUserId() + ": " + chatMessage->getMessage() + "\n");
-            if(*chatMessage->getUserId() != *id_user ) chatListBox->SelectionAlignment = HorizontalAlignment::Left;
-			else chatListBox->SelectionAlignment = HorizontalAlignment::Right;
-            lastMessage = chatMessage;
-		}
-        if (lastMessage != nullptr)
-        {
-			messagelast_id = lastMessage->getId();
-		}
-	}*/
+    
     Void ChatGrupEstudiUI::ChatGrupEstudiUI_Load(System::Object^ sender, System::EventArgs^ e) {
         List<ChatMessage^>^ chatMembers = chatGrupEstudiService->GetChatMembers(94LL);
         Int64^ id_user = CurrentSession::Instance->GetCurrentUser()->GetUserId();
@@ -152,6 +134,19 @@ namespace CppCLRWinFormsProject {
 		}
         
 	}
+    System::Void ChatGrupEstudiUI::Button_Cancelar_Click(System::Object^ sender, System::EventArgs^ e)
+    {
+        this->chatTimer->Stop();
+        GrupEstudi_ConsultarUI^ PanelUI = gcnew GrupEstudi_ConsultarUI();
+
+        PanelUI->TopLevel = false;
+        PanelUI->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
+        PanelUI->Dock = System::Windows::Forms::DockStyle::Fill;
+
+        MainPageUI::Instance->screen->Controls->Clear();
+        MainPageUI::Instance->screen->Controls->Add(PanelUI);
+        PanelUI->Show();
+    }
     System::Void ChatGrupEstudiUI::Button_Send_Files_Click(System::Object^ sender, System::EventArgs^ e)
     {
         OpenFileDialog^ openFileDialog = gcnew OpenFileDialog;
@@ -245,8 +240,7 @@ namespace CppCLRWinFormsProject {
 		}
     }
 
-
-
+   
     
 }
 
