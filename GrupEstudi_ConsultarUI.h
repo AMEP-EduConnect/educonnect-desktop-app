@@ -126,7 +126,7 @@ namespace CppCLRWinFormsProject {
 			this->Actual_Panel->Dock = System::Windows::Forms::DockStyle::Fill;
 			this->Actual_Panel->Location = System::Drawing::Point(181, 111);
 			this->Actual_Panel->Name = L"Actual_Panel";
-			this->Actual_Panel->Size = System::Drawing::Size(485, 319);
+			this->Actual_Panel->Size = System::Drawing::Size(484, 319);
 			this->Actual_Panel->TabIndex = 6;
 			// 
 			// abandonar_button
@@ -229,7 +229,7 @@ namespace CppCLRWinFormsProject {
 			this->tableLayoutPanel1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
 				73.34465F)));
 			this->tableLayoutPanel1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Absolute,
-				144)));
+				145)));
 			this->tableLayoutPanel1->Controls->Add(this->ConsultarGrupEstudi_Label, 1, 0);
 			this->tableLayoutPanel1->Controls->Add(this->Actual_Panel, 1, 1);
 			this->tableLayoutPanel1->Controls->Add(this->MoreInfo_GrupEstudi_Button, 1, 2);
@@ -252,6 +252,7 @@ namespace CppCLRWinFormsProject {
 			this->MoreInfo_GrupEstudi_Button->TabIndex = 7;
 			this->MoreInfo_GrupEstudi_Button->Text = L"Ver";
 			this->MoreInfo_GrupEstudi_Button->UseVisualStyleBackColor = true;
+			this->MoreInfo_GrupEstudi_Button->Visible = false;
 			this->MoreInfo_GrupEstudi_Button->Click += gcnew System::EventHandler(this, &GrupEstudi_ConsultarUI::MoreInfo_GrupEstudi_Button_Click);
 			// 
 			// GrupEstudi_ConsultarUI
