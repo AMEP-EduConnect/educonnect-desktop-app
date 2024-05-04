@@ -5,6 +5,8 @@
 #include "Session_CrearUI.h"
 #include "Session_EditarUI.h"
 #include "Session.h"
+#include "CurrentSession.h"
+#include "Usuari.h"
 
 
 namespace CppCLRWinFormsProject {
@@ -14,6 +16,8 @@ namespace CppCLRWinFormsProject {
         InitializeComponent();
         grupEstudiService = gcnew GrupEstudiService();
         this->CurrentGrupEntity = this->grupEstudiService->GetGrupEstudiByName(CurrentGrup);
+        sessionService = gcnew SessionService();
+        grupSessionAttendantsService = gcnew GrupSessionAttendantsService();
         this->Icon = gcnew System::Drawing::Icon("app.ico");
     }
 
@@ -62,6 +66,32 @@ namespace CppCLRWinFormsProject {
         MainPageUI::Instance->screen->Controls->Clear();
         MainPageUI::Instance->screen->Controls->Add(PanelUI);
         PanelUI->Show();
+    }
+
+    System::Void GrupEstudi_InfoUI::Confirm_Cancel_Attent_Button_Click(System::Object^ sender, System::EventArgs^ e)
+    {
+        Int64^ idsession = CurrentSessionEntity->GetId();
+        Usuari^ currentUser = CurrentSession::Instance->GetCurrentUser();
+        Int64^ iduser = currentUser->GetUserId();
+
+        if (not grupSessionAttendantsService->IsAttendant(idsession, iduser)) {
+           this->Confirm_Cancel_Attent_Button->Text = "Asistir";
+           grupSessionAttendantsService->AsistirSessionAttendant(idsession, iduser);
+           String^ cap2 = capacity->Text;
+           Int64^ cap = Convert::ToInt64(cap2);
+           *cap += 1ll;
+           capacity->Text = Convert::ToString(*cap);
+           //sumar 1 a capacidad en base de datos
+       }
+       else {
+           this->Confirm_Cancel_Attent_Button->Text = "Cancel·lar Asistència";
+           grupSessionAttendantsService->EliminaSessionAttendant(idsession, iduser);
+           String^ cap2 = capacity->Text;
+           Int64^ cap = Convert::ToInt64(cap2);
+           *cap -= 1ll;
+           capacity->Text = Convert::ToString(*cap);
+           //restar 1 a capacidad en base de datos
+       }
     }
 
     System::Void GrupEstudi_InfoUI::ModifySession_Click(System::Object^ sender, System::EventArgs^ e)

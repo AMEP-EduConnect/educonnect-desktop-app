@@ -272,6 +272,9 @@
     <ClInclude Include="FirstPageUI.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="GrupSessionAttendant.h" />
+    <ClInclude Include="GrupSessionAttendantsRepository.h" />
+    <ClInclude Include="GrupSessionAttendantsService.h" />
     <ClInclude Include="IniciSessioUI.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -343,6 +346,9 @@
     <ClCompile Include="EliminarEspaisService.cpp" />
     <ClCompile Include="Espais.cpp" />
     <ClCompile Include="EspaisRepository.cpp" />
+    <ClCompile Include="GrupSessionAttendant.cpp" />
+    <ClCompile Include="GrupSessionAttendantsRepository.cpp" />
+    <ClCompile Include="GrupSessionAttendantsService.cpp" />
     <ClCompile Include="InformacioPersonal_ConsultaUI.cpp" />
     <ClCompile Include="IniciSessioUI.cpp" />
     <ClCompile Include="FirstPageUI.cpp" />

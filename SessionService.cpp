@@ -3,8 +3,6 @@
 #include "Session.h"
 #include "MessageManager.h"
 
-using namespace System;
-
 SessionService::SessionService()
 {
 	sessionRepository = gcnew SessionRepository();

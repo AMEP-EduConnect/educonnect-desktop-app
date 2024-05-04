@@ -2,6 +2,8 @@
 #include "SessionRepository.h"
 #include "Session.h"
 #include "DatabaseConnector.h"
+#include "CurrentSession.h"
+#include "Usuari.h"
 
 SessionRepository::SessionRepository()
 {

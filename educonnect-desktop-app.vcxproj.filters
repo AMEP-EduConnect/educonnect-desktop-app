@@ -206,6 +206,15 @@
     <ClInclude Include="Session_EditarUI.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="GrupSessionAttendant.h">
+      <Filter>Source Files\entities</Filter>
+    </ClInclude>
+    <ClInclude Include="GrupSessionAttendantsRepository.h">
+      <Filter>Source Files\repositories</Filter>
+    </ClInclude>
+    <ClInclude Include="GrupSessionAttendantsService.h">
+      <Filter>Source Files\services</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AssemblyInfo.cpp">
@@ -387,6 +396,15 @@
     </ClCompile>
     <ClCompile Include="Session_EditarUI.cpp">
       <Filter>Source Files\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="GrupSessionAttendant.cpp">
+      <Filter>Source Files\entities</Filter>
+    </ClCompile>
+    <ClCompile Include="GrupSessionAttendantsRepository.cpp">
+      <Filter>Source Files\repositories</Filter>
+    </ClCompile>
+    <ClCompile Include="GrupSessionAttendantsService.cpp">
+      <Filter>Source Files\services</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
