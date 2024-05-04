@@ -106,4 +106,22 @@ Session^ SessionRepository::GetSessionByName(String^ name)
 	return session;
 }
 
+List<Session^>^ SessionRepository::GetSessionsByGroupId(Int64^ groupId, String^ date)
+{
+	DatabaseConnector::Instance->Connect();
+	String^ sql = "SELECT * FROM grupSessions WHERE group_id=@groupId AND session_start_date >= @date ORDER BY session_start_date ASC";
+	Dictionary<String^, Object^>^ params = gcnew Dictionary<String^, Object^>(0);
+	params->Add("@groupId", groupId);
+	params->Add("@date", date);
+	MySqlDataReader^ data = DatabaseConnector::Instance->ExecuteClientCommand(sql, params);
+	List<Session^>^ sessions = gcnew List<Session^>(0);
+	while (data->Read()) {
+		Session^ session = gcnew Session(data->GetInt64(0), data->GetInt64(1), data->GetInt64(2), data->GetString(3), data->GetDateTime(4), data->GetDateTime(5));
+		sessions->Add(session);
+	}
+	data->Close();
+	DatabaseConnector::Instance->Disconnect();
+	return sessions;
+}
+
 

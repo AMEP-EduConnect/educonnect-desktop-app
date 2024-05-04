@@ -18,7 +18,7 @@ public:
 	List<String^>^ GenerateAllTimeStamps();
 	String^ GetFormattedEspai(String^ name);
 	Double GetFormattedHour(String^ hour);
-
+	List<Session^>^ GetSessionsByGroupId(Int64^ groupId, DateTime^ date);
 	Session^ GetSessionById(Int64^ user_id);
 
 private:

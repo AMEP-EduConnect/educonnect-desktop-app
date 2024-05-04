@@ -13,4 +13,5 @@ public:
 	Session^ CheckIfTimeStampIsFree(DateTime^ selectedDay);
 	Session^ GetSessionById(Int64^ session_id);
 	Session^ GetSessionByName(String^ name);
+	List<Session^>^ GetSessionsByGroupId(Int64^ groupId, String^ date);
 };
