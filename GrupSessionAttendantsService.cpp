@@ -8,17 +8,17 @@ GrupSessionAttendantsService::GrupSessionAttendantsService()
 
 void GrupSessionAttendantsService::AsistirSessionAttendant(Int64^ idsession, Int64^ iduser)
 {
-	this->AsistirSessionAttendant(idsession, iduser);
+	grupSessionAttendantsRepository->AsistirSessionAttendant(idsession, iduser);
 }
 
 void GrupSessionAttendantsService::EliminaSessionAttendant(Int64^ idsession, Int64^ iduser)
 {
-	this->EliminaSessionAttendant(idsession, iduser);
+	grupSessionAttendantsRepository->EliminaSessionAttendant(idsession, iduser);
 }
 
 bool GrupSessionAttendantsService::IsAttendant(Int64^ idsession, Int64^ iduser)
 {
-	return this->IsAttendant(idsession, iduser);
+	return grupSessionAttendantsRepository->IsAttendant(idsession, iduser);
 }
 
 

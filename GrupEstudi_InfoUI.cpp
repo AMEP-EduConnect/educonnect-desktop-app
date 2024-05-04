@@ -60,6 +60,12 @@ namespace CppCLRWinFormsProject {
                 //EspaiName_Label->Text = CurrentSessionEntity->GetSessionEspaiName();
                 DayMonthYear_label->Text = CurrentSessionEntity->GetSessionStartDate()->ToString("dd/MM/yyyy");
                 StartEndDuration_Label->Text = CurrentSessionEntity->GetSessionStartDate()->ToString("HH:mm") + " - " + CurrentSessionEntity->GetSessionEndDate()->ToString("HH:mm");
+                if (not grupSessionAttendantsService->IsAttendant(CurrentSessionEntity->GetId(), CurrentSession::Instance->GetCurrentUser()->GetUserId())) {
+                    this->Confirm_Cancel_Attent_Button->Text = "Asistir";
+                }
+                else {
+                    this->Confirm_Cancel_Attent_Button->Text = "Cancel·lar Asistència";
+                }
                 //if(owner) {
                 //ModifySession_Button->Visible = true;
                 //DeleteSession_Button->Visible = true;
@@ -100,17 +106,17 @@ namespace CppCLRWinFormsProject {
     System::Void GrupEstudi_InfoUI::Sessions_Actuals_Load()
     {
         this->Sessions_ListBox->Items->Clear();
-        SessionsList = this->sessionService->GetSessionsByGroupId(this->CurrentGrupEntity->GetId(),DateTime::Now);
-       
-        if (SessionsList->Count > 0){
+        SessionsList = this->sessionService->GetSessionsByGroupId(this->CurrentGrupEntity->GetId(), DateTime::Now);
+
+        if (SessionsList->Count > 0) {
             System::Collections::Generic::IEnumerator<Session^>^ Enumerator = SessionsList->GetEnumerator();
             int i = 0;
             while (Enumerator->MoveNext())
             {
                 if (i == 0) {
-					CurrentSessionEntity = Enumerator->Current;
+                    CurrentSessionEntity = Enumerator->Current;
                     i = 1;
-				}
+                }
                 Session^ CurrentSession = Enumerator->Current;
                 this->Sessions_ListBox->Items->Add(CurrentSession->GetSessionName());
             }
@@ -121,19 +127,25 @@ namespace CppCLRWinFormsProject {
             ViewSessionAttendants_Button->Visible = true;
             SessionCapacity_Label1->Visible = true;
             EspaiCapacity_Label->Visible = true;
-            //EspaiName_Label->Text = CurrentSessionEntity->GetSessionEspaiName();
             session_name->Visible = true;
             session_name->Text = CurrentSessionEntity->GetSessionName();
+            //EspaiName_Label->Text = CurrentSessionEntity->GetSessionEspaiName();
             DayMonthYear_label->Text = CurrentSessionEntity->GetSessionStartDate()->ToString("dd/MM/yyyy");
             StartEndDuration_Label->Text = CurrentSessionEntity->GetSessionStartDate()->ToString("HH:mm") + " - " + CurrentSessionEntity->GetSessionEndDate()->ToString("HH:mm");
+            if (not grupSessionAttendantsService->IsAttendant(CurrentSessionEntity->GetId(), CurrentSession::Instance->GetCurrentUser()->GetUserId())) {
+                this->Confirm_Cancel_Attent_Button->Text = "Asistir";
+            }
+            else {
+				this->Confirm_Cancel_Attent_Button->Text = L"Cancel·lar Asistència";
+			}
             //if(owner) {
                 //ModifySession_Button->Visible = true;
                 //DeleteSession_Button->Visible = true;
-              
+
                 //}
         }
-        
-        
+
+    }
     System::Void GrupEstudi_InfoUI::Confirm_Cancel_Attent_Button_Click(System::Object^ sender, System::EventArgs^ e)
     {
         Int64^ idsession = CurrentSessionEntity->GetId();
@@ -141,21 +153,24 @@ namespace CppCLRWinFormsProject {
         Int64^ iduser = currentUser->GetUserId();
 
         if (not grupSessionAttendantsService->IsAttendant(idsession, iduser)) {
-           this->Confirm_Cancel_Attent_Button->Text = "Asistir";
+           
            grupSessionAttendantsService->AsistirSessionAttendant(idsession, iduser);
            String^ cap2 = capacity->Text;
            Int64^ cap = Convert::ToInt64(cap2);
            *cap += 1ll;
            capacity->Text = Convert::ToString(*cap);
+           this->Confirm_Cancel_Attent_Button->Text = L"Cancel·lar Asistència";
            //sumar 1 a capacidad en base de datos
        }
        else {
-           this->Confirm_Cancel_Attent_Button->Text = "Cancel�lar Asist�ncia";
+           
            grupSessionAttendantsService->EliminaSessionAttendant(idsession, iduser);
            String^ cap2 = capacity->Text;
            Int64^ cap = Convert::ToInt64(cap2);
            *cap -= 1ll;
            capacity->Text = Convert::ToString(*cap);
+
+           this->Confirm_Cancel_Attent_Button->Text = L"Asistir";
            //restar 1 a capacidad en base de datos
        }
     }

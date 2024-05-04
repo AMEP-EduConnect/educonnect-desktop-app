@@ -11,7 +11,7 @@ GrupSessionAttendantsRepository::GrupSessionAttendantsRepository()
 void GrupSessionAttendantsRepository::AsistirSessionAttendant(Int64^ idsession, Int64^ iduser)
 {
 	DatabaseConnector::Instance->Connect();
-	String^ sql = "INSERT into grupSessionAttendants (session_id, user_id) VALUES (@idsession, @iduser)";
+	String^ sql = "INSERT into grupSessionsAttendants (session_id, user_id) VALUES (@idsession, @iduser)";
 	Dictionary<String^, Object^>^ params = gcnew Dictionary<String^, Object^>(0);
 	params->Add("@idsession", idsession);
 	params->Add("@iduser", iduser);
@@ -23,7 +23,7 @@ void GrupSessionAttendantsRepository::AsistirSessionAttendant(Int64^ idsession, 
 void GrupSessionAttendantsRepository::EliminaSessionAttendant(Int64^ idsession, Int64^ iduser)
 {
 	DatabaseConnector::Instance->Connect();
-	String^ sql = "DELETE * FROM grupSessionsAttendants WHERE session_id = @idsession AND user_id = @iduser";
+	String^ sql = "DELETE FROM grupSessionsAttendants WHERE session_id = @idsession AND user_id = @iduser";
 	Dictionary<String^, Object^>^ params = gcnew Dictionary<String^, Object^>(0);
 	params->Add("@idsession", idsession);
 	params->Add("@iduser", iduser);

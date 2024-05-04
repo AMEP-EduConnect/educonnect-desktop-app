@@ -65,8 +65,6 @@ namespace CppCLRWinFormsProject {
 	private: System::Windows::Forms::Button^ DeleteGrupEstudi_Button;
 	private: System::Windows::Forms::Button^ GoBack_Button;
 	private: List<Session^>^ SessionsList;
-	private: Session^ CurrentSessionEntity;
-	private: SessionService^ sessionService;
 
 
 
@@ -95,11 +93,14 @@ namespace CppCLRWinFormsProject {
 	private: System::Windows::Forms::Label^ label1;
 	private: System::Windows::Forms::TableLayoutPanel^ tableLayoutPanel2;
 	private: System::Windows::Forms::Button^ Chat_Button;
-	private: System::Windows::Forms::Label^ label3;
+
+
+
 	private: GrupEstudiService^ grupEstudiService;
 	private: GrupSessionAttendantsService^ grupSessionAttendantsService;
 	private: SessionService^ sessionService;
 	private: System::Windows::Forms::Label^ capacity;
+	private: System::Windows::Forms::Label^ session_name;
 
 	private: Session^ CurrentSessionEntity;
 
@@ -126,7 +127,7 @@ namespace CppCLRWinFormsProject {
 			this->ModifySession_Button = (gcnew System::Windows::Forms::Button());
 			this->DeleteSession_Button = (gcnew System::Windows::Forms::Button());
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
-			this->label3 = (gcnew System::Windows::Forms::Label());
+			this->capacity = (gcnew System::Windows::Forms::Label());
 			this->Confirm_Cancel_Attent_Button = (gcnew System::Windows::Forms::Button());
 			this->ViewSessionAttendants_Button = (gcnew System::Windows::Forms::Button());
 			this->SessionCapacity_Label1 = (gcnew System::Windows::Forms::Label());
@@ -142,7 +143,6 @@ namespace CppCLRWinFormsProject {
 			this->tableLayoutPanel2 = (gcnew System::Windows::Forms::TableLayoutPanel());
 			this->Chat_Button = (gcnew System::Windows::Forms::Button());
 			this->session_name = (gcnew System::Windows::Forms::Label());
-			this->capacity = (gcnew System::Windows::Forms::Label());
 			tableLayoutPanel1 = (gcnew System::Windows::Forms::TableLayoutPanel());
 			tableLayoutPanel1->SuspendLayout();
 			this->panel6->SuspendLayout();
@@ -227,7 +227,7 @@ namespace CppCLRWinFormsProject {
 			this->label2->ForeColor = System::Drawing::SystemColors::HotTrack;
 			this->label2->Location = System::Drawing::Point(3, 8);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(93, 19);
+			this->label2->Size = System::Drawing::Size(91, 19);
 			this->label2->TabIndex = 19;
 			this->label2->Text = L"Descripci�";
 			// 
@@ -358,7 +358,6 @@ namespace CppCLRWinFormsProject {
 			this->panel1->BackColor = System::Drawing::SystemColors::GradientInactiveCaption;
 			this->panel1->Controls->Add(this->session_name);
 			this->panel1->Controls->Add(this->capacity);
-			this->panel1->Controls->Add(this->label3);
 			this->panel1->Controls->Add(this->Confirm_Cancel_Attent_Button);
 			this->panel1->Controls->Add(this->ViewSessionAttendants_Button);
 			this->panel1->Controls->Add(this->SessionCapacity_Label1);
@@ -372,17 +371,17 @@ namespace CppCLRWinFormsProject {
 			this->panel1->TabIndex = 10;
 			this->panel1->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &GrupEstudi_InfoUI::panel1_Paint);
 			// 
-			// label3
+			// capacity
 			// 
-			this->label3->AutoSize = true;
-			this->label3->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->capacity->AutoSize = true;
+			this->capacity->Font = (gcnew System::Drawing::Font(L"Inter Light", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label3->ForeColor = System::Drawing::SystemColors::HotTrack;
-			this->label3->Location = System::Drawing::Point(19, 36);
-			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(97, 19);
-			this->label3->TabIndex = 6;
-			this->label3->Text = L"Nom sessi�";
+			this->capacity->Location = System::Drawing::Point(289, 168);
+			this->capacity->Name = L"capacity";
+			this->capacity->Size = System::Drawing::Size(26, 19);
+			this->capacity->TabIndex = 11;
+			this->capacity->Text = L"18";
+			this->capacity->Click += gcnew System::EventHandler(this, &GrupEstudi_InfoUI::label4_Click);
 			// 
 			// Confirm_Cancel_Attent_Button
 			// 
@@ -578,23 +577,12 @@ namespace CppCLRWinFormsProject {
 			this->session_name->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->session_name->ForeColor = System::Drawing::SystemColors::HotTrack;
-			this->session_name->Location = System::Drawing::Point(19, 48);
+			this->session_name->Location = System::Drawing::Point(19, 50);
 			this->session_name->Name = L"session_name";
-			this->session_name->Size = System::Drawing::Size(53, 19);
-			this->session_name->TabIndex = 6;
-			this->session_name->Text = L"Name";
+			this->session_name->Size = System::Drawing::Size(50, 19);
+			this->session_name->TabIndex = 12;
+			this->session_name->Text = L"name";
 			this->session_name->Visible = false;
-			// capacity
-			// 
-			this->capacity->AutoSize = true;
-			this->capacity->Font = (gcnew System::Drawing::Font(L"Inter Light", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->capacity->Location = System::Drawing::Point(289, 168);
-			this->capacity->Name = L"capacity";
-			this->capacity->Size = System::Drawing::Size(26, 19);
-			this->capacity->TabIndex = 11;
-			this->capacity->Text = L"18";
-			this->capacity->Click += gcnew System::EventHandler(this, &GrupEstudi_InfoUI::label4_Click);
 			// 
 			// GrupEstudi_InfoUI
 			// 
