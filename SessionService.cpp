@@ -3,6 +3,9 @@
 #include "Session.h"
 #include "MessageManager.h"
 
+using namespace System;
+using namespace System::Globalization;
+using namespace System::Collections::Generic;
 SessionService::SessionService()
 {
 	sessionRepository = gcnew SessionRepository();
@@ -89,6 +92,12 @@ Double SessionService::GetFormattedHour(String^ hour)
 {
 	String^ formattedHour = hour->Substring(0, hour->IndexOf(":"));
 	return System::Convert::ToDouble(formattedHour);
+}
+
+List<Session^>^ SessionService::GetSessionsByGroupId(Int64^ groupId, DateTime^ date)
+{
+	String^ formattedTimestamp = date->ToString("yyyy-MM-dd HH:mm:ss",CultureInfo::InvariantCulture);
+	return sessionRepository->GetSessionsByGroupId(groupId,formattedTimestamp);
 }
 
 Session^ SessionService::GetSessionById(Int64^ user_id)

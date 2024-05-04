@@ -23,7 +23,7 @@ namespace CppCLRWinFormsProject {
 
 	protected:
 		/// <summary>
-		/// Limpiar los recursos que se estén usando.
+		/// Limpiar los recursos que se estï¿½n usando.
 		/// </summary>
 		~GrupEstudi_InfoUI()
 		{
@@ -64,9 +64,9 @@ namespace CppCLRWinFormsProject {
 	private: System::Windows::Forms::Button^ ModifyGrupEstudi_Button;
 	private: System::Windows::Forms::Button^ DeleteGrupEstudi_Button;
 	private: System::Windows::Forms::Button^ GoBack_Button;
-
-
-
+	private: List<Session^>^ SessionsList;
+	private: Session^ CurrentSessionEntity;
+	private: SessionService^ sessionService;
 
 
 
@@ -80,7 +80,7 @@ namespace CppCLRWinFormsProject {
 
 	private:
 		/// <summary>
-		/// Variable del diseñador necesaria.
+		/// Variable del diseï¿½ador necesaria.
 		/// </summary>
 		System::ComponentModel::Container ^components;
 		GrupEstudi^ CurrentGrupEntity;
@@ -105,8 +105,8 @@ namespace CppCLRWinFormsProject {
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
-		/// Método necesario para admitir el Diseñador. No se puede modificar
-		/// el contenido de este método con el editor de código.
+		/// Mï¿½todo necesario para admitir el Diseï¿½ador. No se puede modificar
+		/// el contenido de este mï¿½todo con el editor de cï¿½digo.
 		/// </summary>
 		void InitializeComponent(void)
 		{
@@ -141,6 +141,7 @@ namespace CppCLRWinFormsProject {
 			this->NewSession_Button = (gcnew System::Windows::Forms::Button());
 			this->tableLayoutPanel2 = (gcnew System::Windows::Forms::TableLayoutPanel());
 			this->Chat_Button = (gcnew System::Windows::Forms::Button());
+			this->session_name = (gcnew System::Windows::Forms::Label());
 			this->capacity = (gcnew System::Windows::Forms::Label());
 			tableLayoutPanel1 = (gcnew System::Windows::Forms::TableLayoutPanel());
 			tableLayoutPanel1->SuspendLayout();
@@ -228,7 +229,7 @@ namespace CppCLRWinFormsProject {
 			this->label2->Name = L"label2";
 			this->label2->Size = System::Drawing::Size(93, 19);
 			this->label2->TabIndex = 19;
-			this->label2->Text = L"Descripció";
+			this->label2->Text = L"Descripciï¿½";
 			// 
 			// DescGrupEstudi_Label
 			// 
@@ -262,7 +263,7 @@ namespace CppCLRWinFormsProject {
 			this->DeleteGrupEstudi_Button->Name = L"DeleteGrupEstudi_Button";
 			this->DeleteGrupEstudi_Button->Size = System::Drawing::Size(176, 35);
 			this->DeleteGrupEstudi_Button->TabIndex = 13;
-			this->DeleteGrupEstudi_Button->Text = L"El·liminar grup";
+			this->DeleteGrupEstudi_Button->Text = L"Elï¿½liminar grup";
 			this->DeleteGrupEstudi_Button->UseVisualStyleBackColor = true;
 			this->DeleteGrupEstudi_Button->Visible = false;
 			// 
@@ -347,7 +348,7 @@ namespace CppCLRWinFormsProject {
 			this->DeleteSession_Button->Name = L"DeleteSession_Button";
 			this->DeleteSession_Button->Size = System::Drawing::Size(112, 35);
 			this->DeleteSession_Button->TabIndex = 8;
-			this->DeleteSession_Button->Text = L"El·liminar";
+			this->DeleteSession_Button->Text = L"Elï¿½liminar";
 			this->DeleteSession_Button->UseVisualStyleBackColor = true;
 			this->DeleteSession_Button->Visible = false;
 			// 
@@ -355,6 +356,7 @@ namespace CppCLRWinFormsProject {
 			// 
 			this->panel1->Anchor = System::Windows::Forms::AnchorStyles::None;
 			this->panel1->BackColor = System::Drawing::SystemColors::GradientInactiveCaption;
+			this->panel1->Controls->Add(this->session_name);
 			this->panel1->Controls->Add(this->capacity);
 			this->panel1->Controls->Add(this->label3);
 			this->panel1->Controls->Add(this->Confirm_Cancel_Attent_Button);
@@ -380,7 +382,7 @@ namespace CppCLRWinFormsProject {
 			this->label3->Name = L"label3";
 			this->label3->Size = System::Drawing::Size(97, 19);
 			this->label3->TabIndex = 6;
-			this->label3->Text = L"Nom sessió";
+			this->label3->Text = L"Nom sessiï¿½";
 			// 
 			// Confirm_Cancel_Attent_Button
 			// 
@@ -394,6 +396,7 @@ namespace CppCLRWinFormsProject {
 			this->Confirm_Cancel_Attent_Button->TabIndex = 0;
 			this->Confirm_Cancel_Attent_Button->Text = L"Asistir";
 			this->Confirm_Cancel_Attent_Button->UseVisualStyleBackColor = true;
+			this->Confirm_Cancel_Attent_Button->Visible = false;
 			this->Confirm_Cancel_Attent_Button->Click += gcnew System::EventHandler(this, &GrupEstudi_InfoUI::Confirm_Cancel_Attent_Button_Click);
 			// 
 			// ViewSessionAttendants_Button
@@ -432,28 +435,31 @@ namespace CppCLRWinFormsProject {
 			this->EspaiCapacity_Label->Size = System::Drawing::Size(40, 19);
 			this->EspaiCapacity_Label->TabIndex = 3;
 			this->EspaiCapacity_Label->Text = L"/ 25";
+			this->EspaiCapacity_Label->Visible = false;
 			// 
 			// StartEndDuration_Label
 			// 
 			this->StartEndDuration_Label->AutoSize = true;
 			this->StartEndDuration_Label->Font = (gcnew System::Drawing::Font(L"Inter Light", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->StartEndDuration_Label->Location = System::Drawing::Point(19, 96);
+			this->StartEndDuration_Label->Location = System::Drawing::Point(18, 106);
 			this->StartEndDuration_Label->Name = L"StartEndDuration_Label";
 			this->StartEndDuration_Label->Size = System::Drawing::Size(108, 19);
 			this->StartEndDuration_Label->TabIndex = 2;
 			this->StartEndDuration_Label->Text = L"18:00 - 19:00";
+			this->StartEndDuration_Label->Visible = false;
 			// 
 			// DayMonthYear_label
 			// 
 			this->DayMonthYear_label->AutoSize = true;
 			this->DayMonthYear_label->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->DayMonthYear_label->Location = System::Drawing::Point(19, 68);
+			this->DayMonthYear_label->Location = System::Drawing::Point(19, 76);
 			this->DayMonthYear_label->Name = L"DayMonthYear_label";
 			this->DayMonthYear_label->Size = System::Drawing::Size(107, 19);
 			this->DayMonthYear_label->TabIndex = 1;
 			this->DayMonthYear_label->Text = L"18 juny 2024";
+			this->DayMonthYear_label->Visible = false;
 			this->DayMonthYear_label->Click += gcnew System::EventHandler(this, &GrupEstudi_InfoUI::label2_Click_1);
 			// 
 			// EspaiName_Label
@@ -467,6 +473,7 @@ namespace CppCLRWinFormsProject {
 			this->EspaiName_Label->Size = System::Drawing::Size(217, 19);
 			this->EspaiName_Label->TabIndex = 0;
 			this->EspaiName_Label->Text = L"Biblioteca Vilanova - Sala 1";
+			this->EspaiName_Label->Visible = false;
 			this->EspaiName_Label->Click += gcnew System::EventHandler(this, &GrupEstudi_InfoUI::label2_Click);
 			// 
 			// GoBack_Button
@@ -521,7 +528,7 @@ namespace CppCLRWinFormsProject {
 			this->Sessions_ListBox->Name = L"Sessions_ListBox";
 			this->Sessions_ListBox->Size = System::Drawing::Size(176, 171);
 			this->Sessions_ListBox->TabIndex = 6;
-			this->Sessions_ListBox->SelectedIndexChanged += gcnew System::EventHandler(this, &GrupEstudi_InfoUI::Sessions_ListBox_SelectedIndexChanged);
+			this->Sessions_ListBox->SelectedIndexChanged += gcnew System::EventHandler(this, &GrupEstudi_InfoUI::SelectLastSessionOrPlaceholder);
 			// 
 			// NewSession_Button
 			// 
@@ -532,7 +539,7 @@ namespace CppCLRWinFormsProject {
 			this->NewSession_Button->Name = L"NewSession_Button";
 			this->NewSession_Button->Size = System::Drawing::Size(176, 35);
 			this->NewSession_Button->TabIndex = 11;
-			this->NewSession_Button->Text = L"Nova sessió";
+			this->NewSession_Button->Text = L"Nova sessiï¿½";
 			this->NewSession_Button->UseVisualStyleBackColor = true;
 			this->NewSession_Button->Visible = false;
 			this->NewSession_Button->Click += gcnew System::EventHandler(this, &GrupEstudi_InfoUI::NewSession_Button_Click);
@@ -565,6 +572,18 @@ namespace CppCLRWinFormsProject {
 			this->Chat_Button->UseVisualStyleBackColor = true;
 			this->Chat_Button->Click += gcnew System::EventHandler(this, &GrupEstudi_InfoUI::Chat_Button_Click);
 			// 
+			// session_name
+			// 
+			this->session_name->AutoSize = true;
+			this->session_name->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->session_name->ForeColor = System::Drawing::SystemColors::HotTrack;
+			this->session_name->Location = System::Drawing::Point(19, 48);
+			this->session_name->Name = L"session_name";
+			this->session_name->Size = System::Drawing::Size(53, 19);
+			this->session_name->TabIndex = 6;
+			this->session_name->Text = L"Name";
+			this->session_name->Visible = false;
 			// capacity
 			// 
 			this->capacity->AutoSize = true;
@@ -611,8 +630,7 @@ private: System::Void DescGrupEstudi_Label_Click(System::Object^ sender, System:
 }
 private: System::Void SessionsList_Label_Click_1(System::Object^ sender, System::EventArgs^ e) {
 }
-private: System::Void Sessions_ListBox_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
-}
+private: System::Void SelectLastSessionOrPlaceholder(System::Object^ sender, System::EventArgs^ e);
 private: System::Void ModifySession_Click(System::Object^ sender, System::EventArgs^ e);
 private: System::Void label1_Click(System::Object^ sender, System::EventArgs^ e) {
 }
@@ -628,7 +646,7 @@ private: System::Void button1_Click_1(System::Object^ sender, System::EventArgs^
 }
 private: System::Void GoBack_Button_Click(System::Object^ sender, System::EventArgs^ e);
 private: System::Void GrupEstudi_InfoUI_Load(System::Object^ sender, System::EventArgs^ e);
-private: System::Void SelectLastSessionOrPlaceholder();
+//private: System::Void SelectLastSessionOrPlaceholder();
 private: System::Void ActivateButtonsIfOwner();
 private: System::Void InfoGrupEstudi_Label_Click(System::Object^ sender, System::EventArgs^ e) {
 }
@@ -637,6 +655,7 @@ private: System::Void panel1_Paint(System::Object^ sender, System::Windows::Form
 private: System::Void NewSession_Button_Click(System::Object^ sender, System::EventArgs^ e);
 private: System::Void Chat_Button_Click(System::Object^ sender, System::EventArgs^ e) {
 }
+private: System::Void Sessions_Actuals_Load();
 private: System::Void Confirm_Cancel_Attent_Button_Click(System::Object^ sender, System::EventArgs^ e);
 private: System::Void label4_Click(System::Object^ sender, System::EventArgs^ e) {
 }
