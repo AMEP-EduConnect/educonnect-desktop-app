@@ -58,7 +58,7 @@ namespace CppCLRWinFormsProject {
 	private: System::Windows::Forms::ListBox^ Proveidor_ListBox;
 	private: System::Windows::Forms::Button^ EditarTemps_Button;
 
-	private: System::Windows::Forms::Button^ EditarDayMonth_Button;
+
 
 	private: System::Windows::Forms::Button^ EditarEspai_Button;
 
@@ -88,7 +88,10 @@ namespace CppCLRWinFormsProject {
 			this->EditaSession_Label = (gcnew System::Windows::Forms::Label());
 			this->SessionName_Label = (gcnew System::Windows::Forms::Label());
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
-			this->GoBack_Button = (gcnew System::Windows::Forms::Button());
+			this->EditarTemps_Button = (gcnew System::Windows::Forms::Button());
+			this->EditarEspai_Button = (gcnew System::Windows::Forms::Button());
+			this->EditarProveidor_Button = (gcnew System::Windows::Forms::Button());
+			this->EditarNom_Button = (gcnew System::Windows::Forms::Button());
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->TimeHour_ComboBox = (gcnew System::Windows::Forms::ComboBox());
 			this->Espai_Label = (gcnew System::Windows::Forms::Label());
@@ -98,11 +101,7 @@ namespace CppCLRWinFormsProject {
 			this->SessionName_TextBox = (gcnew System::Windows::Forms::TextBox());
 			this->DayMonth_Calendar = (gcnew System::Windows::Forms::MonthCalendar());
 			this->Proveidor_ListBox = (gcnew System::Windows::Forms::ListBox());
-			this->EditarNom_Button = (gcnew System::Windows::Forms::Button());
-			this->EditarProveidor_Button = (gcnew System::Windows::Forms::Button());
-			this->EditarEspai_Button = (gcnew System::Windows::Forms::Button());
-			this->EditarDayMonth_Button = (gcnew System::Windows::Forms::Button());
-			this->EditarTemps_Button = (gcnew System::Windows::Forms::Button());
+			this->GoBack_Button = (gcnew System::Windows::Forms::Button());
 			this->tableLayoutPanel1->SuspendLayout();
 			this->panel1->SuspendLayout();
 			this->SuspendLayout();
@@ -115,7 +114,7 @@ namespace CppCLRWinFormsProject {
 			this->tableLayoutPanel1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
 				92.84732F)));
 			this->tableLayoutPanel1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Absolute,
-				86)));
+				87)));
 			this->tableLayoutPanel1->Controls->Add(this->EditaSession_Label, 1, 0);
 			this->tableLayoutPanel1->Controls->Add(this->SessionName_Label, 1, 1);
 			this->tableLayoutPanel1->Controls->Add(this->panel1, 1, 2);
@@ -136,7 +135,7 @@ namespace CppCLRWinFormsProject {
 			// 
 			this->EditaSession_Label->AutoSize = true;
 			this->EditaSession_Label->Dock = System::Windows::Forms::DockStyle::Bottom;
-			this->EditaSession_Label->Location = System::Drawing::Point(55, 39);
+			this->EditaSession_Label->Location = System::Drawing::Point(54, 39);
 			this->EditaSession_Label->Name = L"EditaSession_Label";
 			this->EditaSession_Label->Size = System::Drawing::Size(669, 13);
 			this->EditaSession_Label->TabIndex = 0;
@@ -147,7 +146,7 @@ namespace CppCLRWinFormsProject {
 			// 
 			this->SessionName_Label->AutoSize = true;
 			this->SessionName_Label->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->SessionName_Label->Location = System::Drawing::Point(55, 52);
+			this->SessionName_Label->Location = System::Drawing::Point(54, 52);
 			this->SessionName_Label->Name = L"SessionName_Label";
 			this->SessionName_Label->Size = System::Drawing::Size(669, 46);
 			this->SessionName_Label->TabIndex = 1;
@@ -158,7 +157,6 @@ namespace CppCLRWinFormsProject {
 			// 
 			this->panel1->BackColor = System::Drawing::SystemColors::GradientInactiveCaption;
 			this->panel1->Controls->Add(this->EditarTemps_Button);
-			this->panel1->Controls->Add(this->EditarDayMonth_Button);
 			this->panel1->Controls->Add(this->EditarEspai_Button);
 			this->panel1->Controls->Add(this->EditarProveidor_Button);
 			this->panel1->Controls->Add(this->EditarNom_Button);
@@ -172,21 +170,54 @@ namespace CppCLRWinFormsProject {
 			this->panel1->Controls->Add(this->DayMonth_Calendar);
 			this->panel1->Controls->Add(this->Proveidor_ListBox);
 			this->panel1->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->panel1->Location = System::Drawing::Point(55, 101);
+			this->panel1->Location = System::Drawing::Point(54, 101);
 			this->panel1->Name = L"panel1";
 			this->panel1->Size = System::Drawing::Size(669, 346);
 			this->panel1->TabIndex = 2;
 			// 
-			// GoBack_Button
+			// EditarTemps_Button
 			// 
-			this->GoBack_Button->Location = System::Drawing::Point(728, 460);
-			this->GoBack_Button->Margin = System::Windows::Forms::Padding(1, 10, 1, 10);
-			this->GoBack_Button->Name = L"GoBack_Button";
-			this->GoBack_Button->Size = System::Drawing::Size(75, 23);
-			this->GoBack_Button->TabIndex = 3;
-			this->GoBack_Button->Text = L"Tornar";
-			this->GoBack_Button->UseVisualStyleBackColor = true;
-			this->GoBack_Button->Click += gcnew System::EventHandler(this, &Session_EditarUI::GoBack_Button_Click);
+			this->EditarTemps_Button->Enabled = false;
+			this->EditarTemps_Button->Location = System::Drawing::Point(561, 229);
+			this->EditarTemps_Button->Name = L"EditarTemps_Button";
+			this->EditarTemps_Button->Size = System::Drawing::Size(75, 23);
+			this->EditarTemps_Button->TabIndex = 23;
+			this->EditarTemps_Button->Text = L"Confirmar";
+			this->EditarTemps_Button->UseVisualStyleBackColor = true;
+			this->EditarTemps_Button->Click += gcnew System::EventHandler(this, &Session_EditarUI::EditarTemps_Button_Click);
+			// 
+			// EditarEspai_Button
+			// 
+			this->EditarEspai_Button->Enabled = false;
+			this->EditarEspai_Button->Location = System::Drawing::Point(229, 229);
+			this->EditarEspai_Button->Name = L"EditarEspai_Button";
+			this->EditarEspai_Button->Size = System::Drawing::Size(75, 23);
+			this->EditarEspai_Button->TabIndex = 21;
+			this->EditarEspai_Button->Text = L"Confirmar";
+			this->EditarEspai_Button->UseVisualStyleBackColor = true;
+			this->EditarEspai_Button->Click += gcnew System::EventHandler(this, &Session_EditarUI::EditarEspai_Button_Click);
+			// 
+			// EditarProveidor_Button
+			// 
+			this->EditarProveidor_Button->Enabled = false;
+			this->EditarProveidor_Button->Location = System::Drawing::Point(229, 143);
+			this->EditarProveidor_Button->Name = L"EditarProveidor_Button";
+			this->EditarProveidor_Button->Size = System::Drawing::Size(75, 23);
+			this->EditarProveidor_Button->TabIndex = 20;
+			this->EditarProveidor_Button->Text = L"Confirmar";
+			this->EditarProveidor_Button->UseVisualStyleBackColor = true;
+			this->EditarProveidor_Button->Click += gcnew System::EventHandler(this, &Session_EditarUI::EditarProveidor_Button_Click);
+			// 
+			// EditarNom_Button
+			// 
+			this->EditarNom_Button->Enabled = false;
+			this->EditarNom_Button->Location = System::Drawing::Point(229, 39);
+			this->EditarNom_Button->Name = L"EditarNom_Button";
+			this->EditarNom_Button->Size = System::Drawing::Size(75, 23);
+			this->EditarNom_Button->TabIndex = 19;
+			this->EditarNom_Button->Text = L"Confirmar";
+			this->EditarNom_Button->UseVisualStyleBackColor = true;
+			this->EditarNom_Button->Click += gcnew System::EventHandler(this, &Session_EditarUI::EditarNom_Button_Click);
 			// 
 			// label2
 			// 
@@ -276,60 +307,16 @@ namespace CppCLRWinFormsProject {
 			this->Proveidor_ListBox->TabIndex = 10;
 			this->Proveidor_ListBox->SelectedIndexChanged += gcnew System::EventHandler(this, &Session_EditarUI::Proveidor_ListBox_SelectedIndexChanged);
 			// 
-			// EditarNom_Button
+			// GoBack_Button
 			// 
-			this->EditarNom_Button->Enabled = false;
-			this->EditarNom_Button->Location = System::Drawing::Point(229, 39);
-			this->EditarNom_Button->Name = L"EditarNom_Button";
-			this->EditarNom_Button->Size = System::Drawing::Size(75, 23);
-			this->EditarNom_Button->TabIndex = 19;
-			this->EditarNom_Button->Text = L"Confirmar";
-			this->EditarNom_Button->UseVisualStyleBackColor = true;
-			this->EditarNom_Button->Click += gcnew System::EventHandler(this, &Session_EditarUI::EditarNom_Button_Click);
-			// 
-			// EditarProveidor_Button
-			// 
-			this->EditarProveidor_Button->Enabled = false;
-			this->EditarProveidor_Button->Location = System::Drawing::Point(229, 143);
-			this->EditarProveidor_Button->Name = L"EditarProveidor_Button";
-			this->EditarProveidor_Button->Size = System::Drawing::Size(75, 23);
-			this->EditarProveidor_Button->TabIndex = 20;
-			this->EditarProveidor_Button->Text = L"Confirmar";
-			this->EditarProveidor_Button->UseVisualStyleBackColor = true;
-			this->EditarProveidor_Button->Click += gcnew System::EventHandler(this, &Session_EditarUI::EditarProveidor_Button_Click);
-			// 
-			// EditarEspai_Button
-			// 
-			this->EditarEspai_Button->Enabled = false;
-			this->EditarEspai_Button->Location = System::Drawing::Point(229, 229);
-			this->EditarEspai_Button->Name = L"EditarEspai_Button";
-			this->EditarEspai_Button->Size = System::Drawing::Size(75, 23);
-			this->EditarEspai_Button->TabIndex = 21;
-			this->EditarEspai_Button->Text = L"Confirmar";
-			this->EditarEspai_Button->UseVisualStyleBackColor = true;
-			this->EditarEspai_Button->Click += gcnew System::EventHandler(this, &Session_EditarUI::EditarEspai_Button_Click);
-			// 
-			// EditarDayMonth_Button
-			// 
-			this->EditarDayMonth_Button->Enabled = false;
-			this->EditarDayMonth_Button->Location = System::Drawing::Point(561, 158);
-			this->EditarDayMonth_Button->Name = L"EditarDayMonth_Button";
-			this->EditarDayMonth_Button->Size = System::Drawing::Size(75, 23);
-			this->EditarDayMonth_Button->TabIndex = 22;
-			this->EditarDayMonth_Button->Text = L"Confirmar";
-			this->EditarDayMonth_Button->UseVisualStyleBackColor = true;
-			this->EditarDayMonth_Button->Click += gcnew System::EventHandler(this, &Session_EditarUI::EditarDayMonth_Button_Click);
-			// 
-			// EditarTemps_Button
-			// 
-			this->EditarTemps_Button->Enabled = false;
-			this->EditarTemps_Button->Location = System::Drawing::Point(561, 229);
-			this->EditarTemps_Button->Name = L"EditarTemps_Button";
-			this->EditarTemps_Button->Size = System::Drawing::Size(75, 23);
-			this->EditarTemps_Button->TabIndex = 23;
-			this->EditarTemps_Button->Text = L"Confirmar";
-			this->EditarTemps_Button->UseVisualStyleBackColor = true;
-			this->EditarTemps_Button->Click += gcnew System::EventHandler(this, &Session_EditarUI::EditarTemps_Button_Click);
+			this->GoBack_Button->Location = System::Drawing::Point(727, 460);
+			this->GoBack_Button->Margin = System::Windows::Forms::Padding(1, 10, 1, 10);
+			this->GoBack_Button->Name = L"GoBack_Button";
+			this->GoBack_Button->Size = System::Drawing::Size(75, 23);
+			this->GoBack_Button->TabIndex = 3;
+			this->GoBack_Button->Text = L"Tornar";
+			this->GoBack_Button->UseVisualStyleBackColor = true;
+			this->GoBack_Button->Click += gcnew System::EventHandler(this, &Session_EditarUI::GoBack_Button_Click);
 			// 
 			// Session_EditarUI
 			// 
@@ -359,9 +346,8 @@ private: System::Void Espai_ComboBox_SelectedIndexChanged(System::Object^ sender
 private: System::Void EditarNom_Button_Click(System::Object^ sender, System::EventArgs^ e);
 private: System::Void EditarProveidor_Button_Click(System::Object^ sender, System::EventArgs^ e);
 private: System::Void EditarEspai_Button_Click(System::Object^ sender, System::EventArgs^ e);
-private: System::Void EditarDayMonth_Button_Click(System::Object^ sender, System::EventArgs^ e);
 private: System::Void EditarTemps_Button_Click(System::Object^ sender, System::EventArgs^ e);
-	   DateTime FormatEspaiStringIntoDateTime(String^ espaiString);
+	   DateTime FormatTimeStringIntoDateTime(String^ espaiString);
 private:
 	void LoadEspaiTimeStampsOfCurrentDay();
 	void LoadEspaisFromSelectedProveidor();

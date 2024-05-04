@@ -59,7 +59,7 @@ namespace CppCLRWinFormsProject {
 		if (this->FullyFormatedSessionDate != nullptr && this->TimeHour_ComboBox->Text != "")
 		{
 
-			*FullyFormatedSessionDate = this->FormatEspaiStringIntoDateTime(this->TimeHour_ComboBox->Text);
+			*FullyFormatedSessionDate = this->FormatTimeStringIntoDateTime(this->TimeHour_ComboBox->Text);
 			bool isFree = this->sessionService->CheckIfTimeStampIsFree(FullyFormatedSessionDate);
 			if (isFree)
 			{
@@ -128,10 +128,11 @@ namespace CppCLRWinFormsProject {
 		return true;
 	}
 
-	DateTime Session_CrearUI::FormatEspaiStringIntoDateTime(String^ espaiString)
+	DateTime Session_CrearUI::FormatTimeStringIntoDateTime(String^ espaiString)
 	{
 		Double formattedHour = this->sessionService->GetFormattedHour(espaiString);
 		DateTime sessionDate = *FullyFormatedSessionDate;
+		sessionDate = sessionDate.Date;
 		sessionDate = sessionDate.AddHours(formattedHour);
 		return sessionDate;
 	}
@@ -144,7 +145,7 @@ namespace CppCLRWinFormsProject {
 		System::Collections::Generic::IEnumerator<String^>^ enumerator = TimeStamps->GetEnumerator();
 		while (enumerator->MoveNext())
 		{
-			DateTime CurrentTimeStamp = this->FormatEspaiStringIntoDateTime(enumerator->Current);
+			DateTime CurrentTimeStamp = this->FormatTimeStringIntoDateTime(enumerator->Current);
 			bool isFree = this->sessionService->CheckIfTimeStampIsFree(CurrentTimeStamp);
 			if (isFree)
 			{

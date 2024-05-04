@@ -23,9 +23,9 @@ namespace CppCLRWinFormsProject {
 	System::Void Session_EditarUI::Session_EditarUI_Load(System::Object^ sender, System::EventArgs^ e)
 	{
 		this->LoadProveidorsOnList();
-		this->DayMonth_Calendar->SetDate(*(this->CurrentSession->GetSessionStartDate()));
-		this->OnCalendarDateChanged();
+		this->DayMonth_Calendar->SetDate((this->CurrentSession->GetSessionStartDate()->Date));
 		this->TimeHour_ComboBox->Text = (this->CurrentSession->GetSessionStartDate()->ToString("HH:mm") + " - " + this->CurrentSession->GetSessionEndDate()->ToString("HH:mm"));
+		this->LoadEspaiTimeStampsOfCurrentDay();
 		this->SessionName_Label->Text = this->CurrentSession->GetSessionName();
 		this->SessionName_TextBox->Text = this->CurrentSession->GetSessionName();
 		String^ username = this->baixaProveidorService->GetProveidorByEspaiId(this->CurrentSession->GetEspaiId())->GetUsername();
@@ -52,38 +52,29 @@ namespace CppCLRWinFormsProject {
 
 	System::Void Session_EditarUI::TimeHour_ComboBox_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e)
 	{
+		
 		if (this->FullyFormatedSessionDate != nullptr && this->TimeHour_ComboBox->Text != "")
 		{
-
-			*FullyFormatedSessionDate = this->FormatEspaiStringIntoDateTime(this->TimeHour_ComboBox->Text);
-			bool isFree = this->sessionService->CheckIfTimeStampIsFree(FullyFormatedSessionDate);
-			if(!isFree)
+			if (IsLoaded)
 			{
-				MessageManager::ErrorMessage("La data seleccionada ja està ocupada per una sessió.");
-			}
-			else {
-				if (IsLoaded) this->EditarTemps_Button->Enabled = true;
+				this->FullyFormatedSessionDate = this->DayMonth_Calendar->SelectionStart;
+				*FullyFormatedSessionDate = this->FormatTimeStringIntoDateTime(this->TimeHour_ComboBox->Text);
+				MessageManager::InfoMessage(" 1 La data seleccionada és: " + FullyFormatedSessionDate->ToString());
+				bool isFree = this->sessionService->CheckIfTimeStampIsFree(FullyFormatedSessionDate);
+				if (!isFree)
+				{
+					MessageManager::ErrorMessage("La data seleccionada ja està ocupada per una sessió.");
+				}
+				else {
+					if (IsLoaded) this->EditarTemps_Button->Enabled = true;
+				}
 			}
 		}
 	}
 
 	System::Void Session_EditarUI::DayMonth_Calendar_DateChanged(System::Object^ sender, System::Windows::Forms::DateRangeEventArgs^ e)
 	{
-		this->OnCalendarDateChanged();
-		if (IsLoaded) this->EditarDayMonth_Button->Enabled = true;
-	}
-
-	System::Void Session_EditarUI::GoBack_Button_Click(System::Object^ sender, System::EventArgs^ e)
-	{
-		GrupEstudi_InfoUI^ PanelUI = gcnew GrupEstudi_InfoUI((this->CurrentGrupEntity)->GetGroupName());
-
-		PanelUI->TopLevel = false;
-		PanelUI->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
-		PanelUI->Dock = System::Windows::Forms::DockStyle::Fill;
-
-		MainPageUI::Instance->screen->Controls->Clear();
-		MainPageUI::Instance->screen->Controls->Add(PanelUI);
-		PanelUI->Show();
+		if(IsLoaded) this->OnCalendarDateChanged();
 	}
 	System::Void Session_EditarUI::Espai_ComboBox_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e)
 	{
@@ -149,47 +140,39 @@ namespace CppCLRWinFormsProject {
 		}
 	}
 
-	System::Void Session_EditarUI::EditarDayMonth_Button_Click(System::Object^ sender, System::EventArgs^ e)
-	{
-		this->FullyFormatedSessionDate = this->DayMonth_Calendar->SelectionStart;
-		this->LoadEspaiTimeStampsOfCurrentDay();
-	}
-
 	System::Void Session_EditarUI::EditarTemps_Button_Click(System::Object^ sender, System::EventArgs^ e)
 	{
 		if (this->FieldsNotEmpty())
 		{
-			if (this->FullyFormatedSessionDate != nullptr && this->TimeHour_ComboBox->Text != "")
+			if (this->sessionService->UpdateSessionDate(FullyFormatedSessionDate, this->CurrentSession->GetId()))
 			{
-
-				*FullyFormatedSessionDate = this->FormatEspaiStringIntoDateTime(this->TimeHour_ComboBox->Text);
-				bool isFree = this->sessionService->CheckIfTimeStampIsFree(FullyFormatedSessionDate);
-				if (isFree)
-				{
-					this->EditarTemps_Button->Enabled = true;
-					if (this->sessionService->UpdateSessionDate(FullyFormatedSessionDate, this->CurrentSession->GetId()))
-					{
-						MessageManager::InfoMessage("Data de la sessió actualitzada correctament.");
-						this->EditarTemps_Button->Enabled = false;
-					}
-					else
-					{
-						MessageManager::ErrorMessage("Error al actualitzar la data de la sessió.");
-					}
-				}
-				else
-				{
-					MessageManager::ErrorMessage("La data seleccionada ja està ocupada per una sessió.");
-					this->EditarTemps_Button->Enabled = false;
-				}
+				MessageManager::InfoMessage("Data de la sessió actualitzada correctament.");
+				this->EditarTemps_Button->Enabled = false;
+			}
+			else
+			{
+				MessageManager::ErrorMessage("Error al actualitzar la data de la sessió.");
 			}
 		}
 	}
+	System::Void Session_EditarUI::GoBack_Button_Click(System::Object^ sender, System::EventArgs^ e)
+	{
+		GrupEstudi_InfoUI^ PanelUI = gcnew GrupEstudi_InfoUI((this->CurrentGrupEntity)->GetGroupName());
 
-	DateTime Session_EditarUI::FormatEspaiStringIntoDateTime(String^ espaiString)
+		PanelUI->TopLevel = false;
+		PanelUI->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
+		PanelUI->Dock = System::Windows::Forms::DockStyle::Fill;
+
+		MainPageUI::Instance->screen->Controls->Clear();
+		MainPageUI::Instance->screen->Controls->Add(PanelUI);
+		PanelUI->Show();
+	}
+
+	DateTime Session_EditarUI::FormatTimeStringIntoDateTime(String^ espaiString)
 	{
 		Double formattedHour = this->sessionService->GetFormattedHour(espaiString);
 		DateTime sessionDate = *FullyFormatedSessionDate;
+		sessionDate = sessionDate.Date;
 		sessionDate = sessionDate.AddHours(formattedHour);
 		return sessionDate;
 	}
@@ -202,7 +185,7 @@ namespace CppCLRWinFormsProject {
 		System::Collections::Generic::IEnumerator<String^>^ enumerator = TimeStamps->GetEnumerator();
 		while (enumerator->MoveNext())
 		{
-			DateTime CurrentTimeStamp = this->FormatEspaiStringIntoDateTime(enumerator->Current);
+			DateTime CurrentTimeStamp = this->FormatTimeStringIntoDateTime(enumerator->Current);
 			bool isFree = this->sessionService->CheckIfTimeStampIsFree(CurrentTimeStamp);
 			if (isFree)
 			{
@@ -253,5 +236,4 @@ namespace CppCLRWinFormsProject {
 		}
 		return true;
 	}
-
 }
