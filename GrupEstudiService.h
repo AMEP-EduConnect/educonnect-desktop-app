@@ -37,13 +37,15 @@ public:
 	bool CheckUserIsOwner(String^ group_name);
 	bool CheckUserIsOwnerByIds(Int64^ user_id, Int64^ group_id);
 
-	void ChangeGroupOwner(Int64^ group_id, Int64^ new_owner_id);
-	bool DeleteGrupEstudiById(Int64^ id);
 //MAIN PAGE
 //
 //
 	List<GrupEstudi^>^ CheckNrecentGroups(Int64^ N, Int64^ user_id);
 
+	void ChangeGroupOwner(Int64^ group_id, Int64^ new_owner_id);
+	bool DeleteGrupEstudiById(Int64^ id);
+
+	array<GrupEstudi^>^ LoadGrupsNoMembers(Int64^ user_id);
 
 private:
 	GrupEstudiRepository^ grupEstudiRepository;

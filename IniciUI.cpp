@@ -15,6 +15,8 @@
 #include "MessageManager.h"
 #include "Usuari.h"
 #include "CurrentSession.h"
+#include "MainPageUI.h"
+#include "GrupEstudi_CrearUI.h"
 
 using namespace System::Collections::Generic;
 
@@ -99,6 +101,17 @@ namespace CppCLRWinFormsProject {
         }
   
 
+    }
+
+    Void IniciUI::pictureBox4_Click(System::Object^ sender, System::EventArgs^ e) {
+        GrupEstudi_CrearUI^ PanelUI = gcnew GrupEstudi_CrearUI();
+        PanelUI->TopLevel = false;
+        PanelUI->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
+        PanelUI->Dock = System::Windows::Forms::DockStyle::Fill;
+
+        MainPageUI::Instance->screen->Controls->Clear();
+        MainPageUI::Instance->screen->Controls->Add(PanelUI);
+        PanelUI->Show();
     }
 
 

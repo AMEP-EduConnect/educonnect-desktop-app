@@ -456,11 +456,11 @@
     <EmbeddedResource Include="IniciUI.resx">
       <DependentUpon>IniciUI.h</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainPageUI.resx">
-      <DependentUpon>MainPageUI.h</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="InformacioPersonal_ConsultaUI.resx">
       <DependentUpon>InformacioPersonal_ConsultaUI.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainPageUI.resx">
+      <DependentUpon>MainPageUI.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RegistreUsuariUI.resx">
       <DependentUpon>RegistreUsuariUI.h</DependentUpon>

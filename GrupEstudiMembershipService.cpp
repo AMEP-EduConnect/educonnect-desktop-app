@@ -52,10 +52,15 @@ void GrupEstudiMembershipService::DeleteUserFromGroup(Int64^ user_id, Int64^ gro
 List<Int64>^ GrupEstudiMembershipService::CheckNRecentGroups(Int64^ N, Int64^ user_id) {
 	return grupEstudiMembershipRepository->CheckNRecentGroups(N, user_id);
 }
+
 Int64^ GrupEstudiMembershipService::GetOldestUserInGroup(Int64^ group_id) {
 	return grupEstudiMembershipRepository->GetOldestUserInGroup(group_id);
 }
 
 bool GrupEstudiMembershipService::UserInSomeGroup(Int64^ user_id) {
 	return grupEstudiMembershipRepository->UserInSomeGroup(user_id);
+}
+
+array<GrupEstudiMembership^>^ GrupEstudiMembershipService::LoadAllGrupsEstudiMembershipByUserId(Int64^ user_id) {
+	return grupEstudiMembershipRepository->LoadAllGrupsEstudiMembershipByUserId(user_id);
 }

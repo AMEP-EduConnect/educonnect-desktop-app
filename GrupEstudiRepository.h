@@ -28,11 +28,13 @@ public:
 
 	Int64^ GetUserIdByName(String^ user_name);
 	Int64^ GetGroupIdByName(String^ group_name);
-	bool CheckUserIsOwner(String^ group_name);
-	
-	
-	String^ GetAcademicTagNameById(Int64^ academic_tag_id);
 
 	bool CheckUserIsOwnerById(Int64^ id_user, Int64^ id_group);
+	String^ GetAcademicTagNameById(Int64^ academic_tag_id);
+
+	bool CheckUserIsOwner(String^ group_name);
+
+	array<GrupEstudi^>^ LoadGrupsNoMembers(Int64^ user_id);
+
 	void ChangeGroupOwner(Int64^ group_id, Int64^ new_owner_id);
 };

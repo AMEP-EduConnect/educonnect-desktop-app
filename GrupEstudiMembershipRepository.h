@@ -14,6 +14,8 @@ public:
 	GrupEstudiMembershipRepository();
 
 	array<Int64^>^ LoadGrupsEstudiMembershipByUserId(Int64^ user_id);
+	array<GrupEstudiMembership^>^ LoadAllGrupsEstudiMembershipByUserId(Int64^ user_id);
+
 	array<Int64^>^ LoadMembershipByGrupsEstudi(Int64^ group_id);
 	array<Int64^>^ LoadAllGrupsEstudiNoIn(Int64^ user_id);
 

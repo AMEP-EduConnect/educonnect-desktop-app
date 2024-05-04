@@ -247,9 +247,9 @@ namespace CppCLRWinFormsProject {
 			this->panel4->Controls->Add(this->panel5);
 			this->panel4->Controls->Add(this->panel1);
 			this->panel4->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->panel4->Location = System::Drawing::Point(38, 76);
+			this->panel4->Location = System::Drawing::Point(38, 75);
 			this->panel4->Name = L"panel4";
-			this->panel4->Size = System::Drawing::Size(773, 458);
+			this->panel4->Size = System::Drawing::Size(773, 459);
 			this->panel4->TabIndex = 2;
 			// 
 			// panel5
@@ -261,7 +261,7 @@ namespace CppCLRWinFormsProject {
 			this->panel5->Controls->Add(this->label3);
 			this->panel5->Location = System::Drawing::Point(0, 267);
 			this->panel5->Name = L"panel5";
-			this->panel5->Size = System::Drawing::Size(770, 189);
+			this->panel5->Size = System::Drawing::Size(770, 190);
 			this->panel5->TabIndex = 5;
 			// 
 			// label2
@@ -475,6 +475,7 @@ namespace CppCLRWinFormsProject {
 			this->pictureBox4->Size = System::Drawing::Size(24, 24);
 			this->pictureBox4->TabIndex = 9;
 			this->pictureBox4->TabStop = false;
+			this->pictureBox4->Click += gcnew System::EventHandler(this, &IniciUI::pictureBox4_Click);
 			// 
 			// label4
 			// 
@@ -494,7 +495,7 @@ namespace CppCLRWinFormsProject {
 			this->panel3->Controls->Add(this->Benvinguda);
 			this->panel3->Location = System::Drawing::Point(38, 3);
 			this->panel3->Name = L"panel3";
-			this->panel3->Size = System::Drawing::Size(455, 67);
+			this->panel3->Size = System::Drawing::Size(455, 66);
 			this->panel3->TabIndex = 2;
 			// 
 			// IniciUI
@@ -546,5 +547,6 @@ private: System::Void flowLayoutPanel1_Paint(System::Object^ sender, System::Win
 }
 private: System::Void flowLayoutPanel1_Paint_1(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
 }
+private: System::Void pictureBox4_Click(System::Object^ sender, System::EventArgs^ e);
 };
 }

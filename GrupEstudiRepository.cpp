@@ -242,21 +242,6 @@ bool GrupEstudiRepository::CheckUserIsOwner(String^ group_name)
 	return owner;
 }
 
-
-bool GrupEstudiRepository::CheckUserIsOwnerById(Int64^ id_user, Int64^ id_group)
-{
-	DatabaseConnector::Instance->Connect();
-	String^ sql = "SELECT * FROM studyGroups WHERE group_owner_id = @id_user AND id = @id_group";
-	Dictionary<String^, Object^>^ params = gcnew Dictionary<String^, Object^>(0);
-	params->Add("@id_user", id_user->ToString());
-	params->Add("@id_group", id_group->ToString());
-	MySqlDataReader^ data = DatabaseConnector::Instance->ExecuteClientCommand(sql, params);
-	bool check = data != nullptr && data->Read();
-	data->Close();
-	DatabaseConnector::Instance->Disconnect();
-	return check;
-}
-
 String^ GrupEstudiRepository::GetAcademicTagNameById(Int64^ academic_tag_id) {
 	DatabaseConnector::Instance->Connect();
 	String^ sql = "SELECT tag_name FROM academicTags WHERE id = " + academic_tag_id;
@@ -285,6 +270,20 @@ void GrupEstudiRepository::ChangeGroupOwner(Int64^ group_id, Int64^ new_owner_id
 	DatabaseConnector::Instance->Disconnect();
 }
 
+bool GrupEstudiRepository::CheckUserIsOwnerById(Int64^ id_user, Int64^ id_group)
+{
+	DatabaseConnector::Instance->Connect();
+	String^ sql = "SELECT * FROM studyGroups WHERE group_owner_id = @id_user AND id = @id_group";
+	Dictionary<String^, Object^>^ params = gcnew Dictionary<String^, Object^>(0);
+	params->Add("@id_user", id_user->ToString());
+	params->Add("@id_group", id_group->ToString());
+	MySqlDataReader^ data = DatabaseConnector::Instance->ExecuteClientCommand(sql, params);
+	bool check = data != nullptr && data->Read();
+	data->Close();
+	DatabaseConnector::Instance->Disconnect();
+	return check;
+}
+
 String^ GrupEstudiRepository::GetGroupDescription(String^ NomGrup) {
 	DatabaseConnector::Instance->Connect();
 	String^ sql = "SELECT description FROM studyGroups WHERE group_name = '" + NomGrup + "'";
@@ -302,3 +301,26 @@ String^ GrupEstudiRepository::GetGroupDescription(String^ NomGrup) {
 	return descripcio;
 }
 
+array<GrupEstudi^>^ GrupEstudiRepository::LoadGrupsNoMembers(Int64^ user_id) {
+	DatabaseConnector::Instance->Connect();
+	//SELECT * FROM studyGroups WHERE id NOT IN ( SELECT group_id FROM studyGroupsMembership WHERE user_id = @user_id)";
+	String^ sql = "SELECT * FROM studyGroups WHERE id NOT IN ( SELECT group_id FROM studyGroupsMembership WHERE user_id = @user_id)";
+	Dictionary<String^, Object^>^ params = gcnew Dictionary<String^, Object^>(0);
+	params->Add("@user_id", user_id->ToString());
+	MySqlDataReader^ data = DatabaseConnector::Instance->ExecuteClientCommand(sql, params);
+	array<GrupEstudi^>^ grups = gcnew array<GrupEstudi^>(0);
+	while (data->Read())
+	{
+		GrupEstudi^ grup = gcnew GrupEstudi();
+		grup->SetId(data->GetInt64(0));
+		grup->SetGroupName(data->GetString(1));
+		grup->SetGroupOwnerId(data->GetInt64(2));
+		grup->SetGroupAcademicTag(data->GetInt64(3));
+		grup->SetDescription(data->GetString(4));
+		Array::Resize(grups, grups->Length + 1);
+		grups[grups->Length - 1] = grup;
+	}
+	data->Close();
+	DatabaseConnector::Instance->Disconnect();
+	return grups;
+}
