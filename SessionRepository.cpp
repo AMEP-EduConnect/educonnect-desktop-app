@@ -33,12 +33,64 @@ bool SessionRepository::CreateSession(Int64^ grup_id, Int64^ espai_id, String^ s
 
 Int64^ SessionRepository::GetSessionId(Int64^ user_id)
 {
-	return 0LL;
+	DatabaseConnector::Instance->Connect();
+	String^ sql = "SELECT id FROM grupSessions WHERE group_id=@user_id";
+	Dictionary<String^, Object^>^ params = gcnew Dictionary<String^, Object^>(0);
+	params->Add("@user_id", user_id);
+	MySqlDataReader^ data = DatabaseConnector::Instance->ExecuteClientCommand(sql, params);
+	Int64^ session_id;
+	while (data->Read()) {
+		session_id = data->GetInt64(0);
+	}
+	data->Close();
+	DatabaseConnector::Instance->Disconnect();
+	return session_id;
 }
 
 bool SessionRepository::DeleteSession(Int64^ user_id)
 {
 	return false;
+}
+
+bool SessionRepository::UpdateSessionName(String^ newSessionName, String^ oldSessionName)
+{
+	DatabaseConnector::Instance->Connect();
+	String^ sql = "UPDATE grupSessions SET session_name=@newSessionName WHERE session_name=@oldSessionName";
+	Dictionary<String^, Object^>^ params = gcnew Dictionary<String^, Object^>(0);
+	params->Add("@newSessionName", newSessionName);
+	params->Add("@oldSessionName", oldSessionName);
+	MySqlDataReader^ data = DatabaseConnector::Instance->ExecuteClientCommand(sql, params);
+	data->Close();
+	DatabaseConnector::Instance->Disconnect();
+	return true;
+}
+
+bool SessionRepository::UpdateSessionEspai(Int64^ newEspaiId, Int64^ oldEspaiId)
+{
+	DatabaseConnector::Instance->Connect();
+	String^ sql = "UPDATE grupSessions SET espai_id=@newEspaiId WHERE espai_id=@oldEspaiId";
+	Dictionary<String^, Object^>^ params = gcnew Dictionary<String^, Object^>(0);
+	params->Add("@newEspaiId", newEspaiId);
+	params->Add("@oldEspaiId", oldEspaiId);
+	MySqlDataReader^ data = DatabaseConnector::Instance->ExecuteClientCommand(sql, params);
+	data->Close();
+	DatabaseConnector::Instance->Disconnect();
+	return true;
+
+}
+
+bool SessionRepository::UpdateSessionDate(DateTime^ newSessionDate, DateTime^ endSessionDate, Int64^ session_id)
+{
+	DatabaseConnector::Instance->Connect();
+	String^ sql = "UPDATE grupSessions SET session_start_date=@newSessionDate, session_end_date=@endSessionDate WHERE id=@session_id";
+	Dictionary<String^, Object^>^ params = gcnew Dictionary<String^, Object^>(0);
+	params->Add("@newSessionDate", newSessionDate);
+	params->Add("@endSessionDate", endSessionDate);
+	params->Add("@session_id", session_id);
+	MySqlDataReader^ data = DatabaseConnector::Instance->ExecuteClientCommand(sql, params);
+	data->Close();
+	DatabaseConnector::Instance->Disconnect();
+	return true;	
 }
 
 List<Session^>^ SessionRepository::GetSessionsByDate(DateTime^ selectedDay, Int64^ currentGrupId)
@@ -108,7 +160,7 @@ Session^ SessionRepository::GetSessionByName(String^ name)
 	return session;
 }
 
-List<Session^>^ SessionRepository::GetSessionsByGroupId(Int64^ groupId, String^ date)
+List<Session^>^ SessionRepository::GetSessionsByGroupIdAndStartDate(Int64^ groupId, String^ date)
 {
 	DatabaseConnector::Instance->Connect();
 	String^ sql = "SELECT * FROM grupSessions WHERE group_id=@groupId AND session_start_date >= @date ORDER BY session_start_date ASC";

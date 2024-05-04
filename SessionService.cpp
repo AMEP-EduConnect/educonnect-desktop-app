@@ -17,7 +17,7 @@ bool SessionService::CreateSession(Int64^ group_id, String^ espai_name, String^ 
 	String^ realName = this->GetFormattedEspai(espai_name);
 	
 	Int64^ espai_id = consultaEspaisService->GetEspaiIdByName(realName);
-	DateTime^ session_end_date = session_start_date->AddMinutes(30);
+	DateTime^ session_end_date = session_start_date->AddHours(1);
 	if (this->sessionRepository->CreateSession(group_id, espai_id, session_name, session_start_date, session_end_date)) {
 		return true;
 	}
@@ -34,6 +34,43 @@ Int64^ SessionService::GetSessionId(Int64^ user_id)
 bool SessionService::DeleteSession(Int64^ user_id)
 {
 	return sessionRepository->DeleteSession(user_id);
+}
+
+bool SessionService::UpdateSessionName(String^ newSessionName, String^ oldSessionName)
+{
+	if (this->sessionRepository->UpdateSessionName(newSessionName, oldSessionName))
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
+}
+
+bool SessionService::UpdateSessionEspai(Int64^ newEspaiId, Int64^ oldEspaiId)
+{
+	if (this->sessionRepository->UpdateSessionEspai(newEspaiId, oldEspaiId))
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
+}
+
+bool SessionService::UpdateSessionDate(DateTime^ newSessionDate, Int64^ session_id)
+{
+	DateTime^ endSessionDate = newSessionDate->AddHours(1);
+	if (this->sessionRepository->UpdateSessionDate(newSessionDate, endSessionDate, session_id))
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
 }
 
 bool SessionService::CheckIfTimeStampIsFree(DateTime^ selectedDay)
@@ -94,10 +131,10 @@ Double SessionService::GetFormattedHour(String^ hour)
 	return System::Convert::ToDouble(formattedHour);
 }
 
-List<Session^>^ SessionService::GetSessionsByGroupId(Int64^ groupId, DateTime^ date)
+List<Session^>^ SessionService::GetSessionsByGroupIdAndStartDate(Int64^ groupId, DateTime^ date)
 {
 	String^ formattedTimestamp = date->ToString("yyyy-MM-dd HH:mm:ss",CultureInfo::InvariantCulture);
-	return sessionRepository->GetSessionsByGroupId(groupId,formattedTimestamp);
+	return sessionRepository->GetSessionsByGroupIdAndStartDate(groupId,formattedTimestamp);
 }
 
 Session^ SessionService::GetSessionById(Int64^ user_id)

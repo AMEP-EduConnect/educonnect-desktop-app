@@ -75,6 +75,7 @@ namespace CppCLRWinFormsProject {
 	private: IniciSessioService^ iniciSessioService;
 
 	private: DateTime^ FullyFormatedSessionDate;
+	private: bool IsLoaded;
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
@@ -236,6 +237,7 @@ namespace CppCLRWinFormsProject {
 			this->Espai_ComboBox->Name = L"Espai_ComboBox";
 			this->Espai_ComboBox->Size = System::Drawing::Size(186, 21);
 			this->Espai_ComboBox->TabIndex = 14;
+			this->Espai_ComboBox->SelectedIndexChanged += gcnew System::EventHandler(this, &Session_EditarUI::Espai_ComboBox_SelectedIndexChanged);
 			// 
 			// label1
 			// 
@@ -353,6 +355,7 @@ private: System::Void Proveidor_ListBox_SelectedIndexChanged(System::Object^ sen
 private: System::Void TimeHour_ComboBox_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e);
 private: System::Void DayMonth_Calendar_DateChanged(System::Object^ sender, System::Windows::Forms::DateRangeEventArgs^ e);
 private: System::Void GoBack_Button_Click(System::Object^ sender, System::EventArgs^ e);
+private: System::Void Espai_ComboBox_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e);
 private: System::Void EditarNom_Button_Click(System::Object^ sender, System::EventArgs^ e);
 private: System::Void EditarProveidor_Button_Click(System::Object^ sender, System::EventArgs^ e);
 private: System::Void EditarEspai_Button_Click(System::Object^ sender, System::EventArgs^ e);
@@ -364,5 +367,6 @@ private:
 	void LoadEspaisFromSelectedProveidor();
 	void LoadProveidorsOnList();
 	void OnCalendarDateChanged();
+	bool FieldsNotEmpty();
 };
 }

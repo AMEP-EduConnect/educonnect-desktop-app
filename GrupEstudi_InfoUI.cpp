@@ -106,7 +106,7 @@ namespace CppCLRWinFormsProject {
     System::Void GrupEstudi_InfoUI::Sessions_Actuals_Load()
     {
         this->Sessions_ListBox->Items->Clear();
-        SessionsList = this->sessionService->GetSessionsByGroupId(this->CurrentGrupEntity->GetId(), DateTime::Now);
+        SessionsList = this->sessionService->GetSessionsByGroupIdAndStartDate(this->CurrentGrupEntity->GetId(), DateTime::Now);
 
         if (SessionsList->Count > 0) {
             System::Collections::Generic::IEnumerator<Session^>^ Enumerator = SessionsList->GetEnumerator();

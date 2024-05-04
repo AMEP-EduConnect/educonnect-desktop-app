@@ -11,6 +11,9 @@ public:
 	bool CreateSession(Int64^ group_id, String^ espai_name, String^ session_name, DateTime^ session_start_date);
 	Int64^ GetSessionId(Int64^ user_id);
 	bool DeleteSession(Int64^ user_id);
+	bool UpdateSessionName(String^ newSessionName, String^ oldSessionName);
+	bool UpdateSessionEspai(Int64^ newEspaiId, Int64^ oldEspaiId);
+	bool UpdateSessionDate(DateTime^ newSessionDate, Int64^ session_id);
 
 	bool CheckIfTimeStampIsFree(DateTime^ selectedDay);
 	bool CheckIfSessionNameIsAvailable(String^ name);
@@ -18,8 +21,9 @@ public:
 	List<String^>^ GenerateAllTimeStamps();
 	String^ GetFormattedEspai(String^ name);
 	Double GetFormattedHour(String^ hour);
-	List<Session^>^ GetSessionsByGroupId(Int64^ groupId, DateTime^ date);
+	List<Session^>^ GetSessionsByGroupIdAndStartDate(Int64^ groupId, DateTime^ date);
 	Session^ GetSessionById(Int64^ user_id);
+	
 
 private:
 	SessionRepository^ sessionRepository;
