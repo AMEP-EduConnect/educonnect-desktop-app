@@ -8,7 +8,7 @@ public:
 	SessionRepository();
 	bool CreateSession(Int64^ grup_id, Int64^ espai_id, String^ session_name, DateTime^ session_start_date, DateTime^ session_end_date);
 	Int64^ GetSessionId(Int64^ user_id);
-	bool DeleteSession(Int64^ user_id);
+	bool DeleteSession(Int64^ session_id);
 	bool UpdateSessionName(String^ newSessionName, String^ oldSessionName);
 	bool UpdateSessionEspai(Int64^ newEspaiId, Int64^ oldEspaiId);
 	bool UpdateSessionDate(DateTime^ newSessionDate, DateTime^ endSessionDate, Int64^ session_id);

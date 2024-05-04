@@ -31,9 +31,9 @@ Int64^ SessionService::GetSessionId(Int64^ user_id)
 	return sessionRepository->GetSessionId(user_id);
 }
 
-bool SessionService::DeleteSession(Int64^ user_id)
+bool SessionService::DeleteSession(Int64^ session_id)
 {
-	return sessionRepository->DeleteSession(user_id);
+	return sessionRepository->DeleteSession(session_id);
 }
 
 bool SessionService::UpdateSessionName(String^ newSessionName, String^ oldSessionName)

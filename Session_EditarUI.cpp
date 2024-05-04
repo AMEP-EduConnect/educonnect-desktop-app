@@ -16,24 +16,24 @@ namespace CppCLRWinFormsProject {
 		this->iniciSessioService = gcnew IniciSessioService();
 		this->baixaProveidorService = gcnew BaixaProveidorService();
 		this->FullyFormatedSessionDate = gcnew DateTime();
-		this->CurrentSession = this->sessionService->GetSessionById(sessionId);
+		this->CurrentSessionEntity = this->sessionService->GetSessionById(sessionId);
 		this->IsLoaded = false;
 	}
 
 	System::Void Session_EditarUI::Session_EditarUI_Load(System::Object^ sender, System::EventArgs^ e)
 	{
 		this->LoadProveidorsOnList();
-		this->DayMonth_Calendar->SetDate((this->CurrentSession->GetSessionStartDate()->Date));
-		this->TimeHour_ComboBox->Text = (this->CurrentSession->GetSessionStartDate()->ToString("HH:mm") + " - " + this->CurrentSession->GetSessionEndDate()->ToString("HH:mm"));
+		this->DayMonth_Calendar->SetDate((this->CurrentSessionEntity->GetSessionStartDate()->Date));
+		this->TimeHour_ComboBox->Text = (this->CurrentSessionEntity->GetSessionStartDate()->ToString("HH:mm") + " - " + this->CurrentSessionEntity->GetSessionEndDate()->ToString("HH:mm"));
 		this->LoadEspaiTimeStampsOfCurrentDay();
-		this->SessionName_Label->Text = this->CurrentSession->GetSessionName();
-		this->SessionName_TextBox->Text = this->CurrentSession->GetSessionName();
-		String^ username = this->baixaProveidorService->GetProveidorByEspaiId(this->CurrentSession->GetEspaiId())->GetUsername();
+		this->SessionName_Label->Text = this->CurrentSessionEntity->GetSessionName();
+		this->SessionName_TextBox->Text = this->CurrentSessionEntity->GetSessionName();
+		String^ username = this->baixaProveidorService->GetProveidorByEspaiId(this->CurrentSessionEntity->GetEspaiId())->GetUsername();
 		Object^ usernameObj = username; 
 		int index = this->Proveidor_ListBox->Items->IndexOf(usernameObj);
 		this->Proveidor_ListBox->SetSelected(index, true);
 		this->LoadEspaisFromSelectedProveidor();
-		Espai^ espai = this->consultaEspaisService->GetEspaiByEspaiId(this->CurrentSession->GetEspaiId());
+		Espai^ espai = this->consultaEspaisService->GetEspaiByEspaiId(this->CurrentSessionEntity->GetEspaiId());
 		this->Espai_ComboBox->Text = espai->GetNom() + " - max: " + espai->GetCapacitat();
 		this->IsLoaded = true;
 
@@ -92,7 +92,7 @@ namespace CppCLRWinFormsProject {
 			}
 			else
 			{
-				if (this->sessionService->UpdateSessionName(this->SessionName_TextBox->Text, this->CurrentSession->GetSessionName()))
+				if (this->sessionService->UpdateSessionName(this->SessionName_TextBox->Text, this->CurrentSessionEntity->GetSessionName()))
 				{
 					MessageManager::InfoMessage("Nom de la sessió actualitzat correctament.");
 					this->SessionName_Label->Text = this->SessionName_TextBox->Text;
@@ -127,7 +127,7 @@ namespace CppCLRWinFormsProject {
 			else
 			{
 				Int64^ espaiId = this->consultaEspaisService->GetEspaiIdByName(realName);
-				if (this->sessionService->UpdateSessionEspai(espaiId, this->CurrentSession->GetEspaiId()))
+				if (this->sessionService->UpdateSessionEspai(espaiId, this->CurrentSessionEntity->GetEspaiId()))
 				{
 					MessageManager::InfoMessage("Espai de la sessió actualitzat correctament.");
 					this->EditarEspai_Button->Enabled = false;
@@ -144,7 +144,7 @@ namespace CppCLRWinFormsProject {
 	{
 		if (this->FieldsNotEmpty())
 		{
-			if (this->sessionService->UpdateSessionDate(FullyFormatedSessionDate, this->CurrentSession->GetId()))
+			if (this->sessionService->UpdateSessionDate(FullyFormatedSessionDate, this->CurrentSessionEntity->GetId()))
 			{
 				MessageManager::InfoMessage("Data de la sessió actualitzada correctament.");
 				this->EditarTemps_Button->Enabled = false;

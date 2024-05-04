@@ -127,6 +127,7 @@ namespace CppCLRWinFormsProject {
 			this->ModifySession_Button = (gcnew System::Windows::Forms::Button());
 			this->DeleteSession_Button = (gcnew System::Windows::Forms::Button());
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
+			this->session_name = (gcnew System::Windows::Forms::Label());
 			this->capacity = (gcnew System::Windows::Forms::Label());
 			this->Confirm_Cancel_Attent_Button = (gcnew System::Windows::Forms::Button());
 			this->ViewSessionAttendants_Button = (gcnew System::Windows::Forms::Button());
@@ -142,7 +143,6 @@ namespace CppCLRWinFormsProject {
 			this->NewSession_Button = (gcnew System::Windows::Forms::Button());
 			this->tableLayoutPanel2 = (gcnew System::Windows::Forms::TableLayoutPanel());
 			this->Chat_Button = (gcnew System::Windows::Forms::Button());
-			this->session_name = (gcnew System::Windows::Forms::Label());
 			tableLayoutPanel1 = (gcnew System::Windows::Forms::TableLayoutPanel());
 			tableLayoutPanel1->SuspendLayout();
 			this->panel6->SuspendLayout();
@@ -351,6 +351,7 @@ namespace CppCLRWinFormsProject {
 			this->DeleteSession_Button->Text = L"El�liminar";
 			this->DeleteSession_Button->UseVisualStyleBackColor = true;
 			this->DeleteSession_Button->Visible = false;
+			this->DeleteSession_Button->Click += gcnew System::EventHandler(this, &GrupEstudi_InfoUI::DeleteSession_Button_Click);
 			// 
 			// panel1
 			// 
@@ -370,6 +371,19 @@ namespace CppCLRWinFormsProject {
 			this->panel1->Size = System::Drawing::Size(375, 205);
 			this->panel1->TabIndex = 10;
 			this->panel1->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &GrupEstudi_InfoUI::panel1_Paint);
+			// 
+			// session_name
+			// 
+			this->session_name->AutoSize = true;
+			this->session_name->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->session_name->ForeColor = System::Drawing::SystemColors::HotTrack;
+			this->session_name->Location = System::Drawing::Point(19, 50);
+			this->session_name->Name = L"session_name";
+			this->session_name->Size = System::Drawing::Size(50, 19);
+			this->session_name->TabIndex = 12;
+			this->session_name->Text = L"name";
+			this->session_name->Visible = false;
 			// 
 			// capacity
 			// 
@@ -571,19 +585,6 @@ namespace CppCLRWinFormsProject {
 			this->Chat_Button->UseVisualStyleBackColor = true;
 			this->Chat_Button->Click += gcnew System::EventHandler(this, &GrupEstudi_InfoUI::Chat_Button_Click);
 			// 
-			// session_name
-			// 
-			this->session_name->AutoSize = true;
-			this->session_name->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->session_name->ForeColor = System::Drawing::SystemColors::HotTrack;
-			this->session_name->Location = System::Drawing::Point(19, 50);
-			this->session_name->Name = L"session_name";
-			this->session_name->Size = System::Drawing::Size(50, 19);
-			this->session_name->TabIndex = 12;
-			this->session_name->Text = L"name";
-			this->session_name->Visible = false;
-			// 
 			// GrupEstudi_InfoUI
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
@@ -647,5 +648,6 @@ private: System::Void Sessions_Actuals_Load();
 private: System::Void Confirm_Cancel_Attent_Button_Click(System::Object^ sender, System::EventArgs^ e);
 private: System::Void label4_Click(System::Object^ sender, System::EventArgs^ e) {
 }
+private: System::Void DeleteSession_Button_Click(System::Object^ sender, System::EventArgs^ e);
 };
 }

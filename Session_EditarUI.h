@@ -68,7 +68,7 @@ namespace CppCLRWinFormsProject {
 
 	private: GrupEstudi^ CurrentGrupEntity;
 	private: GrupEstudiService^ grupEstudiService;
-	private: Session^ CurrentSession;
+	private: Session^ CurrentSessionEntity;
 	private: SessionService^ sessionService;
 	private: BaixaProveidorService^ baixaProveidorService;
 	private: ConsultaEspaisService^ consultaEspaisService;

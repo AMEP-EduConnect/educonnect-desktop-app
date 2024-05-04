@@ -47,9 +47,16 @@ Int64^ SessionRepository::GetSessionId(Int64^ user_id)
 	return session_id;
 }
 
-bool SessionRepository::DeleteSession(Int64^ user_id)
+bool SessionRepository::DeleteSession(Int64^ session_id)
 {
-	return false;
+	DatabaseConnector::Instance->Connect();
+	String^ sql = "DELETE FROM grupSessions WHERE id=@session_id";
+	Dictionary<String^, Object^>^ params = gcnew Dictionary<String^, Object^>(0);
+	params->Add("@session_id", session_id);
+	MySqlDataReader^ data = DatabaseConnector::Instance->ExecuteClientCommand(sql, params);
+	data->Close();
+	DatabaseConnector::Instance->Disconnect();
+	return true;
 }
 
 bool SessionRepository::UpdateSessionName(String^ newSessionName, String^ oldSessionName)

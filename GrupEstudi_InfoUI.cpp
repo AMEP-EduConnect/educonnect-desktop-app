@@ -35,12 +35,6 @@ namespace CppCLRWinFormsProject {
 
     void GrupEstudi_InfoUI::SelectLastSessionOrPlaceholder(System::Object^ sender, System::EventArgs^ e)
     {
-        //FROM Gabriel para Marcos: 
-        // 
-        // tienes que hacer que seleccione la session m�s actual y la muestre en la ficha.
-        // para ello rellenar� los campos de el titulo, el dia, de que hora a que hora, nombre espai, capacidad maxima y los asistentes actuales, y deber� hacer visible el bot�n de
-        // mostrar asistentes. Si no hay grupo, dejar� vacio todos esos campos, la visibilidad de los botones y la capacitat en false, y en el titulo de sesion pondr� "no hay sesiones".
-        //
             System::Collections::Generic::IEnumerator<Session^>^ enumerator = SessionsList->GetEnumerator();
             if (Sessions_ListBox->SelectedIndex != -1)
             {
@@ -175,9 +169,36 @@ namespace CppCLRWinFormsProject {
        }
     }
 
+    System::Void GrupEstudi_InfoUI::DeleteSession_Button_Click(System::Object^ sender, System::EventArgs^ e)
+    {
+        if (CurrentSessionEntity != nullptr)
+        {
+            MessageBoxButtons buttons = MessageBoxButtons::YesNo;
+            System::Windows::Forms::DialogResult result = MessageBox::Show("Vols suprimir la sessió '" + this->CurrentSessionEntity->GetSessionName() + "'?", "Confirmation", buttons);
+
+            if (result == System::Windows::Forms::DialogResult::Yes)
+            {
+                try {
+                    if (this->sessionService->DeleteSession(CurrentSessionEntity->GetId()))
+                    {
+                        MessageManager::InfoMessage("Sessió eliminada correctament.");
+                        this->Sessions_Actuals_Load();
+                    }
+                    else
+                    {
+                        MessageManager::ErrorMessage("Error eliminant la sessió.");
+                    }
+                }
+                catch (Exception^ e) {
+                    MessageManager::ErrorMessage(e->Message);
+                }
+            }
+		}
+    }
+
     System::Void GrupEstudi_InfoUI::ModifySession_Click(System::Object^ sender, System::EventArgs^ e)
     {
-        Session_EditarUI^ PanelUI = gcnew Session_EditarUI(this->CurrentGrupEntity, 10LL);
+        Session_EditarUI^ PanelUI = gcnew Session_EditarUI(this->CurrentGrupEntity, this->CurrentSessionEntity->GetId());
 
         PanelUI->TopLevel = false;
         PanelUI->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
