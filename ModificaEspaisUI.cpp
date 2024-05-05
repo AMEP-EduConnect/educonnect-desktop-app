@@ -34,8 +34,8 @@ namespace CppCLRWinFormsProject {
     bool ModificaEspaisUI::NomEspai_TextBox_Validating(String^ nom) {
     
         if (nom != nullptr) {
-            bool isValid = this->modificaEspaisService->CheckNameEspai(nom);
-            if (!isValid) {
+            bool isNotValid = this->modificaEspaisService->CheckNameEspai(nom);
+            if (isNotValid) {
                 MessageManager::WarningMessage("El nom de l'espai ja existeix.");
                 this->textBox3->Text = "";
                 return false;
@@ -55,22 +55,17 @@ namespace CppCLRWinFormsProject {
 
     bool ModificaEspaisUI::Capacitat_TextBox_Validating(String^ capacitat) {
 
-        if ((capacitat != "") && (capacitat != nullptr)) {
-
-            if (IsValidCapacitat(capacitat) == false) {
+        
+           
+            Int64^ cap = Int64::Parse(capacitat);
+            if ((IsValidCapacitat(capacitat) == false) or (*cap < 4LL)) {
                 MessageManager::WarningMessage("La capacitat ha de ser un número enter major o igual a 4.");
                 this->textBox1->Text = "";
                 return false;
             }
-            else {
-                Int64^ cap = Int64::Parse(capacitat);
-                if (*cap >= 4LL)return true;
-                else return false;
-            }
+            else return true;
 
-
-        }
-        else return false;
+       
     }
     void ModificaEspaisUI::button1_Click(System::Object^ sender, System::EventArgs^ e)
     {
@@ -79,22 +74,29 @@ namespace CppCLRWinFormsProject {
             this->label6->Text = L"Informació de " + espai->GetName();
             String^ nom = textBox3->Text;
             String^ capacitatText = textBox1->Text;
-       
+            bool incorrecte = false;
             if (nom != "" && capacitatText!= "") {
-
-                if (Capacitat_TextBox_Validating(capacitatText)==false) {
-              
-                    return;
-                }
-                if (NomEspai_TextBox_Validating(nom) == false) {
-
-                    return;
-                }
                 Int64^ capacitat = Int64::Parse(capacitatText);
                 Int64^ cap = espai->GetCapacity();
-                if (nom == espai->GetName() && *capacitat == *cap){
+                if (nom == espai->GetName() && *capacitat == *cap) {
                     MessageManager::WarningMessage("Has de modificar com a mínim un camp.");
+                    
+                    incorrecte=true;
                 }
+               
+                else {
+                    if ((nom != espai->GetName()) && (NomEspai_TextBox_Validating(nom) == false)) {
+
+                        incorrecte = true;
+                    }
+                
+                    if (Capacitat_TextBox_Validating(capacitatText) == false) {
+
+                        incorrecte = true;
+
+                    }
+                }
+                if (incorrecte) return;
                 else{
                     this->modificaEspaisService->UpdateEspai(nom, capacitat, id_espai);
                     MessageManager::InfoMessage("Espai modificat!");
@@ -110,6 +112,7 @@ namespace CppCLRWinFormsProject {
 				       static_cast<System::Int32>(static_cast<System::Byte>(224)));
                     this->textBox1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(224)), static_cast<System::Int32>(static_cast<System::Byte>(224)),
 				       static_cast<System::Int32>(static_cast<System::Byte>(224)));
+                    return;
                 }
             }
 

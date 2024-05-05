@@ -23,8 +23,8 @@ namespace CppCLRWinFormsProject {
     */
     bool AltaEspaisUI::NomEspai_TextBox_Validating(String^ nom) {
         if (nom != nullptr) {
-            bool isValid = this->altaEspaisService->CheckNameEspai(nom);
-            if (!isValid) {
+            bool isNotValid = this->altaEspaisService->CheckNameEspai(nom);
+            if (isNotValid) {
                 MessageManager::WarningMessage("El nom de l'espai ja existeix.");
                 this->textBox3->Text = "";
                 return false;

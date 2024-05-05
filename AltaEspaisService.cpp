@@ -17,7 +17,7 @@ bool AltaEspaisService::CheckNameEspai(String^ name)
 	Usuari^ currentUser = CurrentSession::Instance->GetCurrentUser();
 	Int64^ id_provider = currentUser->GetUserId();
 	bool exist = espaisRepository->CheckEspaiByName(name, id_provider);
-	return false;
+	return exist;
 }
 
 bool AltaEspaisService::AltaEspai(String^ nom, Int64^ capacitat)
