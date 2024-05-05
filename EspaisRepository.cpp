@@ -86,3 +86,18 @@ bool EspaisRepository::CheckEspaiByName(String^ name) {
 	DatabaseConnector::Instance->Disconnect();
 	return check;
 }
+
+String^ EspaisRepository::GetInfoEspaiById(Int64^ id) {
+	DatabaseConnector::Instance->Connect();
+	String^ sql = "SELECT u.username, e.name FROM espais e JOIN users u ON e.proveidor_id = u.id WHERE e.id = @id";
+	Dictionary<String^, Object^>^ params = gcnew Dictionary<String^, Object^>(0);
+	params->Add("@id", id);
+	MySqlDataReader^ data = DatabaseConnector::Instance->ExecuteClientCommand(sql, params);
+	String^ info;
+	if (data->Read()) {
+		info = (data->GetString(0) + " - " + data->GetString(1));
+	}
+	data->Close();
+	DatabaseConnector::Instance->Disconnect();
+	return info;
+}

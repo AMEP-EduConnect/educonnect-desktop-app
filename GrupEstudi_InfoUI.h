@@ -3,7 +3,7 @@
 #include "GrupEstudiService.h"
 #include "SessionService.h"
 #include "GrupSessionAttendantsService.h"
-
+#include "ConsultaEspaisService.h"
 namespace CppCLRWinFormsProject {
 
 	using namespace System;
@@ -68,10 +68,6 @@ namespace CppCLRWinFormsProject {
 
 
 
-
-
-
-
 	protected:
 
 	protected:
@@ -82,7 +78,7 @@ namespace CppCLRWinFormsProject {
 		/// </summary>
 		System::ComponentModel::Container ^components;
 		GrupEstudi^ CurrentGrupEntity;
-
+		ConsultaEspaisService^ consultaEspaisService;
 	private: System::Windows::Forms::Label^ AcademicTagsInfo_Label;
 
 	private: System::Windows::Forms::Label^ DescGrupEstudi_Label;
@@ -227,9 +223,9 @@ namespace CppCLRWinFormsProject {
 			this->label2->ForeColor = System::Drawing::SystemColors::HotTrack;
 			this->label2->Location = System::Drawing::Point(3, 8);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(91, 19);
+			this->label2->Size = System::Drawing::Size(93, 19);
 			this->label2->TabIndex = 19;
-			this->label2->Text = L"Descripci�";
+			this->label2->Text = L"Descripció";
 			// 
 			// DescGrupEstudi_Label
 			// 
@@ -263,7 +259,7 @@ namespace CppCLRWinFormsProject {
 			this->DeleteGrupEstudi_Button->Name = L"DeleteGrupEstudi_Button";
 			this->DeleteGrupEstudi_Button->Size = System::Drawing::Size(176, 35);
 			this->DeleteGrupEstudi_Button->TabIndex = 13;
-			this->DeleteGrupEstudi_Button->Text = L"El�liminar grup";
+			this->DeleteGrupEstudi_Button->Text = L"Eliminar grup";
 			this->DeleteGrupEstudi_Button->UseVisualStyleBackColor = true;
 			this->DeleteGrupEstudi_Button->Visible = false;
 			// 
@@ -348,7 +344,7 @@ namespace CppCLRWinFormsProject {
 			this->DeleteSession_Button->Name = L"DeleteSession_Button";
 			this->DeleteSession_Button->Size = System::Drawing::Size(112, 35);
 			this->DeleteSession_Button->TabIndex = 8;
-			this->DeleteSession_Button->Text = L"El�liminar";
+			this->DeleteSession_Button->Text = L"Eliminar";
 			this->DeleteSession_Button->UseVisualStyleBackColor = true;
 			this->DeleteSession_Button->Visible = false;
 			this->DeleteSession_Button->Click += gcnew System::EventHandler(this, &GrupEstudi_InfoUI::DeleteSession_Button_Click);

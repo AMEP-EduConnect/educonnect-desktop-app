@@ -18,6 +18,7 @@ namespace CppCLRWinFormsProject {
         this->CurrentGrupEntity = this->grupEstudiService->GetGrupEstudiByName(CurrentGrup);
         sessionService = gcnew SessionService();
         grupSessionAttendantsService = gcnew GrupSessionAttendantsService();
+        consultaEspaisService = gcnew ConsultaEspaisService();
         this->Icon = gcnew System::Drawing::Icon("app.ico");
         sessionService = gcnew SessionService();
         this->Sessions_Actuals_Load();
@@ -51,19 +52,16 @@ namespace CppCLRWinFormsProject {
                 }
 
                 session_name->Text = CurrentSessionEntity->GetSessionName();
-                //EspaiName_Label->Text = CurrentSessionEntity->GetSessionEspaiName();
+                EspaiName_Label->Text = consultaEspaisService->GetEspaiInfoById(CurrentSessionEntity->GetEspaiId());
                 DayMonthYear_label->Text = CurrentSessionEntity->GetSessionStartDate()->ToString("dd/MM/yyyy");
                 StartEndDuration_Label->Text = CurrentSessionEntity->GetSessionStartDate()->ToString("HH:mm") + " - " + CurrentSessionEntity->GetSessionEndDate()->ToString("HH:mm");
                 if (not grupSessionAttendantsService->IsAttendant(CurrentSessionEntity->GetId(), CurrentSession::Instance->GetCurrentUser()->GetUserId())) {
                     this->Confirm_Cancel_Attent_Button->Text = "Asistir";
                 }
                 else {
-                    this->Confirm_Cancel_Attent_Button->Text = "Cancel·lar Asistència";
+                    this->Confirm_Cancel_Attent_Button->Text = L"Cancel·lar Asistència";
                 }
-                //if(owner) {
-                //ModifySession_Button->Visible = true;
-                //DeleteSession_Button->Visible = true;
-                //}
+                
             }
 		
 
@@ -123,7 +121,7 @@ namespace CppCLRWinFormsProject {
             EspaiCapacity_Label->Visible = true;
             session_name->Visible = true;
             session_name->Text = CurrentSessionEntity->GetSessionName();
-            //EspaiName_Label->Text = CurrentSessionEntity->GetSessionEspaiName();
+            EspaiName_Label->Text = consultaEspaisService->GetEspaiInfoById(CurrentSessionEntity->GetEspaiId());
             DayMonthYear_label->Text = CurrentSessionEntity->GetSessionStartDate()->ToString("dd/MM/yyyy");
             StartEndDuration_Label->Text = CurrentSessionEntity->GetSessionStartDate()->ToString("HH:mm") + " - " + CurrentSessionEntity->GetSessionEndDate()->ToString("HH:mm");
             if (not grupSessionAttendantsService->IsAttendant(CurrentSessionEntity->GetId(), CurrentSession::Instance->GetCurrentUser()->GetUserId())) {
@@ -132,11 +130,7 @@ namespace CppCLRWinFormsProject {
             else {
 				this->Confirm_Cancel_Attent_Button->Text = L"Cancel·lar Asistència";
 			}
-            //if(owner) {
-                //ModifySession_Button->Visible = true;
-                //DeleteSession_Button->Visible = true;
-
-                //}
+            
         }
 
     }

@@ -35,3 +35,8 @@ Espai^ ConsultaEspaisService::GetEspaiByEspaiId(Int64^ id)
 {
 	return this->espaisRepository->GetEspaiByEspaiId(id);
 }
+
+String^ ConsultaEspaisService::GetEspaiInfoById(Int64^ id)
+{
+	return this->espaisRepository->GetInfoEspaiById(id);
+}

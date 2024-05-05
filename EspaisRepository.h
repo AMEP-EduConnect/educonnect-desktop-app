@@ -14,4 +14,6 @@ public:
 	Espai^ GetEspaiByName(String^ name);
 	bool DeleteEspai(Int64^ id);
 	bool CheckEspaiByName(String^ name);
+	String^ GetInfoEspaiById(Int64^ id);
 };
+
