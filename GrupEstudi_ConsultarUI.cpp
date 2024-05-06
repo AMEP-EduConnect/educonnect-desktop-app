@@ -18,7 +18,7 @@ namespace CppCLRWinFormsProject {
         //this->Background_PictureBox->Image = Image::FromFile("background.png");
         this->Icon = gcnew System::Drawing::Icon("app.ico");
     }
-    Void GrupEstudi_ConsultarUI::ButtonChat_Click(System::Object^ sender, System::EventArgs^ e) {
+    /*Void GrupEstudi_ConsultarUI::ButtonChat_Click(System::Object^ sender, System::EventArgs^ e) {
         ChatGrupEstudiUI::Instance = gcnew ChatGrupEstudiUI();
         ChatGrupEstudiUI::Instance->TopLevel = false;
         ChatGrupEstudiUI::Instance->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
@@ -27,7 +27,7 @@ namespace CppCLRWinFormsProject {
 		MainPageUI::Instance->screen->Controls->Clear();
 		MainPageUI::Instance->screen->Controls->Add(ChatGrupEstudiUI::Instance);
         ChatGrupEstudiUI::Instance->Show();
-	}
+	}*/
     void GrupEstudi_ConsultarUI::EliminarButton_Click(System::Object^ sender, System::EventArgs^ e)
     {
         //dialog message box with an input to confirm the deletion of the group by introducing the group name
@@ -92,7 +92,6 @@ namespace CppCLRWinFormsProject {
             Eliminar_Button->Visible = true;
             consulta_membres->Visible = true;
             abandonar_button->Visible = true;
-            ButtonChat->Visible = true;
         }
         if (not isOwner and Noms_ListBox->Text != "") {
             Editar_Button->Visible = false;

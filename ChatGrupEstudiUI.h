@@ -18,17 +18,19 @@ namespace CppCLRWinFormsProject {
     public ref class ChatGrupEstudiUI : public System::Windows::Forms::Form
     {
     public:
-        ChatGrupEstudiUI(void)
+        ChatGrupEstudiUI(Int64^ idgroup)
         {
             chatGrupEstudiService = gcnew ChatGrupEstudiService();
             fileByteConverterService = gcnew FileByteConverterService();
             chatMembers_Refresh = gcnew List<ChatMessage^>(0);
             InitializeComponent();
+            id_group = idgroup;
             this->Icon = gcnew System::Drawing::Icon("app.ico");
             this->pictureBox1->Image = Image::FromFile("resources/Icons/send.png");
             this->Load += gcnew System::EventHandler(this, &ChatGrupEstudiUI::ChatGrupEstudiUI_Load);
             listBoxFiles->Items->Clear();
             LoadFiles();
+            
         }
 
     protected:
@@ -49,6 +51,7 @@ namespace CppCLRWinFormsProject {
     private: System::Windows::Forms::Button^ Button_Cancelar;
     private: List<ChatMessage^>^ chatMembers_Refresh;
     public: Int64^ messagelast_id;
+    public: Int64^ id_group;
     public: List<Files^>^ files;
     public: static ChatGrupEstudiUI^ Instance;
     private: System::Windows::Forms::Button^ Button_Send_Files;
@@ -79,11 +82,11 @@ namespace CppCLRWinFormsProject {
             this->listBoxFiles = (gcnew System::Windows::Forms::ListBox());
             this->tableLayoutPanel1 = (gcnew System::Windows::Forms::TableLayoutPanel());
             this->panel1 = (gcnew System::Windows::Forms::Panel());
-            this->label_grup_name = (gcnew System::Windows::Forms::Label());
             this->panel2 = (gcnew System::Windows::Forms::Panel());
             this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
             this->panel3 = (gcnew System::Windows::Forms::Panel());
             this->panel4 = (gcnew System::Windows::Forms::Panel());
+            this->label_grup_name = (gcnew System::Windows::Forms::Label());
             this->tableLayoutPanel1->SuspendLayout();
             this->panel1->SuspendLayout();
             this->panel2->SuspendLayout();
@@ -114,7 +117,7 @@ namespace CppCLRWinFormsProject {
             this->chatListBox->BackColor = System::Drawing::SystemColors::Window;
             this->chatListBox->Font = (gcnew System::Drawing::Font(L"Inter", 11.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
-            this->chatListBox->Location = System::Drawing::Point(14, 24);
+            this->chatListBox->Location = System::Drawing::Point(19, 24);
             this->chatListBox->Name = L"chatListBox";
             this->chatListBox->ReadOnly = true;
             this->chatListBox->Size = System::Drawing::Size(560, 288);
@@ -169,20 +172,20 @@ namespace CppCLRWinFormsProject {
                 static_cast<System::Byte>(0)));
             this->listBoxFiles->FormattingEnabled = true;
             this->listBoxFiles->ItemHeight = 19;
-            this->listBoxFiles->Location = System::Drawing::Point(0, 24);
+            this->listBoxFiles->Location = System::Drawing::Point(3, 24);
             this->listBoxFiles->Name = L"listBoxFiles";
-            this->listBoxFiles->Size = System::Drawing::Size(121, 299);
+            this->listBoxFiles->Size = System::Drawing::Size(162, 289);
             this->listBoxFiles->TabIndex = 6;
             // 
             // tableLayoutPanel1
             // 
             this->tableLayoutPanel1->ColumnCount = 3;
             this->tableLayoutPanel1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
-                10)));
+                4.545455F)));
             this->tableLayoutPanel1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
-                73.34152F)));
+                74.69287F)));
             this->tableLayoutPanel1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
-                16.70762F)));
+                20.88452F)));
             this->tableLayoutPanel1->Controls->Add(this->panel1, 1, 1);
             this->tableLayoutPanel1->Controls->Add(this->panel2, 1, 2);
             this->tableLayoutPanel1->Controls->Add(this->panel3, 2, 1);
@@ -202,24 +205,10 @@ namespace CppCLRWinFormsProject {
             this->panel1->BackColor = System::Drawing::SystemColors::GradientInactiveCaption;
             this->panel1->Controls->Add(this->chatListBox);
             this->panel1->Dock = System::Windows::Forms::DockStyle::Fill;
-            this->panel1->Location = System::Drawing::Point(84, 72);
+            this->panel1->Location = System::Drawing::Point(39, 72);
             this->panel1->Name = L"panel1";
-            this->panel1->Size = System::Drawing::Size(590, 337);
+            this->panel1->Size = System::Drawing::Size(601, 337);
             this->panel1->TabIndex = 8;
-            // 
-            // label_grup_name
-            // 
-            this->label_grup_name->Anchor = System::Windows::Forms::AnchorStyles::None;
-            this->label_grup_name->AutoSize = true;
-            this->label_grup_name->Font = (gcnew System::Drawing::Font(L"Inter", 20.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-                static_cast<System::Byte>(0)));
-            this->label_grup_name->ForeColor = System::Drawing::SystemColors::HotTrack;
-            this->label_grup_name->Location = System::Drawing::Point(259, 18);
-            this->label_grup_name->Name = L"label_grup_name";
-            this->label_grup_name->Size = System::Drawing::Size(239, 33);
-            this->label_grup_name->TabIndex = 3;
-            this->label_grup_name->Text = L"Chat Grup Estudi";
-            this->label_grup_name->TextAlign = System::Drawing::ContentAlignment::TopCenter;
             // 
             // panel2
             // 
@@ -228,7 +217,7 @@ namespace CppCLRWinFormsProject {
             this->panel2->Controls->Add(this->pictureBox1);
             this->panel2->Controls->Add(this->Button_Cancelar);
             this->panel2->Controls->Add(this->messageTextBox);
-            this->panel2->Location = System::Drawing::Point(84, 417);
+            this->panel2->Location = System::Drawing::Point(44, 417);
             this->panel2->Name = L"panel2";
             this->panel2->Size = System::Drawing::Size(590, 115);
             this->panel2->TabIndex = 9;
@@ -247,9 +236,9 @@ namespace CppCLRWinFormsProject {
             this->panel3->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->panel3->BackColor = System::Drawing::SystemColors::GradientInactiveCaption;
             this->panel3->Controls->Add(this->listBoxFiles);
-            this->panel3->Location = System::Drawing::Point(685, 72);
+            this->panel3->Location = System::Drawing::Point(646, 72);
             this->panel3->Name = L"panel3";
-            this->panel3->Size = System::Drawing::Size(121, 337);
+            this->panel3->Size = System::Drawing::Size(165, 337);
             this->panel3->TabIndex = 10;
             // 
             // panel4
@@ -257,10 +246,24 @@ namespace CppCLRWinFormsProject {
             this->panel4->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->panel4->Controls->Add(this->Button_Download);
             this->panel4->Controls->Add(this->Button_Send_Files);
-            this->panel4->Location = System::Drawing::Point(685, 415);
+            this->panel4->Location = System::Drawing::Point(668, 415);
             this->panel4->Name = L"panel4";
             this->panel4->Size = System::Drawing::Size(121, 119);
             this->panel4->TabIndex = 11;
+            // 
+            // label_grup_name
+            // 
+            this->label_grup_name->Anchor = System::Windows::Forms::AnchorStyles::None;
+            this->label_grup_name->AutoSize = true;
+            this->label_grup_name->Font = (gcnew System::Drawing::Font(L"Inter", 20.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+                static_cast<System::Byte>(0)));
+            this->label_grup_name->ForeColor = System::Drawing::SystemColors::HotTrack;
+            this->label_grup_name->Location = System::Drawing::Point(220, 18);
+            this->label_grup_name->Name = L"label_grup_name";
+            this->label_grup_name->Size = System::Drawing::Size(239, 33);
+            this->label_grup_name->TabIndex = 3;
+            this->label_grup_name->Text = L"Chat Grup Estudi";
+            this->label_grup_name->TextAlign = System::Drawing::ContentAlignment::TopCenter;
             // 
             // ChatGrupEstudiUI
             // 

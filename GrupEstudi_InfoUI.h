@@ -633,15 +633,13 @@ private: System::Void button1_Click_1(System::Object^ sender, System::EventArgs^
 }
 private: System::Void GoBack_Button_Click(System::Object^ sender, System::EventArgs^ e);
 private: System::Void GrupEstudi_InfoUI_Load(System::Object^ sender, System::EventArgs^ e);
-//private: System::Void SelectLastSessionOrPlaceholder();
 private: System::Void ActivateButtonsIfOwner();
 private: System::Void InfoGrupEstudi_Label_Click(System::Object^ sender, System::EventArgs^ e) {
 }
 private: System::Void panel1_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
 }
 private: System::Void NewSession_Button_Click(System::Object^ sender, System::EventArgs^ e);
-private: System::Void Chat_Button_Click(System::Object^ sender, System::EventArgs^ e) {
-}
+private: System::Void Chat_Button_Click(System::Object^ sender, System::EventArgs^ e);
 private: System::Void Sessions_Actuals_Load();
 private: System::Void Confirm_Cancel_Attent_Button_Click(System::Object^ sender, System::EventArgs^ e);
 private: System::Void label4_Click(System::Object^ sender, System::EventArgs^ e) {

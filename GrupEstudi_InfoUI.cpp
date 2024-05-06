@@ -96,6 +96,18 @@ namespace CppCLRWinFormsProject {
         PanelUI->Show();
     }
 
+    System::Void GrupEstudi_InfoUI::Chat_Button_Click(System::Object^ sender, System::EventArgs^ e)
+    {
+        ChatGrupEstudiUI::Instance = gcnew ChatGrupEstudiUI(this->CurrentGrupEntity->GetId());
+        ChatGrupEstudiUI::Instance->TopLevel = false;
+        ChatGrupEstudiUI::Instance->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
+        ChatGrupEstudiUI::Instance->Dock = System::Windows::Forms::DockStyle::Fill;
+
+        MainPageUI::Instance->screen->Controls->Clear();
+        MainPageUI::Instance->screen->Controls->Add(ChatGrupEstudiUI::Instance);
+        ChatGrupEstudiUI::Instance->Show();
+    }
+
     System::Void GrupEstudi_InfoUI::Sessions_Actuals_Load()
     {
         this->Sessions_ListBox->Items->Clear();

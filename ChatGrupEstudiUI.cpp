@@ -11,7 +11,7 @@ namespace CppCLRWinFormsProject {
     Void ChatGrupEstudiUI::sendButton_Click(System::Object^ sender, System::EventArgs^ e) {
        String^ message = this->messageTextBox->Text->Trim();
         if (!String::IsNullOrWhiteSpace(message)) {
-            if(chatGrupEstudiService->SendMenssage(94LL, CurrentSession::Instance->GetCurrentUser()->GetUserId(), message) == false)
+            if(chatGrupEstudiService->SendMenssage(id_group, CurrentSession::Instance->GetCurrentUser()->GetUserId(), message) == false)
 			{
 				MessageManager::WarningMessage("Error al enviar el mensaje");
 			}
@@ -35,7 +35,7 @@ namespace CppCLRWinFormsProject {
     }
     
     Void ChatGrupEstudiUI::ChatGrupEstudiUI_Load(System::Object^ sender, System::EventArgs^ e) {
-        List<ChatMessage^>^ chatMembers = chatGrupEstudiService->GetChatMembers(94LL);
+        List<ChatMessage^>^ chatMembers = chatGrupEstudiService->GetChatMembers(id_group);
         Int64^ id_user = CurrentSession::Instance->GetCurrentUser()->GetUserId();
 
         System::Collections::Generic::IEnumerator<ChatMessage^>^ enumerator = chatMembers->GetEnumerator();
@@ -103,7 +103,7 @@ namespace CppCLRWinFormsProject {
 
     Void ChatGrupEstudiUI::ChatGrupEstudiUI_Refresh(System::Object^ sender, System::EventArgs^ e) {
         Int64^ user_id = CurrentSession::Instance->GetCurrentUser()->GetUserId();
-        chatMembers_Refresh = chatGrupEstudiService->CheckLastsMessage(94LL, user_id, messagelast_id);
+        chatMembers_Refresh = chatGrupEstudiService->CheckLastsMessage(id_group, user_id, messagelast_id);
         
         if (chatMembers_Refresh->Count > 0)
         {
@@ -163,7 +163,7 @@ namespace CppCLRWinFormsProject {
             String^ fileType = Path::GetExtension(filePath);
             array<Byte>^ fileData = fileByteConverterService->FileToBytes(filePath);
             if (fileData != nullptr) {
-                bool check = chatGrupEstudiService->SendFile(94LL, CurrentSession::Instance->GetCurrentUser()->GetUserId(), fileName, fileType, fileData);
+                bool check = chatGrupEstudiService->SendFile(id_group, CurrentSession::Instance->GetCurrentUser()->GetUserId(), fileName, fileType, fileData);
                 if (check == true) {
                     MessageManager::InfoMessage("Archivo almacenado en la base de datos.");
                     files->Clear();
@@ -233,7 +233,7 @@ namespace CppCLRWinFormsProject {
     Void ChatGrupEstudiUI::LoadFiles()
     {
         
-        files = chatGrupEstudiService->GetFiles(94LL);
+        files = chatGrupEstudiService->GetFiles(id_group);
         System::Collections::Generic::IEnumerator<Files^>^ enumerator = files->GetEnumerator();
         while (enumerator->MoveNext()) {
 			Files^ file = enumerator->Current;
