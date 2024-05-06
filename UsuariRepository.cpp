@@ -173,3 +173,44 @@ Int64^ UsuariRepository::GetUserId(String^ username) {
 	DatabaseConnector::Instance->Disconnect();
 	return id;
 }
+
+Usuari^ UsuariRepository::GetProveidorByEspaiId(Int64^ espai_id)
+{
+	DatabaseConnector::Instance->Connect();
+	String^ sql = "SELECT * FROM users WHERE id = (SELECT proveidor_id FROM espais WHERE id = @id)";
+	Dictionary<String^, Object^>^ params = gcnew Dictionary<String^, Object^>(0);
+	params->Add("@id", espai_id->ToString());
+	MySqlDataReader^ data = DatabaseConnector::Instance->ExecuteClientCommand(sql, params);
+	Usuari^ usuari = gcnew Usuari();
+	while (data->Read())
+	{
+		usuari->SetUserId(data->GetInt64(0));
+		usuari->SetUsername(data->GetString(1));
+		usuari->SetPassword(data->GetString(2));
+		usuari->SetEmail(data->GetString(3));
+		usuari->SetName(data->GetString(4));
+	}
+	DatabaseConnector::Instance->Disconnect();
+	return usuari;
+
+}
+List<Usuari^>^ UsuariRepository::GetUsersByRolId(Int64^ rol_id) {
+	DatabaseConnector::Instance->Connect();
+	String^ sql = "SELECT * FROM users u INNER JOIN users_roles ur ON u.id = ur.user_id WHERE ur.role_id = @rol_id ORDER BY u.username ASC";
+	Dictionary<String^, Object^>^ params = gcnew Dictionary<String^, Object^>(0);
+	params->Add("@rol_id", rol_id);
+	MySqlDataReader^ data = DatabaseConnector::Instance->ExecuteClientCommand(sql, params);
+	List<Usuari^>^ users = gcnew List<Usuari^>(0);
+	while (data->Read()) {
+		Usuari^ usuari = gcnew Usuari();
+		usuari->SetUserId(data->GetInt64(0));
+		usuari->SetUsername(data->GetString(1));
+		usuari->SetPassword(data->GetString(2));
+		usuari->SetEmail(data->GetString(3));
+		usuari->SetName(data->GetString(4));
+		users->Add(usuari);
+	}
+	data->Close();
+	DatabaseConnector::Instance->Disconnect();
+	return users;
+}

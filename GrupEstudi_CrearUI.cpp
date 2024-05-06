@@ -2,6 +2,7 @@
 #include "GrupEstudi_CrearUI.h"
 #include "MainPageUI.h"
 #include "GrupEstudi_ConsultarUI.h"
+#include "IniciUI.h"
 
 namespace CppCLRWinFormsProject {
 
@@ -47,7 +48,7 @@ namespace CppCLRWinFormsProject {
     }
     System::Void GrupEstudi_CrearUI::Cancelar_Button_Click(System::Object^ sender, System::EventArgs^ e)
     {
-        GrupEstudi_ConsultarUI^ PanelUI = gcnew GrupEstudi_ConsultarUI();
+        IniciUI^ PanelUI = gcnew  IniciUI();
 
         PanelUI->TopLevel = false;
         PanelUI->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;

@@ -14,6 +14,11 @@ Usuari^ IniciSessioService::GetUsuariByUser(String^ username)
 	return usuariRepository->GetUsuariByUser(username);
 }
 
+Usuari^ IniciSessioService::GetUsuariById(Int64^ id)
+{
+	return this->usuariRepository->GetUsuariById(id);
+}
+
 bool IniciSessioService::CheckUsername(String^ username, String^ password)
 {
 	Usuari^ checkuser = GetUsuariByUser(username);

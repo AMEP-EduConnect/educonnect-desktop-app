@@ -1,4 +1,5 @@
 #pragma once
+
 using namespace MySql::Data::MySqlClient;
 
 namespace CppCLRWinFormsProject {
@@ -20,10 +21,10 @@ namespace CppCLRWinFormsProject {
 		MainPageUI(void);
 
 
-	//protected:
-		/// <summary>
-		/// Clean up any resources being used.
-		/// </summary>
+		//protected:
+			/// <summary>
+			/// Clean up any resources being used.
+			/// </summary>
 		~MainPageUI()
 		{
 			if (components)
@@ -32,31 +33,31 @@ namespace CppCLRWinFormsProject {
 			}
 		}
 
-	public: 
-	
-	//MAIN PANEL
-	System::Windows::Forms::Panel^ screen;
+	public:
 
-	private: 
-	
-	 System::Windows::Forms::Button^ BotoPersonal;
-     System::Windows::Forms::Button^ BotoLogout;
-	 System::Windows::Forms::TableLayoutPanel^ tableLayoutPanel3;
-	 System::Windows::Forms::FlowLayoutPanel^ flowLayoutPanel1;
-	 System::Windows::Forms::TableLayoutPanel^ tableLayoutPanel2;
-	 System::Windows::Forms::Label^ label1;
-	 System::Windows::Forms::Panel^ panel3;
-	 System::Windows::Forms::Panel^ panel2;
-	 System::Windows::Forms::Button^ BotoInici;
-	 System::Windows::Forms::Button^ BotoExplorar;
-	 System::Windows::Forms::Panel^ panel4;
+		//MAIN PANEL
+		System::Windows::Forms::Panel^ screen;
 
-     System::Windows::Forms::Button^ BotoSessions;
-	 System::Windows::Forms::Button^ BotoElsMeus;
-	 System::Windows::Forms::Button^ BotoAdmin;
-	 System::Windows::Forms::Panel^ panel6;
-	 System::Windows::Forms::Button^ BotoEspais;
-	 System::Windows::Forms::Panel^ panel7;
+	private:
+
+		System::Windows::Forms::Button^ BotoPersonal;
+		System::Windows::Forms::Button^ BotoLogout;
+		System::Windows::Forms::TableLayoutPanel^ tableLayoutPanel3;
+		System::Windows::Forms::FlowLayoutPanel^ flowLayoutPanel1;
+		System::Windows::Forms::TableLayoutPanel^ tableLayoutPanel2;
+		System::Windows::Forms::Label^ label1;
+		System::Windows::Forms::Panel^ panel3;
+		System::Windows::Forms::Panel^ panel2;
+		System::Windows::Forms::Button^ BotoInici;
+		System::Windows::Forms::Button^ BotoExplorar;
+		System::Windows::Forms::Panel^ panel4;
+
+		System::Windows::Forms::Button^ BotoSessions;
+		System::Windows::Forms::Button^ BotoElsMeus;
+		System::Windows::Forms::Button^ BotoAdmin;
+		System::Windows::Forms::Panel^ panel6;
+		System::Windows::Forms::Button^ BotoEspais;
+		System::Windows::Forms::Panel^ panel7;
 
 
 
@@ -103,7 +104,7 @@ namespace CppCLRWinFormsProject {
 			this->BotoPersonal->Anchor = System::Windows::Forms::AnchorStyles::None;
 			this->BotoPersonal->FlatAppearance->BorderSize = 0;
 			this->BotoPersonal->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->BotoPersonal->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->BotoPersonal->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->BotoPersonal->ImageAlign = System::Drawing::ContentAlignment::MiddleLeft;
 			this->BotoPersonal->Location = System::Drawing::Point(3, 3);
@@ -120,14 +121,15 @@ namespace CppCLRWinFormsProject {
 			this->BotoLogout->Anchor = System::Windows::Forms::AnchorStyles::None;
 			this->BotoLogout->FlatAppearance->BorderSize = 0;
 			this->BotoLogout->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->BotoLogout->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->BotoLogout->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->BotoLogout->ImageAlign = System::Drawing::ContentAlignment::MiddleLeft;
 			this->BotoLogout->Location = System::Drawing::Point(167, 3);
 			this->BotoLogout->Name = L"BotoLogout";
 			this->BotoLogout->Size = System::Drawing::Size(146, 41);
 			this->BotoLogout->TabIndex = 2;
-			this->BotoLogout->Text = L"Tancar sessi�";
+			//FIXME: cambiar por sortir
+			this->BotoLogout->Text = L"Tancar sessió";
 			this->BotoLogout->TextAlign = System::Drawing::ContentAlignment::MiddleRight;
 			this->BotoLogout->UseVisualStyleBackColor = true;
 			this->BotoLogout->Click += gcnew System::EventHandler(this, &MainPageUI::Tancar_Sessio_Click);
@@ -184,7 +186,7 @@ namespace CppCLRWinFormsProject {
 				static_cast<System::Byte>(0)));
 			this->label1->ForeColor = System::Drawing::SystemColors::HotTrack;
 			this->label1->ImageAlign = System::Drawing::ContentAlignment::MiddleRight;
-			this->label1->Location = System::Drawing::Point(25, 16);
+			this->label1->Location = System::Drawing::Point(21, 17);
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(174, 33);
 			this->label1->TabIndex = 0;
@@ -396,18 +398,10 @@ namespace CppCLRWinFormsProject {
 		System::Void Perfil_Click(System::Object^ sender, System::EventArgs^ e);
 
 		System::Void BotoInici_Click(System::Object^ sender, System::EventArgs^ e);
-		System::Void ElsMeus_Click(System::Object^ sender, System::EventArgs^ e);
 		System::Void Admin_Click(System::Object^ sender, System::EventArgs^ e);
-		
-
-		
-
-	
-		
-
-
-private: System::Void BotoEspais_Click(System::Object^ sender, System::EventArgs^ e) {
-}
+		System::Void ElsMeus_Click(System::Object^ sender, System::EventArgs^ e);
 		System::Void BotoExplorar_Click(System::Object^ sender, System::EventArgs^ e);
+		System::Void BotoEspais_Click(System::Object^ sender, System::EventArgs^ e);
+
 };
 }

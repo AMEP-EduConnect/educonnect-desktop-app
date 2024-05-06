@@ -367,3 +367,5 @@ MigrationBackup/
 FodyWeavers.xsd
 MainPage.h
 educonnect-desktop-app.vcxproj
+/BaixaProveidorUI.h
+/BaixaProveidorUI.resx

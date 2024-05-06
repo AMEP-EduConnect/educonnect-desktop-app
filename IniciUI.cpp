@@ -15,7 +15,9 @@
 #include "MessageManager.h"
 #include "Usuari.h"
 #include "CurrentSession.h"
-
+#include "MainPageUI.h"
+#include "GrupEstudi_CrearUI.h"
+#include "GrupEstudi_InfoUI.h"
 using namespace System::Collections::Generic;
 
 
@@ -71,34 +73,69 @@ namespace CppCLRWinFormsProject {
            
             enumerator->MoveNext();
             this->Grup1label->Text = enumerator->Current->GetGroupName();
-
+            this->Grup1->Tag = enumerator->Current->GetGroupName();
+            this->pictureBox3->Tag = enumerator->Current->GetGroupName();
             enumerator->MoveNext();
             this->Grup2label->Text = enumerator->Current->GetGroupName();
-        
+            this->Grup2->Tag = enumerator->Current->GetGroupName();
+            this->pictureBox2->Tag = enumerator->Current->GetGroupName();
             enumerator->MoveNext();
             this->Grup3label->Text = enumerator->Current->GetGroupName();
-            
+            this->pictureBox1->Tag = enumerator->Current->GetGroupName();
+            this->Grup3->Tag = enumerator->Current->GetGroupName();
         }
         else if (groups->Count == 2) {
             this->Grup1->Visible = true;
             this->Grup2->Visible = true;
-
             enumerator->MoveNext();
             this->Grup1label->Text = enumerator->Current->GetGroupName();
-
+            this->pictureBox3->Tag = enumerator->Current->GetGroupName();
+            this->Grup1->Tag = enumerator->Current->GetGroupName();
             enumerator->MoveNext();
             this->Grup2label->Text = enumerator->Current->GetGroupName();
-
+            this->Grup2->Tag = enumerator->Current->GetGroupName();
+            this->pictureBox2->Tag = enumerator->Current->GetGroupName();
         }
         else if (groups->Count == 1) {
             this->Grup1->Visible = true;
 
             enumerator->MoveNext();
             this->Grup1label->Text = enumerator->Current->GetGroupName();
-
+            this->Grup1->Tag = enumerator->Current->GetGroupName();
+            this->pictureBox3->Tag = enumerator->Current->GetGroupName();
         }
   
 
+    }
+
+    Void IniciUI::pictureBox4_Click(System::Object^ sender, System::EventArgs^ e) {
+        GrupEstudi_CrearUI^ PanelUI = gcnew GrupEstudi_CrearUI();
+        PanelUI->TopLevel = false;
+        PanelUI->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
+        PanelUI->Dock = System::Windows::Forms::DockStyle::Fill;
+
+        MainPageUI::Instance->screen->Controls->Clear();
+        MainPageUI::Instance->screen->Controls->Add(PanelUI);
+        PanelUI->Show();
+    }
+
+    System::Void IniciUI::pictureBox_Click(System::Object^ sender, System::EventArgs^ e)
+    {
+        PictureBox^ clickedBox = dynamic_cast<PictureBox^>(sender);
+        if (clickedBox != nullptr && clickedBox->Tag != nullptr) {
+            String^ groupName = dynamic_cast<String^>(clickedBox->Tag);
+            if (!String::IsNullOrEmpty(groupName)) {
+                // Llama a la función que maneja el clic, pasando el nombre del grupo
+                GrupEstudi_InfoUI^ PanelUI = gcnew GrupEstudi_InfoUI(groupName);
+                PanelUI->TopLevel = false;
+                PanelUI->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
+                PanelUI->Dock = System::Windows::Forms::DockStyle::Fill;
+
+                MainPageUI::Instance->screen->Controls->Clear();
+                MainPageUI::Instance->screen->Controls->Add(PanelUI);
+                PanelUI->Show();
+            }
+        }
     }
 
 
