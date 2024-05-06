@@ -87,8 +87,8 @@ namespace CppCLRWinFormsProject {
 	private: System::Windows::Forms::Panel^ panel5;
 	private: System::Windows::Forms::Panel^ panel6;
 	private: System::Windows::Forms::Label^ label1;
-	private: System::Windows::Forms::TableLayoutPanel^ tableLayoutPanel2;
-	private: System::Windows::Forms::Button^ Chat_Button;
+
+
 
 
 
@@ -98,6 +98,9 @@ namespace CppCLRWinFormsProject {
 	private: System::Windows::Forms::Label^ Capacity_Label;
 
 	private: System::Windows::Forms::Label^ session_name;
+	private: System::Windows::Forms::Panel^ panel3;
+	private: System::Windows::Forms::PictureBox^ pictureBox1;
+	private: System::Windows::Forms::Label^ label3;
 
 	private: Session^ CurrentSessionEntity;
 
@@ -136,8 +139,9 @@ namespace CppCLRWinFormsProject {
 			this->SessionsList_Label = (gcnew System::Windows::Forms::Label());
 			this->Sessions_ListBox = (gcnew System::Windows::Forms::ListBox());
 			this->NewSession_Button = (gcnew System::Windows::Forms::Button());
-			this->tableLayoutPanel2 = (gcnew System::Windows::Forms::TableLayoutPanel());
-			this->Chat_Button = (gcnew System::Windows::Forms::Button());
+			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
+			this->panel3 = (gcnew System::Windows::Forms::Panel());
+			this->label3 = (gcnew System::Windows::Forms::Label());
 			tableLayoutPanel1 = (gcnew System::Windows::Forms::TableLayoutPanel());
 			tableLayoutPanel1->SuspendLayout();
 			this->panel6->SuspendLayout();
@@ -146,7 +150,8 @@ namespace CppCLRWinFormsProject {
 			this->flowLayoutPanel1->SuspendLayout();
 			this->panel1->SuspendLayout();
 			this->panel4->SuspendLayout();
-			this->tableLayoutPanel2->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
+			this->panel3->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// tableLayoutPanel1
@@ -156,24 +161,26 @@ namespace CppCLRWinFormsProject {
 			tableLayoutPanel1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent, 48.54369F)));
 			tableLayoutPanel1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent, 24.27184F)));
 			tableLayoutPanel1->Controls->Add(this->panel6, 1, 1);
-			tableLayoutPanel1->Controls->Add(this->panel2, 2, 1);
 			tableLayoutPanel1->Controls->Add(this->InfoGrupEstudi_Label, 1, 0);
 			tableLayoutPanel1->Controls->Add(this->panel5, 1, 2);
 			tableLayoutPanel1->Controls->Add(this->GoBack_Button, 2, 3);
 			tableLayoutPanel1->Controls->Add(this->panel4, 0, 2);
-			tableLayoutPanel1->Controls->Add(this->tableLayoutPanel2, 2, 2);
+			tableLayoutPanel1->Controls->Add(this->panel3, 2, 0);
+			tableLayoutPanel1->Controls->Add(this->panel2, 2, 1);
 			tableLayoutPanel1->Dock = System::Windows::Forms::DockStyle::Fill;
+			tableLayoutPanel1->Font = (gcnew System::Drawing::Font(L"Inter", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			tableLayoutPanel1->Location = System::Drawing::Point(0, 0);
-			tableLayoutPanel1->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
-			tableLayoutPanel1->MinimumSize = System::Drawing::Size(1085, 661);
+			tableLayoutPanel1->MinimumSize = System::Drawing::Size(814, 537);
 			tableLayoutPanel1->Name = L"tableLayoutPanel1";
 			tableLayoutPanel1->RowCount = 4;
 			tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 10.05587F)));
 			tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 28.86406F)));
-			tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 51.76909F)));
-			tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 9.090909F)));
-			tableLayoutPanel1->Size = System::Drawing::Size(1085, 661);
+			tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 49.16201F)));
+			tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 12.2905F)));
+			tableLayoutPanel1->Size = System::Drawing::Size(814, 537);
 			tableLayoutPanel1->TabIndex = 0;
+			tableLayoutPanel1->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &GrupEstudi_InfoUI::tableLayoutPanel1_Paint);
 			// 
 			// panel6
 			// 
@@ -182,23 +189,21 @@ namespace CppCLRWinFormsProject {
 			this->panel6->Controls->Add(this->AcademicTagsInfo_Label);
 			this->panel6->Controls->Add(this->label2);
 			this->panel6->Controls->Add(this->DescGrupEstudi_Label);
-			this->panel6->Location = System::Drawing::Point(298, 70);
-			this->panel6->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->panel6->Location = System::Drawing::Point(224, 56);
 			this->panel6->Name = L"panel6";
-			this->panel6->Size = System::Drawing::Size(518, 181);
+			this->panel6->Size = System::Drawing::Size(388, 147);
 			this->panel6->TabIndex = 21;
 			// 
 			// label1
 			// 
 			this->label1->Anchor = System::Windows::Forms::AnchorStyles::None;
 			this->label1->AutoSize = true;
-			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->label1->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label1->ForeColor = System::Drawing::SystemColors::HotTrack;
-			this->label1->Location = System::Drawing::Point(4, 110);
-			this->label1->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->label1->Location = System::Drawing::Point(3, 98);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(102, 25);
+			this->label1->Size = System::Drawing::Size(84, 19);
 			this->label1->TabIndex = 20;
 			this->label1->Text = L"Etiquetes";
 			// 
@@ -206,13 +211,12 @@ namespace CppCLRWinFormsProject {
 			// 
 			this->AcademicTagsInfo_Label->Anchor = System::Windows::Forms::AnchorStyles::None;
 			this->AcademicTagsInfo_Label->AutoSize = true;
-			this->AcademicTagsInfo_Label->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 11.25F, System::Drawing::FontStyle::Regular,
-				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
+			this->AcademicTagsInfo_Label->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->AcademicTagsInfo_Label->ForeColor = System::Drawing::SystemColors::HotTrack;
-			this->AcademicTagsInfo_Label->Location = System::Drawing::Point(4, 133);
-			this->AcademicTagsInfo_Label->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->AcademicTagsInfo_Label->Location = System::Drawing::Point(3, 117);
 			this->AcademicTagsInfo_Label->Name = L"AcademicTagsInfo_Label";
-			this->AcademicTagsInfo_Label->Size = System::Drawing::Size(110, 24);
+			this->AcademicTagsInfo_Label->Size = System::Drawing::Size(97, 19);
 			this->AcademicTagsInfo_Label->TabIndex = 9;
 			this->AcademicTagsInfo_Label->Text = L"Group Tags";
 			this->AcademicTagsInfo_Label->Click += gcnew System::EventHandler(this, &GrupEstudi_InfoUI::AcademicTagsInfo_Label_Click);
@@ -221,13 +225,12 @@ namespace CppCLRWinFormsProject {
 			// 
 			this->label2->Anchor = System::Windows::Forms::AnchorStyles::None;
 			this->label2->AutoSize = true;
-			this->label2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->label2->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label2->ForeColor = System::Drawing::SystemColors::HotTrack;
-			this->label2->Location = System::Drawing::Point(4, 10);
-			this->label2->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->label2->Location = System::Drawing::Point(3, 11);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(113, 25);
+			this->label2->Size = System::Drawing::Size(93, 19);
 			this->label2->TabIndex = 19;
 			this->label2->Text = L"Descripció";
 			// 
@@ -235,36 +238,35 @@ namespace CppCLRWinFormsProject {
 			// 
 			this->DescGrupEstudi_Label->Anchor = System::Windows::Forms::AnchorStyles::None;
 			this->DescGrupEstudi_Label->AutoSize = true;
-			this->DescGrupEstudi_Label->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 11.25F, System::Drawing::FontStyle::Regular,
-				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
+			this->DescGrupEstudi_Label->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->DescGrupEstudi_Label->ForeColor = System::Drawing::SystemColors::HotTrack;
-			this->DescGrupEstudi_Label->Location = System::Drawing::Point(4, 33);
-			this->DescGrupEstudi_Label->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->DescGrupEstudi_Label->Location = System::Drawing::Point(3, 30);
 			this->DescGrupEstudi_Label->Name = L"DescGrupEstudi_Label";
-			this->DescGrupEstudi_Label->Size = System::Drawing::Size(162, 24);
+			this->DescGrupEstudi_Label->Size = System::Drawing::Size(148, 19);
 			this->DescGrupEstudi_Label->TabIndex = 4;
 			this->DescGrupEstudi_Label->Text = L"Group Description";
 			// 
 			// panel2
 			// 
 			this->panel2->Anchor = System::Windows::Forms::AnchorStyles::Top;
-			this->panel2->Controls->Add(this->DeleteGrupEstudi_Button);
 			this->panel2->Controls->Add(this->MembersGrupEstudi_Button);
+			this->panel2->Controls->Add(this->DeleteGrupEstudi_Button);
 			this->panel2->Controls->Add(this->ModifyGrupEstudi_Button);
-			this->panel2->Location = System::Drawing::Point(824, 70);
-			this->panel2->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->panel2->Location = System::Drawing::Point(619, 56);
 			this->panel2->Name = L"panel2";
-			this->panel2->Size = System::Drawing::Size(256, 181);
+			this->panel2->Size = System::Drawing::Size(192, 147);
 			this->panel2->TabIndex = 15;
 			// 
 			// DeleteGrupEstudi_Button
 			// 
-			this->DeleteGrupEstudi_Button->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular,
-				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
-			this->DeleteGrupEstudi_Button->Location = System::Drawing::Point(11, 110);
-			this->DeleteGrupEstudi_Button->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->DeleteGrupEstudi_Button->Anchor = System::Windows::Forms::AnchorStyles::None;
+			this->DeleteGrupEstudi_Button->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->DeleteGrupEstudi_Button->Font = (gcnew System::Drawing::Font(L"Inter Light", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->DeleteGrupEstudi_Button->Location = System::Drawing::Point(8, 96);
 			this->DeleteGrupEstudi_Button->Name = L"DeleteGrupEstudi_Button";
-			this->DeleteGrupEstudi_Button->Size = System::Drawing::Size(235, 43);
+			this->DeleteGrupEstudi_Button->Size = System::Drawing::Size(176, 35);
 			this->DeleteGrupEstudi_Button->TabIndex = 13;
 			this->DeleteGrupEstudi_Button->Text = L"Eliminar grup";
 			this->DeleteGrupEstudi_Button->UseVisualStyleBackColor = true;
@@ -272,24 +274,24 @@ namespace CppCLRWinFormsProject {
 			// 
 			// MembersGrupEstudi_Button
 			// 
-			this->MembersGrupEstudi_Button->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular,
-				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
-			this->MembersGrupEstudi_Button->Location = System::Drawing::Point(11, 10);
-			this->MembersGrupEstudi_Button->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->MembersGrupEstudi_Button->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->MembersGrupEstudi_Button->Font = (gcnew System::Drawing::Font(L"Inter Light", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->MembersGrupEstudi_Button->Location = System::Drawing::Point(8, 14);
 			this->MembersGrupEstudi_Button->Name = L"MembersGrupEstudi_Button";
-			this->MembersGrupEstudi_Button->Size = System::Drawing::Size(235, 43);
+			this->MembersGrupEstudi_Button->Size = System::Drawing::Size(176, 35);
 			this->MembersGrupEstudi_Button->TabIndex = 14;
-			this->MembersGrupEstudi_Button->Text = L"Consultar membres";
+			this->MembersGrupEstudi_Button->Text = L"Membres";
 			this->MembersGrupEstudi_Button->UseVisualStyleBackColor = true;
 			// 
 			// ModifyGrupEstudi_Button
 			// 
-			this->ModifyGrupEstudi_Button->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular,
-				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
-			this->ModifyGrupEstudi_Button->Location = System::Drawing::Point(11, 59);
-			this->ModifyGrupEstudi_Button->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->ModifyGrupEstudi_Button->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->ModifyGrupEstudi_Button->Font = (gcnew System::Drawing::Font(L"Inter Light", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->ModifyGrupEstudi_Button->Location = System::Drawing::Point(8, 55);
 			this->ModifyGrupEstudi_Button->Name = L"ModifyGrupEstudi_Button";
-			this->ModifyGrupEstudi_Button->Size = System::Drawing::Size(235, 43);
+			this->ModifyGrupEstudi_Button->Size = System::Drawing::Size(176, 35);
 			this->ModifyGrupEstudi_Button->TabIndex = 12;
 			this->ModifyGrupEstudi_Button->Text = L"Editar grup";
 			this->ModifyGrupEstudi_Button->UseVisualStyleBackColor = true;
@@ -299,14 +301,13 @@ namespace CppCLRWinFormsProject {
 			// 
 			this->InfoGrupEstudi_Label->Anchor = System::Windows::Forms::AnchorStyles::None;
 			this->InfoGrupEstudi_Label->AutoSize = true;
-			this->InfoGrupEstudi_Label->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20.25F, System::Drawing::FontStyle::Bold,
-				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
+			this->InfoGrupEstudi_Label->Font = (gcnew System::Drawing::Font(L"Inter", 20.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->InfoGrupEstudi_Label->ForeColor = System::Drawing::SystemColors::HotTrack;
-			this->InfoGrupEstudi_Label->Location = System::Drawing::Point(466, 13);
-			this->InfoGrupEstudi_Label->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->InfoGrupEstudi_Label->Location = System::Drawing::Point(344, 10);
 			this->InfoGrupEstudi_Label->Name = L"InfoGrupEstudi_Label";
 			this->InfoGrupEstudi_Label->RightToLeft = System::Windows::Forms::RightToLeft::No;
-			this->InfoGrupEstudi_Label->Size = System::Drawing::Size(181, 39);
+			this->InfoGrupEstudi_Label->Size = System::Drawing::Size(149, 33);
 			this->InfoGrupEstudi_Label->TabIndex = 3;
 			this->InfoGrupEstudi_Label->Text = L"Nom Grup";
 			this->InfoGrupEstudi_Label->Click += gcnew System::EventHandler(this, &GrupEstudi_InfoUI::InfoGrupEstudi_Label_Click);
@@ -316,10 +317,9 @@ namespace CppCLRWinFormsProject {
 			this->panel5->Anchor = System::Windows::Forms::AnchorStyles::None;
 			this->panel5->Controls->Add(this->flowLayoutPanel1);
 			this->panel5->Controls->Add(this->panel1);
-			this->panel5->Location = System::Drawing::Point(298, 265);
-			this->panel5->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->panel5->Location = System::Drawing::Point(224, 210);
 			this->panel5->Name = L"panel5";
-			this->panel5->Size = System::Drawing::Size(518, 326);
+			this->panel5->Size = System::Drawing::Size(388, 257);
 			this->panel5->TabIndex = 20;
 			// 
 			// flowLayoutPanel1
@@ -327,21 +327,19 @@ namespace CppCLRWinFormsProject {
 			this->flowLayoutPanel1->Anchor = System::Windows::Forms::AnchorStyles::None;
 			this->flowLayoutPanel1->Controls->Add(this->ModifySession_Button);
 			this->flowLayoutPanel1->Controls->Add(this->DeleteSession_Button);
-			this->flowLayoutPanel1->Location = System::Drawing::Point(5, 263);
-			this->flowLayoutPanel1->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->flowLayoutPanel1->Location = System::Drawing::Point(4, 210);
 			this->flowLayoutPanel1->Name = L"flowLayoutPanel1";
-			this->flowLayoutPanel1->Size = System::Drawing::Size(315, 53);
+			this->flowLayoutPanel1->Size = System::Drawing::Size(236, 43);
 			this->flowLayoutPanel1->TabIndex = 5;
 			// 
 			// ModifySession_Button
 			// 
 			this->ModifySession_Button->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->ModifySession_Button->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular,
-				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
-			this->ModifySession_Button->Location = System::Drawing::Point(4, 4);
-			this->ModifySession_Button->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->ModifySession_Button->Font = (gcnew System::Drawing::Font(L"Inter Light", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->ModifySession_Button->Location = System::Drawing::Point(3, 3);
 			this->ModifySession_Button->Name = L"ModifySession_Button";
-			this->ModifySession_Button->Size = System::Drawing::Size(149, 43);
+			this->ModifySession_Button->Size = System::Drawing::Size(112, 35);
 			this->ModifySession_Button->TabIndex = 7;
 			this->ModifySession_Button->Text = L"Modificar";
 			this->ModifySession_Button->UseVisualStyleBackColor = true;
@@ -351,12 +349,11 @@ namespace CppCLRWinFormsProject {
 			// DeleteSession_Button
 			// 
 			this->DeleteSession_Button->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->DeleteSession_Button->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular,
-				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
-			this->DeleteSession_Button->Location = System::Drawing::Point(161, 4);
-			this->DeleteSession_Button->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->DeleteSession_Button->Font = (gcnew System::Drawing::Font(L"Inter Light", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->DeleteSession_Button->Location = System::Drawing::Point(121, 3);
 			this->DeleteSession_Button->Name = L"DeleteSession_Button";
-			this->DeleteSession_Button->Size = System::Drawing::Size(149, 43);
+			this->DeleteSession_Button->Size = System::Drawing::Size(112, 35);
 			this->DeleteSession_Button->TabIndex = 8;
 			this->DeleteSession_Button->Text = L"Eliminar";
 			this->DeleteSession_Button->UseVisualStyleBackColor = true;
@@ -374,23 +371,21 @@ namespace CppCLRWinFormsProject {
 			this->panel1->Controls->Add(this->StartEndDuration_Label);
 			this->panel1->Controls->Add(this->DayMonthYear_label);
 			this->panel1->Controls->Add(this->EspaiName_Label);
-			this->panel1->Location = System::Drawing::Point(9, 7);
-			this->panel1->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->panel1->Location = System::Drawing::Point(7, 2);
 			this->panel1->Name = L"panel1";
-			this->panel1->Size = System::Drawing::Size(500, 252);
+			this->panel1->Size = System::Drawing::Size(375, 205);
 			this->panel1->TabIndex = 10;
 			this->panel1->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &GrupEstudi_InfoUI::panel1_Paint);
 			// 
 			// session_name
 			// 
 			this->session_name->AutoSize = true;
-			this->session_name->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->session_name->Font = (gcnew System::Drawing::Font(L"Inter Light", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->session_name->ForeColor = System::Drawing::SystemColors::HotTrack;
-			this->session_name->Location = System::Drawing::Point(25, 62);
-			this->session_name->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->session_name->Location = System::Drawing::Point(19, 46);
 			this->session_name->Name = L"session_name";
-			this->session_name->Size = System::Drawing::Size(61, 25);
+			this->session_name->Size = System::Drawing::Size(50, 19);
 			this->session_name->TabIndex = 12;
 			this->session_name->Text = L"name";
 			this->session_name->Visible = false;
@@ -398,12 +393,11 @@ namespace CppCLRWinFormsProject {
 			// Capacity_Label
 			// 
 			this->Capacity_Label->AutoSize = true;
-			this->Capacity_Label->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->Capacity_Label->Font = (gcnew System::Drawing::Font(L"Inter Light", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->Capacity_Label->Location = System::Drawing::Point(380, 214);
-			this->Capacity_Label->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->Capacity_Label->Location = System::Drawing::Point(275, 159);
 			this->Capacity_Label->Name = L"Capacity_Label";
-			this->Capacity_Label->Size = System::Drawing::Size(23, 25);
+			this->Capacity_Label->Size = System::Drawing::Size(19, 19);
 			this->Capacity_Label->TabIndex = 11;
 			this->Capacity_Label->Text = L"0";
 			this->Capacity_Label->Click += gcnew System::EventHandler(this, &GrupEstudi_InfoUI::label4_Click);
@@ -411,13 +405,12 @@ namespace CppCLRWinFormsProject {
 			// Confirm_Cancel_Attent_Button
 			// 
 			this->Confirm_Cancel_Attent_Button->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->Confirm_Cancel_Attent_Button->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 11.25F, System::Drawing::FontStyle::Regular,
-				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
+			this->Confirm_Cancel_Attent_Button->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->Confirm_Cancel_Attent_Button->ForeColor = System::Drawing::SystemColors::HotTrack;
-			this->Confirm_Cancel_Attent_Button->Location = System::Drawing::Point(344, 21);
-			this->Confirm_Cancel_Attent_Button->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->Confirm_Cancel_Attent_Button->Location = System::Drawing::Point(258, 17);
 			this->Confirm_Cancel_Attent_Button->Name = L"Confirm_Cancel_Attent_Button";
-			this->Confirm_Cancel_Attent_Button->Size = System::Drawing::Size(133, 64);
+			this->Confirm_Cancel_Attent_Button->Size = System::Drawing::Size(100, 48);
 			this->Confirm_Cancel_Attent_Button->TabIndex = 0;
 			this->Confirm_Cancel_Attent_Button->Text = L"Asistir";
 			this->Confirm_Cancel_Attent_Button->UseVisualStyleBackColor = true;
@@ -427,12 +420,11 @@ namespace CppCLRWinFormsProject {
 			// SessionCapacity_Label1
 			// 
 			this->SessionCapacity_Label1->AutoSize = true;
-			this->SessionCapacity_Label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular,
-				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
-			this->SessionCapacity_Label1->Location = System::Drawing::Point(367, 183);
-			this->SessionCapacity_Label1->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->SessionCapacity_Label1->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->SessionCapacity_Label1->Location = System::Drawing::Point(275, 135);
 			this->SessionCapacity_Label1->Name = L"SessionCapacity_Label1";
-			this->SessionCapacity_Label1->Size = System::Drawing::Size(95, 25);
+			this->SessionCapacity_Label1->Size = System::Drawing::Size(83, 19);
 			this->SessionCapacity_Label1->TabIndex = 4;
 			this->SessionCapacity_Label1->Text = L"Capacitat";
 			this->SessionCapacity_Label1->Visible = false;
@@ -440,12 +432,11 @@ namespace CppCLRWinFormsProject {
 			// StartEndDuration_Label
 			// 
 			this->StartEndDuration_Label->AutoSize = true;
-			this->StartEndDuration_Label->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular,
-				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
-			this->StartEndDuration_Label->Location = System::Drawing::Point(28, 200);
-			this->StartEndDuration_Label->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->StartEndDuration_Label->Font = (gcnew System::Drawing::Font(L"Inter Light", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->StartEndDuration_Label->Location = System::Drawing::Point(19, 159);
 			this->StartEndDuration_Label->Name = L"StartEndDuration_Label";
-			this->StartEndDuration_Label->Size = System::Drawing::Size(129, 25);
+			this->StartEndDuration_Label->Size = System::Drawing::Size(108, 19);
 			this->StartEndDuration_Label->TabIndex = 2;
 			this->StartEndDuration_Label->Text = L"18:00 - 19:00";
 			this->StartEndDuration_Label->Visible = false;
@@ -453,12 +444,11 @@ namespace CppCLRWinFormsProject {
 			// DayMonthYear_label
 			// 
 			this->DayMonthYear_label->AutoSize = true;
-			this->DayMonthYear_label->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->DayMonthYear_label->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->DayMonthYear_label->Location = System::Drawing::Point(27, 149);
-			this->DayMonthYear_label->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->DayMonthYear_label->Location = System::Drawing::Point(19, 135);
 			this->DayMonthYear_label->Name = L"DayMonthYear_label";
-			this->DayMonthYear_label->Size = System::Drawing::Size(124, 25);
+			this->DayMonthYear_label->Size = System::Drawing::Size(107, 19);
 			this->DayMonthYear_label->TabIndex = 1;
 			this->DayMonthYear_label->Text = L"18 juny 2024";
 			this->DayMonthYear_label->Visible = false;
@@ -467,13 +457,12 @@ namespace CppCLRWinFormsProject {
 			// EspaiName_Label
 			// 
 			this->EspaiName_Label->AutoSize = true;
-			this->EspaiName_Label->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->EspaiName_Label->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->EspaiName_Label->ForeColor = System::Drawing::SystemColors::HotTrack;
-			this->EspaiName_Label->Location = System::Drawing::Point(25, 21);
-			this->EspaiName_Label->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->EspaiName_Label->Location = System::Drawing::Point(19, 17);
 			this->EspaiName_Label->Name = L"EspaiName_Label";
-			this->EspaiName_Label->Size = System::Drawing::Size(278, 25);
+			this->EspaiName_Label->Size = System::Drawing::Size(217, 19);
 			this->EspaiName_Label->TabIndex = 0;
 			this->EspaiName_Label->Text = L"Biblioteca Vilanova - Sala 1";
 			this->EspaiName_Label->Visible = false;
@@ -482,13 +471,12 @@ namespace CppCLRWinFormsProject {
 			// GoBack_Button
 			// 
 			this->GoBack_Button->Anchor = System::Windows::Forms::AnchorStyles::None;
-			this->GoBack_Button->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->GoBack_Button->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->GoBack_Button->ForeColor = System::Drawing::Color::Red;
-			this->GoBack_Button->Location = System::Drawing::Point(902, 608);
-			this->GoBack_Button->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->GoBack_Button->Location = System::Drawing::Point(677, 486);
 			this->GoBack_Button->Name = L"GoBack_Button";
-			this->GoBack_Button->Size = System::Drawing::Size(100, 43);
+			this->GoBack_Button->Size = System::Drawing::Size(75, 35);
 			this->GoBack_Button->TabIndex = 16;
 			this->GoBack_Button->Text = L"Tornar";
 			this->GoBack_Button->UseVisualStyleBackColor = true;
@@ -501,96 +489,91 @@ namespace CppCLRWinFormsProject {
 			this->panel4->Controls->Add(this->SessionsList_Label);
 			this->panel4->Controls->Add(this->Sessions_ListBox);
 			this->panel4->Controls->Add(this->NewSession_Button);
-			this->panel4->Location = System::Drawing::Point(15, 272);
-			this->panel4->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->panel4->Location = System::Drawing::Point(12, 212);
 			this->panel4->Name = L"panel4";
-			this->panel4->Size = System::Drawing::Size(263, 311);
+			this->panel4->Size = System::Drawing::Size(197, 253);
 			this->panel4->TabIndex = 18;
 			// 
 			// SessionsList_Label
 			// 
 			this->SessionsList_Label->AutoSize = true;
-			this->SessionsList_Label->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->SessionsList_Label->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->SessionsList_Label->ForeColor = System::Drawing::SystemColors::HotTrack;
-			this->SessionsList_Label->Location = System::Drawing::Point(37, 9);
-			this->SessionsList_Label->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->SessionsList_Label->Location = System::Drawing::Point(28, 7);
 			this->SessionsList_Label->Name = L"SessionsList_Label";
-			this->SessionsList_Label->Size = System::Drawing::Size(176, 25);
+			this->SessionsList_Label->Size = System::Drawing::Size(140, 19);
 			this->SessionsList_Label->TabIndex = 5;
 			this->SessionsList_Label->Text = L"Sessions actuals";
 			this->SessionsList_Label->Click += gcnew System::EventHandler(this, &GrupEstudi_InfoUI::SessionsList_Label_Click_1);
 			// 
 			// Sessions_ListBox
 			// 
-			this->Sessions_ListBox->BackColor = System::Drawing::Color::Lavender;
+			this->Sessions_ListBox->BackColor = System::Drawing::SystemColors::Window;
 			this->Sessions_ListBox->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-			this->Sessions_ListBox->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 11.25F, System::Drawing::FontStyle::Regular,
-				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
+			this->Sessions_ListBox->Font = (gcnew System::Drawing::Font(L"Inter", 11.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->Sessions_ListBox->FormattingEnabled = true;
 			this->Sessions_ListBox->IntegralHeight = false;
-			this->Sessions_ListBox->ItemHeight = 24;
-			this->Sessions_ListBox->Location = System::Drawing::Point(16, 38);
-			this->Sessions_ListBox->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->Sessions_ListBox->ItemHeight = 19;
+			this->Sessions_ListBox->Location = System::Drawing::Point(12, 31);
 			this->Sessions_ListBox->Name = L"Sessions_ListBox";
-			this->Sessions_ListBox->Size = System::Drawing::Size(234, 210);
+			this->Sessions_ListBox->Size = System::Drawing::Size(176, 171);
 			this->Sessions_ListBox->TabIndex = 6;
 			this->Sessions_ListBox->SelectedIndexChanged += gcnew System::EventHandler(this, &GrupEstudi_InfoUI::SelectLastSessionOrPlaceholder);
 			// 
 			// NewSession_Button
 			// 
 			this->NewSession_Button->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->NewSession_Button->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->NewSession_Button->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->NewSession_Button->Location = System::Drawing::Point(16, 256);
-			this->NewSession_Button->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->NewSession_Button->Location = System::Drawing::Point(12, 208);
 			this->NewSession_Button->Name = L"NewSession_Button";
-			this->NewSession_Button->Size = System::Drawing::Size(235, 43);
+			this->NewSession_Button->Size = System::Drawing::Size(176, 35);
 			this->NewSession_Button->TabIndex = 11;
-			this->NewSession_Button->Text = L"Nova sessi�";
+			this->NewSession_Button->Text = L"Nova sessió";
 			this->NewSession_Button->UseVisualStyleBackColor = true;
 			this->NewSession_Button->Visible = false;
 			this->NewSession_Button->Click += gcnew System::EventHandler(this, &GrupEstudi_InfoUI::NewSession_Button_Click);
 			// 
-			// tableLayoutPanel2
+			// pictureBox1
 			// 
-			this->tableLayoutPanel2->Anchor = System::Windows::Forms::AnchorStyles::Top;
-			this->tableLayoutPanel2->ColumnCount = 1;
-			this->tableLayoutPanel2->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
-				50)));
-			this->tableLayoutPanel2->Controls->Add(this->Chat_Button, 0, 0);
-			this->tableLayoutPanel2->Location = System::Drawing::Point(824, 261);
-			this->tableLayoutPanel2->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
-			this->tableLayoutPanel2->Name = L"tableLayoutPanel2";
-			this->tableLayoutPanel2->RowCount = 2;
-			this->tableLayoutPanel2->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 57)));
-			this->tableLayoutPanel2->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 43)));
-			this->tableLayoutPanel2->Size = System::Drawing::Size(256, 334);
-			this->tableLayoutPanel2->TabIndex = 22;
+			this->pictureBox1->Location = System::Drawing::Point(28, 11);
+			this->pictureBox1->Name = L"pictureBox1";
+			this->pictureBox1->Size = System::Drawing::Size(24, 24);
+			this->pictureBox1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
+			this->pictureBox1->TabIndex = 22;
+			this->pictureBox1->TabStop = false;
 			// 
-			// Chat_Button
+			// panel3
 			// 
-			this->Chat_Button->Anchor = System::Windows::Forms::AnchorStyles::Top;
-			this->Chat_Button->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->panel3->Anchor = System::Windows::Forms::AnchorStyles::None;
+			this->panel3->Controls->Add(this->label3);
+			this->panel3->Controls->Add(this->pictureBox1);
+			this->panel3->Location = System::Drawing::Point(648, 6);
+			this->panel3->Name = L"panel3";
+			this->panel3->Size = System::Drawing::Size(133, 40);
+			this->panel3->TabIndex = 23;
+			// 
+			// label3
+			// 
+			this->label3->AutoSize = true;
+			this->label3->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->Chat_Button->Location = System::Drawing::Point(10, 4);
-			this->Chat_Button->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
-			this->Chat_Button->Name = L"Chat_Button";
-			this->Chat_Button->Size = System::Drawing::Size(235, 43);
-			this->Chat_Button->TabIndex = 15;
-			this->Chat_Button->Text = L"Chat";
-			this->Chat_Button->UseVisualStyleBackColor = true;
-			this->Chat_Button->Click += gcnew System::EventHandler(this, &GrupEstudi_InfoUI::Chat_Button_Click);
+			this->label3->Location = System::Drawing::Point(58, 14);
+			this->label3->Name = L"label3";
+			this->label3->Size = System::Drawing::Size(46, 19);
+			this->label3->TabIndex = 23;
+			this->label3->Text = L"Chat";
 			// 
 			// GrupEstudi_InfoUI
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
+			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(1085, 661);
+			this->ClientSize = System::Drawing::Size(814, 537);
 			this->Controls->Add(tableLayoutPanel1);
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
-			this->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
-			this->MinimumSize = System::Drawing::Size(1085, 661);
+			this->MinimumSize = System::Drawing::Size(814, 537);
 			this->Name = L"GrupEstudi_InfoUI";
 			this->Text = L"GrupEstudi_InfoUI";
 			this->Load += gcnew System::EventHandler(this, &GrupEstudi_InfoUI::GrupEstudi_InfoUI_Load);
@@ -605,7 +588,9 @@ namespace CppCLRWinFormsProject {
 			this->panel1->PerformLayout();
 			this->panel4->ResumeLayout(false);
 			this->panel4->PerformLayout();
-			this->tableLayoutPanel2->ResumeLayout(false);
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
+			this->panel3->ResumeLayout(false);
+			this->panel3->PerformLayout();
 			this->ResumeLayout(false);
 
 		}
@@ -648,6 +633,8 @@ private: System::Void label4_Click(System::Object^ sender, System::EventArgs^ e)
 }
 private: System::Void DeleteSession_Button_Click(System::Object^ sender, System::EventArgs^ e);
 private: System::Void EspaiCapacity_Label_Click(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void tableLayoutPanel1_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
 }
 };
 }
