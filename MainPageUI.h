@@ -1,4 +1,5 @@
 #pragma once
+
 using namespace MySql::Data::MySqlClient;
 
 namespace CppCLRWinFormsProject {
@@ -127,7 +128,8 @@ namespace CppCLRWinFormsProject {
 			this->BotoLogout->Name = L"BotoLogout";
 			this->BotoLogout->Size = System::Drawing::Size(146, 41);
 			this->BotoLogout->TabIndex = 2;
-			this->BotoLogout->Text = L"Tancar sessió";
+			//FIXME: cambiar por sortir
+			this->BotoLogout->Text = L"Tancar sessiÃ³";
 			this->BotoLogout->TextAlign = System::Drawing::ContentAlignment::MiddleRight;
 			this->BotoLogout->UseVisualStyleBackColor = true;
 			this->BotoLogout->Click += gcnew System::EventHandler(this, &MainPageUI::Tancar_Sessio_Click);
@@ -180,13 +182,13 @@ namespace CppCLRWinFormsProject {
 			// 
 			this->label1->Anchor = System::Windows::Forms::AnchorStyles::None;
 			this->label1->AutoSize = true;
-			this->label1->Font = (gcnew System::Drawing::Font(L"SF Pro Display", 21.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 21.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label1->ForeColor = System::Drawing::SystemColors::HotTrack;
 			this->label1->ImageAlign = System::Drawing::ContentAlignment::MiddleRight;
-			this->label1->Location = System::Drawing::Point(25, 16);
+			this->label1->Location = System::Drawing::Point(21, 17);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(166, 35);
+			this->label1->Size = System::Drawing::Size(174, 33);
 			this->label1->TabIndex = 0;
 			this->label1->Text = L"EduConnect";
 			// 
@@ -252,6 +254,7 @@ namespace CppCLRWinFormsProject {
 			this->BotoEspais->TextAlign = System::Drawing::ContentAlignment::MiddleLeft;
 			this->BotoEspais->TextImageRelation = System::Windows::Forms::TextImageRelation::ImageBeforeText;
 			this->BotoEspais->UseVisualStyleBackColor = true;
+			this->BotoEspais->Click += gcnew System::EventHandler(this, &MainPageUI::BotoEspais_Click);
 			// 
 			// BotoSessions
 			// 
@@ -398,6 +401,7 @@ namespace CppCLRWinFormsProject {
 		System::Void Admin_Click(System::Object^ sender, System::EventArgs^ e);
 		System::Void ElsMeus_Click(System::Object^ sender, System::EventArgs^ e);
 		System::Void BotoExplorar_Click(System::Object^ sender, System::EventArgs^ e);
-		
+		System::Void BotoEspais_Click(System::Object^ sender, System::EventArgs^ e);
+
 };
 }

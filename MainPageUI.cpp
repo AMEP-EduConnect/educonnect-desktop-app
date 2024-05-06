@@ -9,16 +9,18 @@
 #include "InformacioPersonal_ConsultaUI.h"
 #include "FirstPageUI.h"
 #include "IniciUI.h"
-
 #include "GrupEstudi_ConsultarUI.h"
 #include "GrupEstudi_CrearUI.h"
 #include "GrupEstudi_EditarUI.h"
 #include "GrupEstudi_AssignarUI.h"
 #include "AltaProveidorUI.h"
 #include "BaixaProveidorUI.h"
+#include "EspaisRepository.h"
 #include "UsuariRolRepository.h"
 #include "StartPageUI.h"
+#include "AltaEspaisUI.h"
 #include "GrupEstudi_ExplorarUI.h"
+#include "ConsultaEspaisUI.h"
 
 namespace CppCLRWinFormsProject {
 
@@ -113,6 +115,9 @@ namespace CppCLRWinFormsProject {
         this->BotoAdmin->Font = (gcnew System::Drawing::Font(L"Inter Light", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
             static_cast<System::Byte>(0)));
 
+        this->BotoEspais->Font = (gcnew System::Drawing::Font(L"Inter Light", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+            static_cast<System::Byte>(0)));
+
         this->BotoInici->Font = (gcnew System::Drawing::Font(L"Inter", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
             static_cast<System::Byte>(0)));
         this->BotoExplorar->Font = (gcnew System::Drawing::Font(L"Inter Light", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
@@ -142,6 +147,12 @@ namespace CppCLRWinFormsProject {
             static_cast<System::Byte>(0)));
         this->BotoElsMeus->Font = (gcnew System::Drawing::Font(L"Inter Light", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
             static_cast<System::Byte>(0)));
+        this->BotoEspais->Font = (gcnew System::Drawing::Font(L"Inter Light", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+            static_cast<System::Byte>(0)));
+        this->BotoElsMeus->Font = (gcnew System::Drawing::Font(L"Inter Light", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+            static_cast<System::Byte>(0)));
+        this->BotoExplorar->Font = (gcnew System::Drawing::Font(L"Inter Light", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+            static_cast<System::Byte>(0)));
 
     }
 
@@ -164,66 +175,82 @@ namespace CppCLRWinFormsProject {
             static_cast<System::Byte>(0)));
         this->BotoElsMeus->Font = (gcnew System::Drawing::Font(L"Inter Light", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
             static_cast<System::Byte>(0)));
+        this->BotoEspais->Font = (gcnew System::Drawing::Font(L"Inter Light", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+            static_cast<System::Byte>(0)));
 
     }
 
-    void MainPageUI::ElsMeus_Click(System::Object^ sender, System::EventArgs^ e) {
-        GrupEstudi_ConsultarUI^ PanelUI = gcnew GrupEstudi_ConsultarUI();
-        PanelUI->TopLevel = false;
-        PanelUI->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
-        PanelUI->Dock = System::Windows::Forms::DockStyle::Fill;
+        void MainPageUI::ElsMeus_Click(System::Object ^ sender, System::EventArgs ^ e) {
+            GrupEstudi_ConsultarUI^ PanelUI = gcnew GrupEstudi_ConsultarUI();
+            PanelUI->TopLevel = false;
+            PanelUI->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
+            PanelUI->Dock = System::Windows::Forms::DockStyle::Fill;
 
-        this->screen->Controls->Clear();
-        this->screen->Controls->Add(PanelUI);
-        PanelUI->Show();
+            this->screen->Controls->Clear();
+            this->screen->Controls->Add(PanelUI);
+            PanelUI->Show();
 
-        this->BotoElsMeus->Font = (gcnew System::Drawing::Font(L"Inter Medium", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-            static_cast<System::Byte>(0)));
+            this->BotoElsMeus->Font = (gcnew System::Drawing::Font(L"Inter Medium", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+                static_cast<System::Byte>(0)));
 
-        this->BotoInici->Font = (gcnew System::Drawing::Font(L"Inter", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-            static_cast<System::Byte>(0)));
-        this->BotoExplorar->Font = (gcnew System::Drawing::Font(L"Inter Light", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-            static_cast<System::Byte>(0)));
-        this->BotoAdmin->Font = (gcnew System::Drawing::Font(L"Inter Light", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-            static_cast<System::Byte>(0)));
+            this->BotoInici->Font = (gcnew System::Drawing::Font(L"Inter", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+                static_cast<System::Byte>(0)));
+            this->BotoExplorar->Font = (gcnew System::Drawing::Font(L"Inter Light", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+                static_cast<System::Byte>(0)));
+            this->BotoAdmin->Font = (gcnew System::Drawing::Font(L"Inter Light", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+                static_cast<System::Byte>(0)));
+            this->BotoEspais->Font = (gcnew System::Drawing::Font(L"Inter Light", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+                static_cast<System::Byte>(0)));
 
 
+        }
+
+        void MainPageUI::BotoExplorar_Click(System::Object ^ sender, System::EventArgs ^ e) {
+            GrupEstudi_Explorar^ PanelUI = gcnew GrupEstudi_Explorar();
+            PanelUI->TopLevel = false;
+            PanelUI->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
+            PanelUI->Dock = System::Windows::Forms::DockStyle::Fill;
+
+            this->screen->Controls->Clear();
+            this->screen->Controls->Add(PanelUI);
+            PanelUI->Show();
+
+            this->BotoExplorar->Font = (gcnew System::Drawing::Font(L"Inter Medium", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+                static_cast<System::Byte>(0)));
+
+            this->BotoInici->Font = (gcnew System::Drawing::Font(L"Inter", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+                static_cast<System::Byte>(0)));
+            this->BotoAdmin->Font = (gcnew System::Drawing::Font(L"Inter Light", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+                static_cast<System::Byte>(0)));
+            this->BotoElsMeus->Font = (gcnew System::Drawing::Font(L"Inter Light", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+                static_cast<System::Byte>(0)));
+            this->BotoEspais->Font = (gcnew System::Drawing::Font(L"Inter Light", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+                static_cast<System::Byte>(0)));
+
+
+        }
+        Void MainPageUI::BotoEspais_Click(System::Object^ sender, System::EventArgs^ e) {
+            ConsultaEspaisUI^ PanelUI = gcnew ConsultaEspaisUI();
+            PanelUI->TopLevel = false;
+            PanelUI->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
+            PanelUI->Dock = System::Windows::Forms::DockStyle::Fill;
+
+            this->screen->Controls->Clear();
+            this->screen->Controls->Add(PanelUI);
+            PanelUI->Show();
+
+            this->BotoEspais->Font = (gcnew System::Drawing::Font(L"Inter Medium", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+                static_cast<System::Byte>(0)));
+
+            this->BotoInici->Font = (gcnew System::Drawing::Font(L"Inter", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+                static_cast<System::Byte>(0)));
+            this->BotoAdmin->Font = (gcnew System::Drawing::Font(L"Inter Light", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+                static_cast<System::Byte>(0)));
+            this->BotoElsMeus->Font = (gcnew System::Drawing::Font(L"Inter Light", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+                static_cast<System::Byte>(0)));
+            this->BotoExplorar->Font = (gcnew System::Drawing::Font(L"Inter Light", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+                static_cast<System::Byte>(0)));
+
+        }
     }
 
-    void MainPageUI::BotoExplorar_Click(System::Object^ sender, System::EventArgs^ e) {
-        GrupEstudi_Explorar^ PanelUI = gcnew GrupEstudi_Explorar();
-        PanelUI->TopLevel = false;
-        PanelUI->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
-        PanelUI->Dock = System::Windows::Forms::DockStyle::Fill;
-
-        this->screen->Controls->Clear();
-        this->screen->Controls->Add(PanelUI);
-        PanelUI->Show();
-
-        this->BotoExplorar->Font = (gcnew System::Drawing::Font(L"Inter Medium", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-            static_cast<System::Byte>(0)));
-
-        this->BotoInici->Font = (gcnew System::Drawing::Font(L"Inter", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-            static_cast<System::Byte>(0)));
-        this->BotoAdmin->Font = (gcnew System::Drawing::Font(L"Inter Light", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-            static_cast<System::Byte>(0)));
-        this->BotoElsMeus->Font = (gcnew System::Drawing::Font(L"Inter Light", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-            static_cast<System::Byte>(0)));
-
-
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-}

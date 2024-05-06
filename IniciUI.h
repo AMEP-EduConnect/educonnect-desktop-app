@@ -349,6 +349,7 @@ namespace CppCLRWinFormsProject {
 			this->pictureBox3->Size = System::Drawing::Size(126, 126);
 			this->pictureBox3->TabIndex = 5;
 			this->pictureBox3->TabStop = false;
+			this->pictureBox3->Click += gcnew System::EventHandler(this, &IniciUI::pictureBox_Click);
 			// 
 			// Grup2
 			// 
@@ -387,6 +388,7 @@ namespace CppCLRWinFormsProject {
 			this->pictureBox2->Size = System::Drawing::Size(126, 126);
 			this->pictureBox2->TabIndex = 5;
 			this->pictureBox2->TabStop = false;
+			this->pictureBox2->Click += gcnew System::EventHandler(this, &IniciUI::pictureBox_Click);
 			// 
 			// Grup3
 			// 
@@ -426,6 +428,7 @@ namespace CppCLRWinFormsProject {
 			this->pictureBox1->Size = System::Drawing::Size(126, 126);
 			this->pictureBox1->TabIndex = 5;
 			this->pictureBox1->TabStop = false;
+			this->pictureBox1->Click += gcnew System::EventHandler(this, &IniciUI::pictureBox_Click);
 			// 
 			// tableLayoutPanel2
 			// 
@@ -548,5 +551,6 @@ private: System::Void flowLayoutPanel1_Paint(System::Object^ sender, System::Win
 private: System::Void flowLayoutPanel1_Paint_1(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
 }
 private: System::Void pictureBox4_Click(System::Object^ sender, System::EventArgs^ e);
+private: System::Void pictureBox_Click(System::Object^ sender, System::EventArgs^ e);
 };
 }

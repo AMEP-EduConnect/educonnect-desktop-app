@@ -68,7 +68,8 @@ namespace CppCLRWinFormsProject {
 	private: System::Windows::Forms::Label^ label5;
 
 
-	private: System::Windows::Forms::Label^ label6;
+
+
 
 
 
@@ -76,6 +77,7 @@ namespace CppCLRWinFormsProject {
 	private: System::Windows::Forms::TableLayoutPanel^ tableLayoutPanel2;
 	private: System::Windows::Forms::TableLayoutPanel^ tableLayoutPanel3;
 	private: System::Windows::Forms::Button^ Cancelar_Button;
+	private: System::Windows::Forms::Label^ PageTitleLabel;
 
 
 
@@ -100,11 +102,11 @@ namespace CppCLRWinFormsProject {
 			   this->label3 = (gcnew System::Windows::Forms::Label());
 			   this->label4 = (gcnew System::Windows::Forms::Label());
 			   this->label5 = (gcnew System::Windows::Forms::Label());
-			   this->label6 = (gcnew System::Windows::Forms::Label());
 			   this->tableLayoutPanel1 = (gcnew System::Windows::Forms::TableLayoutPanel());
 			   this->Cancelar_Button = (gcnew System::Windows::Forms::Button());
 			   this->tableLayoutPanel3 = (gcnew System::Windows::Forms::TableLayoutPanel());
 			   this->tableLayoutPanel2 = (gcnew System::Windows::Forms::TableLayoutPanel());
+			   this->PageTitleLabel = (gcnew System::Windows::Forms::Label());
 			   this->tableLayoutPanel1->SuspendLayout();
 			   this->tableLayoutPanel3->SuspendLayout();
 			   this->tableLayoutPanel2->SuspendLayout();
@@ -217,18 +219,6 @@ namespace CppCLRWinFormsProject {
 			   this->label5->TabIndex = 10;
 			   this->label5->Text = L"Nom complet";
 			   // 
-			   // label6
-			   // 
-			   this->label6->Anchor = System::Windows::Forms::AnchorStyles::None;
-			   this->label6->AutoSize = true;
-			   this->label6->Font = (gcnew System::Drawing::Font(L"Inter", 20.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				   static_cast<System::Byte>(0)));
-			   this->label6->Location = System::Drawing::Point(251, 23);
-			   this->label6->Name = L"label6";
-			   this->label6->Size = System::Drawing::Size(309, 33);
-			   this->label6->TabIndex = 13;
-			   this->label6->Text = L"Donar d\'Alta Proveidor";
-			   // 
 			   // tableLayoutPanel1
 			   // 
 			   this->tableLayoutPanel1->ColumnCount = 3;
@@ -240,7 +230,7 @@ namespace CppCLRWinFormsProject {
 				   20)));
 			   this->tableLayoutPanel1->Controls->Add(this->Cancelar_Button, 2, 2);
 			   this->tableLayoutPanel1->Controls->Add(this->tableLayoutPanel3, 1, 1);
-			   this->tableLayoutPanel1->Controls->Add(this->label6, 1, 0);
+			   this->tableLayoutPanel1->Controls->Add(this->PageTitleLabel, 1, 0);
 			   this->tableLayoutPanel1->Dock = System::Windows::Forms::DockStyle::Fill;
 			   this->tableLayoutPanel1->Location = System::Drawing::Point(0, 0);
 			   this->tableLayoutPanel1->Name = L"tableLayoutPanel1";
@@ -313,6 +303,18 @@ namespace CppCLRWinFormsProject {
 			   this->tableLayoutPanel2->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Absolute, 20)));
 			   this->tableLayoutPanel2->Size = System::Drawing::Size(362, 167);
 			   this->tableLayoutPanel2->TabIndex = 17;
+			   // 
+			   // PageTitleLabel
+			   // 
+			   this->PageTitleLabel->Anchor = System::Windows::Forms::AnchorStyles::None;
+			   this->PageTitleLabel->AutoSize = true;
+			   this->PageTitleLabel->Font = (gcnew System::Drawing::Font(L"Inter", 20.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				   static_cast<System::Byte>(0)));
+			   this->PageTitleLabel->Location = System::Drawing::Point(251, 23);
+			   this->PageTitleLabel->Name = L"PageTitleLabel";
+			   this->PageTitleLabel->Size = System::Drawing::Size(309, 33);
+			   this->PageTitleLabel->TabIndex = 19;
+			   this->PageTitleLabel->Text = L"Donar d\'Alta Proveïdor";
 			   // 
 			   // AltaProveidorUI
 			   // 
