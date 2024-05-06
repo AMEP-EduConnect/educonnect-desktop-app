@@ -1,12 +1,12 @@
 ﻿#pragma once
 
-#include "Espais.h"
+#include "Espai.h"
 #include "CurrentSession.h"
 #include "ConsultaEspaisService.h"
 #include "MessageManager.h"
 #include "MainPageUI.h"
 #include "AdministradorUI.h"
-//#include "ModificarEspaiUI.h"
+#include "ModificaEspaisUI.h"
 #include "IniciUI.h"
 #include "AltaEspaisUI.h"
 #include "EliminarEspaisService.h"
@@ -179,7 +179,7 @@ namespace CppCLRWinFormsProject {
 			   this->GestioEspaiButton->Name = L"GestioEspaiButton";
 			   this->GestioEspaiButton->Size = System::Drawing::Size(91, 34);
 			   this->GestioEspaiButton->TabIndex = 0;
-			   this->GestioEspaiButton->Text = L"Modificar";
+			   this->GestioEspaiButton->Text = L"Gestionar";
 			   this->GestioEspaiButton->UseVisualStyleBackColor = true;
 			   this->GestioEspaiButton->Click += gcnew System::EventHandler(this, &ConsultaEspaisUI::ButtonGestio_Click);
 			   // 
@@ -210,7 +210,7 @@ namespace CppCLRWinFormsProject {
 			   // Llista_Espais
 			   // 
 			   this->Llista_Espais->Anchor = System::Windows::Forms::AnchorStyles::None;
-			   this->Llista_Espais->BackColor = System::Drawing::Color::Lavender;
+			   this->Llista_Espais->BackColor = System::Drawing::SystemColors::Window;
 			   this->Llista_Espais->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			   this->Llista_Espais->Font = (gcnew System::Drawing::Font(L"Inter", 11.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				   static_cast<System::Byte>(0)));

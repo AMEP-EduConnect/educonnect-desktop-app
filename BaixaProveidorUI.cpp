@@ -14,11 +14,15 @@ namespace CppCLRWinFormsProject {
 
     void BaixaProveidorUI::BaixaProveidorButton_Click(System::Object^ sender, System::EventArgs^ e) {
         if (Llista_Proveidors->SelectedItem != nullptr) {
+            MessageBoxButtons buttons = MessageBoxButtons::YesNo;
             String^ selectedProvider = Llista_Proveidors->SelectedItem->ToString();
-            if (baixaProveidorService->BaixaProveidor(selectedProvider)) {
-                MessageManager::InfoMessage("Proveidor " + selectedProvider + " donat de baixa correctament.");
-                Llista_Proveidors->Items->Clear();
-                LoadProvidersList(sender, e);
+            System::Windows::Forms::DialogResult result = MessageBox::Show("Vols suprimir el proveïdor '" + selectedProvider + "'?", "Confirmation", buttons);
+            if (result == System::Windows::Forms::DialogResult::Yes) {
+                if (baixaProveidorService->BaixaProveidor(selectedProvider)) {
+                    MessageManager::InfoMessage("Proveidor " + selectedProvider + " donat de baixa correctament.");
+                    Llista_Proveidors->Items->Clear();
+                    LoadProvidersList(sender, e);
+                }
             }
         }
         else {

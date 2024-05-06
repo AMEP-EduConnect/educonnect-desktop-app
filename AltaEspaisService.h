@@ -1,6 +1,6 @@
 #pragma once
 #include "Usuari.h"
-#include "Espais.h"
+#include "Espai.h"
 #include "EspaisRepository.h"
 #include <vector>
 

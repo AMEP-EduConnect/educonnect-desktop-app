@@ -5,6 +5,20 @@ EspaisRepository::EspaisRepository() {
 
 }
 
+bool EspaisRepository::UpdateEspai(String^ name , Int64^ capacity, Int64^ id_espai)
+{
+	DatabaseConnector::Instance->Connect();
+	String^ sql = "UPDATE espais SET name=@name, capacity=@capacity WHERE id=@id";
+	Dictionary<String^, Object^>^ params = gcnew Dictionary<String^, Object^>(0);
+	params->Add("@name", name);
+	params->Add("@capacity",capacity);
+	params->Add("@id", id_espai);
+	MySqlDataReader^ data = DatabaseConnector::Instance->ExecuteClientCommand(sql, params);
+	data->Close();
+	DatabaseConnector::Instance->Disconnect();
+	return true;
+}
+
 bool EspaisRepository::CreateEspai(String^ name, Int64^ capacity, Int64^ proveidor_id) {
 	DatabaseConnector::Instance->Connect();
 	String^ sql = "INSERT INTO espais (name, capacity, proveidor_id) VALUES (@name, @capacity, @proveidor_id)";
@@ -19,7 +33,7 @@ bool EspaisRepository::CreateEspai(String^ name, Int64^ capacity, Int64^ proveid
 }
 List<Espai^>^ EspaisRepository::GetEspaisById(Int64^ proveidor_id) {
 	DatabaseConnector::Instance->Connect();
-	String^ sql = "SELECT * FROM espais WHERE proveidor_id=@proveidor_id";
+	String^ sql = "SELECT * FROM espais WHERE proveidor_id=@proveidor_id ORDER BY name ASC";
 	Dictionary<String^, Object^>^ params = gcnew Dictionary<String^, Object^>(0);
 	params->Add("@proveidor_id", proveidor_id);
 	MySqlDataReader^ data = DatabaseConnector::Instance->ExecuteClientCommand(sql, params);
@@ -74,17 +88,21 @@ bool EspaisRepository::DeleteEspai(Int64^ id) {
 	return true;
 }
 
-bool EspaisRepository::CheckEspaiByName(String^ name) {
+bool EspaisRepository::CheckEspaiByName(String^ name, Int64^ provider_id) {
 	DatabaseConnector::Instance->Connect();
-	String^ sql = "SELECT name FROM espais WHERE name = @Name";
+	String^ sql = "SELECT * FROM espais WHERE name = @name AND proveidor_id = @proveidor_id";
 	Dictionary<String^, Object^>^ params = gcnew Dictionary<String^, Object^>(0);
-	params->Add("@Name", name);
-
+	params->Add("@name", name);
+	params->Add("@proveidor_id", provider_id);
 	MySqlDataReader^ data = DatabaseConnector::Instance->ExecuteClientCommand(sql, params);
-
-	bool check = data != nullptr && data->Read();
+	bool exists = false;
+	if (data->Read()) {
+		exists = true;
+	}
+	data->Close();
+	//bool check = data != nullptr && data->Read();
 	DatabaseConnector::Instance->Disconnect();
-	return check;
+	return exists;
 }
 
 String^ EspaisRepository::GetInfoEspaiById(Int64^ id) {

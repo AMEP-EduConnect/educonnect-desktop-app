@@ -249,7 +249,7 @@
     <ClInclude Include="CredentialManagementService.h" />
     <ClInclude Include="CurrentSession.h" />
     <ClInclude Include="EliminarEspaisService.h" />
-    <ClInclude Include="Espais.h" />
+    <ClInclude Include="Espai.h" />
     <ClInclude Include="EspaisRepository.h" />
     <ClInclude Include="GrupEstudi.h" />
     <ClInclude Include="GrupEstudiMembershipRepository.h" />
@@ -292,6 +292,10 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="BaixaProveidorUI.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="ModificaEspaisService.h" />
+    <ClInclude Include="ModificaEspaisUI.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="pch.h" />
@@ -344,7 +348,7 @@
     <ClCompile Include="CurrentSession.cpp" />
     <ClCompile Include="DatabaseConnector.cpp" />
     <ClCompile Include="EliminarEspaisService.cpp" />
-    <ClCompile Include="Espais.cpp" />
+    <ClCompile Include="Espai.cpp" />
     <ClCompile Include="EspaisRepository.cpp" />
     <ClCompile Include="GrupSessionAttendant.cpp" />
     <ClCompile Include="GrupSessionAttendantsRepository.cpp" />
@@ -365,6 +369,8 @@
     <ClCompile Include="IniciUI.cpp" />
     <ClCompile Include="MainPageUI.cpp" />
     <ClCompile Include="MessageManager.cpp" />
+    <ClCompile Include="ModificaEspaisService.cpp" />
+    <ClCompile Include="ModificaEspaisUI.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='EduConnect|x64'">Create</PrecompiledHeader>

@@ -63,25 +63,33 @@ namespace CppCLRWinFormsProject {
 			MessageManager::ErrorMessage("No pots eliminar el teu usuari");
 		}
 		else {
+			MessageBoxButtons buttons = MessageBoxButtons::YesNo;
+			System::Windows::Forms::DialogResult result = MessageBox::Show("Vols suprimir l'usuari '" + value + "'?", "Confirmation", buttons);
+			if (result == System::Windows::Forms::DialogResult::Yes)
+			{
+				bool eliminar = baixaUsuariService->BaixaUsuari(value);
 
-			bool eliminar = baixaUsuariService->BaixaUsuari(value);
-
-			if (eliminar) {
-				if(*rol != 1) {
+				if (eliminar) {
+					if(*rol != 1) {
 					MessageManager::InfoMessage("Usuari eliminat correctament!");
 					MainPageUI::Instance->Hide();
 					StartPageUI::Instance = gcnew StartPageUI();
 					StartPageUI::Instance->ShowDialog();
 					MainPageUI::Instance->Close();
+					}
+					else
+					{
+						MessageManager::InfoMessage("Usuari eliminat correctament!");
+						textBox1->Text = "";
+					}
+
 				}
-				else {
-					MessageManager::InfoMessage("Usuari eliminat correctament!");
+				else
+				{
+					if (*rol != 1) MessageManager::ErrorMessage("Contrasenya incorrecte!");
+					else MessageManager::ErrorMessage("Usuari no trobat!");
+					textBox1->Text = "";
 				}
-			}
-			else
-			{
-				if (*rol != 1) MessageManager::ErrorMessage("Contrasenya incorrecte!");
-				else MessageManager::ErrorMessage("Usuari no trobat!");
 			}
 		}
 	}

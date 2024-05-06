@@ -3,7 +3,7 @@
 #include "Usuari.h"
 #include "GrupEstudi_InfoUI.h"
 #include "MainPageUI.h";
-#include "Espais.h"
+#include "Espai.h"
 
 namespace CppCLRWinFormsProject {
 
@@ -34,7 +34,7 @@ namespace CppCLRWinFormsProject {
 		this->Proveidor_ListBox->SetSelected(index, true);
 		this->LoadEspaisFromSelectedProveidor();
 		Espai^ espai = this->consultaEspaisService->GetEspaiByEspaiId(this->CurrentSessionEntity->GetEspaiId());
-		this->Espai_ComboBox->Text = espai->GetNom() + " - max: " + espai->GetCapacitat();
+		this->Espai_ComboBox->Text = espai->GetName() + " - max: " + espai->GetCapacity();
 		this->IsLoaded = true;
 
 	}
@@ -203,7 +203,7 @@ namespace CppCLRWinFormsProject {
 		System::Collections::Generic::IEnumerator<Espai^>^ enumerator = Espais->GetEnumerator();
 		while (enumerator->MoveNext())
 		{
-			this->Espai_ComboBox->Items->Add(enumerator->Current->GetNom() + " - max: " + enumerator->Current->GetCapacitat());
+			this->Espai_ComboBox->Items->Add(enumerator->Current->GetName() + " - max: " + enumerator->Current->GetCapacity());
 		}
 	}
 

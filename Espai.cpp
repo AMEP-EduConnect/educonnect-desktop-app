@@ -1,5 +1,5 @@
 #include "pch.h"
-#include "Espais.h"
+#include "Espai.h"
 
 Espai::Espai()
 {
@@ -11,7 +11,7 @@ Espai::Espai(Int64^ espai_id, String^ name, Int64^ capacity, Int64^ proveidor_id
 	this->espai_id = espai_id;
 	this->name = name;
 	this->capacity = capacity;
-	this->proveidor_id = proveidor_id;
+	this->provider_id = proveidor_id;
 }
 
 void Espai::SetEspaiId(Int64^ value)
@@ -27,39 +27,39 @@ Int64^ Espai::GetEspaiId()
 
 
 
-void Espai::SetNom(String^ value)
+void Espai::SetName(String^ value)
 {
     this->name = value;
 }
 
 
-String^ Espai::GetNom()
+String^ Espai::GetName()
 {
     return this->name;
 }
 
 
-void Espai::SetCapacitat(Int64^ value)
+void Espai::SetCapacity(Int64^ value)
 {
     this->capacity = value;
 }
 
 
-Int64^ Espai::GetCapacitat()
+Int64^ Espai::GetCapacity()
 {
     return this->capacity;
 }
 
 
-void Espai::SetId_proveidor(Int64^ value)
+void Espai::SetId_provider(Int64^ value)
 {
-    this->proveidor_id = value;
+    this->provider_id = value;
 }
 
 
-Int64^ Espai::GetId_proveidor()
+Int64^ Espai::GetId_provider()
 {
-    return this->proveidor_id;
+    return this->provider_id;
 }
 
 

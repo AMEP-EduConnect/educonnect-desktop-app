@@ -163,7 +163,7 @@ namespace CppCLRWinFormsProject {
 		System::Collections::Generic::IEnumerator<Espai^>^ enumerator = Espais->GetEnumerator();
 		while (enumerator->MoveNext())
 		{
-			this->Espai_ComboBox->Items->Add(enumerator->Current->GetNom() + " - max: " + enumerator->Current->GetCapacitat());
+			this->Espai_ComboBox->Items->Add(enumerator->Current->GetName() + " - max: " + enumerator->Current->GetCapacity());
 		}
 	}
 

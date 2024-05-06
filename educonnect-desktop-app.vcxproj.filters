@@ -158,7 +158,7 @@
     <ClInclude Include="PerfilPersonalModificaService.h">
       <Filter>Source Files\services</Filter>
     </ClInclude>
-    <ClInclude Include="Espais.h">
+    <ClInclude Include="Espai.h">
       <Filter>Source Files\entities</Filter>
     </ClInclude>
     <ClInclude Include="AltaEspaisService.h">
@@ -213,6 +213,12 @@
       <Filter>Source Files\repositories</Filter>
     </ClInclude>
     <ClInclude Include="GrupSessionAttendantsService.h">
+          <Filter>Source Files\services</Filter>
+    </ClInclude>
+    <ClInclude Include="ModificaEspaisUI.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ModificaEspaisService.h">
       <Filter>Source Files\services</Filter>
     </ClInclude>
   </ItemGroup>
@@ -364,7 +370,7 @@
     <ClCompile Include="GrupEstudi_ExplorarUI.cpp">
       <Filter>Source Files\ui</Filter>
     </ClCompile>
-    <ClCompile Include="Espais.cpp">
+    <ClCompile Include="Espai.cpp">
       <Filter>Source Files\entities</Filter>
     </ClCompile>
     <ClCompile Include="AltaEspaisService.cpp">
@@ -386,6 +392,15 @@
       <Filter>Source Files\services</Filter>
     </ClCompile>
     <ClCompile Include="GrupEstudi_InfoUI.cpp">
+          <Filter>Source Files\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="ModificaEspaisUI.cpp">
+      <Filter>Source Files\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="ModificaEspaisService.cpp">
+      <Filter>Source Files\services</Filter>
+    </ClCompile>
+    <ClCompile Include="GrupEstudi_MembresUI.cpp">
       <Filter>Source Files\ui</Filter>
     </ClCompile>
     <ClCompile Include="Session_CrearUI.cpp">

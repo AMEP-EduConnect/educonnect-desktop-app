@@ -1,12 +1,16 @@
 #pragma once
-#include "AltaEspaisService.h"
+#include "CredentialManagementService.h"
+#include "ModificaEspaisService.h"
 #include "AdministradorUI.h"
 #include "Espai.h"
 #include "EspaisRepository.h"
 #include "ConsultaEspaisUI.h"
 #include <iostream>
 #include <string>
+
+using namespace System;
 using namespace MySql::Data::MySqlClient;
+
 namespace CppCLRWinFormsProject {
 
 	using namespace System;
@@ -20,27 +24,20 @@ namespace CppCLRWinFormsProject {
 	/// <summary>
 	/// Resumen de MyForm
 	/// </summary>
-	public ref class AltaEspaisUI : public System::Windows::Forms::Form
+	public ref class ModificaEspaisUI : public System::Windows::Forms::Form
 	{
 	public:
-		AltaEspaisUI(void) {
-			InitializeComponent();
-			altaEspaisService = gcnew AltaEspaisService();
-			//this->textBox3->Validating += gcnew System::ComponentModel::CancelEventHandler(this, &AltaEspaisUI::NomEspai_TextBox_Validating);
-			this->textBox1->Validating += gcnew System::ComponentModel::CancelEventHandler(this, &AltaEspaisUI::Capacitat_TextBox_Validating);
-			//this->Background_PictureBox->Image = Image::FromFile("background.png");
-
-			this->Icon = gcnew System::Drawing::Icon("app.ico");
-		}
+		ModificaEspaisUI(String^ selectedEspais);
 		bool NomEspai_TextBox_Validating(String^ nom);
+		
 		bool IsValidCapacitat(String^ capacitat);
-		Void Capacitat_TextBox_Validating(Object^ sender, System::ComponentModel::CancelEventArgs^ e);
+		
 
 	protected:
 		/// <summary>
 		/// Limpiar los recursos que se estn usando.
 		/// </summary>
-		~AltaEspaisUI()
+		~ModificaEspaisUI()
 		{
 			if (components)
 			{
@@ -49,8 +46,9 @@ namespace CppCLRWinFormsProject {
 		}
 
 	private: System::Windows::Forms::Button^ button1;
-
-	private: AltaEspaisService^ altaEspaisService;
+	public: Int64^ id_espai;
+	public: Espai^ espai;
+	private: ModificaEspaisService^ modificaEspaisService;
 	protected:
 
 	private:
@@ -69,7 +67,7 @@ namespace CppCLRWinFormsProject {
 	private: System::Windows::Forms::TableLayoutPanel^ tableLayoutPanel1;
 
 	private: System::Windows::Forms::TableLayoutPanel^ tableLayoutPanel3;
-	private: System::Windows::Forms::Button^ Cancelar_Button;
+
 
 	private: System::Windows::Forms::Label^ label2;
 	private: System::Windows::Forms::Label^ label3;
@@ -77,6 +75,10 @@ namespace CppCLRWinFormsProject {
 	private: System::Windows::Forms::TextBox^ textBox3;
 	private: System::Windows::Forms::TextBox^ textBox1;
 	private: System::Windows::Forms::Panel^ panel1;
+	private: System::Windows::Forms::Button^ Cancelar_Button;
+	private: System::Windows::Forms::Panel^ panel2;
+	private: System::Windows::Forms::Button^ Button_Cancelar_Edita;
+
 
 
 
@@ -95,16 +97,19 @@ namespace CppCLRWinFormsProject {
 			   this->button1 = (gcnew System::Windows::Forms::Button());
 			   this->label6 = (gcnew System::Windows::Forms::Label());
 			   this->tableLayoutPanel1 = (gcnew System::Windows::Forms::TableLayoutPanel());
-			   this->Cancelar_Button = (gcnew System::Windows::Forms::Button());
 			   this->tableLayoutPanel3 = (gcnew System::Windows::Forms::TableLayoutPanel());
 			   this->panel1 = (gcnew System::Windows::Forms::Panel());
 			   this->textBox3 = (gcnew System::Windows::Forms::TextBox());
 			   this->label2 = (gcnew System::Windows::Forms::Label());
 			   this->textBox1 = (gcnew System::Windows::Forms::TextBox());
 			   this->label3 = (gcnew System::Windows::Forms::Label());
+			   this->panel2 = (gcnew System::Windows::Forms::Panel());
+			   this->Button_Cancelar_Edita = (gcnew System::Windows::Forms::Button());
+			   this->Cancelar_Button = (gcnew System::Windows::Forms::Button());
 			   this->tableLayoutPanel1->SuspendLayout();
 			   this->tableLayoutPanel3->SuspendLayout();
 			   this->panel1->SuspendLayout();
+			   this->panel2->SuspendLayout();
 			   this->SuspendLayout();
 			   // 
 			   // button1
@@ -112,13 +117,13 @@ namespace CppCLRWinFormsProject {
 			   this->button1->Anchor = System::Windows::Forms::AnchorStyles::None;
 			   this->button1->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				   static_cast<System::Byte>(0)));
-			   this->button1->Location = System::Drawing::Point(128, 186);
+			   this->button1->Location = System::Drawing::Point(268, 15);
 			   this->button1->Name = L"button1";
-			   this->button1->Size = System::Drawing::Size(119, 35);
+			   this->button1->Size = System::Drawing::Size(99, 34);
 			   this->button1->TabIndex = 2;
-			   this->button1->Text = L"Confirmar";
+			   this->button1->Text = L"Modificar";
 			   this->button1->UseVisualStyleBackColor = true;
-			   this->button1->Click += gcnew System::EventHandler(this, &AltaEspaisUI::button1_Click);
+			   this->button1->Click += gcnew System::EventHandler(this, &ModificaEspaisUI::button1_Click);
 			   // 
 			   // label6
 			   // 
@@ -126,11 +131,11 @@ namespace CppCLRWinFormsProject {
 			   this->label6->AutoSize = true;
 			   this->label6->Font = (gcnew System::Drawing::Font(L"Inter", 20.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				   static_cast<System::Byte>(0)));
-			   this->label6->Location = System::Drawing::Point(280, 23);
+			   this->label6->Location = System::Drawing::Point(294, 23);
 			   this->label6->Name = L"label6";
-			   this->label6->Size = System::Drawing::Size(252, 33);
+			   this->label6->Size = System::Drawing::Size(223, 33);
 			   this->label6->TabIndex = 13;
-			   this->label6->Text = L"Donar d\'alta Espai";
+			   this->label6->Text = L"Gestionar Espai";
 			   // 
 			   // tableLayoutPanel1
 			   // 
@@ -141,8 +146,8 @@ namespace CppCLRWinFormsProject {
 				   60)));
 			   this->tableLayoutPanel1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
 				   20)));
-			   this->tableLayoutPanel1->Controls->Add(this->Cancelar_Button, 2, 2);
 			   this->tableLayoutPanel1->Controls->Add(this->tableLayoutPanel3, 1, 1);
+			   this->tableLayoutPanel1->Controls->Add(this->Cancelar_Button, 2, 2);
 			   this->tableLayoutPanel1->Controls->Add(this->label6, 1, 0);
 			   this->tableLayoutPanel1->Dock = System::Windows::Forms::DockStyle::Fill;
 			   this->tableLayoutPanel1->Location = System::Drawing::Point(0, 0);
@@ -154,22 +159,6 @@ namespace CppCLRWinFormsProject {
 			   this->tableLayoutPanel1->Size = System::Drawing::Size(814, 537);
 			   this->tableLayoutPanel1->TabIndex = 16;
 			   // 
-			   // Cancelar_Button
-			   // 
-			   this->Cancelar_Button->Anchor = System::Windows::Forms::AnchorStyles::None;
-			   this->Cancelar_Button->BackColor = System::Drawing::Color::Transparent;
-			   this->Cancelar_Button->Cursor = System::Windows::Forms::Cursors::Hand;
-			   this->Cancelar_Button->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				   static_cast<System::Byte>(0)));
-			   this->Cancelar_Button->ForeColor = System::Drawing::Color::Red;
-			   this->Cancelar_Button->Location = System::Drawing::Point(688, 452);
-			   this->Cancelar_Button->Name = L"Cancelar_Button";
-			   this->Cancelar_Button->Size = System::Drawing::Size(88, 35);
-			   this->Cancelar_Button->TabIndex = 3;
-			   this->Cancelar_Button->Text = L"Cancelar";
-			   this->Cancelar_Button->UseVisualStyleBackColor = false;
-			   this->Cancelar_Button->Click += gcnew System::EventHandler(this, &AltaEspaisUI::Cancelar_Button_Click);
-			   // 
 			   // tableLayoutPanel3
 			   // 
 			   this->tableLayoutPanel3->Anchor = System::Windows::Forms::AnchorStyles::None;
@@ -178,13 +167,14 @@ namespace CppCLRWinFormsProject {
 			   this->tableLayoutPanel3->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
 				   50)));
 			   this->tableLayoutPanel3->Controls->Add(this->panel1, 0, 0);
-			   this->tableLayoutPanel3->Controls->Add(this->button1, 0, 1);
+			   this->tableLayoutPanel3->Controls->Add(this->panel2, 0, 1);
 			   this->tableLayoutPanel3->Location = System::Drawing::Point(218, 122);
 			   this->tableLayoutPanel3->MinimumSize = System::Drawing::Size(376, 237);
 			   this->tableLayoutPanel3->Name = L"tableLayoutPanel3";
-			   this->tableLayoutPanel3->RowCount = 2;
+			   this->tableLayoutPanel3->RowCount = 3;
 			   this->tableLayoutPanel3->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 71.72996F)));
 			   this->tableLayoutPanel3->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 28.27004F)));
+			   this->tableLayoutPanel3->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Absolute, 20)));
 			   this->tableLayoutPanel3->Size = System::Drawing::Size(376, 237);
 			   this->tableLayoutPanel3->TabIndex = 18;
 			   // 
@@ -195,14 +185,17 @@ namespace CppCLRWinFormsProject {
 			   this->panel1->Controls->Add(this->label2);
 			   this->panel1->Controls->Add(this->textBox1);
 			   this->panel1->Controls->Add(this->label3);
-			   this->panel1->Location = System::Drawing::Point(3, 11);
+			   this->panel1->Location = System::Drawing::Point(3, 6);
 			   this->panel1->Name = L"panel1";
-			   this->panel1->Size = System::Drawing::Size(370, 148);
+			   this->panel1->Size = System::Drawing::Size(370, 143);
 			   this->panel1->TabIndex = 1;
 			   // 
 			   // textBox3
 			   // 
 			   this->textBox3->Anchor = System::Windows::Forms::AnchorStyles::None;
+			   this->textBox3->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(224)), static_cast<System::Int32>(static_cast<System::Byte>(224)),
+				   static_cast<System::Int32>(static_cast<System::Byte>(224)));
+			   this->textBox3->Enabled = false;
 			   this->textBox3->Font = (gcnew System::Drawing::Font(L"Inter", 12));
 			   this->textBox3->Location = System::Drawing::Point(165, 36);
 			   this->textBox3->Name = L"textBox3";
@@ -225,6 +218,9 @@ namespace CppCLRWinFormsProject {
 			   // textBox1
 			   // 
 			   this->textBox1->Anchor = System::Windows::Forms::AnchorStyles::None;
+			   this->textBox1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(224)), static_cast<System::Int32>(static_cast<System::Byte>(224)),
+				   static_cast<System::Int32>(static_cast<System::Byte>(224)));
+			   this->textBox1->Enabled = false;
 			   this->textBox1->Font = (gcnew System::Drawing::Font(L"Inter", 12));
 			   this->textBox1->Location = System::Drawing::Point(165, 90);
 			   this->textBox1->Name = L"textBox1";
@@ -244,7 +240,46 @@ namespace CppCLRWinFormsProject {
 			   this->label3->TabIndex = 8;
 			   this->label3->Text = L"Capacitat";
 			   // 
-			   // AltaEspaisUI
+			   // panel2
+			   // 
+			   this->panel2->Controls->Add(this->Button_Cancelar_Edita);
+			   this->panel2->Controls->Add(this->button1);
+			   this->panel2->Dock = System::Windows::Forms::DockStyle::Fill;
+			   this->panel2->Location = System::Drawing::Point(3, 158);
+			   this->panel2->Name = L"panel2";
+			   this->panel2->Size = System::Drawing::Size(370, 55);
+			   this->panel2->TabIndex = 2;
+			   // 
+			   // Button_Cancelar_Edita
+			   // 
+			   this->Button_Cancelar_Edita->Anchor = System::Windows::Forms::AnchorStyles::None;
+			   this->Button_Cancelar_Edita->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				   static_cast<System::Byte>(0)));
+			   this->Button_Cancelar_Edita->ForeColor = System::Drawing::Color::Red;
+			   this->Button_Cancelar_Edita->Location = System::Drawing::Point(3, 15);
+			   this->Button_Cancelar_Edita->Name = L"Button_Cancelar_Edita";
+			   this->Button_Cancelar_Edita->Size = System::Drawing::Size(99, 34);
+			   this->Button_Cancelar_Edita->TabIndex = 19;
+			   this->Button_Cancelar_Edita->Text = L"Cancelar";
+			   this->Button_Cancelar_Edita->UseVisualStyleBackColor = true;
+			   this->Button_Cancelar_Edita->Visible = false;
+			   this->Button_Cancelar_Edita->Click += gcnew System::EventHandler(this, &ModificaEspaisUI::Button_Cancelar_Edita_Click);
+			   // 
+			   // Cancelar_Button
+			   // 
+			   this->Cancelar_Button->Anchor = System::Windows::Forms::AnchorStyles::None;
+			   this->Cancelar_Button->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				   static_cast<System::Byte>(0)));
+			   this->Cancelar_Button->ForeColor = System::Drawing::Color::Red;
+			   this->Cancelar_Button->Location = System::Drawing::Point(688, 452);
+			   this->Cancelar_Button->Name = L"Cancelar_Button";
+			   this->Cancelar_Button->Size = System::Drawing::Size(88, 35);
+			   this->Cancelar_Button->TabIndex = 7;
+			   this->Cancelar_Button->Text = L"Cancelar";
+			   this->Cancelar_Button->UseVisualStyleBackColor = true;
+			   this->Cancelar_Button->Click += gcnew System::EventHandler(this, &ModificaEspaisUI::Cancelar_Button_Click);
+			   // 
+			   // ModificaEspaisUI
 			   // 
 			   this->AutoScaleDimensions = System::Drawing::SizeF(96, 96);
 			   this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Dpi;
@@ -253,18 +288,22 @@ namespace CppCLRWinFormsProject {
 			   this->ForeColor = System::Drawing::SystemColors::HotTrack;
 			   this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
 			   this->MinimumSize = System::Drawing::Size(814, 537);
-			   this->Name = L"AltaEspaisUI";
+			   this->Name = L"ModificaEspaisUI";
 			   this->Text = L"EduConnect";
 			   this->tableLayoutPanel1->ResumeLayout(false);
 			   this->tableLayoutPanel1->PerformLayout();
 			   this->tableLayoutPanel3->ResumeLayout(false);
 			   this->panel1->ResumeLayout(false);
 			   this->panel1->PerformLayout();
+			   this->panel2->ResumeLayout(false);
 			   this->ResumeLayout(false);
 
 		   }
 #pragma endregion
-	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e);
+	private:
+		bool Capacitat_TextBox_Validating(String^ capacitat);
+		System::Void button1_Click(System::Object^ sender, System::EventArgs^ e);
 	private: System::Void Cancelar_Button_Click(System::Object^ sender, System::EventArgs^ e);
-	};
+private: System::Void Button_Cancelar_Edita_Click(System::Object^ sender, System::EventArgs^ e);
+};
 }

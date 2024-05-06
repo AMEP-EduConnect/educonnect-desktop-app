@@ -21,4 +21,5 @@ public:
 	bool UpdateUser(String^ username, String^ password, String^ email, String^ name);
 	Int64^ GetUserId(String^ username);
 	Usuari^ GetProveidorByEspaiId(Int64^ espai_id);
+	List<Usuari^>^ GetUsersByRolId(Int64^ rol_id);
 };

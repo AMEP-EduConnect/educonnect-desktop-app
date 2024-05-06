@@ -1,5 +1,5 @@
 #pragma once
-#include "Espais.h"
+#include "Espai.h"
 #include "EspaisRepository.h"
 using namespace System::Collections::Generic;
 public ref class ConsultaEspaisService
