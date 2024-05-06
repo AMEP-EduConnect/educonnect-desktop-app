@@ -53,6 +53,7 @@ namespace CppCLRWinFormsProject {
 
                 session_name->Text = CurrentSessionEntity->GetSessionName();
                 EspaiName_Label->Text = consultaEspaisService->GetEspaiInfoById(CurrentSessionEntity->GetEspaiId());
+                Capacity_Label->Text = Convert::ToString(grupSessionAttendantsService->GetSessionAttendantsCount(CurrentSessionEntity->GetId())) + "/" + this->consultaEspaisService->GetEspaiByEspaiId(CurrentSessionEntity->GetEspaiId())->GetCapacity();
                 DayMonthYear_label->Text = CurrentSessionEntity->GetSessionStartDate()->ToString("dd/MM/yyyy");
                 StartEndDuration_Label->Text = CurrentSessionEntity->GetSessionStartDate()->ToString("HH:mm") + " - " + CurrentSessionEntity->GetSessionEndDate()->ToString("HH:mm");
                 if (not grupSessionAttendantsService->IsAttendant(CurrentSessionEntity->GetId(), CurrentSession::Instance->GetCurrentUser()->GetUserId())) {
@@ -116,9 +117,9 @@ namespace CppCLRWinFormsProject {
             StartEndDuration_Label->Visible = true;
             DayMonthYear_label->Visible = true;
             Confirm_Cancel_Attent_Button->Visible = true;
-            ViewSessionAttendants_Button->Visible = true;
             SessionCapacity_Label1->Visible = true;
-            EspaiCapacity_Label->Visible = true;
+            Capacity_Label->Visible = true;
+            Capacity_Label->Text = Convert::ToString(grupSessionAttendantsService->GetSessionAttendantsCount(CurrentSessionEntity->GetId())) + "/" + this->consultaEspaisService->GetEspaiByEspaiId(CurrentSessionEntity->GetEspaiId())->GetCapacity();
             session_name->Visible = true;
             session_name->Text = CurrentSessionEntity->GetSessionName();
             EspaiName_Label->Text = consultaEspaisService->GetEspaiInfoById(CurrentSessionEntity->GetEspaiId());
@@ -139,27 +140,23 @@ namespace CppCLRWinFormsProject {
         Int64^ idsession = CurrentSessionEntity->GetId();
         Usuari^ currentUser = CurrentSession::Instance->GetCurrentUser();
         Int64^ iduser = currentUser->GetUserId();
-
-        if (not grupSessionAttendantsService->IsAttendant(idsession, iduser)) {
+        Int64^ currentSessionCapacity = this->grupSessionAttendantsService->GetSessionAttendantsCount(this->CurrentSessionEntity->GetId());
+        //TODO: disable button if capacity is full
+        if (not grupSessionAttendantsService->IsAttendant(idsession, iduser) && (*currentSessionCapacity < *this->consultaEspaisService->GetEspaiByEspaiId(CurrentSessionEntity->GetEspaiId())->GetCapacity())) {
            
            grupSessionAttendantsService->AsistirSessionAttendant(idsession, iduser);
-           String^ cap2 = capacity->Text;
-           Int64^ cap = Convert::ToInt64(cap2);
-           *cap += 1ll;
-           capacity->Text = Convert::ToString(*cap);
+           String^ cap2 = Capacity_Label->Text->Substring(0, Capacity_Label->Text->IndexOf("/"));
+           currentSessionCapacity = Convert::ToInt64(this->grupSessionAttendantsService->GetSessionAttendantsCount(this->CurrentSessionEntity->GetId()));
+           Capacity_Label->Text = Convert::ToString(currentSessionCapacity + "/" + this->consultaEspaisService->GetEspaiByEspaiId(CurrentSessionEntity->GetEspaiId())->GetCapacity());
            this->Confirm_Cancel_Attent_Button->Text = L"Cancel·lar Asistència";
-           //sumar 1 a capacidad en base de datos
        }
        else {
            
            grupSessionAttendantsService->EliminaSessionAttendant(idsession, iduser);
-           String^ cap2 = capacity->Text;
-           Int64^ cap = Convert::ToInt64(cap2);
-           *cap -= 1ll;
-           capacity->Text = Convert::ToString(*cap);
-
+           String^ cap2 = Capacity_Label->Text->Substring(0, Capacity_Label->Text->IndexOf("/"));
+           Int64^ currentSessionCapacity = Convert::ToInt64(this->grupSessionAttendantsService->GetSessionAttendantsCount(this->CurrentSessionEntity->GetId()));
+           Capacity_Label->Text = Convert::ToString(currentSessionCapacity + "/" + this->consultaEspaisService->GetEspaiByEspaiId(CurrentSessionEntity->GetEspaiId())->GetCapacity());
            this->Confirm_Cancel_Attent_Button->Text = L"Asistir";
-           //restar 1 a capacidad en base de datos
        }
     }
 

@@ -21,4 +21,9 @@ bool GrupSessionAttendantsService::IsAttendant(Int64^ idsession, Int64^ iduser)
 	return grupSessionAttendantsRepository->IsAttendant(idsession, iduser);
 }
 
+Int64^ GrupSessionAttendantsService::GetSessionAttendantsCount(Int64^ idsession)
+{
+	return grupSessionAttendantsRepository->GetSessionAttendantsCount(idsession);
+}
+
 
