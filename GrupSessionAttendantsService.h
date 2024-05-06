@@ -11,6 +11,7 @@ public:
 	void AsistirSessionAttendant(Int64^ idsession, Int64^ iduser);
 	void EliminaSessionAttendant(Int64^ idsession, Int64^ iduser);
 	bool IsAttendant(Int64^ idsession, Int64^ iduser);
+	Int64^ GetSessionAttendantsCount(Int64^ idsession);
 
 private:
 	GrupSessionAttendantsRepository^ grupSessionAttendantsRepository;

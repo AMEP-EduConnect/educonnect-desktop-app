@@ -46,7 +46,7 @@ namespace CppCLRWinFormsProject {
 	private: System::Windows::Forms::Label^ DayMonthYear_label;
 	private: System::Windows::Forms::Label^ SessionCapacity_Label1;
 
-	private: System::Windows::Forms::Label^ EspaiCapacity_Label;
+
 	private: System::Windows::Forms::Label^ StartEndDuration_Label;
 	private: System::Windows::Forms::FlowLayoutPanel^ flowLayoutPanel1;
 	private: System::Windows::Forms::Button^ Confirm_Cancel_Attent_Button;
@@ -95,7 +95,8 @@ namespace CppCLRWinFormsProject {
 	private: GrupEstudiService^ grupEstudiService;
 	private: GrupSessionAttendantsService^ grupSessionAttendantsService;
 	private: SessionService^ sessionService;
-	private: System::Windows::Forms::Label^ capacity;
+	private: System::Windows::Forms::Label^ Capacity_Label;
+
 	private: System::Windows::Forms::Label^ session_name;
 
 	private: Session^ CurrentSessionEntity;
@@ -124,11 +125,10 @@ namespace CppCLRWinFormsProject {
 			this->DeleteSession_Button = (gcnew System::Windows::Forms::Button());
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
 			this->session_name = (gcnew System::Windows::Forms::Label());
-			this->capacity = (gcnew System::Windows::Forms::Label());
+			this->Capacity_Label = (gcnew System::Windows::Forms::Label());
 			this->Confirm_Cancel_Attent_Button = (gcnew System::Windows::Forms::Button());
 			this->ViewSessionAttendants_Button = (gcnew System::Windows::Forms::Button());
 			this->SessionCapacity_Label1 = (gcnew System::Windows::Forms::Label());
-			this->EspaiCapacity_Label = (gcnew System::Windows::Forms::Label());
 			this->StartEndDuration_Label = (gcnew System::Windows::Forms::Label());
 			this->DayMonthYear_label = (gcnew System::Windows::Forms::Label());
 			this->EspaiName_Label = (gcnew System::Windows::Forms::Label());
@@ -354,11 +354,10 @@ namespace CppCLRWinFormsProject {
 			this->panel1->Anchor = System::Windows::Forms::AnchorStyles::None;
 			this->panel1->BackColor = System::Drawing::SystemColors::GradientInactiveCaption;
 			this->panel1->Controls->Add(this->session_name);
-			this->panel1->Controls->Add(this->capacity);
+			this->panel1->Controls->Add(this->Capacity_Label);
 			this->panel1->Controls->Add(this->Confirm_Cancel_Attent_Button);
 			this->panel1->Controls->Add(this->ViewSessionAttendants_Button);
 			this->panel1->Controls->Add(this->SessionCapacity_Label1);
-			this->panel1->Controls->Add(this->EspaiCapacity_Label);
 			this->panel1->Controls->Add(this->StartEndDuration_Label);
 			this->panel1->Controls->Add(this->DayMonthYear_label);
 			this->panel1->Controls->Add(this->EspaiName_Label);
@@ -381,17 +380,17 @@ namespace CppCLRWinFormsProject {
 			this->session_name->Text = L"name";
 			this->session_name->Visible = false;
 			// 
-			// capacity
+			// Capacity_Label
 			// 
-			this->capacity->AutoSize = true;
-			this->capacity->Font = (gcnew System::Drawing::Font(L"Inter Light", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->Capacity_Label->AutoSize = true;
+			this->Capacity_Label->Font = (gcnew System::Drawing::Font(L"Inter Light", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->capacity->Location = System::Drawing::Point(289, 168);
-			this->capacity->Name = L"capacity";
-			this->capacity->Size = System::Drawing::Size(26, 19);
-			this->capacity->TabIndex = 11;
-			this->capacity->Text = L"18";
-			this->capacity->Click += gcnew System::EventHandler(this, &GrupEstudi_InfoUI::label4_Click);
+			this->Capacity_Label->Location = System::Drawing::Point(285, 174);
+			this->Capacity_Label->Name = L"Capacity_Label";
+			this->Capacity_Label->Size = System::Drawing::Size(19, 19);
+			this->Capacity_Label->TabIndex = 11;
+			this->Capacity_Label->Text = L"0";
+			this->Capacity_Label->Click += gcnew System::EventHandler(this, &GrupEstudi_InfoUI::label4_Click);
 			// 
 			// Confirm_Cancel_Attent_Button
 			// 
@@ -433,18 +432,6 @@ namespace CppCLRWinFormsProject {
 			this->SessionCapacity_Label1->TabIndex = 4;
 			this->SessionCapacity_Label1->Text = L"Capacitat";
 			this->SessionCapacity_Label1->Visible = false;
-			// 
-			// EspaiCapacity_Label
-			// 
-			this->EspaiCapacity_Label->AutoSize = true;
-			this->EspaiCapacity_Label->Font = (gcnew System::Drawing::Font(L"Inter Light", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->EspaiCapacity_Label->Location = System::Drawing::Point(312, 168);
-			this->EspaiCapacity_Label->Name = L"EspaiCapacity_Label";
-			this->EspaiCapacity_Label->Size = System::Drawing::Size(40, 19);
-			this->EspaiCapacity_Label->TabIndex = 3;
-			this->EspaiCapacity_Label->Text = L"/ 25";
-			this->EspaiCapacity_Label->Visible = false;
 			// 
 			// StartEndDuration_Label
 			// 
@@ -645,5 +632,7 @@ private: System::Void Confirm_Cancel_Attent_Button_Click(System::Object^ sender,
 private: System::Void label4_Click(System::Object^ sender, System::EventArgs^ e) {
 }
 private: System::Void DeleteSession_Button_Click(System::Object^ sender, System::EventArgs^ e);
+private: System::Void EspaiCapacity_Label_Click(System::Object^ sender, System::EventArgs^ e) {
+}
 };
 }

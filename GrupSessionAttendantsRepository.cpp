@@ -44,3 +44,19 @@ bool GrupSessionAttendantsRepository::IsAttendant(Int64^ idsession, Int64^ iduse
 	DatabaseConnector::Instance->Disconnect();
 	return attendance;
 }
+
+Int64^ GrupSessionAttendantsRepository::GetSessionAttendantsCount(Int64^ idsession)
+{
+	DatabaseConnector::Instance->Connect();
+	String^ sql = "SELECT COUNT(*) FROM grupSessionsAttendants WHERE session_id = @idsession";
+	Dictionary<String^, Object^>^ params = gcnew Dictionary<String^, Object^>(0);
+	params->Add("@idsession", idsession);
+	MySqlDataReader^ data = DatabaseConnector::Instance->ExecuteClientCommand(sql, params);
+	Int64^ count = 0LL;
+	while (data->Read()) {
+		count = data->GetInt64(0);
+	}
+	data->Close();
+	DatabaseConnector::Instance->Disconnect();
+	return count;
+}
