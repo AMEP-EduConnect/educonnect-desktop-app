@@ -117,7 +117,6 @@ namespace CppCLRWinFormsProject {
             StartEndDuration_Label->Visible = true;
             DayMonthYear_label->Visible = true;
             Confirm_Cancel_Attent_Button->Visible = true;
-            ViewSessionAttendants_Button->Visible = true;
             SessionCapacity_Label1->Visible = true;
             Capacity_Label->Visible = true;
             Capacity_Label->Text = Convert::ToString(grupSessionAttendantsService->GetSessionAttendantsCount(CurrentSessionEntity->GetId())) + "/" + this->consultaEspaisService->GetEspaiByEspaiId(CurrentSessionEntity->GetEspaiId())->GetCapacitat();
