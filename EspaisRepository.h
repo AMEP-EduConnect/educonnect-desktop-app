@@ -11,9 +11,11 @@ public:
 	
 	bool UpdateEspai(String^ name, Int64^ capacity, Int64^ id_espai);
 	bool CreateEspai(String^ name, Int64^ capacity, Int64^ proveidor_id);
-	//bool CheckEspaiByProvider(String^ provider);
-	List<Espai^>^ GetEspaiById(Int64^ proveidor_id);
+	List<Espai^>^ GetEspaisById(Int64^ proveidor_id);
+	Espai^ GetEspaiByEspaiId(Int64^ espai_id);
 	Espai^ GetEspaiByName(String^ name);
 	bool DeleteEspai(Int64^ id);
+	String^ GetInfoEspaiById(Int64^ id);
+	//bool CheckEspaiByProvider(String^ provider);
 	bool CheckEspaiByName(String^ name, Int64^ provider_id);
 };

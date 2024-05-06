@@ -219,6 +219,9 @@
     <ClInclude Include="GrupEstudi_ExplorarUI.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="GrupEstudi_InfoUI.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="GrupEstudi_MembresUI.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -269,6 +272,9 @@
     <ClInclude Include="FirstPageUI.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="GrupSessionAttendant.h" />
+    <ClInclude Include="GrupSessionAttendantsRepository.h" />
+    <ClInclude Include="GrupSessionAttendantsService.h" />
     <ClInclude Include="IniciSessioUI.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -301,6 +307,15 @@
     <ClInclude Include="IniciSessioService.h" />
     <ClInclude Include="RegistreService.h" />
     <ClInclude Include="PerfilPersonalConsultaService.h" />
+    <ClInclude Include="Session.h" />
+    <ClInclude Include="SessionRepository.h" />
+    <ClInclude Include="SessionService.h" />
+    <ClInclude Include="Session_CrearUI.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="Session_EditarUI.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="StartPageUI.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -312,6 +327,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GrupEstudi_ExplorarUI.cpp" />
+    <ClCompile Include="GrupEstudi_InfoUI.cpp" />
     <ClCompile Include="GrupEstudi_MembresUI.cpp" />
     <ClCompile Include="AcademicTag.cpp" />
     <ClCompile Include="AdministradorUI.cpp" />
@@ -334,6 +350,9 @@
     <ClCompile Include="EliminarEspaisService.cpp" />
     <ClCompile Include="Espai.cpp" />
     <ClCompile Include="EspaisRepository.cpp" />
+    <ClCompile Include="GrupSessionAttendant.cpp" />
+    <ClCompile Include="GrupSessionAttendantsRepository.cpp" />
+    <ClCompile Include="GrupSessionAttendantsService.cpp" />
     <ClCompile Include="InformacioPersonal_ConsultaUI.cpp" />
     <ClCompile Include="IniciSessioUI.cpp" />
     <ClCompile Include="FirstPageUI.cpp" />
@@ -362,6 +381,11 @@
     </ClCompile>
     <ClCompile Include="PerfilPersonalModificaService.cpp" />
     <ClCompile Include="PerfilPersonalConsultaService.cpp" />
+    <ClCompile Include="Session.cpp" />
+    <ClCompile Include="SessionRepository.cpp" />
+    <ClCompile Include="SessionService.cpp" />
+    <ClCompile Include="Session_CrearUI.cpp" />
+    <ClCompile Include="Session_EditarUI.cpp" />
     <ClCompile Include="StartPageUI.cpp" />
     <ClCompile Include="Usuari.cpp" />
     <ClCompile Include="UsuariRepository.cpp" />
@@ -426,6 +450,9 @@
     <EmbeddedResource Include="GrupEstudi_ExplorarUI.resx">
       <DependentUpon>GrupEstudi_ExplorarUI.h</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GrupEstudi_InfoUI.resx">
+      <DependentUpon>GrupEstudi_InfoUI.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GrupEstudi_MembresUI.resx">
       <DependentUpon>GrupEstudi_MembresUI.h</DependentUpon>
     </EmbeddedResource>
@@ -443,6 +470,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="RegistreUsuariUI.resx">
       <DependentUpon>RegistreUsuariUI.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Session_CrearUI.resx">
+      <DependentUpon>Session_CrearUI.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Session_EditarUI.resx">
+      <DependentUpon>Session_EditarUI.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="StartPageUI.resx">
       <DependentUpon>StartPageUI.h</DependentUpon>

@@ -19,8 +19,8 @@
 #include "UsuariRolRepository.h"
 #include "StartPageUI.h"
 #include "AltaEspaisUI.h"
-#include "ConsultaEspaisUI.h"
 #include "GrupEstudi_ExplorarUI.h"
+#include "ConsultaEspaisUI.h"
 
 namespace CppCLRWinFormsProject {
 

@@ -26,3 +26,8 @@ List<Usuari^>^ BaixaProveidorService::ListProveidors() {
     providers = usuariRepository->GetUsersByRolId(3LL);
     return providers;
 }
+
+Usuari^ BaixaProveidorService::GetProveidorByEspaiId(Int64^ espai_id) {
+	Usuari^ proveidor = usuariRepository->GetProveidorByEspaiId(espai_id);
+	return proveidor;
+}

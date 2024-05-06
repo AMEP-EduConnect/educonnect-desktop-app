@@ -13,6 +13,7 @@ public:
 	IniciSessioService();
 	//Usuari^ GetUsuariById(Int64^ id);
 	Usuari^ GetUsuariByUser(String^ username);
+	Usuari^ GetUsuariById(Int64^ id);
 	bool CheckUsername(String^ username, String^ password);
 	bool CheckPassword(String^ user_password, String^ password);
 	Int64^ GetUserId(String^ username);

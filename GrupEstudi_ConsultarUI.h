@@ -65,7 +65,9 @@ namespace CppCLRWinFormsProject {
 	private: System::Windows::Forms::TableLayoutPanel^ tableLayoutPanel1;
 	private: System::Windows::Forms::Button^ consulta_membres;
 	private: System::Windows::Forms::Button^ abandonar_button;
-
+	private: System::Windows::Forms::Button^ crearGrup_button;
+	private: System::Windows::Forms::Button^ MoreInfo_GrupEstudi_Button;
+	private: System::ComponentModel::BackgroundWorker^ backgroundWorker1;
 
 
 
@@ -89,6 +91,8 @@ namespace CppCLRWinFormsProject {
 			this->Noms_ListBox = (gcnew System::Windows::Forms::ListBox());
 			this->NomPertany_Label = (gcnew System::Windows::Forms::Label());
 			this->tableLayoutPanel1 = (gcnew System::Windows::Forms::TableLayoutPanel());
+			this->MoreInfo_GrupEstudi_Button = (gcnew System::Windows::Forms::Button());
+			this->backgroundWorker1 = (gcnew System::ComponentModel::BackgroundWorker());
 			this->Actual_Panel->SuspendLayout();
 			this->tableLayoutPanel1->SuspendLayout();
 			this->SuspendLayout();
@@ -219,6 +223,7 @@ namespace CppCLRWinFormsProject {
 				20)));
 			this->tableLayoutPanel1->Controls->Add(this->ConsultarGrupEstudi_Label, 1, 0);
 			this->tableLayoutPanel1->Controls->Add(this->Actual_Panel, 1, 1);
+			this->tableLayoutPanel1->Controls->Add(this->MoreInfo_GrupEstudi_Button, 1, 2);
 			this->tableLayoutPanel1->Dock = System::Windows::Forms::DockStyle::Fill;
 			this->tableLayoutPanel1->Location = System::Drawing::Point(0, 0);
 			this->tableLayoutPanel1->Name = L"tableLayoutPanel1";
@@ -229,6 +234,17 @@ namespace CppCLRWinFormsProject {
 			this->tableLayoutPanel1->Size = System::Drawing::Size(814, 537);
 			this->tableLayoutPanel1->TabIndex = 7;
 			this->tableLayoutPanel1->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &GrupEstudi_ConsultarUI::tableLayoutPanel1_Paint);
+			// 
+			// MoreInfo_GrupEstudi_Button
+			// 
+			this->MoreInfo_GrupEstudi_Button->Location = System::Drawing::Point(181, 436);
+			this->MoreInfo_GrupEstudi_Button->Name = L"MoreInfo_GrupEstudi_Button";
+			this->MoreInfo_GrupEstudi_Button->Size = System::Drawing::Size(75, 23);
+			this->MoreInfo_GrupEstudi_Button->TabIndex = 7;
+			this->MoreInfo_GrupEstudi_Button->Text = L"Ver";
+			this->MoreInfo_GrupEstudi_Button->UseVisualStyleBackColor = true;
+			this->MoreInfo_GrupEstudi_Button->Visible = false;
+			this->MoreInfo_GrupEstudi_Button->Click += gcnew System::EventHandler(this, &GrupEstudi_ConsultarUI::MoreInfo_GrupEstudi_Button_Click);
 			// 
 			// GrupEstudi_ConsultarUI
 			// 
@@ -261,5 +277,6 @@ namespace CppCLRWinFormsProject {
 	private: void GrupEstudi_ConsultarUIreload();
 	private: System::Void CrearGrupEstudi_Click(System::Object^ sender, System::EventArgs^ e);
 
+private: System::Void MoreInfo_GrupEstudi_Button_Click(System::Object^ sender, System::EventArgs^ e);
 };
 }

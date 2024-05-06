@@ -158,15 +158,6 @@
     <ClInclude Include="PerfilPersonalModificaService.h">
       <Filter>Source Files\services</Filter>
     </ClInclude>
-    <ClInclude Include="GrupEstudi_MembresUI.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="GrupEstudi_ExplorarUI.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="MainPageUI.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Espai.h">
       <Filter>Source Files\entities</Filter>
     </ClInclude>
@@ -187,6 +178,42 @@
     </ClInclude>
     <ClInclude Include="EliminarEspaisService.h">
       <Filter>Source Files\services</Filter>
+    </ClInclude>
+    <ClInclude Include="GrupEstudi_MembresUI.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GrupEstudi_ExplorarUI.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MainPageUI.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GrupEstudi_InfoUI.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Session_CrearUI.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SessionRepository.h">
+      <Filter>Source Files\repositories</Filter>
+    </ClInclude>
+    <ClInclude Include="Session.h">
+      <Filter>Source Files\entities</Filter>
+    </ClInclude>
+    <ClInclude Include="SessionService.h">
+      <Filter>Source Files\services</Filter>
+    </ClInclude>
+    <ClInclude Include="Session_EditarUI.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GrupSessionAttendant.h">
+      <Filter>Source Files\entities</Filter>
+    </ClInclude>
+    <ClInclude Include="GrupSessionAttendantsRepository.h">
+      <Filter>Source Files\repositories</Filter>
+    </ClInclude>
+    <ClInclude Include="GrupSessionAttendantsService.h">
+          <Filter>Source Files\services</Filter>
     </ClInclude>
     <ClInclude Include="ModificaEspaisUI.h">
       <Filter>Header Files</Filter>
@@ -328,6 +355,21 @@
     <ClCompile Include="StartPageUI.cpp">
       <Filter>Source Files\ui</Filter>
     </ClCompile>
+    <ClCompile Include="GrupEstudi_MembresUI.cpp">
+      <Filter>Source Files\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="GrupEstudi_ExplorarUI.cpp">
+      <Filter>Source Files\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="MainPageUI.cpp">
+      <Filter>Source Files\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="GrupEstudi_MembresUI.cpp">
+      <Filter>Source Files\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="GrupEstudi_ExplorarUI.cpp">
+      <Filter>Source Files\ui</Filter>
+    </ClCompile>
     <ClCompile Include="Espai.cpp">
       <Filter>Source Files\entities</Filter>
     </ClCompile>
@@ -349,6 +391,9 @@
     <ClCompile Include="EliminarEspaisService.cpp">
       <Filter>Source Files\services</Filter>
     </ClCompile>
+    <ClCompile Include="GrupEstudi_InfoUI.cpp">
+          <Filter>Source Files\ui</Filter>
+    </ClCompile>
     <ClCompile Include="ModificaEspaisUI.cpp">
       <Filter>Source Files\ui</Filter>
     </ClCompile>
@@ -358,11 +403,29 @@
     <ClCompile Include="GrupEstudi_MembresUI.cpp">
       <Filter>Source Files\ui</Filter>
     </ClCompile>
-    <ClCompile Include="GrupEstudi_ExplorarUI.cpp">
+    <ClCompile Include="Session_CrearUI.cpp">
       <Filter>Source Files\ui</Filter>
     </ClCompile>
-    <ClCompile Include="MainPageUI.cpp">
+    <ClCompile Include="SessionService.cpp">
+      <Filter>Source Files\services</Filter>
+    </ClCompile>
+    <ClCompile Include="SessionRepository.cpp">
+      <Filter>Source Files\repositories</Filter>
+    </ClCompile>
+    <ClCompile Include="Session.cpp">
+      <Filter>Source Files\entities</Filter>
+    </ClCompile>
+    <ClCompile Include="Session_EditarUI.cpp">
       <Filter>Source Files\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="GrupSessionAttendant.cpp">
+      <Filter>Source Files\entities</Filter>
+    </ClCompile>
+    <ClCompile Include="GrupSessionAttendantsRepository.cpp">
+      <Filter>Source Files\repositories</Filter>
+    </ClCompile>
+    <ClCompile Include="GrupSessionAttendantsService.cpp">
+      <Filter>Source Files\services</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
