@@ -22,7 +22,7 @@ namespace CppCLRWinFormsProject {
         this->Icon = gcnew System::Drawing::Icon("app.ico");
         sessionService = gcnew SessionService();
         this->Sessions_Actuals_Load();
-        this->pictureBox1->Image = Image::FromFile("resources/Icons/forum_24dp_FILL0_wght400_GRAD0_opsz24.png");
+       
 
     }
 
