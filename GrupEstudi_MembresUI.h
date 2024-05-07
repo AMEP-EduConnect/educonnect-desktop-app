@@ -206,7 +206,7 @@ namespace CppCLRWinFormsProject {
 			   this->Cancelar_Button->Name = L"Cancelar_Button";
 			   this->Cancelar_Button->Size = System::Drawing::Size(100, 35);
 			   this->Cancelar_Button->TabIndex = 7;
-			   this->Cancelar_Button->Text = L"Cancelar";
+			   this->Cancelar_Button->Text = L"Tornar";
 			   this->Cancelar_Button->UseVisualStyleBackColor = false;
 			   this->Cancelar_Button->Click += gcnew System::EventHandler(this, &GrupEstudi_Membres::CancelButton_Click);
 			   // 

@@ -1,6 +1,7 @@
 #include "pch.h"
 #include "GrupEstudi_InfoUI.h"
 #include "GrupEstudi_ConsultarUI.h"
+#include "GrupEstudi_MembresUI.h"
 #include "MainPageUI.h"
 #include "Session_CrearUI.h"
 #include "Session_EditarUI.h"
@@ -15,6 +16,8 @@ namespace CppCLRWinFormsProject {
     {
         InitializeComponent();
         grupEstudiService = gcnew GrupEstudiService();
+        grupEstudiMembershipService = gcnew GrupEstudiMembershipService();
+        currentGrup = CurrentGrup;
         this->CurrentGrupEntity = this->grupEstudiService->GetGrupEstudiByName(CurrentGrup);
         sessionService = gcnew SessionService();
         grupSessionAttendantsService = gcnew GrupSessionAttendantsService();
@@ -22,6 +25,8 @@ namespace CppCLRWinFormsProject {
         this->Icon = gcnew System::Drawing::Icon("app.ico");
         sessionService = gcnew SessionService();
         this->Sessions_Actuals_Load();
+        this->pictureBox1->Image = Image::FromFile("resources/Icons/forum_24dp_FILL0_wght400_GRAD0_opsz24.png");
+
     }
 
     void GrupEstudi_InfoUI::GrupEstudi_InfoUI_Load(System::Object^ sender, System::EventArgs^ e)
@@ -203,6 +208,57 @@ namespace CppCLRWinFormsProject {
     System::Void GrupEstudi_InfoUI::GoBack_Button_Click(System::Object^ sender, System::EventArgs^ e)
     {
         GrupEstudi_ConsultarUI^ PanelUI = gcnew GrupEstudi_ConsultarUI();
+
+        PanelUI->TopLevel = false;
+        PanelUI->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
+        PanelUI->Dock = System::Windows::Forms::DockStyle::Fill;
+
+        MainPageUI::Instance->screen->Controls->Clear();
+        MainPageUI::Instance->screen->Controls->Add(PanelUI);
+        PanelUI->Show();
+    }
+
+    void GrupEstudi_InfoUI::EliminarButton_Click(System::Object^ sender, System::EventArgs^ e)
+    {
+        //dialog message box with an input to confirm the deletion of the group by introducing the group name
+        //if the group name is correct, the group will be deleted
+        MessageBoxButtons buttons = MessageBoxButtons::YesNo;
+        System::Windows::Forms::DialogResult result = MessageBox::Show("Vols suprimir el grup '" + currentGrup/*Noms_ListBox->Text*/ + "'?", "Confirmation", buttons);
+
+        // Check the user's response
+        if (result == System::Windows::Forms::DialogResult::Yes)
+        {
+            try {
+                grupEstudiService->DeleteGrupEstudi(currentGrup/*Noms_ListBox->Text*/);
+                MessageManager::InfoMessage("Grup eliminat correctament.");
+                // Reload the list of groups after deletion
+                //GrupEstudi_ConsultarUIreload();
+                GoBack_Button_Click(sender, e);
+
+            }
+            catch (Exception^ e) {
+                MessageManager::ErrorMessage(e->Message);
+            }
+        }
+    }
+
+    void GrupEstudi_InfoUI::EditarButton_Click(System::Object^ sender, System::EventArgs^ e)
+    {
+        GrupEstudi_EditarUI^ PanelUI = gcnew GrupEstudi_EditarUI(currentGrup/*Noms_ListBox->Text*/);
+
+        PanelUI->TopLevel = false;
+        PanelUI->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
+        PanelUI->Dock = System::Windows::Forms::DockStyle::Fill;
+
+        MainPageUI::Instance->screen->Controls->Clear();
+        MainPageUI::Instance->screen->Controls->Add(PanelUI);
+        PanelUI->Show();
+    }
+
+    void GrupEstudi_InfoUI::consulta_membres_Click(System::Object^ sender, System::EventArgs^ e)
+    {
+
+        GrupEstudi_Membres^ PanelUI = gcnew GrupEstudi_Membres(currentGrup/*Noms_ListBox->Text*/, true);
 
         PanelUI->TopLevel = false;
         PanelUI->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
