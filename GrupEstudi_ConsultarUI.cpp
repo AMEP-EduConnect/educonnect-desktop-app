@@ -19,7 +19,7 @@ namespace CppCLRWinFormsProject {
         this->Icon = gcnew System::Drawing::Icon("app.ico");
     }
 
-    void GrupEstudi_ConsultarUI::EliminarButton_Click(System::Object^ sender, System::EventArgs^ e)
+    /*void GrupEstudi_ConsultarUI::EliminarButton_Click(System::Object^ sender, System::EventArgs^ e)
     {
         //dialog message box with an input to confirm the deletion of the group by introducing the group name
         //if the group name is correct, the group will be deleted
@@ -43,9 +43,9 @@ namespace CppCLRWinFormsProject {
 
 
         }
-    }
+    }*/
 
-    void GrupEstudi_ConsultarUI::EditarButton_Click(System::Object^ sender, System::EventArgs^ e)
+    /*void GrupEstudi_ConsultarUI::EditarButton_Click(System::Object^ sender, System::EventArgs^ e)
 	{
     		GrupEstudi_EditarUI^ PanelUI = gcnew GrupEstudi_EditarUI(Noms_ListBox->Text);
 
@@ -70,7 +70,7 @@ namespace CppCLRWinFormsProject {
         MainPageUI::Instance->screen->Controls->Clear();
         MainPageUI::Instance->screen->Controls->Add(PanelUI);
         PanelUI->Show();
-    }
+    }*/
 
     void GrupEstudi_ConsultarUI::Noms_ListBox_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e)
     {
@@ -79,22 +79,25 @@ namespace CppCLRWinFormsProject {
         Usuari^ currentUser = CurrentSession::Instance->GetCurrentUser();
 
         if (isOwner and Noms_ListBox->Text != "") {
-            Editar_Button->Visible = true;
-            Eliminar_Button->Visible = true;
-            consulta_membres->Visible = true;
+            //Editar_Button->Visible = true;
+            //Eliminar_Button->Visible = true;
+            //consulta_membres->Visible = true;
             abandonar_button->Visible = true;
+            MoreInfo_GrupEstudi_Button->Visible = true;
         }
         if (not isOwner and Noms_ListBox->Text != "") {
-            Editar_Button->Visible = false;
-            Eliminar_Button->Visible = false;
-            consulta_membres->Visible = true;
+            //Editar_Button->Visible = false;
+            //Eliminar_Button->Visible = false;
+            //consulta_membres->Visible = true;
             abandonar_button->Visible = true;
+            MoreInfo_GrupEstudi_Button->Visible = true;
         }
         if (not grupEstudiMembershipService->UserInSomeGroup(currentUser->GetUserId())) {
-            consulta_membres->Visible = false;
+            //consulta_membres->Visible = false;
             abandonar_button->Visible = false;
-            Editar_Button->Visible = false;
-            Eliminar_Button->Visible = false;
+            MoreInfo_GrupEstudi_Button->Visible = false;
+            //Editar_Button->Visible = false;
+            //Eliminar_Button->Visible = false;
 		}
     }
 

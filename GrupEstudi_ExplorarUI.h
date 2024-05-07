@@ -368,7 +368,6 @@ namespace CppCLRWinFormsProject {
 
 	private: System::Void Membres_Button_Click(System::Object^ sender, System::EventArgs^ e);
 	private: System::Void Unirse_Button_Click(System::Object^ sender, System::EventArgs^ e);
-	private: System::Void Cancela_Button_Click(System::Object^ sender, System::EventArgs^ e);
 
 	private: System::Void GrupEstudi_Explorar_Load(System::Object^ sender, System::EventArgs^ e);
 	private: System::Void Noms_ListBox_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e);

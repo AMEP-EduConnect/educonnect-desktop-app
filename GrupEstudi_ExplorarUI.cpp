@@ -144,14 +144,12 @@ namespace CppCLRWinFormsProject {
 	void GrupEstudi_Explorar::Unirse_Button_Click(System::Object^ sender, System::EventArgs^ e) {
 		//Solicita unirse al grupo
 		//FALTA IMPLEMENTAR SPRINT 3
-		//Unirse_Button->Visible = true;
-
-	}
-		
-	void GrupEstudi_Explorar::Cancela_Button_Click(System::Object^ sender, System::EventArgs^ e) {
-		//Cancela solicitud unirse al grupo
-		//FALTA IMPLEMENTAR SPRINT 3
-		//Unirse_Button->Visible = true;
+		if (Unirse_Button->Text == "Unir-se") {
+			Unirse_Button->Text = "Cancel·la";
+		}
+		else {
+			Unirse_Button->Text = "Unir-se";
+		}
 
 	}
 

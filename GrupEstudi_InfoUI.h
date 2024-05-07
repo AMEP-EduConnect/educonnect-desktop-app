@@ -93,6 +93,8 @@ namespace CppCLRWinFormsProject {
 
 
 	private: GrupEstudiService^ grupEstudiService;
+	private: GrupEstudiMembershipService^ grupEstudiMembershipService;
+	private: String^ currentGrup;
 	private: GrupSessionAttendantsService^ grupSessionAttendantsService;
 	private: SessionService^ sessionService;
 	private: System::Windows::Forms::Label^ Capacity_Label;
@@ -268,6 +270,7 @@ namespace CppCLRWinFormsProject {
 			this->DeleteGrupEstudi_Button->Text = L"Eliminar grup";
 			this->DeleteGrupEstudi_Button->UseVisualStyleBackColor = true;
 			this->DeleteGrupEstudi_Button->Visible = false;
+			this->DeleteGrupEstudi_Button->Click += gcnew System::EventHandler(this, &GrupEstudi_InfoUI::EliminarButton_Click);
 			// 
 			// MembersGrupEstudi_Button
 			// 
@@ -280,6 +283,7 @@ namespace CppCLRWinFormsProject {
 			this->MembersGrupEstudi_Button->TabIndex = 14;
 			this->MembersGrupEstudi_Button->Text = L"Membres";
 			this->MembersGrupEstudi_Button->UseVisualStyleBackColor = true;
+			this->MembersGrupEstudi_Button->Click += gcnew System::EventHandler(this, &GrupEstudi_InfoUI::consulta_membres_Click);
 			// 
 			// ModifyGrupEstudi_Button
 			// 
@@ -293,6 +297,7 @@ namespace CppCLRWinFormsProject {
 			this->ModifyGrupEstudi_Button->Text = L"Editar grup";
 			this->ModifyGrupEstudi_Button->UseVisualStyleBackColor = true;
 			this->ModifyGrupEstudi_Button->Visible = false;
+			this->ModifyGrupEstudi_Button->Click += gcnew System::EventHandler(this, &GrupEstudi_InfoUI::EditarButton_Click);
 			// 
 			// InfoGrupEstudi_Label
 			// 
@@ -613,5 +618,9 @@ private: System::Void EspaiCapacity_Label_Click(System::Object^ sender, System::
 }
 private: System::Void tableLayoutPanel1_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
 }
+
+	private: System::Void EliminarButton_Click(System::Object^ sender, System::EventArgs^ e);
+	private: System::Void EditarButton_Click(System::Object^ sender, System::EventArgs^ e);
+	private: System::Void consulta_membres_Click(System::Object^ sender, System::EventArgs^ e);
 };
 }
