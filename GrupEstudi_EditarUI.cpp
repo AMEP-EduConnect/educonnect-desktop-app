@@ -1,6 +1,7 @@
 #include "pch.h"
 #include "GrupEstudi_EditarUI.h"
 #include "GrupEstudi_ConsultarUI.h"
+#include "GrupEstudi_InfoUI.h"
 #include "MainPageUI.h"
 
 namespace CppCLRWinFormsProject {
@@ -31,7 +32,8 @@ namespace CppCLRWinFormsProject {
 
     void GrupEstudi_EditarUI::CancelarButton_Click(System::Object^ sender, System::EventArgs^ e)
     {
-        GrupEstudi_ConsultarUI^ PanelUI = gcnew GrupEstudi_ConsultarUI();
+        //GrupEstudi_ConsultarUI^ PanelUI = gcnew GrupEstudi_ConsultarUI();
+        GrupEstudi_InfoUI^ PanelUI = gcnew GrupEstudi_InfoUI(nomActual);
 
         PanelUI->TopLevel = false;
         PanelUI->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
@@ -88,6 +90,10 @@ namespace CppCLRWinFormsProject {
                     }
                 }
 
+                /*if (EditarDescripcio_TextBox->Text == descripcioActual and NomActual_TextBox->Text == nomActual) {
+                    MessageManager::InfoMessage("No s'ha modificat cap camp.");
+                }*/
+
                 if (checkD == true and checkN == false) {
                     MessageManager::InfoMessage("Descripció del grup modificada correctament.");
                     this->NomActual_TextBox->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(224)), static_cast<System::Int32>(static_cast<System::Byte>(224)),
@@ -139,6 +145,24 @@ namespace CppCLRWinFormsProject {
                     descripcioActual = EditarDescripcio_TextBox->Text;
                     //CancelarButton_Click(sender, e);
                 }
+
+                /*else if (checkN == false and checkD == false) {
+                    //MessageManager::InfoMessage("No s'ha modificat cap camp.");
+					this->NomActual_TextBox->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(224)), static_cast<System::Int32>(static_cast<System::Byte>(224)),
+                        						static_cast<System::Int32>(static_cast<System::Byte>(224)));
+					this->EditarDescripcio_TextBox->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(224)), static_cast<System::Int32>(static_cast<System::Byte>(224)),
+                        						static_cast<System::Int32>(static_cast<System::Byte>(224)));
+
+					this->NomActual_TextBox->Enabled = false;
+					this->EditarDescripcio_TextBox->Enabled = false;
+
+					Cancelar_Button->Visible = true;
+					Edita_Button->Text = "Modificar";
+
+					nomActual = NomActual_TextBox->Text;
+					descripcioActual = EditarDescripcio_TextBox->Text;
+					//CancelarButton_Click(sender, e);
+                }*/
             }
         }
         else {

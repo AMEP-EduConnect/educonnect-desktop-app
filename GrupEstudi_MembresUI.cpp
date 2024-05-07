@@ -3,6 +3,7 @@
 #include "GrupEstudi_ConsultarUI.h"
 #include "GrupEstudi_AssignarUI.h"
 #include "GrupEstudi_ExplorarUI.h"
+#include "GrupEstudi_InfoUI.h"
 #include "Usuari.h"
 #include "MainPageUI.h"
 
@@ -49,7 +50,8 @@ namespace CppCLRWinFormsProject {
     void GrupEstudi_Membres::CancelButton_Click(System::Object^ sender, System::EventArgs^ e)
     {
         if (consulta) {
-            GrupEstudi_ConsultarUI^ PanelUI = gcnew GrupEstudi_ConsultarUI();
+            //GrupEstudi_ConsultarUI^ PanelUI = gcnew GrupEstudi_ConsultarUI();
+            GrupEstudi_InfoUI^ PanelUI = gcnew GrupEstudi_InfoUI(Noms_ListBox);
             PanelUI->TopLevel = false;
             PanelUI->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
             PanelUI->Dock = System::Windows::Forms::DockStyle::Fill;
@@ -60,6 +62,7 @@ namespace CppCLRWinFormsProject {
         }
         else if (not consulta) {
 			GrupEstudi_Explorar^ PanelUI = gcnew GrupEstudi_Explorar();
+            
             PanelUI->TopLevel = false;
             PanelUI->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
             PanelUI->Dock = System::Windows::Forms::DockStyle::Fill;
