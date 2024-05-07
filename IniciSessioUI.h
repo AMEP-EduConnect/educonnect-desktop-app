@@ -124,9 +124,9 @@ namespace CppCLRWinFormsProject {
 			this->IniciarSessio_Label->ForeColor = System::Drawing::SystemColors::HotTrack;
 			this->IniciarSessio_Label->Location = System::Drawing::Point(314, 100);
 			this->IniciarSessio_Label->Name = L"IniciarSessio_Label";
-			this->IniciarSessio_Label->Size = System::Drawing::Size(188, 33);
+			this->IniciarSessio_Label->Size = System::Drawing::Size(272, 33);
 			this->IniciarSessio_Label->TabIndex = 4;
-			this->IniciarSessio_Label->Text = L"Iniciar sessió";
+			this->IniciarSessio_Label->Text = L"Iniciar sessi\u00F3";
 			// 
 			// Continuar_Button
 			// 

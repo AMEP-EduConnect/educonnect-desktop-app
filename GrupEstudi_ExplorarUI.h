@@ -239,9 +239,9 @@ namespace CppCLRWinFormsProject {
 			this->Description_titulo->ForeColor = System::Drawing::SystemColors::HotTrack;
 			this->Description_titulo->Location = System::Drawing::Point(21, 172);
 			this->Description_titulo->Name = L"Description_titulo";
-			this->Description_titulo->Size = System::Drawing::Size(93, 19);
+			this->Description_titulo->Size = System::Drawing::Size(134, 19);
 			this->Description_titulo->TabIndex = 10;
-			this->Description_titulo->Text = L"Descripci� ";
+			this->Description_titulo->Text = L"Descripci\u00F3";
 			this->Description_titulo->Visible = false;
 			// 
 			// Membres_Button

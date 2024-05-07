@@ -194,7 +194,7 @@ namespace CppCLRWinFormsProject {
 			this->BotoBaixa->Name = L"BotoBaixa";
 			this->BotoBaixa->Size = System::Drawing::Size(243, 41);
 			this->BotoBaixa->TabIndex = 19;
-			this->BotoBaixa->Text = L"Donar de baixa proveidor";
+			this->BotoBaixa->Text = L"Donar de baixa prove\u00EFdor";
 			this->BotoBaixa->UseVisualStyleBackColor = false;
 			this->BotoBaixa->Click += gcnew System::EventHandler(this, &AdministradorUI::BotoBaixa_Click);
 			// 
@@ -210,7 +210,7 @@ namespace CppCLRWinFormsProject {
 			this->BotoAlta->Name = L"BotoAlta";
 			this->BotoAlta->Size = System::Drawing::Size(243, 41);
 			this->BotoAlta->TabIndex = 17;
-			this->BotoAlta->Text = L"Donar d\'alta proveidor";
+			this->BotoAlta->Text = L"Donar d\'alta prove\u00EFdor";
 			this->BotoAlta->UseVisualStyleBackColor = false;
 			this->BotoAlta->Click += gcnew System::EventHandler(this, &AdministradorUI::BotoAltaProveidor_Click);
 			// 

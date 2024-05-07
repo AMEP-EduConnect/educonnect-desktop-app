@@ -230,9 +230,9 @@ namespace CppCLRWinFormsProject {
 			this->label2->ForeColor = System::Drawing::SystemColors::HotTrack;
 			this->label2->Location = System::Drawing::Point(3, 14);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(93, 19);
+			this->label2->Size = System::Drawing::Size(142, 19);
 			this->label2->TabIndex = 19;
-			this->label2->Text = L"Descripció";
+			this->label2->Text = L"Descripci\u00F3";
 			// 
 			// DescGrupEstudi_Label
 			// 
@@ -333,7 +333,7 @@ namespace CppCLRWinFormsProject {
 			this->session_name->Font = (gcnew System::Drawing::Font(L"Inter Light", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->session_name->ForeColor = System::Drawing::SystemColors::HotTrack;
-			this->session_name->Location = System::Drawing::Point(19, 46);
+			this->session_name->Location = System::Drawing::Point(35, 48);
 			this->session_name->Name = L"session_name";
 			this->session_name->Size = System::Drawing::Size(50, 19);
 			this->session_name->TabIndex = 12;
@@ -359,9 +359,9 @@ namespace CppCLRWinFormsProject {
 			this->Confirm_Cancel_Attent_Button->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->Confirm_Cancel_Attent_Button->ForeColor = System::Drawing::SystemColors::HotTrack;
-			this->Confirm_Cancel_Attent_Button->Location = System::Drawing::Point(258, 17);
+			this->Confirm_Cancel_Attent_Button->Location = System::Drawing::Point(38, 144);
 			this->Confirm_Cancel_Attent_Button->Name = L"Confirm_Cancel_Attent_Button";
-			this->Confirm_Cancel_Attent_Button->Size = System::Drawing::Size(100, 48);
+			this->Confirm_Cancel_Attent_Button->Size = System::Drawing::Size(125, 48);
 			this->Confirm_Cancel_Attent_Button->TabIndex = 0;
 			this->Confirm_Cancel_Attent_Button->Text = L"Asistir";
 			this->Confirm_Cancel_Attent_Button->UseVisualStyleBackColor = true;
@@ -385,7 +385,7 @@ namespace CppCLRWinFormsProject {
 			this->StartEndDuration_Label->AutoSize = true;
 			this->StartEndDuration_Label->Font = (gcnew System::Drawing::Font(L"Inter Light", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->StartEndDuration_Label->Location = System::Drawing::Point(19, 159);
+			this->StartEndDuration_Label->Location = System::Drawing::Point(30, 110);
 			this->StartEndDuration_Label->Name = L"StartEndDuration_Label";
 			this->StartEndDuration_Label->Size = System::Drawing::Size(108, 19);
 			this->StartEndDuration_Label->TabIndex = 2;
@@ -397,7 +397,7 @@ namespace CppCLRWinFormsProject {
 			this->DayMonthYear_label->AutoSize = true;
 			this->DayMonthYear_label->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->DayMonthYear_label->Location = System::Drawing::Point(19, 135);
+			this->DayMonthYear_label->Location = System::Drawing::Point(31, 77);
 			this->DayMonthYear_label->Name = L"DayMonthYear_label";
 			this->DayMonthYear_label->Size = System::Drawing::Size(107, 19);
 			this->DayMonthYear_label->TabIndex = 1;
@@ -411,11 +411,11 @@ namespace CppCLRWinFormsProject {
 			this->EspaiName_Label->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->EspaiName_Label->ForeColor = System::Drawing::SystemColors::HotTrack;
-			this->EspaiName_Label->Location = System::Drawing::Point(19, 17);
+			this->EspaiName_Label->Location = System::Drawing::Point(34, 16);
 			this->EspaiName_Label->Name = L"EspaiName_Label";
-			this->EspaiName_Label->Size = System::Drawing::Size(159, 19);
+			this->EspaiName_Label->Size = System::Drawing::Size(208, 19);
 			this->EspaiName_Label->TabIndex = 0;
-			this->EspaiName_Label->Text = L"No hi ha cap sessió";
+			this->EspaiName_Label->Text = L"No hi ha cap sessi\u00F3";
 			this->EspaiName_Label->Click += gcnew System::EventHandler(this, &GrupEstudi_InfoUI::label2_Click);
 			// 
 			// panel4
@@ -467,7 +467,7 @@ namespace CppCLRWinFormsProject {
 			this->NewSession_Button->Name = L"NewSession_Button";
 			this->NewSession_Button->Size = System::Drawing::Size(176, 35);
 			this->NewSession_Button->TabIndex = 11;
-			this->NewSession_Button->Text = L"Nova sessió";
+			this->NewSession_Button->Text = L"Nova sessi\u00F3";
 			this->NewSession_Button->UseVisualStyleBackColor = true;
 			this->NewSession_Button->Visible = false;
 			this->NewSession_Button->Click += gcnew System::EventHandler(this, &GrupEstudi_InfoUI::NewSession_Button_Click);

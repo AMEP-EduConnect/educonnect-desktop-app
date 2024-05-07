@@ -143,7 +143,7 @@ namespace CppCLRWinFormsProject {
 			this->NewSession_Label->Name = L"NewSession_Label";
 			this->NewSession_Label->Size = System::Drawing::Size(494, 34);
 			this->NewSession_Label->TabIndex = 0;
-			this->NewSession_Label->Text = L"Nova sessió a ";
+			this->NewSession_Label->Text = L"Nova sessi\u00F3 a ";
 			this->NewSession_Label->TextAlign = System::Drawing::ContentAlignment::BottomCenter;
 			// 
 			// CurrentGrupName_Label
@@ -190,7 +190,7 @@ namespace CppCLRWinFormsProject {
 			this->CreateSession_Button->Name = L"CreateSession_Button";
 			this->CreateSession_Button->Size = System::Drawing::Size(146, 35);
 			this->CreateSession_Button->TabIndex = 10;
-			this->CreateSession_Button->Text = L"Crear sessió";
+			this->CreateSession_Button->Text = L"Crear sessi\u00F3";
 			this->CreateSession_Button->UseVisualStyleBackColor = true;
 			this->CreateSession_Button->Click += gcnew System::EventHandler(this, &Session_CrearUI::CreateSession_Button_Click);
 			// 
@@ -214,7 +214,7 @@ namespace CppCLRWinFormsProject {
 			this->TimeHour_ComboBox->Location = System::Drawing::Point(275, 246);
 			this->TimeHour_ComboBox->Margin = System::Windows::Forms::Padding(2);
 			this->TimeHour_ComboBox->Name = L"TimeHour_ComboBox";
-			this->TimeHour_ComboBox->Size = System::Drawing::Size(166, 27);
+			this->TimeHour_ComboBox->Size = System::Drawing::Size(192, 27);
 			this->TimeHour_ComboBox->TabIndex = 8;
 			this->TimeHour_ComboBox->SelectedIndexChanged += gcnew System::EventHandler(this, &Session_CrearUI::TimeHour_ComboBox_SelectedIndexChanged);
 			// 
@@ -238,9 +238,9 @@ namespace CppCLRWinFormsProject {
 			this->Proveidor_Label->Location = System::Drawing::Point(34, 120);
 			this->Proveidor_Label->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->Proveidor_Label->Name = L"Proveidor_Label";
-			this->Proveidor_Label->Size = System::Drawing::Size(158, 19);
+			this->Proveidor_Label->Size = System::Drawing::Size(206, 19);
 			this->Proveidor_Label->TabIndex = 6;
-			this->Proveidor_Label->Text = L"Proveïdor de espais";
+			this->Proveidor_Label->Text = L"Prove\u00EFdor de espais";
 			// 
 			// Espai_ComboBox
 			// 
@@ -263,9 +263,9 @@ namespace CppCLRWinFormsProject {
 			this->SessionName_Label->Location = System::Drawing::Point(34, 21);
 			this->SessionName_Label->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->SessionName_Label->Name = L"SessionName_Label";
-			this->SessionName_Label->Size = System::Drawing::Size(137, 19);
+			this->SessionName_Label->Size = System::Drawing::Size(183, 19);
 			this->SessionName_Label->TabIndex = 4;
-			this->SessionName_Label->Text = L"Nom de la sessió";
+			this->SessionName_Label->Text = L"Nom de la sessi\u00F3";
 			this->SessionName_Label->Click += gcnew System::EventHandler(this, &Session_CrearUI::label2_Click);
 			// 
 			// SessionName_TextBox

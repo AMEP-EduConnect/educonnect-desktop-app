@@ -111,7 +111,7 @@ namespace CppCLRWinFormsProject {
     {
         isSessionLoaded = false;
         session_name->Visible = false;
-        EspaiName_Label->Text = "No hi ha cap sessió";
+        EspaiName_Label->Text = "No hi ha cap sessi\u00F3";
         Capacity_Label->Visible = false;
         SessionCapacity_Label1->Visible = false;
         DayMonthYear_label->Visible = false;
@@ -179,7 +179,7 @@ namespace CppCLRWinFormsProject {
             }
             else {
                 this->Confirm_Cancel_Attent_Button->Enabled = true;
-                this->Confirm_Cancel_Attent_Button->Text = L"Cancel·lar Asistència";
+                this->Confirm_Cancel_Attent_Button->Text = L"Cancel·lar Asist\u00E8ncia";
             }
             
         }
@@ -199,7 +199,7 @@ namespace CppCLRWinFormsProject {
            Int64^ currentSessionCapacity = grupSessionAttendantsService->GetSessionAttendantsCount(CurrentSessionEntity->GetId());
            Int64^ espaiCapacity = this->consultaEspaisService->GetEspaiByEspaiId(CurrentSessionEntity->GetEspaiId())->GetCapacity();
            Capacity_Label->Text = Convert::ToString(currentSessionCapacity) + "/" + espaiCapacity;
-           this->Confirm_Cancel_Attent_Button->Text = L"Cancel·lar Asistència";
+           this->Confirm_Cancel_Attent_Button->Text = L"Cancel·lar Asist\u00E8ncia";
        }
        else {
            
@@ -224,14 +224,14 @@ namespace CppCLRWinFormsProject {
                 try {
                     if (this->sessionService->DeleteSession(CurrentSessionEntity->GetId()))
                     {
-                        MessageManager::InfoMessage("Sessió eliminada correctament.");
+                        MessageManager::InfoMessage("Sessi\u00F3 eliminada correctament.");
                         this->DisableModifyDeleteSessionButtons();
                         this->LoadEmptySessionPlaceholder();
                         this->Sessions_Actuals_Load();
                     }
                     else
                     {
-                        MessageManager::ErrorMessage("Error eliminant la sessió.");
+                        MessageManager::ErrorMessage("Error eliminant la sessi\u00F3.");
                     }
                 }
                 catch (Exception^ e) {

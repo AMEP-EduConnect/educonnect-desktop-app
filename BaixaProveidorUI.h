@@ -88,11 +88,11 @@ namespace CppCLRWinFormsProject {
 			   this->PageTitleLabel->AutoSize = true;
 			   this->PageTitleLabel->Font = (gcnew System::Drawing::Font(L"Inter", 20.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				   static_cast<System::Byte>(0)));
-			   this->PageTitleLabel->Location = System::Drawing::Point(252, 23);
+			   this->PageTitleLabel->Location = System::Drawing::Point(207, 23);
 			   this->PageTitleLabel->Name = L"PageTitleLabel";
-			   this->PageTitleLabel->Size = System::Drawing::Size(308, 33);
+			   this->PageTitleLabel->Size = System::Drawing::Size(398, 33);
 			   this->PageTitleLabel->TabIndex = 13;
-			   this->PageTitleLabel->Text = L"Donar Baixa Proveïdor";
+			   this->PageTitleLabel->Text = L"Donar Baixa Prove\u00EFdor";
 			   // 
 			   // tableLayoutPanel1
 			   // 
@@ -151,9 +151,9 @@ namespace CppCLRWinFormsProject {
 			   this->BaixaProveidorLabel->ForeColor = System::Drawing::SystemColors::HotTrack;
 			   this->BaixaProveidorLabel->Location = System::Drawing::Point(39, 39);
 			   this->BaixaProveidorLabel->Name = L"BaixaProveidorLabel";
-			   this->BaixaProveidorLabel->Size = System::Drawing::Size(91, 19);
+			   this->BaixaProveidorLabel->Size = System::Drawing::Size(139, 19);
 			   this->BaixaProveidorLabel->TabIndex = 7;
-			   this->BaixaProveidorLabel->Text = L"Proveïdors";
+			   this->BaixaProveidorLabel->Text = L"Prove\u00EFdors";
 			   // 
 			   // Pertany_Label
 			   // 
