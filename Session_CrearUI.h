@@ -77,7 +77,6 @@ namespace CppCLRWinFormsProject {
 	private: ConsultaEspaisService^ consultaEspaisService;
 	private: IniciSessioService^ iniciSessioService;
 	private: System::Windows::Forms::Button^ CreateSession_Button;
-
 	private: DateTime^ FullyFormatedSessionDate;
 
 #pragma region Windows Form Designer generated code

@@ -110,10 +110,7 @@ namespace CppCLRWinFormsProject {
         Noms_ListBox->Items->Clear();
 
         if (arrayIdGroupEstudisOfUser->Length == 0) {
-			consulta_membres->Visible = false;
 			abandonar_button->Visible = false;
-			Editar_Button->Visible = false;
-			Eliminar_Button->Visible = false;
             
             Noms_ListBox->Items->Add("No tens cap grup d'estudi assignat.");
             Noms_ListBox->ForeColor = System::Drawing::Color::Gray;
@@ -171,10 +168,7 @@ namespace CppCLRWinFormsProject {
                                         if (eliminat) {
                                             MessageManager::InfoMessage("Grup eliminat correctament.");
                                             if (not grupEstudiMembershipService->UserInSomeGroup(currentUser->GetUserId())) {
-                                                consulta_membres->Visible = false;
                                                 abandonar_button->Visible = false;
-                                                Editar_Button->Visible = false;
-                                                Eliminar_Button->Visible = false;
                                             }
                                             GrupEstudi_ConsultarUIreload();
                                         }
@@ -237,7 +231,7 @@ namespace CppCLRWinFormsProject {
 
     void GrupEstudi_ConsultarUI::CrearGrupEstudi_Click(System::Object^ sender, System::EventArgs^ e)
     {
-        GrupEstudi_CrearUI^ PanelUI = gcnew GrupEstudi_CrearUI();
+        GrupEstudi_CrearUI^ PanelUI = gcnew GrupEstudi_CrearUI(1);
 		PanelUI->TopLevel = false;
 		PanelUI->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
 		PanelUI->Dock = System::Windows::Forms::DockStyle::Fill;

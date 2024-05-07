@@ -21,7 +21,7 @@ namespace CppCLRWinFormsProject {
 	public ref class GrupEstudi_CrearUI : public System::Windows::Forms::Form
 	{
 	public:
-		GrupEstudi_CrearUI(void);
+		GrupEstudi_CrearUI(bool isSourceIniciUI);
 
 	protected:
 		/// <summary>
@@ -48,7 +48,7 @@ namespace CppCLRWinFormsProject {
 	private: System::Windows::Forms::TextBox^ FormGrupName_TextBox;
 	private: System::Windows::Forms::Label^ AcademicTag_Label;
 	private: System::Windows::Forms::Button^ Cancelar_Button;
-
+	private: bool isSourceIniciUI;
 
 	protected:
 

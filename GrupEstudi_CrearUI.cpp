@@ -6,9 +6,10 @@
 
 namespace CppCLRWinFormsProject {
 
-    GrupEstudi_CrearUI::GrupEstudi_CrearUI(void)
+    GrupEstudi_CrearUI::GrupEstudi_CrearUI(bool isSourceIniciUI)
     {
         InitializeComponent();
+        this->isSourceIniciUI = isSourceIniciUI;
         grupEstudiService = gcnew GrupEstudiService();
         this->Background_PictureBox->Image = Image::FromFile("background.png");
         this->Icon = gcnew System::Drawing::Icon("app.ico");
@@ -48,14 +49,29 @@ namespace CppCLRWinFormsProject {
     }
     System::Void GrupEstudi_CrearUI::Cancelar_Button_Click(System::Object^ sender, System::EventArgs^ e)
     {
-        IniciUI^ PanelUI = gcnew  IniciUI();
+        if (!isSourceIniciUI)
+        {
+            IniciUI^ PanelUI = gcnew  IniciUI();
 
-        PanelUI->TopLevel = false;
-        PanelUI->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
-        PanelUI->Dock = System::Windows::Forms::DockStyle::Fill;
+            PanelUI->TopLevel = false;
+            PanelUI->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
+            PanelUI->Dock = System::Windows::Forms::DockStyle::Fill;
 
-        MainPageUI::Instance->screen->Controls->Clear();
-        MainPageUI::Instance->screen->Controls->Add(PanelUI);
-        PanelUI->Show();
+            MainPageUI::Instance->screen->Controls->Clear();
+            MainPageUI::Instance->screen->Controls->Add(PanelUI);
+            PanelUI->Show();
+        }
+        else {
+            GrupEstudi_ConsultarUI^ PanelUI = gcnew  GrupEstudi_ConsultarUI();
+
+            PanelUI->TopLevel = false;
+            PanelUI->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
+            PanelUI->Dock = System::Windows::Forms::DockStyle::Fill;
+
+            MainPageUI::Instance->screen->Controls->Clear();
+            MainPageUI::Instance->screen->Controls->Add(PanelUI);
+            PanelUI->Show();
+        }
+
     }
 }

@@ -65,6 +65,7 @@ namespace CppCLRWinFormsProject {
 	private: System::Windows::Forms::Button^ DeleteGrupEstudi_Button;
 	private: System::Windows::Forms::Button^ GoBack_Button;
 	private: List<Session^>^ SessionsList;
+	private: bool isSessionLoaded;
 
 
 
@@ -349,6 +350,7 @@ namespace CppCLRWinFormsProject {
 			this->Capacity_Label->Size = System::Drawing::Size(19, 19);
 			this->Capacity_Label->TabIndex = 11;
 			this->Capacity_Label->Text = L"0";
+			this->Capacity_Label->Visible = false;
 			this->Capacity_Label->Click += gcnew System::EventHandler(this, &GrupEstudi_InfoUI::label4_Click);
 			// 
 			// Confirm_Cancel_Attent_Button
@@ -411,10 +413,9 @@ namespace CppCLRWinFormsProject {
 			this->EspaiName_Label->ForeColor = System::Drawing::SystemColors::HotTrack;
 			this->EspaiName_Label->Location = System::Drawing::Point(19, 17);
 			this->EspaiName_Label->Name = L"EspaiName_Label";
-			this->EspaiName_Label->Size = System::Drawing::Size(217, 19);
+			this->EspaiName_Label->Size = System::Drawing::Size(159, 19);
 			this->EspaiName_Label->TabIndex = 0;
-			this->EspaiName_Label->Text = L"Biblioteca Vilanova - Sala 1";
-			this->EspaiName_Label->Visible = false;
+			this->EspaiName_Label->Text = L"No hi ha cap sessió";
 			this->EspaiName_Label->Click += gcnew System::EventHandler(this, &GrupEstudi_InfoUI::label2_Click);
 			// 
 			// panel4
@@ -602,6 +603,8 @@ private: System::Void GoBack_Button_Click(System::Object^ sender, System::EventA
 private: System::Void GrupEstudi_InfoUI_Load(System::Object^ sender, System::EventArgs^ e);
 //private: System::Void SelectLastSessionOrPlaceholder();
 private: System::Void ActivateButtonsIfOwner();
+private: System::Void DisableModifyDeleteSessionButtons();
+private: System::Void LoadEmptySessionPlaceholder();
 private: System::Void InfoGrupEstudi_Label_Click(System::Object^ sender, System::EventArgs^ e) {
 }
 private: System::Void panel1_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
