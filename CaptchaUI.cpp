@@ -28,7 +28,7 @@ namespace CppCLRWinFormsProject {
         {
             int index = rand->Next(chars.size());
             char selectedChar = chars[index];
-            result->Append(Convert::ToChar(selectedChar)); // Convierte explícitamente a Char
+            result->Append(Convert::ToChar(selectedChar));
         }
         return result->ToString();
     }
