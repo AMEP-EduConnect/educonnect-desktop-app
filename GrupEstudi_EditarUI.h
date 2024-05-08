@@ -44,23 +44,9 @@ namespace CppCLRWinFormsProject {
 	private: System::Windows::Forms::Label^ Nom_Label;
 	private: System::Windows::Forms::Panel^ Editar_Panel;
 	private: System::Windows::Forms::TextBox^ EditarDescripcio_TextBox;
-
-
 	private: System::Windows::Forms::Label^ Descripcio_Label;
-
-
-
-
-
-
-
-
-
-
-
 	private: System::Windows::Forms::Button^ Edita_Button;
 	private: System::Windows::Forms::Button^ Cancelar_Button;
-
 	protected:
 
 	private:
@@ -255,10 +241,10 @@ namespace CppCLRWinFormsProject {
 
 		}
 #pragma endregion
-	private: System::Void CancelarButton_Click(System::Object^ sender, System::EventArgs^ e);
-	private: System::Void testEdita_Button(System::Object^ sender, System::EventArgs^ e);
-	private: System::Void GrupEstudi_EditarUI_Load(System::Object^ sender, System::EventArgs^ e) {
-	}
+private: System::Void CancelarButton_Click(System::Object^ sender, System::EventArgs^ e);
+private: System::Void testEdita_Button(System::Object^ sender, System::EventArgs^ e);
+private: System::Void GrupEstudi_EditarUI_Load(System::Object^ sender, System::EventArgs^ e) {
+}
 private: System::Void EduConnect_Label_Click(System::Object^ sender, System::EventArgs^ e) {
 }
 private: System::Void EditarGrupEstudi_Label_Click(System::Object^ sender, System::EventArgs^ e) {

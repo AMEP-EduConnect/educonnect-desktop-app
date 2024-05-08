@@ -115,17 +115,6 @@ Int64^ UsuariRepository::CreateUser(String^ username, String^ email, String^ nam
 	DatabaseConnector::Instance->Disconnect();
 	return id;
 }
-/*
-bool UsuariRepository::CreateUserRol(Int64^ id) {
-	DatabaseConnector::Instance->Connect();
-	String^ sql = "INSERT INTO users_roles (user_id, role_id) VALUES (@id,2)";
-	Dictionary<String^, Object^>^ params = gcnew Dictionary<String^, Object^>(0);
-	params->Add("@id", id->ToString());
-	MySqlDataReader^ data3 = DatabaseConnector::Instance->ExecuteClientCommand(sql,params);
-	data3->Close();
-	DatabaseConnector::Instance->Disconnect();
-	return true;
-}*/
 
 bool UsuariRepository::UpdateUser(String^ username, String^ password, String^ email, String^ name) {
 	Usuari^ currentUser = CurrentSession::Instance->GetCurrentUser();

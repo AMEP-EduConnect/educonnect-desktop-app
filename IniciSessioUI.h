@@ -278,11 +278,11 @@ namespace CppCLRWinFormsProject {
 
 #pragma endregion
 
-	private: System::Void GoBackButton_Click(System::Object^ sender, System::EventArgs^ e);
-	private: System::Void ContinuarIniciSessioButton_Click(System::Object^ sender, System::EventArgs^ e);
+private: System::Void GoBackButton_Click(System::Object^ sender, System::EventArgs^ e);
+private: System::Void ContinuarIniciSessioButton_Click(System::Object^ sender, System::EventArgs^ e);
 
-	private: System::Void IniciSessioUI_Load(System::Object^ sender, System::EventArgs^ e) {
-	}
+private: System::Void IniciSessioUI_Load(System::Object^ sender, System::EventArgs^ e) {
+}
 private: System::Void pictureBox1_Click(System::Object^ sender, System::EventArgs^ e);
 };
 }

@@ -10,8 +10,6 @@ AltaEspaisService::AltaEspaisService()
 	usuari = gcnew Usuari();
 }
 
-
-
 bool AltaEspaisService::CheckNameEspai(String^ name)
 {
 	Usuari^ currentUser = CurrentSession::Instance->GetCurrentUser();

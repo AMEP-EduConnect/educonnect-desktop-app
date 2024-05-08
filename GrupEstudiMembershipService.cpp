@@ -22,11 +22,6 @@ array<Int64^>^ GrupEstudiMembershipService::LoadAllGrupsEstudiNoIn(Int64^ user_i
 	return grupEstudiMembershipRepository->LoadAllGrupsEstudiNoIn(user_id);
 }
 
-//array<GrupEstudi^>^ GrupEstudiMembershipService::LoadAllGrupEstudibyId(Int64^ group_id)
-//{
-//	return grupEstudiMembershipRepository->LoadAllGrupEstudibyId(group_id);
-//}
-
 GrupEstudi^ GrupEstudiMembershipService::LoadAllGrupEstudibyId(Int64^ group_id)
 {
 	return grupEstudiMembershipRepository->LoadAllGrupEstudibyId(group_id);

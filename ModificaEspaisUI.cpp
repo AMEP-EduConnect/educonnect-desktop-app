@@ -20,15 +20,10 @@ namespace CppCLRWinFormsProject {
 		textBox1->Text = capacity;
 		id_espai = espai->GetEspaiId();
 		
-        
-		//this->Background_PictureBox->Image = Image::FromFile("background.png");
 		this->Icon = gcnew System::Drawing::Icon("app.ico");
 
 		this->Cancelar_Button->Visible = true;
 		
-		//ROLS
-		
-
 	}
 
     bool ModificaEspaisUI::NomEspai_TextBox_Validating(String^ nom) {
@@ -46,7 +41,7 @@ namespace CppCLRWinFormsProject {
     }
 
     bool ModificaEspaisUI::IsValidCapacitat(String^ capacitat) {
-        // Esta expresión regular coincide solo con cadenas que son números enteros no negativos.
+        //TODO: Esta expresión regular coincide solo con cadenas que son números enteros no negativos.
         String^ pattern = "^[0-9]+$";
         System::Text::RegularExpressions::Regex^ regex = gcnew System::Text::RegularExpressions::Regex(pattern);
         return regex->IsMatch(capacitat);
@@ -71,7 +66,7 @@ namespace CppCLRWinFormsProject {
     {
         if(this->button1->Text == L"Confirmar")
         {
-            this->label6->Text = L"Informació de " + espai->GetName();
+            this->label6->Text = L"Informaci\u00F3 de " + espai->GetName();
             String^ nom = textBox3->Text;
             String^ capacitatText = textBox1->Text;
             bool incorrecte = false;
@@ -101,7 +96,7 @@ namespace CppCLRWinFormsProject {
                     this->modificaEspaisService->UpdateEspai(nom, capacitat, id_espai);
                     MessageManager::InfoMessage("Espai modificat!");
                     espai = this->modificaEspaisService->GetEspaiByName(nom);
-                    this->label6->Text = L"Informació de " + espai->GetName();
+                    this->label6->Text = L"Informaci\u00F3 de " + espai->GetName();
                     this->textBox3->Text = nom;
                     this->textBox1->Text = capacitatText;
                     this->button1->Text = L"Modifica";
@@ -123,7 +118,7 @@ namespace CppCLRWinFormsProject {
         }
         else {
            this->button1->Text = L"Confirmar";
-           this->label6->Text = L"Modificació de " + espai->GetName();
+           this->label6->Text = L"Modificaci\u00F3 de " + espai->GetName();
            textBox3->Enabled = true;
            textBox1->Enabled = true;
            this->textBox1->BackColor = SystemColors::Window;
@@ -145,7 +140,7 @@ namespace CppCLRWinFormsProject {
 
     System::Void ModificaEspaisUI::Button_Cancelar_Edita_Click(System::Object^ sender, System::EventArgs^ e)
     {
-        this->label6->Text = L"Informació de " + espai->GetName();
+        this->label6->Text = L"Informaci\u00F3 de " + espai->GetName();
         this->Button_Cancelar_Edita->Visible = false;
         this->button1->Text = L"Modificar";
         String^ name = espai->GetName();

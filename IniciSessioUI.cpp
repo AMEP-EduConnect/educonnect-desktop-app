@@ -25,10 +25,10 @@ namespace CppCLRWinFormsProject {
 
             bool check = inici.CheckUsername(username, password);
             
-            //CaptchaUI^ form = gcnew CaptchaUI();
-            //form->ShowDialog();
-            //REMOVE StartPageUI::Instance->captcha_ok TO AVOID CAPTCHA
-            if (check == true){ // and StartPageUI::Instance->captcha_ok) {
+            CaptchaUI^ form = gcnew CaptchaUI();
+            form->ShowDialog();
+            StartPageUI::Instance->captcha_ok;
+            if (check == true and StartPageUI::Instance->captcha_ok) {
                 StartPageUI::Instance->Hide();
                 MainPageUI::Instance = gcnew MainPageUI();
                 MainPageUI::Instance->ShowDialog();

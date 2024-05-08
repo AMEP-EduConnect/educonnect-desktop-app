@@ -50,24 +50,14 @@ namespace CppCLRWinFormsProject {
 	private: System::Windows::Forms::Panel^ NewSessionInput_Panel;
 	private: System::Windows::Forms::TextBox^ SessionName_TextBox;
 	private: System::Windows::Forms::MonthCalendar^ DayMonth_Calendar;
-
-
-
-
 	private: System::Windows::Forms::ListBox^ Proveidor_ListBox;
-
 	private: System::Windows::Forms::Label^ SessionName_Label;
 	private: System::Windows::Forms::ComboBox^ TimeHour_ComboBox;
-
 	private: System::Windows::Forms::Label^ Espai_Label;
 	private: System::Windows::Forms::Label^ Proveidor_Label;
 	private: System::Windows::Forms::ComboBox^ Espai_ComboBox;
 	private: System::Windows::Forms::Label^ label2;
-
 	private: System::Windows::Forms::Button^ GoBack_Button;
-
-
-
 
 	private: GrupEstudi^ CurrentGrupEntity;
 	private: Session^ CurrentSessionEntity;

@@ -35,7 +35,6 @@ namespace CppCLRWinFormsProject {
 			this->Email_TextBox->Validating += gcnew System::ComponentModel::CancelEventHandler(this, &RegistreUsuariUI::Email_TextBox_Validating);
 			this->Contrasenya_TextBox->Validating += gcnew System::ComponentModel::CancelEventHandler(this, &RegistreUsuariUI::textBoxPassword_Validating);
 			this->Icon = gcnew System::Drawing::Icon("app.ico");
-			//this->Background_PictureBox->Image = Image::FromFile("background.png");
 			this->EmplenaTots->Visible = false;
 
 		}
@@ -55,49 +54,24 @@ namespace CppCLRWinFormsProject {
 				delete components;
 			}
 		}
-
 	private: RegistreService^ registreService;
-
 	private: System::Windows::Forms::Label^ NomUsuari_Label;
 	private: System::Windows::Forms::TextBox^ NomUsuari_TextBox;
 	private: System::Windows::Forms::Panel^ Main_Panel;
 	private: System::Windows::Forms::Button^ Continuar_Button;
 	private: System::Windows::Forms::TextBox^ Contrasenya_TextBox;
-
-
 	private: System::Windows::Forms::TextBox^ Nom_TextBox;
 	private: System::Windows::Forms::Label^ Contrasenya_Label;
-
-
 	private: System::Windows::Forms::Label^ Email_Label;
 	private: System::Windows::Forms::TextBox^ Email_TextBox;
 	private: System::Windows::Forms::Label^ Nom_Label;
-
-
-
-
-
 	private: System::Windows::Forms::Button^ GoBack_Button;
 	private: System::Windows::Forms::Label^ label1;
 	private: System::Windows::Forms::Label^ IniciarSessio_Label;
 	private: System::Windows::Forms::PictureBox^ pictureBox1;
 	private: System::Windows::Forms::Label^ label2;
 	private: System::Windows::Forms::Label^ label3;
-
-
 	private: System::Windows::Forms::Label^ EmplenaTots;
-
-
-
-
-
-
-
-
-
-
-
-
 	protected:
 
 	private:
@@ -373,15 +347,12 @@ namespace CppCLRWinFormsProject {
 		}
 #pragma endregion
 
-	private: System::Void ContinuarRegistreButton_Click(System::Object^ sender, System::EventArgs^ e);
-
-	private: System::Void GoBackButton_Click(System::Object^ sender, System::EventArgs^ e);
-
-
-	private: System::Void RegistreUsuariUI_Load(System::Object^ sender, System::EventArgs^ e) {
-	}
+private: System::Void ContinuarRegistreButton_Click(System::Object^ sender, System::EventArgs^ e);
+private: System::Void GoBackButton_Click(System::Object^ sender, System::EventArgs^ e);
+private: System::Void RegistreUsuariUI_Load(System::Object^ sender, System::EventArgs^ e) {
+}
 private: System::Void pictureBox1_Click(System::Object^ sender, System::EventArgs^ e);
-	   Void pictureBox1_MouseDown(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e);
+	Void pictureBox1_MouseDown(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e);
 
 };
 }

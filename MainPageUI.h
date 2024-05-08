@@ -34,8 +34,6 @@ namespace CppCLRWinFormsProject {
 		}
 
 	public:
-
-		//MAIN PANEL
 		System::Windows::Forms::Panel^ screen;
 
 	private:
@@ -58,9 +56,6 @@ namespace CppCLRWinFormsProject {
 		System::Windows::Forms::Panel^ panel6;
 		System::Windows::Forms::Button^ BotoEspais;
 		System::Windows::Forms::Panel^ panel7;
-
-
-
 	private:
 		/// <summary>
 		/// Required designer variable.
@@ -389,18 +384,18 @@ namespace CppCLRWinFormsProject {
 
 		}
 #pragma endregion
-	private:
+private:
 
-		System::Void MainPageUI_Load(System::Object^ sender, System::EventArgs^ e);
+	System::Void MainPageUI_Load(System::Object^ sender, System::EventArgs^ e);
 
-		System::Void Tancar_Sessio_Click(System::Object^ sender, System::EventArgs^ e);
-		System::Void Perfil_Click(System::Object^ sender, System::EventArgs^ e);
+	System::Void Tancar_Sessio_Click(System::Object^ sender, System::EventArgs^ e);
+	System::Void Perfil_Click(System::Object^ sender, System::EventArgs^ e);
 
-		System::Void BotoInici_Click(System::Object^ sender, System::EventArgs^ e);
-		System::Void Admin_Click(System::Object^ sender, System::EventArgs^ e);
-		System::Void ElsMeus_Click(System::Object^ sender, System::EventArgs^ e);
-		System::Void BotoExplorar_Click(System::Object^ sender, System::EventArgs^ e);
-		System::Void BotoEspais_Click(System::Object^ sender, System::EventArgs^ e);
+	System::Void BotoInici_Click(System::Object^ sender, System::EventArgs^ e);
+	System::Void Admin_Click(System::Object^ sender, System::EventArgs^ e);
+	System::Void ElsMeus_Click(System::Object^ sender, System::EventArgs^ e);
+	System::Void BotoExplorar_Click(System::Object^ sender, System::EventArgs^ e);
+	System::Void BotoEspais_Click(System::Object^ sender, System::EventArgs^ e);
 
 };
 }
