@@ -46,7 +46,6 @@ namespace CppCLRWinFormsProject {
             System::Collections::Generic::IEnumerator<Session^>^ enumerator = SessionsList->GetEnumerator();
             if (Sessions_ListBox->SelectedIndex != -1)
             {
-                // Cas
                 int select_index = Sessions_ListBox->SelectedIndex;
 
                 int i = 0;

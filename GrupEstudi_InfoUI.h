@@ -210,7 +210,7 @@ namespace CppCLRWinFormsProject {
 			this->label2->Name = L"label2";
 			this->label2->Size = System::Drawing::Size(113, 25);
 			this->label2->TabIndex = 19;
-			this->label2->Text = L"Descripció";
+			this->label2->Text = L"Descripci\u00F3";
 			// 
 			// DescGrupEstudi_Label
 			// 
@@ -463,7 +463,7 @@ namespace CppCLRWinFormsProject {
 			this->NewSession_Button->Name = L"NewSession_Button";
 			this->NewSession_Button->Size = System::Drawing::Size(235, 43);
 			this->NewSession_Button->TabIndex = 11;
-			this->NewSession_Button->Text = L"Nova sessió";
+			this->NewSession_Button->Text = L"Nova sessi\u00F3";
 			this->NewSession_Button->UseVisualStyleBackColor = true;
 			this->NewSession_Button->Visible = false;
 			this->NewSession_Button->Click += gcnew System::EventHandler(this, &GrupEstudi_InfoUI::NewSession_Button_Click);
