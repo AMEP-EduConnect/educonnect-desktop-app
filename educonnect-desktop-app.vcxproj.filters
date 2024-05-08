@@ -35,13 +35,7 @@
     </ResourceCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Resource.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="pch.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="MainPageUI.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Utils.h">
@@ -116,25 +110,115 @@
     <ClInclude Include="InformacioPersonal_ConsultaUI.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="InformacioPersonal_ModificaUI.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ProveidorRepository.h">
-      <Filter>Source Files\repositories</Filter>
-    </ClInclude>
     <ClInclude Include="AltaProveidorService.h">
       <Filter>Source Files\services</Filter>
     </ClInclude>
     <ClInclude Include="AltaProveidorUI.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="PerfilPersonalModificaService.h">
-      <Filter>Source Files\services</Filter>
-    </ClInclude>
     <ClInclude Include="BaixaProveidorUI.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="BaixaProveidorService.h">
+      <Filter>Source Files\services</Filter>
+    </ClInclude>
+    <ClInclude Include="BaixaUsuariService.h">
+      <Filter>Source Files\services</Filter>
+    </ClInclude>
+    <ClInclude Include="BaixaUsuariUI.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="AdministradorUI.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CurrentSession.h">
+      <Filter>Source Files\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="UsuariRolRepository.h">
+      <Filter>Source Files\repositories</Filter>
+    </ClInclude>
+    <ClInclude Include="UsuariRol.h">
+      <Filter>Source Files\entities</Filter>
+    </ClInclude>
+    <ClInclude Include="IniciUI.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CredentialManagementService.h">
+      <Filter>Source Files\services</Filter>
+    </ClInclude>
+    <ClInclude Include="CaptchaUI.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="StartPageUI.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>Resource Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PerfilPersonalModificaService.h">
+      <Filter>Source Files\services</Filter>
+    </ClInclude>
+    <ClInclude Include="Espai.h">
+      <Filter>Source Files\entities</Filter>
+    </ClInclude>
+    <ClInclude Include="AltaEspaisService.h">
+      <Filter>Source Files\services</Filter>
+    </ClInclude>
+    <ClInclude Include="AltaEspaisUI.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EspaisRepository.h">
+      <Filter>Source Files\repositories</Filter>
+    </ClInclude>
+    <ClInclude Include="ConsultaEspaisUI.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ConsultaEspaisService.h">
+      <Filter>Source Files\services</Filter>
+    </ClInclude>
+    <ClInclude Include="EliminarEspaisService.h">
+      <Filter>Source Files\services</Filter>
+    </ClInclude>
+    <ClInclude Include="GrupEstudi_MembresUI.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GrupEstudi_ExplorarUI.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MainPageUI.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GrupEstudi_InfoUI.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Session_CrearUI.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SessionRepository.h">
+      <Filter>Source Files\repositories</Filter>
+    </ClInclude>
+    <ClInclude Include="Session.h">
+      <Filter>Source Files\entities</Filter>
+    </ClInclude>
+    <ClInclude Include="SessionService.h">
+      <Filter>Source Files\services</Filter>
+    </ClInclude>
+    <ClInclude Include="Session_EditarUI.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GrupSessionAttendant.h">
+      <Filter>Source Files\entities</Filter>
+    </ClInclude>
+    <ClInclude Include="GrupSessionAttendantsRepository.h">
+      <Filter>Source Files\repositories</Filter>
+    </ClInclude>
+    <ClInclude Include="GrupSessionAttendantsService.h">
+      <Filter>Source Files\services</Filter>
+    </ClInclude>
+    <ClInclude Include="ModificaEspaisUI.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ModificaEspaisService.h">
       <Filter>Source Files\services</Filter>
     </ClInclude>
   </ItemGroup>
@@ -147,9 +231,6 @@
     </ClCompile>
     <ClCompile Include="Utils.cpp">
       <Filter>Source Files\utils</Filter>
-    </ClCompile>
-    <ClCompile Include="MainPageUI.cpp">
-      <Filter>Source Files\ui</Filter>
     </ClCompile>
     <ClCompile Include="DatabaseConnector.cpp">
       <Filter>Source Files\utils</Filter>
@@ -229,14 +310,8 @@
     <ClCompile Include="InformacioPersonal_ConsultaUI.cpp">
       <Filter>Source Files\ui</Filter>
     </ClCompile>
-    <ClCompile Include="InformacioPersonal_ModificaUI.cpp">
-      <Filter>Source Files\ui</Filter>
-    </ClCompile>
     <ClCompile Include="PerfilPersonalConsultaService.cpp">
       <Filter>Source Files\services</Filter>
-    </ClCompile>
-    <ClCompile Include="ProveidorRepository.cpp">
-      <Filter>Source Files\repositories</Filter>
     </ClCompile>
     <ClCompile Include="AltaProveidorService.cpp">
       <Filter>Source Files\services</Filter>
@@ -244,13 +319,112 @@
     <ClCompile Include="AltaProveidorUI.cpp">
       <Filter>Source Files\ui</Filter>
     </ClCompile>
-    <ClCompile Include="PerfilPersonalModificaService.cpp">
-      <Filter>Source Files\services</Filter>
-    </ClCompile>
     <ClCompile Include="BaixaProveidorUI.cpp">
       <Filter>Source Files\ui</Filter>
     </ClCompile>
     <ClCompile Include="BaixaProveidorService.cpp">
+      <Filter>Source Files\services</Filter>
+    </ClCompile>
+    <ClCompile Include="BaixaUsuariService.cpp">
+      <Filter>Source Files\services</Filter>
+    </ClCompile>
+    <ClCompile Include="BaixaUsuariUI.cpp">
+      <Filter>Source Files\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="UsuariRolRepository.cpp">
+      <Filter>Source Files\repositories</Filter>
+    </ClCompile>
+    <ClCompile Include="UsuariRol.cpp">
+      <Filter>Source Files\entities</Filter>
+    </ClCompile>
+    <ClCompile Include="AdministradorUI.cpp">
+      <Filter>Source Files\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="IniciUI.cpp">
+      <Filter>Source Files\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="CredentialManagementService.cpp">
+      <Filter>Source Files\services</Filter>
+    </ClCompile>
+    <ClCompile Include="PerfilPersonalModificaService.cpp">
+      <Filter>Source Files\services</Filter>
+    </ClCompile>
+    <ClCompile Include="CaptchaUI.cpp">
+      <Filter>Source Files\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="StartPageUI.cpp">
+      <Filter>Source Files\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="GrupEstudi_MembresUI.cpp">
+      <Filter>Source Files\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="GrupEstudi_ExplorarUI.cpp">
+      <Filter>Source Files\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="MainPageUI.cpp">
+      <Filter>Source Files\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="GrupEstudi_MembresUI.cpp">
+      <Filter>Source Files\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="GrupEstudi_ExplorarUI.cpp">
+      <Filter>Source Files\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="Espai.cpp">
+      <Filter>Source Files\entities</Filter>
+    </ClCompile>
+    <ClCompile Include="AltaEspaisService.cpp">
+      <Filter>Source Files\services</Filter>
+    </ClCompile>
+    <ClCompile Include="AltaEspaisUI.cpp">
+      <Filter>Source Files\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="EspaisRepository.cpp">
+      <Filter>Source Files\repositories</Filter>
+    </ClCompile>
+    <ClCompile Include="ConsultaEspaisService.cpp">
+      <Filter>Source Files\services</Filter>
+    </ClCompile>
+    <ClCompile Include="ConsultaEspaisUI.cpp">
+      <Filter>Source Files\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="EliminarEspaisService.cpp">
+      <Filter>Source Files\services</Filter>
+    </ClCompile>
+    <ClCompile Include="GrupEstudi_InfoUI.cpp">
+      <Filter>Source Files\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="ModificaEspaisUI.cpp">
+      <Filter>Source Files\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="ModificaEspaisService.cpp">
+      <Filter>Source Files\services</Filter>
+    </ClCompile>
+    <ClCompile Include="GrupEstudi_MembresUI.cpp">
+      <Filter>Source Files\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="Session_CrearUI.cpp">
+      <Filter>Source Files\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="SessionService.cpp">
+      <Filter>Source Files\services</Filter>
+    </ClCompile>
+    <ClCompile Include="SessionRepository.cpp">
+      <Filter>Source Files\repositories</Filter>
+    </ClCompile>
+    <ClCompile Include="Session.cpp">
+      <Filter>Source Files\entities</Filter>
+    </ClCompile>
+    <ClCompile Include="Session_EditarUI.cpp">
+      <Filter>Source Files\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="GrupSessionAttendant.cpp">
+      <Filter>Source Files\entities</Filter>
+    </ClCompile>
+    <ClCompile Include="GrupSessionAttendantsRepository.cpp">
+      <Filter>Source Files\repositories</Filter>
+    </ClCompile>
+    <ClCompile Include="GrupSessionAttendantsService.cpp">
       <Filter>Source Files\services</Filter>
     </ClCompile>
   </ItemGroup>
@@ -266,5 +440,16 @@
     <Xml Include="credentials.xml">
       <Filter>Resource Files</Filter>
     </Xml>
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="resources\San-Francisco-Pro-Fonts\SF-Pro.ttf">
+      <Filter>Resource Files</Filter>
+    </Font>
+    <Font Include="resources\San-Francisco-Pro-Fonts\SF-Pro-Display-Regular.ttf">
+      <Filter>Resource Files</Filter>
+    </Font>
+    <Font Include="resources\Inter\Inter-VariableFont_slnt,wght.ttf">
+      <Filter>Resource Files</Filter>
+    </Font>
   </ItemGroup>
 </Project>
