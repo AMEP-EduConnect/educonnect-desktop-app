@@ -182,9 +182,9 @@ namespace CppCLRWinFormsProject {
 			this->Descripcio_Label->ForeColor = System::Drawing::SystemColors::HotTrack;
 			this->Descripcio_Label->Location = System::Drawing::Point(27, 98);
 			this->Descripcio_Label->Name = L"Descripcio_Label";
-			this->Descripcio_Label->Size = System::Drawing::Size(158, 19);
+			this->Descripcio_Label->Size = System::Drawing::Size(203, 19);
 			this->Descripcio_Label->TabIndex = 4;
-			this->Descripcio_Label->Text = L"Descripció del grup";
+			this->Descripcio_Label->Text = L"Descripci\u00F3 del grup";
 			// 
 			// Cancelar_Button
 			// 

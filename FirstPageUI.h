@@ -124,7 +124,7 @@ namespace CppCLRWinFormsProject {
 			this->IniciSessio_Button->Name = L"IniciSessio_Button";
 			this->IniciSessio_Button->Size = System::Drawing::Size(371, 61);
 			this->IniciSessio_Button->TabIndex = 13;
-			this->IniciSessio_Button->Text = L"Iniciar Sessió";
+			this->IniciSessio_Button->Text = L"Iniciar Sessi\u00F3";
 			this->IniciSessio_Button->UseVisualStyleBackColor = true;
 			this->IniciSessio_Button->Click += gcnew System::EventHandler(this, &FirstPageUI::IniciSessioButton_Click);
 			// 

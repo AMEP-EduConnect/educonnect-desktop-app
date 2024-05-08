@@ -128,8 +128,7 @@ namespace CppCLRWinFormsProject {
 			this->BotoLogout->Name = L"BotoLogout";
 			this->BotoLogout->Size = System::Drawing::Size(146, 41);
 			this->BotoLogout->TabIndex = 2;
-			//FIXME: cambiar por sortir
-			this->BotoLogout->Text = L"Tancar sessió";
+			this->BotoLogout->Text = L"Tancar sessi\u00F3";
 			this->BotoLogout->TextAlign = System::Drawing::ContentAlignment::MiddleRight;
 			this->BotoLogout->UseVisualStyleBackColor = true;
 			this->BotoLogout->Click += gcnew System::EventHandler(this, &MainPageUI::Tancar_Sessio_Click);

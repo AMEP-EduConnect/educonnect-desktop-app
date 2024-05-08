@@ -21,7 +21,7 @@ namespace CppCLRWinFormsProject {
 	public ref class GrupEstudi_CrearUI : public System::Windows::Forms::Form
 	{
 	public:
-		GrupEstudi_CrearUI(void);
+		GrupEstudi_CrearUI(bool isSourceIniciUI);
 
 	protected:
 		/// <summary>
@@ -48,7 +48,7 @@ namespace CppCLRWinFormsProject {
 	private: System::Windows::Forms::TextBox^ FormGrupName_TextBox;
 	private: System::Windows::Forms::Label^ AcademicTag_Label;
 	private: System::Windows::Forms::Button^ Cancelar_Button;
-
+	private: bool isSourceIniciUI;
 
 	protected:
 
@@ -189,9 +189,9 @@ namespace CppCLRWinFormsProject {
 			this->GrupDescription_Label->ForeColor = System::Drawing::SystemColors::HotTrack;
 			this->GrupDescription_Label->Location = System::Drawing::Point(20, 168);
 			this->GrupDescription_Label->Name = L"GrupDescription_Label";
-			this->GrupDescription_Label->Size = System::Drawing::Size(90, 19);
+			this->GrupDescription_Label->Size = System::Drawing::Size(135, 19);
 			this->GrupDescription_Label->TabIndex = 7;
-			this->GrupDescription_Label->Text = L"Descripció";
+			this->GrupDescription_Label->Text = L"Descripci\u00F3";
 			// 
 			// AcademicTag_ComboBox
 			// 
@@ -269,5 +269,6 @@ namespace CppCLRWinFormsProject {
 private: System::Void tableLayoutPanel1_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
 }
 private: System::Void Cancelar_Button_Click(System::Object^ sender, System::EventArgs^ e);
+
 };
 }

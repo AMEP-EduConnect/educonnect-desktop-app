@@ -184,9 +184,9 @@ namespace CppCLRWinFormsProject {
 				static_cast<System::Byte>(0)));
 			this->label3->Location = System::Drawing::Point(32, 289);
 			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(225, 19);
+			this->label3->Size = System::Drawing::Size(307, 19);
 			this->label3->TabIndex = 25;
-			this->label3->Text = L"caràcters especials i números.";
+			this->label3->Text = L"car\u00E0cters especials i n\u00FAmeros.";
 			// 
 			// label2
 			// 
@@ -196,9 +196,9 @@ namespace CppCLRWinFormsProject {
 				static_cast<System::Byte>(0)));
 			this->label2->Location = System::Drawing::Point(32, 270);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(251, 19);
+			this->label2->Size = System::Drawing::Size(333, 19);
 			this->label2->TabIndex = 23;
-			this->label2->Text = L"Ha de contenir 8 o més caràcters, ";
+			this->label2->Text = L"Ha de contenir 8 o m\u00E9s car\u00E0cters, ";
 			// 
 			// pictureBox1
 			// 
@@ -212,7 +212,6 @@ namespace CppCLRWinFormsProject {
 			this->pictureBox1->TabIndex = 23;
 			this->pictureBox1->TabStop = false;
 			this->pictureBox1->Click += gcnew System::EventHandler(this, &RegistreUsuariUI::pictureBox1_Click);
-			this->pictureBox1->MouseDown += gcnew MouseEventHandler(this, &RegistreUsuariUI::pictureBox1_MouseDown);
 			// 
 			// GoBack_Button
 			// 
@@ -282,9 +281,9 @@ namespace CppCLRWinFormsProject {
 			this->Email_Label->ForeColor = System::Drawing::SystemColors::HotTrack;
 			this->Email_Label->Location = System::Drawing::Point(32, 89);
 			this->Email_Label->Name = L"Email_Label";
-			this->Email_Label->Size = System::Drawing::Size(141, 19);
+			this->Email_Label->Size = System::Drawing::Size(185, 19);
 			this->Email_Label->TabIndex = 10;
-			this->Email_Label->Text = L"Correu electrònic";
+			this->Email_Label->Text = L"Correu electr\u00F2nic";
 			// 
 			// Email_TextBox
 			// 

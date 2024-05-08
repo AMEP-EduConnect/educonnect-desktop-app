@@ -310,11 +310,12 @@ namespace CppCLRWinFormsProject {
 			   this->PageTitleLabel->AutoSize = true;
 			   this->PageTitleLabel->Font = (gcnew System::Drawing::Font(L"Inter", 20.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				   static_cast<System::Byte>(0)));
-			   this->PageTitleLabel->Location = System::Drawing::Point(251, 23);
+			   this->PageTitleLabel->Location = System::Drawing::Point(206, 23);
 			   this->PageTitleLabel->Name = L"PageTitleLabel";
-			   this->PageTitleLabel->Size = System::Drawing::Size(309, 33);
+			   this->PageTitleLabel->Size = System::Drawing::Size(399, 33);
 			   this->PageTitleLabel->TabIndex = 19;
-			   this->PageTitleLabel->Text = L"Donar d\'Alta Proveïdor";
+			   this->PageTitleLabel->Text = L"Donar d\'Alta Prove\u00EFdor";
+			   this->PageTitleLabel->Click += gcnew System::EventHandler(this, &AltaProveidorUI::PageTitleLabel_Click);
 			   // 
 			   // AltaProveidorUI
 			   // 
@@ -338,5 +339,7 @@ namespace CppCLRWinFormsProject {
 #pragma endregion
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e);
 	private: System::Void Cancelar_Button_Click(System::Object^ sender, System::EventArgs^ e);
+private: System::Void PageTitleLabel_Click(System::Object^ sender, System::EventArgs^ e) {
+}
 };
 }
