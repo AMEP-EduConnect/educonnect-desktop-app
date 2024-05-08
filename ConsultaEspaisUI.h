@@ -34,9 +34,6 @@ namespace CppCLRWinFormsProject {
 			this->Icon = gcnew System::Drawing::Icon("app.ico");
 		}
 
-
-
-
 	protected:
 		/// <summary>
 		/// Limpiar los recursos que se est�n usando.
@@ -48,8 +45,6 @@ namespace CppCLRWinFormsProject {
 				delete components;
 			}
 		}
-
-
 
 	private: ConsultaEspaisService^ consultaEspaisService;
 	private: EliminarEspaisService^ eliminarEspaisService;

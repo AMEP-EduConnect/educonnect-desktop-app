@@ -18,21 +18,14 @@ namespace CppCLRWinFormsProject {
             static_cast<System::Int32>(static_cast<System::Byte>(224)));
         this->EditarDescripcio_TextBox->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(224)), static_cast<System::Int32>(static_cast<System::Byte>(224)),
             static_cast<System::Int32>(static_cast<System::Byte>(224)));
-        //this->NomActual_TextBox->ReadOnly = true;
         this->NomActual_TextBox->Enabled = false;
-        //this->NomActual_TextBox->BorderStyle = System::Windows::Forms::BorderStyle::None;
-        //this->EditarDescripcio_TextBox->BorderStyle = System::Windows::Forms::BorderStyle::None;
         this->EditarDescripcio_TextBox->Multiline = true;
-        //this->EditarDescripcio_TextBox->WordWrap = true;
-        //this->EditarDescripcio_TextBox->ReadOnly = true;
         this->EditarDescripcio_TextBox->Enabled = false;
-        //this->Background_PictureBox->Image = Image::FromFile("background.png");
         this->Icon = gcnew System::Drawing::Icon("app.ico");
     }
 
     void GrupEstudi_EditarUI::CancelarButton_Click(System::Object^ sender, System::EventArgs^ e)
     {
-        //GrupEstudi_ConsultarUI^ PanelUI = gcnew GrupEstudi_ConsultarUI();
         GrupEstudi_InfoUI^ PanelUI = gcnew GrupEstudi_InfoUI(nomActual);
 
         PanelUI->TopLevel = false;
@@ -53,7 +46,7 @@ namespace CppCLRWinFormsProject {
             Int64^ currentUser_id = currentUser->GetUserId();
             bool owner = grupEstudiService->CheckUserIsOwner(nomActual);
 
-			this->NomActual_TextBox->BackColor = SystemColors::Window;
+            this->NomActual_TextBox->BackColor = SystemColors::Window;
             this->EditarDescripcio_TextBox->BackColor = SystemColors::Window;
             NomActual_TextBox->Enabled = true;
             EditarDescripcio_TextBox->Enabled = true;
@@ -70,7 +63,6 @@ namespace CppCLRWinFormsProject {
                 if (EditarDescripcio_TextBox->Text != descripcioActual) {
                     grupEstudiService->ModifyGroupDescription(nomActual, EditarDescripcio_TextBox->Text);
                     checkD = true;
-                    //MessageManager::InfoMessage("Descripció del grup modificat correctament.");
                 }
 
                 if (NomActual_TextBox->Text != nomActual) {
@@ -78,7 +70,6 @@ namespace CppCLRWinFormsProject {
                         try {
                             grupEstudiService->ModifyGroupName(nomActual, NomActual_TextBox->Text);
                             checkN = true;
-                            //MessageManager::InfoMessage("Nom del grup modificat correctament.");
                         }
                         catch (Exception^ e) {
                             MessageManager::ErrorMessage(e->Message);
@@ -89,10 +80,6 @@ namespace CppCLRWinFormsProject {
                         MessageManager::WarningMessage("Ja existeix un grup amb aquest nom.");
                     }
                 }
-
-                /*if (EditarDescripcio_TextBox->Text == descripcioActual and NomActual_TextBox->Text == nomActual) {
-                    MessageManager::InfoMessage("No s'ha modificat cap camp.");
-                }*/
 
                 if (checkD == true and checkN == false) {
                     MessageManager::InfoMessage("Descripció del grup modificada correctament.");
@@ -126,7 +113,6 @@ namespace CppCLRWinFormsProject {
 
                     nomActual = NomActual_TextBox->Text;
                     descripcioActual = EditarDescripcio_TextBox->Text;
-                    //CancelarButton_Click(sender, e);
                 }
                 else if (checkN == true and checkD == true) {
                     MessageManager::InfoMessage("Nom i descripció del grup modificats correctament.");
@@ -143,26 +129,7 @@ namespace CppCLRWinFormsProject {
 
                     nomActual = NomActual_TextBox->Text;
                     descripcioActual = EditarDescripcio_TextBox->Text;
-                    //CancelarButton_Click(sender, e);
                 }
-
-                /*else if (checkN == false and checkD == false) {
-                    //MessageManager::InfoMessage("No s'ha modificat cap camp.");
-					this->NomActual_TextBox->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(224)), static_cast<System::Int32>(static_cast<System::Byte>(224)),
-                        						static_cast<System::Int32>(static_cast<System::Byte>(224)));
-					this->EditarDescripcio_TextBox->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(224)), static_cast<System::Int32>(static_cast<System::Byte>(224)),
-                        						static_cast<System::Int32>(static_cast<System::Byte>(224)));
-
-					this->NomActual_TextBox->Enabled = false;
-					this->EditarDescripcio_TextBox->Enabled = false;
-
-					Cancelar_Button->Visible = true;
-					Edita_Button->Text = "Modificar";
-
-					nomActual = NomActual_TextBox->Text;
-					descripcioActual = EditarDescripcio_TextBox->Text;
-					//CancelarButton_Click(sender, e);
-                }*/
             }
         }
         else {

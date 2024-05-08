@@ -23,7 +23,6 @@ namespace CppCLRWinFormsProject {
 		AltaProveidorUI(void) {
 			InitializeComponent();
 			altaProveidorService = gcnew AltaProveidorService();
-			//this->Background_PictureBox->Image = Image::FromFile("background.png");
 			this->textBox3->Validating += gcnew System::ComponentModel::CancelEventHandler(this, &AltaProveidorUI::NomUsuari_TextBox_Validating);
 			this->textBox2->Validating += gcnew System::ComponentModel::CancelEventHandler(this, &AltaProveidorUI::Email_TextBox_Validating);
 			this->textBox5->Validating += gcnew System::ComponentModel::CancelEventHandler(this, &AltaProveidorUI::textBoxPassword_Validating);
@@ -66,25 +65,13 @@ namespace CppCLRWinFormsProject {
 	private: System::Windows::Forms::Label^ label3;
 	private: System::Windows::Forms::Label^ label4;
 	private: System::Windows::Forms::Label^ label5;
-
-
-
-
-
-
-
 	private: System::Windows::Forms::TableLayoutPanel^ tableLayoutPanel1;
 	private: System::Windows::Forms::TableLayoutPanel^ tableLayoutPanel2;
 	private: System::Windows::Forms::TableLayoutPanel^ tableLayoutPanel3;
 	private: System::Windows::Forms::Button^ Cancelar_Button;
 	private: System::Windows::Forms::Label^ PageTitleLabel;
 
-
-
-
-
-
-		   System::ComponentModel::Container^ components;
+	System::ComponentModel::Container^ components;
 
 #pragma region Windows Form Designer generated code
 		   /// <summary>
@@ -337,8 +324,8 @@ namespace CppCLRWinFormsProject {
 
 		   }
 #pragma endregion
-	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e);
-	private: System::Void Cancelar_Button_Click(System::Object^ sender, System::EventArgs^ e);
+private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e);
+private: System::Void Cancelar_Button_Click(System::Object^ sender, System::EventArgs^ e);
 private: System::Void PageTitleLabel_Click(System::Object^ sender, System::EventArgs^ e) {
 }
 };

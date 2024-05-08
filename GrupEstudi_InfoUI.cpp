@@ -77,7 +77,7 @@ namespace CppCLRWinFormsProject {
                 }
                 else {
                     this->Confirm_Cancel_Attent_Button->Enabled = true;
-                    this->Confirm_Cancel_Attent_Button->Text = L"Cancel·lar Asistència";
+                    this->Confirm_Cancel_Attent_Button->Text = L"Cancel\u00B7lar Asist\u00E8ncia";
                 }
                 
             }
@@ -179,7 +179,7 @@ namespace CppCLRWinFormsProject {
             }
             else {
                 this->Confirm_Cancel_Attent_Button->Enabled = true;
-                this->Confirm_Cancel_Attent_Button->Text = L"Cancel·lar Asist\u00E8ncia";
+                this->Confirm_Cancel_Attent_Button->Text = L"Cancel\u00B7lar Asist\u00E8ncia";
             }
             
         }
@@ -199,7 +199,7 @@ namespace CppCLRWinFormsProject {
            Int64^ currentSessionCapacity = grupSessionAttendantsService->GetSessionAttendantsCount(CurrentSessionEntity->GetId());
            Int64^ espaiCapacity = this->consultaEspaisService->GetEspaiByEspaiId(CurrentSessionEntity->GetEspaiId())->GetCapacity();
            Capacity_Label->Text = Convert::ToString(currentSessionCapacity) + "/" + espaiCapacity;
-           this->Confirm_Cancel_Attent_Button->Text = L"Cancel·lar Asist\u00E8ncia";
+           this->Confirm_Cancel_Attent_Button->Text = L"Cancel\u00B7lar Asist\u00E8ncia";
        }
        else {
            
@@ -269,19 +269,14 @@ namespace CppCLRWinFormsProject {
 
     void GrupEstudi_InfoUI::EliminarButton_Click(System::Object^ sender, System::EventArgs^ e)
     {
-        //dialog message box with an input to confirm the deletion of the group by introducing the group name
-        //if the group name is correct, the group will be deleted
         MessageBoxButtons buttons = MessageBoxButtons::YesNo;
-        System::Windows::Forms::DialogResult result = MessageBox::Show("Vols suprimir el grup '" + currentGrup/*Noms_ListBox->Text*/ + "'?", "Confirmation", buttons);
+        System::Windows::Forms::DialogResult result = MessageBox::Show("Vols suprimir el grup '" + currentGrup + "'?", "Confirmation", buttons);
 
-        // Check the user's response
         if (result == System::Windows::Forms::DialogResult::Yes)
         {
             try {
-                grupEstudiService->DeleteGrupEstudi(currentGrup/*Noms_ListBox->Text*/);
+                grupEstudiService->DeleteGrupEstudi(currentGrup);
                 MessageManager::InfoMessage("Grup eliminat correctament.");
-                // Reload the list of groups after deletion
-                //GrupEstudi_ConsultarUIreload();
                 GoBack_Button_Click(sender, e);
 
             }
@@ -293,7 +288,7 @@ namespace CppCLRWinFormsProject {
 
     void GrupEstudi_InfoUI::EditarButton_Click(System::Object^ sender, System::EventArgs^ e)
     {
-        GrupEstudi_EditarUI^ PanelUI = gcnew GrupEstudi_EditarUI(currentGrup/*Noms_ListBox->Text*/);
+        GrupEstudi_EditarUI^ PanelUI = gcnew GrupEstudi_EditarUI(currentGrup);
 
         PanelUI->TopLevel = false;
         PanelUI->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
@@ -307,7 +302,7 @@ namespace CppCLRWinFormsProject {
     void GrupEstudi_InfoUI::consulta_membres_Click(System::Object^ sender, System::EventArgs^ e)
     {
 
-        GrupEstudi_Membres^ PanelUI = gcnew GrupEstudi_Membres(currentGrup/*Noms_ListBox->Text*/, true);
+        GrupEstudi_Membres^ PanelUI = gcnew GrupEstudi_Membres(currentGrup, true);
 
         PanelUI->TopLevel = false;
         PanelUI->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;

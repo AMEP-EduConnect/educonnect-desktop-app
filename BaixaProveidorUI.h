@@ -27,9 +27,6 @@ namespace CppCLRWinFormsProject {
 			this->Icon = gcnew System::Drawing::Icon("app.ico");
 		}
 
-
-
-
 	protected:
 		/// <summary>
 		/// Limpiar los recursos que se est�n usando.
@@ -46,7 +43,6 @@ namespace CppCLRWinFormsProject {
 
 	private: BaixaProveidorService^ baixaProveidorService;
 	protected:
-
 	private:
 		/// <summary>
 		/// Variable del dise�ador necesaria.
@@ -61,7 +57,7 @@ namespace CppCLRWinFormsProject {
 	private: System::Windows::Forms::Label^ BaixaProveidorLabel;
 	private: System::Windows::Forms::Label^ Pertany_Label;
 
-		   System::ComponentModel::Container^ components;
+	System::ComponentModel::Container^ components;
 
 #pragma region Windows Form Designer generated code
 		   /// <summary>

@@ -46,26 +46,6 @@ namespace CppCLRWinFormsProject {
 	private: System::Windows::Forms::Label^ label6;
 	private: System::Windows::Forms::Button^ button_elim_usuari;
 
-
-
-
-
-
-
-
-
-
-
-
-	protected:
-
-	protected:
-
-
-
-
-
-
 	protected:
 
 	private:
@@ -180,7 +160,7 @@ namespace CppCLRWinFormsProject {
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(95, 19);
 			this->label1->TabIndex = 20;
-			this->label1->Text = L"Proveidors";
+			this->label1->Text = L"Prove\u00EFdors";
 			// 
 			// BotoBaixa
 			// 
@@ -248,8 +228,8 @@ namespace CppCLRWinFormsProject {
 		}
 #pragma endregion
 
-	private: System::Void BotoAltaProveidor_Click(System::Object^ sender, System::EventArgs^ e);
-	private: System::Void BotoBaixa_Click(System::Object^ sender, System::EventArgs^ e);
+private: System::Void BotoAltaProveidor_Click(System::Object^ sender, System::EventArgs^ e);
+private: System::Void BotoBaixa_Click(System::Object^ sender, System::EventArgs^ e);
 private: System::Void BotoBaixaUser_Click(System::Object^ sender, System::EventArgs^ e);
 };
 }

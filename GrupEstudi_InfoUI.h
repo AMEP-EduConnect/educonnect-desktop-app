@@ -34,31 +34,18 @@ namespace CppCLRWinFormsProject {
 		}
 
 	private: System::Windows::Forms::Label^ InfoGrupEstudi_Label;
-
 	private: System::Windows::Forms::Label^ SessionsList_Label;
 	private: System::Windows::Forms::ListBox^ Sessions_ListBox;
 	private: System::Windows::Forms::Button^ ModifySession_Button;
-
-
-
 	private: System::Windows::Forms::Panel^ panel1;
 	private: System::Windows::Forms::Label^ EspaiName_Label;
 	private: System::Windows::Forms::Label^ DayMonthYear_label;
 	private: System::Windows::Forms::Label^ SessionCapacity_Label1;
-
-
 	private: System::Windows::Forms::Label^ StartEndDuration_Label;
 	private: System::Windows::Forms::FlowLayoutPanel^ flowLayoutPanel1;
 	private: System::Windows::Forms::Button^ Confirm_Cancel_Attent_Button;
-
-
 	private: System::Windows::Forms::Button^ NewSession_Button;
 	private: System::Windows::Forms::Button^ DeleteSession_Button;
-
-
-
-
-
 	private: System::Windows::Forms::Panel^ panel2;
 	private: System::Windows::Forms::Button^ MembersGrupEstudi_Button;
 	private: System::Windows::Forms::Button^ ModifyGrupEstudi_Button;
@@ -66,9 +53,6 @@ namespace CppCLRWinFormsProject {
 	private: System::Windows::Forms::Button^ GoBack_Button;
 	private: List<Session^>^ SessionsList;
 	private: bool isSessionLoaded;
-
-
-
 	protected:
 
 	protected:
@@ -81,31 +65,20 @@ namespace CppCLRWinFormsProject {
 		GrupEstudi^ CurrentGrupEntity;
 		ConsultaEspaisService^ consultaEspaisService;
 	private: System::Windows::Forms::Label^ AcademicTagsInfo_Label;
-
 	private: System::Windows::Forms::Label^ DescGrupEstudi_Label;
 	private: System::Windows::Forms::Panel^ panel4;
 	private: System::Windows::Forms::Label^ label2;
 	private: System::Windows::Forms::Panel^ panel5;
 	private: System::Windows::Forms::Panel^ panel6;
 	private: System::Windows::Forms::Label^ label1;
-
-
-
-
-
 	private: GrupEstudiService^ grupEstudiService;
 	private: GrupEstudiMembershipService^ grupEstudiMembershipService;
 	private: String^ currentGrup;
 	private: GrupSessionAttendantsService^ grupSessionAttendantsService;
 	private: SessionService^ sessionService;
 	private: System::Windows::Forms::Label^ Capacity_Label;
-
 	private: System::Windows::Forms::Label^ session_name;
 	private: System::Windows::Forms::Button^ button1;
-
-
-
-
 	private: Session^ CurrentSessionEntity;
 
 #pragma region Windows Form Designer generated code
@@ -579,8 +552,8 @@ namespace CppCLRWinFormsProject {
 		}
 #pragma endregion
 
-	private: System::Void SessionsList_Label_Click(System::Object^ sender, System::EventArgs^ e) {
-	}
+private: System::Void SessionsList_Label_Click(System::Object^ sender, System::EventArgs^ e) {
+}
 private: System::Void DescGrupEstudi_Label_Click(System::Object^ sender, System::EventArgs^ e) {
 }
 private: System::Void SessionsList_Label_Click_1(System::Object^ sender, System::EventArgs^ e) {
@@ -601,7 +574,6 @@ private: System::Void button1_Click_1(System::Object^ sender, System::EventArgs^
 }
 private: System::Void GoBack_Button_Click(System::Object^ sender, System::EventArgs^ e);
 private: System::Void GrupEstudi_InfoUI_Load(System::Object^ sender, System::EventArgs^ e);
-//private: System::Void SelectLastSessionOrPlaceholder();
 private: System::Void ActivateButtonsIfOwner();
 private: System::Void DisableModifyDeleteSessionButtons();
 private: System::Void LoadEmptySessionPlaceholder();
@@ -622,8 +594,8 @@ private: System::Void EspaiCapacity_Label_Click(System::Object^ sender, System::
 private: System::Void tableLayoutPanel1_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
 }
 
-	private: System::Void EliminarButton_Click(System::Object^ sender, System::EventArgs^ e);
-	private: System::Void EditarButton_Click(System::Object^ sender, System::EventArgs^ e);
-	private: System::Void consulta_membres_Click(System::Object^ sender, System::EventArgs^ e);
+private: System::Void EliminarButton_Click(System::Object^ sender, System::EventArgs^ e);
+private: System::Void EditarButton_Click(System::Object^ sender, System::EventArgs^ e);
+private: System::Void consulta_membres_Click(System::Object^ sender, System::EventArgs^ e);
 };
 }

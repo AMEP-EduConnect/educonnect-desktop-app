@@ -45,7 +45,6 @@ namespace CppCLRWinFormsProject {
 				if (!IsValidEmail(textBox->Text) and textBox->Text != "") {
                     MessageManager::ErrorMessage("El correu electrònic no té un format vàlid");
                     textBox->Text = "";
-					//e->Cancel = true; // Esto previene que el foco cambie al siguiente control si la validación falla.
 				}
                 else {
                     bool isnotValid = this->registreService->CheckEmail(textBox->Text);
@@ -69,7 +68,6 @@ namespace CppCLRWinFormsProject {
             if (!IsPasswordStrong(Contrasenya_TextBox->Text) and Contrasenya_TextBox->Text != "") {
                 MessageManager::InfoMessage("La contrasenya no és prou robusta.\nHa de contenir 8 o més caràcters, caràcters especials i números");
                 Contrasenya_TextBox->Text = "";
-                //e->Cancel = true;
                 if (username == "" or email == "" or name == "" or password == "") this->EmplenaTots->Visible = true;
 
             }
@@ -104,7 +102,6 @@ namespace CppCLRWinFormsProject {
             StartPageUI::Instance->screen->Controls->Add(PanelUI);
             PanelUI->Show();
             this->Close();
-            //this->System::ComponentModel::Component::Dispose();
         }
 
         Void RegistreUsuariUI::pictureBox1_Click(System::Object^ sender, System::EventArgs^ e) {

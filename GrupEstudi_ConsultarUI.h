@@ -41,9 +41,6 @@ namespace CppCLRWinFormsProject {
 	private: System::Windows::Forms::Label^ ConsultarGrupEstudi_Label;
 	private: System::Windows::Forms::Panel^ Actual_Panel;
 	private: System::Windows::Forms::ListBox^ Noms_ListBox;
-
-
-
 	protected:
 
 
@@ -60,12 +57,6 @@ namespace CppCLRWinFormsProject {
 	private: System::Windows::Forms::Button^ MoreInfo_GrupEstudi_Button;
 	private: System::ComponentModel::BackgroundWorker^ backgroundWorker1;
 	private: System::Windows::Forms::Button^ newGrup_button;
-
-
-
-
-
-
 	private: GrupEstudiService^ grupEstudiService;
 
 #pragma region Windows Form Designer generated code
@@ -210,18 +201,13 @@ namespace CppCLRWinFormsProject {
 
 		}
 #pragma endregion
-	private: System::Void GrupEstudi_ConsultarUI_Load(System::Object^ sender, System::EventArgs^ e);
-	//private: System::Void EliminarButton_Click(System::Object^ sender, System::EventArgs^ e);
-	//private: System::Void EditarButton_Click(System::Object^ sender, System::EventArgs^ e);
-	//private: System::Void CancelButton_Click(System::Object^ sender, System::EventArgs^ e);
-	private: System::Void Noms_ListBox_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e);
-	private: System::Void tableLayoutPanel1_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
-	}
-	//private: System::Void consulta_membres_Click(System::Object^ sender, System::EventArgs^ e);
-	private: System::Void abandonar_button_Click(System::Object^ sender, System::EventArgs^ e);
-	private: void GrupEstudi_ConsultarUIreload();
-	private: System::Void CrearGrupEstudi_Click(System::Object^ sender, System::EventArgs^ e);
-
+private: System::Void GrupEstudi_ConsultarUI_Load(System::Object^ sender, System::EventArgs^ e);
+private: System::Void Noms_ListBox_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e);
+private: System::Void tableLayoutPanel1_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
+}
+private: System::Void abandonar_button_Click(System::Object^ sender, System::EventArgs^ e);
+private: void GrupEstudi_ConsultarUIreload();
+private: System::Void CrearGrupEstudi_Click(System::Object^ sender, System::EventArgs^ e);
 private: System::Void MoreInfo_GrupEstudi_Button_Click(System::Object^ sender, System::EventArgs^ e);
 };
 }

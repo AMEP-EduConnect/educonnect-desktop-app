@@ -46,116 +46,31 @@ namespace CppCLRWinFormsProject {
 				delete components;
 			}
 		}
-	//GrupEstudiService^ grupEstudiService;
 	private: GrupEstudiService^ grupEstudiService;
 	private:
 	private: System::Windows::Forms::Label^ Benvinguda;
 	private: System::Windows::Forms::TableLayoutPanel^ tableLayoutPanel1;
-
-
-
 	private: System::Windows::Forms::Label^ label2;
 	private: System::Windows::Forms::Label^ label3;
 	private: System::Windows::Forms::Panel^ panel3;
-
 	private: System::Windows::Forms::Label^ label4;
 	private: System::Windows::Forms::FlowLayoutPanel^ flowLayoutPanel1;
-
-
-
-
 	private: System::Windows::Forms::Panel^ panel4;
 	private: System::Windows::Forms::Panel^ panel1;
 	private: System::Windows::Forms::Panel^ panel5;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 	private: System::Windows::Forms::PictureBox^ pictureBox4;
 	private: System::Windows::Forms::Label^ label7;
-
-
-
-
-
-
-
-
-
 	private: System::Windows::Forms::TableLayoutPanel^ tableLayoutPanel2;
 	private: System::Windows::Forms::Panel^ panel2;
-
 	private: System::Windows::Forms::TableLayoutPanel^ Grup1;
 	private: System::Windows::Forms::Label^ Grup1label;
 	private: System::Windows::Forms::PictureBox^ pictureBox3;
 	private: System::Windows::Forms::TableLayoutPanel^ Grup2;
 	private: System::Windows::Forms::Label^ Grup2label;
-
 	private: System::Windows::Forms::PictureBox^ pictureBox2;
 	private: System::Windows::Forms::TableLayoutPanel^ Grup3;
 	private: System::Windows::Forms::Label^ Grup3label;
-
 	private: System::Windows::Forms::PictureBox^ pictureBox1;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	protected:
-
 	protected:
 
 	private:
@@ -540,12 +455,10 @@ namespace CppCLRWinFormsProject {
 
 		}
 #pragma endregion
-	private: System::Void IniciUI_Load(System::Object^ sender, System::EventArgs^ e) {
-	}
-	Void SetWelcomeMessage();
-	Void SetRecentGroups();
-
-
+private: System::Void IniciUI_Load(System::Object^ sender, System::EventArgs^ e) {
+}
+System::Void SetWelcomeMessage();
+System::Void SetRecentGroups();
 private: System::Void flowLayoutPanel1_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
 }
 private: System::Void flowLayoutPanel1_Paint_1(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {

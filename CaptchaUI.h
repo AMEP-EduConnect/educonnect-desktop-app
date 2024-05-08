@@ -44,8 +44,7 @@ namespace CppCLRWinFormsProject {
 	private: System::Windows::Forms::Label^ label1;
 	private: System::Windows::Forms::Button^ button2;
 	private: System::Windows::Forms::Button^ button3;
-	private:
-	private:
+
 		/// <summary>
 		/// Variable del diseñador necesaria.
 		/// </summary>

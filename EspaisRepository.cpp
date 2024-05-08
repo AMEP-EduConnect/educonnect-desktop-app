@@ -100,7 +100,6 @@ bool EspaisRepository::CheckEspaiByName(String^ name, Int64^ provider_id) {
 		exists = true;
 	}
 	data->Close();
-	//bool check = data != nullptr && data->Read();
 	DatabaseConnector::Instance->Disconnect();
 	return exists;
 }

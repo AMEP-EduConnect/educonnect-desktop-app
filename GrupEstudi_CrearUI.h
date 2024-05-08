@@ -262,10 +262,10 @@ namespace CppCLRWinFormsProject {
 
 		}
 #pragma endregion
-	private: System::Void GrupEstudi_CrearUI_Load(System::Object^ sender, System::EventArgs^ e);
-	private: System::Void CreateGrup_Button_Click(System::Object^ sender, System::EventArgs^ e);
-	private: System::Void FormGrupName_TextBox_TextChanged(System::Object^ sender, System::EventArgs^ e);
-	private: System::Void FormGrupDescription_TextBox_TextChanged(System::Object^ sender, System::EventArgs^ e);
+private: System::Void GrupEstudi_CrearUI_Load(System::Object^ sender, System::EventArgs^ e);
+private: System::Void CreateGrup_Button_Click(System::Object^ sender, System::EventArgs^ e);
+private: System::Void FormGrupName_TextBox_TextChanged(System::Object^ sender, System::EventArgs^ e);
+private: System::Void FormGrupDescription_TextBox_TextChanged(System::Object^ sender, System::EventArgs^ e);
 private: System::Void tableLayoutPanel1_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
 }
 private: System::Void Cancelar_Button_Click(System::Object^ sender, System::EventArgs^ e);

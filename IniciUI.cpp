@@ -31,7 +31,6 @@ namespace CppCLRWinFormsProject {
         this->Grup1->Visible = false;
         this->Grup2->Visible = false;
         this->Grup3->Visible = false;
-        //this->label5->Visible = false;
 
         grupEstudiService = gcnew GrupEstudiService();
         
