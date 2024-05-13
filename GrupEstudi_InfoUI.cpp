@@ -70,7 +70,7 @@ namespace CppCLRWinFormsProject {
                     this->Confirm_Cancel_Attent_Button->Enabled = true;
                     this->Confirm_Cancel_Attent_Button->Text = "Asistir";
                 }
-                else if (isSessionFull) {
+                else if (isSessionFull && not grupSessionAttendantsService->IsAttendant(CurrentSessionEntity->GetId(), CurrentSession::Instance->GetCurrentUser()->GetUserId())) {
 					this->Confirm_Cancel_Attent_Button->Text = "Complet";
 					this->Confirm_Cancel_Attent_Button->Enabled = false;
                 }
@@ -172,7 +172,7 @@ namespace CppCLRWinFormsProject {
                 this->Confirm_Cancel_Attent_Button->Enabled = true;
                 this->Confirm_Cancel_Attent_Button->Text = "Asistir";
             }
-            else if (isSessionFull) {
+            else if (isSessionFull && not grupSessionAttendantsService->IsAttendant(CurrentSessionEntity->GetId(), CurrentSession::Instance->GetCurrentUser()->GetUserId())) {
                 this->Confirm_Cancel_Attent_Button->Text = "Complet";
                 this->Confirm_Cancel_Attent_Button->Enabled = false;
             }
