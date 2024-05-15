@@ -124,6 +124,7 @@ namespace CppCLRWinFormsProject {
                                     MainPageUI::Instance->screen->Controls->Clear();
                                     MainPageUI::Instance->screen->Controls->Add(PanelUI);
                                     PanelUI->Show();
+
                             }
                         }
                     }

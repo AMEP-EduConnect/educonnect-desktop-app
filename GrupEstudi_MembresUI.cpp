@@ -110,13 +110,10 @@ namespace CppCLRWinFormsProject {
                                         return;
                                     }
                                     else {
-                                        grupEstudiMembershipService->DeleteUserFromGroup(user_id, group_id);
-                                        Membres_Box->Text = "";
-                                        Noms_ListBox = "";
                                         MessageManager::InfoMessage("Usuari expulsat del grup d'estudi amb exit.");
+                                        grupEstudiMembershipService->DeleteUserFromGroup(user_id, group_id);
 
-                                        GrupEstudi_ConsultarUI^ PanelUI = gcnew GrupEstudi_ConsultarUI();
-
+                                        GrupEstudi_InfoUI^ PanelUI = gcnew GrupEstudi_InfoUI(Noms_ListBox);
                                         PanelUI->TopLevel = false;
                                         PanelUI->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
                                         PanelUI->Dock = System::Windows::Forms::DockStyle::Fill;
@@ -124,6 +121,9 @@ namespace CppCLRWinFormsProject {
                                         MainPageUI::Instance->screen->Controls->Clear();
                                         MainPageUI::Instance->screen->Controls->Add(PanelUI);
                                         PanelUI->Show();
+                                        
+                                        Membres_Box->Text = "";
+                                        Noms_ListBox = "";  
                                     }
                                 }
                             }
