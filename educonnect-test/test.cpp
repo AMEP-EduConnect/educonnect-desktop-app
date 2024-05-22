@@ -15,5 +15,5 @@ TEST(TestCI, GivenNothing_WhenDeployment_ThenNotPass) {
 	//When
 
 	//Then
-	EXPECT_TRUE(true);
+	EXPECT_TRUE(false);
 }
