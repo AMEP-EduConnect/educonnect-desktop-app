@@ -1,4 +1,4 @@
-name: .NET and C++/CLI with Google Test
+name: Google Test for C++/CLI
 
 on:
   push:
@@ -7,32 +7,18 @@ on:
     branches: [ "develop" ]
 
 jobs:
-  build:
+  build-and-test:
 
     runs-on: windows-latest
 
     steps:
     - uses: actions/checkout@v4
 
-    # Setup .NET
-    - name: Setup .NET
-      uses: actions/setup-dotnet@v4
-      with:
-        dotnet-version: 8.0.x
-
     # Install necessary tools for C++/CLI and Google Test
     - name: Install Visual Studio dependencies
       run: |
         choco install visualstudio2022buildtools --package-parameters "--add Microsoft.VisualStudio.Workload.NativeDesktop --includeRecommended --includeOptional --quiet"
         choco install cmake --installargs 'ADD_CMAKE_TO_PATH=System' --version 3.22.0
-
-    # Restore .NET dependencies
-    - name: Restore .NET dependencies
-      run: dotnet restore
-
-    # Build .NET project in Debug configuration
-    - name: Build .NET project
-      run: dotnet build --no-restore --configuration Debug
 
     # Build C++/CLI project with Google Test in Debug configuration
     - name: Build C++/CLI project
@@ -41,10 +27,6 @@ jobs:
         cd build
         cmake -G "Visual Studio 17 2022" -A x64 -DCMAKE_BUILD_TYPE=Debug -DCMAKE_CXX_STANDARD=20 ..
         cmake --build . --config Debug
-
-    # Run .NET tests in Debug configuration
-    - name: Run .NET tests
-      run: dotnet test --no-build --configuration Debug --verbosity normal
 
     # Run Google Test tests in Debug configuration
     - name: Run Google Test tests
