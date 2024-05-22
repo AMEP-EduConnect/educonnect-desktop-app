@@ -9,7 +9,7 @@ on:
 jobs:
   build:
 
-    runs-on:  windows-latest
+    runs-on: windows-latest
 
     steps:
     - uses: actions/checkout@v4
@@ -20,34 +20,34 @@ jobs:
       with:
         dotnet-version: 8.0.x
 
-    # Setup C++ compiler and dependencies for Google Test
-    - name: Install C++ build tools
-      run: |
-        sudo apt-get update
-        sudo apt-get install -y g++ cmake
-
     # Restore .NET dependencies
     - name: Restore .NET dependencies
       run: dotnet restore
 
-    # Build .NET project
+    # Build .NET project in Debug configuration
     - name: Build .NET project
-      run: dotnet build --no-restore
+      run: dotnet build --no-restore --configuration Debug
 
-    # Build C++/CLI project with Google Test
-    - name: Build C++/CLI project with Google Test
+    # Install necessary tools for C++/CLI and Google Test
+    - name: Install Visual Studio dependencies
       run: |
-        mkdir -p build
+        choco install visualstudio2022buildtools --package-parameters "--add Microsoft.VisualStudio.Workload.NativeDesktop --includeRecommended --includeOptional --quiet"
+        choco install cmake --installargs 'ADD_CMAKE_TO_PATH=System' --version 3.22.0
+
+    # Build C++/CLI project with Google Test in Debug configuration
+    - name: Build C++/CLI project
+      run: |
+        mkdir build
         cd build
-        cmake ..
-        make
+        cmake -G "Visual Studio 17 2022" -A x64 -DCMAKE_BUILD_TYPE=Debug -DCMAKE_CXX_STANDARD=20 ..
+        cmake --build . --config Debug
 
-    # Run .NET tests
+    # Run .NET tests in Debug configuration
     - name: Run .NET tests
-      run: dotnet test --no-build --verbosity normal
+      run: dotnet test --no-build --configuration Debug --verbosity normal
 
-    # Run Google Test tests
+    # Run Google Test tests in Debug configuration
     - name: Run Google Test tests
       run: |
         cd build
-        ctest --output-on-failure
+        ctest --output-on-failure --configuration Debug
