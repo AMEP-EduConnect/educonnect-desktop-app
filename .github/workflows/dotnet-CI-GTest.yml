@@ -16,18 +16,14 @@ jobs:
     runs-on: windows-latest
     steps:
     - uses: actions/checkout@v4
+    - name: Copy MySql.Data.dll to build directory
+      run: cp ${{ github.workspace }}/x64/res/MySql.Data.dll ${{ github.workspace }}/x64/Debug/
     - name: Add MSBuild to PATH
       uses: microsoft/setup-msbuild@v1.0.2
-    - name: Download MySql.Data.dll
-      run: |
-        curl -LJO https://dev.mysql.com/get/Downloads/Connector-Net/mysql-connector-net-8.3.0.zip
-        unzip -j mysql-connector-net-8.3.0.zip "mysql-connector-net-8.3.0/*.dll" -d mysql_connector
-        mv mysql_connector/*.dll ${{env.GITHUB_WORKSPACE}}/x64/Debug/
-      shell: bash
     - name: Build
       working-directory: ${{env.GITHUB_WORKSPACE}}/x64/Debug
       run: msbuild /m /p:Configuration=${{env.BUILD_CONFIGURATION}} ${{env.SOLUTION_FILE_PATH}}
-
+      
   test:
     runs-on: windows-latest
     needs: build
