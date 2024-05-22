@@ -221,6 +221,18 @@
     <ClInclude Include="ModificaEspaisService.h">
       <Filter>Source Files\services</Filter>
     </ClInclude>
+    <ClInclude Include="ReportsUI.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Reports.h">
+      <Filter>Source Files\entities</Filter>
+    </ClInclude>
+    <ClInclude Include="ReportsService.h">
+      <Filter>Source Files\services</Filter>
+    </ClInclude>
+    <ClInclude Include="ReportsRepository.h">
+      <Filter>Source Files\repositories</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AssemblyInfo.cpp">
@@ -426,6 +438,18 @@
     </ClCompile>
     <ClCompile Include="GrupSessionAttendantsService.cpp">
       <Filter>Source Files\services</Filter>
+    </ClCompile>
+    <ClCompile Include="ReportsUI.cpp">
+      <Filter>Source Files\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="Reports.cpp">
+      <Filter>Source Files\entities</Filter>
+    </ClCompile>
+    <ClCompile Include="ReportsService.cpp">
+      <Filter>Source Files\services</Filter>
+    </ClCompile>
+    <ClCompile Include="ReportsRepository.cpp">
+      <Filter>Source Files\repositories</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

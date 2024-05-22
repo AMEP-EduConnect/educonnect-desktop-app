@@ -5,6 +5,7 @@
 #include "GrupEstudi_ExplorarUI.h"
 #include "GrupEstudi_InfoUI.h"
 #include "Usuari.h"
+#include "ReportsUI.h"
 #include "MainPageUI.h"
 
 namespace CppCLRWinFormsProject {
@@ -71,11 +72,27 @@ namespace CppCLRWinFormsProject {
         bool isOwner = grupEstudiService->CheckUserIsOwner(Noms_ListBox);
 
         if (Membres_Box->SelectedIndex != -1) {
+            Usuari^ currentUser = CurrentSession::Instance->GetCurrentUser();
             if (isOwner) {
-                Expulsar_Button->Visible = true;
+                if (Membres_Box->Text != currentUser->GetUsername()) {
+                    Expulsar_Button->Visible = true;
+                    button_reportar->Visible = true;
+                }
+                else {
+                    Expulsar_Button->Visible = false;
+                    button_reportar->Visible = false;
+                }
                 Assignar_Button->Visible = true;
             }
             if (not isOwner) {
+                if (Membres_Box->Text != currentUser->GetUsername()) {
+                    if (consulta == true) {
+                        button_reportar->Visible = true;
+                    }
+                }
+                else {
+                    button_reportar->Visible = false;
+                }
                 Expulsar_Button->Visible = false;
                 Assignar_Button->Visible = false;
             }
@@ -153,6 +170,18 @@ namespace CppCLRWinFormsProject {
     {
         
         GrupEstudi_AssignarUI^ PanelUI = gcnew GrupEstudi_AssignarUI(Noms_ListBox);
+
+        PanelUI->TopLevel = false;
+        PanelUI->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
+        PanelUI->Dock = System::Windows::Forms::DockStyle::Fill;
+
+        MainPageUI::Instance->screen->Controls->Clear();
+        MainPageUI::Instance->screen->Controls->Add(PanelUI);
+        PanelUI->Show();
+    }
+
+    void GrupEstudi_Membres::Reportar_Button_Click(System::Object^ sender, System::EventArgs^ e) {
+        ReportsUI^ PanelUI = gcnew ReportsUI(Membres_Box->Text, Noms_ListBox);
 
         PanelUI->TopLevel = false;
         PanelUI->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;

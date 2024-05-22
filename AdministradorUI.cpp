@@ -37,7 +37,8 @@ namespace CppCLRWinFormsProject {
         PanelUI->Show();
 
     }
-        Void AdministradorUI::BotoBaixaUser_Click(System::Object^ sender, System::EventArgs^ e) {
+
+    Void AdministradorUI::BotoBaixaUser_Click(System::Object^ sender, System::EventArgs^ e) {
         BaixaUsuariUI^ PanelUI = gcnew BaixaUsuariUI();
 		PanelUI->TopLevel = false;
 		PanelUI->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
@@ -49,6 +50,8 @@ namespace CppCLRWinFormsProject {
 		PanelUI->Show();
     }
 
-
+    void AdministradorUI::BotoReports_Click(System::Object^ sender, System::EventArgs^ e) {
+    
+    }
 
 }

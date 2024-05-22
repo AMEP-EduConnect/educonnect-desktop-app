@@ -303,6 +303,12 @@
     <ClInclude Include="RegistreUsuariUI.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="Reports.h" />
+    <ClInclude Include="ReportsRepository.h" />
+    <ClInclude Include="ReportsService.h" />
+    <ClInclude Include="ReportsUI.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="Resource.h" />
     <ClInclude Include="IniciSessioService.h" />
     <ClInclude Include="RegistreService.h" />
@@ -381,6 +387,10 @@
     </ClCompile>
     <ClCompile Include="PerfilPersonalModificaService.cpp" />
     <ClCompile Include="PerfilPersonalConsultaService.cpp" />
+    <ClCompile Include="Reports.cpp" />
+    <ClCompile Include="ReportsRepository.cpp" />
+    <ClCompile Include="ReportsService.cpp" />
+    <ClCompile Include="ReportsUI.cpp" />
     <ClCompile Include="Session.cpp" />
     <ClCompile Include="SessionRepository.cpp" />
     <ClCompile Include="SessionService.cpp" />
@@ -470,6 +480,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="RegistreUsuariUI.resx">
       <DependentUpon>RegistreUsuariUI.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportsUI.resx">
+      <DependentUpon>ReportsUI.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Session_CrearUI.resx">
       <DependentUpon>Session_CrearUI.h</DependentUpon>
