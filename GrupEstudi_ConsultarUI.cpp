@@ -112,6 +112,9 @@ namespace CppCLRWinFormsProject {
                                 }
                             }
                             else {
+                                MessageBoxButtons buttons = MessageBoxButtons::YesNo;
+                                System::Windows::Forms::DialogResult result = MessageBox::Show("Segur que vols abandonar el grup '" + Noms_ListBox->Text + "' ?", "Confirmation", buttons);
+                                if (result == System::Windows::Forms::DialogResult::Yes) {
                                     grupEstudiMembershipService->DeleteUserFromGroup(user_id, group_id);
                                     MessageManager::InfoMessage("Has abandonat el grup d'estudi amb exit.");
 
@@ -124,6 +127,7 @@ namespace CppCLRWinFormsProject {
                                     MainPageUI::Instance->screen->Controls->Clear();
                                     MainPageUI::Instance->screen->Controls->Add(PanelUI);
                                     PanelUI->Show();
+                                }
                             }
                         }
                     }
