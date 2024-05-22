@@ -86,7 +86,7 @@ namespace CppCLRWinFormsProject {
 
                                 if (id_user == nullptr) {
                                     MessageBoxButtons buttons = MessageBoxButtons::YesNo;
-                                    System::Windows::Forms::DialogResult result = MessageBox::Show("Ets el owner del grup '" + Noms_ListBox->Text + "' i no hi ha cap usuari més per assignar com a owner, per tant es borrarà el grup d'estudi. Vols continuar?", "Confirmation", buttons);
+                                    System::Windows::Forms::DialogResult result = MessageBox::Show("Ets el owner del grup '" + Noms_ListBox->Text + "' i no hi ha cap usuari mÃ©s per assignar com a owner, per tant es borrarÃ  el grup d'estudi. Vols continuar?", "Confirmation", buttons);
 
                                     if (result == System::Windows::Forms::DialogResult::Yes)
                                     {
@@ -106,7 +106,7 @@ namespace CppCLRWinFormsProject {
 
 
                                 else {
-                                    MessageManager::WarningMessage("Ets el owner del grup, ja no ho saràs i s'assiganrà al usuari més antic com a nou owner.");
+                                    MessageManager::WarningMessage("Ets el owner del grup, ja no ho sarÃ s i s'assiganrÃ  al usuari mÃ©s antic com a nou owner.");
                                     grupEstudiService->ChangeGroupOwner(group_id, id_user);
                                     abandonar_button_Click(sender, e);
                                 }
