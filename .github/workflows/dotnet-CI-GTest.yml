@@ -16,6 +16,8 @@ jobs:
     runs-on: windows-latest
     steps:
     - uses: actions/checkout@v4
+    - name: List directory contents
+      run: ls -l ${{ github.workspace }}/x64/Debug
     - name: Copy MySql.Data.dll to build directory
       run: cp ${{ github.workspace }}/x64/res/MySql.Data.dll ${{ github.workspace }}/x64/Debug/
     - name: Add MSBuild to PATH
@@ -23,7 +25,7 @@ jobs:
     - name: Build
       working-directory: ${{env.GITHUB_WORKSPACE}}/x64/Debug
       run: msbuild /m /p:Configuration=${{env.BUILD_CONFIGURATION}} ${{env.SOLUTION_FILE_PATH}}
-      
+
   test:
     runs-on: windows-latest
     needs: build
