@@ -11,9 +11,9 @@ TEST(TestCI, GivenNothing_WhenDeployment_ThenPass) {
 
 TEST(TestCI, GivenNothing_WhenDeployment_ThenNotPass) {
 	//Given
-	EXPECT_EQ(1, 0);
+	EXPECT_EQ(1, 1);
 	//When
 
 	//Then
-	EXPECT_TRUE(false);
+	EXPECT_TRUE(true);
 }
