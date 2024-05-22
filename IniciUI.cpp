@@ -31,7 +31,6 @@ namespace CppCLRWinFormsProject {
         this->Grup1->Visible = false;
         this->Grup2->Visible = false;
         this->Grup3->Visible = false;
-        //this->label5->Visible = false;
 
         grupEstudiService = gcnew GrupEstudiService();
         
@@ -109,7 +108,7 @@ namespace CppCLRWinFormsProject {
     }
 
     Void IniciUI::pictureBox4_Click(System::Object^ sender, System::EventArgs^ e) {
-        GrupEstudi_CrearUI^ PanelUI = gcnew GrupEstudi_CrearUI();
+        GrupEstudi_CrearUI^ PanelUI = gcnew GrupEstudi_CrearUI(0);
         PanelUI->TopLevel = false;
         PanelUI->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
         PanelUI->Dock = System::Windows::Forms::DockStyle::Fill;

@@ -35,7 +35,6 @@ namespace CppCLRWinFormsProject {
 			this->Email_TextBox->Validating += gcnew System::ComponentModel::CancelEventHandler(this, &RegistreUsuariUI::Email_TextBox_Validating);
 			this->Contrasenya_TextBox->Validating += gcnew System::ComponentModel::CancelEventHandler(this, &RegistreUsuariUI::textBoxPassword_Validating);
 			this->Icon = gcnew System::Drawing::Icon("app.ico");
-			//this->Background_PictureBox->Image = Image::FromFile("background.png");
 			this->EmplenaTots->Visible = false;
 
 		}
@@ -55,49 +54,24 @@ namespace CppCLRWinFormsProject {
 				delete components;
 			}
 		}
-
 	private: RegistreService^ registreService;
-
 	private: System::Windows::Forms::Label^ NomUsuari_Label;
 	private: System::Windows::Forms::TextBox^ NomUsuari_TextBox;
 	private: System::Windows::Forms::Panel^ Main_Panel;
 	private: System::Windows::Forms::Button^ Continuar_Button;
 	private: System::Windows::Forms::TextBox^ Contrasenya_TextBox;
-
-
 	private: System::Windows::Forms::TextBox^ Nom_TextBox;
 	private: System::Windows::Forms::Label^ Contrasenya_Label;
-
-
 	private: System::Windows::Forms::Label^ Email_Label;
 	private: System::Windows::Forms::TextBox^ Email_TextBox;
 	private: System::Windows::Forms::Label^ Nom_Label;
-
-
-
-
-
 	private: System::Windows::Forms::Button^ GoBack_Button;
 	private: System::Windows::Forms::Label^ label1;
 	private: System::Windows::Forms::Label^ IniciarSessio_Label;
 	private: System::Windows::Forms::PictureBox^ pictureBox1;
 	private: System::Windows::Forms::Label^ label2;
 	private: System::Windows::Forms::Label^ label3;
-
-
 	private: System::Windows::Forms::Label^ EmplenaTots;
-
-
-
-
-
-
-
-
-
-
-
-
 	protected:
 
 	private:
@@ -184,9 +158,9 @@ namespace CppCLRWinFormsProject {
 				static_cast<System::Byte>(0)));
 			this->label3->Location = System::Drawing::Point(32, 289);
 			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(225, 19);
+			this->label3->Size = System::Drawing::Size(307, 19);
 			this->label3->TabIndex = 25;
-			this->label3->Text = L"caràcters especials i números.";
+			this->label3->Text = L"car\u00E0cters especials i n\u00FAmeros.";
 			// 
 			// label2
 			// 
@@ -196,9 +170,9 @@ namespace CppCLRWinFormsProject {
 				static_cast<System::Byte>(0)));
 			this->label2->Location = System::Drawing::Point(32, 270);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(251, 19);
+			this->label2->Size = System::Drawing::Size(333, 19);
 			this->label2->TabIndex = 23;
-			this->label2->Text = L"Ha de contenir 8 o més caràcters, ";
+			this->label2->Text = L"Ha de contenir 8 o m\u00E9s car\u00E0cters, ";
 			// 
 			// pictureBox1
 			// 
@@ -212,7 +186,6 @@ namespace CppCLRWinFormsProject {
 			this->pictureBox1->TabIndex = 23;
 			this->pictureBox1->TabStop = false;
 			this->pictureBox1->Click += gcnew System::EventHandler(this, &RegistreUsuariUI::pictureBox1_Click);
-			this->pictureBox1->MouseDown += gcnew MouseEventHandler(this, &RegistreUsuariUI::pictureBox1_MouseDown);
 			// 
 			// GoBack_Button
 			// 
@@ -282,9 +255,9 @@ namespace CppCLRWinFormsProject {
 			this->Email_Label->ForeColor = System::Drawing::SystemColors::HotTrack;
 			this->Email_Label->Location = System::Drawing::Point(32, 89);
 			this->Email_Label->Name = L"Email_Label";
-			this->Email_Label->Size = System::Drawing::Size(141, 19);
+			this->Email_Label->Size = System::Drawing::Size(185, 19);
 			this->Email_Label->TabIndex = 10;
-			this->Email_Label->Text = L"Correu electrònic";
+			this->Email_Label->Text = L"Correu electr\u00F2nic";
 			// 
 			// Email_TextBox
 			// 
@@ -374,15 +347,12 @@ namespace CppCLRWinFormsProject {
 		}
 #pragma endregion
 
-	private: System::Void ContinuarRegistreButton_Click(System::Object^ sender, System::EventArgs^ e);
-
-	private: System::Void GoBackButton_Click(System::Object^ sender, System::EventArgs^ e);
-
-
-	private: System::Void RegistreUsuariUI_Load(System::Object^ sender, System::EventArgs^ e) {
-	}
+private: System::Void ContinuarRegistreButton_Click(System::Object^ sender, System::EventArgs^ e);
+private: System::Void GoBackButton_Click(System::Object^ sender, System::EventArgs^ e);
+private: System::Void RegistreUsuariUI_Load(System::Object^ sender, System::EventArgs^ e) {
+}
 private: System::Void pictureBox1_Click(System::Object^ sender, System::EventArgs^ e);
-	   Void pictureBox1_MouseDown(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e);
+	Void pictureBox1_MouseDown(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e);
 
 };
 }

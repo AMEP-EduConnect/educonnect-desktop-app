@@ -234,7 +234,7 @@
       <Filter>Source Files\repositories</Filter>
     </ClInclude>
     <ClInclude Include="GrupSessionAttendantsService.h">
-          <Filter>Source Files\services</Filter>
+      <Filter>Source Files\services</Filter>
     </ClInclude>
     <ClInclude Include="ModificaEspaisUI.h">
       <Filter>Header Files</Filter>
@@ -413,7 +413,7 @@
       <Filter>Source Files\services</Filter>
     </ClCompile>
     <ClCompile Include="GrupEstudi_InfoUI.cpp">
-          <Filter>Source Files\ui</Filter>
+      <Filter>Source Files\ui</Filter>
     </ClCompile>
     <ClCompile Include="ModificaEspaisUI.cpp">
       <Filter>Source Files\ui</Filter>

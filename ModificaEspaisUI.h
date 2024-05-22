@@ -56,34 +56,17 @@ namespace CppCLRWinFormsProject {
 		/// Variable del diseador necesaria.
 		/// </summary>
 
-
-
-
-
 	private: System::Windows::Forms::Label^ label6;
-
-
-
 	private: System::Windows::Forms::TableLayoutPanel^ tableLayoutPanel1;
-
 	private: System::Windows::Forms::TableLayoutPanel^ tableLayoutPanel3;
-
-
 	private: System::Windows::Forms::Label^ label2;
 	private: System::Windows::Forms::Label^ label3;
-
 	private: System::Windows::Forms::TextBox^ textBox3;
 	private: System::Windows::Forms::TextBox^ textBox1;
 	private: System::Windows::Forms::Panel^ panel1;
 	private: System::Windows::Forms::Button^ Cancelar_Button;
 	private: System::Windows::Forms::Panel^ panel2;
 	private: System::Windows::Forms::Button^ Button_Cancelar_Edita;
-
-
-
-
-
-
 
 		   System::ComponentModel::Container^ components;
 
@@ -300,10 +283,10 @@ namespace CppCLRWinFormsProject {
 
 		   }
 #pragma endregion
-	private:
-		bool Capacitat_TextBox_Validating(String^ capacitat);
-		System::Void button1_Click(System::Object^ sender, System::EventArgs^ e);
-	private: System::Void Cancelar_Button_Click(System::Object^ sender, System::EventArgs^ e);
+private:
+	bool Capacitat_TextBox_Validating(String^ capacitat);
+	System::Void button1_Click(System::Object^ sender, System::EventArgs^ e);
+private: System::Void Cancelar_Button_Click(System::Object^ sender, System::EventArgs^ e);
 private: System::Void Button_Cancelar_Edita_Click(System::Object^ sender, System::EventArgs^ e);
 };
 }

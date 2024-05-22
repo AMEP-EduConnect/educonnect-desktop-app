@@ -18,11 +18,8 @@ namespace CppCLRWinFormsProject {
 		FirstPageUI(void)
 		{
 			InitializeComponent();
-			//
-			//TODO: agregar código de constructor aquí
-			//
+
 			this->Icon = gcnew System::Drawing::Icon("app.ico");
-			//this->Background_PictureBox->Image = Image::FromFile("background.png");
 		}
 
 	protected:
@@ -44,9 +41,6 @@ namespace CppCLRWinFormsProject {
 
 	private: System::Windows::Forms::Button^ IniciSessio_Button;
 	private: System::Windows::Forms::Button^ Registrarse_Button;
-
-
-
 	private:
 		/// <summary>
 		/// Variable del diseñador necesaria.
@@ -124,7 +118,7 @@ namespace CppCLRWinFormsProject {
 			this->IniciSessio_Button->Name = L"IniciSessio_Button";
 			this->IniciSessio_Button->Size = System::Drawing::Size(371, 61);
 			this->IniciSessio_Button->TabIndex = 13;
-			this->IniciSessio_Button->Text = L"Iniciar Sessió";
+			this->IniciSessio_Button->Text = L"Iniciar Sessi\u00F3";
 			this->IniciSessio_Button->UseVisualStyleBackColor = true;
 			this->IniciSessio_Button->Click += gcnew System::EventHandler(this, &FirstPageUI::IniciSessioButton_Click);
 			// 
@@ -151,7 +145,6 @@ namespace CppCLRWinFormsProject {
 		}
 #pragma endregion
 	private: System::Void IniciSessioButton_Click(System::Object^ sender, System::EventArgs^ e);
-
 	private: System::Void RegistrarseButton_Click(System::Object^ sender, System::EventArgs^ e);
 
 };

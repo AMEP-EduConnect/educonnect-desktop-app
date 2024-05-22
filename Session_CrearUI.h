@@ -50,24 +50,14 @@ namespace CppCLRWinFormsProject {
 	private: System::Windows::Forms::Panel^ NewSessionInput_Panel;
 	private: System::Windows::Forms::TextBox^ SessionName_TextBox;
 	private: System::Windows::Forms::MonthCalendar^ DayMonth_Calendar;
-
-
-
-
 	private: System::Windows::Forms::ListBox^ Proveidor_ListBox;
-
 	private: System::Windows::Forms::Label^ SessionName_Label;
 	private: System::Windows::Forms::ComboBox^ TimeHour_ComboBox;
-
 	private: System::Windows::Forms::Label^ Espai_Label;
 	private: System::Windows::Forms::Label^ Proveidor_Label;
 	private: System::Windows::Forms::ComboBox^ Espai_ComboBox;
 	private: System::Windows::Forms::Label^ label2;
-
 	private: System::Windows::Forms::Button^ GoBack_Button;
-
-
-
 
 	private: GrupEstudi^ CurrentGrupEntity;
 	private: Session^ CurrentSessionEntity;
@@ -77,7 +67,6 @@ namespace CppCLRWinFormsProject {
 	private: ConsultaEspaisService^ consultaEspaisService;
 	private: IniciSessioService^ iniciSessioService;
 	private: System::Windows::Forms::Button^ CreateSession_Button;
-
 	private: DateTime^ FullyFormatedSessionDate;
 
 #pragma region Windows Form Designer generated code
@@ -91,6 +80,7 @@ namespace CppCLRWinFormsProject {
 			this->NewSession_Label = (gcnew System::Windows::Forms::Label());
 			this->CurrentGrupName_Label = (gcnew System::Windows::Forms::Label());
 			this->NewSessionInput_Panel = (gcnew System::Windows::Forms::Panel());
+			this->CreateSession_Button = (gcnew System::Windows::Forms::Button());
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->TimeHour_ComboBox = (gcnew System::Windows::Forms::ComboBox());
 			this->Espai_Label = (gcnew System::Windows::Forms::Label());
@@ -101,7 +91,6 @@ namespace CppCLRWinFormsProject {
 			this->DayMonth_Calendar = (gcnew System::Windows::Forms::MonthCalendar());
 			this->Proveidor_ListBox = (gcnew System::Windows::Forms::ListBox());
 			this->GoBack_Button = (gcnew System::Windows::Forms::Button());
-			this->CreateSession_Button = (gcnew System::Windows::Forms::Button());
 			this->tableLayoutPanel1->SuspendLayout();
 			this->NewSessionInput_Panel->SuspendLayout();
 			this->SuspendLayout();
@@ -136,18 +125,23 @@ namespace CppCLRWinFormsProject {
 			// 
 			this->NewSession_Label->AutoSize = true;
 			this->NewSession_Label->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->NewSession_Label->Font = (gcnew System::Drawing::Font(L"Inter", 20.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->NewSession_Label->ForeColor = System::Drawing::SystemColors::HotTrack;
 			this->NewSession_Label->Location = System::Drawing::Point(158, 0);
 			this->NewSession_Label->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->NewSession_Label->Name = L"NewSession_Label";
 			this->NewSession_Label->Size = System::Drawing::Size(494, 34);
 			this->NewSession_Label->TabIndex = 0;
-			this->NewSession_Label->Text = L"Nova sessió en ";
+			this->NewSession_Label->Text = L"Nova sessi\u00F3 a ";
 			this->NewSession_Label->TextAlign = System::Drawing::ContentAlignment::BottomCenter;
 			// 
 			// CurrentGrupName_Label
 			// 
 			this->CurrentGrupName_Label->AutoSize = true;
 			this->CurrentGrupName_Label->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->CurrentGrupName_Label->Font = (gcnew System::Drawing::Font(L"Inter Light", 20.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->CurrentGrupName_Label->Location = System::Drawing::Point(158, 34);
 			this->CurrentGrupName_Label->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->CurrentGrupName_Label->Name = L"CurrentGrupName_Label";
@@ -158,6 +152,7 @@ namespace CppCLRWinFormsProject {
 			// 
 			// NewSessionInput_Panel
 			// 
+			this->NewSessionInput_Panel->Anchor = System::Windows::Forms::AnchorStyles::None;
 			this->NewSessionInput_Panel->BackColor = System::Drawing::SystemColors::GradientInactiveCaption;
 			this->NewSessionInput_Panel->Controls->Add(this->CreateSession_Button);
 			this->NewSessionInput_Panel->Controls->Add(this->label2);
@@ -169,85 +164,114 @@ namespace CppCLRWinFormsProject {
 			this->NewSessionInput_Panel->Controls->Add(this->SessionName_TextBox);
 			this->NewSessionInput_Panel->Controls->Add(this->DayMonth_Calendar);
 			this->NewSessionInput_Panel->Controls->Add(this->Proveidor_ListBox);
-			this->NewSessionInput_Panel->Dock = System::Windows::Forms::DockStyle::Fill;
 			this->NewSessionInput_Panel->Location = System::Drawing::Point(158, 79);
 			this->NewSessionInput_Panel->Margin = System::Windows::Forms::Padding(2);
 			this->NewSessionInput_Panel->Name = L"NewSessionInput_Panel";
 			this->NewSessionInput_Panel->Size = System::Drawing::Size(494, 350);
 			this->NewSessionInput_Panel->TabIndex = 2;
 			// 
+			// CreateSession_Button
+			// 
+			this->CreateSession_Button->Enabled = false;
+			this->CreateSession_Button->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->CreateSession_Button->Location = System::Drawing::Point(321, 297);
+			this->CreateSession_Button->Margin = System::Windows::Forms::Padding(2);
+			this->CreateSession_Button->Name = L"CreateSession_Button";
+			this->CreateSession_Button->Size = System::Drawing::Size(146, 35);
+			this->CreateSession_Button->TabIndex = 10;
+			this->CreateSession_Button->Text = L"Crear sessi\u00F3";
+			this->CreateSession_Button->UseVisualStyleBackColor = true;
+			this->CreateSession_Button->Click += gcnew System::EventHandler(this, &Session_CrearUI::CreateSession_Button_Click);
+			// 
 			// label2
 			// 
 			this->label2->AutoSize = true;
-			this->label2->Location = System::Drawing::Point(273, 236);
+			this->label2->Font = (gcnew System::Drawing::Font(L"Inter Light", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label2->Location = System::Drawing::Point(273, 224);
 			this->label2->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(39, 13);
+			this->label2->Size = System::Drawing::Size(59, 19);
 			this->label2->TabIndex = 9;
 			this->label2->Text = L"Temps";
 			// 
 			// TimeHour_ComboBox
 			// 
+			this->TimeHour_ComboBox->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->TimeHour_ComboBox->FormattingEnabled = true;
-			this->TimeHour_ComboBox->Location = System::Drawing::Point(275, 258);
+			this->TimeHour_ComboBox->Location = System::Drawing::Point(275, 246);
 			this->TimeHour_ComboBox->Margin = System::Windows::Forms::Padding(2);
 			this->TimeHour_ComboBox->Name = L"TimeHour_ComboBox";
-			this->TimeHour_ComboBox->Size = System::Drawing::Size(166, 21);
+			this->TimeHour_ComboBox->Size = System::Drawing::Size(192, 27);
 			this->TimeHour_ComboBox->TabIndex = 8;
 			this->TimeHour_ComboBox->SelectedIndexChanged += gcnew System::EventHandler(this, &Session_CrearUI::TimeHour_ComboBox_SelectedIndexChanged);
 			// 
 			// Espai_Label
 			// 
 			this->Espai_Label->AutoSize = true;
-			this->Espai_Label->Location = System::Drawing::Point(34, 236);
+			this->Espai_Label->Font = (gcnew System::Drawing::Font(L"Inter Light", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->Espai_Label->Location = System::Drawing::Point(34, 224);
 			this->Espai_Label->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->Espai_Label->Name = L"Espai_Label";
-			this->Espai_Label->Size = System::Drawing::Size(33, 13);
+			this->Espai_Label->Size = System::Drawing::Size(50, 19);
 			this->Espai_Label->TabIndex = 7;
 			this->Espai_Label->Text = L"Espai";
 			// 
 			// Proveidor_Label
 			// 
 			this->Proveidor_Label->AutoSize = true;
-			this->Proveidor_Label->Location = System::Drawing::Point(34, 124);
+			this->Proveidor_Label->Font = (gcnew System::Drawing::Font(L"Inter Light", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->Proveidor_Label->Location = System::Drawing::Point(34, 120);
 			this->Proveidor_Label->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->Proveidor_Label->Name = L"Proveidor_Label";
-			this->Proveidor_Label->Size = System::Drawing::Size(102, 13);
+			this->Proveidor_Label->Size = System::Drawing::Size(206, 19);
 			this->Proveidor_Label->TabIndex = 6;
-			this->Proveidor_Label->Text = L"Proveïdor de espais";
+			this->Proveidor_Label->Text = L"Prove\u00EFdor de espais";
 			// 
 			// Espai_ComboBox
 			// 
 			this->Espai_ComboBox->Enabled = false;
+			this->Espai_ComboBox->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->Espai_ComboBox->FormattingEnabled = true;
-			this->Espai_ComboBox->Location = System::Drawing::Point(36, 258);
+			this->Espai_ComboBox->Location = System::Drawing::Point(36, 246);
 			this->Espai_ComboBox->Margin = System::Windows::Forms::Padding(2);
 			this->Espai_ComboBox->Name = L"Espai_ComboBox";
-			this->Espai_ComboBox->Size = System::Drawing::Size(186, 21);
+			this->Espai_ComboBox->Size = System::Drawing::Size(186, 27);
 			this->Espai_ComboBox->TabIndex = 5;
 			this->Espai_ComboBox->SelectedIndexChanged += gcnew System::EventHandler(this, &Session_CrearUI::Espai_ComboBox_SelectedIndexChanged);
 			// 
 			// SessionName_Label
 			// 
 			this->SessionName_Label->AutoSize = true;
-			this->SessionName_Label->Location = System::Drawing::Point(34, 49);
+			this->SessionName_Label->Font = (gcnew System::Drawing::Font(L"Inter Light", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->SessionName_Label->Location = System::Drawing::Point(34, 21);
 			this->SessionName_Label->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->SessionName_Label->Name = L"SessionName_Label";
-			this->SessionName_Label->Size = System::Drawing::Size(87, 13);
+			this->SessionName_Label->Size = System::Drawing::Size(183, 19);
 			this->SessionName_Label->TabIndex = 4;
-			this->SessionName_Label->Text = L"Nom de la sessió";
+			this->SessionName_Label->Text = L"Nom de la sessi\u00F3";
 			this->SessionName_Label->Click += gcnew System::EventHandler(this, &Session_CrearUI::label2_Click);
 			// 
 			// SessionName_TextBox
 			// 
-			this->SessionName_TextBox->Location = System::Drawing::Point(36, 77);
+			this->SessionName_TextBox->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->SessionName_TextBox->Location = System::Drawing::Point(36, 49);
 			this->SessionName_TextBox->Margin = System::Windows::Forms::Padding(2);
 			this->SessionName_TextBox->Name = L"SessionName_TextBox";
-			this->SessionName_TextBox->Size = System::Drawing::Size(186, 20);
+			this->SessionName_TextBox->Size = System::Drawing::Size(186, 27);
 			this->SessionName_TextBox->TabIndex = 3;
 			// 
 			// DayMonth_Calendar
 			// 
+			this->DayMonth_Calendar->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->DayMonth_Calendar->Location = System::Drawing::Point(275, 49);
 			this->DayMonth_Calendar->Margin = System::Windows::Forms::Padding(7);
 			this->DayMonth_Calendar->Name = L"DayMonth_Calendar";
@@ -256,36 +280,30 @@ namespace CppCLRWinFormsProject {
 			// 
 			// Proveidor_ListBox
 			// 
+			this->Proveidor_ListBox->Font = (gcnew System::Drawing::Font(L"Inter", 11.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->Proveidor_ListBox->FormattingEnabled = true;
-			this->Proveidor_ListBox->Location = System::Drawing::Point(36, 149);
+			this->Proveidor_ListBox->ItemHeight = 19;
+			this->Proveidor_ListBox->Location = System::Drawing::Point(36, 145);
 			this->Proveidor_ListBox->Margin = System::Windows::Forms::Padding(2);
 			this->Proveidor_ListBox->Name = L"Proveidor_ListBox";
-			this->Proveidor_ListBox->Size = System::Drawing::Size(186, 69);
+			this->Proveidor_ListBox->Size = System::Drawing::Size(186, 61);
 			this->Proveidor_ListBox->TabIndex = 0;
 			this->Proveidor_ListBox->SelectedIndexChanged += gcnew System::EventHandler(this, &Session_CrearUI::Proveidor_ListBox_SelectedIndexChanged);
 			// 
 			// GoBack_Button
 			// 
-			this->GoBack_Button->Location = System::Drawing::Point(706, 463);
-			this->GoBack_Button->Margin = System::Windows::Forms::Padding(52, 32, 8, 24);
+			this->GoBack_Button->Anchor = System::Windows::Forms::AnchorStyles::None;
+			this->GoBack_Button->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->GoBack_Button->ForeColor = System::Drawing::Color::Red;
+			this->GoBack_Button->Location = System::Drawing::Point(688, 458);
 			this->GoBack_Button->Name = L"GoBack_Button";
-			this->GoBack_Button->Size = System::Drawing::Size(56, 19);
+			this->GoBack_Button->Size = System::Drawing::Size(91, 35);
 			this->GoBack_Button->TabIndex = 3;
 			this->GoBack_Button->Text = L"Tornar";
 			this->GoBack_Button->UseVisualStyleBackColor = true;
 			this->GoBack_Button->Click += gcnew System::EventHandler(this, &Session_CrearUI::GoBack_Button_Click);
-			// 
-			// CreateSession_Button
-			// 
-			this->CreateSession_Button->Enabled = false;
-			this->CreateSession_Button->Location = System::Drawing::Point(346, 313);
-			this->CreateSession_Button->Margin = System::Windows::Forms::Padding(2);
-			this->CreateSession_Button->Name = L"CreateSession_Button";
-			this->CreateSession_Button->Size = System::Drawing::Size(94, 19);
-			this->CreateSession_Button->TabIndex = 10;
-			this->CreateSession_Button->Text = L"Crear sessió";
-			this->CreateSession_Button->UseVisualStyleBackColor = true;
-			this->CreateSession_Button->Click += gcnew System::EventHandler(this, &Session_CrearUI::CreateSession_Button_Click);
 			// 
 			// Session_CrearUI
 			// 

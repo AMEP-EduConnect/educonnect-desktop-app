@@ -3,6 +3,7 @@
 #include "GrupEstudi_ConsultarUI.h"
 #include "GrupEstudi_AssignarUI.h"
 #include "GrupEstudi_ExplorarUI.h"
+#include "GrupEstudi_InfoUI.h"
 #include "Usuari.h"
 #include "MainPageUI.h"
 
@@ -14,8 +15,6 @@ namespace CppCLRWinFormsProject {
         grupEstudiService = gcnew GrupEstudiService();
         Noms_ListBox = nomsListBox;
         consulta = pagina;
-        //Int64^ id_group = grupEstudiService->GetGroupIdByName(Noms_ListBox);
-        //this->Background_PictureBox->Image = Image::FromFile("background.png");
         this->Icon = gcnew System::Drawing::Icon("app.ico");
 
         bool isOwner = grupEstudiService->CheckUserIsOwner(Noms_ListBox);
@@ -28,28 +27,23 @@ namespace CppCLRWinFormsProject {
     }
 
     void GrupEstudi_Membres::GrupEstudi_Membresreload() {
-        //Usuari^ currentUser = CurrentSession::Instance->GetCurrentUser();
         Int64^ id_group = grupEstudiService->GetGroupIdByName(Noms_ListBox);
-        //Int64^ id_group = gcnew Int64(61);
         String^ name = grupEstudiService->GetGrupEstudiById(id_group)->GetGroupName();
         this->ConsultarGrupEstudi_Label->Text = "Membres de " + name;
         array<Int64^>^ arrayIdMemberOfGroupEstudis = grupEstudiMembershipService->LoadMembershipByGrupsEstudi(id_group);
 
-        // Limpiar el ListBox antes de cargar los nuevos miembros
         Membres_Box->Items->Clear();
 
         for (int i = 0; i < arrayIdMemberOfGroupEstudis->Length; i++) {
             Usuari^ grupEstudiUser = grupEstudiMembershipService->LoadAllUsersById(arrayIdMemberOfGroupEstudis[i]);
             Membres_Box->Items->Add(grupEstudiUser->GetUsername());
         }
-
-        //Falta que el estudiant pugui gestionar els grups d'estudi que te
     }
 
     void GrupEstudi_Membres::CancelButton_Click(System::Object^ sender, System::EventArgs^ e)
     {
         if (consulta) {
-            GrupEstudi_ConsultarUI^ PanelUI = gcnew GrupEstudi_ConsultarUI();
+            GrupEstudi_InfoUI^ PanelUI = gcnew GrupEstudi_InfoUI(Noms_ListBox);
             PanelUI->TopLevel = false;
             PanelUI->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
             PanelUI->Dock = System::Windows::Forms::DockStyle::Fill;
@@ -60,6 +54,7 @@ namespace CppCLRWinFormsProject {
         }
         else if (not consulta) {
 			GrupEstudi_Explorar^ PanelUI = gcnew GrupEstudi_Explorar();
+            
             PanelUI->TopLevel = false;
             PanelUI->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
             PanelUI->Dock = System::Windows::Forms::DockStyle::Fill;
@@ -73,9 +68,6 @@ namespace CppCLRWinFormsProject {
 
     void GrupEstudi_Membres::Membres_Box_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e)
     {
-        //Usuari^ currentUser = CurrentSession::Instance->GetCurrentUser();
-        //Int64^ id_group = grupEstudiService->GetGroupIdByName(Noms_ListBox);
-        //bool isOwner = grupEstudiService->CheckUserIsOwnerByIds(currentUser->GetUserId(), id_group);
         bool isOwner = grupEstudiService->CheckUserIsOwner(Noms_ListBox);
 
         if (Membres_Box->SelectedIndex != -1) {
@@ -118,13 +110,10 @@ namespace CppCLRWinFormsProject {
                                         return;
                                     }
                                     else {
-                                        grupEstudiMembershipService->DeleteUserFromGroup(user_id, group_id);
-                                        Membres_Box->Text = "";
-                                        Noms_ListBox = "";
                                         MessageManager::InfoMessage("Usuari expulsat del grup d'estudi amb exit.");
+                                        grupEstudiMembershipService->DeleteUserFromGroup(user_id, group_id);
 
-                                        GrupEstudi_ConsultarUI^ PanelUI = gcnew GrupEstudi_ConsultarUI();
-
+                                        GrupEstudi_InfoUI^ PanelUI = gcnew GrupEstudi_InfoUI(Noms_ListBox);
                                         PanelUI->TopLevel = false;
                                         PanelUI->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
                                         PanelUI->Dock = System::Windows::Forms::DockStyle::Fill;
@@ -132,6 +121,9 @@ namespace CppCLRWinFormsProject {
                                         MainPageUI::Instance->screen->Controls->Clear();
                                         MainPageUI::Instance->screen->Controls->Add(PanelUI);
                                         PanelUI->Show();
+                                        
+                                        Membres_Box->Text = "";
+                                        Noms_ListBox = "";  
                                     }
                                 }
                             }

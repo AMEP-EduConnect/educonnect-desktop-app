@@ -46,26 +46,6 @@ namespace CppCLRWinFormsProject {
 	private: System::Windows::Forms::Label^ label6;
 	private: System::Windows::Forms::Button^ button_elim_usuari;
 
-
-
-
-
-
-
-
-
-
-
-
-	protected:
-
-	protected:
-
-
-
-
-
-
 	protected:
 
 	private:
@@ -180,7 +160,7 @@ namespace CppCLRWinFormsProject {
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(95, 19);
 			this->label1->TabIndex = 20;
-			this->label1->Text = L"Proveidors";
+			this->label1->Text = L"Prove\u00EFdors";
 			// 
 			// BotoBaixa
 			// 
@@ -194,7 +174,7 @@ namespace CppCLRWinFormsProject {
 			this->BotoBaixa->Name = L"BotoBaixa";
 			this->BotoBaixa->Size = System::Drawing::Size(243, 41);
 			this->BotoBaixa->TabIndex = 19;
-			this->BotoBaixa->Text = L"Donar de baixa proveidor";
+			this->BotoBaixa->Text = L"Donar de baixa prove\u00EFdor";
 			this->BotoBaixa->UseVisualStyleBackColor = false;
 			this->BotoBaixa->Click += gcnew System::EventHandler(this, &AdministradorUI::BotoBaixa_Click);
 			// 
@@ -210,7 +190,7 @@ namespace CppCLRWinFormsProject {
 			this->BotoAlta->Name = L"BotoAlta";
 			this->BotoAlta->Size = System::Drawing::Size(243, 41);
 			this->BotoAlta->TabIndex = 17;
-			this->BotoAlta->Text = L"Donar d\'alta proveidor";
+			this->BotoAlta->Text = L"Donar d\'alta prove\u00EFdor";
 			this->BotoAlta->UseVisualStyleBackColor = false;
 			this->BotoAlta->Click += gcnew System::EventHandler(this, &AdministradorUI::BotoAltaProveidor_Click);
 			// 
@@ -248,8 +228,8 @@ namespace CppCLRWinFormsProject {
 		}
 #pragma endregion
 
-	private: System::Void BotoAltaProveidor_Click(System::Object^ sender, System::EventArgs^ e);
-	private: System::Void BotoBaixa_Click(System::Object^ sender, System::EventArgs^ e);
+private: System::Void BotoAltaProveidor_Click(System::Object^ sender, System::EventArgs^ e);
+private: System::Void BotoBaixa_Click(System::Object^ sender, System::EventArgs^ e);
 private: System::Void BotoBaixaUser_Click(System::Object^ sender, System::EventArgs^ e);
 };
 }

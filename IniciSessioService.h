@@ -11,7 +11,6 @@ public ref class IniciSessioService
 
 public:
 	IniciSessioService();
-	//Usuari^ GetUsuariById(Int64^ id);
 	Usuari^ GetUsuariByUser(String^ username);
 	Usuari^ GetUsuariById(Int64^ id);
 	bool CheckUsername(String^ username, String^ password);

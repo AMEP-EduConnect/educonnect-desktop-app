@@ -23,7 +23,6 @@ namespace CppCLRWinFormsProject {
 		AltaProveidorUI(void) {
 			InitializeComponent();
 			altaProveidorService = gcnew AltaProveidorService();
-			//this->Background_PictureBox->Image = Image::FromFile("background.png");
 			this->textBox3->Validating += gcnew System::ComponentModel::CancelEventHandler(this, &AltaProveidorUI::NomUsuari_TextBox_Validating);
 			this->textBox2->Validating += gcnew System::ComponentModel::CancelEventHandler(this, &AltaProveidorUI::Email_TextBox_Validating);
 			this->textBox5->Validating += gcnew System::ComponentModel::CancelEventHandler(this, &AltaProveidorUI::textBoxPassword_Validating);
@@ -66,25 +65,13 @@ namespace CppCLRWinFormsProject {
 	private: System::Windows::Forms::Label^ label3;
 	private: System::Windows::Forms::Label^ label4;
 	private: System::Windows::Forms::Label^ label5;
-
-
-
-
-
-
-
 	private: System::Windows::Forms::TableLayoutPanel^ tableLayoutPanel1;
 	private: System::Windows::Forms::TableLayoutPanel^ tableLayoutPanel2;
 	private: System::Windows::Forms::TableLayoutPanel^ tableLayoutPanel3;
 	private: System::Windows::Forms::Button^ Cancelar_Button;
 	private: System::Windows::Forms::Label^ PageTitleLabel;
 
-
-
-
-
-
-		   System::ComponentModel::Container^ components;
+	System::ComponentModel::Container^ components;
 
 #pragma region Windows Form Designer generated code
 		   /// <summary>
@@ -310,11 +297,12 @@ namespace CppCLRWinFormsProject {
 			   this->PageTitleLabel->AutoSize = true;
 			   this->PageTitleLabel->Font = (gcnew System::Drawing::Font(L"Inter", 20.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				   static_cast<System::Byte>(0)));
-			   this->PageTitleLabel->Location = System::Drawing::Point(251, 23);
+			   this->PageTitleLabel->Location = System::Drawing::Point(206, 23);
 			   this->PageTitleLabel->Name = L"PageTitleLabel";
-			   this->PageTitleLabel->Size = System::Drawing::Size(309, 33);
+			   this->PageTitleLabel->Size = System::Drawing::Size(399, 33);
 			   this->PageTitleLabel->TabIndex = 19;
-			   this->PageTitleLabel->Text = L"Donar d\'Alta Proveïdor";
+			   this->PageTitleLabel->Text = L"Donar d\'Alta Prove\u00EFdor";
+			   this->PageTitleLabel->Click += gcnew System::EventHandler(this, &AltaProveidorUI::PageTitleLabel_Click);
 			   // 
 			   // AltaProveidorUI
 			   // 
@@ -336,7 +324,9 @@ namespace CppCLRWinFormsProject {
 
 		   }
 #pragma endregion
-	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e);
-	private: System::Void Cancelar_Button_Click(System::Object^ sender, System::EventArgs^ e);
+private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e);
+private: System::Void Cancelar_Button_Click(System::Object^ sender, System::EventArgs^ e);
+private: System::Void PageTitleLabel_Click(System::Object^ sender, System::EventArgs^ e) {
+}
 };
 }

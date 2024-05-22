@@ -34,8 +34,6 @@ namespace CppCLRWinFormsProject {
 		}
 
 	public:
-
-		//MAIN PANEL
 		System::Windows::Forms::Panel^ screen;
 
 	private:
@@ -58,9 +56,6 @@ namespace CppCLRWinFormsProject {
 		System::Windows::Forms::Panel^ panel6;
 		System::Windows::Forms::Button^ BotoEspais;
 		System::Windows::Forms::Panel^ panel7;
-
-
-
 	private:
 		/// <summary>
 		/// Required designer variable.
@@ -128,8 +123,7 @@ namespace CppCLRWinFormsProject {
 			this->BotoLogout->Name = L"BotoLogout";
 			this->BotoLogout->Size = System::Drawing::Size(146, 41);
 			this->BotoLogout->TabIndex = 2;
-			//FIXME: cambiar por sortir
-			this->BotoLogout->Text = L"Tancar sessió";
+			this->BotoLogout->Text = L"Tancar sessi\u00F3";
 			this->BotoLogout->TextAlign = System::Drawing::ContentAlignment::MiddleRight;
 			this->BotoLogout->UseVisualStyleBackColor = true;
 			this->BotoLogout->Click += gcnew System::EventHandler(this, &MainPageUI::Tancar_Sessio_Click);
@@ -390,18 +384,18 @@ namespace CppCLRWinFormsProject {
 
 		}
 #pragma endregion
-	private:
+private:
 
-		System::Void MainPageUI_Load(System::Object^ sender, System::EventArgs^ e);
+	System::Void MainPageUI_Load(System::Object^ sender, System::EventArgs^ e);
 
-		System::Void Tancar_Sessio_Click(System::Object^ sender, System::EventArgs^ e);
-		System::Void Perfil_Click(System::Object^ sender, System::EventArgs^ e);
+	System::Void Tancar_Sessio_Click(System::Object^ sender, System::EventArgs^ e);
+	System::Void Perfil_Click(System::Object^ sender, System::EventArgs^ e);
 
-		System::Void BotoInici_Click(System::Object^ sender, System::EventArgs^ e);
-		System::Void Admin_Click(System::Object^ sender, System::EventArgs^ e);
-		System::Void ElsMeus_Click(System::Object^ sender, System::EventArgs^ e);
-		System::Void BotoExplorar_Click(System::Object^ sender, System::EventArgs^ e);
-		System::Void BotoEspais_Click(System::Object^ sender, System::EventArgs^ e);
+	System::Void BotoInici_Click(System::Object^ sender, System::EventArgs^ e);
+	System::Void Admin_Click(System::Object^ sender, System::EventArgs^ e);
+	System::Void ElsMeus_Click(System::Object^ sender, System::EventArgs^ e);
+	System::Void BotoExplorar_Click(System::Object^ sender, System::EventArgs^ e);
+	System::Void BotoEspais_Click(System::Object^ sender, System::EventArgs^ e);
 
 };
 }

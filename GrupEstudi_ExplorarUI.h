@@ -39,51 +39,22 @@ namespace CppCLRWinFormsProject {
 		}
 	private: System::Windows::Forms::TableLayoutPanel^ tableLayoutPanel1;
 	private: System::Windows::Forms::Label^ ExplorarGrupEstudi_Label;
-
 	private: System::Windows::Forms::Panel^ Actual_Panel;
-
 	private: System::Windows::Forms::Button^ Membres_Button;
-
-
-
-
-
-
 	private: System::Windows::Forms::ListBox^ Noms_ListBox;
 	private: System::Windows::Forms::Label^ NomPertany_Label;
-
 	private: System::Windows::Forms::ListBox^ Description_ListBox;
-
-
 	private: GrupEstudiService^ grupEstudiService;
 	private: GrupEstudiMembershipService^ grupEstudiMembershipService;
 	private: array<GrupEstudi^>^ arrayIdGroupEstudisOfUserNoIn;
 	private: System::Windows::Forms::Label^ Description_titulo;
-	//private: System::Windows::Forms::Label^ num_mem;
-
 	private: System::Windows::Forms::Label^ academicTag_titulo;
 	private: System::Windows::Forms::Label^ Num_membres;
-	//private: System::Windows::Forms::Label^ academic_tag;
 	private: System::Windows::Forms::TextBox^ academictag;
-
 	private: System::Windows::Forms::TextBox^ nummem;
 	private: System::Windows::Forms::TextBox^ buscador_textBox;
 	private: System::Windows::Forms::Panel^ panel1;
 	private: System::Windows::Forms::Button^ Unirse_Button;
-
-
-
-
-
-		   //private: String^ Noms_ListBox;
-
-
-
-
-
-
-
-
 	protected:
 
 	private:
@@ -239,9 +210,9 @@ namespace CppCLRWinFormsProject {
 			this->Description_titulo->ForeColor = System::Drawing::SystemColors::HotTrack;
 			this->Description_titulo->Location = System::Drawing::Point(21, 172);
 			this->Description_titulo->Name = L"Description_titulo";
-			this->Description_titulo->Size = System::Drawing::Size(93, 19);
+			this->Description_titulo->Size = System::Drawing::Size(134, 19);
 			this->Description_titulo->TabIndex = 10;
-			this->Description_titulo->Text = L"Descripci� ";
+			this->Description_titulo->Text = L"Descripci\u00F3";
 			this->Description_titulo->Visible = false;
 			// 
 			// Membres_Button
@@ -361,31 +332,25 @@ namespace CppCLRWinFormsProject {
 		}
 #pragma endregion
 
+private: System::Void Actual_Panel_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {}
+private: System::Void Pertany_Label_Click(System::Object^ sender, System::EventArgs^ e) {}
+private: System::Void tableLayoutPanel1_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {}
 
-	private: System::Void Actual_Panel_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {}
-	private: System::Void Pertany_Label_Click(System::Object^ sender, System::EventArgs^ e) {}
-	private: System::Void tableLayoutPanel1_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {}
+private: System::Void Membres_Button_Click(System::Object^ sender, System::EventArgs^ e);
+private: System::Void Unirse_Button_Click(System::Object^ sender, System::EventArgs^ e);
 
-	private: System::Void Membres_Button_Click(System::Object^ sender, System::EventArgs^ e);
-	private: System::Void Unirse_Button_Click(System::Object^ sender, System::EventArgs^ e);
-	private: System::Void Cancela_Button_Click(System::Object^ sender, System::EventArgs^ e);
+private: System::Void GrupEstudi_Explorar_Load(System::Object^ sender, System::EventArgs^ e);
+private: System::Void Noms_ListBox_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e);
 
-	private: System::Void GrupEstudi_Explorar_Load(System::Object^ sender, System::EventArgs^ e);
-	private: System::Void Noms_ListBox_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e);
+private: System::Void Description_ListBox_Load(System::Object^ sender, System::EventArgs^ e);
+private: System::Void numero_membres(System::Object^ sender, System::EventArgs^ e);
+private: System::Void academic_tag(System::Object^ sender, System::EventArgs^ e);
+private: System::Void buscador_textBox_Click(System::Object^ sender, System::EventArgs^ e);
+private: System::Void buscar_button_Click(System::Object^ sender, System::EventArgs^ e);
 
-	private: System::Void Description_ListBox_Load(System::Object^ sender, System::EventArgs^ e);
-	private: System::Void numero_membres(System::Object^ sender, System::EventArgs^ e);
-	private: System::Void academic_tag(System::Object^ sender, System::EventArgs^ e);
-
-	//private: System::Void label1_Click(System::Object^ sender, System::EventArgs^ e) {}
-	//private: System::Void label1_Click_1(System::Object^ sender, System::EventArgs^ e) {}
-	
-	private: System::Void buscador_textBox_Click(System::Object^ sender, System::EventArgs^ e);
-	private: System::Void buscar_button_Click(System::Object^ sender, System::EventArgs^ e);
-
-	private: System::Void buscador_textBox_TextChanged(System::Object^ sender, System::EventArgs^ e);
-	array<GrupEstudi^>^ GrupEstudi_Explorar_Array();
-	void GrupEstudi_Explorar_FormClosed();
+private: System::Void buscador_textBox_TextChanged(System::Object^ sender, System::EventArgs^ e);
+array<GrupEstudi^>^ GrupEstudi_Explorar_Array();
+private: System::Void GrupEstudi_Explorar_FormClosed();
 
 };
 };

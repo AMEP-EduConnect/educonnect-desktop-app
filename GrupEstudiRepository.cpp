@@ -86,7 +86,6 @@ void GrupEstudiRepository::DeleteGrupEstudi(String^ group_name)
 
 	DatabaseConnector::Instance->Disconnect();
 }	
-// Create a function that delete a group by id
 bool GrupEstudiRepository::DeleteGrupEstudiById(Int64^ id)
 {
 	DatabaseConnector::Instance->Connect();
@@ -177,9 +176,7 @@ bool GrupEstudiRepository::CheckIfUserExists(String^ user_name)
 	MySqlDataReader^ data = DatabaseConnector::Instance->ExecuteInternCommand(sql);
 	bool trobat = false;
 
-	// Verificar si hay al menos una fila devuelta por la consulta
 	if (data->Read()) {
-		// Si la consulta devuelve al menos una fila, el usuario existe
 		trobat = true;
 	}
 
@@ -303,7 +300,6 @@ String^ GrupEstudiRepository::GetGroupDescription(String^ NomGrup) {
 
 array<GrupEstudi^>^ GrupEstudiRepository::LoadGrupsNoMembers(Int64^ user_id) {
 	DatabaseConnector::Instance->Connect();
-	//SELECT * FROM studyGroups WHERE id NOT IN ( SELECT group_id FROM studyGroupsMembership WHERE user_id = @user_id)";
 	String^ sql = "SELECT * FROM studyGroups WHERE id NOT IN ( SELECT group_id FROM studyGroupsMembership WHERE user_id = @user_id)";
 	Dictionary<String^, Object^>^ params = gcnew Dictionary<String^, Object^>(0);
 	params->Add("@user_id", user_id->ToString());

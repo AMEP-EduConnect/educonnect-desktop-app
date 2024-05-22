@@ -21,13 +21,12 @@ namespace CppCLRWinFormsProject {
 		this->textBox1->Validating += gcnew System::ComponentModel::CancelEventHandler(this, &InformacioPersonal_ConsultaUI::Nickname_Validating);
 		this->textBox2->Validating += gcnew System::ComponentModel::CancelEventHandler(this, &InformacioPersonal_ConsultaUI::Password_Validating);
 		this->textBox3->Validating += gcnew System::ComponentModel::CancelEventHandler(this, &InformacioPersonal_ConsultaUI::Email_Validating);
-		//this->Background_PictureBox->Image = Image::FromFile("background.png");
 		this->Icon = gcnew System::Drawing::Icon("app.ico");
 		
 		this->BotoCancela->Visible = false;
 		this->pictureBox1->Image = Image::FromFile("resources/Icons/eye-crossed.png");
 		this->pictureBox2->Image = Image::FromFile("resources/Icons/eye-crossed.png");
-		//ROLS
+
 		Int64^ rol = CurrentSession::Instance->GetCurrentUserRol();
 		if (*rol != 1LL) this->BotoElimina->Visible = true;
 		else this->BotoElimina->Visible = false;
@@ -46,7 +45,6 @@ namespace CppCLRWinFormsProject {
 					MessageManager::WarningMessage("La contrasenya no es prou robusta.\nHa de contenir 8 o mes caracters, caracters especials i numeros");
 					textBox2->Text = "";
 					textBox5->Text = "";
-					//e->Cancel = true; // Previene que el foco cambie de control hasta que la entrada sea v�lida.
 				}
 				else if (credentialManagementService->VerifyPassword(textBox2->Text, password) == true) {
 					MessageManager::ErrorMessage("La contrasenya no pot ser igual a l'actual");
@@ -142,7 +140,6 @@ namespace CppCLRWinFormsProject {
 			if (isnotValid and textBox->Text != username) {
 				MessageManager::ErrorMessage("El nom de l'usuari ja existeix o no es valid");
 				textBox->Text = "";
-				//e->Cancel = true;
 			}
 		}
 	}
@@ -160,14 +157,12 @@ namespace CppCLRWinFormsProject {
 			if (!IsValidEmail(textBox->Text) && textBox->Text != "") {
 				MessageManager::ErrorMessage("El correu electronic no te un format valid");
 				textBox->Text = "";
-				//e->Cancel = true; // Esto previene que el foco cambie al siguiente control si la validaci�n falla.
 			}
 			else {
 				bool isnotValid = txModifica->CheckEmail(textBox->Text);
 				if (isnotValid and textBox->Text != email) {
 					MessageManager::ErrorMessage("El correu electronic de l'usuari ja esta registrat");
 					textBox->Text = "";
-					//e->Cancel = true;
 				}
 			}
 		}

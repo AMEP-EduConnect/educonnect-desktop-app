@@ -1,6 +1,7 @@
 #include "pch.h"
 #include "GrupEstudi_EditarUI.h"
 #include "GrupEstudi_ConsultarUI.h"
+#include "GrupEstudi_InfoUI.h"
 #include "MainPageUI.h"
 
 namespace CppCLRWinFormsProject {
@@ -17,21 +18,15 @@ namespace CppCLRWinFormsProject {
             static_cast<System::Int32>(static_cast<System::Byte>(224)));
         this->EditarDescripcio_TextBox->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(224)), static_cast<System::Int32>(static_cast<System::Byte>(224)),
             static_cast<System::Int32>(static_cast<System::Byte>(224)));
-        //this->NomActual_TextBox->ReadOnly = true;
         this->NomActual_TextBox->Enabled = false;
-        //this->NomActual_TextBox->BorderStyle = System::Windows::Forms::BorderStyle::None;
-        //this->EditarDescripcio_TextBox->BorderStyle = System::Windows::Forms::BorderStyle::None;
         this->EditarDescripcio_TextBox->Multiline = true;
-        //this->EditarDescripcio_TextBox->WordWrap = true;
-        //this->EditarDescripcio_TextBox->ReadOnly = true;
         this->EditarDescripcio_TextBox->Enabled = false;
-        //this->Background_PictureBox->Image = Image::FromFile("background.png");
         this->Icon = gcnew System::Drawing::Icon("app.ico");
     }
 
     void GrupEstudi_EditarUI::CancelarButton_Click(System::Object^ sender, System::EventArgs^ e)
     {
-        GrupEstudi_ConsultarUI^ PanelUI = gcnew GrupEstudi_ConsultarUI();
+        GrupEstudi_InfoUI^ PanelUI = gcnew GrupEstudi_InfoUI(nomActual);
 
         PanelUI->TopLevel = false;
         PanelUI->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
@@ -42,16 +37,36 @@ namespace CppCLRWinFormsProject {
         PanelUI->Show();
     }
 
+    void GrupEstudi_EditarUI::noModificarButton_Click(System::Object^ sender, System::EventArgs^ e) {
+        MessageManager::InfoMessage("No s'ha modificat cap camp.");
+        this->NomActual_TextBox->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(224)), static_cast<System::Int32>(static_cast<System::Byte>(224)),
+            static_cast<System::Int32>(static_cast<System::Byte>(224)));
+        this->EditarDescripcio_TextBox->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(224)), static_cast<System::Int32>(static_cast<System::Byte>(224)),
+            static_cast<System::Int32>(static_cast<System::Byte>(224)));
+
+        this->NomActual_TextBox->Enabled = false;
+        this->EditarDescripcio_TextBox->Enabled = false;
+
+        Cancelar_Button->Visible = true;
+        Edita_Button->Text = "Modificar";
+        noModificarButton->Visible = false;
+
+        nomActual = NomActual_TextBox->Text;
+        EditarDescripcio_TextBox->Text = descripcioActual;
+        //descripcioActual = EditarDescripcio_TextBox->Text;
+    }
+
     void GrupEstudi_EditarUI::testEdita_Button(System::Object^ sender, System::EventArgs^ e)
     {
         if (grupEstudiService->CheckIfGroupExists(nomActual)) {
             bool checkD = false;
             bool checkN = false;
+            noModificarButton->Visible = true;
             Usuari^ currentUser = CurrentSession::Instance->GetCurrentUser();
             Int64^ currentUser_id = currentUser->GetUserId();
             bool owner = grupEstudiService->CheckUserIsOwner(nomActual);
 
-			this->NomActual_TextBox->BackColor = SystemColors::Window;
+            this->NomActual_TextBox->BackColor = SystemColors::Window;
             this->EditarDescripcio_TextBox->BackColor = SystemColors::Window;
             NomActual_TextBox->Enabled = true;
             EditarDescripcio_TextBox->Enabled = true;
@@ -68,7 +83,6 @@ namespace CppCLRWinFormsProject {
                 if (EditarDescripcio_TextBox->Text != descripcioActual) {
                     grupEstudiService->ModifyGroupDescription(nomActual, EditarDescripcio_TextBox->Text);
                     checkD = true;
-                    //MessageManager::InfoMessage("Descripció del grup modificat correctament.");
                 }
 
                 if (NomActual_TextBox->Text != nomActual) {
@@ -76,7 +90,6 @@ namespace CppCLRWinFormsProject {
                         try {
                             grupEstudiService->ModifyGroupName(nomActual, NomActual_TextBox->Text);
                             checkN = true;
-                            //MessageManager::InfoMessage("Nom del grup modificat correctament.");
                         }
                         catch (Exception^ e) {
                             MessageManager::ErrorMessage(e->Message);
@@ -87,6 +100,10 @@ namespace CppCLRWinFormsProject {
                         MessageManager::WarningMessage("Ja existeix un grup amb aquest nom.");
                     }
                 }
+                else if (noModifica == true and EditarDescripcio_TextBox->Text == descripcioActual and NomActual_TextBox->Text == nomActual) {
+                    //noModificarButton_Click(sender, e);
+                    MessageManager::WarningMessage("Modifica almenys un camp per actualitzar el grup!");
+				}
 
                 if (checkD == true and checkN == false) {
                     MessageManager::InfoMessage("Descripció del grup modificada correctament.");
@@ -120,7 +137,6 @@ namespace CppCLRWinFormsProject {
 
                     nomActual = NomActual_TextBox->Text;
                     descripcioActual = EditarDescripcio_TextBox->Text;
-                    //CancelarButton_Click(sender, e);
                 }
                 else if (checkN == true and checkD == true) {
                     MessageManager::InfoMessage("Nom i descripció del grup modificats correctament.");
@@ -137,8 +153,9 @@ namespace CppCLRWinFormsProject {
 
                     nomActual = NomActual_TextBox->Text;
                     descripcioActual = EditarDescripcio_TextBox->Text;
-                    //CancelarButton_Click(sender, e);
                 }
+                if (noModifica == true) noModifica = false;
+                else if (noModifica == false) noModifica = true;
             }
         }
         else {

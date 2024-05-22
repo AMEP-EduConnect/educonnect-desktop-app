@@ -40,8 +40,6 @@ namespace CppCLRWinFormsProject {
         this->screen->Controls->Add(PanelUI);
         PanelUI->Show();
 
-        //IMAGES
-        //this->Background_PictureBox->Image = Image::FromFile("resources/Images/background2.png");
         this->BotoPersonal->Image = Image::FromFile("resources/Icons/usuario.png");
         this->BotoLogout->Image = Image::FromFile("resources/Icons/salida.png");
         this->BotoExplorar->Image = Image::FromFile("resources/Icons/busqueda.png");

@@ -59,7 +59,7 @@ namespace CppCLRWinFormsProject {
 			{
 				this->FullyFormatedSessionDate = this->DayMonth_Calendar->SelectionStart;
 				*FullyFormatedSessionDate = this->FormatTimeStringIntoDateTime(this->TimeHour_ComboBox->Text);
-				MessageManager::InfoMessage(" 1 La data seleccionada és: " + FullyFormatedSessionDate->ToString());
+				MessageManager::InfoMessage("La data seleccionada és: " + FullyFormatedSessionDate->ToString());
 				bool isFree = this->sessionService->CheckIfTimeStampIsFree(FullyFormatedSessionDate);
 				if (!isFree)
 				{

@@ -43,13 +43,5 @@ int main()
 	CppCLRWinFormsProject::StartPageUI::Instance = gcnew CppCLRWinFormsProject::StartPageUI();
 	
 	Application::Run(CppCLRWinFormsProject::StartPageUI::Instance);
-	//Application::Run(gcnew CppCLRWinFormsProject::CaptchaUI());
-	//Application::Run(gcnew CppCLRWinFormsProject::InformacioPersonal_ConsultaUI());
-	//Application::Run(gcnew CppCLRWinFormsProject::IniciSessio());
-	//Application::Run(gcnew CppCLRWinFormsProject::RegistreUsuari());
-	//Application::Run(gcnew CppCLRWinFormsProject::GrupEstudi_EditarUI());
-	//Application::Run(gcnew CppCLRWinFormsProject::GrupEstudi_CrearUI());
-	//Application::Run(gcnew CppCLRWinFormsProject::GrupEstudi_ConsultarUI());
-	//Application::Run(gcnew CppCLRWinFormsProject::GrupEstudi_AssignarUI());
 	return 0;
 }

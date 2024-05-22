@@ -44,8 +44,7 @@ namespace CppCLRWinFormsProject {
 	private: System::Windows::Forms::Label^ label1;
 	private: System::Windows::Forms::Button^ button2;
 	private: System::Windows::Forms::Button^ button3;
-	private:
-	private:
+
 		/// <summary>
 		/// Variable del diseñador necesaria.
 		/// </summary>
@@ -107,7 +106,7 @@ namespace CppCLRWinFormsProject {
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(358, 19);
 			this->label1->TabIndex = 3;
-			this->label1->Text = L"Escriu els caràcters que apareixen a la imatge";
+			this->label1->Text = L"Escriu els car\u00E0cters que apareixen a la imatge";
 			// 
 			// button2
 			// 

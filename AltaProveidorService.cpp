@@ -19,16 +19,10 @@ bool AltaProveidorService::CheckEmail(String^ email)
 }
 bool AltaProveidorService::AltaProveidor( String^ username, String^ email, String^ name, String^ password)
 {
-		/*if (usuariRepository->CheckUsuariByUser(username) == true) {
-			MessageManager::WarningMessage("Existeix un proveidor/usuari amb aquest username!");
-			return false;
-		}
-		else {*/
 			
-			String^ hash = credentialManagementService->HashPassword(password);
-			Int64^ id_user = usuariRepository->CreateUser(username, email, name, hash);
-			Int64^ id_rol = 3LL;
-			return usuariRolRepository->CreateUserRol(id_user, id_rol);
-		//}
+	String^ hash = credentialManagementService->HashPassword(password);
+	Int64^ id_user = usuariRepository->CreateUser(username, email, name, hash);
+	Int64^ id_rol = 3LL;
+	return usuariRolRepository->CreateUserRol(id_user, id_rol);
 
 }

@@ -25,27 +25,19 @@ array<Int64^>^ GrupEstudiMembershipRepository::LoadGrupsEstudiMembershipByUserId
 	}
 	user_groupEstudiMembership = tempArray;
 	int index = user_groupEstudiMembership->Length;
-	// Obtener el n�mero de filas
 	int rowCount = 0;
 	while (data->Read())
 	{
 		rowCount++;
 	}
 	data->Close();
-
-	// Crear un nuevo arreglo con el tama�o correcto
 	tempArray = gcnew array<Int64^>(rowCount);
-
-	// Volver a ejecutar la consulta
 	data = DatabaseConnector::Instance->ExecuteClientCommand(sql, params);
-
 	index = 0;
 	while (data->Read())
 	{
 		tempArray[index++] = data->GetInt64(0);
 	}
-
-	// Asignar el nuevo arreglo al arreglo original
 	user_groupEstudiMembership = tempArray;
 
 	DatabaseConnector::Instance->Disconnect();
@@ -66,27 +58,19 @@ array<Int64^>^ GrupEstudiMembershipRepository::LoadMembershipByGrupsEstudi(Int64
 	}
 	membresgroupEstudiMembership = tempArray;
 	int index = membresgroupEstudiMembership->Length;
-	// Obtener el n�mero de filas
 	int rowCount = 0;
 	while (data->Read())
 	{
 		rowCount++;
 	}
 	data->Close();
-
-	// Crear un nuevo arreglo con el tama�o correcto
 	tempArray = gcnew array<Int64^>(rowCount);
-
-	// Volver a ejecutar la consulta
 	data = DatabaseConnector::Instance->ExecuteClientCommand(sql, params);
-
 	index = 0;
 	while (data->Read())
 	{
 		tempArray[index++] = data->GetInt64(0);
 	}
-
-	// Asignar el nuevo arreglo al arreglo original
 	membresgroupEstudiMembership = tempArray;
 
 	DatabaseConnector::Instance->Disconnect();
@@ -107,27 +91,19 @@ array<Int64^>^ GrupEstudiMembershipRepository::LoadAllGrupsEstudiNoIn(Int64^ use
 	}
 	user_groupEstudiMembership = tempArray;
 	int index = user_groupEstudiMembership->Length;
-	// Obtener el n�mero de filas
 	int rowCount = 0;
 	while (data->Read())
 	{
 		rowCount++;
 	}
 	data->Close();
-
-	// Crear un nuevo arreglo con el tama�o correcto
 	tempArray = gcnew array<Int64^>(rowCount);
-
-	// Volver a ejecutar la consulta
 	data = DatabaseConnector::Instance->ExecuteClientCommand(sql, params);
-
 	index = 0;
 	while (data->Read())
 	{
 		tempArray[index++] = data->GetInt64(0);
 	}
-
-	// Asignar el nuevo arreglo al arreglo original
 	user_groupEstudiMembership = tempArray;
 
 	DatabaseConnector::Instance->Disconnect();
@@ -175,13 +151,9 @@ Usuari^ GrupEstudiMembershipRepository::LoadAllUsersById(Int64^ user_id)
 	return user;
 }
 
-
-
-//Crear nova inst�ncia de membership;
 void GrupEstudiMembershipRepository::UserToGroup(Int64^ user_id, Int64^ group_id)
 {
 	DatabaseConnector::Instance->Connect();
-	// Utilizamos una consulta parametrizada para evitar problemas de sintaxis y de seguridad
 	String^ sql = "INSERT INTO studyGroupsMembership (user_id, group_id) VALUES (@UserId, @GroupId)";
 	try {
 		MySqlCommand^ command = gcnew MySqlCommand(sql, DatabaseConnector::Instance->GetConn());
@@ -298,8 +270,6 @@ array<GrupEstudiMembership^>^ GrupEstudiMembershipRepository::LoadAllGrupsEstudi
 	}
 	user_groupEstudiMembership = tempArray;
 	int index = user_groupEstudiMembership->Length;
-	
-	// Obtener el n�mero de filas
 	int rowCount = 0;
 	while (data->Read())
 	{

@@ -26,9 +26,7 @@ namespace CppCLRWinFormsProject {
 		AltaEspaisUI(void) {
 			InitializeComponent();
 			altaEspaisService = gcnew AltaEspaisService();
-			//this->textBox3->Validating += gcnew System::ComponentModel::CancelEventHandler(this, &AltaEspaisUI::NomEspai_TextBox_Validating);
 			this->textBox1->Validating += gcnew System::ComponentModel::CancelEventHandler(this, &AltaEspaisUI::Capacitat_TextBox_Validating);
-			//this->Background_PictureBox->Image = Image::FromFile("background.png");
 
 			this->Icon = gcnew System::Drawing::Icon("app.ico");
 		}
@@ -56,16 +54,8 @@ namespace CppCLRWinFormsProject {
 	private:
 		/// <summary>
 		/// Variable del diseador necesaria.
-		/// </summary>
-
-
-
-
 
 	private: System::Windows::Forms::Label^ label6;
-
-
-
 	private: System::Windows::Forms::TableLayoutPanel^ tableLayoutPanel1;
 
 	private: System::Windows::Forms::TableLayoutPanel^ tableLayoutPanel3;
@@ -79,11 +69,7 @@ namespace CppCLRWinFormsProject {
 	private: System::Windows::Forms::Panel^ panel1;
 
 
-
-
-
-
-		   System::ComponentModel::Container^ components;
+	System::ComponentModel::Container^ components;
 
 #pragma region Windows Form Designer generated code
 		   /// <summary>

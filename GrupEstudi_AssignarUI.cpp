@@ -12,7 +12,6 @@ namespace CppCLRWinFormsProject {
         grupEstudiService = gcnew GrupEstudiService();
         Noms_ListBox = nomsListBox;
         NomGrup_TextBox->Text = Noms_ListBox;
-        //this->Background_PictureBox->Image = Image::FromFile("background.png");
         this->Icon = gcnew System::Drawing::Icon("app.ico");
     }
 

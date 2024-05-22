@@ -42,16 +42,8 @@ namespace CppCLRWinFormsProject {
 	private: System::Windows::Forms::Panel^ Panel_Membres;
 	private: System::Windows::Forms::Button^ Assignar_Button;
 	private: System::Windows::Forms::Button^ Expulsar_Button;
-
-
-
-
 	private: System::Windows::Forms::ListBox^ Membres_Box;
-
 	private: System::Windows::Forms::Label^ Membres_GE2;
-
-
-
 	protected:
 
 	private:
@@ -206,7 +198,7 @@ namespace CppCLRWinFormsProject {
 			   this->Cancelar_Button->Name = L"Cancelar_Button";
 			   this->Cancelar_Button->Size = System::Drawing::Size(100, 35);
 			   this->Cancelar_Button->TabIndex = 7;
-			   this->Cancelar_Button->Text = L"Cancelar";
+			   this->Cancelar_Button->Text = L"Tornar";
 			   this->Cancelar_Button->UseVisualStyleBackColor = false;
 			   this->Cancelar_Button->Click += gcnew System::EventHandler(this, &GrupEstudi_Membres::CancelButton_Click);
 			   // 
@@ -229,18 +221,15 @@ namespace CppCLRWinFormsProject {
 
 		   }
 #pragma endregion
-	private: System::Void ConsultarGrupEstudi_Label_Click(System::Object^ sender, System::EventArgs^ e) {}
-	private: System::Void Pertany_Label_Click(System::Object^ sender, System::EventArgs^ e) {}
-	private: System::Void GrupEstudi_Membres_Load(System::Object^ sender, System::EventArgs^ e);
-	private: void GrupEstudi_Membresreload();
-	private: System::Void Membres_Box_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e);
-	private: System::Void Assignar_Button_Click(System::Object^ sender, System::EventArgs^ e);
-	private: System::Void Expulsar_Button_Click(System::Object^ sender, System::EventArgs^ e);
-	private: System::Void CancelButton_Click(System::Object^ sender, System::EventArgs^ e);
-
-
-
-	private: System::Void tableLayoutPanel1_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
+private: System::Void ConsultarGrupEstudi_Label_Click(System::Object^ sender, System::EventArgs^ e) {}
+private: System::Void Pertany_Label_Click(System::Object^ sender, System::EventArgs^ e) {}
+private: System::Void GrupEstudi_Membres_Load(System::Object^ sender, System::EventArgs^ e);
+private: System::Void GrupEstudi_Membresreload();
+private: System::Void Membres_Box_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e);
+private: System::Void Assignar_Button_Click(System::Object^ sender, System::EventArgs^ e);
+private: System::Void Expulsar_Button_Click(System::Object^ sender, System::EventArgs^ e);
+private: System::Void CancelButton_Click(System::Object^ sender, System::EventArgs^ e);
+private: System::Void tableLayoutPanel1_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
 	}
 private: System::Void Panel_Membres_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
 }
