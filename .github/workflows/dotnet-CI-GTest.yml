@@ -20,6 +20,12 @@ jobs:
       with:
         dotnet-version: 8.0.x
 
+    # Install necessary tools for C++/CLI and Google Test
+    - name: Install Visual Studio dependencies
+      run: |
+        choco install visualstudio2022buildtools --package-parameters "--add Microsoft.VisualStudio.Workload.NativeDesktop --includeRecommended --includeOptional --quiet"
+        choco install cmake --installargs 'ADD_CMAKE_TO_PATH=System' --version 3.22.0
+
     # Restore .NET dependencies
     - name: Restore .NET dependencies
       run: dotnet restore
@@ -27,12 +33,6 @@ jobs:
     # Build .NET project in Debug configuration
     - name: Build .NET project
       run: dotnet build --no-restore --configuration Debug
-
-    # Install necessary tools for C++/CLI and Google Test
-    - name: Install Visual Studio dependencies
-      run: |
-        choco install visualstudio2022buildtools --package-parameters "--add Microsoft.VisualStudio.Workload.NativeDesktop --includeRecommended --includeOptional --quiet"
-        choco install cmake --installargs 'ADD_CMAKE_TO_PATH=System' --version 3.22.0
 
     # Build C++/CLI project with Google Test in Debug configuration
     - name: Build C++/CLI project
