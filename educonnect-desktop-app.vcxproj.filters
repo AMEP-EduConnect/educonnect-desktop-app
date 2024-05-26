@@ -41,9 +41,6 @@
     <ClInclude Include="Utils.h">
       <Filter>Source Files\utils</Filter>
     </ClInclude>
-    <ClInclude Include="GrupEstudi.h">
-      <Filter>Source Files\entities</Filter>
-    </ClInclude>
     <ClInclude Include="GrupEstudi_CrearUI.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -224,6 +221,9 @@
     <ClInclude Include="Notificacio.h">
       <Filter>Source Files\entities</Filter>
     </ClInclude>
+    <ClInclude Include="GrupEstudi.h">
+      <Filter>Source Files\entities</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AssemblyInfo.cpp">
@@ -241,11 +241,12 @@
     <ClCompile Include="GrupEstudi_CrearUI.cpp">
       <Filter>Source Files\ui</Filter>
     </ClCompile>
-    <ClCompile Include="GrupEstudi.cpp">
-      <Filter>Source Files\entities</Filter>
-    </ClCompile>
+
     <ClCompile Include="GrupEstudiService.cpp">
       <Filter>Source Files\services</Filter>
+    </ClCompile>
+    <ClCompile Include="GrupEstudi.cpp">
+      <Filter>Source Files\entities</Filter>
     </ClCompile>
     <ClCompile Include="GrupEstudiRepository.cpp">
       <Filter>Source Files\repositories</Filter>

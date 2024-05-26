@@ -1,13 +1,13 @@
 #pragma once
 
 using namespace System;
-public ref class GrupEstudi
+public ref class GrupEstudiSUT
 {
 public:
 
-	GrupEstudi();
+	GrupEstudiSUT();
 
-	GrupEstudi(Int64^ id, String^ group_name, Int64^ group_owner_id, Int64^ group_academic_tag, String^ description);
+	GrupEstudiSUT(Int64^ id, String^ group_name, Int64^ group_owner_id, Int64^ group_academic_tag, String^ description);
 
 	Int64^ GetId();
 	String^ GetGroupName();

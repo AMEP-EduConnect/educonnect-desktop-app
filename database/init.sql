@@ -92,6 +92,29 @@ create table if not exists grupSessionsAttendants(
 	foreign key (user_id) references users(id) on delete cascade
 );
 
+create table if not exists notificationType(
+	id int auto_increment primary key,
+	notification_type varchar(255) not null
+);
+
+create table if not exists userNotifications(
+	id int auto_increment primary key,
+	notification_type int not null,
+	status id not null,
+	source_grup_id int not null,
+	source_user_id int not null,
+	destination_user_id int not null,
+	foreign key (status) references notificationStatus(id),
+	foreign key (source_grup_id) references studyGroups(id),
+	foreign key (notification_type) references notificationType(id),
+	foreign key (source_user_id) references users(id),
+	foreign key (destination_user_id) references users(id)
+); 
+
+insert into notificationType(notification_type) values("INVITATION");
+insert into notificationType(notification_type) values("REQUEST");
+
+
 insert into academicTags(tag_name) values("AMEP");
 insert into academicTags(tag_name) values("FOMA");
 insert into academicTags(tag_name) values("INEP");

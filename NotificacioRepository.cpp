@@ -3,7 +3,7 @@
 
 NotificacioRepository::NotificacioRepository()
 {
-    this->notificacions = gcnew List<Notificacio^>();
+    this->notificacions = gcnew List<Notificacio^>(0);
 }
 
 void NotificacioRepository::AddNotificacio(Notificacio^ notificacio)
@@ -58,7 +58,7 @@ List<Notificacio^>^ NotificacioRepository::GetAllNotificacions()
     String^ sql = "SELECT * FROM notifications";
     MySqlDataReader^ data = DatabaseConnector::Instance->ExecuteClientCommand(sql, nullptr);
 
-    List<Notificacio^>^ notificacions = gcnew List<Notificacio^>();
+    List<Notificacio^>^ notificacions = gcnew List<Notificacio^>(0);
     while (data->Read())
     {
         Notificacio^ notificacio = gcnew Notificacio();
