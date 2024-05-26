@@ -2,6 +2,7 @@
   educonnect_desktop_app.AltaEspaisUI.resources - Embedded, ContainedInManifestFile, 
   educonnect_desktop_app.AltaProveidorUI.resources - Embedded, ContainedInManifestFile, 
   educonnect_desktop_app.BaixaProveidorUI.resources - Embedded, ContainedInManifestFile, 
+  educonnect_desktop_app.BaixaUsuariAdminUI.resources - Embedded, ContainedInManifestFile, 
   educonnect_desktop_app.BaixaUsuariUI.resources - Embedded, ContainedInManifestFile, 
   educonnect_desktop_app.CaptchaUI.resources - Embedded, ContainedInManifestFile, 
   educonnect_desktop_app.ConsultaEspaisUI.resources - Embedded, ContainedInManifestFile, 
@@ -45,28 +46,6 @@ Assembly System.Xml, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c5619
 	hash=None, flags=None
 Assembly netstandard, Version=2.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51: 
 	hash=None, flags=None
-Class ChatMessage: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
-    Void .ctor(System.String, System.ValueType, System.ValueType, System.String): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
-    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
-  Methods:
-    getMessage(): PrivateScope, Public, HideBySig
-    getUserId(): PrivateScope, Public, HideBySig
-    getTimestamp(): PrivateScope, Public, HideBySig
-    getGroupId(): PrivateScope, Public, HideBySig
-    getId(): PrivateScope, Public, HideBySig
-    setId(ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
-    setGroupId(ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
-    setTimestamp(ValueType DateTime IsBoxed): PrivateScope, Public, HideBySig
-    setMessage(String): PrivateScope, Public, HideBySig
-    setUserId(ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
-    getUsername(): PrivateScope, Public, HideBySig
-    setUsername(String): PrivateScope, Public, HideBySig
-Class ChatMessageRepository: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
-    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
-  Methods:
-    AddMessage(ValueType Int64 IsBoxed, ValueType Int64 IsBoxed, String): PrivateScope, Public, HideBySig
-    GetMessages(ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
-    GetLastsMessages(ValueType Int64 IsBoxed, ValueType Int64 IsBoxed, ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
 Class Usuari: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
     Void .ctor(System.ValueType, System.String, System.String, System.String, System.String): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
@@ -133,41 +112,14 @@ Class UsuariRepository: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
     GetUserId(String): PrivateScope, Public, HideBySig
     GetProveidorByEspaiId(ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
     GetUsersByRolId(ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
-Class Files: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
-    Void .ctor(System.ValueType, System.ValueType, System.ValueType, System.String, System.String, Byte[]): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    GetUsersByStartingLetter(ValueType Int64 IsBoxed, String): PrivateScope, Public, HideBySig
+Class UsuariRolRepository: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
   Methods:
-    get_id(): PrivateScope, Public, HideBySig
-    get_group_id(): PrivateScope, Public, HideBySig
-    get_user_id(): PrivateScope, Public, HideBySig
-    get_filename(): PrivateScope, Public, HideBySig
-    get_file_type(): PrivateScope, Public, HideBySig
-    get_upload_timestamp(): PrivateScope, Public, HideBySig
-    get_file_content(): PrivateScope, Public, HideBySig
-    set_id(ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
-    set_group_id(ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
-    set_user_id(ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
-    set_filename(String): PrivateScope, Public, HideBySig
-    set_file_type(String): PrivateScope, Public, HideBySig
-    set_upload_timestamp(ValueType DateTime IsBoxed): PrivateScope, Public, HideBySig
-    set_file_content(Byte[]): PrivateScope, Public, HideBySig
-Class FileRepository: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
-    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
-  Methods:
-    AddFile(ValueType Int64 IsBoxed, ValueType Int64 IsBoxed, String, String, Byte[]): PrivateScope, Public, HideBySig
-    GetFile(ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
-    GetFiles(ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
-    DeleteFileById(ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
-Class ChatGrupEstudiService: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
-    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
-  Methods:
-    SendMenssage(ValueType Int64 IsBoxed, ValueType Int64 IsBoxed, String): PrivateScope, Public, HideBySig
-    GetChatMembers(ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
-    CheckLastsMessage(ValueType Int64 IsBoxed, ValueType Int64 IsBoxed, ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
-    GetUsernameMessageById(ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
-    SendFile(ValueType Int64 IsBoxed, ValueType Int64 IsBoxed, String, String, Byte[]): PrivateScope, Public, HideBySig
-    GetFiles(ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
-    GetFileById(ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
+    CreateUserRol(ValueType Int64 IsBoxed, ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
+    DeleteUserRol(ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
+    GetRolId(ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
+    GetUsersByRolId(ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
 Class GrupEstudiMembership: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
     Void .ctor(System.ValueType, System.ValueType, System.ValueType, System.String): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
@@ -219,21 +171,6 @@ Class GrupEstudiMembershipRepository: AutoLayout, AnsiClass, Class, Public, Befo
     GetOldestUserInGroup(ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
     CheckIfGroupHasUsers(ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
     CheckNRecentGroups(ValueType Int64 IsBoxed, ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
-Class GrupEstudiMembershipService: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
-    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
-  Methods:
-    LoadGrupsEstudiMembershipByUserId(ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
-    LoadAllGrupsEstudiMembershipByUserId(ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
-    LoadMembershipByGrupsEstudi(ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
-    LoadAllGrupsEstudiNoIn(ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
-    LoadAllGrupEstudibyId(ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
-    LoadAllUsersById(ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
-    UserToGroup(ValueType Int64 IsBoxed, ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
-    CheckIfUserIsInGroup(ValueType Int64 IsBoxed, ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
-    DeleteUserFromGroup(ValueType Int64 IsBoxed, ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
-    CheckNRecentGroups(ValueType Int64 IsBoxed, ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
-    UserInSomeGroup(ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
-    GetOldestUserInGroup(ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
 Class GrupEstudiRepository: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
   Methods:
@@ -255,6 +192,101 @@ Class GrupEstudiRepository: AutoLayout, AnsiClass, Class, Public, BeforeFieldIni
     CheckUserIsOwner(String): PrivateScope, Public, HideBySig
     LoadGrupsNoMembers(ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
     ChangeGroupOwner(ValueType Int64 IsBoxed, ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
+Class CredentialManagementService: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    HashPassword(String): PrivateScope, Public, HideBySig
+    VerifyPassword(String, String): PrivateScope, Public, HideBySig
+Class BaixaUsuariService: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    BaixaUsuari(String): PrivateScope, Public, HideBySig
+    LoadAllUsers(): PrivateScope, Public, HideBySig
+    LoadUsersByStartingLetter(String): PrivateScope, Public, HideBySig
+Class CppCLRWinFormsProject.BaixaUsuariAdminUI: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class CppCLRWinFormsProject.AdministradorUI: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class CppCLRWinFormsProject.MainPageUI: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    System.Windows.Forms.Panel screen : Public
+    CppCLRWinFormsProject.MainPageUI Instance : Public, Static
+Class ChatMessage: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(System.String, System.ValueType, System.ValueType, System.String): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    getMessage(): PrivateScope, Public, HideBySig
+    getUserId(): PrivateScope, Public, HideBySig
+    getTimestamp(): PrivateScope, Public, HideBySig
+    getGroupId(): PrivateScope, Public, HideBySig
+    getId(): PrivateScope, Public, HideBySig
+    setId(ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
+    setGroupId(ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
+    setTimestamp(ValueType DateTime IsBoxed): PrivateScope, Public, HideBySig
+    setMessage(String): PrivateScope, Public, HideBySig
+    setUserId(ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
+    getUsername(): PrivateScope, Public, HideBySig
+    setUsername(String): PrivateScope, Public, HideBySig
+Class ChatMessageRepository: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    AddMessage(ValueType Int64 IsBoxed, ValueType Int64 IsBoxed, String): PrivateScope, Public, HideBySig
+    GetMessages(ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
+    GetLastsMessages(ValueType Int64 IsBoxed, ValueType Int64 IsBoxed, ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
+Class Files: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(System.ValueType, System.ValueType, System.ValueType, System.String, System.String, Byte[]): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    get_id(): PrivateScope, Public, HideBySig
+    get_group_id(): PrivateScope, Public, HideBySig
+    get_user_id(): PrivateScope, Public, HideBySig
+    get_filename(): PrivateScope, Public, HideBySig
+    get_file_type(): PrivateScope, Public, HideBySig
+    get_upload_timestamp(): PrivateScope, Public, HideBySig
+    get_file_content(): PrivateScope, Public, HideBySig
+    set_id(ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
+    set_group_id(ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
+    set_user_id(ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
+    set_filename(String): PrivateScope, Public, HideBySig
+    set_file_type(String): PrivateScope, Public, HideBySig
+    set_upload_timestamp(ValueType DateTime IsBoxed): PrivateScope, Public, HideBySig
+    set_file_content(Byte[]): PrivateScope, Public, HideBySig
+Class FileRepository: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    AddFile(ValueType Int64 IsBoxed, ValueType Int64 IsBoxed, String, String, Byte[]): PrivateScope, Public, HideBySig
+    GetFile(ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
+    GetFiles(ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
+    DeleteFileById(ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
+Class ChatGrupEstudiService: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    SendMenssage(ValueType Int64 IsBoxed, ValueType Int64 IsBoxed, String): PrivateScope, Public, HideBySig
+    GetChatMembers(ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
+    CheckLastsMessage(ValueType Int64 IsBoxed, ValueType Int64 IsBoxed, ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
+    GetUsernameMessageById(ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
+    SendFile(ValueType Int64 IsBoxed, ValueType Int64 IsBoxed, String, String, Byte[]): PrivateScope, Public, HideBySig
+    GetFiles(ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
+    GetFileById(ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
+Class GrupEstudiMembershipService: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    LoadGrupsEstudiMembershipByUserId(ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
+    LoadAllGrupsEstudiMembershipByUserId(ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
+    LoadMembershipByGrupsEstudi(ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
+    LoadAllGrupsEstudiNoIn(ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
+    LoadAllGrupEstudibyId(ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
+    LoadAllUsersById(ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
+    UserToGroup(ValueType Int64 IsBoxed, ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
+    CheckIfUserIsInGroup(ValueType Int64 IsBoxed, ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
+    DeleteUserFromGroup(ValueType Int64 IsBoxed, ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
+    CheckNRecentGroups(ValueType Int64 IsBoxed, ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
+    UserInSomeGroup(ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
+    GetOldestUserInGroup(ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
 Class GrupEstudiService: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
   Methods:
@@ -283,12 +315,6 @@ Class CppCLRWinFormsProject.GrupEstudi_EditarUI: AutoLayout, AnsiClass, Class, P
 Class CppCLRWinFormsProject.GrupEstudi_ConsultarUI: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
-Class CppCLRWinFormsProject.MainPageUI: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
-  :System.Windows.Forms.Form
-    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
-  Fields:
-    System.Windows.Forms.Panel screen : Public
-    CppCLRWinFormsProject.MainPageUI Instance : Public, Static
 Class FileByteConverterService: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
   Methods:
@@ -405,24 +431,12 @@ Class GrupSessionAttendantsService: AutoLayout, AnsiClass, Class, Public, Before
 Class CppCLRWinFormsProject.GrupEstudi_InfoUI: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form
     Void .ctor(System.String): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
-Class UsuariRolRepository: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
-    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
-  Methods:
-    CreateUserRol(ValueType Int64 IsBoxed, ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
-    DeleteUserRol(ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
-    GetRolId(ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
-    GetUsersByRolId(ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
 Class BaixaProveidorService: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
   Methods:
     BaixaProveidor(String): PrivateScope, Public, HideBySig
     ListProveidors(): PrivateScope, Public, HideBySig
     GetProveidorByEspaiId(ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
-Class CredentialManagementService: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
-    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
-  Methods:
-    HashPassword(String): PrivateScope, Public, HideBySig
-    VerifyPassword(String, String): PrivateScope, Public, HideBySig
 Class IniciSessioService: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
   Methods:
@@ -437,9 +451,6 @@ Class CppCLRWinFormsProject.Session_CrearUI: AutoLayout, AnsiClass, Class, Publi
 Class CppCLRWinFormsProject.Session_EditarUI: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form
     Void .ctor(GrupEstudi, System.ValueType): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
-Class CppCLRWinFormsProject.AdministradorUI: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
-  :System.Windows.Forms.Form
-    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
 Class AltaProveidorService: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
   Methods:
@@ -456,13 +467,6 @@ Class CppCLRWinFormsProject.AltaProveidorUI: AutoLayout, AnsiClass, Class, Publi
     IsValidEmail(String): PrivateScope, Public, HideBySig
     IsPasswordStrong(String): PrivateScope, Public, HideBySig
 Class CppCLRWinFormsProject.BaixaProveidorUI: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
-  :System.Windows.Forms.Form
-    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
-Class BaixaUsuariService: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
-    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
-  Methods:
-    BaixaUsuari(String): PrivateScope, Public, HideBySig
-Class CppCLRWinFormsProject.BaixaUsuariUI: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
 Class AltaEspaisService: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
@@ -503,6 +507,9 @@ Class CppCLRWinFormsProject.AltaEspaisUI: AutoLayout, AnsiClass, Class, Public, 
     NomEspai_TextBox_Validating(String): PrivateScope, Public, HideBySig
     IsValidCapacitat(String): PrivateScope, Public, HideBySig
     Capacitat_TextBox_Validating(Object, CancelEventArgs): PrivateScope, Public, HideBySig
+Class CppCLRWinFormsProject.BaixaUsuariUI: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
 Class PerfilPersonalConsultaService: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
   Methods:

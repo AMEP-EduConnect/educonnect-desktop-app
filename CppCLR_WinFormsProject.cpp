@@ -25,6 +25,7 @@ using namespace System;
 #include "CaptchaUI.h"
 #include "StartPageUI.h"
 #include "ChatGrupEstudiUI.h"
+#include "BaixaUsuariAdminUI.h"
 using namespace System;
 #include "InformacioPersonal_ConsultaUI.h"
 

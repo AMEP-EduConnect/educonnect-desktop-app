@@ -203,3 +203,26 @@ List<Usuari^>^ UsuariRepository::GetUsersByRolId(Int64^ rol_id) {
 	DatabaseConnector::Instance->Disconnect();
 	return users;
 }
+
+List<Usuari^>^ UsuariRepository::GetUsersByStartingLetter(Int64^ rol_id, String^ username)
+{
+	DatabaseConnector::Instance->Connect();
+	String^ sql = "SELECT * FROM users u INNER JOIN users_roles ur ON u.id = ur.user_id WHERE u.username LIKE @username AND ur.role_id = @rol_id ORDER BY u.username ASC";
+	Dictionary<String^, Object^>^ params = gcnew Dictionary<String^, Object^>(0);
+	params->Add("@rol_id", rol_id);
+	params->Add("@username", username);
+	MySqlDataReader^ data = DatabaseConnector::Instance->ExecuteClientCommand(sql, params);
+	List<Usuari^>^ users = gcnew List<Usuari^>(0);
+	while (data->Read()) {
+		Usuari^ usuari = gcnew Usuari();
+		usuari->SetUserId(data->GetInt64(0));
+		usuari->SetUsername(data->GetString(1));
+		usuari->SetPassword(data->GetString(2));
+		usuari->SetEmail(data->GetString(3));
+		usuari->SetName(data->GetString(4));
+		users->Add(usuari);
+	}
+	data->Close();
+	DatabaseConnector::Instance->Disconnect();
+	return users;
+}

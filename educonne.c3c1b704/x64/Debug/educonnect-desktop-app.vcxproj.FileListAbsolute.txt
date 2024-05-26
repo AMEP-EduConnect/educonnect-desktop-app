@@ -57,6 +57,7 @@ C:\Users\alex_saiz243\educonnect-desktop-app\educonne.c3c1b704\x64\Debug\educonn
 C:\Users\alex_saiz243\educonnect-desktop-app\educonne.c3c1b704\x64\Debug\educonnect_desktop_app.AltaEspaisUI.resources
 C:\Users\alex_saiz243\educonnect-desktop-app\educonne.c3c1b704\x64\Debug\educonnect_desktop_app.AltaProveidorUI.resources
 C:\Users\alex_saiz243\educonnect-desktop-app\educonne.c3c1b704\x64\Debug\educonnect_desktop_app.BaixaProveidorUI.resources
+C:\Users\alex_saiz243\educonnect-desktop-app\educonne.c3c1b704\x64\Debug\educonnect_desktop_app.BaixaUsuariAdminUI.resources
 C:\Users\alex_saiz243\educonnect-desktop-app\educonne.c3c1b704\x64\Debug\educonnect_desktop_app.BaixaUsuariUI.resources
 C:\Users\alex_saiz243\educonnect-desktop-app\educonne.c3c1b704\x64\Debug\educonnect_desktop_app.CaptchaUI.resources
 C:\Users\alex_saiz243\educonnect-desktop-app\educonne.c3c1b704\x64\Debug\educonnect_desktop_app.ConsultaEspaisUI.resources

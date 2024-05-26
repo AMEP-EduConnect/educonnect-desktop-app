@@ -242,6 +242,9 @@
     <ClInclude Include="ModificaEspaisService.h">
       <Filter>Source Files\services</Filter>
     </ClInclude>
+    <ClInclude Include="BaixaUsuariAdminUI.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AssemblyInfo.cpp">
@@ -468,6 +471,9 @@
     </ClCompile>
     <ClCompile Include="FileRepository.cpp">
       <Filter>Source Files\repositories</Filter>
+    </ClCompile>
+    <ClCompile Include="BaixaUsuariAdminUI.cpp">
+      <Filter>Header Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

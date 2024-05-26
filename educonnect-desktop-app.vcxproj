@@ -217,6 +217,9 @@
     <ResourceCompile Include="app.rc" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BaixaUsuariAdminUI.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="ChatGrupEstudiService.h" />
     <ClInclude Include="ChatGrupEstudiUI.h">
       <FileType>CppForm</FileType>
@@ -336,6 +339,7 @@
     <ClInclude Include="Utils.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="BaixaUsuariAdminUI.cpp" />
     <ClCompile Include="ChatGrupEstudiService.cpp" />
     <ClCompile Include="ChatGrupEstudiUI.cpp" />
     <ClCompile Include="ChatMessage.cpp" />
@@ -448,6 +452,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="BaixaProveidorUI.resx">
       <DependentUpon>BaixaProveidorUI.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BaixaUsuariAdminUI.resx">
+      <DependentUpon>BaixaUsuariAdminUI.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="BaixaUsuariUI.resx">
       <DependentUpon>BaixaUsuariUI.h</DependentUpon>

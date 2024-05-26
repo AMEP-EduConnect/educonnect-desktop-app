@@ -20,4 +20,5 @@ public:
 	Int64^ GetUserId(String^ username);
 	Usuari^ GetProveidorByEspaiId(Int64^ espai_id);
 	List<Usuari^>^ GetUsersByRolId(Int64^ rol_id);
+	List<Usuari^>^ GetUsersByStartingLetter(Int64^ rol_id, String^ username);
 };
