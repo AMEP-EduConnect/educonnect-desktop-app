@@ -1,21 +1,13 @@
 #pragma once
+
 using namespace System;
 public ref class GrupEstudi
 {
 public:
-	
+
 	GrupEstudi();
 
 	GrupEstudi(Int64^ id, String^ group_name, Int64^ group_owner_id, Int64^ group_academic_tag, String^ description);
-
-private:
-	property Int64^ id;
-	property String^ group_name;
-	property Int64^ group_owner_id;
-	property Int64^ group_academic_tag;
-	property String^ description;
-	property array<Int64>^ memberIds;
-public:
 
 	Int64^ GetId();
 	String^ GetGroupName();
@@ -30,5 +22,12 @@ public:
 	void SetGroupAcademicTag(Int64^ group_academic_tag);
 	void SetDescription(String^ description);
 
+private:
+	property Int64^ id;
+	property String^ group_name;
+	property Int64^ group_owner_id;
+	property Int64^ group_academic_tag;
+	property String^ description;
+	property array<Int64>^ memberIds;
 
 };
