@@ -299,6 +299,7 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="Notificacio.h" />
+    <ClInclude Include="NotificacioRepository.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="PerfilPersonalModificaService.h" />
     <ClInclude Include="RegistreUsuariUI.h">
@@ -373,6 +374,7 @@
     <ClCompile Include="ModificaEspaisService.cpp" />
     <ClCompile Include="ModificaEspaisUI.cpp" />
     <ClCompile Include="Notificacio.cpp" />
+    <ClCompile Include="NotificacioRepository.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='EduConnect|x64'">Create</PrecompiledHeader>
