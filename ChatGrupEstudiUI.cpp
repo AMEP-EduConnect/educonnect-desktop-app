@@ -33,6 +33,8 @@ namespace CppCLRWinFormsProject {
             }
         }
     }
+  
+
     
     Void ChatGrupEstudiUI::ChatGrupEstudiUI_Load(System::Object^ sender, System::EventArgs^ e) {
         List<ChatMessage^>^ chatMembers = chatGrupEstudiService->GetChatMembers(id_group);
