@@ -135,6 +135,30 @@ GrupEstudi^ GrupEstudiRepository::GetGrupEstudiByName(String^ group_name_act) {
 	return grupestudi;
 }
 
+List<GrupEstudi^>^ GrupEstudiRepository::GetNGrupEstudiByacademic_tag(Int64^ academic_tag, Int64^ N)
+{
+	DatabaseConnector::Instance->Connect();
+	String^ sql = "SELECT * FROM studyGroups WHERE group_academic_tag = @academic_tag LIMIT 3";
+	Dictionary<String^, Object^>^ params = gcnew Dictionary<String^, Object^>(0);
+	params->Add("@academic_tag", academic_tag->ToString());
+	//params->Add("@N", N->ToString());
+	MySqlDataReader^ data = DatabaseConnector::Instance->ExecuteClientCommand(sql, params);
+	List<GrupEstudi^>^ grups = gcnew List<GrupEstudi^>(0);
+	while (data->Read())
+	{
+		GrupEstudi^ grup = gcnew GrupEstudi();
+		grup->SetId(data->GetInt64(0));
+		grup->SetGroupName(data->GetString(1));
+		grup->SetGroupOwnerId(data->GetInt64(2));
+		grup->SetGroupAcademicTag(data->GetInt64(3));
+		grup->SetDescription(data->GetString(4));
+		grups->Add(grup);
+	}
+	data->Close();
+	DatabaseConnector::Instance->Disconnect();
+	return grups;
+}
+
 
 void GrupEstudiRepository::UpdateGroupName(String^ group_name_act, String^ group_name_new) {
 	DatabaseConnector::Instance->Connect();
@@ -320,3 +344,5 @@ array<GrupEstudi^>^ GrupEstudiRepository::LoadGrupsNoMembers(Int64^ user_id) {
 	DatabaseConnector::Instance->Disconnect();
 	return grups;
 }
+
+

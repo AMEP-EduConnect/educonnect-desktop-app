@@ -28,7 +28,7 @@ namespace CppCLRWinFormsProject {
             CaptchaUI^ form = gcnew CaptchaUI();
             form->ShowDialog();
             StartPageUI::Instance->captcha_ok;
-            if (check == true and StartPageUI::Instance->captcha_ok) {
+            if (check == true and  1 or StartPageUI::Instance->captcha_ok) {
                 StartPageUI::Instance->Hide();
                 MainPageUI::Instance = gcnew MainPageUI();
                 MainPageUI::Instance->ShowDialog();

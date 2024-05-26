@@ -203,3 +203,7 @@ List<Usuari^>^ UsuariRepository::GetUsersByRolId(Int64^ rol_id) {
 	DatabaseConnector::Instance->Disconnect();
 	return users;
 }
+
+
+
+

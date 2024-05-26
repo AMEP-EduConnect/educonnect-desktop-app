@@ -34,3 +34,15 @@ bool PerfilPersonalModificaService::CheckEmail(String^ email)
 {
 	return this->usuariRepository->CheckUsuariByEmail(email);
 }
+
+bool PerfilPersonalModificaService::addAcademicTag(Int64^ tag_id)
+{
+	return AcademicTagRepository->AsociateAcademicTagToUser(CurrentSession::Instance->GetCurrentUser()->GetUserId(), tag_id);
+}
+
+bool PerfilPersonalModificaService::deleteAcademicTag(Int64^ tag_id)
+{
+	return AcademicTagRepository->DeleteAcademicTagFromUser(CurrentSession::Instance->GetCurrentUser()->GetUserId(), tag_id);
+}
+
+

@@ -1,2 +1,4 @@
 F:\Proyectos\EduConnect\educonnect-desktop-app\educonnect-test\x64\Debug\educonnect-test.vcxproj.AssemblyReference.cache
 F:\Proyectos\EduConnect\educonnect-desktop-app\educonnect-test\x64\Debug\educonne.43355953.Up2Date
+C:\Users\GERARD\educonnect-desktop-app\educonnect-test\x64\Debug\educonnect-test.vcxproj.AssemblyReference.cache
+C:\Users\GERARD\educonnect-desktop-app\educonnect-test\x64\Debug\educonne.43355953.Up2Date

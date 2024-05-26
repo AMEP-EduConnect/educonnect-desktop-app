@@ -1,5 +1,9 @@
 #include "pch.h"
 #include "InformacioPersonal_ConsultaUI.h"
+#include "AcademicTag.h"
+using namespace std;
+
+using namespace System::Collections::Generic;
 
 namespace CppCLRWinFormsProject {
 
@@ -18,11 +22,13 @@ namespace CppCLRWinFormsProject {
 		textBox3->Text = email;
 		textBox4->Text = name;
 
+		fill_flowlayoutpanelwithtags();
+
 		this->textBox1->Validating += gcnew System::ComponentModel::CancelEventHandler(this, &InformacioPersonal_ConsultaUI::Nickname_Validating);
 		this->textBox2->Validating += gcnew System::ComponentModel::CancelEventHandler(this, &InformacioPersonal_ConsultaUI::Password_Validating);
 		this->textBox3->Validating += gcnew System::ComponentModel::CancelEventHandler(this, &InformacioPersonal_ConsultaUI::Email_Validating);
 		this->Icon = gcnew System::Drawing::Icon("app.ico");
-		
+
 		this->BotoCancela->Visible = false;
 		this->pictureBox1->Image = Image::FromFile("resources/Icons/eye-crossed.png");
 		this->pictureBox2->Image = Image::FromFile("resources/Icons/eye-crossed.png");
@@ -40,7 +46,7 @@ namespace CppCLRWinFormsProject {
 				MessageManager::WarningMessage("Modifica almenys un camp per a actualitzar l'usuari!");
 				textBox5->Text = "";
 			}
-			else if(textBox2->Text != "" and textBox2->Text != password) {
+			else if (textBox2->Text != "" and textBox2->Text != password) {
 				if (!IsPasswordStrong(textBox2->Text) && textBox2->Text != "") {
 					MessageManager::WarningMessage("La contrasenya no es prou robusta.\nHa de contenir 8 o mes caracters, caracters especials i numeros");
 					textBox2->Text = "";
@@ -70,7 +76,7 @@ namespace CppCLRWinFormsProject {
 					textBox3->Enabled = false;
 					textBox4->Enabled = false;
 					textBox5->Enabled = false;
-					
+
 					this->textBox1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(224)), static_cast<System::Int32>(static_cast<System::Byte>(224)),
 						static_cast<System::Int32>(static_cast<System::Byte>(224)));
 					this->textBox2->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(224)), static_cast<System::Int32>(static_cast<System::Byte>(224)),
@@ -118,6 +124,8 @@ namespace CppCLRWinFormsProject {
 			this->pictureBox2->BackColor = SystemColors::Window;
 		}
 	}
+
+
 
 	void InformacioPersonal_ConsultaUI::BotoElimina_Click(System::Object^ sender, System::EventArgs^ e)
 	{
@@ -223,7 +231,7 @@ namespace CppCLRWinFormsProject {
 		this->button1->Text = "Editar";
 		this->BotoCancela->Visible = false;
 		UserIsEditing = false;
-	
+
 	}
 
 	Void InformacioPersonal_ConsultaUI::pictureBox1_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -239,8 +247,10 @@ namespace CppCLRWinFormsProject {
 			password_visible1 = true;
 			this->textBox2->UseSystemPasswordChar = false;
 		}
-	
+
 	}
+
+
 
 
 	Void InformacioPersonal_ConsultaUI::pictureBox2_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -258,6 +268,54 @@ namespace CppCLRWinFormsProject {
 		}
 	}
 
+	System::Void InformacioPersonal_ConsultaUI::Checkbox_Click(System::Object^ sender, System::EventArgs^ e)
+	{
+		System::Windows::Forms::CheckBox^ checkbox = dynamic_cast<System::Windows::Forms::CheckBox^>(sender);
+		AcademicTag^ tag = txConsulta->GetAcademicTagByName(checkbox->Text);
+
+		if (checkbox->Checked) txModifica->addAcademicTag(tag->GetId());
+		
+		else txModifica->deleteAcademicTag(tag->GetId());
+		
+	}
+
+	Void InformacioPersonal_ConsultaUI::fill_flowlayoutpanelwithtags()
+	{
+		List<AcademicTag^>^ all_tags = gcnew List<AcademicTag^>(0);
+		List<AcademicTag^>^ user_tags = gcnew List<AcademicTag^>(0);
+
+		all_tags = txConsulta->GetAllAcademicTags();
+		user_tags = txConsulta->GetAcademicTagsByUserId(CurrentSession::Instance->GetCurrentUser()->GetUserId());
+
+		System::Collections::Generic::IEnumerator<AcademicTag^>^ enumerator1 = all_tags->GetEnumerator();
+		
+
+		while (enumerator1->MoveNext())
+		{
+			System::Windows::Forms::CheckBox^ checkbox = gcnew System::Windows::Forms::CheckBox();
+			checkbox->Text = enumerator1->Current->GetTagName();
+			checkbox->AutoSize = true;
+
+			checkbox->Checked = false;
+
+			System::Collections::Generic::IEnumerator<AcademicTag^>^ enumerator2 = user_tags->GetEnumerator();
+
+			while(enumerator2->MoveNext())
+			{
+				if (*enumerator1->Current->GetId() == *enumerator2->Current->GetId()) 
+				{
+					checkbox->Checked = true;
+					break;
+				}
+
+			}
+
+			this->flowLayoutPanel1->Controls->Add(checkbox);
+			checkbox->Click += gcnew System::EventHandler(this, &InformacioPersonal_ConsultaUI::Checkbox_Click);
+		}
+
+	}
+
+
 
 }
-

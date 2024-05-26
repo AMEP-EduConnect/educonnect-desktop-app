@@ -2,6 +2,7 @@
 #include "Usuari.h"
 #include "DatabaseConnector.h"
 #include "CurrentSession.h"
+#include "AcademicTag.h"
 #include <vector>
 
 public ref class UsuariRepository
@@ -20,4 +21,5 @@ public:
 	Int64^ GetUserId(String^ username);
 	Usuari^ GetProveidorByEspaiId(Int64^ espai_id);
 	List<Usuari^>^ GetUsersByRolId(Int64^ rol_id);
+
 };

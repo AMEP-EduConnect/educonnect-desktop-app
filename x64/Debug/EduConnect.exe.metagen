@@ -28,6 +28,10 @@ Assembly mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934
 	hash=None, flags=None
 Assembly MySql.Data, Version=8.3.0.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d: 
 	hash=None, flags=None
+Assembly PresentationCore, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35: 
+	hash=None, flags=None
+Assembly PresentationFramework, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35: 
+	hash=None, flags=None
 Assembly System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
 	hash=None, flags=None
 Assembly System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
@@ -36,8 +40,57 @@ Assembly System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f
 	hash=None, flags=None
 Assembly System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
 	hash=None, flags=None
+Assembly System.Xaml, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
 Assembly System.Xml, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
 	hash=None, flags=None
+Assembly UIAutomationProvider, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35: 
+	hash=None, flags=None
+Assembly WindowsBase, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35: 
+	hash=None, flags=None
+Assembly WindowsFormsIntegration, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35: 
+	hash=None, flags=None
+Class AcademicTag: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(System.ValueType, System.String): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    GetId(): PrivateScope, Public, HideBySig
+    GetTagName(): PrivateScope, Public, HideBySig
+    SetId(ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
+    SetTagName(String): PrivateScope, Public, HideBySig
+Class Utils: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    ReadAndDecryptDatabaseCredentials(String&, String&, String&, String&): PrivateScope, Public, Static, HideBySig
+Class MessageManager: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    ErrorMessage(String): PrivateScope, Public, Static, HideBySig
+    WarningMessage(String): PrivateScope, Public, Static, HideBySig
+    InfoMessage(String): PrivateScope, Public, Static, HideBySig
+Class DatabaseConnector: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    DatabaseConnector Instance : Public, Static
+  Methods:
+    Connect(): PrivateScope, Public, HideBySig
+    Disconnect(): PrivateScope, Public, HideBySig
+    ExecuteCommand(String): PrivateScope, Public, HideBySig
+    GetConn(): PrivateScope, Public, HideBySig
+    ExecuteInternCommand(String): PrivateScope, Public, HideBySig
+    ExecuteClientCommand(String, Dictionary`2): PrivateScope, Public, HideBySig
+Class AcademicTagRepository: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    CreateAcademicTag(String): PrivateScope, Public, HideBySig
+    GetAcademicTagById(ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
+    GetAcademicTagByName(String): PrivateScope, Public, HideBySig
+    GetAllAcademicTags(): PrivateScope, Public, HideBySig
+    UpdateAcademicTag(ValueType Int64 IsBoxed, String): PrivateScope, Public, HideBySig
+    DeleteAcademicTag(ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
+    AsociateAcademicTagToUser(ValueType Int64 IsBoxed, ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
+    DeleteAcademicTagFromUser(ValueType Int64 IsBoxed, ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
+    GetAcademicTagsByUserId(ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
 Class GrupEstudiMembership: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
     Void .ctor(System.ValueType, System.ValueType, System.ValueType, System.String): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
@@ -65,35 +118,6 @@ Class GrupEstudi: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
     SetGroupOwnerId(ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
     SetGroupAcademicTag(ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
     SetDescription(String): PrivateScope, Public, HideBySig
-Class Utils: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
-    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
-  Methods:
-    ReadAndDecryptDatabaseCredentials(String&, String&, String&, String&): PrivateScope, Public, Static, HideBySig
-Class MessageManager: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
-    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
-  Methods:
-    ErrorMessage(String): PrivateScope, Public, Static, HideBySig
-    WarningMessage(String): PrivateScope, Public, Static, HideBySig
-    InfoMessage(String): PrivateScope, Public, Static, HideBySig
-Class DatabaseConnector: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
-    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
-  Fields:
-    DatabaseConnector Instance : Public, Static
-  Methods:
-    Connect(): PrivateScope, Public, HideBySig
-    Disconnect(): PrivateScope, Public, HideBySig
-    ExecuteCommand(String): PrivateScope, Public, HideBySig
-    GetConn(): PrivateScope, Public, HideBySig
-    ExecuteInternCommand(String): PrivateScope, Public, HideBySig
-    ExecuteClientCommand(String, Dictionary`2): PrivateScope, Public, HideBySig
-Class AcademicTag: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
-    Void .ctor(System.ValueType, System.String): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
-    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
-  Methods:
-    GetId(): PrivateScope, Public, HideBySig
-    GetTagName(): PrivateScope, Public, HideBySig
-    SetId(ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
-    SetTagName(String): PrivateScope, Public, HideBySig
 Class Usuari: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
     Void .ctor(System.ValueType, System.String, System.String, System.String, System.String): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
@@ -166,6 +190,7 @@ Class GrupEstudiRepository: AutoLayout, AnsiClass, Class, Public, BeforeFieldIni
     GetAcademicTagByTagName(String): PrivateScope, Public, HideBySig
     GetGrupEstudiById(ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
     GetGrupEstudiByName(String): PrivateScope, Public, HideBySig
+    GetNGrupEstudiByacademic_tag(ValueType Int64 IsBoxed, ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
     UpdateGroupName(String, String): PrivateScope, Public, HideBySig
     UpdateGroupDescription(String, String): PrivateScope, Public, HideBySig
     CheckIfUserExists(String): PrivateScope, Public, HideBySig
@@ -196,6 +221,7 @@ Class GrupEstudiService: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
     CheckUserIsOwner(String): PrivateScope, Public, HideBySig
     CheckUserIsOwnerByIds(ValueType Int64 IsBoxed, ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
     CheckNrecentGroups(ValueType Int64 IsBoxed, ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
+    RecomanaNGrups(ValueType Int64 IsBoxed, ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
     ChangeGroupOwner(ValueType Int64 IsBoxed, ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
     DeleteGrupEstudiById(ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
     LoadGrupsNoMembers(ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
@@ -408,6 +434,13 @@ Class CppCLRWinFormsProject.ModificaEspaisUI: AutoLayout, AnsiClass, Class, Publ
   Methods:
     NomEspai_TextBox_Validating(String): PrivateScope, Public, HideBySig
     IsValidCapacitat(String): PrivateScope, Public, HideBySig
+Class PerfilPersonalConsultaService: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    GetCurrentUser(): PrivateScope, Public, HideBySig
+    GetAcademicTagsByUserId(ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
+    GetAllAcademicTags(): PrivateScope, Public, HideBySig
+    GetAcademicTagByName(String): PrivateScope, Public, HideBySig
 Class CppCLRWinFormsProject.IniciUI: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
@@ -426,22 +459,19 @@ Class CppCLRWinFormsProject.AltaEspaisUI: AutoLayout, AnsiClass, Class, Public, 
     NomEspai_TextBox_Validating(String): PrivateScope, Public, HideBySig
     IsValidCapacitat(String): PrivateScope, Public, HideBySig
     Capacitat_TextBox_Validating(Object, CancelEventArgs): PrivateScope, Public, HideBySig
-Class PerfilPersonalConsultaService: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
-    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
-  Methods:
-    GetCurrentUser(): PrivateScope, Public, HideBySig
 Class PerfilPersonalModificaService: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
   Methods:
     ModificaUsuari(String, String, String, String): PrivateScope, Public, HideBySig
     CheckUsername(String): PrivateScope, Public, HideBySig
     CheckEmail(String): PrivateScope, Public, HideBySig
+    addAcademicTag(ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
+    deleteAcademicTag(ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
 Class CppCLRWinFormsProject.InformacioPersonal_ConsultaUI: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
   Fields:
     Boolean password_visible1 : Public
-    Boolean password_visible2 : Public
     Boolean UserIsEditing : Public
   Methods:
     Nickname_Validating(Object, CancelEventArgs): PrivateScope, Public, HideBySig

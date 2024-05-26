@@ -108,6 +108,13 @@ List<GrupEstudi^>^ GrupEstudiService::CheckNrecentGroups(Int64^ N, Int64^ user_i
 	return groups; 
 }
 
+List<GrupEstudi^>^ GrupEstudiService::RecomanaNGrups(Int64^ academic_tag, Int64^ N)
+{
+	return grupEstudiRepository->GetNGrupEstudiByacademic_tag(academic_tag, N);
+}
+
+
+
 bool GrupEstudiService::CheckUserIsOwnerByIds(Int64^ user_id, Int64^ group_id)
 {
 	return grupEstudiRepository->CheckUserIsOwnerById(user_id, group_id);
