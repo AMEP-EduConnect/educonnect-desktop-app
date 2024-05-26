@@ -38,18 +38,6 @@ Assembly System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=
 	hash=None, flags=None
 Assembly System.Xml, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
 	hash=None, flags=None
-Class GrupEstudiMembership: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
-    Void .ctor(System.ValueType, System.ValueType, System.ValueType, System.String): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
-    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
-  Methods:
-    GetId(): PrivateScope, Public, HideBySig
-    GetUserId(): PrivateScope, Public, HideBySig
-    GetGroupId(): PrivateScope, Public, HideBySig
-    GetMemberSince(): PrivateScope, Public, HideBySig
-    SetId(ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
-    SetUserId(ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
-    SetGroupId(ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
-    SetMemberSince(String): PrivateScope, Public, HideBySig
 Class GrupEstudi: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
     Void .ctor(System.ValueType, System.String, System.ValueType, System.ValueType, System.String): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
@@ -65,6 +53,18 @@ Class GrupEstudi: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
     SetGroupOwnerId(ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
     SetGroupAcademicTag(ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
     SetDescription(String): PrivateScope, Public, HideBySig
+Class GrupEstudiMembership: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(System.ValueType, System.ValueType, System.ValueType, System.String): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    GetId(): PrivateScope, Public, HideBySig
+    GetUserId(): PrivateScope, Public, HideBySig
+    GetGroupId(): PrivateScope, Public, HideBySig
+    GetMemberSince(): PrivateScope, Public, HideBySig
+    SetId(ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
+    SetUserId(ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
+    SetGroupId(ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
+    SetMemberSince(String): PrivateScope, Public, HideBySig
 Class Utils: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
   Methods:
