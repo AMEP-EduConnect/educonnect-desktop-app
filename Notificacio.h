@@ -5,33 +5,28 @@ public ref class Notificacio
 public:
     Notificacio();
 
-    Notificacio(Int64^ id, Int64^ group_id, Int64^ source_id, Int64^ destination_id, String^ role);
+    Notificacio(Int64^ id, Int64^ notification_type, Int64^ status, Int64^ source_grup_id, Int64^ source_user_id, Int64^ destination_user_id);
 
     void SetId(Int64^ value);
     Int64^ GetId();
-
-
-    void SetGroup_id(Int64^ value);
-    Int64^ GetGroup_id();
-
-
-    void SetSource_id(Int64^ value);
-    Int64^ GetSource_id();
-
-
-    void SetDestination_id(Int64^ value);
-    Int64^ GetDestination_id();
-
-
-    void SetRole(String^ value);
-    String^ GetRole();
+    void SetNotificationType(Int64^ value);
+    Int64^ GetNotificationType();
+    void SetStatus(Int64^ value);
+    Int64^ GetStatus();
+    void SetSourceGroupId(Int64^ value);
+    Int64^ GetSourceGroupId();
+    void SetSourceUserId(Int64^ value);
+    Int64^ GetSourceUserId();
+    void SetDestinationUserId(Int64^ value);
+    Int64^ GetDestinationUserId();
 
 private:
     property Int64^ id;
-    property Int64^ group_id;
-    property Int64^ source_id;
-    property Int64^ destination_id;
-    property String^ role;
+	property Int64^ notification_type_id;
+	property Int64^ status_id;
+	property Int64^ source_group_id;
+	property Int64^ source_user_id;
+	property Int64^ destination_user_id;
 
 };
 
