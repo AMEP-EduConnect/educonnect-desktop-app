@@ -264,6 +264,7 @@
     <ClInclude Include="EliminarEspaisService.h" />
     <ClInclude Include="Espai.h" />
     <ClInclude Include="EspaisRepository.h" />
+    <ClInclude Include="GrupEstudi.h" />
     <ClInclude Include="GrupEstudiMembershipRepository.h" />
     <ClInclude Include="GrupEstudiMembershipService.h" />
     <ClInclude Include="GrupEstudiRepository.h" />
@@ -376,6 +377,7 @@
     <ClCompile Include="InformacioPersonal_ConsultaUI.cpp" />
     <ClCompile Include="IniciSessioUI.cpp" />
     <ClCompile Include="FirstPageUI.cpp" />
+    <ClCompile Include="GrupEstudi.cpp" />
     <ClCompile Include="GrupEstudiMembershipRepository.cpp" />
     <ClCompile Include="GrupEstudiMembershipService.cpp" />
     <ClCompile Include="GrupEstudiRepository.cpp" />
