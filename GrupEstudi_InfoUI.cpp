@@ -8,7 +8,7 @@
 #include "Session.h"
 #include "CurrentSession.h"
 #include "Usuari.h"
-
+#include "ChatGrupEstudiUI.h"
 
 namespace CppCLRWinFormsProject {
 
@@ -25,9 +25,6 @@ namespace CppCLRWinFormsProject {
         this->Icon = gcnew System::Drawing::Icon("app.ico");
         sessionService = gcnew SessionService();
         isSessionLoaded = false;
-        
-       
-
     }
 
     void GrupEstudi_InfoUI::GrupEstudi_InfoUI_Load(System::Object^ sender, System::EventArgs^ e)
