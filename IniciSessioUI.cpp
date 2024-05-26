@@ -30,11 +30,10 @@ namespace CppCLRWinFormsProject {
             StartPageUI::Instance->captcha_ok;
             if (check == true and StartPageUI::Instance->captcha_ok) {*/
             if (check == true) {
-                
-                StartPageUI::Instance->Hide();
+            StartPageUI::Instance->Hide();
                 MainPageUI::Instance = gcnew MainPageUI();
                 MainPageUI::Instance->ShowDialog();
-                //StartPageUI::Instance->Close();
+                StartPageUI::Instance->Close();
             }
 
             else {

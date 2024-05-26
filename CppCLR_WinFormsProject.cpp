@@ -44,10 +44,5 @@ int main()
 	CppCLRWinFormsProject::StartPageUI::Instance = gcnew CppCLRWinFormsProject::StartPageUI();
 	
 	Application::Run(CppCLRWinFormsProject::StartPageUI::Instance);
-	delete CppCLRWinFormsProject::StartPageUI::Instance;
-	delete CppCLRWinFormsProject::ChatGrupEstudiUI::Instance;
-	delete DatabaseConnector::Instance;
-	delete CurrentSession::Instance;
-
 	return 0;
 }

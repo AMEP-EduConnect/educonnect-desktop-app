@@ -36,11 +36,10 @@ namespace CppCLRWinFormsProject {
     protected:
         ~ChatGrupEstudiUI()
         {
-            Instance = nullptr;
+            //this->chatTimer->Stop();
             if (components)
             {
                 delete components;
-                
             }
         }
 

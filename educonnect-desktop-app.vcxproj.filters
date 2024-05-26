@@ -473,7 +473,7 @@
       <Filter>Source Files\repositories</Filter>
     </ClCompile>
     <ClCompile Include="BaixaUsuariAdminUI.cpp">
-      <Filter>Source Files\ui</Filter>
+      <Filter>Header Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

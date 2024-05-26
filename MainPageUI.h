@@ -20,8 +20,6 @@ namespace CppCLRWinFormsProject {
 		static MainPageUI^ Instance;
 		MainPageUI(void);
 
-		
-
 
 		//protected:
 			/// <summary>
@@ -39,7 +37,7 @@ namespace CppCLRWinFormsProject {
 		System::Windows::Forms::Panel^ screen;
 
 	private:
-		bool sessionClosed = false;
+
 		System::Windows::Forms::Button^ BotoPersonal;
 		System::Windows::Forms::Button^ BotoLogout;
 		System::Windows::Forms::TableLayoutPanel^ tableLayoutPanel3;
@@ -398,6 +396,6 @@ private:
 	System::Void ElsMeus_Click(System::Object^ sender, System::EventArgs^ e);
 	System::Void BotoExplorar_Click(System::Object^ sender, System::EventArgs^ e);
 	System::Void BotoEspais_Click(System::Object^ sender, System::EventArgs^ e);
-	System::Void MainForm_FormClosing(System::Object^ sender, System::Windows::Forms::FormClosingEventArgs^ e);
+
 };
 }
