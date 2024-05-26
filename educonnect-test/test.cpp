@@ -1,4 +1,5 @@
-#include "pch.h"
+#pragma once
+#include "gtest/gtest.h"
 
 TEST(TestCI, GivenNothing_WhenDeployment_ThenPass) {
 	//Given
