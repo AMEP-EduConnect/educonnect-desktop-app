@@ -78,19 +78,19 @@ namespace CppCLRWinFormsProject {
 			this->label1->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label1->ForeColor = System::Drawing::SystemColors::HotTrack;
-			this->label1->Location = System::Drawing::Point(218, 0);
+			this->label1->Location = System::Drawing::Point(10, 13);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(42, 19);
+			this->label1->Size = System::Drawing::Size(469, 19);
 			this->label1->TabIndex = 0;
-			this->label1->Text = L"Text";
-			this->label1->Click += gcnew System::EventHandler(this, &BaixaUsuariAdminUI::label1_Click);
+			this->label1->Text = L"Selecciona el usuari que es vol donar de baixa en el sistema:";
 			// 
 			// button1
 			// 
+			this->button1->Anchor = System::Windows::Forms::AnchorStyles::Right;
 			this->button1->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->button1->ForeColor = System::Drawing::SystemColors::HotTrack;
-			this->button1->Location = System::Drawing::Point(165, 466);
+			this->button1->Location = System::Drawing::Point(556, 497);
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(91, 34);
 			this->button1->TabIndex = 1;
@@ -106,7 +106,7 @@ namespace CppCLRWinFormsProject {
 			this->Cancelar_Button->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->Cancelar_Button->ForeColor = System::Drawing::Color::Red;
-			this->Cancelar_Button->Location = System::Drawing::Point(688, 483);
+			this->Cancelar_Button->Location = System::Drawing::Point(688, 497);
 			this->Cancelar_Button->Name = L"Cancelar_Button";
 			this->Cancelar_Button->Size = System::Drawing::Size(88, 34);
 			this->Cancelar_Button->TabIndex = 2;
@@ -123,19 +123,19 @@ namespace CppCLRWinFormsProject {
 				60)));
 			this->tableLayoutPanel1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
 				20)));
-			this->tableLayoutPanel1->Controls->Add(this->button1, 1, 3);
 			this->tableLayoutPanel1->Controls->Add(this->panel2, 1, 2);
 			this->tableLayoutPanel1->Controls->Add(this->Cancelar_Button, 2, 3);
 			this->tableLayoutPanel1->Controls->Add(this->label2, 1, 0);
 			this->tableLayoutPanel1->Controls->Add(this->buscador_textBox, 1, 1);
+			this->tableLayoutPanel1->Controls->Add(this->button1, 1, 3);
 			this->tableLayoutPanel1->Dock = System::Windows::Forms::DockStyle::Fill;
 			this->tableLayoutPanel1->Location = System::Drawing::Point(0, 0);
 			this->tableLayoutPanel1->Name = L"tableLayoutPanel1";
 			this->tableLayoutPanel1->RowCount = 4;
 			this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 52.94118F)));
 			this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 47.05882F)));
-			this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Absolute, 336)));
-			this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Absolute, 73)));
+			this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Absolute, 364)));
+			this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Absolute, 45)));
 			this->tableLayoutPanel1->Size = System::Drawing::Size(814, 537);
 			this->tableLayoutPanel1->TabIndex = 17;
 			this->tableLayoutPanel1->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &BaixaUsuariAdminUI::tableLayoutPanel1_Paint);
@@ -147,7 +147,7 @@ namespace CppCLRWinFormsProject {
 			this->panel2->Controls->Add(this->label1);
 			this->panel2->Location = System::Drawing::Point(165, 130);
 			this->panel2->Name = L"panel2";
-			this->panel2->Size = System::Drawing::Size(482, 330);
+			this->panel2->Size = System::Drawing::Size(482, 358);
 			this->panel2->TabIndex = 20;
 			// 
 			// panel1
@@ -155,22 +155,22 @@ namespace CppCLRWinFormsProject {
 			this->panel1->Anchor = System::Windows::Forms::AnchorStyles::None;
 			this->panel1->BackColor = System::Drawing::SystemColors::GradientInactiveCaption;
 			this->panel1->Controls->Add(this->Noms_ListBox);
-			this->panel1->Location = System::Drawing::Point(14, 21);
+			this->panel1->Location = System::Drawing::Point(14, 35);
 			this->panel1->MinimumSize = System::Drawing::Size(461, 128);
 			this->panel1->Name = L"panel1";
-			this->panel1->Size = System::Drawing::Size(461, 323);
+			this->panel1->Size = System::Drawing::Size(461, 309);
 			this->panel1->TabIndex = 18;
 			this->panel1->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &BaixaUsuariAdminUI::panel1_Paint);
 			// 
 			// Noms_ListBox
 			// 
-			this->Noms_ListBox->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->Noms_ListBox->Font = (gcnew System::Drawing::Font(L"Inter", 11.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->Noms_ListBox->FormattingEnabled = true;
 			this->Noms_ListBox->ItemHeight = 19;
-			this->Noms_ListBox->Location = System::Drawing::Point(26, 26);
+			this->Noms_ListBox->Location = System::Drawing::Point(19, 21);
 			this->Noms_ListBox->Name = L"Noms_ListBox";
-			this->Noms_ListBox->Size = System::Drawing::Size(410, 270);
+			this->Noms_ListBox->Size = System::Drawing::Size(422, 270);
 			this->Noms_ListBox->TabIndex = 0;
 			// 
 			// label2
@@ -224,8 +224,7 @@ namespace CppCLRWinFormsProject {
 
 		}
 #pragma endregion
-	private: System::Void label1_Click(System::Object^ sender, System::EventArgs^ e) {
-	}
+
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e);
 		   System::Void Cancelar_Button_Click(System::Object^ sender, System::EventArgs^ e);
 	private: System::Void tableLayoutPanel1_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
