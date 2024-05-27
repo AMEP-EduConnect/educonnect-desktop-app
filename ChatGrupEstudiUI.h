@@ -66,6 +66,7 @@ namespace CppCLRWinFormsProject {
     private: System::Windows::Forms::Panel^ panel3;
     private: System::Windows::Forms::Panel^ panel4;
     private: System::Windows::Forms::PictureBox^ pictureBox1;
+    private: System::Windows::Forms::Label^ label1;
 
     private: FileByteConverterService^ fileByteConverterService;
 
@@ -88,6 +89,7 @@ namespace CppCLRWinFormsProject {
             this->panel3 = (gcnew System::Windows::Forms::Panel());
             this->panel4 = (gcnew System::Windows::Forms::Panel());
             this->label_grup_name = (gcnew System::Windows::Forms::Label());
+            this->label1 = (gcnew System::Windows::Forms::Label());
             this->tableLayoutPanel1->SuspendLayout();
             this->panel1->SuspendLayout();
             this->panel2->SuspendLayout();
@@ -192,6 +194,7 @@ namespace CppCLRWinFormsProject {
             this->tableLayoutPanel1->Controls->Add(this->panel3, 2, 1);
             this->tableLayoutPanel1->Controls->Add(this->panel4, 2, 2);
             this->tableLayoutPanel1->Controls->Add(this->label_grup_name, 1, 0);
+            this->tableLayoutPanel1->Controls->Add(this->label1, 2, 0);
             this->tableLayoutPanel1->Location = System::Drawing::Point(0, 0);
             this->tableLayoutPanel1->Name = L"tableLayoutPanel1";
             this->tableLayoutPanel1->RowCount = 3;
@@ -265,6 +268,20 @@ namespace CppCLRWinFormsProject {
             this->label_grup_name->TabIndex = 3;
             this->label_grup_name->Text = L"Chat Grup Estudi";
             this->label_grup_name->TextAlign = System::Drawing::ContentAlignment::TopCenter;
+            // 
+            // label1
+            // 
+            this->label1->AutoSize = true;
+            this->label1->Dock = System::Windows::Forms::DockStyle::Bottom;
+            this->label1->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+                static_cast<System::Byte>(0)));
+            this->label1->ForeColor = System::Drawing::SystemColors::HotTrack;
+            this->label1->Location = System::Drawing::Point(646, 50);
+            this->label1->Name = L"label1";
+            this->label1->Size = System::Drawing::Size(165, 19);
+            this->label1->TabIndex = 12;
+            this->label1->Text = L"Fitxers";
+            this->label1->TextAlign = System::Drawing::ContentAlignment::TopCenter;
             // 
             // ChatGrupEstudiUI
             // 

@@ -205,7 +205,7 @@ namespace CppCLRWinFormsProject {
 			this->label2->Name = L"label2";
 			this->label2->Size = System::Drawing::Size(93, 20);
 			this->label2->TabIndex = 19;
-			this->label2->Text = L"Descripció";
+			this->label2->Text = L"Descripci\u00F3";
 			// 
 			// DescGrupEstudi_Label
 			// 
