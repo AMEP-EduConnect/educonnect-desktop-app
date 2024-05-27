@@ -89,6 +89,7 @@ namespace CppCLRWinFormsProject {
 
 
 
+
 	protected:
 
 	private:
@@ -203,9 +204,9 @@ namespace CppCLRWinFormsProject {
 				| System::Windows::Forms::AnchorStyles::Right));
 			this->flowLayoutPanel2->AutoScroll = true;
 			this->flowLayoutPanel2->FlowDirection = System::Windows::Forms::FlowDirection::TopDown;
-			this->flowLayoutPanel2->Location = System::Drawing::Point(339, 39);
+			this->flowLayoutPanel2->Location = System::Drawing::Point(336, 39);
 			this->flowLayoutPanel2->Name = L"flowLayoutPanel2";
-			this->flowLayoutPanel2->Size = System::Drawing::Size(222, 151);
+			this->flowLayoutPanel2->Size = System::Drawing::Size(225, 151);
 			this->flowLayoutPanel2->TabIndex = 7;
 			this->flowLayoutPanel2->WrapContents = false;
 			// 
@@ -377,9 +378,9 @@ namespace CppCLRWinFormsProject {
 			this->pictureBox1->Name = L"pictureBox1";
 			this->pictureBox1->Size = System::Drawing::Size(126, 126);
 			this->pictureBox1->TabIndex = 5;
+			this->pictureBox1->Click += gcnew System::EventHandler(this, &IniciUI::pictureBox_Click);
 			this->pictureBox1->MouseEnter += gcnew System::EventHandler(this, &IniciUI::panel_MouseEnter);
 			this->pictureBox1->MouseLeave += gcnew System::EventHandler(this, &IniciUI::panel_MouseLeave);
-			this->pictureBox1->Click += gcnew System::EventHandler(this, &IniciUI::pictureBox_Click);
 			// 
 			// tableLayoutPanel2
 			// 

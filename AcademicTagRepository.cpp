@@ -56,6 +56,32 @@ List<AcademicTag^>^ AcademicTagRepository::GetAllAcademicTags()
 
 }
 
+List<AcademicTag^>^ AcademicTagRepository::GetAllAcademicTagsWithGroup(Int64^ user_id)
+{
+
+	DatabaseConnector::Instance->Connect();
+	String^ sql = "SELECT DISTINCT at.id, at.tag_name FROM academicTags at JOIN studyGroups sg ON at.id = sg.group_academic_tag";
+	Dictionary<String^, Object^>^ params = gcnew Dictionary<String^, Object^>(0);
+	//params->Add("@user_id", user_id);
+
+	MySqlDataReader^ data = DatabaseConnector::Instance->ExecuteInternCommand(sql);
+	List<AcademicTag^>^ academicTags = gcnew List<AcademicTag^>(0);
+
+	while (data->Read()) {
+		AcademicTag^ academicTag = gcnew AcademicTag(data->GetInt64(0), data->GetString(1));
+		academicTags->Add(academicTag);
+	}
+
+	data->Close();
+	DatabaseConnector::Instance->Disconnect();
+	return academicTags;
+
+}
+
+
+
+
+
 bool AcademicTagRepository::UpdateAcademicTag(Int64^ id, String^ tag_name)
 {
 	return false;
@@ -120,4 +146,26 @@ List<AcademicTag^>^ AcademicTagRepository::GetAcademicTagsByUserId(Int64^ user_i
 	DatabaseConnector::Instance->Disconnect();
 	return academicTags;
 
+}
+
+List<AcademicTag^>^ AcademicTagRepository::GetAcademicTagsByUserIdWithGroup(Int64^ user_id)
+{
+	DatabaseConnector::Instance->Connect();
+	String^ sql = "SELECT DISTINCT at.id, at.tag_name FROM users_academicTags uat JOIN academicTags at ON uat.academicTag_id = at.id JOIN studyGroups sg ON uat.academicTag_id = sg.group_academic_tag WHERE uat.user_id = @user_id AND sg.id NOT IN(SELECT usg.group_id FROM studyGroupsMembership usg WHERE usg.user_id = @user_id)";
+
+	Dictionary<String^, Object^>^ params = gcnew Dictionary<String^, Object^>(0);
+	params->Add("@user_id", user_id);
+
+	MySqlDataReader^ data = DatabaseConnector::Instance->ExecuteClientCommand(sql, params);
+	List<AcademicTag^>^ academicTags = gcnew List<AcademicTag^>(0);
+
+	while (data->Read()) {
+		AcademicTag^ academicTag = gcnew AcademicTag(data->GetInt64(0), data->GetString(1));
+		academicTags->Add(academicTag);
+	}
+
+	data->Close();
+	DatabaseConnector::Instance->Disconnect();
+	return academicTags;
+	
 }

@@ -38,6 +38,8 @@ Assembly System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e0
 	hash=None, flags=None
 Assembly System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a: 
 	hash=None, flags=None
+Assembly System.Messaging, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a: 
+	hash=None, flags=None
 Assembly System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
 	hash=None, flags=None
 Assembly System.Xaml, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
@@ -86,11 +88,13 @@ Class AcademicTagRepository: AutoLayout, AnsiClass, Class, Public, BeforeFieldIn
     GetAcademicTagById(ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
     GetAcademicTagByName(String): PrivateScope, Public, HideBySig
     GetAllAcademicTags(): PrivateScope, Public, HideBySig
+    GetAllAcademicTagsWithGroup(ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
     UpdateAcademicTag(ValueType Int64 IsBoxed, String): PrivateScope, Public, HideBySig
     DeleteAcademicTag(ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
     AsociateAcademicTagToUser(ValueType Int64 IsBoxed, ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
     DeleteAcademicTagFromUser(ValueType Int64 IsBoxed, ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
     GetAcademicTagsByUserId(ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
+    GetAcademicTagsByUserIdWithGroup(ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
 Class GrupEstudiMembership: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
     Void .ctor(System.ValueType, System.ValueType, System.ValueType, System.String): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
@@ -190,7 +194,7 @@ Class GrupEstudiRepository: AutoLayout, AnsiClass, Class, Public, BeforeFieldIni
     GetAcademicTagByTagName(String): PrivateScope, Public, HideBySig
     GetGrupEstudiById(ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
     GetGrupEstudiByName(String): PrivateScope, Public, HideBySig
-    GetNGrupEstudiByacademic_tag(ValueType Int64 IsBoxed, ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
+    GetNGrupEstudiByacademic_tag(ValueType Int64 IsBoxed, ValueType Int64 IsBoxed, ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
     UpdateGroupName(String, String): PrivateScope, Public, HideBySig
     UpdateGroupDescription(String, String): PrivateScope, Public, HideBySig
     CheckIfUserExists(String): PrivateScope, Public, HideBySig
@@ -221,7 +225,7 @@ Class GrupEstudiService: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
     CheckUserIsOwner(String): PrivateScope, Public, HideBySig
     CheckUserIsOwnerByIds(ValueType Int64 IsBoxed, ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
     CheckNrecentGroups(ValueType Int64 IsBoxed, ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
-    RecomanaNGrups(ValueType Int64 IsBoxed, ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
+    RecomanaNGrups(ValueType Int64 IsBoxed, ValueType Int64 IsBoxed, ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
     ChangeGroupOwner(ValueType Int64 IsBoxed, ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
     DeleteGrupEstudiById(ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
     LoadGrupsNoMembers(ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
@@ -439,7 +443,9 @@ Class PerfilPersonalConsultaService: AutoLayout, AnsiClass, Class, Public, Befor
   Methods:
     GetCurrentUser(): PrivateScope, Public, HideBySig
     GetAcademicTagsByUserId(ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
+    GetAcademicTagsByUserIdWithGroup(ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
     GetAllAcademicTags(): PrivateScope, Public, HideBySig
+    GetAllAcademicTagsWithGroup(ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
     GetAcademicTagByName(String): PrivateScope, Public, HideBySig
 Class CppCLRWinFormsProject.IniciUI: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form

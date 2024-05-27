@@ -19,6 +19,7 @@ public:
 	AcademicTag^ GetAcademicTagById(Int64^ id);
 	AcademicTag^ GetAcademicTagByName(String^ tag_name);
 	List<AcademicTag^>^ GetAllAcademicTags();
+	List<AcademicTag^>^ GetAllAcademicTagsWithGroup(Int64^ user_id);
 
 
 	bool UpdateAcademicTag(Int64^ id, String^ tag_name);
@@ -31,6 +32,7 @@ public:
 	bool DeleteAcademicTagFromUser(Int64^ user_id, Int64^ tag_id);
 
 	List<AcademicTag^>^ GetAcademicTagsByUserId(Int64^ user_id);
+	List<AcademicTag^>^ GetAcademicTagsByUserIdWithGroup(Int64^ user_id);
 
 
 };

@@ -4,6 +4,7 @@
 #include <ctime>
 #include <iostream>
 #include <vector>
+#include <ctime>
 
 #include "GrupEstudiService.h"
 #include "GrupEstudi.h"
@@ -28,6 +29,7 @@ namespace CppCLRWinFormsProject {
         InitializeComponent();
 
         this->pictureBox4->Image = Image::FromFile("resources/Icons/square-plus.png");
+  
         this->Grup1->Visible = false;
         this->Grup2->Visible = false;
         this->Grup3->Visible = false;
@@ -77,7 +79,7 @@ namespace CppCLRWinFormsProject {
             this->Grup1->Tag = enumerator->Current->GetGroupName();
             this->pictureBox3->Tag = enumerator->Current->GetGroupName();
             enumerator->MoveNext();
-            this->Grup2label->Text = "enumerator->Current->GetGroupName()";
+            this->Grup2label->Text = enumerator->Current->GetGroupName();
             this->Grup2->Tag = enumerator->Current->GetGroupName();
             this->pictureBox2->Tag = enumerator->Current->GetGroupName();
             enumerator->MoveNext();
@@ -142,20 +144,47 @@ namespace CppCLRWinFormsProject {
     System::Void IniciUI::fillflowlayoutpanel()
     {
        
-        
+            srand(time(0));
+
+            List<AcademicTag^>^ all_tags = gcnew List<AcademicTag^>(0);
             List<AcademicTag^>^ user_tags = gcnew List<AcademicTag^>(0);
             List<GrupEstudi^>^ recomendations = gcnew List<GrupEstudi^>(0);
             
-            
-			user_tags = perfilPersonalConsultaService->GetAcademicTagsByUserId(CurrentSession::Instance->GetCurrentUser()->GetUserId());
+			user_tags = perfilPersonalConsultaService->GetAcademicTagsByUserIdWithGroup(CurrentSession::Instance->GetCurrentUser()->GetUserId());
             System::Collections::Generic::IEnumerator<AcademicTag^>^ enumerator1 = user_tags->GetEnumerator();
-			enumerator1->MoveNext();
-			
-            if(user_tags->Count > 0) recomendations = grupEstudiService->RecomanaNGrups(enumerator1->Current->GetId(), gcnew Int64(3));
-			System::Collections::Generic::IEnumerator<GrupEstudi^>^ enumerator2 = recomendations->GetEnumerator();
+	
 
-			while (enumerator2->MoveNext()) {
-				AddPanelWithText(this->flowLayoutPanel2, enumerator2->Current->GetGroupName());
+			all_tags = perfilPersonalConsultaService->GetAllAcademicTagsWithGroup(CurrentSession::Instance->GetCurrentUser()->GetUserId());
+            System::Collections::Generic::IEnumerator<AcademicTag^>^ enumerator2 = all_tags->GetEnumerator();
+      
+            if(user_tags->Count > 0) { 
+                int random = rand() % user_tags->Count + 1;
+                if (random == 0) enumerator1->MoveNext();
+
+                while (random > 0) {
+                   
+                    enumerator1->MoveNext();
+                    random--;
+                }
+                
+                recomendations = grupEstudiService->RecomanaNGrups(enumerator1->Current->GetId(), CurrentSession::Instance->GetCurrentUser()->GetUserId(), gcnew Int64(3));
+			}
+
+            else if(all_tags->Count > 0) {
+                int random = rand() % all_tags->Count + 1;
+                if (random == 0) enumerator2->MoveNext();
+
+                while (random > 0) {
+                    enumerator2->MoveNext();
+                    random--;
+                }
+
+				recomendations = grupEstudiService->RecomanaNGrups(enumerator2->Current->GetId(), CurrentSession::Instance->GetCurrentUser()->GetUserId(), gcnew Int64(3));
+            }
+			System::Collections::Generic::IEnumerator<GrupEstudi^>^ aux = recomendations->GetEnumerator();
+
+			while (aux->MoveNext()) {
+				AddPanelWithText(this->flowLayoutPanel2, aux->Current->GetGroupName());
 			}
 
     }

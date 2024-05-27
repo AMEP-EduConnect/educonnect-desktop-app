@@ -18,9 +18,19 @@ List<AcademicTag^>^ PerfilPersonalConsultaService::GetAcademicTagsByUserId(Int64
 	return academicTagRepository->GetAcademicTagsByUserId(user_id);
 }
 
+List<AcademicTag^>^ PerfilPersonalConsultaService::GetAcademicTagsByUserIdWithGroup(Int64^ user_id)
+{
+	return academicTagRepository->GetAcademicTagsByUserIdWithGroup(user_id);
+}
+
 List<AcademicTag^>^ PerfilPersonalConsultaService::GetAllAcademicTags()
 {
 	return academicTagRepository->GetAllAcademicTags();
+}
+
+List<AcademicTag^>^ PerfilPersonalConsultaService::GetAllAcademicTagsWithGroup(Int64^ user_id)
+{
+	return academicTagRepository->GetAllAcademicTagsWithGroup(user_id);
 }
 
 AcademicTag^ PerfilPersonalConsultaService::GetAcademicTagByName(String^ tag_name)

@@ -13,7 +13,10 @@ public:
 
 	Usuari^ GetCurrentUser();
 	List<AcademicTag^>^ GetAcademicTagsByUserId(Int64^ user_id);
+	List<AcademicTag^>^ GetAcademicTagsByUserIdWithGroup(Int64^ user_id);
+	
 	List<AcademicTag^>^ GetAllAcademicTags();
+	List<AcademicTag^>^ GetAllAcademicTagsWithGroup(Int64^ user_id);
 	AcademicTag^ GetAcademicTagByName(String^ tag_name);
 
 private:

@@ -135,13 +135,14 @@ GrupEstudi^ GrupEstudiRepository::GetGrupEstudiByName(String^ group_name_act) {
 	return grupestudi;
 }
 
-List<GrupEstudi^>^ GrupEstudiRepository::GetNGrupEstudiByacademic_tag(Int64^ academic_tag, Int64^ N)
+List<GrupEstudi^>^ GrupEstudiRepository::GetNGrupEstudiByacademic_tag(Int64^ academic_tag, Int64^ user_id, Int64^ N)
 {
 	DatabaseConnector::Instance->Connect();
-	String^ sql = "SELECT * FROM studyGroups WHERE group_academic_tag = @academic_tag LIMIT 3";
+	String^ sql = "SELECT * FROM studyGroups WHERE group_academic_tag = @academic_tag AND id NOT IN (SELECT group_id FROM studyGroupsMembership WHERE user_id = @user_id)";
+
 	Dictionary<String^, Object^>^ params = gcnew Dictionary<String^, Object^>(0);
 	params->Add("@academic_tag", academic_tag->ToString());
-	//params->Add("@N", N->ToString());
+	params->Add("@user_id", user_id->ToString());
 	MySqlDataReader^ data = DatabaseConnector::Instance->ExecuteClientCommand(sql, params);
 	List<GrupEstudi^>^ grups = gcnew List<GrupEstudi^>(0);
 	while (data->Read())
