@@ -323,6 +323,7 @@ Class CppCLRWinFormsProject.ChatGrupEstudiUI: AutoLayout, AnsiClass, Class, Publ
   :System.Windows.Forms.Form
     Void .ctor(System.ValueType): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
   Fields:
+    System.String date : Public
     System.Windows.Forms.Timer chatTimer : Public
     System.ValueType messagelast_id Int64 IsBoxed : Public
     System.ValueType id_group Int64 IsBoxed : Public

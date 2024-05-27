@@ -45,7 +45,7 @@ namespace CppCLRWinFormsProject {
         }
 
     private: System::Windows::Forms::TextBox^ messageTextBox;
-
+    public: String^ date;
     private: System::Windows::Forms::RichTextBox^ chatListBox;
     private: ChatGrupEstudiService^ chatGrupEstudiService;
     public: System::Windows::Forms::Timer^ chatTimer;
@@ -307,6 +307,11 @@ namespace CppCLRWinFormsProject {
     private: Void Button_DownloadFile_Click(System::Object^ sender, System::EventArgs^ e);
 
     private: Void LoadFiles();
+
+           String^ ConvertDate(DateTime^ date);
+
+           String^ ConvertHour(DateTime^ date);
+
            
     private: System::Void messageTextBox_KeyDown(System::Object^ sender, System::Windows::Forms::KeyEventArgs^ e) {
     if (e->KeyCode == Keys::Enter) {
