@@ -299,7 +299,11 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="Notificacio.h" />
+    <ClInclude Include="NotificacionsUI.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="NotificacioRepository.h" />
+    <ClInclude Include="NotificacioService.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="PerfilPersonalModificaService.h" />
     <ClInclude Include="RegistreUsuariUI.h">
@@ -373,8 +377,10 @@
     <ClCompile Include="MessageManager.cpp" />
     <ClCompile Include="ModificaEspaisService.cpp" />
     <ClCompile Include="ModificaEspaisUI.cpp" />
+    <ClCompile Include="NotificacionsUI.cpp" />
     <ClCompile Include="Notificacio.cpp" />
     <ClCompile Include="NotificacioRepository.cpp" />
+    <ClCompile Include="NotificacioService.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='EduConnect|x64'">Create</PrecompiledHeader>
@@ -471,6 +477,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MainPageUI.resx">
       <DependentUpon>MainPageUI.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NotificacionsUI.resx">
+      <DependentUpon>NotificacionsUI.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RegistreUsuariUI.resx">
       <DependentUpon>RegistreUsuariUI.h</DependentUpon>
