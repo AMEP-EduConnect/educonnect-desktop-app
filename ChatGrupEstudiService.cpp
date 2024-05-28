@@ -51,3 +51,8 @@ Files^ ChatGrupEstudiService::GetFileById(Int64^ file_id)
 {
 	return filesRepository->GetFile(file_id);
 }
+
+bool ChatGrupEstudiService::DeleteFile(Int64^ file_id)
+{
+	return filesRepository->DeleteFileById(file_id);
+}

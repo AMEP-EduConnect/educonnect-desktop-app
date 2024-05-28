@@ -77,6 +77,7 @@ namespace CppCLRWinFormsProject {
     private: System::Windows::Forms::Panel^ panel4;
     private: System::Windows::Forms::PictureBox^ pictureBox1;
     private: System::Windows::Forms::Label^ label1;
+    private: System::Windows::Forms::Button^ buttonDeleteFile;
 
 
     private: FileByteConverterService^ fileByteConverterService;
@@ -101,6 +102,7 @@ namespace CppCLRWinFormsProject {
             this->label1 = (gcnew System::Windows::Forms::Label());
             this->label_grup_name = (gcnew System::Windows::Forms::Label());
             this->panel4 = (gcnew System::Windows::Forms::Panel());
+            this->buttonDeleteFile = (gcnew System::Windows::Forms::Button());
             this->tableLayoutPanel1->SuspendLayout();
             this->panel1->SuspendLayout();
             this->panel2->SuspendLayout();
@@ -138,7 +140,6 @@ namespace CppCLRWinFormsProject {
             this->chatListBox->TabIndex = 2;
             this->chatListBox->Text = L"";
             this->chatListBox->SelectionChanged += gcnew System::EventHandler(this, &ChatGrupEstudiUI::chatListBox_SelectionChanged);
-
             // 
             // Button_Cancelar
             // 
@@ -290,11 +291,25 @@ namespace CppCLRWinFormsProject {
             // panel4
             // 
             this->panel4->Anchor = System::Windows::Forms::AnchorStyles::None;
+            this->panel4->Controls->Add(this->buttonDeleteFile);
             this->panel4->Controls->Add(this->Button_Download);
             this->panel4->Location = System::Drawing::Point(668, 426);
             this->panel4->Name = L"panel4";
             this->panel4->Size = System::Drawing::Size(121, 97);
             this->panel4->TabIndex = 11;
+            // 
+            // buttonDeleteFile
+            // 
+            this->buttonDeleteFile->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+            this->buttonDeleteFile->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+                static_cast<System::Byte>(0)));
+            this->buttonDeleteFile->Location = System::Drawing::Point(11, 56);
+            this->buttonDeleteFile->Name = L"buttonDeleteFile";
+            this->buttonDeleteFile->Size = System::Drawing::Size(99, 34);
+            this->buttonDeleteFile->TabIndex = 6;
+            this->buttonDeleteFile->Text = L"Delete File";
+            this->buttonDeleteFile->UseVisualStyleBackColor = true;
+            this->buttonDeleteFile->Click += gcnew System::EventHandler(this, &ChatGrupEstudiUI::Button_DeleteFile_Click);
             // 
             // ChatGrupEstudiUI
             // 
@@ -325,7 +340,8 @@ namespace CppCLRWinFormsProject {
            System::Void ChatGrupEstudiUI_Load(System::Object^ sender, System::EventArgs^ e);
            String^ FormatMessage(System::String^ message);
            System::Void ChatGrupEstudiUI_Refresh(System::Object^ sender, System::EventArgs^ e);
-		   System::Void FilesGrupEstudiUI_Refresh(System::Object^ sender, System::EventArgs^ e);
+           System::Void Button_DeleteFile_Click(System::Object^ sender, System::EventArgs^ e);
+           System::Void FilesGrupEstudiUI_Refresh(System::Object^ sender, System::EventArgs^ e);
     private: System::Void Button_Cancelar_Click(System::Object^ sender, System::EventArgs^ e);
     private: System::Void TimerTickHandler(System::Object^ sender, System::EventArgs^ e)
     {
@@ -358,9 +374,6 @@ namespace CppCLRWinFormsProject {
          box->SelectionLength = 0;  // Estableix la longitud de la selecció a zero
      }
  }
-            
-
-
-
+           
 };
 }

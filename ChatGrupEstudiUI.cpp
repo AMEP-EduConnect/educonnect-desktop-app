@@ -190,7 +190,49 @@ namespace CppCLRWinFormsProject {
 		}
         
 	}
+    // crea una función que cuando recoga el nombre selecciona del filesbox y lo elimine de la lista de ficheros
+    System::Void ChatGrupEstudiUI::Button_DeleteFile_Click(System::Object^ sender, System::EventArgs^ e)
+	{
+		if (listBoxFiles->SelectedIndex == -1)
+		{
+			MessageManager::ErrorMessage("Seleccioni un fitxer per eliminar.");
+			return;
+		}
+		else {
+            
+            String^ selectedText = dynamic_cast<String^>(listBoxFiles->SelectedItem);
+            MessageBoxButtons buttons = MessageBoxButtons::YesNo;
+            System::Windows::Forms::DialogResult result = MessageBox::Show("Vols suprimir el fitxer '" + selectedText + "'?", "Confirmation", buttons);
+            if (result == System::Windows::Forms::DialogResult::Yes)
+            {
+                int select_index = listBoxFiles->SelectedIndex;
+                System::Collections::Generic::IEnumerator<Files^>^ enumerator = files->GetEnumerator();
+                int i = 0;
+                Files^ file = nullptr;
+                while (enumerator->MoveNext()) {
+                    if (select_index == listBoxFiles->Items->Count - 1 && i == select_index - 1) {
+                        last_file_id = enumerator->Current->get_id();
+                    }
+                    if (i == select_index) {
+                        file = enumerator->Current;
 
+                        bool check = chatGrupEstudiService->DeleteFile(file->get_id());
+                        if (check == true) {
+                            files->RemoveAt(i);
+                            listBoxFiles->Items->RemoveAt(i);
+                            MessageManager::InfoMessage("Fitxer eliminat correctament.");
+
+                        }
+                        else MessageManager::ErrorMessage("Error al eliminar el fitxer.");
+                        break;
+                    }
+                    i++;
+                }
+            }
+            else return;
+			
+		}
+	}
     System::Void ChatGrupEstudiUI::FilesGrupEstudiUI_Refresh(System::Object^ sender, System::EventArgs^ e)
     {
 		List<Files^>^ files_refresh = chatGrupEstudiService->CheckLastsFiles(id_group, last_file_id);
@@ -205,7 +247,7 @@ namespace CppCLRWinFormsProject {
                 
                 last_file_id = enumerator->Current->get_id();
 			}
-			files_refresh->Clear();
+			//files_refresh->Clear();
 		}
         
     }

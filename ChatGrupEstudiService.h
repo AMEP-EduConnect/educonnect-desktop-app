@@ -26,6 +26,8 @@ public:
 
 	Files^ GetFileById(Int64^ file_id);
 
+	bool DeleteFile(Int64^ file_id);
+
 
 private:
 	ChatMessageRepository^ chatMessageRepository;
