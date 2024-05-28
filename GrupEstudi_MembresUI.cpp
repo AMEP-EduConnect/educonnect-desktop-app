@@ -43,7 +43,7 @@ namespace CppCLRWinFormsProject {
     void GrupEstudi_Membres::CancelButton_Click(System::Object^ sender, System::EventArgs^ e)
     {
         if (consulta) {
-            GrupEstudi_InfoUI^ PanelUI = gcnew GrupEstudi_InfoUI(Noms_ListBox);
+            GrupEstudi_InfoUI^ PanelUI = gcnew GrupEstudi_InfoUI(Noms_ListBox,1);
             PanelUI->TopLevel = false;
             PanelUI->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
             PanelUI->Dock = System::Windows::Forms::DockStyle::Fill;
@@ -113,7 +113,7 @@ namespace CppCLRWinFormsProject {
                                         MessageManager::InfoMessage("Usuari expulsat del grup d'estudi amb exit.");
                                         grupEstudiMembershipService->DeleteUserFromGroup(user_id, group_id);
 
-                                        GrupEstudi_InfoUI^ PanelUI = gcnew GrupEstudi_InfoUI(Noms_ListBox);
+                                        GrupEstudi_InfoUI^ PanelUI = gcnew GrupEstudi_InfoUI(Noms_ListBox, 1);
                                         PanelUI->TopLevel = false;
                                         PanelUI->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
                                         PanelUI->Dock = System::Windows::Forms::DockStyle::Fill;

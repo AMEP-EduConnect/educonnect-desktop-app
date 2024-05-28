@@ -295,6 +295,8 @@ namespace CppCLRWinFormsProject {
 			System::Windows::Forms::CheckBox^ checkbox = gcnew System::Windows::Forms::CheckBox();
 			checkbox->Text = enumerator1->Current->GetTagName();
 			checkbox->AutoSize = true;
+			checkbox->Font = gcnew System::Drawing::Font(L"Inter", 12.0F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0));
 
 			checkbox->Checked = false;
 

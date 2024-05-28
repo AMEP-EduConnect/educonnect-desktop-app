@@ -12,12 +12,13 @@
 
 namespace CppCLRWinFormsProject {
 
-    GrupEstudi_InfoUI::GrupEstudi_InfoUI(String^ CurrentGrup)
+    GrupEstudi_InfoUI::GrupEstudi_InfoUI(String^ CurrentGrup, bool return_page)
     {
         InitializeComponent();
         grupEstudiService = gcnew GrupEstudiService();
         grupEstudiMembershipService = gcnew GrupEstudiMembershipService();
         currentGrup = CurrentGrup;
+		this->return_page = return_page;
         this->CurrentGrupEntity = this->grupEstudiService->GetGrupEstudiByName(CurrentGrup);
         sessionService = gcnew SessionService();
         grupSessionAttendantsService = gcnew GrupSessionAttendantsService();
@@ -225,7 +226,7 @@ namespace CppCLRWinFormsProject {
         if (CurrentSessionEntity != nullptr)
         {
             MessageBoxButtons buttons = MessageBoxButtons::YesNo;
-            System::Windows::Forms::DialogResult result = MessageBox::Show("Vols suprimir la sessió '" + this->CurrentSessionEntity->GetSessionName() + "'?", "Confirmation", buttons);
+            System::Windows::Forms::DialogResult result = MessageBox::Show("Vols suprimir la sessi\u00F3 '" + this->CurrentSessionEntity->GetSessionName() + "'?", "Confirmation", buttons);
 
             if (result == System::Windows::Forms::DialogResult::Yes)
             {
@@ -264,15 +265,24 @@ namespace CppCLRWinFormsProject {
 
     System::Void GrupEstudi_InfoUI::GoBack_Button_Click(System::Object^ sender, System::EventArgs^ e)
     {
-        GrupEstudi_ConsultarUI^ PanelUI = gcnew GrupEstudi_ConsultarUI();
-
-        PanelUI->TopLevel = false;
-        PanelUI->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
-        PanelUI->Dock = System::Windows::Forms::DockStyle::Fill;
-
-        MainPageUI::Instance->screen->Controls->Clear();
-        MainPageUI::Instance->screen->Controls->Add(PanelUI);
-        PanelUI->Show();
+        if (return_page == 1) {
+            GrupEstudi_ConsultarUI^ PanelUI = gcnew GrupEstudi_ConsultarUI();
+            PanelUI->TopLevel = false;
+            PanelUI->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
+            PanelUI->Dock = System::Windows::Forms::DockStyle::Fill;
+            MainPageUI::Instance->screen->Controls->Clear();
+            MainPageUI::Instance->screen->Controls->Add(PanelUI);
+            PanelUI->Show();
+        }
+        else {
+            IniciUI^ PanelUI = gcnew IniciUI();
+            PanelUI->TopLevel = false;
+            PanelUI->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
+            PanelUI->Dock = System::Windows::Forms::DockStyle::Fill;
+            MainPageUI::Instance->screen->Controls->Clear();
+            MainPageUI::Instance->screen->Controls->Add(PanelUI);
+            PanelUI->Show();
+        }
     }
 
     void GrupEstudi_InfoUI::EliminarButton_Click(System::Object^ sender, System::EventArgs^ e)

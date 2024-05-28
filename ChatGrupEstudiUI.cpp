@@ -211,7 +211,7 @@ namespace CppCLRWinFormsProject {
     System::Void ChatGrupEstudiUI::Button_Cancelar_Click(System::Object^ sender, System::EventArgs^ e)
     {
         this->chatTimer->Stop();
-        GrupEstudi_InfoUI^ PanelUI = gcnew GrupEstudi_InfoUI(group->GetGroupName());
+        GrupEstudi_InfoUI^ PanelUI = gcnew GrupEstudi_InfoUI(group->GetGroupName(), 1);
 
         PanelUI->TopLevel = false;
         PanelUI->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
@@ -238,15 +238,15 @@ namespace CppCLRWinFormsProject {
             if (fileData != nullptr) {
                 bool check = chatGrupEstudiService->SendFile(id_group, CurrentSession::Instance->GetCurrentUser()->GetUserId(), fileName, fileType, fileData);
                 if (check == true) {
-                    MessageManager::InfoMessage("Archivo almacenado en la base de datos.");
+                    MessageManager::InfoMessage("Fitxer emmagatzemat correctament.");
                     files->Clear();
                     listBoxFiles->Items->Clear();
                     LoadFiles();
                 }
-                else MessageManager::ErrorMessage("Error al enviar el archivo.");
+                else MessageManager::ErrorMessage("Error al enviar el fitxer.");
             }
 			else {
-				MessageManager::ErrorMessage("Error al convertir el archivo a bytes.");
+				MessageManager::ErrorMessage("Error al convertir el fitxer a bytes.");
 			}
         }
     }
@@ -255,7 +255,7 @@ namespace CppCLRWinFormsProject {
        
         if (listBoxFiles->SelectedIndex == -1)
         {
-			MessageManager::ErrorMessage("Seleccione un archivo para descargar.");
+			MessageManager::ErrorMessage("Seleccioni un fitxer per descargar.");
 			return;
 		}
         else {

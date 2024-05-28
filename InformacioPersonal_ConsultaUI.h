@@ -50,6 +50,7 @@ namespace CppCLRWinFormsProject {
 
 
 
+
 		   bool password_visible2 = false;
 	public: InformacioPersonal_ConsultaUI(void);
 		Void Nickname_Validating(Object^ sender, System::ComponentModel::CancelEventArgs^ e);
@@ -458,11 +459,11 @@ namespace CppCLRWinFormsProject {
 			// label7
 			// 
 			this->label7->AutoSize = true;
-			this->label7->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->label7->Font = (gcnew System::Drawing::Font(L"Inter Medium", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label7->Location = System::Drawing::Point(23, 10);
+			this->label7->Location = System::Drawing::Point(24, 10);
 			this->label7->Name = L"label7";
-			this->label7->Size = System::Drawing::Size(86, 19);
+			this->label7->Size = System::Drawing::Size(90, 19);
 			this->label7->TabIndex = 26;
 			this->label7->Text = L"Interessos";
 			// 
@@ -519,6 +520,7 @@ private: System::Void BotoCancela_Click(System::Object^ sender, System::EventArg
 private: System::Void pictureBox2_Click(System::Object^ sender, System::EventArgs^ e);
 private: System::Void pictureBox1_Click(System::Object^ sender, System::EventArgs^ e);
 private: System::Void fill_flowlayoutpanelwithtags();
+
 
 
 };

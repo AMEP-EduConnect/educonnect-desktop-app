@@ -26,7 +26,7 @@ namespace CppCLRWinFormsProject {
 
     void GrupEstudi_EditarUI::CancelarButton_Click(System::Object^ sender, System::EventArgs^ e)
     {
-        GrupEstudi_InfoUI^ PanelUI = gcnew GrupEstudi_InfoUI(nomActual);
+        GrupEstudi_InfoUI^ PanelUI = gcnew GrupEstudi_InfoUI(nomActual,1);
 
         PanelUI->TopLevel = false;
         PanelUI->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;

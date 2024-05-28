@@ -129,7 +129,7 @@ namespace CppCLRWinFormsProject {
             String^ groupName = dynamic_cast<String^>(clickedBox->Tag);
             if (!String::IsNullOrEmpty(groupName)) {
                 // Llama a la función que maneja el clic, pasando el nombre del grupo
-                GrupEstudi_InfoUI^ PanelUI = gcnew GrupEstudi_InfoUI(groupName);
+                GrupEstudi_InfoUI^ PanelUI = gcnew GrupEstudi_InfoUI(groupName, 0);
                 PanelUI->TopLevel = false;
                 PanelUI->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
                 PanelUI->Dock = System::Windows::Forms::DockStyle::Fill;
@@ -200,6 +200,9 @@ namespace CppCLRWinFormsProject {
         panel->BackColor = System::Drawing::Color::FromArgb(215, 228, 242);  
         panel->MouseEnter += gcnew System::EventHandler(this, &IniciUI::panel_MouseEnter);
         panel->MouseLeave += gcnew System::EventHandler(this, &IniciUI::panel_MouseLeave);
+        panel->Tag = text;
+        panel->Click += gcnew System::EventHandler(this, &IniciUI::pictureBox_Click);
+		
 		
         flowLayout->Controls->Add(panel);
 
@@ -214,6 +217,7 @@ namespace CppCLRWinFormsProject {
         label->Margin = System::Windows::Forms::Padding(0, 3, 3, 30);
         
         flowLayout->Controls->Add(label);
+        
 
     }
 
