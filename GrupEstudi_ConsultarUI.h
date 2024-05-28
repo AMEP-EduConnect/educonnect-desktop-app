@@ -85,9 +85,10 @@ namespace CppCLRWinFormsProject {
 			this->ConsultarGrupEstudi_Label->Font = (gcnew System::Drawing::Font(L"Inter", 20.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->ConsultarGrupEstudi_Label->ForeColor = System::Drawing::SystemColors::HotTrack;
-			this->ConsultarGrupEstudi_Label->Location = System::Drawing::Point(242, 25);
+			this->ConsultarGrupEstudi_Label->Location = System::Drawing::Point(335, 31);
+			this->ConsultarGrupEstudi_Label->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->ConsultarGrupEstudi_Label->Name = L"ConsultarGrupEstudi_Label";
-			this->ConsultarGrupEstudi_Label->Size = System::Drawing::Size(328, 33);
+			this->ConsultarGrupEstudi_Label->Size = System::Drawing::Size(414, 41);
 			this->ConsultarGrupEstudi_Label->TabIndex = 2;
 			this->ConsultarGrupEstudi_Label->Text = L"Els meus grups d\'Estudi";
 			// 
@@ -99,18 +100,20 @@ namespace CppCLRWinFormsProject {
 			this->Actual_Panel->Controls->Add(this->abandonar_button);
 			this->Actual_Panel->Controls->Add(this->MoreInfo_GrupEstudi_Button);
 			this->Actual_Panel->Controls->Add(this->Noms_ListBox);
-			this->Actual_Panel->Location = System::Drawing::Point(165, 121);
+			this->Actual_Panel->Location = System::Drawing::Point(221, 148);
+			this->Actual_Panel->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->Actual_Panel->Name = L"Actual_Panel";
-			this->Actual_Panel->Size = System::Drawing::Size(482, 342);
+			this->Actual_Panel->Size = System::Drawing::Size(643, 421);
 			this->Actual_Panel->TabIndex = 6;
 			// 
 			// newGrup_button
 			// 
 			this->newGrup_button->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->newGrup_button->Font = (gcnew System::Drawing::Font(L"Inter", 12));
-			this->newGrup_button->Location = System::Drawing::Point(334, 18);
+			this->newGrup_button->Location = System::Drawing::Point(445, 22);
+			this->newGrup_button->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->newGrup_button->Name = L"newGrup_button";
-			this->newGrup_button->Size = System::Drawing::Size(128, 39);
+			this->newGrup_button->Size = System::Drawing::Size(171, 48);
 			this->newGrup_button->TabIndex = 11;
 			this->newGrup_button->Text = L"Nou grup";
 			this->newGrup_button->UseVisualStyleBackColor = true;
@@ -121,10 +124,10 @@ namespace CppCLRWinFormsProject {
 			this->abandonar_button->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->abandonar_button->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->abandonar_button->Location = System::Drawing::Point(358, 284);
-			this->abandonar_button->Margin = System::Windows::Forms::Padding(4);
+			this->abandonar_button->Location = System::Drawing::Point(477, 350);
+			this->abandonar_button->Margin = System::Windows::Forms::Padding(5, 5, 5, 5);
 			this->abandonar_button->Name = L"abandonar_button";
-			this->abandonar_button->Size = System::Drawing::Size(104, 35);
+			this->abandonar_button->Size = System::Drawing::Size(139, 43);
 			this->abandonar_button->TabIndex = 10;
 			this->abandonar_button->Text = L"Abandonar";
 			this->abandonar_button->UseVisualStyleBackColor = true;
@@ -136,10 +139,10 @@ namespace CppCLRWinFormsProject {
 			this->MoreInfo_GrupEstudi_Button->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->MoreInfo_GrupEstudi_Button->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->MoreInfo_GrupEstudi_Button->Location = System::Drawing::Point(20, 284);
-			this->MoreInfo_GrupEstudi_Button->Margin = System::Windows::Forms::Padding(4);
+			this->MoreInfo_GrupEstudi_Button->Location = System::Drawing::Point(27, 350);
+			this->MoreInfo_GrupEstudi_Button->Margin = System::Windows::Forms::Padding(5, 5, 5, 5);
 			this->MoreInfo_GrupEstudi_Button->Name = L"MoreInfo_GrupEstudi_Button";
-			this->MoreInfo_GrupEstudi_Button->Size = System::Drawing::Size(104, 35);
+			this->MoreInfo_GrupEstudi_Button->Size = System::Drawing::Size(139, 43);
 			this->MoreInfo_GrupEstudi_Button->TabIndex = 9;
 			this->MoreInfo_GrupEstudi_Button->Text = L"Veure";
 			this->MoreInfo_GrupEstudi_Button->UseVisualStyleBackColor = true;
@@ -154,10 +157,11 @@ namespace CppCLRWinFormsProject {
 				static_cast<System::Byte>(0)));
 			this->Noms_ListBox->FormattingEnabled = true;
 			this->Noms_ListBox->IntegralHeight = false;
-			this->Noms_ListBox->ItemHeight = 19;
-			this->Noms_ListBox->Location = System::Drawing::Point(20, 76);
+			this->Noms_ListBox->ItemHeight = 23;
+			this->Noms_ListBox->Location = System::Drawing::Point(27, 94);
+			this->Noms_ListBox->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->Noms_ListBox->Name = L"Noms_ListBox";
-			this->Noms_ListBox->Size = System::Drawing::Size(442, 171);
+			this->Noms_ListBox->Size = System::Drawing::Size(589, 210);
 			this->Noms_ListBox->TabIndex = 2;
 			this->Noms_ListBox->SelectedIndexChanged += gcnew System::EventHandler(this, &GrupEstudi_ConsultarUI::Noms_ListBox_SelectedIndexChanged);
 			// 
@@ -174,22 +178,24 @@ namespace CppCLRWinFormsProject {
 			this->tableLayoutPanel1->Controls->Add(this->Actual_Panel, 1, 1);
 			this->tableLayoutPanel1->Dock = System::Windows::Forms::DockStyle::Fill;
 			this->tableLayoutPanel1->Location = System::Drawing::Point(0, 0);
+			this->tableLayoutPanel1->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->tableLayoutPanel1->Name = L"tableLayoutPanel1";
 			this->tableLayoutPanel1->RowCount = 3;
 			this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 16.8F)));
 			this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 83.2F)));
-			this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Absolute, 37)));
-			this->tableLayoutPanel1->Size = System::Drawing::Size(814, 537);
+			this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Absolute, 46)));
+			this->tableLayoutPanel1->Size = System::Drawing::Size(1085, 661);
 			this->tableLayoutPanel1->TabIndex = 7;
 			this->tableLayoutPanel1->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &GrupEstudi_ConsultarUI::tableLayoutPanel1_Paint);
 			// 
 			// GrupEstudi_ConsultarUI
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
+			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(814, 537);
+			this->ClientSize = System::Drawing::Size(1085, 661);
 			this->Controls->Add(this->tableLayoutPanel1);
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
+			this->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->Name = L"GrupEstudi_ConsultarUI";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterParent;
 			this->Text = L"EduConnect";

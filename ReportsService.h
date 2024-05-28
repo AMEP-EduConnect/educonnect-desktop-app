@@ -15,6 +15,11 @@ public:
 	void CreateReport(Int64^ user_rep, Int64^ user_id, String^ issue_description);
 	bool ReportExists(Int64^ user_rep, Int64^ user_id);
 
+	array<Int64^>^ LoadReportData();
+	String^ GetReportDescription(Int64^ report_id);
+	void DeleteReport(Int64^ report_id);
+	Int64^ GetReportedMember(Int64^ report_id);
+
 private:
 	ReportsRepository^ reportsRepository;
 };

@@ -233,6 +233,12 @@
     <ClInclude Include="ReportsRepository.h">
       <Filter>Source Files\repositories</Filter>
     </ClInclude>
+    <ClInclude Include="Reports_ConsultaUI.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Reports_InfoUI.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AssemblyInfo.cpp">
@@ -450,6 +456,12 @@
     </ClCompile>
     <ClCompile Include="ReportsRepository.cpp">
       <Filter>Source Files\repositories</Filter>
+    </ClCompile>
+    <ClCompile Include="Reports_ConsultaUI.cpp">
+      <Filter>Source Files\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="Reports_InfoUI.cpp">
+      <Filter>Source Files\ui</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

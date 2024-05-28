@@ -1,0 +1,119 @@
+#include "pch.h"
+#include "Reports_InfoUI.h"
+#include "Reports_ConsultaUI.h"
+#include "ReportsService.h"
+#include "Reports.h"
+#include "IniciSessioService.h"
+#include "MainPageUI.h"
+#include "BaixaUsuariUI.h"
+
+namespace CppCLRWinFormsProject {
+
+    Reports_InfoUI::Reports_InfoUI(Int64^ id_report)
+    {
+        InitializeComponent();
+        report_id  = id_report;
+        NumReports_Label->Text = "Report Numero #" + report_id;
+        reportService = gcnew ReportsService();
+        iniciSessioService = gcnew IniciSessioService();
+        Cancelar_Button->Visible = true;
+        acepta_button->Visible = true;
+        denega_button->Visible = true;
+        Noms_ListBox->Enabled = false;
+        this->Icon = gcnew System::Drawing::Icon("app.ico"); 
+    }
+
+    void Reports_InfoUI::Noms_ListBox_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e)
+    {
+        // No fa res
+    }
+
+    void Reports_InfoUI::Reports_ConsultarUIreload() {
+
+        String^ description_report = reportService->GetReportDescription(report_id);
+        Noms_ListBox->Items->Clear();
+
+        if (description_report == "") {
+            Noms_ListBox->Items->Add("No hi ha cap motiu.");
+            Noms_ListBox->ForeColor = System::Drawing::Color::Gray;
+            Noms_ListBox->Enabled = false;
+        }
+        else {
+            Noms_ListBox->ForeColor = System::Drawing::Color::Black;
+            Noms_ListBox->Enabled = false;
+
+            Noms_ListBox->Items->Add(description_report);
+        }
+    }
+
+    void Reports_InfoUI::Reports_ConsultarUI_Load(System::Object^ sender, System::EventArgs^ e)
+    {
+        Reports_ConsultarUIreload();
+    }
+
+    System::Void Reports_InfoUI::Cancelar_Button_Click(System::Object^ sender, System::EventArgs^ e)
+    {
+        Reports_ConsultaUI^ PanelUI = gcnew Reports_ConsultaUI();
+
+        PanelUI->TopLevel = false;
+        PanelUI->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
+        PanelUI->Dock = System::Windows::Forms::DockStyle::Fill;
+
+        MainPageUI::Instance->screen->Controls->Clear();
+        MainPageUI::Instance->screen->Controls->Add(PanelUI);
+        PanelUI->Show();
+    }
+
+    void Reports_InfoUI::acepta_button_Click(System::Object^ sender, System::EventArgs^ e) {
+        
+        Int64^ reported_id = reportService->GetReportedMember(report_id);
+        String^ reported_member = (iniciSessioService->GetUsuariById(reported_id))->GetUsername();
+
+        MessageBoxButtons buttons = MessageBoxButtons::YesNo;
+        // ACENTOS ACENTOS ACENTOS
+        System::Windows::Forms::DialogResult result = MessageBox::Show("Segur que vols acceptar el report? L'Usuari '" +reported_member+ "' serà eliminat permanentment!", "Confirmation", buttons);
+        
+        if (result == System::Windows::Forms::DialogResult::No) {
+		}
+        else {
+            reportService->DeleteReport(report_id);
+
+            BaixaUsuariUI^ PanelUI = gcnew BaixaUsuariUI();
+
+            PanelUI->TopLevel = false;
+            PanelUI->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
+            PanelUI->Dock = System::Windows::Forms::DockStyle::Fill;
+
+            MainPageUI::Instance->screen->Controls->Clear();
+            MainPageUI::Instance->screen->Controls->Add(PanelUI);
+            PanelUI->Show();
+        }
+    }
+
+
+    void Reports_InfoUI::denega_button_Click(System::Object^ sender, System::EventArgs^ e) {
+        
+        Int64^ reported_id = reportService->GetReportedMember(report_id);
+        String^ reported_member = (iniciSessioService->GetUsuariById(reported_id))->GetUsername();
+        MessageBoxButtons buttons = MessageBoxButtons::YesNo;
+        // ACENTOS ACENTOS ACENTOS
+        System::Windows::Forms::DialogResult result = MessageBox::Show("Segur que vols denegar el report? L'Usuari '" + reported_member + "' no serà sancionat i el report #" + report_id+ " serà eliminat.", "Confirmation", buttons);
+
+        if (result == System::Windows::Forms::DialogResult::No) {
+        }
+        else {
+            reportService->DeleteReport(report_id);
+
+            Reports_ConsultaUI^ PanelUI = gcnew Reports_ConsultaUI();
+
+            PanelUI->TopLevel = false;
+            PanelUI->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
+            PanelUI->Dock = System::Windows::Forms::DockStyle::Fill;
+
+            MainPageUI::Instance->screen->Controls->Clear();
+            MainPageUI::Instance->screen->Controls->Add(PanelUI);
+            PanelUI->Show();
+        }
+    }
+
+}

@@ -13,3 +13,20 @@ void ReportsService::CreateReport(Int64^ user_rep, Int64^ user_id, String^ issue
 bool ReportsService::ReportExists(Int64^ user_rep, Int64^ user_id) {
 	return reportsRepository->ReportExists(user_rep, user_id);
 }
+
+array<Int64^>^ ReportsService::LoadReportData()
+{
+	return reportsRepository->LoadReportData();
+}
+
+String^ ReportsService::GetReportDescription(Int64^ report_id) {
+	return reportsRepository->GetReportDescription(report_id);
+}
+
+void ReportsService::DeleteReport(Int64^ report_id) {
+	return reportsRepository->DeleteReport(report_id);
+}
+
+Int64^ ReportsService::GetReportedMember(Int64^ report_id) {
+	return reportsRepository->GetReportedMember(report_id);
+}

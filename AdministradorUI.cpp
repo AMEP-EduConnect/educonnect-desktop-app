@@ -4,6 +4,7 @@
 #include "AltaProveidorUI.h"
 #include "BaixaProveidorUI.h"
 #include "BaixaUsuariUI.h"
+#include "Reports_ConsultaUI.h"
 using namespace System;
 
 namespace CppCLRWinFormsProject {
@@ -51,7 +52,16 @@ namespace CppCLRWinFormsProject {
     }
 
     void AdministradorUI::BotoReports_Click(System::Object^ sender, System::EventArgs^ e) {
-    
+
+        Reports_ConsultaUI^ PanelUI = gcnew Reports_ConsultaUI();
+
+        PanelUI->TopLevel = false;
+        PanelUI->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
+        PanelUI->Dock = System::Windows::Forms::DockStyle::Fill;
+
+        MainPageUI::Instance->screen->Controls->Clear();
+        MainPageUI::Instance->screen->Controls->Add(PanelUI);
+        PanelUI->Show();
     }
 
 }

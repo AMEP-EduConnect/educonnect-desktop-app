@@ -1,6 +1,8 @@
 #include "pch.h"
 #include "ReportsRepository.h"
 #include <vector>
+#include "DatabaseConnector.h"
+
 
 using namespace System::Collections::Generic;
 using namespace System;
@@ -45,5 +47,91 @@ bool ReportsRepository::ReportExists(Int64^ user_rep, Int64^ user_id) {
 	catch (Exception^ e) {
 		MessageManager::ErrorMessage(e->Message);
 		return false;
+	}
+}
+
+array<Int64^>^ ReportsRepository::LoadReportData() {
+	DatabaseConnector::Instance->Connect();
+	String^ sql = "SELECT user_rep, user_id, id FROM user_reports";
+	MySqlDataReader^ data = DatabaseConnector::Instance->ExecuteClientCommand(sql, nullptr);
+
+	int rowCount = 0;
+	while (data->Read()) {
+		rowCount++;
+	}
+
+	data->Close();
+	data = DatabaseConnector::Instance->ExecuteClientCommand(sql, nullptr);
+
+	array<Int64^>^ reportData = gcnew array<Int64^>(rowCount * 3);
+	int index = 0;
+	while (data->Read()) {
+		reportData[index++] = data->GetInt64(0); // user_rep
+		reportData[index++] = data->GetInt64(1); // user_id
+		reportData[index++] = data->GetInt64(2); // id
+	}
+
+	data->Close();
+	DatabaseConnector::Instance->Disconnect();
+	return reportData;
+}
+
+String^ ReportsRepository::GetReportDescription(Int64^ report_id) {
+	DatabaseConnector::Instance->Connect();
+	String^ sql = "SELECT issue_description FROM user_reports WHERE id = @ReportId";
+	try {
+		MySqlCommand^ command = gcnew MySqlCommand(sql, DatabaseConnector::Instance->GetConn());
+		command->Parameters->AddWithValue("@ReportId", report_id);
+		MySqlDataReader^ reader = command->ExecuteReader();
+		if (reader->HasRows) {
+			reader->Read();
+			String^ description = reader->GetString(0);
+			DatabaseConnector::Instance->Disconnect();
+			return description;
+		}
+		else {
+			DatabaseConnector::Instance->Disconnect();
+			return "";
+		}
+	}
+	catch (Exception^ e) {
+		MessageManager::ErrorMessage(e->Message);
+		return "";
+	}
+}
+
+void ReportsRepository::DeleteReport(Int64^ report_id) {
+	DatabaseConnector::Instance->Connect();
+	String^ sql = "DELETE FROM user_reports WHERE id = @ReportId";
+	try {
+		MySqlCommand^ command = gcnew MySqlCommand(sql, DatabaseConnector::Instance->GetConn());
+		command->Parameters->AddWithValue("@ReportId", report_id);
+		command->ExecuteNonQuery();
+		DatabaseConnector::Instance->Disconnect();
+	}
+	catch (Exception^ e) {
+		MessageManager::ErrorMessage(e->Message);
+	}
+}
+
+Int64^ ReportsRepository::GetReportedMember(Int64^ report_id) {
+	DatabaseConnector::Instance->Connect();
+	String^ sql = "SELECT user_id FROM user_reports WHERE id = @ReportId";
+	try {
+		MySqlCommand^ command = gcnew MySqlCommand(sql, DatabaseConnector::Instance->GetConn());
+		command->Parameters->AddWithValue("@ReportId", report_id);
+		MySqlDataReader^ reader = command->ExecuteReader();
+		if (reader->HasRows) {
+			reader->Read();
+			Int64^ userId = reader->GetInt64(0);
+			DatabaseConnector::Instance->Disconnect();
+			return userId;
+		}
+		else {
+			DatabaseConnector::Instance->Disconnect();
+		}
+	}
+	catch (Exception^ e) {
+		MessageManager::ErrorMessage(e->Message);
 	}
 }
