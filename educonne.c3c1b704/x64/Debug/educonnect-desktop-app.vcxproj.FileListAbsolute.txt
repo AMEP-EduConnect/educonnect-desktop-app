@@ -130,3 +130,4 @@ C:\Users\GERARD\educonnect-desktop-app\educonne.c3c1b704\x64\Debug\educonnect_de
 C:\Users\GERARD\educonnect-desktop-app\educonne.c3c1b704\x64\Debug\educonnect_desktop_app.StartPageUI.resources
 C:\Users\GERARD\educonnect-desktop-app\educonne.c3c1b704\x64\Debug\educonnect-desktop-app.vcxproj.GenerateResource.cache
 C:\Users\GERARD\educonnect-desktop-app\educonne.c3c1b704\x64\Debug\educonne.F9171944.Up2Date
+C:\Users\alex_saiz243\educonnect-desktop-app\x64\Debug\Microsoft.Bcl.AsyncInterfaces.dll

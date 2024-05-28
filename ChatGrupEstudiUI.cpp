@@ -65,7 +65,6 @@ namespace CppCLRWinFormsProject {
             this->date = ConvertDate(chatMessage_date->getTimestamp());
             chatListBox->SelectionAlignment = HorizontalAlignment::Center;
             chatListBox->AppendText(date + "\n");
-            //chatListBox->AppendText("                                                       " + this->date + "\n");
 
         }
        
@@ -319,13 +318,11 @@ namespace CppCLRWinFormsProject {
     }  
 
     String^ ChatGrupEstudiUI::ConvertDate(DateTime^ date) {
-		
-        // I have a date = 2024-05-26 15:06:39 , write me a function that returns the date 26 May 2024
         
         String^ month = date->ToString("MMMM");
         String^ day = date->ToString("dd");
         String^ year = date->ToString("yyyy");
-        // month is 06 write me a function that returns May in Spanish
+
         if (month == "January") month = "Enero";
         if (month == "February") month = "Febrero";
         if (month == "March") month = "Marzo";
@@ -341,6 +338,7 @@ namespace CppCLRWinFormsProject {
         
         return (day + " " + month + " " + year);
 	}
+
     String^ ChatGrupEstudiUI::ConvertHour(DateTime^ date) {
 		String^ hour = date->ToString("HH");
 		String^ minute = date->ToString("mm");

@@ -499,6 +499,7 @@ private: System::Void flowLayoutPanel1_Paint_1(System::Object^ sender, System::W
 }
 private: System::Void pictureBox4_Click(System::Object^ sender, System::EventArgs^ e);
 private: System::Void pictureBox_Click(System::Object^ sender, System::EventArgs^ e);
+	   System::Void pictureBoxSuggest_Click(System::Object^ sender, System::EventArgs^ e);
 private: System::Void fillflowlayoutpanel();
 private: System::Void AddPanelWithText(FlowLayoutPanel^ flowLayout, String^ text);
 

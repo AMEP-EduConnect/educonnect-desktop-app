@@ -19,6 +19,7 @@
 #include "MainPageUI.h"
 #include "GrupEstudi_CrearUI.h"
 #include "GrupEstudi_InfoUI.h"
+#include "GrupEstudi_ExplorarUI.h"
 using namespace System::Collections::Generic;
 
 
@@ -75,15 +76,27 @@ namespace CppCLRWinFormsProject {
             this->Grup3->Visible = true;
            
             enumerator->MoveNext();
-            this->Grup1label->Text = enumerator->Current->GetGroupName();
+            if (enumerator->Current->GetGroupName()->Length > 10) {
+                this->Grup1label->Text = enumerator->Current->GetGroupName()->Substring(0, 10) + "...";
+            }
+            else
+                this->Grup1label->Text = enumerator->Current->GetGroupName();
             this->Grup1->Tag = enumerator->Current->GetGroupName();
             this->pictureBox3->Tag = enumerator->Current->GetGroupName();
             enumerator->MoveNext();
-            this->Grup2label->Text = enumerator->Current->GetGroupName();
+            if (enumerator->Current->GetGroupName()->Length > 10) {
+                this->Grup2label->Text = enumerator->Current->GetGroupName()->Substring(0, 10) + "...";
+            }
+            else
+                this->Grup2label->Text = enumerator->Current->GetGroupName();
             this->Grup2->Tag = enumerator->Current->GetGroupName();
             this->pictureBox2->Tag = enumerator->Current->GetGroupName();
             enumerator->MoveNext();
-            this->Grup3label->Text = enumerator->Current->GetGroupName();
+            if (enumerator->Current->GetGroupName()->Length > 10) {
+                this->Grup3label->Text = enumerator->Current->GetGroupName()->Substring(0, 10) + "...";
+            }
+            else
+                this->Grup3label->Text = enumerator->Current->GetGroupName();
             this->pictureBox1->Tag = enumerator->Current->GetGroupName();
             this->Grup3->Tag = enumerator->Current->GetGroupName();
         }
@@ -91,11 +104,19 @@ namespace CppCLRWinFormsProject {
             this->Grup1->Visible = true;
             this->Grup2->Visible = true;
             enumerator->MoveNext();
-            this->Grup1label->Text = enumerator->Current->GetGroupName();
+            if (enumerator->Current->GetGroupName()->Length > 10) {
+                this->Grup1label->Text = enumerator->Current->GetGroupName()->Substring(0, 10) + "...";
+            }
+            else
+                this->Grup1label->Text = enumerator->Current->GetGroupName();
             this->pictureBox3->Tag = enumerator->Current->GetGroupName();
             this->Grup1->Tag = enumerator->Current->GetGroupName();
             enumerator->MoveNext();
-            this->Grup2label->Text = enumerator->Current->GetGroupName();
+            if (enumerator->Current->GetGroupName()->Length > 10) {
+                this->Grup2label->Text = enumerator->Current->GetGroupName()->Substring(0, 10) + "...";
+            }
+            else
+                this->Grup2label->Text = enumerator->Current->GetGroupName();
             this->Grup2->Tag = enumerator->Current->GetGroupName();
             this->pictureBox2->Tag = enumerator->Current->GetGroupName();
         }
@@ -103,7 +124,13 @@ namespace CppCLRWinFormsProject {
             this->Grup1->Visible = true;
 
             enumerator->MoveNext();
-            this->Grup1label->Text = enumerator->Current->GetGroupName();
+            // Verifica que si el String^ es mayor a 10 caracteres, lo corta y añade "..."
+            if (enumerator->Current->GetGroupName()->Length > 10) {
+                this->Grup1label->Text = enumerator->Current->GetGroupName()->Substring(0, 10) + "...";
+            }
+            else
+                this->Grup1label->Text = enumerator->Current->GetGroupName();
+             
             this->Grup1->Tag = enumerator->Current->GetGroupName();
             this->pictureBox3->Tag = enumerator->Current->GetGroupName();
         }
@@ -130,6 +157,25 @@ namespace CppCLRWinFormsProject {
             if (!String::IsNullOrEmpty(groupName)) {
                 // Llama a la función que maneja el clic, pasando el nombre del grupo
                 GrupEstudi_InfoUI^ PanelUI = gcnew GrupEstudi_InfoUI(groupName, 0);
+                PanelUI->TopLevel = false;
+                PanelUI->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
+                PanelUI->Dock = System::Windows::Forms::DockStyle::Fill;
+
+                MainPageUI::Instance->screen->Controls->Clear();
+                MainPageUI::Instance->screen->Controls->Add(PanelUI);
+                PanelUI->Show();
+            }
+        }
+    }
+    System::Void IniciUI::pictureBoxSuggest_Click(System::Object^ sender, System::EventArgs^ e)
+    {
+        Panel^ clickedBox = dynamic_cast<Panel^>(sender);
+        if (clickedBox != nullptr && clickedBox->Tag != nullptr) {
+            String^ groupName = dynamic_cast<String^>(clickedBox->Tag);
+            if (!String::IsNullOrEmpty(groupName)) {
+                // Llama a la función que maneja el clic, pasando el nombre del grupo
+                //GrupEstudi_InfoUI^ PanelUI = gcnew GrupEstudi_InfoUI(groupName, 0);
+                GrupEstudi_Explorar^ PanelUI = gcnew GrupEstudi_Explorar();
                 PanelUI->TopLevel = false;
                 PanelUI->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
                 PanelUI->Dock = System::Windows::Forms::DockStyle::Fill;
@@ -201,7 +247,7 @@ namespace CppCLRWinFormsProject {
         panel->MouseEnter += gcnew System::EventHandler(this, &IniciUI::panel_MouseEnter);
         panel->MouseLeave += gcnew System::EventHandler(this, &IniciUI::panel_MouseLeave);
         panel->Tag = text;
-        panel->Click += gcnew System::EventHandler(this, &IniciUI::pictureBox_Click);
+        panel->Click += gcnew System::EventHandler(this, &IniciUI::pictureBoxSuggest_Click);
 		
 		
         flowLayout->Controls->Add(panel);
