@@ -199,9 +199,8 @@ namespace CppCLRWinFormsProject {
 			// 
 			// flowLayoutPanel2
 			// 
-			this->flowLayoutPanel2->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
-				| System::Windows::Forms::AnchorStyles::Left)
-				| System::Windows::Forms::AnchorStyles::Right));
+			this->flowLayoutPanel2->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
+				| System::Windows::Forms::AnchorStyles::Left));
 			this->flowLayoutPanel2->AutoScroll = true;
 			this->flowLayoutPanel2->FlowDirection = System::Windows::Forms::FlowDirection::TopDown;
 			this->flowLayoutPanel2->Location = System::Drawing::Point(336, 39);

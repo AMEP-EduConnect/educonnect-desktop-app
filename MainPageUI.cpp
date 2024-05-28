@@ -246,7 +246,7 @@ namespace CppCLRWinFormsProject {
         void MainPageUI::BotoExplorar_Click(System::Object ^ sender, System::EventArgs ^ e) {
             if (ChatGrupEstudiUI::Instance != nullptr)
                 if (ChatGrupEstudiUI::Instance->chatTimer->Enabled) ChatGrupEstudiUI::Instance->chatTimer->Stop();
-            GrupEstudi_Explorar^ PanelUI = gcnew GrupEstudi_Explorar();
+            GrupEstudi_Explorar^ PanelUI = gcnew GrupEstudi_Explorar("");
             PanelUI->TopLevel = false;
             PanelUI->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
             PanelUI->Dock = System::Windows::Forms::DockStyle::Fill;

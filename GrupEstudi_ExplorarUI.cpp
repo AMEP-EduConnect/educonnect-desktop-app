@@ -7,13 +7,14 @@
 #include "Usuari.h"
 
 namespace CppCLRWinFormsProject {
-	GrupEstudi_Explorar::GrupEstudi_Explorar(void)
+	GrupEstudi_Explorar::GrupEstudi_Explorar(String^ groupname)
 	{
 		InitializeComponent();
 		grupEstudiMembershipService = gcnew GrupEstudiMembershipService();
 		grupEstudiService = gcnew GrupEstudiService();
 		arrayIdGroupEstudisOfUserNoIn = GrupEstudi_Explorar_Array();
 		this->Icon = gcnew System::Drawing::Icon("app.ico");
+		this->groupname = groupname;
 	}
 
 	array<GrupEstudi^>^ GrupEstudi_Explorar::GrupEstudi_Explorar_Array() {
@@ -34,10 +35,11 @@ namespace CppCLRWinFormsProject {
 		else {
 			Noms_ListBox->ForeColor = System::Drawing::Color::Black;
 			Noms_ListBox->Enabled = true;
-
 			for (int i = 0; i < arrayIdGroupEstudisOfUserNoIn->Length; i++) {
 				Noms_ListBox->Items->Add(arrayIdGroupEstudisOfUserNoIn[i]->GetGroupName());
-
+				if (arrayIdGroupEstudisOfUserNoIn[i]->GetGroupName() == groupname) {
+					Noms_ListBox->SelectedIndex = i;
+				}
 			}
 		}
 	}

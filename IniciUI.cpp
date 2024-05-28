@@ -175,7 +175,7 @@ namespace CppCLRWinFormsProject {
             if (!String::IsNullOrEmpty(groupName)) {
                 // Llama a la función que maneja el clic, pasando el nombre del grupo
                 //GrupEstudi_InfoUI^ PanelUI = gcnew GrupEstudi_InfoUI(groupName, 0);
-                GrupEstudi_Explorar^ PanelUI = gcnew GrupEstudi_Explorar();
+                GrupEstudi_Explorar^ PanelUI = gcnew GrupEstudi_Explorar(groupName);
                 PanelUI->TopLevel = false;
                 PanelUI->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
                 PanelUI->Dock = System::Windows::Forms::DockStyle::Fill;

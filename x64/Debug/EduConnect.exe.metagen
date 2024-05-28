@@ -473,7 +473,9 @@ Class CppCLRWinFormsProject.ChatGrupEstudiUI: AutoLayout, AnsiClass, Class, Publ
     CppCLRWinFormsProject.ChatGrupEstudiUI Instance : Public, Static
 Class CppCLRWinFormsProject.GrupEstudi_Explorar: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form
-    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(System.String): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    System.String groupname : Public
 Class CppCLRWinFormsProject.GrupEstudi_Membres: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form
     Void .ctor(System.String, Boolean): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName

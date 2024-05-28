@@ -53,7 +53,7 @@ namespace CppCLRWinFormsProject {
             PanelUI->Show();
         }
         else if (not consulta) {
-			GrupEstudi_Explorar^ PanelUI = gcnew GrupEstudi_Explorar();
+			GrupEstudi_Explorar^ PanelUI = gcnew GrupEstudi_Explorar("");
             
             PanelUI->TopLevel = false;
             PanelUI->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
