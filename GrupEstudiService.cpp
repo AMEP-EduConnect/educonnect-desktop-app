@@ -152,3 +152,11 @@ String^ GrupEstudiService::GetGroupDescription(String^ NomGrup) {
 array<GrupEstudi^>^ GrupEstudiService::LoadGrupsNoMembers(Int64^ user_id) {
 		return grupEstudiRepository->LoadGrupsNoMembers(user_id);
 }
+
+List<Usuari^>^ GrupEstudiService::LoadAllUsers() {
+	return usuariRepository->GetUsersByRolId(2LL);
+}
+
+List<Usuari^>^ GrupEstudiService::LoadUsersByStartingLetter(String^ username) {
+	return usuariRepository->GetUsersByStartingLetter(2LL, username + "%");
+}

@@ -8,6 +8,7 @@
 #include "MessageManager.h"
 #include "Usuari.h"
 #include "CurrentSession.h"
+#include "UsuariRepository.h"
 
 public ref class GrupEstudiService
 {
@@ -43,7 +44,12 @@ public:
 
 	array<GrupEstudi^>^ LoadGrupsNoMembers(Int64^ user_id);
 
+	List<Usuari^>^ LoadAllUsers();
+
+	List<Usuari^>^ LoadUsersByStartingLetter(String^ username);
+
 private:
 	GrupEstudiRepository^ grupEstudiRepository;
 	GrupEstudiMembershipService^ grupEstudiMembershipService;
+	UsuariRepository^ usuariRepository;
 };

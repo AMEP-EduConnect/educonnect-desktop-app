@@ -342,6 +342,8 @@ Class GrupEstudiService: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
     ChangeGroupOwner(ValueType Int64 IsBoxed, ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
     DeleteGrupEstudiById(ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
     LoadGrupsNoMembers(ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
+    LoadAllUsers(): PrivateScope, Public, HideBySig
+    LoadUsersByStartingLetter(String): PrivateScope, Public, HideBySig
 Class CppCLRWinFormsProject.GrupEstudi_EditarUI: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form
     Void .ctor(System.String): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
