@@ -137,6 +137,8 @@ namespace CppCLRWinFormsProject {
             this->chatListBox->Size = System::Drawing::Size(560, 288);
             this->chatListBox->TabIndex = 2;
             this->chatListBox->Text = L"";
+            this->chatListBox->SelectionChanged += gcnew System::EventHandler(this, &ChatGrupEstudiUI::chatListBox_SelectionChanged);
+
             // 
             // Button_Cancelar
             // 
@@ -349,6 +351,16 @@ namespace CppCLRWinFormsProject {
 		sendButton_Click(sender, e);
 	}
     }
+ private: System::Void chatListBox_SelectionChanged(System::Object^ sender, System::EventArgs^ e) {
+     RichTextBox^ box = dynamic_cast<RichTextBox^>(sender);
+     if (box != nullptr) {
+         // Anul·lar qualsevol selecció feta per l'usuari
+         box->SelectionLength = 0;  // Estableix la longitud de la selecció a zero
+     }
+ }
+            
+
+
 
 };
 }

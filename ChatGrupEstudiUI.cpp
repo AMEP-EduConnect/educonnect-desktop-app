@@ -29,15 +29,14 @@ namespace CppCLRWinFormsProject {
 					chatListBox->AppendText(date2 + "\n");
 				}
                 chatListBox->SelectionAlignment = HorizontalAlignment::Right;
+                chatListBox->SelectionFont = gcnew System::Drawing::Font(chatListBox->Font, FontStyle::Bold);
                 if (message->Length > 15) message = FormatMessage(message);
                 int start = chatListBox->TextLength;  
-                chatListBox->SelectionFont = gcnew System::Drawing::Font(chatListBox->Font, FontStyle::Bold);
                 chatListBox->AppendText("Tú ["+ date3 +"]: ");
                 chatListBox->SelectionFont = gcnew System::Drawing::Font(chatListBox->Font, FontStyle::Regular);
                 chatListBox->AppendText(message + "\n");
                 int length = chatListBox->TextLength - start;  
                 chatListBox->Select(start, length);
-                //chatListBox->SelectionAlignment = HorizontalAlignment::Right;
                 messageTextBox->Clear();
                 chatListBox->SelectionCharOffset = 5;
                 chatListBox->SelectionStart = chatListBox->TextLength;
@@ -45,7 +44,10 @@ namespace CppCLRWinFormsProject {
             }
         }
     }
-  
+    
+
+    
+
 
     
     Void ChatGrupEstudiUI::ChatGrupEstudiUI_Load(System::Object^ sender, System::EventArgs^ e) {
@@ -150,7 +152,7 @@ namespace CppCLRWinFormsProject {
     Void ChatGrupEstudiUI::ChatGrupEstudiUI_Refresh(System::Object^ sender, System::EventArgs^ e) {
         Int64^ user_id = CurrentSession::Instance->GetCurrentUser()->GetUserId();
         chatMembers_Refresh = chatGrupEstudiService->CheckLastsMessage(id_group, user_id, messagelast_id);
-        
+        //chatListBox->SelectionFont = gcnew System::Drawing::Font(chatListBox->Font, FontStyle::Bold);
         if (chatMembers_Refresh->Count > 0) 
         {
             ChatMessage^ lastMessage = nullptr;
@@ -168,13 +170,14 @@ namespace CppCLRWinFormsProject {
                 String^ message = FormatMessage(chatMessage->getMessage());
                 String^ date3 = ConvertHour(chatMessage->getTimestamp());
                 if (chatMessage->getMessage()->Length > 50) message = FormatMessage(chatMessage->getMessage());
+                chatListBox->SelectionAlignment = HorizontalAlignment::Left;
                 chatListBox->SelectionFont = gcnew System::Drawing::Font(chatListBox->Font, FontStyle::Bold);
                 chatListBox->AppendText(chatMessage->getUsername() + " [" + date3 + "]: ");
                 chatListBox->SelectionFont = gcnew System::Drawing::Font(chatListBox->Font, FontStyle::Regular);
                 chatListBox->AppendText(message + "\n");
                 int length = chatListBox->TextLength - start;
                 chatListBox->Select(start, length);
-                chatListBox->SelectionAlignment = HorizontalAlignment::Left;
+               
                 chatListBox->SelectionCharOffset = 5;
                 chatListBox->SelectionStart = chatListBox->TextLength;
                 chatListBox->ScrollToCaret();
