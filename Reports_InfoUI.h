@@ -54,6 +54,15 @@ namespace CppCLRWinFormsProject {
 	private: System::Windows::Forms::Label^ GrupDescription_Label;
 	private: System::Windows::Forms::Button^ denega_button;
 	private: System::Windows::Forms::Button^ acepta_button;
+	private: System::Windows::Forms::Label^ per;
+
+	private: System::Windows::Forms::Label^ de;
+	private: System::Windows::Forms::Label^ nom_per;
+
+
+
+	private: System::Windows::Forms::Label^ nom_de;
+
 	private: System::ComponentModel::BackgroundWorker^ backgroundWorker1;
 
 
@@ -66,6 +75,10 @@ namespace CppCLRWinFormsProject {
 		   {
 			   this->NumReports_Label = (gcnew System::Windows::Forms::Label());
 			   this->Actual_Panel = (gcnew System::Windows::Forms::Panel());
+			   this->nom_per = (gcnew System::Windows::Forms::Label());
+			   this->nom_de = (gcnew System::Windows::Forms::Label());
+			   this->per = (gcnew System::Windows::Forms::Label());
+			   this->de = (gcnew System::Windows::Forms::Label());
 			   this->denega_button = (gcnew System::Windows::Forms::Button());
 			   this->acepta_button = (gcnew System::Windows::Forms::Button());
 			   this->GrupDescription_Label = (gcnew System::Windows::Forms::Label());
@@ -84,7 +97,7 @@ namespace CppCLRWinFormsProject {
 			   this->NumReports_Label->Font = (gcnew System::Drawing::Font(L"Inter", 20.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				   static_cast<System::Byte>(0)));
 			   this->NumReports_Label->ForeColor = System::Drawing::SystemColors::HotTrack;
-			   this->NumReports_Label->Location = System::Drawing::Point(380, 21);
+			   this->NumReports_Label->Location = System::Drawing::Point(380, 24);
 			   this->NumReports_Label->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->NumReports_Label->Name = L"NumReports_Label";
 			   this->NumReports_Label->Size = System::Drawing::Size(324, 41);
@@ -96,15 +109,72 @@ namespace CppCLRWinFormsProject {
 			   // 
 			   this->Actual_Panel->Anchor = System::Windows::Forms::AnchorStyles::None;
 			   this->Actual_Panel->BackColor = System::Drawing::SystemColors::GradientInactiveCaption;
+			   this->Actual_Panel->Controls->Add(this->nom_per);
+			   this->Actual_Panel->Controls->Add(this->nom_de);
+			   this->Actual_Panel->Controls->Add(this->per);
+			   this->Actual_Panel->Controls->Add(this->de);
 			   this->Actual_Panel->Controls->Add(this->denega_button);
 			   this->Actual_Panel->Controls->Add(this->acepta_button);
 			   this->Actual_Panel->Controls->Add(this->GrupDescription_Label);
 			   this->Actual_Panel->Controls->Add(this->Noms_ListBox);
-			   this->Actual_Panel->Location = System::Drawing::Point(221, 122);
+			   this->Actual_Panel->Location = System::Drawing::Point(221, 113);
 			   this->Actual_Panel->Margin = System::Windows::Forms::Padding(4);
 			   this->Actual_Panel->Name = L"Actual_Panel";
-			   this->Actual_Panel->Size = System::Drawing::Size(643, 342);
+			   this->Actual_Panel->Size = System::Drawing::Size(643, 394);
 			   this->Actual_Panel->TabIndex = 6;
+			   // 
+			   // nom_per
+			   // 
+			   this->nom_per->AutoSize = true;
+			   this->nom_per->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				   static_cast<System::Byte>(0)));
+			   this->nom_per->ForeColor = System::Drawing::SystemColors::Desktop;
+			   this->nom_per->Location = System::Drawing::Point(339, 40);
+			   this->nom_per->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			   this->nom_per->Name = L"nom_per";
+			   this->nom_per->Size = System::Drawing::Size(58, 24);
+			   this->nom_per->TabIndex = 13;
+			   this->nom_per->Text = L"NOM";
+			   // 
+			   // nom_de
+			   // 
+			   this->nom_de->AutoSize = true;
+			   this->nom_de->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				   static_cast<System::Byte>(0)));
+			   this->nom_de->ForeColor = System::Drawing::SystemColors::Desktop;
+			   this->nom_de->Location = System::Drawing::Point(63, 40);
+			   this->nom_de->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			   this->nom_de->Name = L"nom_de";
+			   this->nom_de->Size = System::Drawing::Size(58, 24);
+			   this->nom_de->TabIndex = 12;
+			   this->nom_de->Text = L"NOM";
+			   // 
+			   // per
+			   // 
+			   this->per->AutoSize = true;
+			   this->per->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				   static_cast<System::Byte>(0)));
+			   this->per->ForeColor = System::Drawing::SystemColors::HotTrack;
+			   this->per->Location = System::Drawing::Point(292, 40);
+			   this->per->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			   this->per->Name = L"per";
+			   this->per->Size = System::Drawing::Size(48, 24);
+			   this->per->TabIndex = 11;
+			   this->per->Text = L"Per:";
+			   // 
+			   // de
+			   // 
+			   this->de->AutoSize = true;
+			   this->de->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				   static_cast<System::Byte>(0)));
+			   this->de->ForeColor = System::Drawing::SystemColors::HotTrack;
+			   this->de->Location = System::Drawing::Point(23, 40);
+			   this->de->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			   this->de->Name = L"de";
+			   this->de->Size = System::Drawing::Size(42, 24);
+			   this->de->TabIndex = 10;
+			   this->de->Text = L"De:";
+			   this->de->Click += gcnew System::EventHandler(this, &Reports_InfoUI::label1_Click);
 			   // 
 			   // denega_button
 			   // 
@@ -113,7 +183,7 @@ namespace CppCLRWinFormsProject {
 			   this->denega_button->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				   static_cast<System::Byte>(0)));
 			   this->denega_button->ForeColor = System::Drawing::Color::DarkRed;
-			   this->denega_button->Location = System::Drawing::Point(477, 285);
+			   this->denega_button->Location = System::Drawing::Point(477, 339);
 			   this->denega_button->Margin = System::Windows::Forms::Padding(5);
 			   this->denega_button->Name = L"denega_button";
 			   this->denega_button->Size = System::Drawing::Size(139, 43);
@@ -130,7 +200,7 @@ namespace CppCLRWinFormsProject {
 			   this->acepta_button->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				   static_cast<System::Byte>(0)));
 			   this->acepta_button->ForeColor = System::Drawing::Color::Green;
-			   this->acepta_button->Location = System::Drawing::Point(27, 285);
+			   this->acepta_button->Location = System::Drawing::Point(27, 339);
 			   this->acepta_button->Margin = System::Windows::Forms::Padding(5);
 			   this->acepta_button->Name = L"acepta_button";
 			   this->acepta_button->Size = System::Drawing::Size(139, 43);
@@ -146,7 +216,7 @@ namespace CppCLRWinFormsProject {
 			   this->GrupDescription_Label->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				   static_cast<System::Byte>(0)));
 			   this->GrupDescription_Label->ForeColor = System::Drawing::SystemColors::HotTrack;
-			   this->GrupDescription_Label->Location = System::Drawing::Point(23, 25);
+			   this->GrupDescription_Label->Location = System::Drawing::Point(23, 88);
 			   this->GrupDescription_Label->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->GrupDescription_Label->Name = L"GrupDescription_Label";
 			   this->GrupDescription_Label->Size = System::Drawing::Size(70, 24);
@@ -162,7 +232,7 @@ namespace CppCLRWinFormsProject {
 			   this->Noms_ListBox->FormattingEnabled = true;
 			   this->Noms_ListBox->IntegralHeight = false;
 			   this->Noms_ListBox->ItemHeight = 23;
-			   this->Noms_ListBox->Location = System::Drawing::Point(27, 53);
+			   this->Noms_ListBox->Location = System::Drawing::Point(27, 116);
 			   this->Noms_ListBox->Margin = System::Windows::Forms::Padding(4);
 			   this->Noms_ListBox->Name = L"Noms_ListBox";
 			   this->Noms_ListBox->Size = System::Drawing::Size(589, 210);
@@ -176,7 +246,7 @@ namespace CppCLRWinFormsProject {
 			   this->Cancelar_Button->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				   static_cast<System::Byte>(0)));
 			   this->Cancelar_Button->ForeColor = System::Drawing::Color::Red;
-			   this->Cancelar_Button->Location = System::Drawing::Point(724, 512);
+			   this->Cancelar_Button->Location = System::Drawing::Point(724, 555);
 			   this->Cancelar_Button->Margin = System::Windows::Forms::Padding(5);
 			   this->Cancelar_Button->Name = L"Cancelar_Button";
 			   this->Cancelar_Button->Size = System::Drawing::Size(139, 43);
@@ -205,8 +275,8 @@ namespace CppCLRWinFormsProject {
 			   this->tableLayoutPanel1->RowCount = 4;
 			   this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 16.8F)));
 			   this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 83.2F)));
-			   this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Absolute, 62)));
-			   this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Absolute, 95)));
+			   this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Absolute, 90)));
+			   this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Absolute, 38)));
 			   this->tableLayoutPanel1->Size = System::Drawing::Size(1085, 661);
 			   this->tableLayoutPanel1->TabIndex = 7;
 			   this->tableLayoutPanel1->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &Reports_InfoUI::tableLayoutPanel1_Paint);
@@ -241,6 +311,8 @@ namespace CppCLRWinFormsProject {
 	private: System::Void denega_button_Click(System::Object^ sender, System::EventArgs^ e);
 	private: System::Void ConsultarReports_Label_Click(System::Object^ sender, System::EventArgs^ e) {
 	}
+private: System::Void label1_Click(System::Object^ sender, System::EventArgs^ e) {
+}
 };
 }
 

@@ -135,3 +135,25 @@ Int64^ ReportsRepository::GetReportedMember(Int64^ report_id) {
 		MessageManager::ErrorMessage(e->Message);
 	}
 }
+
+Int64^ ReportsRepository::GetReportMember(Int64^ report_id) {
+	DatabaseConnector::Instance->Connect();
+	String^ sql = "SELECT user_rep FROM user_reports WHERE id = @ReportId";
+	try {
+		MySqlCommand^ command = gcnew MySqlCommand(sql, DatabaseConnector::Instance->GetConn());
+		command->Parameters->AddWithValue("@ReportId", report_id);
+		MySqlDataReader^ reader = command->ExecuteReader();
+		if (reader->HasRows) {
+			reader->Read();
+			Int64^ userId = reader->GetInt64(0);
+			DatabaseConnector::Instance->Disconnect();
+			return userId;
+		}
+		else {
+			DatabaseConnector::Instance->Disconnect();
+		}
+	}
+	catch (Exception^ e) {
+		MessageManager::ErrorMessage(e->Message);
+	}
+}

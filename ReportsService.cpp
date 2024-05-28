@@ -30,3 +30,7 @@ void ReportsService::DeleteReport(Int64^ report_id) {
 Int64^ ReportsService::GetReportedMember(Int64^ report_id) {
 	return reportsRepository->GetReportedMember(report_id);
 }
+
+Int64^ ReportsService::GetReportMember(Int64^ report_id) {
+	return reportsRepository->GetReportMember(report_id);
+}

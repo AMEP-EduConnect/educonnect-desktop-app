@@ -20,4 +20,5 @@ public:
 		String^ GetReportDescription(Int64^ report_id);
 		void DeleteReport(Int64^ report_id);
 		Int64^ GetReportedMember(Int64^ report_id);
+		Int64^ GetReportMember(Int64^ report_id);
 };

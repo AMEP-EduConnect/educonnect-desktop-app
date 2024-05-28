@@ -16,6 +16,15 @@ namespace CppCLRWinFormsProject {
         NumReports_Label->Text = "Report Numero #" + report_id;
         reportService = gcnew ReportsService();
         iniciSessioService = gcnew IniciSessioService();
+
+        Int64^ reported_id = reportService->GetReportedMember(report_id);
+        String^ reported_member = (iniciSessioService->GetUsuariById(reported_id))->GetUsername();
+        nom_de->Text = reported_member;
+
+        Int64^ reported_id2 = reportService->GetReportMember(report_id);
+        String^ reported_member2 = (iniciSessioService->GetUsuariById(reported_id2))->GetUsername();
+        nom_per->Text = reported_member2;
+
         Cancelar_Button->Visible = true;
         acepta_button->Visible = true;
         denega_button->Visible = true;
