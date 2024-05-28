@@ -30,6 +30,13 @@ F:\Proyectos\EduConnect\educonnect-desktop-app\educonne.c3c1b704\x64\Debug\educo
 F:\Proyectos\EduConnect\educonnect-desktop-app\educonne.c3c1b704\x64\Debug\educonnect_desktop_app.GrupEstudi_InfoUI.resources
 F:\Proyectos\EduConnect\educonnect-desktop-app\educonne.c3c1b704\x64\Debug\educonnect_desktop_app.Session_CrearUI.resources
 F:\Proyectos\EduConnect\educonnect-desktop-app\educonne.c3c1b704\x64\Debug\educonnect_desktop_app.Session_EditarUI.resources
+C:\Users\GERARD\educonnect-desktop-app\x64\Debug\MySql.Data.dll
+C:\Users\GERARD\educonnect-desktop-app\x64\Debug\System.Memory.dll
+C:\Users\GERARD\educonnect-desktop-app\x64\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\GERARD\educonnect-desktop-app\x64\Debug\System.Numerics.Vectors.dll
+C:\Users\GERARD\educonnect-desktop-app\x64\Debug\System.Buffers.dll
+C:\Users\GERARD\educonnect-desktop-app\x64\Debug\MySql.Data.xml
+C:\Users\GERARD\educonnect-desktop-app\educonne.c3c1b704\x64\Debug\educonnect-desktop-app.vcxproj.AssemblyReference.cache
 C:\Users\alex_saiz243\educonnect-desktop-app\x64\Debug\EduConnect.exe.config
 C:\Users\alex_saiz243\educonnect-desktop-app\x64\Debug\Microsoft.VisualStudio.Shell.15.0.dll
 C:\Users\alex_saiz243\educonnect-desktop-app\x64\Debug\Microsoft.VisualStudio.Shell.Framework.dll
@@ -107,6 +114,9 @@ C:\Users\GERARD\educonnect-desktop-app\educonne.c3c1b704\x64\Debug\educonnect_de
 C:\Users\GERARD\educonnect-desktop-app\educonne.c3c1b704\x64\Debug\educonnect_desktop_app.AltaEspaisUI.resources
 C:\Users\GERARD\educonnect-desktop-app\educonne.c3c1b704\x64\Debug\educonnect_desktop_app.AltaProveidorUI.resources
 C:\Users\GERARD\educonnect-desktop-app\educonne.c3c1b704\x64\Debug\educonnect_desktop_app.BaixaProveidorUI.resources
+C:\Users\GERARD\educonnect-desktop-app\educonne.c3c1b704\x64\Debug\educonnect_desktop_app.BaixaUsuariUI.resources
+C:\Users\GERARD\educonnect-desktop-app\educonne.c3c1b704\x64\Debug\educonnect_desktop_app.CaptchaUI.resources
+C:\Users\GERARD\educonnect-desktop-app\educonne.c3c1b704\x64\Debug\educonnect_desktop_app.ConsultaEspaisUI.resources
 C:\Users\GERARD\educonnect-desktop-app\educonne.c3c1b704\x64\Debug\educonnect_desktop_app.BaixaUsuariAdminUI.resources
 C:\Users\GERARD\educonnect-desktop-app\educonne.c3c1b704\x64\Debug\educonnect_desktop_app.BaixaUsuariUI.resources
 C:\Users\GERARD\educonnect-desktop-app\educonne.c3c1b704\x64\Debug\educonnect_desktop_app.CaptchaUI.resources

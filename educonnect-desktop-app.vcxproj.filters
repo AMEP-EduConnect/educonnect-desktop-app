@@ -244,6 +244,8 @@
     </ClInclude>
     <ClInclude Include="BaixaUsuariAdminUI.h">
       <Filter>Header Files</Filter>
+    <ClInclude Include="AcademicTagRepository.h">
+      <Filter>Source Files\repositories</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -474,6 +476,9 @@
     </ClCompile>
     <ClCompile Include="BaixaUsuariAdminUI.cpp">
       <Filter>Source Files\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="AcademicTagRepository.cpp">
+      <Filter>Source Files\repositories</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
