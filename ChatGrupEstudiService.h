@@ -16,6 +16,8 @@ public:
 
 	List<ChatMessage^>^ CheckLastsMessage(Int64^ group_id, Int64^ user_id, Int64^ messageid);
 
+	List<Files^>^ CheckLastsFiles(Int64^ group_id, Int64^ file_id);
+
 	String^ GetUsernameMessageById(Int64^ user_id);
 
 	bool SendFile(Int64^ group_id, Int64^ user_id, String^ file_name, String^ file_type, array<Byte>^ file_content);

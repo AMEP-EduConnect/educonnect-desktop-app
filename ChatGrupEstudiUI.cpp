@@ -151,7 +151,7 @@ namespace CppCLRWinFormsProject {
         Int64^ user_id = CurrentSession::Instance->GetCurrentUser()->GetUserId();
         chatMembers_Refresh = chatGrupEstudiService->CheckLastsMessage(id_group, user_id, messagelast_id);
         
-        if (chatMembers_Refresh->Count > 0)
+        if (chatMembers_Refresh->Count > 0) 
         {
             ChatMessage^ lastMessage = nullptr;
 
@@ -188,10 +188,30 @@ namespace CppCLRWinFormsProject {
 		}
         
 	}
+
+    System::Void ChatGrupEstudiUI::FilesGrupEstudiUI_Refresh(System::Object^ sender, System::EventArgs^ e)
+    {
+		List<Files^>^ files_refresh = chatGrupEstudiService->CheckLastsFiles(id_group, last_file_id);
+
+		if (files_refresh->Count > 0) 
+        {
+			System::Collections::Generic::IEnumerator<Files^>^ enumerator = files_refresh->GetEnumerator();
+            while (enumerator->MoveNext()) {
+
+				files->Add(enumerator->Current);
+				listBoxFiles->Items->Add(enumerator->Current->get_filename() + enumerator->Current->get_file_type());
+                
+                last_file_id = enumerator->Current->get_id();
+			}
+			files_refresh->Clear();
+		}
+        
+    }
+
     System::Void ChatGrupEstudiUI::Button_Cancelar_Click(System::Object^ sender, System::EventArgs^ e)
     {
         this->chatTimer->Stop();
-        GrupEstudi_ConsultarUI^ PanelUI = gcnew GrupEstudi_ConsultarUI();
+        GrupEstudi_InfoUI^ PanelUI = gcnew GrupEstudi_InfoUI(group->GetGroupName());
 
         PanelUI->TopLevel = false;
         PanelUI->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
@@ -291,6 +311,7 @@ namespace CppCLRWinFormsProject {
         while (enumerator->MoveNext()) {
 			Files^ file = enumerator->Current;
 			listBoxFiles->Items->Add(file->get_filename()+file->get_file_type());
+			last_file_id = file->get_id();
 		}
     }  
 

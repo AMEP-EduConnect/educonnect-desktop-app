@@ -28,6 +28,13 @@ List<ChatMessage^>^ ChatGrupEstudiService::CheckLastsMessage(Int64^ group_id, In
 {
 	return chatMessageRepository->GetLastsMessages(group_id, user_id, messageid);
 }
+
+List<Files^>^ ChatGrupEstudiService::CheckLastsFiles(Int64^ group_id, Int64^ file_id)
+{
+	return filesRepository->GetLastsFiles(group_id, file_id);
+}
+
+
 String^ ChatGrupEstudiService::GetUsernameMessageById(Int64^ user_id)
 {
 	return usuariRepository->GetUsuariById(user_id)->GetUsername();

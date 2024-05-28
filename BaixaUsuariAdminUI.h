@@ -80,9 +80,9 @@ namespace CppCLRWinFormsProject {
 			this->label1->ForeColor = System::Drawing::SystemColors::HotTrack;
 			this->label1->Location = System::Drawing::Point(10, 13);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(469, 19);
+			this->label1->Size = System::Drawing::Size(465, 19);
 			this->label1->TabIndex = 0;
-			this->label1->Text = L"Selecciona el usuari que es vol donar de baixa en el sistema:";
+			this->label1->Text = L"Selecciona el usuari que es vol donar de baixa en el sistema";
 			// 
 			// button1
 			// 

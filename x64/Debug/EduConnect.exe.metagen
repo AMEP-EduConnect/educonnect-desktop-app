@@ -262,12 +262,14 @@ Class FileRepository: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
     GetFile(ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
     GetFiles(ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
     DeleteFileById(ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
+    GetLastsFiles(ValueType Int64 IsBoxed, ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
 Class ChatGrupEstudiService: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
   Methods:
     SendMenssage(ValueType Int64 IsBoxed, ValueType Int64 IsBoxed, String): PrivateScope, Public, HideBySig
     GetChatMembers(ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
     CheckLastsMessage(ValueType Int64 IsBoxed, ValueType Int64 IsBoxed, ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
+    CheckLastsFiles(ValueType Int64 IsBoxed, ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
     GetUsernameMessageById(ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
     SendFile(ValueType Int64 IsBoxed, ValueType Int64 IsBoxed, String, String, Byte[]): PrivateScope, Public, HideBySig
     GetFiles(ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
@@ -319,25 +321,6 @@ Class FileByteConverterService: AutoLayout, AnsiClass, Class, Public, BeforeFiel
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
   Methods:
     FileToBytes(String): PrivateScope, Public, HideBySig
-Class CppCLRWinFormsProject.ChatGrupEstudiUI: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
-  :System.Windows.Forms.Form
-    Void .ctor(System.ValueType): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
-  Fields:
-    System.String date : Public
-    System.Windows.Forms.Timer chatTimer : Public
-    System.ValueType messagelast_id Int64 IsBoxed : Public
-    System.ValueType id_group Int64 IsBoxed : Public
-    System.Collections.Generic.List`1[Files] files : Public
-    CppCLRWinFormsProject.ChatGrupEstudiUI Instance : Public, Static
-Class CppCLRWinFormsProject.GrupEstudi_Explorar: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
-  :System.Windows.Forms.Form
-    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
-Class CppCLRWinFormsProject.GrupEstudi_Membres: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
-  :System.Windows.Forms.Form
-    Void .ctor(System.String, Boolean): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
-Class CppCLRWinFormsProject.GrupEstudi_AssignarUI: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
-  :System.Windows.Forms.Form
-    Void .ctor(System.String): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
 Class Session: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
     Void .ctor(System.ValueType, System.ValueType, System.ValueType, System.String, System.ValueType, System.ValueType): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
@@ -430,6 +413,27 @@ Class GrupSessionAttendantsService: AutoLayout, AnsiClass, Class, Public, Before
     IsAttendant(ValueType Int64 IsBoxed, ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
     GetSessionAttendantsCount(ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
 Class CppCLRWinFormsProject.GrupEstudi_InfoUI: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(System.String): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class CppCLRWinFormsProject.ChatGrupEstudiUI: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(System.ValueType): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    System.String date : Public
+    System.Windows.Forms.Timer chatTimer : Public
+    System.ValueType messagelast_id Int64 IsBoxed : Public
+    System.ValueType last_file_id Int64 IsBoxed : Public
+    System.ValueType id_group Int64 IsBoxed : Public
+    GrupEstudi group : Public
+    System.Collections.Generic.List`1[Files] files : Public
+    CppCLRWinFormsProject.ChatGrupEstudiUI Instance : Public, Static
+Class CppCLRWinFormsProject.GrupEstudi_Explorar: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class CppCLRWinFormsProject.GrupEstudi_Membres: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(System.String, Boolean): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class CppCLRWinFormsProject.GrupEstudi_AssignarUI: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form
     Void .ctor(System.String): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
 Class BaixaProveidorService: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit

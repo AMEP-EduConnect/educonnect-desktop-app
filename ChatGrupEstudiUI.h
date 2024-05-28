@@ -6,6 +6,10 @@
 #include "Usuari.h"
 #include "CurrentSession.h"
 #include "FileByteConverterService.h"
+#include "GrupEstudi.h"
+#include "GrupEstudiService.h"
+#include "GrupEstudi_InfoUI.h"
+
 namespace CppCLRWinFormsProject {
 
     using namespace System;
@@ -22,11 +26,15 @@ namespace CppCLRWinFormsProject {
         {
             chatGrupEstudiService = gcnew ChatGrupEstudiService();
             fileByteConverterService = gcnew FileByteConverterService();
+            GrupEstudiService^ grupEstudiService = gcnew GrupEstudiService();
             chatMembers_Refresh = gcnew List<ChatMessage^>(0);
             InitializeComponent();
+
             id_group = idgroup;
+			group = grupEstudiService->GetGrupEstudiById(id_group);
             this->Icon = gcnew System::Drawing::Icon("app.ico");
             this->pictureBox1->Image = Image::FromFile("resources/Icons/send.png");
+			this->label_grup_name->Text = "Chat " + group->GetGroupName();
             this->Load += gcnew System::EventHandler(this, &ChatGrupEstudiUI::ChatGrupEstudiUI_Load);
             listBoxFiles->Items->Clear();
             LoadFiles();
@@ -52,7 +60,9 @@ namespace CppCLRWinFormsProject {
     private: System::Windows::Forms::Button^ Button_Cancelar;
     private: List<ChatMessage^>^ chatMembers_Refresh;
     public: Int64^ messagelast_id;
+	public: Int64^ last_file_id;
     public: Int64^ id_group;
+	public: GrupEstudi^ group;
     public: List<Files^>^ files;
     public: static ChatGrupEstudiUI^ Instance;
     private: System::Windows::Forms::Button^ Button_Send_Files;
@@ -67,6 +77,7 @@ namespace CppCLRWinFormsProject {
     private: System::Windows::Forms::Panel^ panel4;
     private: System::Windows::Forms::PictureBox^ pictureBox1;
     private: System::Windows::Forms::Label^ label1;
+
 
     private: FileByteConverterService^ fileByteConverterService;
 
@@ -87,9 +98,9 @@ namespace CppCLRWinFormsProject {
             this->panel2 = (gcnew System::Windows::Forms::Panel());
             this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
             this->panel3 = (gcnew System::Windows::Forms::Panel());
-            this->panel4 = (gcnew System::Windows::Forms::Panel());
-            this->label_grup_name = (gcnew System::Windows::Forms::Label());
             this->label1 = (gcnew System::Windows::Forms::Label());
+            this->label_grup_name = (gcnew System::Windows::Forms::Label());
+            this->panel4 = (gcnew System::Windows::Forms::Panel());
             this->tableLayoutPanel1->SuspendLayout();
             this->panel1->SuspendLayout();
             this->panel2->SuspendLayout();
@@ -108,9 +119,9 @@ namespace CppCLRWinFormsProject {
             // 
             this->messageTextBox->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
-            this->messageTextBox->Location = System::Drawing::Point(19, 23);
+            this->messageTextBox->Location = System::Drawing::Point(18, 23);
             this->messageTextBox->Name = L"messageTextBox";
-            this->messageTextBox->Size = System::Drawing::Size(339, 27);
+            this->messageTextBox->Size = System::Drawing::Size(402, 27);
             this->messageTextBox->TabIndex = 0;
             this->messageTextBox->KeyDown += gcnew System::Windows::Forms::KeyEventHandler(this, &ChatGrupEstudiUI::messageTextBox_KeyDown);
             // 
@@ -120,7 +131,7 @@ namespace CppCLRWinFormsProject {
             this->chatListBox->BackColor = System::Drawing::SystemColors::Window;
             this->chatListBox->Font = (gcnew System::Drawing::Font(L"Inter", 11.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
-            this->chatListBox->Location = System::Drawing::Point(19, 24);
+            this->chatListBox->Location = System::Drawing::Point(18, 25);
             this->chatListBox->Name = L"chatListBox";
             this->chatListBox->ReadOnly = true;
             this->chatListBox->Size = System::Drawing::Size(560, 288);
@@ -134,11 +145,11 @@ namespace CppCLRWinFormsProject {
             this->Button_Cancelar->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
             this->Button_Cancelar->ForeColor = System::Drawing::Color::Red;
-            this->Button_Cancelar->Location = System::Drawing::Point(14, 79);
+            this->Button_Cancelar->Location = System::Drawing::Point(18, 72);
             this->Button_Cancelar->Name = L"Button_Cancelar";
             this->Button_Cancelar->Size = System::Drawing::Size(87, 29);
             this->Button_Cancelar->TabIndex = 3;
-            this->Button_Cancelar->Text = L"Cancelar";
+            this->Button_Cancelar->Text = L"Tornar";
             this->Button_Cancelar->UseVisualStyleBackColor = true;
             this->Button_Cancelar->Click += gcnew System::EventHandler(this, &ChatGrupEstudiUI::Button_Cancelar_Click);
             // 
@@ -147,11 +158,11 @@ namespace CppCLRWinFormsProject {
             this->Button_Send_Files->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
             this->Button_Send_Files->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
-            this->Button_Send_Files->Location = System::Drawing::Point(13, 8);
+            this->Button_Send_Files->Location = System::Drawing::Point(278, 69);
             this->Button_Send_Files->Name = L"Button_Send_Files";
-            this->Button_Send_Files->Size = System::Drawing::Size(99, 34);
+            this->Button_Send_Files->Size = System::Drawing::Size(142, 34);
             this->Button_Send_Files->TabIndex = 4;
-            this->Button_Send_Files->Text = L"Adjuntar";
+            this->Button_Send_Files->Text = L"Adjuntar fitxer";
             this->Button_Send_Files->UseVisualStyleBackColor = true;
             this->Button_Send_Files->Click += gcnew System::EventHandler(this, &ChatGrupEstudiUI::Button_Send_Files_Click);
             // 
@@ -160,7 +171,7 @@ namespace CppCLRWinFormsProject {
             this->Button_Download->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
             this->Button_Download->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
-            this->Button_Download->Location = System::Drawing::Point(13, 64);
+            this->Button_Download->Location = System::Drawing::Point(11, 12);
             this->Button_Download->Name = L"Button_Download";
             this->Button_Download->Size = System::Drawing::Size(99, 34);
             this->Button_Download->TabIndex = 5;
@@ -177,7 +188,7 @@ namespace CppCLRWinFormsProject {
             this->listBoxFiles->ItemHeight = 19;
             this->listBoxFiles->Location = System::Drawing::Point(3, 24);
             this->listBoxFiles->Name = L"listBoxFiles";
-            this->listBoxFiles->Size = System::Drawing::Size(162, 289);
+            this->listBoxFiles->Size = System::Drawing::Size(159, 289);
             this->listBoxFiles->TabIndex = 6;
             // 
             // tableLayoutPanel1
@@ -192,9 +203,9 @@ namespace CppCLRWinFormsProject {
             this->tableLayoutPanel1->Controls->Add(this->panel1, 1, 1);
             this->tableLayoutPanel1->Controls->Add(this->panel2, 1, 2);
             this->tableLayoutPanel1->Controls->Add(this->panel3, 2, 1);
-            this->tableLayoutPanel1->Controls->Add(this->panel4, 2, 2);
             this->tableLayoutPanel1->Controls->Add(this->label_grup_name, 1, 0);
-            this->tableLayoutPanel1->Controls->Add(this->label1, 2, 0);
+            this->tableLayoutPanel1->Controls->Add(this->panel4, 2, 2);
+            this->tableLayoutPanel1->Dock = System::Windows::Forms::DockStyle::Fill;
             this->tableLayoutPanel1->Location = System::Drawing::Point(0, 0);
             this->tableLayoutPanel1->Name = L"tableLayoutPanel1";
             this->tableLayoutPanel1->RowCount = 3;
@@ -206,9 +217,9 @@ namespace CppCLRWinFormsProject {
             // 
             // panel1
             // 
+            this->panel1->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->panel1->BackColor = System::Drawing::SystemColors::GradientInactiveCaption;
             this->panel1->Controls->Add(this->chatListBox);
-            this->panel1->Dock = System::Windows::Forms::DockStyle::Fill;
             this->panel1->Location = System::Drawing::Point(39, 72);
             this->panel1->Name = L"panel1";
             this->panel1->Size = System::Drawing::Size(601, 337);
@@ -216,19 +227,20 @@ namespace CppCLRWinFormsProject {
             // 
             // panel2
             // 
-            this->panel2->Anchor = System::Windows::Forms::AnchorStyles::None;
+            this->panel2->Anchor = System::Windows::Forms::AnchorStyles::Top;
             this->panel2->BackColor = System::Drawing::SystemColors::GradientInactiveCaption;
             this->panel2->Controls->Add(this->pictureBox1);
             this->panel2->Controls->Add(this->Button_Cancelar);
+            this->panel2->Controls->Add(this->Button_Send_Files);
             this->panel2->Controls->Add(this->messageTextBox);
-            this->panel2->Location = System::Drawing::Point(44, 417);
+            this->panel2->Location = System::Drawing::Point(39, 415);
             this->panel2->Name = L"panel2";
-            this->panel2->Size = System::Drawing::Size(590, 115);
+            this->panel2->Size = System::Drawing::Size(601, 115);
             this->panel2->TabIndex = 9;
             // 
             // pictureBox1
             // 
-            this->pictureBox1->Location = System::Drawing::Point(377, 23);
+            this->pictureBox1->Location = System::Drawing::Point(436, 23);
             this->pictureBox1->Name = L"pictureBox1";
             this->pictureBox1->Size = System::Drawing::Size(30, 27);
             this->pictureBox1->TabIndex = 4;
@@ -240,20 +252,24 @@ namespace CppCLRWinFormsProject {
             this->panel3->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->panel3->BackColor = System::Drawing::SystemColors::GradientInactiveCaption;
             this->panel3->Controls->Add(this->listBoxFiles);
+            this->panel3->Controls->Add(this->label1);
             this->panel3->Location = System::Drawing::Point(646, 72);
             this->panel3->Name = L"panel3";
             this->panel3->Size = System::Drawing::Size(165, 337);
             this->panel3->TabIndex = 10;
             // 
-            // panel4
+            // label1
             // 
-            this->panel4->Anchor = System::Windows::Forms::AnchorStyles::None;
-            this->panel4->Controls->Add(this->Button_Download);
-            this->panel4->Controls->Add(this->Button_Send_Files);
-            this->panel4->Location = System::Drawing::Point(668, 415);
-            this->panel4->Name = L"panel4";
-            this->panel4->Size = System::Drawing::Size(121, 119);
-            this->panel4->TabIndex = 11;
+            this->label1->AutoSize = true;
+            this->label1->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+                static_cast<System::Byte>(0)));
+            this->label1->ForeColor = System::Drawing::SystemColors::HotTrack;
+            this->label1->Location = System::Drawing::Point(52, 3);
+            this->label1->Name = L"label1";
+            this->label1->Size = System::Drawing::Size(63, 19);
+            this->label1->TabIndex = 12;
+            this->label1->Text = L"Fitxers";
+            this->label1->TextAlign = System::Drawing::ContentAlignment::TopCenter;
             // 
             // label_grup_name
             // 
@@ -269,19 +285,14 @@ namespace CppCLRWinFormsProject {
             this->label_grup_name->Text = L"Chat Grup Estudi";
             this->label_grup_name->TextAlign = System::Drawing::ContentAlignment::TopCenter;
             // 
-            // label1
+            // panel4
             // 
-            this->label1->AutoSize = true;
-            this->label1->Dock = System::Windows::Forms::DockStyle::Bottom;
-            this->label1->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-                static_cast<System::Byte>(0)));
-            this->label1->ForeColor = System::Drawing::SystemColors::HotTrack;
-            this->label1->Location = System::Drawing::Point(646, 50);
-            this->label1->Name = L"label1";
-            this->label1->Size = System::Drawing::Size(165, 19);
-            this->label1->TabIndex = 12;
-            this->label1->Text = L"Fitxers";
-            this->label1->TextAlign = System::Drawing::ContentAlignment::TopCenter;
+            this->panel4->Anchor = System::Windows::Forms::AnchorStyles::None;
+            this->panel4->Controls->Add(this->Button_Download);
+            this->panel4->Location = System::Drawing::Point(668, 426);
+            this->panel4->Name = L"panel4";
+            this->panel4->Size = System::Drawing::Size(121, 97);
+            this->panel4->TabIndex = 11;
             // 
             // ChatGrupEstudiUI
             // 
@@ -301,6 +312,7 @@ namespace CppCLRWinFormsProject {
             this->panel2->PerformLayout();
             (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
             this->panel3->ResumeLayout(false);
+            this->panel3->PerformLayout();
             this->panel4->ResumeLayout(false);
             this->ResumeLayout(false);
 
@@ -311,10 +323,12 @@ namespace CppCLRWinFormsProject {
            System::Void ChatGrupEstudiUI_Load(System::Object^ sender, System::EventArgs^ e);
            String^ FormatMessage(System::String^ message);
            System::Void ChatGrupEstudiUI_Refresh(System::Object^ sender, System::EventArgs^ e);
+		   System::Void FilesGrupEstudiUI_Refresh(System::Object^ sender, System::EventArgs^ e);
     private: System::Void Button_Cancelar_Click(System::Object^ sender, System::EventArgs^ e);
     private: System::Void TimerTickHandler(System::Object^ sender, System::EventArgs^ e)
     {
         ChatGrupEstudiUI_Refresh(this, EventArgs::Empty);
+        FilesGrupEstudiUI_Refresh(this, EventArgs::Empty);
         
         // Llama directamente a ChatGrupEstudiUI_Load
     }
@@ -335,5 +349,6 @@ namespace CppCLRWinFormsProject {
 		sendButton_Click(sender, e);
 	}
     }
+
 };
 }

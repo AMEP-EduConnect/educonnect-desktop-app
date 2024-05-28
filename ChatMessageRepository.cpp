@@ -78,3 +78,5 @@ List<ChatMessage^>^ ChatMessageRepository::GetLastsMessages(Int64^ group_id, Int
 	return messages;
 }
 
+
+

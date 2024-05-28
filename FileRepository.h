@@ -10,6 +10,7 @@ public ref class FileRepository
 	Files^ GetFile(Int64^ file_id);
 	List<Files^>^ GetFiles(Int64^ group_id);
 	bool DeleteFileById(Int64^ file_id);
+	List<Files^>^ GetLastsFiles(Int64^ group_id, Int64^ file_id);
 	//System::String^ LoadFromFile(System::String^ fileName);
 };
 
