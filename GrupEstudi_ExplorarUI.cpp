@@ -109,13 +109,15 @@ namespace CppCLRWinFormsProject {
 	}
 	
 	void GrupEstudi_Explorar::Unirse_Button_Click(System::Object^ sender, System::EventArgs^ e) {
-		//Solicita unirse al grupo
-		//TODO: FALTA IMPLEMENTAR SPRINT 3
-		if (Unirse_Button->Text == "Unir-se") {
-			Unirse_Button->Text = "Cancel\u00B7la";
+		
+		if (Unirse_Button->Text == "Solicitar unir-se") {
+			Int64^ grup_id = grupEstudiService->GetGroupIdByName(Noms_ListBox->Text);
+			Usuari^ currentUser = CurrentSession::Instance->GetCurrentUser();
+			Int64^ user_id = currentUser->GetUserId();
+			Unirse_Button->Text = "Cancel\u00B7lar solicitud";
 		}
 		else {
-			Unirse_Button->Text = "Unir-se";
+			Unirse_Button->Text = "Solicitar unir-se";
 		}
 
 	}

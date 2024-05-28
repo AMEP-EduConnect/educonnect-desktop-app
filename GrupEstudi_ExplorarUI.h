@@ -3,8 +3,10 @@
 #include "GrupEstudi.h"
 #include "GrupEstudiMembership.h"
 #include "GrupEstudiMembershipService.h"
+#include "NotificacionsService.h"
 #include <vector>
 #include "Usuari.h"
+#include "Notificacio.h"
 #include "CurrentSession.h"
 #include "GrupEstudi_EditarUI.h"
 #include "MessageManager.h"
@@ -197,7 +199,7 @@ namespace CppCLRWinFormsProject {
 			this->Unirse_Button->Name = L"Unirse_Button";
 			this->Unirse_Button->Size = System::Drawing::Size(143, 35);
 			this->Unirse_Button->TabIndex = 8;
-			this->Unirse_Button->Text = L"Unir-se";
+			this->Unirse_Button->Text = L"Solicitar unir-se";
 			this->Unirse_Button->UseVisualStyleBackColor = true;
 			this->Unirse_Button->Visible = false;
 			this->Unirse_Button->Click += gcnew System::EventHandler(this, &GrupEstudi_Explorar::Unirse_Button_Click);
@@ -210,9 +212,9 @@ namespace CppCLRWinFormsProject {
 			this->Description_titulo->ForeColor = System::Drawing::SystemColors::HotTrack;
 			this->Description_titulo->Location = System::Drawing::Point(21, 172);
 			this->Description_titulo->Name = L"Description_titulo";
-			this->Description_titulo->Size = System::Drawing::Size(134, 19);
+			this->Description_titulo->Size = System::Drawing::Size(88, 19);
 			this->Description_titulo->TabIndex = 10;
-			this->Description_titulo->Text = L"Descripci\u00F3";
+			this->Description_titulo->Text = L"Descripció";
 			this->Description_titulo->Visible = false;
 			// 
 			// Membres_Button
