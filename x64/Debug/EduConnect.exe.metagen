@@ -17,6 +17,7 @@
   educonnect_desktop_app.IniciUI.resources - Embedded, ContainedInManifestFile, 
   educonnect_desktop_app.InformacioPersonal_ConsultaUI.resources - Embedded, ContainedInManifestFile, 
   educonnect_desktop_app.MainPageUI.resources - Embedded, ContainedInManifestFile, 
+  educonnect_desktop_app.NotificacionsUI.resources - Embedded, ContainedInManifestFile, 
   educonnect_desktop_app.RegistreUsuariUI.resources - Embedded, ContainedInManifestFile, 
   educonnect_desktop_app.Session_CrearUI.resources - Embedded, ContainedInManifestFile, 
   educonnect_desktop_app.Session_EditarUI.resources - Embedded, ContainedInManifestFile, 
@@ -522,7 +523,7 @@ Class NotificacioService: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
   Methods:
     AddNotificacio(ValueType Int64 IsBoxed, ValueType Int64 IsBoxed, ValueType Int64 IsBoxed, ValueType Int64 IsBoxed, ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
-    ListNotificacions(ValueType Int64 IsBoxed, ValueType Int64 IsBoxed, ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
+    ListNotificacions(ValueType Int64 IsBoxed, ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
     ChangeStatus(ValueType Int64 IsBoxed, Notificacio): PrivateScope, Public, HideBySig
 Class CppCLRWinFormsProject.NotificacionsUI: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form

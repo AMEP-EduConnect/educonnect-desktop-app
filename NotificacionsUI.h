@@ -58,7 +58,7 @@ namespace CppCLRWinFormsProject {
 
 	private: System::Windows::Forms::Label^ Pertany_Label;
 	private: System::Windows::Forms::Button^ Acceptarbutton;
-	private: System::Windows::Forms::Button^ Cancelar_Button;
+
 	protected:
 
 
@@ -83,7 +83,6 @@ namespace CppCLRWinFormsProject {
 			this->Rebutjarbutton = (gcnew System::Windows::Forms::Button());
 			this->NotificacionsLabel = (gcnew System::Windows::Forms::Label());
 			this->Pertany_Label = (gcnew System::Windows::Forms::Label());
-			this->Cancelar_Button = (gcnew System::Windows::Forms::Button());
 			this->tableLayoutPanel1->SuspendLayout();
 			this->Actual_Panel->SuspendLayout();
 			this->SuspendLayout();
@@ -99,7 +98,6 @@ namespace CppCLRWinFormsProject {
 				20)));
 			this->tableLayoutPanel1->Controls->Add(this->EditarGrupEstudi_Label, 1, 0);
 			this->tableLayoutPanel1->Controls->Add(this->Actual_Panel, 1, 1);
-			this->tableLayoutPanel1->Controls->Add(this->Cancelar_Button, 2, 2);
 			this->tableLayoutPanel1->Dock = System::Windows::Forms::DockStyle::Fill;
 			this->tableLayoutPanel1->Location = System::Drawing::Point(0, 0);
 			this->tableLayoutPanel1->Name = L"tableLayoutPanel1";
@@ -202,22 +200,6 @@ namespace CppCLRWinFormsProject {
 			this->Pertany_Label->Size = System::Drawing::Size(0, 16);
 			this->Pertany_Label->TabIndex = 0;
 			// 
-			// Cancelar_Button
-			// 
-			this->Cancelar_Button->Anchor = System::Windows::Forms::AnchorStyles::None;
-			this->Cancelar_Button->BackColor = System::Drawing::Color::Transparent;
-			this->Cancelar_Button->Cursor = System::Windows::Forms::Cursors::Hand;
-			this->Cancelar_Button->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->Cancelar_Button->ForeColor = System::Drawing::Color::Red;
-			this->Cancelar_Button->Location = System::Drawing::Point(650, 484);
-			this->Cancelar_Button->Name = L"Cancelar_Button";
-			this->Cancelar_Button->Size = System::Drawing::Size(88, 35);
-			this->Cancelar_Button->TabIndex = 19;
-			this->Cancelar_Button->Text = L"Cancelar";
-			this->Cancelar_Button->UseVisualStyleBackColor = false;
-			this->Cancelar_Button->Click += gcnew System::EventHandler(this, &NotificacionsUI::Cancelar_Button_Click);
-			// 
 			// NotificacionsUI
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
@@ -239,6 +221,5 @@ namespace CppCLRWinFormsProject {
 
 	private: System::Void Acceptarbutton_Click(System::Object^ sender, System::EventArgs^ e);
 	private: System::Void Rebutjarbutton_Click(System::Object^ sender, System::EventArgs^ e);
-	private: System::Void Cancelar_Button_Click(System::Object^ sender, System::EventArgs^ e);
 	};
 }

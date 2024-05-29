@@ -21,6 +21,7 @@
 #include "AltaEspaisUI.h"
 #include "GrupEstudi_ExplorarUI.h"
 #include "ConsultaEspaisUI.h"
+#include "NotificacionsUI.h"
 
 namespace CppCLRWinFormsProject {
 
@@ -56,16 +57,19 @@ namespace CppCLRWinFormsProject {
         if (*rol == 1) {
             this->BotoAdmin->Visible = true;
             this->BotoEspais->Visible = true;
+            this->Notification_Button->Visible = false;
         }
         else if (*rol == 3) {
             this->BotoAdmin->Visible = false;
             this->BotoEspais->Visible = true;
             this->BotoElsMeus->Visible = false;
             this->BotoExplorar->Visible = false;
+            this->Notification_Button->Visible = false;
         }
         else {
             this->BotoAdmin->Visible = false;
             this->BotoEspais->Visible = false;
+            this->Notification_Button->Visible = true;
         }
 
     }
@@ -122,6 +126,8 @@ namespace CppCLRWinFormsProject {
             static_cast<System::Byte>(0)));
         this->BotoElsMeus->Font = (gcnew System::Drawing::Font(L"Inter Light", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
             static_cast<System::Byte>(0)));
+        this->Notification_Button->Font = (gcnew System::Drawing::Font(L"Inter Light", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+            static_cast<System::Byte>(0)));
 
     }
 
@@ -151,6 +157,8 @@ namespace CppCLRWinFormsProject {
             static_cast<System::Byte>(0)));
         this->BotoExplorar->Font = (gcnew System::Drawing::Font(L"Inter Light", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
             static_cast<System::Byte>(0)));
+        this->Notification_Button->Font = (gcnew System::Drawing::Font(L"Inter Light", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+            static_cast<System::Byte>(0)));
 
     }
 
@@ -175,6 +183,8 @@ namespace CppCLRWinFormsProject {
             static_cast<System::Byte>(0)));
         this->BotoEspais->Font = (gcnew System::Drawing::Font(L"Inter Light", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
             static_cast<System::Byte>(0)));
+        this->Notification_Button->Font = (gcnew System::Drawing::Font(L"Inter Light", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+            static_cast<System::Byte>(0)));
 
     }
 
@@ -198,6 +208,8 @@ namespace CppCLRWinFormsProject {
             this->BotoAdmin->Font = (gcnew System::Drawing::Font(L"Inter Light", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
             this->BotoEspais->Font = (gcnew System::Drawing::Font(L"Inter Light", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+                static_cast<System::Byte>(0)));
+            this->Notification_Button->Font = (gcnew System::Drawing::Font(L"Inter Light", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
 
 
@@ -224,6 +236,8 @@ namespace CppCLRWinFormsProject {
                 static_cast<System::Byte>(0)));
             this->BotoEspais->Font = (gcnew System::Drawing::Font(L"Inter Light", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
+            this->Notification_Button->Font = (gcnew System::Drawing::Font(L"Inter Light", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+                static_cast<System::Byte>(0)));
 
 
         }
@@ -248,7 +262,34 @@ namespace CppCLRWinFormsProject {
                 static_cast<System::Byte>(0)));
             this->BotoExplorar->Font = (gcnew System::Drawing::Font(L"Inter Light", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
+            this->Notification_Button->Font = (gcnew System::Drawing::Font(L"Inter Light", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+                static_cast<System::Byte>(0)));
 
+        }
+
+        System::Void MainPageUI::NotificationButton_Click(System::Object^ sender, System::EventArgs^ e)
+        {
+            NotificacionsUI^ PanelUI = gcnew NotificacionsUI();
+            PanelUI->TopLevel = false;
+            PanelUI->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
+            PanelUI->Dock = System::Windows::Forms::DockStyle::Fill;
+
+            this->screen->Controls->Clear();
+            this->screen->Controls->Add(PanelUI);
+            PanelUI->Show();
+            this->BotoAdmin->Font = (gcnew System::Drawing::Font(L"Inter Medium", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+                static_cast<System::Byte>(0)));
+
+            this->BotoInici->Font = (gcnew System::Drawing::Font(L"Inter", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+                static_cast<System::Byte>(0)));
+            this->BotoExplorar->Font = (gcnew System::Drawing::Font(L"Inter Light", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+                static_cast<System::Byte>(0)));
+            this->BotoElsMeus->Font = (gcnew System::Drawing::Font(L"Inter Light", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+                static_cast<System::Byte>(0)));
+            this->BotoEspais->Font = (gcnew System::Drawing::Font(L"Inter Light", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+                static_cast<System::Byte>(0)));
+            this->Notification_Button->Font = (gcnew System::Drawing::Font(L"Inter Light", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+                				static_cast<System::Byte>(0)));
         }
     }
 

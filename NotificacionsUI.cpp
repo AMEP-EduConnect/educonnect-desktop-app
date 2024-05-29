@@ -34,9 +34,8 @@ namespace CppCLRWinFormsProject {
         notificacioService = gcnew NotificacioService();
         Usuari^ destination_user = CurrentSession::Instance->GetCurrentUser();
         Int64^ id_destination = destination_user->GetUserId();
-        Int64^ status = 1LL;
         Int64^ type = 1LL;
-        List<Notificacio^>^ notificacions = notificacioService->ListNotificacions(id_destination, type, status);
+        List<Notificacio^>^ notificacions = notificacioService->ListNotificacions(id_destination, type);
         System::Collections::Generic::IEnumerator<Notificacio^>^ enumerator = notificacions->GetEnumerator();
         while (enumerator->MoveNext()) {
             Int64^ id_source = enumerator->Current->GetSourceUserId();
@@ -62,20 +61,5 @@ namespace CppCLRWinFormsProject {
     System::Void NotificacionsUI::Rebutjarbutton_Click(System::Object^ sender, System::EventArgs^ e)
     {
         return System::Void();
-    }
-
-
-
-    Void NotificacionsUI::Cancelar_Button_Click(System::Object^ sender, System::EventArgs^ e) {
-        MainPageUI^ PanelUI = gcnew  MainPageUI();
-
-        PanelUI->TopLevel = false;
-        PanelUI->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
-        PanelUI->Dock = System::Windows::Forms::DockStyle::Fill;
-
-        MainPageUI::Instance->screen->Controls->Clear();
-        MainPageUI::Instance->screen->Controls->Add(PanelUI);
-        PanelUI->Show();
-
     }
 }

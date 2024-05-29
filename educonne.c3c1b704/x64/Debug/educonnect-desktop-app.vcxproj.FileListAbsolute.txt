@@ -30,3 +30,4 @@ F:\Proyectos\EduConnect\educonnect-desktop-app\educonne.c3c1b704\x64\Debug\educo
 F:\Proyectos\EduConnect\educonnect-desktop-app\educonne.c3c1b704\x64\Debug\educonnect_desktop_app.StartPageUI.resources
 F:\Proyectos\EduConnect\educonnect-desktop-app\educonne.c3c1b704\x64\Debug\educonnect-desktop-app.vcxproj.GenerateResource.cache
 F:\Proyectos\EduConnect\educonnect-desktop-app\educonne.c3c1b704\x64\Debug\educonne.F9171944.Up2Date
+F:\Proyectos\EduConnect\educonnect-desktop-app\educonne.c3c1b704\x64\Debug\educonnect_desktop_app.NotificacionsUI.resources

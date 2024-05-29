@@ -42,14 +42,13 @@ void NotificacioRepository::RemoveNotificacio(Int64^ id)
 }
 
 
-List<Notificacio^>^ NotificacioRepository::GetNotificacionsByDestinationId(Int64^ destination_user_id, Int64^ notification_type, Int64^ status)
+List<Notificacio^>^ NotificacioRepository::GetNotificacionsByDestinationId(Int64^ destination_user_id, Int64^ notification_type)
 {
     DatabaseConnector::Instance->Connect();
-    String^ sql = "SELECT * FROM userNotifications WHERE destination_user_id = @destination_user_id, notification_type = @notification_type AND status = @status ORDER BY created_at DESC";
+    String^ sql = "SELECT * FROM userNotifications WHERE destination_user_id = @destination_user_id and notification_type = @notification_type";
     Dictionary<String^, Object^>^ params = gcnew Dictionary<String^, Object^>(0);
     params->Add("@destination_user_id", destination_user_id);
     params->Add("@notification_type", notification_type);
-    params->Add("@status", status);
     MySqlDataReader^ data = DatabaseConnector::Instance->ExecuteClientCommand(sql, params);
     List<Notificacio^>^ notificacions = gcnew List<Notificacio^>(0);
     while (data->Read())
@@ -59,7 +58,8 @@ List<Notificacio^>^ NotificacioRepository::GetNotificacionsByDestinationId(Int64
         notificacio->SetNotificationType(data->GetInt64(1));
         notificacio->SetStatusType(data->GetInt64(2));
         notificacio->SetSourceGroupId(data->GetInt64(3));
-        notificacio->SetDestinationUserId(data->GetInt64(4));
+        notificacio->SetSourceUserId(data->GetInt64(4));
+        notificacio->SetDestinationUserId(data->GetInt64(5));
         notificacions->Add(notificacio);
     }
     data->Close();
