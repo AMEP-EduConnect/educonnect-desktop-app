@@ -20,6 +20,7 @@ namespace CppCLRWinFormsProject {
         InitializeComponent();
         notificacioService = gcnew NotificacioService();
         grupEstudiRepository = gcnew GrupEstudiRepository();
+        grupEstudiMembershipService = gcnew GrupEstudiMembershipService;
 
 
         this->Load += gcnew System::EventHandler(this, &NotificacionsUI::LoadNotificacionsList);
@@ -36,8 +37,9 @@ namespace CppCLRWinFormsProject {
         Int64^ id_destination = destination_user->GetUserId();
         Int64^ status = 1LL;
         Int64^ type = 1LL;
-        List<Notificacio^>^ notificacions = notificacioService->ListNotificacions(id_destination, type, status);
+        notificacions = notificacioService->ListNotificacions(id_destination, type, status);
         System::Collections::Generic::IEnumerator<Notificacio^>^ enumerator = notificacions->GetEnumerator();
+        
         while (enumerator->MoveNext()) {
             Int64^ id_source = enumerator->Current->GetSourceUserId();
             Usuari^ user_source = usuariRepository->GetUsuariById(id_source);
@@ -54,44 +56,30 @@ namespace CppCLRWinFormsProject {
         }
     }
 
-    void BaixaProveidorUI::BaixaProveidorButton_Click(System::Object^ sender, System::EventArgs^ e) {
-        if (Llista_Proveidors->SelectedItem != nullptr) {
-            MessageBoxButtons buttons = MessageBoxButtons::YesNo;
-            String^ selectedProvider = Llista_Proveidors->SelectedItem->ToString();
-            System::Windows::Forms::DialogResult result = MessageBox::Show("Vols suprimir el proveïdor '" + selectedProvider + "'?", "Confirmation", buttons);
-            if (result == System::Windows::Forms::DialogResult::Yes) {
-                if (baixaProveidorService->BaixaProveidor(selectedProvider)) {
-                    MessageManager::InfoMessage("Proveidor " + selectedProvider + " donat de baixa correctament.");
-                    Llista_Proveidors->Items->Clear();
-                    LoadProvidersList(sender, e);
-                }
-            }
-        }
-        else {
-            MessageManager::WarningMessage("Selecciona un proveïdor de la llista.");
-        }
-    }
+    
 
-    Void Acceptarbutton_Click(System::Object^ sender, System::EventArgs^ e) {
+    Void NotificacionsUI::Acceptarbutton_Click(System::Object^ sender, System::EventArgs^ e) {
 
         if (Llista_Notificacions->SelectedItem != nullptr) {
-            notificacioService = gcnew NotificacioService();
-
-            grupEstudiMembershipService = gcnew GrupEstudiMembershipService;
-            Int64^ id_source = Llista_Notificacions->SelectedItem->GetSourceUserId();
-            Int64^ id_grup = Llista_Notificacions->SelectedItem->GetSourceGrupId();
-            Int64^ status = 2LL;
-            Notificacio^ notificacio = Llista_Notificacions->SelectedItem;
-            grupEstudiMembershipService->UserToGroup(id_source, id_grup);
-            notificacioService->ChangeStatus(status, notificacio);
-            
+            int i = 0;
+            System::Collections::Generic::IEnumerator<Notificacio^>^ enumerator = notificacions->GetEnumerator();
+            while (enumerator->MoveNext()) {
+                if (i == Llista_Notificacions->SelectedIndex) {
+                    Notificacio^ notificacioAux = enumerator->Current;
+                    Int64^ id_source = notificacioAux->GetSourceUserId();
+                    Int64^ id_grup = notificacioAux->GetSourceGroupId();
+                    Int64^ status = 2LL;        
+                    grupEstudiMembershipService->UserToGroup(id_source, id_grup);
+                    notificacioService->ChangeStatus(status, notificacioAux);
+                }
+            }                       
         }
         else {
             MessageManager::WarningMessage("Selecciona una notificació de la llista.");
         }
 
     }
-    Void  Rebutjarbutton_Click(System::Object^ sender, System::EventArgs^ e) {
+    Void  NotificacionsUI::Rebutjarbutton_Click(System::Object^ sender, System::EventArgs^ e) {
         if (Llista_Notificacions->SelectedItem != nullptr) {
             notificacioService = gcnew NotificacioService();
             Int64^ status = 3LL;

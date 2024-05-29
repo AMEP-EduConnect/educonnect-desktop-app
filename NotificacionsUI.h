@@ -45,7 +45,8 @@ namespace CppCLRWinFormsProject {
 	//private: NotificacioService^ notificacioService;
 	private: GrupEstudiRepository^ grupEstudiRepository;
 	private: NotificacioService^ notificacioService;
-
+	private: GrupEstudiMembershipService^ grupEstudiMembershipService;
+	private: List<Notificacio^>^ notificacions;
 	private: UsuariRepository^ usuariRepository;
 	private: System::Windows::Forms::TableLayoutPanel^ tableLayoutPanel1;
 

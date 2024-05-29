@@ -3,11 +3,11 @@
 
 NotificacioRepository::NotificacioRepository()
 {
-    this->notificacions = gcnew List<Notificacio^>(0);
+    
 }
 
 
-void NotificacioRepository::AddNotificacio(Int64^ notification_type, Int64^ status, Int64^ source_grup_id, Int64^ source_user_id, Int64^ destination_user_id)
+Int64^ NotificacioRepository::AddNotificacio(Int64^ notification_type, Int64^ status, Int64^ source_grup_id, Int64^ source_user_id, Int64^ destination_user_id)
 {
     DatabaseConnector::Instance->Connect();
     String^ sql = "INSERT INTO userNotifications (notification_type, status, source_group_id, source_user_id, destination_user_id) VALUES (@notification_type, @status, @source_group_id, @source_user_id, @destination_user_id)";
@@ -17,8 +17,18 @@ void NotificacioRepository::AddNotificacio(Int64^ notification_type, Int64^ stat
     params->Add("@source_group_id", source_grup_id);
     params->Add("@source_user_id", source_user_id);
     params->Add("@destination_user_id", destination_user_id);
-    DatabaseConnector::Instance->ExecuteClientCommand(sql, params);
+    MySqlDataReader^ data = DatabaseConnector::Instance->ExecuteClientCommand(sql, params);
+    bool check = false;
+    data->Close();
+    sql = "SELECT LAST_INSERT_ID();";
+    MySqlDataReader^ data2 = DatabaseConnector::Instance->ExecuteInternCommand(sql);
+    Int64^ id;
+    while (data2->Read()) {
+        id = data2->GetInt64(0);
+    }
+    data2->Close();
     DatabaseConnector::Instance->Disconnect();
+    return id;
 }
 
 void NotificacioRepository::RemoveNotificacio(Int64^ id)

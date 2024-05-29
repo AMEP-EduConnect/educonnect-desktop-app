@@ -57,6 +57,7 @@ namespace CppCLRWinFormsProject {
 	private: System::Windows::Forms::TextBox^ buscador_textBox;
 	private: System::Windows::Forms::Panel^ panel1;
 	private: System::Windows::Forms::Button^ Unirse_Button;
+	private: NotificacioService^ notificacioService;
 	protected:
 
 	private:

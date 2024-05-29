@@ -111,7 +111,7 @@ namespace CppCLRWinFormsProject {
 	}
 	
 	void GrupEstudi_Explorar::Unirse_Button_Click(System::Object^ sender, System::EventArgs^ e) {
-		
+		Int64^ id_notificacio;
 		if (Unirse_Button->Text == "Solicitar unir-se") {
 			Int64^ source_grup_id = grupEstudiService->GetGroupIdByName(Noms_ListBox->Text);
 			Int64^ destination_user_id = grupEstudiService->GetGrupOwnerId(source_grup_id);
@@ -119,11 +119,12 @@ namespace CppCLRWinFormsProject {
 			Int64^ source_user_id = currentUser->GetUserId();
 			Int64^ status = 1LL;
 			Int64^ notification_type = 1LL;
-			notificacioService->AddNotificacio(notification_type, status, source_grup_id, source_user_id, destination_user_id);
+			id_notificacio = notificacioService->AddNotificacio(notification_type, status, source_grup_id, source_user_id, destination_user_id);
 			Unirse_Button->Text = "Cancel\u00B7lar solicitud";
 		}
 		else {
-
+			
+			notificacioService->RemoveNotificacio(id_notificacio);
 			Unirse_Button->Text = "Solicitar unir-se";
 		}
 
