@@ -11,7 +11,7 @@ NotificacioService::NotificacioService() {
 
 Int64^ NotificacioService::AddNotificacio(Int64^ notification_type, Int64^ status, Int64^ source_grup_id, Int64^ source_user_id, Int64^ destination_user_id)
 {
-    notificacioRepository->AddNotificacio( notification_type,  status, source_grup_id,  source_user_id, destination_user_id);
+    return notificacioRepository->AddNotificacio( notification_type,  status, source_grup_id,  source_user_id, destination_user_id);
     
 }
 

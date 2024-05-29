@@ -43,6 +43,11 @@ F:\Proyectos\EduConnect\educonnect-desktop-app\MainPageUI.cpp;F:\Proyectos\EduCo
 F:\Proyectos\EduConnect\educonnect-desktop-app\MessageManager.cpp;F:\Proyectos\EduConnect\educonnect-desktop-app\educonne.c3c1b704\x64\Debug\MessageManager.obj
 F:\Proyectos\EduConnect\educonnect-desktop-app\ModificaEspaisService.cpp;F:\Proyectos\EduConnect\educonnect-desktop-app\educonne.c3c1b704\x64\Debug\ModificaEspaisService.obj
 F:\Proyectos\EduConnect\educonnect-desktop-app\ModificaEspaisUI.cpp;F:\Proyectos\EduConnect\educonnect-desktop-app\educonne.c3c1b704\x64\Debug\ModificaEspaisUI.obj
+F:\Proyectos\EduConnect\educonnect-desktop-app\Notificacio.cpp;F:\Proyectos\EduConnect\educonnect-desktop-app\educonne.c3c1b704\x64\Debug\Notificacio.obj
+F:\Proyectos\EduConnect\educonnect-desktop-app\NotificacioRepository.cpp;F:\Proyectos\EduConnect\educonnect-desktop-app\educonne.c3c1b704\x64\Debug\NotificacioRepository.obj
+F:\Proyectos\EduConnect\educonnect-desktop-app\NotificacioService.cpp;F:\Proyectos\EduConnect\educonnect-desktop-app\educonne.c3c1b704\x64\Debug\NotificacioService.obj
+F:\Proyectos\EduConnect\educonnect-desktop-app\NotificationStatus.cpp;F:\Proyectos\EduConnect\educonnect-desktop-app\educonne.c3c1b704\x64\Debug\NotificationStatus.obj
+F:\Proyectos\EduConnect\educonnect-desktop-app\NotificationType.cpp;F:\Proyectos\EduConnect\educonnect-desktop-app\educonne.c3c1b704\x64\Debug\NotificationType.obj
 F:\Proyectos\EduConnect\educonnect-desktop-app\pch.cpp;F:\Proyectos\EduConnect\educonnect-desktop-app\educonne.c3c1b704\x64\Debug\pch.obj
 F:\Proyectos\EduConnect\educonnect-desktop-app\PerfilPersonalModificaService.cpp;F:\Proyectos\EduConnect\educonnect-desktop-app\educonne.c3c1b704\x64\Debug\PerfilPersonalModificaService.obj
 F:\Proyectos\EduConnect\educonnect-desktop-app\PerfilPersonalConsultaService.cpp;F:\Proyectos\EduConnect\educonnect-desktop-app\educonne.c3c1b704\x64\Debug\PerfilPersonalConsultaService.obj

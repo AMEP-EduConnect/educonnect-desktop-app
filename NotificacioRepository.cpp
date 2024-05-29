@@ -57,7 +57,7 @@ List<Notificacio^>^ NotificacioRepository::GetNotificacionsByDestinationId(Int64
         Notificacio^ notificacio = gcnew Notificacio();
         notificacio->SetId(data->GetInt64(0));
         notificacio->SetNotificationType(data->GetInt64(1));
-        notificacio->SetStatus(data->GetInt64(2));
+        notificacio->SetStatusType(data->GetInt64(2));
         notificacio->SetSourceGroupId(data->GetInt64(3));
         notificacio->SetDestinationUserId(data->GetInt64(4));
         notificacions->Add(notificacio);
@@ -79,7 +79,7 @@ void NotificacioRepository::ChangeStatus(Int64^ status, Notificacio^ notificacio
     MySqlDataReader^ data = DatabaseConnector::Instance->ExecuteClientCommand(sql, params);
     data->Close();
     DatabaseConnector::Instance->Disconnect();
-    notificacio->SetStatus(status);
+    notificacio->SetStatusType(status);
     return;
 }
 
