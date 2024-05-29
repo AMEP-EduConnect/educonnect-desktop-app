@@ -123,7 +123,7 @@ namespace CppCLRWinFormsProject {
 			this->BotoLogout->Name = L"BotoLogout";
 			this->BotoLogout->Size = System::Drawing::Size(146, 41);
 			this->BotoLogout->TabIndex = 2;
-			this->BotoLogout->Text = L"Tancar sessi\u00F3";
+			this->BotoLogout->Text = L"Tancar sessió";
 			this->BotoLogout->TextAlign = System::Drawing::ContentAlignment::MiddleRight;
 			this->BotoLogout->UseVisualStyleBackColor = true;
 			this->BotoLogout->Click += gcnew System::EventHandler(this, &MainPageUI::Tancar_Sessio_Click);
@@ -267,6 +267,7 @@ namespace CppCLRWinFormsProject {
 			this->BotoSessions->TextAlign = System::Drawing::ContentAlignment::MiddleLeft;
 			this->BotoSessions->TextImageRelation = System::Windows::Forms::TextImageRelation::ImageBeforeText;
 			this->BotoSessions->UseVisualStyleBackColor = true;
+			this->BotoSessions->Click += gcnew System::EventHandler(this, &MainPageUI::BotoSessions_Click);
 			// 
 			// BotoElsMeus
 			// 
@@ -360,6 +361,7 @@ namespace CppCLRWinFormsProject {
 			this->screen->Name = L"screen";
 			this->screen->Size = System::Drawing::Size(814, 535);
 			this->screen->TabIndex = 14;
+			this->screen->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &MainPageUI::screen_Paint);
 			// 
 			// MainPageUI
 			// 
@@ -396,6 +398,9 @@ private:
 	System::Void ElsMeus_Click(System::Object^ sender, System::EventArgs^ e);
 	System::Void BotoExplorar_Click(System::Object^ sender, System::EventArgs^ e);
 	System::Void BotoEspais_Click(System::Object^ sender, System::EventArgs^ e);
+	System::Void BotoSessions_Click(System::Object^ sender, System::EventArgs^ e);
 
+private: System::Void screen_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
+}
 };
 }

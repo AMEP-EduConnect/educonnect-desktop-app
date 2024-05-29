@@ -221,6 +221,9 @@
     <ClInclude Include="ModificaEspaisService.h">
       <Filter>Source Files\services</Filter>
     </ClInclude>
+    <ClInclude Include="Session_CalendariUI.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AssemblyInfo.cpp">
@@ -426,6 +429,9 @@
     </ClCompile>
     <ClCompile Include="GrupSessionAttendantsService.cpp">
       <Filter>Source Files\services</Filter>
+    </ClCompile>
+    <ClCompile Include="Session_CalendariUI.cpp">
+      <Filter>Source Files\ui</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
