@@ -33,30 +33,42 @@ namespace CppCLRWinFormsProject {
 
             if (check == true) {
                 if (StartPageUI::Instance->captcha_ok) {
-                    //Usuari^ currentUser = CurrentSession::Instance->GetCurrentUser();
-                    //bool isBan = reportService->UserInBlacklist(currentUser->GetUserId());
-                    //if (isBan == true) {
-                    //    bool checkBan = reportService->IsUserBlacklisted(currentUser->GetUserId());
-                    //    if (checkBan == true) {
-                    //        Ban_label->Text = reportService->MessageBanInfo(currentUser->GetUserId());
-                    //        Ban_label->Visible = true;
-                    //        //NomUsuari_TextBox->Text = "";
-                    //        //Contrasenya_TextBox->Text = "";
-                    //    }
-                    //}
-                    //else {
-                    StartPageUI::Instance->Hide();
-                    MainPageUI::Instance = gcnew MainPageUI();
-                    MainPageUI::Instance->ShowDialog();
-                    StartPageUI::Instance->Close();
-                    //}
+                    Usuari^ currentUser = CurrentSession::Instance->GetCurrentUser();
+                    bool isBan = reportService->UserInBlacklist(currentUser->GetUserId());
+                    if (isBan == true) {
+                        bool checkBan = reportService->IsUserBlacklisted(currentUser->GetUserId());
+                        if (checkBan == true) {
+                            Ban_label->Text = reportService->MessageBanInfo(currentUser->GetUserId());
+                            Ban_label->Visible = true;
+                            CredencialsIncorrectes_Label->Visible = false;
+                            CredencialsIncorrectes_Label2->Visible = false;
+                            //NomUsuari_TextBox->Text = "";
+                            //Contrasenya_TextBox->Text = "";
+                        }
+                        else {
+							StartPageUI::Instance->Hide();
+							MainPageUI::Instance = gcnew MainPageUI();
+							MainPageUI::Instance->ShowDialog();
+							StartPageUI::Instance->Close();
+						}
+                    }
+                    else {
+                        StartPageUI::Instance->Hide();
+                        MainPageUI::Instance = gcnew MainPageUI();
+                        MainPageUI::Instance->ShowDialog();
+                        StartPageUI::Instance->Close();
+                    }
                 }
                 else {
                     CredencialsIncorrectes_Label2->Visible = true;
+                    CredencialsIncorrectes_Label->Visible = false;
+                    Ban_label->Visible = false;
                 }
             }
             else {
                 CredencialsIncorrectes_Label->Visible = true;
+                CredencialsIncorrectes_Label2->Visible = false;
+                Ban_label->Visible = false;
             }
         }
     }

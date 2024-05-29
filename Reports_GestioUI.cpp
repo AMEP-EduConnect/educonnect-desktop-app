@@ -40,6 +40,7 @@ namespace CppCLRWinFormsProject {
         if (Sancio_ComboBox->Text != "") {
             Int64^ time_suspended = reportService->GetSuspendedTime(Sancio_ComboBox->Text);
             reportService->SetBlacklist(id2_reported, Description_TextBox->Text, time_suspended);
+            //ACENTOS ACENTOS ACENTOS
             MessageManager::WarningMessage("L'usuari serà sancinat amb " + Sancio_ComboBox->Text + ".");
             //reportService->DeleteReport(report_id);
 

@@ -123,6 +123,6 @@ String^ ReportsService::MessageBanInfo(Int64^ UserId) {
         int minutosRestantes = segundosRestantesTotal / 60;
         int segundosRestantes = segundosRestantesTotal % 60;
 
-        String^ MessageBan = "Tiempo restantes para desbanear: " + horasRestantes + ":" + minutosRestantes + ":" + segundosRestantes + ".";
+        String^ MessageBan = "Temps restant per ser debanejat: " + horasRestantes + ":" + minutosRestantes + ":" + segundosRestantes;
         return MessageBan;
 }

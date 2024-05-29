@@ -107,7 +107,7 @@ namespace CppCLRWinFormsProject {
 			this->NomUsuari_TextBox->Location = System::Drawing::Point(26, 42);
 			this->NomUsuari_TextBox->Margin = System::Windows::Forms::Padding(2);
 			this->NomUsuari_TextBox->Name = L"NomUsuari_TextBox";
-			this->NomUsuari_TextBox->Size = System::Drawing::Size(170, 27);
+			this->NomUsuari_TextBox->Size = System::Drawing::Size(170, 32);
 			this->NomUsuari_TextBox->TabIndex = 0;
 			// 
 			// Contrasenya_TextBox
@@ -118,7 +118,7 @@ namespace CppCLRWinFormsProject {
 			this->Contrasenya_TextBox->Margin = System::Windows::Forms::Padding(2);
 			this->Contrasenya_TextBox->Name = L"Contrasenya_TextBox";
 			this->Contrasenya_TextBox->PasswordChar = '*';
-			this->Contrasenya_TextBox->Size = System::Drawing::Size(170, 27);
+			this->Contrasenya_TextBox->Size = System::Drawing::Size(170, 32);
 			this->Contrasenya_TextBox->TabIndex = 1;
 			this->Contrasenya_TextBox->UseSystemPasswordChar = true;
 			// 
@@ -131,7 +131,7 @@ namespace CppCLRWinFormsProject {
 			this->IniciarSessio_Label->Location = System::Drawing::Point(236, 76);
 			this->IniciarSessio_Label->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->IniciarSessio_Label->Name = L"IniciarSessio_Label";
-			this->IniciarSessio_Label->Size = System::Drawing::Size(188, 33);
+			this->IniciarSessio_Label->Size = System::Drawing::Size(236, 41);
 			this->IniciarSessio_Label->TabIndex = 4;
 			this->IniciarSessio_Label->Text = L"Iniciar sessió";
 			// 
@@ -159,7 +159,7 @@ namespace CppCLRWinFormsProject {
 			this->NomUsuari_Label->Location = System::Drawing::Point(23, 25);
 			this->NomUsuari_Label->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->NomUsuari_Label->Name = L"NomUsuari_Label";
-			this->NomUsuari_Label->Size = System::Drawing::Size(109, 19);
+			this->NomUsuari_Label->Size = System::Drawing::Size(133, 24);
 			this->NomUsuari_Label->TabIndex = 7;
 			this->NomUsuari_Label->Text = L"Nom d\'usuari";
 			// 
@@ -173,7 +173,7 @@ namespace CppCLRWinFormsProject {
 			this->Contrasenya_Label->Location = System::Drawing::Point(23, 76);
 			this->Contrasenya_Label->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->Contrasenya_Label->Name = L"Contrasenya_Label";
-			this->Contrasenya_Label->Size = System::Drawing::Size(99, 20);
+			this->Contrasenya_Label->Size = System::Drawing::Size(124, 25);
 			this->Contrasenya_Label->TabIndex = 8;
 			this->Contrasenya_Label->Text = L"Contrasenya";
 			// 
@@ -230,7 +230,7 @@ namespace CppCLRWinFormsProject {
 			this->CredencialsIncorrectes_Label->Location = System::Drawing::Point(236, 366);
 			this->CredencialsIncorrectes_Label->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->CredencialsIncorrectes_Label->Name = L"CredencialsIncorrectes_Label";
-			this->CredencialsIncorrectes_Label->Size = System::Drawing::Size(192, 19);
+			this->CredencialsIncorrectes_Label->Size = System::Drawing::Size(240, 24);
 			this->CredencialsIncorrectes_Label->TabIndex = 10;
 			this->CredencialsIncorrectes_Label->Text = L"Credencials incorrectes.";
 			this->CredencialsIncorrectes_Label->Visible = false;
@@ -245,7 +245,7 @@ namespace CppCLRWinFormsProject {
 			this->label1->Location = System::Drawing::Point(237, 66);
 			this->label1->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(98, 20);
+			this->label1->Size = System::Drawing::Size(121, 25);
 			this->label1->TabIndex = 12;
 			this->label1->Text = L"EduConnect";
 			// 
@@ -255,10 +255,10 @@ namespace CppCLRWinFormsProject {
 			this->CredencialsIncorrectes_Label2->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->CredencialsIncorrectes_Label2->ForeColor = System::Drawing::Color::Red;
-			this->CredencialsIncorrectes_Label2->Location = System::Drawing::Point(238, 385);
+			this->CredencialsIncorrectes_Label2->Location = System::Drawing::Point(239, 366);
 			this->CredencialsIncorrectes_Label2->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->CredencialsIncorrectes_Label2->Name = L"CredencialsIncorrectes_Label2";
-			this->CredencialsIncorrectes_Label2->Size = System::Drawing::Size(159, 19);
+			this->CredencialsIncorrectes_Label2->Size = System::Drawing::Size(197, 24);
 			this->CredencialsIncorrectes_Label2->TabIndex = 13;
 			this->CredencialsIncorrectes_Label2->Text = L"Captcha incorrecte.";
 			this->CredencialsIncorrectes_Label2->Visible = false;
@@ -269,10 +269,10 @@ namespace CppCLRWinFormsProject {
 			this->Ban_label->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->Ban_label->ForeColor = System::Drawing::Color::Red;
-			this->Ban_label->Location = System::Drawing::Point(237, 404);
+			this->Ban_label->Location = System::Drawing::Point(238, 366);
 			this->Ban_label->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->Ban_label->Name = L"Ban_label";
-			this->Ban_label->Size = System::Drawing::Size(204, 19);
+			this->Ban_label->Size = System::Drawing::Size(254, 24);
 			this->Ban_label->TabIndex = 14;
 			this->Ban_label->Text = L"Estas ban en EduConnect";
 			this->Ban_label->Visible = false;
@@ -280,7 +280,7 @@ namespace CppCLRWinFormsProject {
 			// 
 			// IniciSessioUI
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
+			this->AutoScaleDimensions = System::Drawing::SizeF(8, 17);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(243)), static_cast<System::Int32>(static_cast<System::Byte>(243)),
 				static_cast<System::Int32>(static_cast<System::Byte>(243)));
