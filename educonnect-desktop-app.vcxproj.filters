@@ -230,6 +230,15 @@
     <ClInclude Include="NotificacionsUI.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="NotificacioService.h">
+      <Filter>Source Files\services</Filter>
+    </ClInclude>
+    <ClInclude Include="NotificationType.h">
+      <Filter>Source Files\entities</Filter>
+    </ClInclude>
+    <ClInclude Include="NotificationStatus.h">
+      <Filter>Source Files\entities</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AssemblyInfo.cpp">
@@ -439,11 +448,20 @@
     <ClCompile Include="Notificacio.cpp">
       <Filter>Source Files\entities</Filter>
     </ClCompile>
+    <ClCompile Include="NotificacioRepository.cpp">
+      <Filter>Source Files\repositories</Filter>
+    </ClCompile>
+    <ClCompile Include="NotificationType.cpp">
+      <Filter>Source Files\entities</Filter>
+    </ClCompile>
+    <ClCompile Include="NotificationStatus.cpp">
+      <Filter>Source Files\entities</Filter>
+    </ClInclude>
     <ClCompile Include="NotificacionsUI.cpp">
       <Filter>Source Files\ui</Filter>
     </ClCompile>
-    <ClCompile Include="NotificacioRepository.cpp">
-      <Filter>Source Files\repositories</Filter>
+    <ClCompile Include="NotificacioService.cpp">
+      <Filter>Source Files\services</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
