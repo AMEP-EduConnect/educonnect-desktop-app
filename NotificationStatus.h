@@ -8,8 +8,8 @@ public:
 	NotificationStatus(Int64^ id, String^ statusType);
 	void SetId(Int64^ value);
 	Int64^ GetId();
-	void SetStatusType(String^ value);
-	String^ GetStatusType();
+	void SetStatus(String^ value);
+	String^ GetStatus();
 private:
 	property Int64^ id;
 	property String^ statusType;
