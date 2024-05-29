@@ -137,6 +137,11 @@ List<Session^>^ SessionService::GetSessionsByGroupIdAndStartDate(Int64^ groupId,
 	return sessionRepository->GetSessionsByGroupIdAndStartDate(groupId,formattedTimestamp);
 }
 
+array<Session^>^ SessionService::GetSessionsByGroupIdArray(array<Int64^>^ groupId)
+{
+	return sessionRepository->GetSessionsByGroupIdArray(groupId);
+}
+
 Session^ SessionService::GetSessionById(Int64^ user_id)
 {
 	return sessionRepository->GetSessionById(user_id);

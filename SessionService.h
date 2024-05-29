@@ -22,6 +22,7 @@ public:
 	String^ GetFormattedEspai(String^ name);
 	Double GetFormattedHour(String^ hour);
 	List<Session^>^ GetSessionsByGroupIdAndStartDate(Int64^ groupId, DateTime^ date);
+	array<Session^>^ GetSessionsByGroupIdArray(array<Int64^>^ groupId);
 	Session^ GetSessionById(Int64^ user_id);
 	
 

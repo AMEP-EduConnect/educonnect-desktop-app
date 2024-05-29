@@ -4,6 +4,7 @@
 #include "SessionService.h"
 #include "GrupSessionAttendantsService.h"
 #include "ConsultaEspaisService.h"
+#include "CurrentSession.h"
 namespace CppCLRWinFormsProject {
 
 	using namespace System;
@@ -34,6 +35,8 @@ namespace CppCLRWinFormsProject {
 		}
 
 	private: List<Session^>^ SessionsList;
+		   array<Session^>^ sessionsdia;
+		   int i;
 	private: bool isSessionLoaded;
 	protected:
 
@@ -84,6 +87,7 @@ namespace CppCLRWinFormsProject {
 	private: System::Windows::Forms::Label^ label7;
 	private: System::Windows::Forms::Label^ label8;
 	private: System::Windows::Forms::Label^ label9;
+	private: System::Windows::Forms::Label^ Data;
 
 
 
@@ -118,6 +122,7 @@ namespace CppCLRWinFormsProject {
 			   this->label1 = (gcnew System::Windows::Forms::Label());
 			   this->label8 = (gcnew System::Windows::Forms::Label());
 			   this->label9 = (gcnew System::Windows::Forms::Label());
+			   this->Data = (gcnew System::Windows::Forms::Label());
 			   this->tableLayoutPanel1->SuspendLayout();
 			   this->panel1->SuspendLayout();
 			   this->panel2->SuspendLayout();
@@ -180,40 +185,40 @@ namespace CppCLRWinFormsProject {
 			   // DaySessions
 			   // 
 			   this->DaySessions->AutoSize = true;
-			   this->DaySessions->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			   this->DaySessions->Font = (gcnew System::Drawing::Font(L"Inter", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				   static_cast<System::Byte>(0)));
 			   this->DaySessions->Location = System::Drawing::Point(257, 325);
 			   this->DaySessions->Name = L"DaySessions";
-			   this->DaySessions->Size = System::Drawing::Size(19, 19);
+			   this->DaySessions->Size = System::Drawing::Size(22, 23);
 			   this->DaySessions->TabIndex = 28;
 			   this->DaySessions->Text = L"0";
 			   // 
 			   // Contador
 			   // 
 			   this->Contador->AutoSize = true;
-			   this->Contador->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			   this->Contador->Font = (gcnew System::Drawing::Font(L"Inter", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				   static_cast<System::Byte>(0)));
 			   this->Contador->Location = System::Drawing::Point(220, 325);
 			   this->Contador->Name = L"Contador";
-			   this->Contador->Size = System::Drawing::Size(19, 19);
+			   this->Contador->Size = System::Drawing::Size(22, 23);
 			   this->Contador->TabIndex = 27;
 			   this->Contador->Text = L"0";
 			   // 
 			   // label2
 			   // 
 			   this->label2->AutoSize = true;
-			   this->label2->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			   this->label2->Font = (gcnew System::Drawing::Font(L"Inter", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				   static_cast<System::Byte>(0)));
 			   this->label2->Location = System::Drawing::Point(239, 325);
 			   this->label2->Name = L"label2";
-			   this->label2->Size = System::Drawing::Size(15, 19);
+			   this->label2->Size = System::Drawing::Size(17, 23);
 			   this->label2->TabIndex = 26;
 			   this->label2->Text = L"/";
 			   // 
 			   // Anterior_Button
 			   // 
 			   this->Anterior_Button->Enabled = false;
-			   this->Anterior_Button->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			   this->Anterior_Button->Font = (gcnew System::Drawing::Font(L"Inter", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				   static_cast<System::Byte>(0)));
 			   this->Anterior_Button->ForeColor = System::Drawing::SystemColors::HotTrack;
 			   this->Anterior_Button->Location = System::Drawing::Point(48, 317);
@@ -227,7 +232,7 @@ namespace CppCLRWinFormsProject {
 			   // Seguent_Button
 			   // 
 			   this->Seguent_Button->Enabled = false;
-			   this->Seguent_Button->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			   this->Seguent_Button->Font = (gcnew System::Drawing::Font(L"Inter", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				   static_cast<System::Byte>(0)));
 			   this->Seguent_Button->ForeColor = System::Drawing::SystemColors::HotTrack;
 			   this->Seguent_Button->Location = System::Drawing::Point(356, 317);
@@ -242,6 +247,7 @@ namespace CppCLRWinFormsProject {
 			   // 
 			   this->panel2->Anchor = System::Windows::Forms::AnchorStyles::None;
 			   this->panel2->BackColor = System::Drawing::SystemColors::ButtonHighlight;
+			   this->panel2->Controls->Add(this->Data);
 			   this->panel2->Controls->Add(this->NomGrup);
 			   this->panel2->Controls->Add(this->Horari);
 			   this->panel2->Controls->Add(this->NomEspai);
@@ -251,51 +257,52 @@ namespace CppCLRWinFormsProject {
 			   this->panel2->Controls->Add(this->label5);
 			   this->panel2->Location = System::Drawing::Point(48, 40);
 			   this->panel2->Name = L"panel2";
-			   this->panel2->Size = System::Drawing::Size(412, 259);
+			   this->panel2->Size = System::Drawing::Size(412, 224);
 			   this->panel2->TabIndex = 14;
 			   this->panel2->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &Session_CalendariUI::panel2_Paint);
 			   // 
 			   // NomGrup
 			   // 
+			   this->NomGrup->Anchor = System::Windows::Forms::AnchorStyles::Top;
 			   this->NomGrup->AutoSize = true;
-			   this->NomGrup->Font = (gcnew System::Drawing::Font(L"Inter", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			   this->NomGrup->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				   static_cast<System::Byte>(0)));
-			   this->NomGrup->Location = System::Drawing::Point(154, 24);
+			   this->NomGrup->Location = System::Drawing::Point(163, 25);
 			   this->NomGrup->Name = L"NomGrup";
-			   this->NomGrup->Size = System::Drawing::Size(99, 23);
+			   this->NomGrup->Size = System::Drawing::Size(85, 19);
 			   this->NomGrup->TabIndex = 35;
 			   this->NomGrup->Text = L"Nom grup";
 			   // 
 			   // Horari
 			   // 
 			   this->Horari->AutoSize = true;
-			   this->Horari->Font = (gcnew System::Drawing::Font(L"Inter", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			   this->Horari->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				   static_cast<System::Byte>(0)));
-			   this->Horari->Location = System::Drawing::Point(315, 83);
+			   this->Horari->Location = System::Drawing::Point(270, 117);
 			   this->Horari->Name = L"Horari";
-			   this->Horari->Size = System::Drawing::Size(65, 23);
+			   this->Horari->Size = System::Drawing::Size(108, 19);
 			   this->Horari->TabIndex = 34;
-			   this->Horari->Text = L"Horari";
+			   this->Horari->Text = L"18:00 - 19:00";
 			   // 
 			   // NomEspai
 			   // 
 			   this->NomEspai->AutoSize = true;
-			   this->NomEspai->Font = (gcnew System::Drawing::Font(L"Inter", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			   this->NomEspai->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				   static_cast<System::Byte>(0)));
 			   this->NomEspai->Location = System::Drawing::Point(18, 83);
 			   this->NomEspai->Name = L"NomEspai";
-			   this->NomEspai->Size = System::Drawing::Size(106, 23);
+			   this->NomEspai->Size = System::Drawing::Size(90, 19);
 			   this->NomEspai->TabIndex = 33;
 			   this->NomEspai->Text = L"Nom espai";
 			   // 
 			   // NomSessió
 			   // 
 			   this->NomSessió->AutoSize = true;
-			   this->NomSessió->Font = (gcnew System::Drawing::Font(L"Inter", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			   this->NomSessió->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				   static_cast<System::Byte>(0)));
-			   this->NomSessió->Location = System::Drawing::Point(18, 143);
+			   this->NomSessió->Location = System::Drawing::Point(18, 117);
 			   this->NomSessió->Name = L"NomSessió";
-			   this->NomSessió->Size = System::Drawing::Size(114, 23);
+			   this->NomSessió->Size = System::Drawing::Size(97, 19);
 			   this->NomSessió->TabIndex = 32;
 			   this->NomSessió->Text = L"Nom sessió";
 			   // 
@@ -304,7 +311,7 @@ namespace CppCLRWinFormsProject {
 			   this->Capacity->AutoSize = true;
 			   this->Capacity->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				   static_cast<System::Byte>(0)));
-			   this->Capacity->Location = System::Drawing::Point(359, 205);
+			   this->Capacity->Location = System::Drawing::Point(209, 177);
 			   this->Capacity->Name = L"Capacity";
 			   this->Capacity->Size = System::Drawing::Size(19, 19);
 			   this->Capacity->TabIndex = 31;
@@ -315,7 +322,7 @@ namespace CppCLRWinFormsProject {
 			   this->Attendants->AutoSize = true;
 			   this->Attendants->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				   static_cast<System::Byte>(0)));
-			   this->Attendants->Location = System::Drawing::Point(322, 205);
+			   this->Attendants->Location = System::Drawing::Point(172, 177);
 			   this->Attendants->Name = L"Attendants";
 			   this->Attendants->Size = System::Drawing::Size(19, 19);
 			   this->Attendants->TabIndex = 30;
@@ -326,7 +333,7 @@ namespace CppCLRWinFormsProject {
 			   this->label5->AutoSize = true;
 			   this->label5->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				   static_cast<System::Byte>(0)));
-			   this->label5->Location = System::Drawing::Point(341, 205);
+			   this->label5->Location = System::Drawing::Point(191, 177);
 			   this->label5->Name = L"label5";
 			   this->label5->Size = System::Drawing::Size(15, 19);
 			   this->label5->TabIndex = 29;
@@ -385,6 +392,17 @@ namespace CppCLRWinFormsProject {
 			   this->label9->TabIndex = 29;
 			   this->label9->Text = L"/";
 			   // 
+			   // Data
+			   // 
+			   this->Data->AutoSize = true;
+			   this->Data->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				   static_cast<System::Byte>(0)));
+			   this->Data->Location = System::Drawing::Point(271, 83);
+			   this->Data->Name = L"Data";
+			   this->Data->Size = System::Drawing::Size(107, 19);
+			   this->Data->TabIndex = 36;
+			   this->Data->Text = L"19 juny 2023";
+			   // 
 			   // Session_CalendariUI
 			   // 
 			   this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
@@ -394,7 +412,7 @@ namespace CppCLRWinFormsProject {
 			   this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
 			   this->MinimumSize = System::Drawing::Size(814, 537);
 			   this->Name = L"Session_CalendariUI";
-			   this->Text = L"GrupEstudi_InfoUI";
+			   this->Text = L"Session_CalendariUI";
 			   this->Load += gcnew System::EventHandler(this, &Session_CalendariUI::Session_CalendariUI_Load);
 			   this->tableLayoutPanel1->ResumeLayout(false);
 			   this->panel1->ResumeLayout(false);
@@ -410,6 +428,7 @@ namespace CppCLRWinFormsProject {
 	private: System::Void panel1_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
 	}
 	private: System::Void Session_CalendariUI_Load(System::Object^ sender, System::EventArgs^ e);
+	private: System::Void Session_CalendariUI_ReLoad();
 	private: System::Void tableLayoutPanel1_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
 	}
 	private: System::Void monthCalendar1_DateChanged(System::Object^ sender, System::Windows::Forms::DateRangeEventArgs^ e);
@@ -419,5 +438,6 @@ namespace CppCLRWinFormsProject {
 	}
 	private: System::Void SeguentButton_Click(System::Object^ sender, System::EventArgs^ e);
 	private: System::Void AnteriorButton_Click(System::Object^ sender, System::EventArgs^ e);
+
 };
 }
