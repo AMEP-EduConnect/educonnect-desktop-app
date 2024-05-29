@@ -162,6 +162,7 @@ namespace CppCLRWinFormsProject {
 			this->Llista_Notificacions->Name = L"Llista_Notificacions";
 			this->Llista_Notificacions->Size = System::Drawing::Size(390, 256);
 			this->Llista_Notificacions->TabIndex = 17;
+			this->Llista_Notificacions->SelectedIndexChanged += gcnew System::EventHandler(this, &NotificacionsUI::Llista_Notificacions_SelectedIndexChanged);
 			// 
 			// Rebutjarbutton
 			// 
@@ -218,8 +219,10 @@ namespace CppCLRWinFormsProject {
 		}
 #pragma endregion
 	private: System::Void LoadNotificacionsList(System::Object^ sender, System::EventArgs^ e);
+	private: String^ GetIdFromString(String^ input);
 
 	private: System::Void Acceptarbutton_Click(System::Object^ sender, System::EventArgs^ e);
 	private: System::Void Rebutjarbutton_Click(System::Object^ sender, System::EventArgs^ e);
-	};
+	private: System::Void Llista_Notificacions_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e);
+};
 }

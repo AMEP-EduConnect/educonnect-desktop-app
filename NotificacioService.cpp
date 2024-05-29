@@ -18,7 +18,7 @@ Int64^ NotificacioService::AddNotificacio(Int64^ notification_type, Int64^ statu
 
 List<Notificacio^>^ NotificacioService::ListNotificacions(Int64^ id_destination, Int64^ type) {
     List<Notificacio^>^ notificacions = gcnew List<Notificacio^>(0);
-    notificacions = notificacioRepository->GetNotificacionsByDestinationId( id_destination,  type);
+    notificacions = notificacioRepository->GetNotificacionsByDestinationId( id_destination, type);
     return notificacions;
 }
 
