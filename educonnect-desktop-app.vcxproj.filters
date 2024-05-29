@@ -236,6 +236,9 @@
     <ClInclude Include="Notificacio.h">
       <Filter>Source Files\entities</Filter>
     </ClInclude>
+    <ClInclude Include="NotificacionsUI.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AssemblyInfo.cpp">
@@ -456,6 +459,9 @@
     </ClCompile>
     <ClCompile Include="Notificacio.cpp">
       <Filter>Source Files\entities</Filter>
+    </ClCompile>
+    <ClCompile Include="NotificacionsUI.cpp">
+      <Filter>Source Files\ui</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

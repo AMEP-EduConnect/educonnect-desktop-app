@@ -299,6 +299,9 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="Notificacio.h" />
+    <ClInclude Include="NotificacionsUI.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="NotificacioRepository.h" />
     <ClInclude Include="NotificacioService.h" />
     <ClInclude Include="NotificationStatus.h" />
@@ -377,6 +380,7 @@
     <ClCompile Include="ModificaEspaisService.cpp" />
     <ClCompile Include="ModificaEspaisUI.cpp" />
     <ClCompile Include="Notificacio.cpp" />
+    <ClCompile Include="NotificacionsUI.cpp" />
     <ClCompile Include="NotificacioRepository.cpp" />
     <ClCompile Include="NotificacioService.cpp" />
     <ClCompile Include="NotificationStatus.cpp" />
