@@ -157,3 +157,51 @@ Int64^ ReportsRepository::GetReportMember(Int64^ report_id) {
 		MessageManager::ErrorMessage(e->Message);
 	}
 }
+
+array<Int64^>^ ReportsRepository::LoadSuspendedTimes() {
+	DatabaseConnector::Instance->Connect();
+	String^ sql = "SELECT times_ban FROM suspendedTimes";
+	MySqlDataReader^ data = DatabaseConnector::Instance->ExecuteClientCommand(sql, nullptr);
+
+	int rowCount = 0;
+	while (data->Read()) {
+		rowCount++;
+	}
+
+	data->Close();
+	data = DatabaseConnector::Instance->ExecuteClientCommand(sql, nullptr);
+
+	array<Int64^>^ reportData = gcnew array<Int64^>(rowCount);
+	int index = 0;
+	while (data->Read()) {
+		reportData[index++] = data->GetInt64(0);
+	}
+
+	data->Close();
+	DatabaseConnector::Instance->Disconnect();
+	return reportData;
+}
+
+String^ ReportsRepository::GetNamesTimes(Int64^ names_times) {
+	DatabaseConnector::Instance->Connect();
+	String^ sql = "SELECT name_times FROM suspendedTimes WHERE times_ban = @NamesTimes";
+	try {
+		MySqlCommand^ command = gcnew MySqlCommand(sql, DatabaseConnector::Instance->GetConn());
+		command->Parameters->AddWithValue("@NamesTimes", names_times);
+		MySqlDataReader^ reader = command->ExecuteReader();
+		if (reader->HasRows) {
+			reader->Read();
+			String^ names_times = reader->GetString(0);
+			DatabaseConnector::Instance->Disconnect();
+			return names_times;
+		}
+		else {
+			DatabaseConnector::Instance->Disconnect();
+			return "";
+		}
+	}
+	catch (Exception^ e) {
+		MessageManager::ErrorMessage(e->Message);
+		return "";
+	}
+}

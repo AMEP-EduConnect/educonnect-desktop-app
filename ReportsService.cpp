@@ -34,3 +34,12 @@ Int64^ ReportsService::GetReportedMember(Int64^ report_id) {
 Int64^ ReportsService::GetReportMember(Int64^ report_id) {
 	return reportsRepository->GetReportMember(report_id);
 }
+
+array<Int64^>^ ReportsService::LoadSuspendedTimes() {
+		return reportsRepository->LoadSuspendedTimes();
+}
+
+
+String^ ReportsService::GetNamesTimes(Int64^ names_times) {
+		return reportsRepository->GetNamesTimes(names_times);
+}

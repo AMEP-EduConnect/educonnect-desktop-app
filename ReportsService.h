@@ -21,6 +21,9 @@ public:
 	Int64^ GetReportedMember(Int64^ report_id);
 	Int64^ GetReportMember(Int64^ report_id);
 
+	array<Int64^>^ LoadSuspendedTimes();
+	String^ GetNamesTimes(Int64^ names_times);
+
 private:
 	ReportsRepository^ reportsRepository;
 };

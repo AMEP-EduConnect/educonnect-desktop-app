@@ -1,11 +1,13 @@
 #include "pch.h"
 #include "Reports_InfoUI.h"
 #include "Reports_ConsultaUI.h"
+#include "Reports_GestioUI.h"
 #include "ReportsService.h"
 #include "Reports.h"
 #include "IniciSessioService.h"
 #include "MainPageUI.h"
 #include "BaixaUsuariUI.h"
+
 
 namespace CppCLRWinFormsProject {
 
@@ -78,16 +80,16 @@ namespace CppCLRWinFormsProject {
         Int64^ reported_id = reportService->GetReportedMember(report_id);
         String^ reported_member = (iniciSessioService->GetUsuariById(reported_id))->GetUsername();
 
-        MessageBoxButtons buttons = MessageBoxButtons::YesNo;
+        //MessageBoxButtons buttons = MessageBoxButtons::YesNo;
         // ACENTOS ACENTOS ACENTOS
-        System::Windows::Forms::DialogResult result = MessageBox::Show("Segur que vols acceptar el report? L'Usuari '" +reported_member+ "' serà eliminat permanentment!", "Confirmation", buttons);
+        //System::Windows::Forms::DialogResult result = MessageBox::Show("Segur que vols acceptar el report? L'Usuari '" +reported_member+ "' serà eliminat permanentment!", "Confirmation", buttons);
         
-        if (result == System::Windows::Forms::DialogResult::No) {
-		}
-        else {
-            reportService->DeleteReport(report_id);
+        //if (result == System::Windows::Forms::DialogResult::No) {
+		//}
+        //else {
+            //reportService->DeleteReport(report_id);
 
-            BaixaUsuariUI^ PanelUI = gcnew BaixaUsuariUI();
+            Reports_GestioUI^ PanelUI = gcnew Reports_GestioUI(report_id);
 
             PanelUI->TopLevel = false;
             PanelUI->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
@@ -96,7 +98,7 @@ namespace CppCLRWinFormsProject {
             MainPageUI::Instance->screen->Controls->Clear();
             MainPageUI::Instance->screen->Controls->Add(PanelUI);
             PanelUI->Show();
-        }
+        //}
     }
 
 

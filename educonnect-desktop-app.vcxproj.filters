@@ -239,6 +239,9 @@
     <ClInclude Include="Reports_InfoUI.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Reports_GestioUI.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AssemblyInfo.cpp">
@@ -462,6 +465,9 @@
     </ClCompile>
     <ClCompile Include="Reports_InfoUI.cpp">
       <Filter>Source Files\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="Reports_GestioUI.cpp">
+      <Filter>Header Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
