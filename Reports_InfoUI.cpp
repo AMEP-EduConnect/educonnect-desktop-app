@@ -19,12 +19,12 @@ namespace CppCLRWinFormsProject {
         reportService = gcnew ReportsService();
         iniciSessioService = gcnew IniciSessioService();
 
-        Int64^ reported_id = reportService->GetReportedMember(report_id);
-        String^ reported_member = (iniciSessioService->GetUsuariById(reported_id))->GetUsername();
+        reported_id = reportService->GetReportedMember(report_id);
+        reported_member = (iniciSessioService->GetUsuariById(reported_id))->GetUsername();
         nom_de->Text = reported_member;
 
-        Int64^ reported_id2 = reportService->GetReportMember(report_id);
-        String^ reported_member2 = (iniciSessioService->GetUsuariById(reported_id2))->GetUsername();
+        reported_id2 = reportService->GetReportMember(report_id);
+        reported_member2 = (iniciSessioService->GetUsuariById(reported_id2))->GetUsername();
         nom_per->Text = reported_member2;
 
         Cancelar_Button->Visible = true;
@@ -77,8 +77,8 @@ namespace CppCLRWinFormsProject {
 
     void Reports_InfoUI::acepta_button_Click(System::Object^ sender, System::EventArgs^ e) {
         
-        Int64^ reported_id = reportService->GetReportedMember(report_id);
-        String^ reported_member = (iniciSessioService->GetUsuariById(reported_id))->GetUsername();
+        //Int64^ reported_id = reportService->GetReportedMember(report_id);
+        //String^ reported_member = (iniciSessioService->GetUsuariById(reported_id))->GetUsername();
 
         //MessageBoxButtons buttons = MessageBoxButtons::YesNo;
         // ACENTOS ACENTOS ACENTOS
@@ -89,7 +89,7 @@ namespace CppCLRWinFormsProject {
         //else {
             //reportService->DeleteReport(report_id);
 
-            Reports_GestioUI^ PanelUI = gcnew Reports_GestioUI(report_id);
+            Reports_GestioUI^ PanelUI = gcnew Reports_GestioUI(report_id, reported_id, reported_member, reported_id2, reported_member2);
 
             PanelUI->TopLevel = false;
             PanelUI->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
@@ -104,11 +104,11 @@ namespace CppCLRWinFormsProject {
 
     void Reports_InfoUI::denega_button_Click(System::Object^ sender, System::EventArgs^ e) {
         
-        Int64^ reported_id = reportService->GetReportedMember(report_id);
-        String^ reported_member = (iniciSessioService->GetUsuariById(reported_id))->GetUsername();
+        //Int64^ reported_id = reportService->GetReportedMember(report_id);
+        //String^ reported_member = (iniciSessioService->GetUsuariById(reported_id))->GetUsername();
         MessageBoxButtons buttons = MessageBoxButtons::YesNo;
         // ACENTOS ACENTOS ACENTOS
-        System::Windows::Forms::DialogResult result = MessageBox::Show("Segur que vols denegar el report? L'Usuari '" + reported_member + "' no serà sancionat i el report #" + report_id+ " serà eliminat.", "Confirmation", buttons);
+        System::Windows::Forms::DialogResult result = MessageBox::Show("Segur que vols denegar el report? L'Usuari '" + reported_member2 + "' no serà sancionat i el report #" + report_id+ " serà eliminat.", "Confirmation", buttons);
 
         if (result == System::Windows::Forms::DialogResult::No) {
         }

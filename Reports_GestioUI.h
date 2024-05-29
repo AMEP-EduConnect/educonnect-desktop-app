@@ -22,7 +22,7 @@ namespace CppCLRWinFormsProject {
 	public ref class Reports_GestioUI : public System::Windows::Forms::Form
 	{
 	public:
-		Reports_GestioUI(Int64^ id_report);
+		Reports_GestioUI(Int64^ id_report, Int64^ reported_id, String^ reported_member, Int64^ reported_id2, String^ reported_member2);
 
 	protected:
 		/// <summary>
@@ -37,7 +37,6 @@ namespace CppCLRWinFormsProject {
 		}
 	private: System::Windows::Forms::Label^ PageTitle_Label;
 	private: ReportsService^ reportService;
-	private: IniciSessioService^ iniciSessioService;
 	private: System::Windows::Forms::PictureBox^ Background_PictureBox;
 	private: System::Windows::Forms::TableLayoutPanel^ tableLayoutPanel1;
 	private: System::Windows::Forms::Panel^ FormPanel;
@@ -54,10 +53,15 @@ namespace CppCLRWinFormsProject {
 
 	private: System::Windows::Forms::Button^ Cancelar_Button;
 	private: Int64^ report_id;
+	private: Int64^ id_reported;
+	private: String^ member_reported;
+	private: Int64^ id2_reported;
+	private: String^ member2_reported;
 	private: System::Windows::Forms::Label^ de;
 	private: System::Windows::Forms::Label^ nom_de;
 	private: System::Windows::Forms::Label^ per;
 	private: System::Windows::Forms::Label^ nom_per;
+	private: System::Windows::Forms::Button^ button1;
 
 
 	protected:
@@ -89,6 +93,7 @@ namespace CppCLRWinFormsProject {
 			this->Sancio_ComboBox = (gcnew System::Windows::Forms::ComboBox());
 			this->sancio_Label = (gcnew System::Windows::Forms::Label());
 			this->Cancelar_Button = (gcnew System::Windows::Forms::Button());
+			this->button1 = (gcnew System::Windows::Forms::Button());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->Background_PictureBox))->BeginInit();
 			this->tableLayoutPanel1->SuspendLayout();
 			this->FormPanel->SuspendLayout();
@@ -144,6 +149,7 @@ namespace CppCLRWinFormsProject {
 			// 
 			this->FormPanel->Anchor = System::Windows::Forms::AnchorStyles::None;
 			this->FormPanel->BackColor = System::Drawing::SystemColors::GradientInactiveCaption;
+			this->FormPanel->Controls->Add(this->button1);
 			this->FormPanel->Controls->Add(this->nom_per);
 			this->FormPanel->Controls->Add(this->per);
 			this->FormPanel->Controls->Add(this->nom_de);
@@ -239,7 +245,7 @@ namespace CppCLRWinFormsProject {
 			this->GrupDescription_Label->ForeColor = System::Drawing::SystemColors::HotTrack;
 			this->GrupDescription_Label->Location = System::Drawing::Point(20, 168);
 			this->GrupDescription_Label->Name = L"GrupDescription_Label";
-			this->GrupDescription_Label->Size = System::Drawing::Size(90, 19);
+			this->GrupDescription_Label->Size = System::Drawing::Size(94, 19);
 			this->GrupDescription_Label->TabIndex = 7;
 			this->GrupDescription_Label->Text = L"Descripció:";
 			this->GrupDescription_Label->Click += gcnew System::EventHandler(this, &Reports_GestioUI::GrupDescription_Label_Click);
@@ -283,6 +289,19 @@ namespace CppCLRWinFormsProject {
 			this->Cancelar_Button->UseVisualStyleBackColor = false;
 			this->Cancelar_Button->Click += gcnew System::EventHandler(this, &Reports_GestioUI::Cancelar_Button_Click);
 			// 
+			// button1
+			// 
+			this->button1->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->button1->ForeColor = System::Drawing::SystemColors::HotTrack;
+			this->button1->Location = System::Drawing::Point(24, 331);
+			this->button1->Name = L"button1";
+			this->button1->Size = System::Drawing::Size(111, 35);
+			this->button1->TabIndex = 15;
+			this->button1->Text = L"PRUEBA";
+			this->button1->UseVisualStyleBackColor = true;
+			this->button1->Click += gcnew System::EventHandler(this, &Reports_GestioUI::Prueba);
+			// 
 			// Reports_GestioUI
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
@@ -294,7 +313,7 @@ namespace CppCLRWinFormsProject {
 			this->Name = L"Reports_GestioUI";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterParent;
 			this->Text = L"EduConnect";
-			this->Load += gcnew System::EventHandler(this, &Reports_GestioUI::GrupEstudi_CrearUI_Load);
+			this->Load += gcnew System::EventHandler(this, &Reports_GestioUI::Reports_GestioUI_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->Background_PictureBox))->EndInit();
 			this->tableLayoutPanel1->ResumeLayout(false);
 			this->tableLayoutPanel1->PerformLayout();
@@ -304,10 +323,11 @@ namespace CppCLRWinFormsProject {
 
 		}
 #pragma endregion
-	private: System::Void GrupEstudi_CrearUI_Load(System::Object^ sender, System::EventArgs^ e);
+	private: System::Void Reports_GestioUI_Load(System::Object^ sender, System::EventArgs^ e);
 	private: System::Void Sanciona_Button_Click(System::Object^ sender, System::EventArgs^ e);
 	private: System::Void FormGrupName_TextBox_TextChanged(System::Object^ sender, System::EventArgs^ e);
 	private: System::Void FormGrupDescription_TextBox_TextChanged(System::Object^ sender, System::EventArgs^ e);
+	private: System::Void Prueba(System::Object^ sender, System::EventArgs^ e);
 	private: System::Void tableLayoutPanel1_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
 	}
 	private: System::Void Cancelar_Button_Click(System::Object^ sender, System::EventArgs^ e);

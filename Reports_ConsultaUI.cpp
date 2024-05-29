@@ -59,15 +59,15 @@ namespace CppCLRWinFormsProject {
 
             for (int i = 0; i < arrayReportData->Length; i += 3) {
                 // Obtenemos los valores de cada fila
-                Int64^ userRep = arrayReportData[i];
-                Int64^ userId = arrayReportData[i + 1];
-                Int64^ reportId = arrayReportData[i + 2];
+                Int64^ user_Rep = arrayReportData[i];
+                Int64^ user_Id = arrayReportData[i + 1];
+                Int64^ report_Id = arrayReportData[i + 2];
 
                 // Agregamos la información al ListBox
                 Noms_ListBox->Items->Add(
-                    "#" + reportId +
-                    "  -  Usuari '" + (iniciSessioService->GetUsuariById(userRep))->GetUsername() +
-                    "' reporta a '" + (iniciSessioService->GetUsuariById(userId))->GetUsername() + "'"
+                    "#" + report_Id +
+                    "  -  Usuari '" + (iniciSessioService->GetUsuariById(user_Rep))->GetUsername() +
+                    "' reporta a '" + (iniciSessioService->GetUsuariById(user_Id))->GetUsername() + "'"
                 );
             }
         }

@@ -24,4 +24,13 @@ public:
 
 		array<Int64^>^ LoadSuspendedTimes();
 		String^ GetNamesTimes(Int64^ names_times);
+
+		void SetBlackListDescription(String^ description_report);
+		Int64^ GetSuspendedTime(String^ name_time);
+		void SetBlacklist(Int64^ id_user, String^ description_admin, Int64^ time_counter);
+
+		String^ GetDescriptionBlacklist(Int64^ UserId);
+		Int64^ GetTimeCounterBlacklist(Int64^ UserId);
+		DateTime^ GetIssueDateBlacklist(Int64^ UserId);
+		DateTime^ GetCurrentTimestamp();
 };

@@ -205,3 +205,149 @@ String^ ReportsRepository::GetNamesTimes(Int64^ names_times) {
 		return "";
 	}
 }
+
+void ReportsRepository::SetBlackListDescription(String^ description_report) {
+	/*DatabaseConnector::Instance->Connect();
+	//String^ sql = "UPDATE user_reports SET issue_description = @DescriptionReport WHERE id = @ReportId";
+	try {
+		MySqlCommand^ command = gcnew MySqlCommand(sql, DatabaseConnector::Instance->GetConn());
+		command->Parameters->AddWithValue("@DescriptionReport", description_report);
+		command->Parameters->AddWithValue("@ReportId", ReportId);
+		command->ExecuteNonQuery();
+		DatabaseConnector::Instance->Disconnect();
+	}
+	catch (Exception^ e) {
+		MessageManager::ErrorMessage(e->Message);
+	}*/
+}
+
+void ReportsRepository::SetBlacklist(Int64^ id_user, String^ description_admin, Int64^ time_counter) {
+	DatabaseConnector::Instance->Connect();
+	String^ sql = "INSERT INTO blacklist (id_user, description_admin, time_counter) VALUES (@IdUser, @DescriptionAdmin, @TimeCounter)";
+	try {
+		MySqlCommand^ command = gcnew MySqlCommand(sql, DatabaseConnector::Instance->GetConn());
+		command->Parameters->AddWithValue("@IdUser", id_user);
+		command->Parameters->AddWithValue("@DescriptionAdmin", description_admin);
+		command->Parameters->AddWithValue("@TimeCounter", time_counter);
+		command->ExecuteNonQuery();
+		DatabaseConnector::Instance->Disconnect();
+	}
+	catch (Exception^ e) {
+		MessageManager::ErrorMessage(e->Message);
+	}
+}
+
+Int64^ ReportsRepository::GetSuspendedTime(String^ name_time) {
+	DatabaseConnector::Instance->Connect();
+	String^ sql = "SELECT times_ban FROM suspendedTimes WHERE name_times = @NameTime";
+	try {
+		MySqlCommand^ command = gcnew MySqlCommand(sql, DatabaseConnector::Instance->GetConn());
+		command->Parameters->AddWithValue("@NameTime", name_time);
+		MySqlDataReader^ reader = command->ExecuteReader();
+		if (reader->HasRows) {
+			reader->Read();
+			Int64^ times_ban = reader->GetInt64(0);
+			DatabaseConnector::Instance->Disconnect();
+			return times_ban;
+		}
+		else {
+			DatabaseConnector::Instance->Disconnect();
+		}
+	}
+	catch (Exception^ e) {
+		MessageManager::ErrorMessage(e->Message);
+	}
+}
+
+String^ ReportsRepository::GetDescriptionBlacklist(Int64^ UserId) {
+	DatabaseConnector::Instance->Connect();
+	String^ sql = "SELECT description_admin FROM blacklist WHERE id_user = @UserId";
+	try {
+		MySqlCommand^ command = gcnew MySqlCommand(sql, DatabaseConnector::Instance->GetConn());
+		command->Parameters->AddWithValue("@UserId", UserId);
+		MySqlDataReader^ reader = command->ExecuteReader();
+		if (reader->HasRows) {
+			reader->Read();
+			String^ description_admin = reader->GetString(0);
+			DatabaseConnector::Instance->Disconnect();
+			return description_admin;
+		}
+		else {
+			DatabaseConnector::Instance->Disconnect();
+			return "";
+		}
+	}
+	catch (Exception^ e) {
+		MessageManager::ErrorMessage(e->Message);
+		return "";
+	}
+}
+
+Int64^ ReportsRepository::GetTimeCounterBlacklist(Int64^ UserId) {
+	DatabaseConnector::Instance->Connect();
+	String^ sql = "SELECT time_counter FROM blacklist WHERE id_user = @UserId";
+	try {
+		MySqlCommand^ command = gcnew MySqlCommand(sql, DatabaseConnector::Instance->GetConn());
+		command->Parameters->AddWithValue("@UserId", UserId);
+		MySqlDataReader^ reader = command->ExecuteReader();
+		if (reader->HasRows) {
+			reader->Read();
+			Int64^ times_ban = reader->GetInt64(0);
+			DatabaseConnector::Instance->Disconnect();
+			return times_ban;
+		}
+		else {
+			DatabaseConnector::Instance->Disconnect();
+		}
+	}
+	catch (Exception^ e) {
+		MessageManager::ErrorMessage(e->Message);
+	}
+}
+
+DateTime^ ReportsRepository::GetIssueDateBlacklist(Int64^ UserId) {
+	DatabaseConnector::Instance->Connect();
+	String^ sql = "SELECT issue_date FROM blacklist WHERE id_user = @UserId";
+	try {
+		MySqlCommand^ command = gcnew MySqlCommand(sql, DatabaseConnector::Instance->GetConn());
+		command->Parameters->AddWithValue("@UserId", UserId);
+		MySqlDataReader^ reader = command->ExecuteReader();
+		if (reader->HasRows) {
+			reader->Read();
+			DateTime^ issue_date = reader->GetDateTime(0);
+			DatabaseConnector::Instance->Disconnect();
+			return issue_date;
+		}
+		else {
+			DatabaseConnector::Instance->Disconnect();
+			return nullptr;
+		}
+	}
+	catch (Exception^ e) {
+		MessageManager::ErrorMessage(e->Message);
+		return nullptr;
+	}
+}
+
+DateTime^ ReportsRepository::GetCurrentTimestamp() {
+	DatabaseConnector::Instance->Connect();
+	String^ sql = "SELECT CURRENT_TIMESTAMP";
+	try {
+		MySqlCommand^ command = gcnew MySqlCommand(sql, DatabaseConnector::Instance->GetConn());
+		MySqlDataReader^ reader = command->ExecuteReader();
+		if (reader->HasRows) {
+			reader->Read();
+			DateTime^ current_timestamp = reader->GetDateTime(0);
+			DatabaseConnector::Instance->Disconnect();
+			return current_timestamp;
+		}
+		else {
+			DatabaseConnector::Instance->Disconnect();
+			return nullptr;
+		}
+	}
+	catch (Exception^ e) {
+		MessageManager::ErrorMessage(e->Message);
+		return nullptr;
+	}
+}

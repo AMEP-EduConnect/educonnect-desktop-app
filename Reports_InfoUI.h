@@ -37,6 +37,10 @@ namespace CppCLRWinFormsProject {
 	private: ReportsService^ reportService;
 	private: IniciSessioService^ iniciSessioService;
 	private: Int64^ report_id;
+	private: Int64^ reported_id;
+	private: String^ reported_member;
+	private: Int64^ reported_id2;
+	private: String^ reported_member2;
 	private: System::Windows::Forms::Label^ NumReports_Label;
 
 	private: System::Windows::Forms::Panel^ Actual_Panel;
