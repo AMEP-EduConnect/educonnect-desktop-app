@@ -351,3 +351,39 @@ DateTime^ ReportsRepository::GetCurrentTimestamp() {
 		return nullptr;
 	}
 }
+
+bool ReportsRepository::UserInBlacklist(Int64^ UserId) {
+	DatabaseConnector::Instance->Connect();
+	String^ sql = "SELECT * FROM blacklist WHERE id_user = @UserId";
+	try {
+		MySqlCommand^ command = gcnew MySqlCommand(sql, DatabaseConnector::Instance->GetConn());
+		command->Parameters->AddWithValue("@UserId", UserId);
+		MySqlDataReader^ reader = command->ExecuteReader();
+		if (reader->HasRows) {
+			DatabaseConnector::Instance->Disconnect();
+			return true;
+		}
+		else {
+			DatabaseConnector::Instance->Disconnect();
+			return false;
+		}
+	}
+	catch (Exception^ e) {
+		MessageManager::ErrorMessage(e->Message);
+		return false;
+	}
+}
+
+void ReportsRepository::DeleteBlacklist(Int64^ UserId) {
+	DatabaseConnector::Instance->Connect();
+	String^ sql = "DELETE FROM blacklist WHERE id_user = @UserId";
+	try {
+		MySqlCommand^ command = gcnew MySqlCommand(sql, DatabaseConnector::Instance->GetConn());
+		command->Parameters->AddWithValue("@UserId", UserId);
+		command->ExecuteNonQuery();
+		DatabaseConnector::Instance->Disconnect();
+	}
+	catch (Exception^ e) {
+		MessageManager::ErrorMessage(e->Message);
+	}
+}

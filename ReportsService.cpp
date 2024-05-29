@@ -1,5 +1,6 @@
 #include "pch.h"
 #include "ReportsService.h"
+#include <utility>
 
 ReportsService::ReportsService()
 {
@@ -59,6 +60,7 @@ Int64^ ReportsService::GetSuspendedTime(String^ name_time) {
 String^ ReportsService::GetDescriptionBlacklist(Int64^ UserId) {
 		return reportsRepository->GetDescriptionBlacklist(UserId);
 }
+
 Int64^ ReportsService::GetTimeCounterBlacklist(Int64^ UserId) {
 			return reportsRepository->GetTimeCounterBlacklist(UserId);
 }
@@ -66,6 +68,61 @@ Int64^ ReportsService::GetTimeCounterBlacklist(Int64^ UserId) {
 DateTime^ ReportsService::GetIssueDateBlacklist(Int64^ UserId) {
 	return reportsRepository->GetIssueDateBlacklist(UserId);
 }
+
 DateTime^ ReportsService::GetCurrentTimestamp() {
 		return reportsRepository->GetCurrentTimestamp();
+}
+
+bool ReportsService::UserInBlacklist(Int64^ UserId) {
+    	return reportsRepository->UserInBlacklist(UserId);
+}
+
+bool ReportsService::IsUserBlacklisted(Int64^ UserId) {
+    bool trobat = true;
+    String^ ReportAdminDescription = reportsRepository->GetDescriptionBlacklist(UserId);
+    Int64^ TiempoBan = reportsRepository->GetTimeCounterBlacklist(UserId);
+    DateTime^ DataAdminBan = reportsRepository->GetIssueDateBlacklist(UserId);
+    DateTime^ DataActual = reportsRepository->GetCurrentTimestamp();
+
+    Int64 totalSegundos = Convert::ToInt64(*TiempoBan * 3600);
+    DateTime dataAdminBan = *DataAdminBan;
+    DateTime dataActual = *DataActual;
+    TimeSpan diferencia = dataActual.Subtract(dataAdminBan);
+    int segundosTranscurridos = (int)diferencia.TotalSeconds;
+    int segundosRestantesTotal = totalSegundos - segundosTranscurridos;
+    int horasRestantes = segundosRestantesTotal / 3600;
+    segundosRestantesTotal %= 3600;
+    int minutosRestantes = segundosRestantesTotal / 60;
+    int segundosRestantes = segundosRestantesTotal % 60;
+
+    if (segundosTranscurridos >= totalSegundos) {
+        trobat = false;
+    }
+
+    if (trobat == false) {
+        reportsRepository->DeleteBlacklist(UserId);
+	}
+
+    return UserInBlacklist(UserId);
+}
+
+String^ ReportsService::MessageBanInfo(Int64^ UserId) {
+        String^ ReportAdminDescription = reportsRepository->GetDescriptionBlacklist(UserId);
+        Int64^ TiempoBan = reportsRepository->GetTimeCounterBlacklist(UserId);
+        DateTime^ DataAdminBan = reportsRepository->GetIssueDateBlacklist(UserId);
+        DateTime^ DataActual = reportsRepository->GetCurrentTimestamp();
+
+        Int64 totalSegundos = Convert::ToInt64(*TiempoBan * 3600);
+        DateTime dataAdminBan = *DataAdminBan;
+        DateTime dataActual = *DataActual;
+        TimeSpan diferencia = dataActual.Subtract(dataAdminBan);
+        int segundosTranscurridos = (int)diferencia.TotalSeconds;
+        int segundosRestantesTotal = totalSegundos - segundosTranscurridos;
+        int horasRestantes = segundosRestantesTotal / 3600;
+        segundosRestantesTotal %= 3600;
+        int minutosRestantes = segundosRestantesTotal / 60;
+        int segundosRestantes = segundosRestantesTotal % 60;
+
+        String^ MessageBan = "Tiempo restantes para desbanear: " + horasRestantes + ":" + minutosRestantes + ":" + segundosRestantes + ".";
+        return MessageBan;
 }

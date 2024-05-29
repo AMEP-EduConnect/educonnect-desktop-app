@@ -33,6 +33,10 @@ public:
 	DateTime^ GetIssueDateBlacklist(Int64^ UserId);
 	DateTime^ GetCurrentTimestamp();
 
+	bool IsUserBlacklisted(Int64^ UserId);
+	bool UserInBlacklist(Int64^ UserId);
+	String^ MessageBanInfo(Int64^ UserId);
+
 private:
 	ReportsRepository^ reportsRepository;
 };

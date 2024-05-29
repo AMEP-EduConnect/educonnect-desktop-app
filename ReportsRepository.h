@@ -33,4 +33,7 @@ public:
 		Int64^ GetTimeCounterBlacklist(Int64^ UserId);
 		DateTime^ GetIssueDateBlacklist(Int64^ UserId);
 		DateTime^ GetCurrentTimestamp();
+
+		bool UserInBlacklist(Int64^ UserId);
+		void DeleteBlacklist(Int64^ UserId);
 };
