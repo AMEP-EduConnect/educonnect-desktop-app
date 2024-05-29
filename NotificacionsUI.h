@@ -28,7 +28,7 @@ namespace CppCLRWinFormsProject {
 	{
 	public:
 		NotificacionsUI(void);
-		
+
 
 	protected:
 		/// <summary>
@@ -42,7 +42,7 @@ namespace CppCLRWinFormsProject {
 			}
 		}
 
-	//private: NotificacioService^ notificacioService;
+		//private: NotificacioService^ notificacioService;
 	private: GrupEstudiRepository^ grupEstudiRepository;
 	private: NotificacioService^ notificacioService;
 	private: GrupEstudiMembershipService^ grupEstudiMembershipService;
@@ -236,10 +236,10 @@ namespace CppCLRWinFormsProject {
 
 		}
 #pragma endregion
-		private: System::Void LoadNotificacionsList(System::Object^ sender, System::EventArgs^ e);
+	private: System::Void LoadNotificacionsList(System::Object^ sender, System::EventArgs^ e);
 
-		private: System::Void Acceptarbutton_Click(System::Object^ sender, System::EventArgs^ e);
-		private: System::Void Rebutjarbutton_Click(System::Object^ sender, System::EventArgs^ e);
-		private: System::Void Cancelar_Button_Click(System::Object^ sender, System::EventArgs^ e);
-};
+	private: System::Void Acceptarbutton_Click(System::Object^ sender, System::EventArgs^ e);
+	private: System::Void Rebutjarbutton_Click(System::Object^ sender, System::EventArgs^ e);
+	private: System::Void Cancelar_Button_Click(System::Object^ sender, System::EventArgs^ e);
+	};
 }
