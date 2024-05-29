@@ -3,22 +3,20 @@
 
 Notificacio::Notificacio()
 {
-	id = nullptr;
-	notification_type_id = nullptr;
-	status_id = nullptr;
-	source_group_id = nullptr;
-	source_user_id = nullptr;
-	destination_user_id = nullptr;
+	id;
+	group_id;
+	source_id;
+	destination_id;
+	role = "";
 }
 
-Notificacio::Notificacio(Int64^ id, Int64^ notification_type_id, Int64^ status_id, Int64^ source_group_id, Int64^ source_user_id, Int64^ destination_user_id)
+Notificacio::Notificacio(Int64^ id, Int64^ group_id, Int64^ source_id, Int64^ destination_id, String^ role)
 {
 	this->id = id;
-	this->notification_type_id = notification_type_id;
-	this->status_id = status_id;
-	this->source_group_id = source_group_id;
-	this->source_user_id = source_user_id;
-	this->destination_user_id = destination_user_id;
+	this->group_id = group_id;
+	this->source_id = source_id;
+	this->destination_id = destination_id;
+	this->role = role;
 }
 
 void Notificacio::SetId(Int64^ value)
@@ -29,55 +27,48 @@ void Notificacio::SetId(Int64^ value)
 Int64^ Notificacio::GetId()
 {
 	return this->id;
+
 }
 
-void Notificacio::SetNotificationType(Int64^ value)
+void Notificacio::SetGroup_id(Int64^ value)
 {
-	this->notification_type_id = value;
+	this->group_id = value;
 }
 
-Int64^ Notificacio::GetNotificationType()
+Int64^ Notificacio::GetGroup_id()
 {
-	return this->notification_type_id;
+	return this->group_id;
 }
 
-void Notificacio::SetStatus(Int64^ value)
+void Notificacio::SetSource_id(Int64^ value)
 {
-	this->status_id = value;
+	this->source_id = value;
 }
 
-Int64^ Notificacio::GetStatus()
+Int64^ Notificacio::GetSource_id()
 {
-	return this->status_id;
+	return this->source_id;
+
 }
 
-void Notificacio::SetSourceGroupId(Int64^ value)
+void Notificacio::SetDestination_id(Int64^ value)
 {
-	this->source_group_id = value;
+	this->destination_id = value;
 }
 
-Int64^ Notificacio::GetSourceGroupId()
+Int64^ Notificacio::GetDestination_id()
 {
-	return this->source_group_id;
+	return this->destination_id;
+
 }
 
-void Notificacio::SetSourceUserId(Int64^ value)
+void Notificacio::SetRole(String^ value)
 {
-	this->source_user_id = value;
+	this->role = value;
 }
 
-Int64^ Notificacio::GetSourceUserId()
+String^ Notificacio::GetRole()
 {
-	return this->source_user_id;
-}
+	return this->role;
 
-void Notificacio::SetDestinationUserId(Int64^ value)
-{
-	this->destination_user_id = value;
 }
-
-Int64^ Notificacio::GetDestinationUserId()
-{
-	return this->destination_user_id;
-}
-
