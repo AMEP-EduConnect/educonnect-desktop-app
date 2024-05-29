@@ -3,7 +3,7 @@
 #include "GrupEstudi.h"
 #include "GrupEstudiMembership.h"
 #include "GrupEstudiMembershipService.h"
-#include "NotificacionsService.h"
+#include "NotificacioService.h"
 #include <vector>
 #include "Usuari.h"
 #include "Notificacio.h"

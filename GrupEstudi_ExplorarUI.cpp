@@ -5,6 +5,7 @@
 #include "MainPageUI.h"
 #include "GrupEstudi_AssignarUI.h"
 #include "Usuari.h"
+//include "NotificacioService.h"
 
 namespace CppCLRWinFormsProject {
 	GrupEstudi_Explorar::GrupEstudi_Explorar(void)
@@ -12,6 +13,7 @@ namespace CppCLRWinFormsProject {
 		InitializeComponent();
 		grupEstudiMembershipService = gcnew GrupEstudiMembershipService();
 		grupEstudiService = gcnew GrupEstudiService();
+		notificacioService = gcnew NotificacioService();
 		arrayIdGroupEstudisOfUserNoIn = GrupEstudi_Explorar_Array();
 		this->Icon = gcnew System::Drawing::Icon("app.ico");
 	}
@@ -111,12 +113,17 @@ namespace CppCLRWinFormsProject {
 	void GrupEstudi_Explorar::Unirse_Button_Click(System::Object^ sender, System::EventArgs^ e) {
 		
 		if (Unirse_Button->Text == "Solicitar unir-se") {
-			Int64^ grup_id = grupEstudiService->GetGroupIdByName(Noms_ListBox->Text);
+			Int64^ source_grup_id = grupEstudiService->GetGroupIdByName(Noms_ListBox->Text);
+			Int64^ destination_user_id = grupEstudiService->GetGrupOwnerId(source_grup_id);
 			Usuari^ currentUser = CurrentSession::Instance->GetCurrentUser();
-			Int64^ user_id = currentUser->GetUserId();
+			Int64^ source_user_id = currentUser->GetUserId();
+			Int64^ status = 1LL;
+			Int64^ notification_type = 1LL;
+			notificacioService->AddNotificacio(notification_type, status, source_grup_id, source_user_id, destination_user_id);
 			Unirse_Button->Text = "Cancel\u00B7lar solicitud";
 		}
 		else {
+
 			Unirse_Button->Text = "Solicitar unir-se";
 		}
 
