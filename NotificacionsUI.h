@@ -1,10 +1,17 @@
 #pragma once
 #include "NotificacioService.h"
-#include "NotificacionsUI.h"
-#include "MessageManager.h"
+#include "pch.h"
+
+#include "Notificacio.h"
 #include "MainPageUI.h"
-#include "UsuariRepository.h"
-using namespace MySql::Data::MySqlClient;
+#include "Usuari.h"
+#include "GrupEstudi.h"
+#include "BaixaUsuariService.h"
+#include "GrupEstudiRepository.h"
+#include "CurrentSession.h"
+#include "MessageManager.h"
+#include "NotificacioService.h"
+
 namespace CppCLRWinFormsProject {
 
 	using namespace System;
@@ -20,14 +27,8 @@ namespace CppCLRWinFormsProject {
 	public ref class NotificacionsUI : public System::Windows::Forms::Form
 	{
 	public:
-		NotificacionsUI(void)
-		{
-			InitializeComponent();
-			notificacioService = gcnew NotificacioService();
-			
-			this->Load += gcnew System::EventHandler(this, &NotificacionsUI::LoadNotificacionsList);
-			this->Icon = gcnew System::Drawing::Icon("app.ico");
-		}
+		NotificacionsUI(void);
+		
 
 	protected:
 		/// <summary>
@@ -41,10 +42,12 @@ namespace CppCLRWinFormsProject {
 			}
 		}
 
-	private: NotificacionsService^ notificacionsService;
+	//private: NotificacioService^ notificacioService;
+	private: GrupEstudiRepository^ grupEstudiRepository;
+	private: NotificacioService^ notificacioService;
+
 	private: UsuariRepository^ usuariRepository;
 	private: System::Windows::Forms::TableLayoutPanel^ tableLayoutPanel1;
-	protected:
 
 	private: System::Windows::Forms::Label^ EditarGrupEstudi_Label;
 	private: System::Windows::Forms::Panel^ Actual_Panel;
@@ -56,6 +59,7 @@ namespace CppCLRWinFormsProject {
 	private: System::Windows::Forms::Label^ Pertany_Label;
 	private: System::Windows::Forms::Button^ Acceptarbutton;
 	private: System::Windows::Forms::Button^ Cancelar_Button;
+	protected:
 
 
 	private:

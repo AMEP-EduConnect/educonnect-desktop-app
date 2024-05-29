@@ -42,6 +42,9 @@ public:
 
 	array<GrupEstudi^>^ LoadGrupsNoMembers(Int64^ user_id);
 
+	Int64^ GetGrupOwnerId(Int64^ group_id);
+
+
 private:
 	GrupEstudiRepository^ grupEstudiRepository;
 	GrupEstudiMembershipService^ grupEstudiMembershipService;
