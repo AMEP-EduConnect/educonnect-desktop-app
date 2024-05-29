@@ -97,15 +97,10 @@ create table if not exists notificationType(
 	notification_type varchar(255) not null
 );
 
-create table if not exists notificationStatus(
-	id int auto_increment primary key,
-	status_type varchar(255) not null
-);
-
 create table if not exists userNotifications(
 	id int auto_increment primary key,
 	notification_type int not null,
-	status int not null,
+	status id not null,
 	source_grup_id int not null,
 	source_user_id int not null,
 	destination_user_id int not null,
@@ -118,11 +113,6 @@ create table if not exists userNotifications(
 
 insert into notificationType(notification_type) values("INVITATION");
 insert into notificationType(notification_type) values("REQUEST");
-
-insert into notificationStatus(status_type) values("PENDING");
-insert into notificationStatus(status_type) values("ACCEPTED");
-insert into notificationStatus(status_type) values("REJECTED");
-
 
 
 insert into academicTags(tag_name) values("AMEP");
