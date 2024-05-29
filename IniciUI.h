@@ -90,6 +90,9 @@ namespace CppCLRWinFormsProject {
 
 
 
+
+
+
 	protected:
 
 	private:
@@ -504,6 +507,8 @@ private: System::Void AddPanelWithText(FlowLayoutPanel^ flowLayout, String^ text
 
 	   Void panel_MouseEnter(System::Object^ sender, System::EventArgs^ e);
 	   Void panel_MouseLeave(System::Object^ sender, System::EventArgs^ e);
+
+
 
 };
 }

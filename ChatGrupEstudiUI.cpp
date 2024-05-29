@@ -195,7 +195,7 @@ namespace CppCLRWinFormsProject {
 	{
 		if (listBoxFiles->SelectedIndex == -1)
 		{
-			MessageManager::ErrorMessage("Seleccioni un fitxer per eliminar.");
+			MessageManager::ErrorMessage("Seleccioni un fitxer per eliminar");
 			return;
 		}
 		else {
@@ -265,6 +265,36 @@ namespace CppCLRWinFormsProject {
         MainPageUI::Instance->screen->Controls->Add(PanelUI);
         PanelUI->Show();
     }
+
+    System::Void ChatGrupEstudiUI::listBox_MouseDown(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e)
+    {
+        if (e->Button == System::Windows::Forms::MouseButtons::Right or 1)
+        {
+            // Determina el índice del ítem sobre el que se hizo clic
+            int index = this->listBoxFiles->IndexFromPoint(e->Location);
+
+            if (index != System::Windows::Forms::ListBox::NoMatches)
+            {
+                // Selecciona el ítem en la posición del clic
+                this->listBoxFiles->SelectedIndex = index;
+
+                // Obtiene el rectángulo que rodea el ítem seleccionado
+                System::Drawing::Rectangle itemRect = this->listBoxFiles->GetItemRectangle(index);
+
+                // Calcula la posición a la derecha del ítem
+                System::Drawing::Point menuPoint = System::Drawing::Point(itemRect.Right + 5, itemRect.Top);
+
+                // Muestra el menú contextual en la posición calculada
+                this->contextMenuStrip->Show(this->listBoxFiles, menuPoint);
+            }
+            else
+            {
+                this->contextMenuStrip->Hide();
+            }
+        }
+        
+    }
+
     System::Void ChatGrupEstudiUI::Button_Send_Files_Click(System::Object^ sender, System::EventArgs^ e)
     {
         OpenFileDialog^ openFileDialog = gcnew OpenFileDialog;
@@ -282,15 +312,15 @@ namespace CppCLRWinFormsProject {
             if (fileData != nullptr) {
                 bool check = chatGrupEstudiService->SendFile(id_group, CurrentSession::Instance->GetCurrentUser()->GetUserId(), fileName, fileType, fileData);
                 if (check == true) {
-                    MessageManager::InfoMessage("Fitxer emmagatzemat correctament.");
+                    MessageManager::InfoMessage("Fitxer pujat correctament");
                     files->Clear();
                     listBoxFiles->Items->Clear();
                     LoadFiles();
                 }
-                else MessageManager::ErrorMessage("Error al enviar el fitxer.");
+                else MessageManager::ErrorMessage("Error al enviar el fitxer");
             }
 			else {
-				MessageManager::ErrorMessage("Error al convertir el fitxer a bytes.");
+				MessageManager::ErrorMessage("Error al convertir el fitxer a bytes");
 			}
         }
     }
@@ -299,7 +329,7 @@ namespace CppCLRWinFormsProject {
        
         if (listBoxFiles->SelectedIndex == -1)
         {
-			MessageManager::ErrorMessage("Seleccioni un fitxer per descargar.");
+			MessageManager::ErrorMessage("Seleccioni un fitxer per descargar");
 			return;
 		}
         else {
@@ -337,10 +367,10 @@ namespace CppCLRWinFormsProject {
                     bw->Write(file_content);
                     bw->Close();
                     fs->Close();
-                    MessageManager::InfoMessage("Archivo guardado con éxito.");
+                    MessageManager::InfoMessage("Fitxer guardat amb exit");
                 }
                 else {
-                    MessageManager::ErrorMessage("Error al descargar el archivo.");
+                    MessageManager::ErrorMessage("Error al descargar el fitxer");
                 }
             }
         }
@@ -365,18 +395,18 @@ namespace CppCLRWinFormsProject {
         String^ day = date->ToString("dd");
         String^ year = date->ToString("yyyy");
 
-        if (month == "January") month = "Enero";
-        if (month == "February") month = "Febrero";
-        if (month == "March") month = "Marzo";
-        if (month == "April") month = "Abril";
-        if (month == "May") month = "Mayo";
-        if (month == "June") month = "Junio";
-        if (month == "July") month = "Julio";
-        if (month == "August") month = "Agosto";
-        if (month == "September") month = "Septiembre";
-        if (month == "October") month = "Octubre";
-        if (month == "November") month = "Noviembre";
-        if (month == "December") month = "Diciembre";
+        if (month == "Gener") month = "Gener";
+        if (month == "Febrer") month = "Febrer";
+        if (month == "Març") month = "Març";
+        if (month == "Abril") month = "Abril";
+        if (month == "Maig") month = "Maig";
+        if (month == "Juny") month = "Juny";
+        if (month == "Juliol") month = "Juliol";
+        if (month == "Agost") month = "Agost";
+        if (month == "Setembre") month = "Setembre";
+        if (month == "Octubre") month = "Octubre";
+        if (month == "Novembre") month = "Novembre";
+        if (month == "Desembre") month = "Desembre";
         
         return (day + " " + month + " " + year);
 	}

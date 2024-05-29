@@ -26,6 +26,9 @@ namespace CppCLRWinFormsProject {
         this->Icon = gcnew System::Drawing::Icon("app.ico");
         sessionService = gcnew SessionService();
         isSessionLoaded = false;
+		label2->Text = "Descripci\u00F3";
+        this->NewSession_Button->Text = L"Nova sessi\u00F3";
+        this->pictureBox1->Image = Image::FromFile("resources/Icons/groups_48dp_FILL0_wght500_GRAD-25_opsz48.png");
     }
 
     void GrupEstudi_InfoUI::GrupEstudi_InfoUI_Load(System::Object^ sender, System::EventArgs^ e)

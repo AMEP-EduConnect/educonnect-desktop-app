@@ -20,7 +20,13 @@ public:
 	bool UpdateUser(String^ username, String^ password, String^ email, String^ name);
 	Int64^ GetUserId(String^ username);
 	Usuari^ GetProveidorByEspaiId(Int64^ espai_id);
+
 	List<Usuari^>^ GetUsersByRolId(Int64^ rol_id);
+	
+
 	List<Usuari^>^ GetUsersByStartingLetter(Int64^ rol_id, String^ username);
+
+	List<Usuari^>^ GetStudentsNotInGroup(Int64^ group_id);
+	List<Usuari^>^ GetStudentsByStartingLetterNotInGroup(Int64^ group_id, String^ username);
 
 };

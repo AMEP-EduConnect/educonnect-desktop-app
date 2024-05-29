@@ -157,6 +157,15 @@ List<Usuari^>^ GrupEstudiService::LoadAllUsers() {
 	return usuariRepository->GetUsersByRolId(2LL);
 }
 
+List<Usuari^>^ GrupEstudiService::LoadAllStudentsNotInGroup(Int64^ group_id) {
+	return usuariRepository->GetStudentsNotInGroup(group_id);
+}
+
+List<Usuari^>^ GrupEstudiService::LoadStudentsByStartingLetter(Int64^ group_id, String^ username) {
+	return usuariRepository->GetStudentsByStartingLetterNotInGroup(group_id, username + "%");
+}
+
+
 List<Usuari^>^ GrupEstudiService::LoadUsersByStartingLetter(String^ username) {
 	return usuariRepository->GetUsersByStartingLetter(2LL, username + "%");
 }

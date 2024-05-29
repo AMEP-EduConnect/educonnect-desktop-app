@@ -91,6 +91,7 @@ namespace CppCLRWinFormsProject {
 			   this->ConsultarGrupEstudi_Label->Size = System::Drawing::Size(365, 33);
 			   this->ConsultarGrupEstudi_Label->TabIndex = 5;
 			   this->ConsultarGrupEstudi_Label->Text = L"Membres del grup d\'estudi";
+			   this->ConsultarGrupEstudi_Label->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
 			   this->ConsultarGrupEstudi_Label->Click += gcnew System::EventHandler(this, &GrupEstudi_Membres::ConsultarGrupEstudi_Label_Click);
 			   // 
 			   // Panel_Membres

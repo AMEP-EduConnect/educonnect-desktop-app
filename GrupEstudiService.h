@@ -46,6 +46,10 @@ public:
 
 	List<Usuari^>^ LoadAllUsers();
 
+	List<Usuari^>^ LoadAllStudentsNotInGroup(Int64^ group_id);
+
+	List<Usuari^>^ LoadStudentsByStartingLetter(Int64^ group_id, String^ username);
+
 	List<Usuari^>^ LoadUsersByStartingLetter(String^ username);
 
 private:

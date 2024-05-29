@@ -30,7 +30,8 @@ namespace CppCLRWinFormsProject {
         InitializeComponent();
 
         this->pictureBox4->Image = Image::FromFile("resources/Icons/square-plus.png");
-  
+
+
         this->Grup1->Visible = false;
         this->Grup2->Visible = false;
         this->Grup3->Visible = false;

@@ -46,7 +46,8 @@ namespace CppCLRWinFormsProject {
 	private: System::Windows::Forms::Button^ Assigna_Button;
 
 	private: System::Windows::Forms::Button^ Cancelar_Button;
-
+	private: String^ Username;
+	private: String^ groupName;
 
 	protected:
 
@@ -63,7 +64,7 @@ namespace CppCLRWinFormsProject {
 	private: System::Windows::Forms::TextBox^ buscador_textBox;
 	private: System::Windows::Forms::Panel^ panel1;
 	private: System::Windows::Forms::ListBox^ Noms_ListBox;
-	private: String^ groupName;
+	
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
@@ -75,12 +76,12 @@ namespace CppCLRWinFormsProject {
 			this->AssignarGrupEstudi_Label = (gcnew System::Windows::Forms::Label());
 			this->NomUsuari_Label = (gcnew System::Windows::Forms::Label());
 			this->Assignar_Panel = (gcnew System::Windows::Forms::Panel());
+			this->Noms_ListBox = (gcnew System::Windows::Forms::ListBox());
 			this->Assigna_Button = (gcnew System::Windows::Forms::Button());
 			this->Cancelar_Button = (gcnew System::Windows::Forms::Button());
 			this->tableLayoutPanel1 = (gcnew System::Windows::Forms::TableLayoutPanel());
 			this->buscador_textBox = (gcnew System::Windows::Forms::TextBox());
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
-			this->Noms_ListBox = (gcnew System::Windows::Forms::ListBox());
 			this->Assignar_Panel->SuspendLayout();
 			this->tableLayoutPanel1->SuspendLayout();
 			this->panel1->SuspendLayout();
@@ -93,11 +94,11 @@ namespace CppCLRWinFormsProject {
 			this->AssignarGrupEstudi_Label->Font = (gcnew System::Drawing::Font(L"Inter", 20.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->AssignarGrupEstudi_Label->ForeColor = System::Drawing::SystemColors::HotTrack;
-			this->AssignarGrupEstudi_Label->Location = System::Drawing::Point(254, 20);
+			this->AssignarGrupEstudi_Label->Location = System::Drawing::Point(247, 20);
 			this->AssignarGrupEstudi_Label->Name = L"AssignarGrupEstudi_Label";
-			this->AssignarGrupEstudi_Label->Size = System::Drawing::Size(288, 33);
+			this->AssignarGrupEstudi_Label->Size = System::Drawing::Size(301, 33);
 			this->AssignarGrupEstudi_Label->TabIndex = 2;
-			this->AssignarGrupEstudi_Label->Text = L"Assigna Membre a \"\"";
+			this->AssignarGrupEstudi_Label->Text = L"Convidar Membre a \"\"";
 			this->AssignarGrupEstudi_Label->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
 			// 
 			// NomUsuari_Label
@@ -122,6 +123,18 @@ namespace CppCLRWinFormsProject {
 			this->Assignar_Panel->Size = System::Drawing::Size(450, 258);
 			this->Assignar_Panel->TabIndex = 6;
 			// 
+			// Noms_ListBox
+			// 
+			this->Noms_ListBox->Font = (gcnew System::Drawing::Font(L"Inter", 11.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->Noms_ListBox->FormattingEnabled = true;
+			this->Noms_ListBox->ItemHeight = 19;
+			this->Noms_ListBox->Location = System::Drawing::Point(12, 13);
+			this->Noms_ListBox->Name = L"Noms_ListBox";
+			this->Noms_ListBox->Size = System::Drawing::Size(424, 232);
+			this->Noms_ListBox->TabIndex = 23;
+			this->Noms_ListBox->SelectedIndexChanged += gcnew System::EventHandler(this, &GrupEstudi_AssignarUI::listBox_SelectedIndexChanged);
+			// 
 			// Assigna_Button
 			// 
 			this->Assigna_Button->Anchor = System::Windows::Forms::AnchorStyles::Right;
@@ -135,7 +148,7 @@ namespace CppCLRWinFormsProject {
 			this->Assigna_Button->TabIndex = 8;
 			this->Assigna_Button->Text = L"Assignar";
 			this->Assigna_Button->UseVisualStyleBackColor = true;
-			//this->Assigna_Button->Click += gcnew System::EventHandler(this, &GrupEstudi_AssignarUI::AssignaButton_Click);
+			this->Assigna_Button->Click += gcnew System::EventHandler(this, &GrupEstudi_AssignarUI::AssignaButton_Click);
 			// 
 			// Cancelar_Button
 			// 
@@ -172,8 +185,8 @@ namespace CppCLRWinFormsProject {
 			this->tableLayoutPanel1->Name = L"tableLayoutPanel1";
 			this->tableLayoutPanel1->RowCount = 4;
 			this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 14.85944F)));
-			this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 11.24498F)));
-			this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 64.25703F)));
+			this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 10.04016F)));
+			this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 65.26105F)));
 			this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 9.638555F)));
 			this->tableLayoutPanel1->Size = System::Drawing::Size(798, 498);
 			this->tableLayoutPanel1->TabIndex = 8;
@@ -186,7 +199,7 @@ namespace CppCLRWinFormsProject {
 			this->buscador_textBox->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->buscador_textBox->ForeColor = System::Drawing::SystemColors::ActiveCaption;
-			this->buscador_textBox->Location = System::Drawing::Point(206, 88);
+			this->buscador_textBox->Location = System::Drawing::Point(206, 85);
 			this->buscador_textBox->Margin = System::Windows::Forms::Padding(2);
 			this->buscador_textBox->Name = L"buscador_textBox";
 			this->buscador_textBox->Size = System::Drawing::Size(383, 27);
@@ -200,21 +213,10 @@ namespace CppCLRWinFormsProject {
 			this->panel1->Anchor = System::Windows::Forms::AnchorStyles::None;
 			this->panel1->Controls->Add(this->NomUsuari_Label);
 			this->panel1->Controls->Add(this->Assignar_Panel);
-			this->panel1->Location = System::Drawing::Point(162, 133);
+			this->panel1->Location = System::Drawing::Point(162, 129);
 			this->panel1->Name = L"panel1";
 			this->panel1->Size = System::Drawing::Size(472, 314);
 			this->panel1->TabIndex = 9;
-			// 
-			// Noms_ListBox
-			// 
-			this->Noms_ListBox->Font = (gcnew System::Drawing::Font(L"Inter", 11.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->Noms_ListBox->FormattingEnabled = true;
-			this->Noms_ListBox->ItemHeight = 19;
-			this->Noms_ListBox->Location = System::Drawing::Point(12, 13);
-			this->Noms_ListBox->Name = L"Noms_ListBox";
-			this->Noms_ListBox->Size = System::Drawing::Size(424, 232);
-			this->Noms_ListBox->TabIndex = 23;
 			// 
 			// GrupEstudi_AssignarUI
 			// 
@@ -239,13 +241,15 @@ namespace CppCLRWinFormsProject {
 #pragma endregion
 
 	private: System::Void CancelarButton_Click(System::Object^ sender, System::EventArgs^ e);
-	//private: System::Void AssignaButton_Click(System::Object^ sender, System::EventArgs^ e);
+	private: System::Void AssignaButton_Click(System::Object^ sender, System::EventArgs^ e);
 
 		   Void buscador_textBox_TextChanged(System::Object^ sender, System::EventArgs^ e);
 
 		   Void GEstudiAssignarAdminUI_Load(System::Object^ sender, System::EventArgs^ e);
 
 		   Void buscador_textBox_Click(System::Object^ sender, System::EventArgs^ e);
+
+		   Void listBox_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e);
 
 
 private: System::Void GrupEstudi_AssignarUI_Load(System::Object^ sender, System::EventArgs^ e) {
