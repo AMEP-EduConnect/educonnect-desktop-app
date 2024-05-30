@@ -245,7 +245,7 @@ namespace CppCLRWinFormsProject {
 			this->GrupDescription_Label->Name = L"GrupDescription_Label";
 			this->GrupDescription_Label->Size = System::Drawing::Size(94, 19);
 			this->GrupDescription_Label->TabIndex = 7;
-			this->GrupDescription_Label->Text = L"Descripció:";
+			this->GrupDescription_Label->Text = L"Motiu de la sanció:";
 			this->GrupDescription_Label->Click += gcnew System::EventHandler(this, &Reports_GestioUI::GrupDescription_Label_Click);
 			// 
 			// Sancio_ComboBox

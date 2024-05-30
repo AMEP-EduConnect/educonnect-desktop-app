@@ -38,23 +38,34 @@ namespace CppCLRWinFormsProject {
     void Reports_GestioUI::Sanciona_Button_Click(System::Object^ sender, System::EventArgs^ e)
     {
         if (Sancio_ComboBox->Text != "") {
-            Int64^ time_suspended = reportService->GetSuspendedTime(Sancio_ComboBox->Text);
-            reportService->SetBlacklist(id2_reported, Description_TextBox->Text, time_suspended);
-            //ACENTOS ACENTOS ACENTOS
-            MessageManager::WarningMessage("L'usuari serà sancinat amb " + Sancio_ComboBox->Text + ".");
-            //reportService->DeleteReport(report_id);
+            if (Description_TextBox->Text != "") {
+                Int64^ time_suspended = reportService->GetSuspendedTime(Sancio_ComboBox->Text);
+                reportService->SetBlacklist(id2_reported, Description_TextBox->Text, time_suspended);
+                //ACENTOS ACENTOS ACENTOS
+                MessageBoxButtons buttons = MessageBoxButtons::YesNo;
+                System::Windows::Forms::DialogResult result = MessageBox::Show("Vols sancinar a l'usuari amb " + Sancio_ComboBox->Text + "?", "Confirmation", buttons);
 
-            Reports_ConsultaUI^ PanelUI = gcnew  Reports_ConsultaUI();
+                if (result == System::Windows::Forms::DialogResult::Yes)
+                {
+                    reportService->DeleteReport(report_id);
 
-            PanelUI->TopLevel = false;
-            PanelUI->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
-            PanelUI->Dock = System::Windows::Forms::DockStyle::Fill;
+                    Reports_ConsultaUI^ PanelUI = gcnew  Reports_ConsultaUI();
 
-            MainPageUI::Instance->screen->Controls->Clear();
-            MainPageUI::Instance->screen->Controls->Add(PanelUI);
-            PanelUI->Show();
+                    PanelUI->TopLevel = false;
+                    PanelUI->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
+                    PanelUI->Dock = System::Windows::Forms::DockStyle::Fill;
+
+                    MainPageUI::Instance->screen->Controls->Clear();
+                    MainPageUI::Instance->screen->Controls->Add(PanelUI);
+                    PanelUI->Show();
+                }
+            }
+            else {
+				MessageManager::ErrorMessage("Has de dir el motiu del ban.");
+			}
 		}
         else {
+            //ACENTOS ACENTOS ACENTOS
             MessageManager::ErrorMessage("Has de seleccionar una sanció.");
         }
     }

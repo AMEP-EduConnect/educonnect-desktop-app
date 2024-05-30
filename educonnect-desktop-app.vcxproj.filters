@@ -467,7 +467,7 @@
       <Filter>Source Files\ui</Filter>
     </ClCompile>
     <ClCompile Include="Reports_GestioUI.cpp">
-      <Filter>Header Files</Filter>
+      <Filter>Source Files\ui</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

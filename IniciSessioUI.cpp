@@ -6,6 +6,7 @@
 #include "StartPageUI.h"
 #include "CurrentSession.h"
 #include "Usuari.h"
+#include "ReportsService.h"
 using namespace System;
 
 
@@ -38,12 +39,13 @@ namespace CppCLRWinFormsProject {
                     if (isBan == true) {
                         bool checkBan = reportService->IsUserBlacklisted(currentUser->GetUserId());
                         if (checkBan == true) {
-                            Ban_label->Text = reportService->MessageBanInfo(currentUser->GetUserId());
-                            Ban_label->Visible = true;
+                            ban_label->Text = reportService->MessageBanInfo(currentUser->GetUserId());
+                            ban_label->Visible = true;
+                            descriptionBan_label->Text = "Motiu del ban: " +reportService->GetDescriptionBlacklist(currentUser->GetUserId());
+                            descriptionBan_label->Visible = true;
                             CredencialsIncorrectes_Label->Visible = false;
                             CredencialsIncorrectes_Label2->Visible = false;
-                            //NomUsuari_TextBox->Text = "";
-                            //Contrasenya_TextBox->Text = "";
+                            Contrasenya_TextBox->Text = "";
                         }
                         else {
 							StartPageUI::Instance->Hide();
@@ -62,13 +64,16 @@ namespace CppCLRWinFormsProject {
                 else {
                     CredencialsIncorrectes_Label2->Visible = true;
                     CredencialsIncorrectes_Label->Visible = false;
-                    Ban_label->Visible = false;
+                    ban_label->Visible = false;
+                    descriptionBan_label->Visible = false;
                 }
             }
             else {
                 CredencialsIncorrectes_Label->Visible = true;
                 CredencialsIncorrectes_Label2->Visible = false;
-                Ban_label->Visible = false;
+                ban_label->Visible = false;
+                descriptionBan_label->Visible = false;
+                Contrasenya_TextBox->Text = "";
             }
         }
     }

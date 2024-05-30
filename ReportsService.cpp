@@ -107,22 +107,62 @@ bool ReportsService::IsUserBlacklisted(Int64^ UserId) {
 }
 
 String^ ReportsService::MessageBanInfo(Int64^ UserId) {
-        String^ ReportAdminDescription = reportsRepository->GetDescriptionBlacklist(UserId);
-        Int64^ TiempoBan = reportsRepository->GetTimeCounterBlacklist(UserId);
-        DateTime^ DataAdminBan = reportsRepository->GetIssueDateBlacklist(UserId);
-        DateTime^ DataActual = reportsRepository->GetCurrentTimestamp();
-
-        Int64 totalSegundos = Convert::ToInt64(*TiempoBan * 3600);
+    String^ ReportAdminDescription = reportsRepository->GetDescriptionBlacklist(UserId);
+    Int64^ TiempoBan = reportsRepository->GetTimeCounterBlacklist(UserId);
+    DateTime^ DataAdminBan = reportsRepository->GetIssueDateBlacklist(UserId);
+    DateTime^ DataActual = reportsRepository->GetCurrentTimestamp();
+    String^ MessageBan;
+    Int64 totalSegundos = Convert::ToInt64(*TiempoBan * 3600);
+    if (totalSegundos > 31536000) {
+        MessageBan = "Estas banejat PERMANENT, contacta amb un administrador";
+    }
+    else {
         DateTime dataAdminBan = *DataAdminBan;
         DateTime dataActual = *DataActual;
         TimeSpan diferencia = dataActual.Subtract(dataAdminBan);
+
+
         int segundosTranscurridos = (int)diferencia.TotalSeconds;
         int segundosRestantesTotal = totalSegundos - segundosTranscurridos;
+
+        int añosRestantes = segundosRestantesTotal / 31536000;
+        segundosRestantesTotal %= 31536000;
+        int mesesRestantes = segundosRestantesTotal / 2592000;
+        segundosRestantesTotal %= 2592000;
+        int diasRestantes = segundosRestantesTotal / 86400;
+        segundosRestantesTotal %= 86400;
         int horasRestantes = segundosRestantesTotal / 3600;
         segundosRestantesTotal %= 3600;
         int minutosRestantes = segundosRestantesTotal / 60;
         int segundosRestantes = segundosRestantesTotal % 60;
 
-        String^ MessageBan = "Temps restant per ser debanejat: " + horasRestantes + ":" + minutosRestantes + ":" + segundosRestantes;
+        if (añosRestantes > 0) {
+            if (añosRestantes == 1) {
+                MessageBan = "Temps restant per ser debanejat: " + añosRestantes + " any";
+            }
+            else {
+                MessageBan = "Estas banejat PERMANENT, contacta amb un administrador";
+            }
+        }
+        else if (mesesRestantes > 0) {
+            if (mesesRestantes == 1) {
+                MessageBan = "Temps restant per ser debanejat: " + mesesRestantes + " mes";
+            }
+            else {
+                MessageBan = "Temps restant per ser debanejat: " + mesesRestantes + " mesos";
+            }
+        }
+        else if (diasRestantes > 0) {
+            if (diasRestantes == 1) {
+                MessageBan = "Temps restant per ser debanejat: " + diasRestantes + " dia";
+            }
+            else {
+                MessageBan = "Temps restant per ser debanejat: " + diasRestantes + " dies";
+            }
+        }
+        else {
+            MessageBan = "Temps restant per ser debanejat: " + horasRestantes + ":" + minutosRestantes + ":" + segundosRestantes;
+        }
+    }
         return MessageBan;
 }

@@ -66,8 +66,8 @@ namespace CppCLRWinFormsProject {
                 // Agregamos la información al ListBox
                 Noms_ListBox->Items->Add(
                     "#" + report_Id +
-                    "  -  Usuari '" + (iniciSessioService->GetUsuariById(user_Rep))->GetUsername() +
-                    "' reporta a '" + (iniciSessioService->GetUsuariById(user_Id))->GetUsername() + "'"
+                    "  -  Usuari '" + (iniciSessioService->GetUsuariById(user_Id))->GetUsername() +
+                    "' reporta a '" + (iniciSessioService->GetUsuariById(user_Rep))->GetUsername() + "'"
                 );
             }
         }
