@@ -1,6 +1,7 @@
 ﻿#pragma once
 #include "NotificacioService.h"
 #include "pch.h"
+#include "GrupEstudiMembershipService.h"
 
 #include "Notificacio.h"
 #include "MainPageUI.h"
@@ -42,8 +43,13 @@ namespace CppCLRWinFormsProject {
 			}
 		}
 
-		//private: NotificacioService^ notificacioService;
+		
+	private:Int64^ selectedId;
+	private:String^ selectedIdString;
+
 	private: GrupEstudiRepository^ grupEstudiRepository;
+	private: GrupEstudiMembershipService^ grupEstudiMembershipService;
+
 	private: NotificacioService^ notificacioService;
 
 	private: UsuariRepository^ usuariRepository;

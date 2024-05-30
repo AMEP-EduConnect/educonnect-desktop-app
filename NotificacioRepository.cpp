@@ -3,7 +3,7 @@
 
 NotificacioRepository::NotificacioRepository()
 {
-    this->notificacions = gcnew List<Notificacio^>(0);
+
 }
 
 
@@ -42,13 +42,14 @@ void NotificacioRepository::RemoveNotificacio(Int64^ id)
 }
 
 
-List<Notificacio^>^ NotificacioRepository::GetNotificacionsByDestinationId(Int64^ destination_user_id, Int64^ notification_type)
+List<Notificacio^>^ NotificacioRepository::GetNotificacionsByDestinationId(Int64^ destination_user_id, Int64^ status)
 {
     DatabaseConnector::Instance->Connect();
-    String^ sql = "SELECT * FROM userNotifications WHERE destination_user_id = @destination_user_id and notification_type = @notification_type";
+    String^ sql = "SELECT * FROM userNotifications WHERE destination_user_id = @destination_user_id and status=@status";
     Dictionary<String^, Object^>^ params = gcnew Dictionary<String^, Object^>(0);
     params->Add("@destination_user_id", destination_user_id);
-    params->Add("@notification_type", notification_type);
+   
+    params->Add("@status", status);
     MySqlDataReader^ data = DatabaseConnector::Instance->ExecuteClientCommand(sql, params);
     List<Notificacio^>^ notificacions = gcnew List<Notificacio^>(0);
     while (data->Read())
@@ -83,3 +84,24 @@ void NotificacioRepository::ChangeStatus(Int64^ status, Notificacio^ notificacio
     return;
 }
 
+Notificacio^ NotificacioRepository::GetNotificacioById(Int64^ id)
+{
+    DatabaseConnector::Instance->Connect();
+    String^ sql = "SELECT * FROM userNotifications WHERE id = @id";
+    Dictionary<String^, Object^>^ params = gcnew Dictionary<String^, Object^>(0);
+    params->Add("@id", id->ToString());
+    MySqlDataReader^ data = DatabaseConnector::Instance->ExecuteClientCommand(sql, params);
+    Notificacio^ notificacio = gcnew Notificacio();
+    while (data->Read())
+    {
+        notificacio->SetId(data->GetInt64(0));
+        notificacio->SetNotificationType(data->GetInt64(1));
+        notificacio->SetStatusType(data->GetInt64(2));
+        notificacio->SetSourceGroupId(data->GetInt64(3));
+        notificacio->SetSourceUserId(data->GetInt64(4));
+        notificacio->SetDestinationUserId(data->GetInt64(5));
+        
+    }
+    DatabaseConnector::Instance->Disconnect();
+    return notificacio;
+}

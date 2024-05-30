@@ -145,3 +145,8 @@ String^ GrupEstudiService::GetGroupDescription(String^ NomGrup) {
 array<GrupEstudi^>^ GrupEstudiService::LoadGrupsNoMembers(Int64^ user_id) {
 		return grupEstudiRepository->LoadGrupsNoMembers(user_id);
 }
+
+Int64^ GrupEstudiService::GetGrupOwnerId(Int64^ group_id)
+{
+	return grupEstudiRepository->GetGrupOwnerId(group_id);
+}

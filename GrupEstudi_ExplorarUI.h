@@ -8,6 +8,8 @@
 #include "CurrentSession.h"
 #include "GrupEstudi_EditarUI.h"
 #include "MessageManager.h"
+#include "NotificacioService.h"
+
 
 namespace CppCLRWinFormsProject {
 
@@ -45,6 +47,8 @@ namespace CppCLRWinFormsProject {
 	private: System::Windows::Forms::Label^ NomPertany_Label;
 	private: System::Windows::Forms::ListBox^ Description_ListBox;
 	private: GrupEstudiService^ grupEstudiService;
+	private: NotificacioService^ notificacioService;
+
 	private: GrupEstudiMembershipService^ grupEstudiMembershipService;
 	private: array<GrupEstudi^>^ arrayIdGroupEstudisOfUserNoIn;
 	private: System::Windows::Forms::Label^ Description_titulo;

@@ -2,7 +2,7 @@
 #include "NotificacioService.h"
 #include "DatabaseConnector.h"
 #include "MessageManager.h"
-using namespace System::Collections::Generic;
+
 
 NotificacioService::NotificacioService() {
     notificacioRepository = gcnew NotificacioRepository();
@@ -16,14 +16,19 @@ Int64^ NotificacioService::AddNotificacio(Int64^ notification_type, Int64^ statu
 }
 
 
-List<Notificacio^>^ NotificacioService::ListNotificacions(Int64^ id_destination, Int64^ type) {
+List<Notificacio^>^ NotificacioService::ListNotificacions(Int64^ id_destination, Int64^ status) {
     List<Notificacio^>^ notificacions = gcnew List<Notificacio^>(0);
-    notificacions = notificacioRepository->GetNotificacionsByDestinationId( id_destination, type);
+    notificacions = notificacioRepository->GetNotificacionsByDestinationId( id_destination, status);
     return notificacions;
 }
 
 void NotificacioService::ChangeStatus(Int64^ status, Notificacio^ notificacio)
 {
     notificacioRepository->ChangeStatus(status, notificacio);
+}
+
+Notificacio^ NotificacioService::GetNotificacioById(Int64^ selectedId) {
+    Notificacio^ notificacio = notificacioRepository->GetNotificacioById(selectedId);
+    return notificacio;
 }
 

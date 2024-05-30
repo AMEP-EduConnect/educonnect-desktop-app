@@ -36,5 +36,7 @@ public:
 
 	array<GrupEstudi^>^ LoadGrupsNoMembers(Int64^ user_id);
 
+	Int64^ GetGrupOwnerId(Int64^ group_id);
+
 	void ChangeGroupOwner(Int64^ group_id, Int64^ new_owner_id);
 };
