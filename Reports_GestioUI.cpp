@@ -41,9 +41,8 @@ namespace CppCLRWinFormsProject {
             if (Description_TextBox->Text != "") {
                 Int64^ time_suspended = reportService->GetSuspendedTime(Sancio_ComboBox->Text);
                 reportService->SetBlacklist(id2_reported, Description_TextBox->Text, time_suspended);
-                //ACENTOS ACENTOS ACENTOS
                 MessageBoxButtons buttons = MessageBoxButtons::YesNo;
-                System::Windows::Forms::DialogResult result = MessageBox::Show("Vols sancinar a l'usuari amb " + Sancio_ComboBox->Text + "?", "Confirmation", buttons);
+                System::Windows::Forms::DialogResult result = MessageBox::Show("Vols sancionar a l'usuari '" +member2_reported+ "' amb " + Sancio_ComboBox->Text + "?", "Confirmation", buttons);
 
                 if (result == System::Windows::Forms::DialogResult::Yes)
                 {
@@ -65,8 +64,7 @@ namespace CppCLRWinFormsProject {
 			}
 		}
         else {
-            //ACENTOS ACENTOS ACENTOS
-            MessageManager::ErrorMessage("Has de seleccionar una sanció.");
+            MessageManager::ErrorMessage("Has de seleccionar una sanci\u00F3.");
         }
     }
 

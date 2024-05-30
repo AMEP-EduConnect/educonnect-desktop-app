@@ -36,7 +36,6 @@ namespace CppCLRWinFormsProject {
 
     void Reports_InfoUI::Noms_ListBox_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e)
     {
-        // No fa res
     }
 
     void Reports_InfoUI::Reports_ConsultarUIreload() {
@@ -76,19 +75,6 @@ namespace CppCLRWinFormsProject {
     }
 
     void Reports_InfoUI::acepta_button_Click(System::Object^ sender, System::EventArgs^ e) {
-        
-        //Int64^ reported_id = reportService->GetReportedMember(report_id);
-        //String^ reported_member = (iniciSessioService->GetUsuariById(reported_id))->GetUsername();
-
-        //MessageBoxButtons buttons = MessageBoxButtons::YesNo;
-        // ACENTOS ACENTOS ACENTOS
-        //System::Windows::Forms::DialogResult result = MessageBox::Show("Segur que vols acceptar el report? L'Usuari '" +reported_member+ "' serà eliminat permanentment!", "Confirmation", buttons);
-        
-        //if (result == System::Windows::Forms::DialogResult::No) {
-		//}
-        //else {
-            //reportService->DeleteReport(report_id);
-
             Reports_GestioUI^ PanelUI = gcnew Reports_GestioUI(report_id, reported_id, reported_member, reported_id2, reported_member2);
 
             PanelUI->TopLevel = false;
@@ -98,16 +84,11 @@ namespace CppCLRWinFormsProject {
             MainPageUI::Instance->screen->Controls->Clear();
             MainPageUI::Instance->screen->Controls->Add(PanelUI);
             PanelUI->Show();
-        //}
     }
 
 
     void Reports_InfoUI::denega_button_Click(System::Object^ sender, System::EventArgs^ e) {
-        
-        //Int64^ reported_id = reportService->GetReportedMember(report_id);
-        //String^ reported_member = (iniciSessioService->GetUsuariById(reported_id))->GetUsername();
         MessageBoxButtons buttons = MessageBoxButtons::YesNo;
-        // ACENTOS ACENTOS ACENTOS
         System::Windows::Forms::DialogResult result = MessageBox::Show("Segur que vols denegar el report? L'Usuari '" + reported_member2 + "' no serà sancionat i el report #" + report_id+ " serà eliminat.", "Confirmation", buttons);
 
         if (result == System::Windows::Forms::DialogResult::No) {

@@ -20,7 +20,6 @@ namespace CppCLRWinFormsProject {
 
     void Reports_ConsultaUI::Noms_ListBox_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e)
     {
-        //ATENCIO ATENCIO ATENCIO
         if (Noms_ListBox->Text != "") {
             MoreInfo_Button->Visible = true;
         }
