@@ -324,23 +324,19 @@ array<GrupEstudi^>^ GrupEstudiRepository::LoadGrupsNoMembers(Int64^ user_id) {
 
 Int64^ GrupEstudiRepository::GetGrupOwnerId(Int64^ group_id)
 {
+
 	DatabaseConnector::Instance->Connect();
-	String^ sql = "SELECT group_owner_id FROM academicTags WHERE id = group_id";
-	MySqlDataReader^ data = DatabaseConnector::Instance->ExecuteInternCommand(sql);
-	Int64^ id_owner = nullptr;
-
-	try
+	String^ sql = "SELECT group_owner_id FROM studyGroups WHERE id = @group_id";
+	Dictionary<String^, Object^>^ params = gcnew Dictionary<String^, Object^>(0);
+	params->Add("@group_id", group_id->ToString());
+	MySqlDataReader^ data = DatabaseConnector::Instance->ExecuteClientCommand(sql, params);
+	Int64^ ownerId = nullptr;
+	while (data->Read())
 	{
-		if (data->Read())
-		{
-			id_owner = data->GetInt64(0);
-		}
-	}
-	finally
-	{
-		data->Close();
-		DatabaseConnector::Instance->Disconnect();
-	}
+		ownerId = data->GetInt64(0);
 
-	return id_owner;
+	}
+	data->Close();
+	DatabaseConnector::Instance->Disconnect();
+	return ownerId;
 }

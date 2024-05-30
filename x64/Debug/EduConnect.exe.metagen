@@ -228,6 +228,7 @@ Class NotificacioRepository: AutoLayout, AnsiClass, Class, Public, BeforeFieldIn
     RemoveNotificacio(ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
     GetNotificacionsByDestinationId(ValueType Int64 IsBoxed, ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
     ChangeStatus(ValueType Int64 IsBoxed, Notificacio): PrivateScope, Public, HideBySig
+    CheckIfInvitationExists(ValueType Int64 IsBoxed, ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
     GetNotificacioById(ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
 Class NotificacioService: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
@@ -236,6 +237,7 @@ Class NotificacioService: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
     ListNotificacions(ValueType Int64 IsBoxed, ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
     ChangeStatus(ValueType Int64 IsBoxed, Notificacio): PrivateScope, Public, HideBySig
     GetNotificacioById(ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
+    CheckIfInvitationExists(ValueType Int64 IsBoxed, ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
 Class CppCLRWinFormsProject.GrupEstudi_Explorar: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName

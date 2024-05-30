@@ -12,6 +12,7 @@ namespace CppCLRWinFormsProject {
 		InitializeComponent();
 		grupEstudiMembershipService = gcnew GrupEstudiMembershipService();
 		grupEstudiService = gcnew GrupEstudiService();
+		notificacioService = gcnew NotificacioService();	
 		arrayIdGroupEstudisOfUserNoIn = GrupEstudi_Explorar_Array();
 		this->Icon = gcnew System::Drawing::Icon("app.ico");
 	}

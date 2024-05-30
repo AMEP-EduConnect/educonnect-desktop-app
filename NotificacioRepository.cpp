@@ -10,11 +10,11 @@ NotificacioRepository::NotificacioRepository()
 Int64^ NotificacioRepository::AddNotificacio(Int64^ notification_type, Int64^ status, Int64^ source_grup_id, Int64^ source_user_id, Int64^ destination_user_id)
 {
     DatabaseConnector::Instance->Connect();
-    String^ sql = "INSERT INTO userNotifications (notification_type, status, source_group_id, source_user_id, destination_user_id) VALUES (@notification_type, @status, @source_group_id, @source_user_id, @destination_user_id)";
+    String^ sql = "INSERT INTO userNotifications (notification_type, status, source_grup_id, source_user_id, destination_user_id) VALUES (@notification_type, @status, @source_grup_id, @source_user_id, @destination_user_id)";
     Dictionary<String^, Object^>^ params = gcnew Dictionary<String^, Object^>(0);
     params->Add("@notification_type", notification_type);
     params->Add("@status", status);
-    params->Add("@source_group_id", source_grup_id);
+    params->Add("@source_grup_id", source_grup_id);
     params->Add("@source_user_id", source_user_id);
     params->Add("@destination_user_id", destination_user_id);
     MySqlDataReader^ data = DatabaseConnector::Instance->ExecuteClientCommand(sql, params);
@@ -44,9 +44,9 @@ void NotificacioRepository::RemoveNotificacio(Int64^ id)
 bool NotificacioRepository::CheckIfInvitationExists(Int64^ source_grup_id, Int64^ destination_user_id)
 {
     DatabaseConnector::Instance->Connect();
-    String^ sql = "SELECT * FROM userNotifications WHERE source_group_id = @source_group_id AND destination_user_id = @destination_user_id AND notification_type = 2 AND status = 1";
+    String^ sql = "SELECT * FROM userNotifications WHERE source_grup_id = @source_grup_id AND destination_user_id = @destination_user_id AND notification_type = 2 AND status = 1";
     Dictionary<String^, Object^>^ params = gcnew Dictionary<String^, Object^>(0);
-    params->Add("@source_group_id", source_grup_id);
+    params->Add("@source_grup_id", source_grup_id);
     params->Add("@destination_user_id", destination_user_id);
     MySqlDataReader^ data = DatabaseConnector::Instance->ExecuteClientCommand(sql, params);
     bool exists = data->HasRows;
@@ -91,6 +91,7 @@ void NotificacioRepository::ChangeStatus(Int64^ status, Notificacio^ notificacio
     String^ sql = "UPDATE userNotifications SET status=@status WHERE id=@id";
     Dictionary<String^, Object^>^ params = gcnew Dictionary<String^, Object^>(0);
     params->Add("@Status", status);
+    params->Add("@id", id);
     MySqlDataReader^ data = DatabaseConnector::Instance->ExecuteClientCommand(sql, params);
     data->Close();
     DatabaseConnector::Instance->Disconnect();
@@ -114,7 +115,7 @@ Notificacio^ NotificacioRepository::GetNotificacioById(Int64^ id)
         notificacio->SetSourceGroupId(data->GetInt64(3));
         notificacio->SetSourceUserId(data->GetInt64(4));
         notificacio->SetDestinationUserId(data->GetInt64(5));
-        
+
     }
     DatabaseConnector::Instance->Disconnect();
     return notificacio;

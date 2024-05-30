@@ -5,7 +5,6 @@
 #include "Usuari.h"
 #include "GrupEstudi.h"
 #include "BaixaUsuariService.h"
-#include "GrupEstudiRepository.h"
 #include "CurrentSession.h"
 #include "MessageManager.h"
 #include "NotificacioService.h"
@@ -18,9 +17,10 @@ namespace CppCLRWinFormsProject {
     NotificacionsUI::NotificacionsUI(void)
     {
         InitializeComponent();
-        //notificacioService = gcnew NotificacioService();
-        //grupEstudiRepository = gcnew GrupEstudiRepository();
-
+        notificacioService = gcnew NotificacioService();
+        grupEstudiMembershipService = gcnew GrupEstudiMembershipService();
+        grupEstudiService = gcnew GrupEstudiService();
+        iniciSessioService = gcnew IniciSessioService();
 
         this->Load += gcnew System::EventHandler(this, &NotificacionsUI::LoadNotificacionsList);
         this->Icon = gcnew System::Drawing::Icon("app.ico");
@@ -29,9 +29,6 @@ namespace CppCLRWinFormsProject {
 
 
     Void NotificacionsUI::LoadNotificacionsList(System::Object^ sender, System::EventArgs^ e) {
-        //usuariRepository = gcnew UsuariRepository();
-        //grupEstudiRepository = gcnew GrupEstudiRepository();
-        //notificacioService = gcnew NotificacioService();
         Usuari^ destination_user = CurrentSession::Instance->GetCurrentUser();
         Int64^ id_destination = destination_user->GetUserId();
         
@@ -41,14 +38,14 @@ namespace CppCLRWinFormsProject {
         while (enumerator->MoveNext()) {
             Int64^ id = enumerator->Current->GetId();
             Int64^ id_source = enumerator->Current->GetSourceUserId();
-            Usuari^ user_source = usuariRepository->GetUsuariById(id_source);
+            Usuari^ user_source = iniciSessioService->GetUsuariById(id_source);
             String^ nom_source = user_source->GetUsername();
             Int64^ id_grup = enumerator->Current->GetSourceGroupId();
-            GrupEstudi^ grup_source = grupEstudiRepository->GetGrupEstudiById(id_grup);
+            GrupEstudi^ grup_source = grupEstudiService->GetGrupEstudiById(id_grup);
             String^ nom_grup_source = grup_source->GetGroupName();
             Int64^ id_type = enumerator->Current->GetNotificationType();
 
-            if (id_type == 1LL) Llista_Notificacions->Items->Add(id + " - " + nom_source + " ha solicitat unir-se al grup " + nom_grup_source);
+            if (*id_type == 1LL) Llista_Notificacions->Items->Add(id + " - " + nom_source + " ha solicitat unir-se al grup " + nom_grup_source);
             else Llista_Notificacions->Items->Add(id + " - " + nom_source + " t'ha convidat al grup " + nom_grup_source);
 
 
@@ -67,7 +64,6 @@ namespace CppCLRWinFormsProject {
     System::Void NotificacionsUI::Acceptarbutton_Click(System::Object^ sender, System::EventArgs^ e)
     {
         if (Llista_Notificacions->SelectedItem != nullptr) {
-           // notificacioService = gcnew NotificacioService();
 
             Notificacio^ notificacio = notificacioService->GetNotificacioById(selectedId);
             Int64^ id_source = notificacio->GetSourceUserId();

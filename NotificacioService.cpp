@@ -3,7 +3,6 @@
 #include "DatabaseConnector.h"
 #include "MessageManager.h"
 
-
 NotificacioService::NotificacioService() {
     notificacioRepository = gcnew NotificacioRepository();
 }

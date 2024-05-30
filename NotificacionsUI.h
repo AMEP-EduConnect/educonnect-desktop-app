@@ -2,16 +2,16 @@
 #include "NotificacioService.h"
 #include "pch.h"
 #include "GrupEstudiMembershipService.h"
-
+#include "GrupEstudiService.h"
 #include "Notificacio.h"
 #include "MainPageUI.h"
 #include "Usuari.h"
 #include "GrupEstudi.h"
 #include "BaixaUsuariService.h"
-#include "GrupEstudiRepository.h"
 #include "CurrentSession.h"
 #include "MessageManager.h"
 #include "NotificacioService.h"
+#include "IniciSessioService.h"
 
 namespace CppCLRWinFormsProject {
 
@@ -47,8 +47,9 @@ namespace CppCLRWinFormsProject {
 	private:Int64^ selectedId;
 	private:String^ selectedIdString;
 
-	private: GrupEstudiRepository^ grupEstudiRepository;
+	private: IniciSessioService^ iniciSessioService;
 	private: GrupEstudiMembershipService^ grupEstudiMembershipService;
+	private: GrupEstudiService^ grupEstudiService;
 
 	private: NotificacioService^ notificacioService;
 
