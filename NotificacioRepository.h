@@ -15,7 +15,9 @@ public:
     void RemoveNotificacio(Int64^ id);
     List<Notificacio^>^ GetNotificacionsByDestinationId(Int64^ id_destination, Int64^ status);
     void ChangeStatus(Int64^ status, Notificacio^ notificacio);
-
+    bool CheckIfInvitationExists(Int64^ source_grup_id, Int64^ destination_user_id);
     Notificacio^ GetNotificacioById(Int64^ id);
 
 };
+
+    

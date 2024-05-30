@@ -80,7 +80,7 @@ namespace CppCLRWinFormsProject {
         else {
             MessageManager::WarningMessage("Selecciona una notificació de la llista.");
         }
-    }
+    }    
 
     System::Void NotificacionsUI::Rebutjarbutton_Click(System::Object^ sender, System::EventArgs^ e)
     {

@@ -41,6 +41,20 @@ void NotificacioRepository::RemoveNotificacio(Int64^ id)
     DatabaseConnector::Instance->Disconnect();
 }
 
+bool NotificacioRepository::CheckIfInvitationExists(Int64^ source_grup_id, Int64^ destination_user_id)
+{
+    DatabaseConnector::Instance->Connect();
+    String^ sql = "SELECT * FROM userNotifications WHERE source_group_id = @source_group_id AND destination_user_id = @destination_user_id AND notification_type = 2 AND status = 1";
+    Dictionary<String^, Object^>^ params = gcnew Dictionary<String^, Object^>(0);
+    params->Add("@source_group_id", source_grup_id);
+    params->Add("@destination_user_id", destination_user_id);
+    MySqlDataReader^ data = DatabaseConnector::Instance->ExecuteClientCommand(sql, params);
+    bool exists = data->HasRows;
+    data->Close();
+    DatabaseConnector::Instance->Disconnect();
+    return exists;
+}
+
 
 List<Notificacio^>^ NotificacioRepository::GetNotificacionsByDestinationId(Int64^ destination_user_id, Int64^ status)
 {
