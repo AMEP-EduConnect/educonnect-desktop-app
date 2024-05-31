@@ -10,6 +10,7 @@ public:
     bool BaixaProveidor(String^ value);
     List<Usuari^>^ ListProveidors();
     Usuari^ GetProveidorByEspaiId(Int64^ espai_id);
+    List<Usuari^>^ LoadProvidersByStartingLetter(String^ providerName);
 private:
     UsuariRepository^ usuariRepository;
     UsuariRolRepository^ usuariRolRepository;
