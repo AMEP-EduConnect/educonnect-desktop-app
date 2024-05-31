@@ -35,7 +35,7 @@ namespace CppCLRWinFormsProject {
 		}
 
 	private: List<Session^>^ SessionsList;
-		   array<Session^>^ sessionsdia;
+		   List<Session^>^ sessionsdia;
 		   int i;
 	private: bool isSessionLoaded;
 	protected:
@@ -58,7 +58,6 @@ namespace CppCLRWinFormsProject {
 
 	private: GrupEstudiService^ grupEstudiService;
 	private: GrupEstudiMembershipService^ grupEstudiMembershipService;
-	private: String^ currentGrup;
 	private: GrupSessionAttendantsService^ grupSessionAttendantsService;
 	private: SessionService^ sessionService;
 	private: System::Windows::Forms::TableLayoutPanel^ tableLayoutPanel1;
@@ -413,7 +412,6 @@ namespace CppCLRWinFormsProject {
 			   this->MinimumSize = System::Drawing::Size(814, 537);
 			   this->Name = L"Session_CalendariUI";
 			   this->Text = L"Session_CalendariUI";
-			   this->Load += gcnew System::EventHandler(this, &Session_CalendariUI::Session_CalendariUI_Load);
 			   this->tableLayoutPanel1->ResumeLayout(false);
 			   this->panel1->ResumeLayout(false);
 			   this->panel1->PerformLayout();
@@ -427,7 +425,6 @@ namespace CppCLRWinFormsProject {
 #pragma endregion
 	private: System::Void panel1_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
 	}
-	private: System::Void Session_CalendariUI_Load(System::Object^ sender, System::EventArgs^ e);
 	private: System::Void Session_CalendariUI_ReLoad();
 	private: System::Void tableLayoutPanel1_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
 	}
