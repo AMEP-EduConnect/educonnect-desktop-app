@@ -149,3 +149,7 @@ F:\Proyectos\EduConnect\educonnect-desktop-app\educonne.c3c1b704\x64\Debug\educo
 F:\Proyectos\EduConnect\educonnect-desktop-app\educonne.c3c1b704\x64\Debug\EduConnect.exe.config
 F:\Proyectos\EduConnect\educonnect-desktop-app\educonne.c3c1b704\x64\Debug\educonnect_desktop_app.BaixaUsuariAdminUI.resources
 F:\Proyectos\EduConnect\educonnect-desktop-app\educonne.c3c1b704\x64\Debug\educonnect_desktop_app.ChatGrupEstudiUI.resources
+F:\Proyectos\EduConnect\educonnect-desktop-app\educonne.c3c1b704\x64\Debug\educonnect_desktop_app.ReportsUI.resources
+F:\Proyectos\EduConnect\educonnect-desktop-app\educonne.c3c1b704\x64\Debug\educonnect_desktop_app.Reports_ConsultaUI.resources
+F:\Proyectos\EduConnect\educonnect-desktop-app\educonne.c3c1b704\x64\Debug\educonnect_desktop_app.Reports_GestioUI.resources
+F:\Proyectos\EduConnect\educonnect-desktop-app\educonne.c3c1b704\x64\Debug\educonnect_desktop_app.Reports_InfoUI.resources

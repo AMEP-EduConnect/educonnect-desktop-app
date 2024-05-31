@@ -66,7 +66,7 @@ namespace CppCLRWinFormsProject {
 		MainPageUI::Instance->screen->Controls->Add(PanelUI);
 		PanelUI->Show();*/
 
-		GrupEstudi_InfoUI^ PanelUI = gcnew GrupEstudi_InfoUI(GrupActual);
+		GrupEstudi_InfoUI^ PanelUI = gcnew GrupEstudi_InfoUI(GrupActual, 1);
 
 		PanelUI->TopLevel = false;
 		PanelUI->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
