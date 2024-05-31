@@ -7,20 +7,6 @@
 using namespace System;
 
 namespace CppCLRWinFormsProject {
-    /*
-    Void AltaEspaisUI::NomEspai_TextBox_Validating(Object^ sender, System::ComponentModel::CancelEventArgs^ e) {
-        TextBox^ textBox = dynamic_cast<TextBox^>(sender);
-        if (textBox != nullptr) {
-            bool isnotValid = this->altaEspaisService->CheckNameEspai(textBox->Text);
-            if (isnotValid) {
-                MessageManager::WarningMessage("El nom de l'espai ja existeix.");
-                textBox->Text = "";
-                e->Cancel = true;
-            }
-
-        }
-    }
-    */
     bool AltaEspaisUI::NomEspai_TextBox_Validating(String^ nom) {
         if (nom != nullptr) {
             bool isNotValid = this->altaEspaisService->CheckNameEspai(nom);
@@ -35,7 +21,6 @@ namespace CppCLRWinFormsProject {
     }
 
     bool AltaEspaisUI::IsValidCapacitat(String^ capacitat) {
-        // Esta expresión regular coincide solo con cadenas que son números enteros no negativos.
         String^ pattern = "^[0-9]+$";
         System::Text::RegularExpressions::Regex^ regex = gcnew System::Text::RegularExpressions::Regex(pattern);
         return regex->IsMatch(capacitat);

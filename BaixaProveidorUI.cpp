@@ -5,7 +5,6 @@ using namespace System;
 namespace CppCLRWinFormsProject {
 
     Void BaixaProveidorUI::LoadProvidersList(System::Object^ sender, System::EventArgs^ e) {
-        //Creem array amb tots els proveuidors
         List<Usuari^>^ providers = baixaProveidorService->ListProveidors();
         System::Collections::Generic::IEnumerator<Usuari^>^ enumerator = providers->GetEnumerator();
         while (enumerator->MoveNext())

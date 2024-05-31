@@ -41,7 +41,6 @@ namespace CppCLRWinFormsProject {
     }
 
     bool ModificaEspaisUI::IsValidCapacitat(String^ capacitat) {
-        //TODO: Esta expresión regular coincide solo con cadenas que son números enteros no negativos.
         String^ pattern = "^[0-9]+$";
         System::Text::RegularExpressions::Regex^ regex = gcnew System::Text::RegularExpressions::Regex(pattern);
         return regex->IsMatch(capacitat);
