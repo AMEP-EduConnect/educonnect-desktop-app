@@ -168,7 +168,8 @@ List<Usuari^>^ GrupEstudiService::LoadStudentsByStartingLetter(Int64^ group_id, 
 
 List<Usuari^>^ GrupEstudiService::LoadUsersByStartingLetter(String^ username) {
 	return usuariRepository->GetUsersByStartingLetter(2LL, username + "%");
-	
+}
+
 Int64^ GrupEstudiService::GetGrupOwnerId(Int64^ group_id)
 {
 	return grupEstudiRepository->GetGrupOwnerId(group_id);

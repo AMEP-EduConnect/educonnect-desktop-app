@@ -229,9 +229,6 @@
     <ClCompile Include="ReportsUI.cpp">
       <Filter>Source Files\ui</Filter>
     </ClCompile>
-    <ClCompile Include="Session_CalendariUI.cpp">
-      <Filter>Source Files\ui</Filter>
-    </ClCompile>
     <ClCompile Include="NotificationStatus.cpp">
       <Filter>Source Files\entities</Filter>
     </ClCompile>
@@ -248,6 +245,9 @@
       <Filter>Source Files\repositories</Filter>
     </ClCompile>
     <ClCompile Include="NotificacionsUI.cpp">
+      <Filter>Source Files\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="Session_CalendariUI.cpp">
       <Filter>Source Files\ui</Filter>
     </ClCompile>
   </ItemGroup>
@@ -496,7 +496,7 @@
     <ClInclude Include="NotificacionsUI.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Session_CalendariUI1.h">
+    <ClInclude Include="Session_CalendariUI.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

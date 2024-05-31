@@ -347,7 +347,7 @@
     <ClInclude Include="Session.h" />
     <ClInclude Include="SessionRepository.h" />
     <ClInclude Include="SessionService.h" />
-    <ClInclude Include="Session_CalendariUI1.h">
+    <ClInclude Include="Session_CalendariUI.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="Session_CrearUI.h">

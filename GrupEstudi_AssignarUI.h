@@ -52,7 +52,7 @@ namespace CppCLRWinFormsProject {
 	private: System::Windows::Forms::TextBox^ NomGrup_TextBox;
 	private: System::Windows::Forms::Label^ NomGrup_Label;
 	private: System::Windows::Forms::Button^ Convidar_Button;
-	private: System::Windows::Forms::Button^ Cancelar_Button;
+	private: System::Windows::Forms::TextBox^ NomUsuari_TextBox;
 
 	protected:
 	private: System::ComponentModel::Container^ components;
