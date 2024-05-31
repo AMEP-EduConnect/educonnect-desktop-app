@@ -47,6 +47,8 @@ namespace CppCLRWinFormsProject {
 	{
 			Membres_Button->Visible = true;
 			Unirse_Button->Visible = true;
+			Unirse_Button->Text = "Solicitar unir-se";
+
 			Description_titulo->Visible = true;
 			Num_membres->Visible = true;
 			academicTag_titulo->Visible = true;
@@ -62,10 +64,22 @@ namespace CppCLRWinFormsProject {
 			Description_ListBox->Items->Clear();
 			Description_ListBox->Visible = true;
 			Description_ListBox_Load(sender, e);
+
+			Int64^ source_grup_id = grupEstudiService->GetGroupIdByName(Noms_ListBox->Text);
+			Usuari^ currentUser = CurrentSession::Instance->GetCurrentUser();
+			Int64^ source_user_id = currentUser->GetUserId();
+
+			if (notificacioService->CheckIfRequestExists(source_grup_id, source_user_id)) {
+				Unirse_Button->Text = "Solicitud pendent";
+			}
+			else if (grupEstudiMembershipService->CheckIfUserIsInGroup(source_user_id, source_grup_id)) {
+				Unirse_Button->Text = "Ja perteneixes al grup";
+			}
 	}
 
 	void GrupEstudi_Explorar::GrupEstudi_Explorar_FormClosed() {
 		Membres_Button->Visible = false;
+		Unirse_Button->Visible = false;
 
 		Description_titulo->Visible = false;
 		Num_membres->Visible = false;
@@ -111,13 +125,17 @@ namespace CppCLRWinFormsProject {
 	
 	void GrupEstudi_Explorar::Unirse_Button_Click(System::Object^ sender, System::EventArgs^ e) {
 
-		if (Unirse_Button->Text == "Solicitar unir-se") {
+		//if (Unirse_Button->Text == "Solicitar unir-se") {
 			Int64^ source_grup_id = grupEstudiService->GetGroupIdByName(Noms_ListBox->Text);
 			Usuari^ currentUser = CurrentSession::Instance->GetCurrentUser();
 			Int64^ source_user_id = currentUser->GetUserId();
 
-			if (notificacioService->CheckIfInvitationExists(source_grup_id, source_user_id)) {
+			if (notificacioService->CheckIfRequestExists(source_grup_id, source_user_id)) {
 				MessageManager::WarningMessage("Ja has sol·licitat unir-te a aquest grup.");
+				return;
+			}
+			if (grupEstudiMembershipService->CheckIfUserIsInGroup(source_user_id, source_grup_id)) {
+				MessageManager::WarningMessage("Ja perteneixes a aquest grup.");
 				return;
 			}
 			Int64^ destination_user_id = grupEstudiService->GetGrupOwnerId(source_grup_id);
@@ -125,11 +143,11 @@ namespace CppCLRWinFormsProject {
 			Int64^ notification_type = 1LL;
 
 			notificacioService->AddNotificacio(notification_type, status, source_grup_id, source_user_id, destination_user_id);
-			Unirse_Button->Text = "Cancel·lar solicitud";
-		}
-		else {
-			Unirse_Button->Text = "Solicitar unir-se";
-		}
+			Unirse_Button->Text = "Solicitud pendent";
+
+			
+		//}
+		
 	}
 
 	void GrupEstudi_Explorar::buscar_button_Click(System::Object^ sender, System::EventArgs^ e) {

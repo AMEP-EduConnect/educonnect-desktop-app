@@ -13,9 +13,9 @@ Int64^ NotificacioService::AddNotificacio(Int64^ notification_type, Int64^ statu
 }
 
 
-List<Notificacio^>^ NotificacioService::ListNotificacions(Int64^ id_destination, Int64^ status) {
+List<Notificacio^>^ NotificacioService::ListNotificacions(Int64^ id_current_user) {
     List<Notificacio^>^ notificacions = gcnew List<Notificacio^>(0);
-    notificacions = notificacioRepository->GetNotificacionsByDestinationId(id_destination, status);
+    notificacions = notificacioRepository->GetNotificacionsByDestinationId(id_current_user);
     return notificacions;
 }
 
@@ -23,6 +23,12 @@ bool NotificacioService::CheckIfInvitationExists(Int64^ source_grup_id, Int64^ d
 {
     return notificacioRepository->CheckIfInvitationExists(source_grup_id, destination_user_id);
 }
+
+bool NotificacioService::CheckIfRequestExists(Int64^ source_grup_id, Int64^ source_user_id)
+{
+    return notificacioRepository->CheckIfRequestExists(source_grup_id, source_user_id);
+}
+
 
 void NotificacioService::ChangeStatus(Int64^ status, Notificacio^ notificacio)
 {

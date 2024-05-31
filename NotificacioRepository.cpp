@@ -54,16 +54,36 @@ bool NotificacioRepository::CheckIfInvitationExists(Int64^ source_grup_id, Int64
     DatabaseConnector::Instance->Disconnect();
     return exists;
 }
-
-
-List<Notificacio^>^ NotificacioRepository::GetNotificacionsByDestinationId(Int64^ destination_user_id, Int64^ status)
+bool NotificacioRepository::CheckIfRequestExists(Int64^ source_grup_id, Int64^ source_user_id)
 {
     DatabaseConnector::Instance->Connect();
-    String^ sql = "SELECT * FROM userNotifications WHERE destination_user_id = @destination_user_id and status=@status";
+    String^ sql = "SELECT * FROM userNotifications WHERE source_grup_id = @source_grup_id AND source_user_id = @source_user_id AND notification_type = 1 AND status = 1";
     Dictionary<String^, Object^>^ params = gcnew Dictionary<String^, Object^>(0);
+    params->Add("@source_grup_id", source_grup_id);
+    params->Add("@source_user_id", source_user_id);
+    MySqlDataReader^ data = DatabaseConnector::Instance->ExecuteClientCommand(sql, params);
+    bool exists = data->HasRows;
+    data->Close();
+    DatabaseConnector::Instance->Disconnect();
+    return exists;
+}
+
+
+List<Notificacio^>^ NotificacioRepository::GetNotificacionsByDestinationId(Int64^ id_current_user)
+{
+    DatabaseConnector::Instance->Connect();
+    Int64^ source_user_id = id_current_user;
+    Int64^ destination_user_id = id_current_user;
+
+   // String^ sql = "SELECT * FROM userNotifications WHERE (source_user_id = @id_current_user and (status = 2 or status = 3)) or (destination_user_id = @id_current_user  and status = 1) ORDER BY COALESCE(modified_at, created_at) DESC";
+    String^ sql = "SELECT * FROM userNotifications WHERE (source_user_id = @source_user_id and (status = 2 or status = 3)) or (destination_user_id = @destination_user_id  and status = 1)";
+
+    Dictionary<String^, Object^>^ params = gcnew Dictionary<String^, Object^>(0);
+   // params->Add("@destination_user_id", id_current_user);
+    params->Add("@source_user_id", source_user_id);
     params->Add("@destination_user_id", destination_user_id);
-   
-    params->Add("@status", status);
+
+    
     MySqlDataReader^ data = DatabaseConnector::Instance->ExecuteClientCommand(sql, params);
     List<Notificacio^>^ notificacions = gcnew List<Notificacio^>(0);
     while (data->Read())

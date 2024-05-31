@@ -29,11 +29,11 @@ namespace CppCLRWinFormsProject {
 
 
     Void NotificacionsUI::LoadNotificacionsList(System::Object^ sender, System::EventArgs^ e) {
-        Usuari^ destination_user = CurrentSession::Instance->GetCurrentUser();
-        Int64^ id_destination = destination_user->GetUserId();
+        Usuari^ current_user = CurrentSession::Instance->GetCurrentUser();
+        Int64^ id_current_user = current_user->GetUserId();
         
-        Int64^ status = 1LL;
-        List<Notificacio^>^ notificacions = notificacioService->ListNotificacions(id_destination, status);
+        //Int64^ status = 1LL;
+        List<Notificacio^>^ notificacions = notificacioService->ListNotificacions(id_current_user);
         System::Collections::Generic::IEnumerator<Notificacio^>^ enumerator = notificacions->GetEnumerator();
         while (enumerator->MoveNext()) {
             Int64^ id = enumerator->Current->GetId();
@@ -44,11 +44,46 @@ namespace CppCLRWinFormsProject {
             GrupEstudi^ grup_source = grupEstudiService->GetGrupEstudiById(id_grup);
             String^ nom_grup_source = grup_source->GetGroupName();
             Int64^ id_type = enumerator->Current->GetNotificationType();
+            Int64^ id_status = enumerator->Current->GetStatusType();
+            Int64^ id_destination = enumerator->Current->GetDestinationUserId();
+            Usuari^ user_destination = iniciSessioService->GetUsuariById(id_destination);
+            String^ nom_destination = user_destination->GetUsername();
 
-            if (*id_type == 1LL) Llista_Notificacions->Items->Add(id + " - " + nom_source + " ha solicitat unir-se al grup " + nom_grup_source);
-            else Llista_Notificacions->Items->Add(id + " - " + nom_source + " t'ha convidat al grup " + nom_grup_source);
 
-
+            if (*id_type == 1LL) {
+                if (*id_status == 1LL) {
+                    Llista_Notificacions->Items->Add(id + " - " + nom_source + " ha solicitat unir-se al grup " + nom_grup_source);
+                    Acceptarbutton->Enabled = true;
+                    Rebutjarbutton->Enabled = true;
+                }
+                else if (*id_status == 2LL) {
+                    Llista_Notificacions->Items->Add(id + " - " + " Has estat acceptat al grup " + nom_grup_source);
+                    Acceptarbutton->Enabled = false;
+                    Rebutjarbutton->Enabled = false;
+                }
+                else {
+                    Llista_Notificacions->Items->Add(id + " - " + " Has estat rebutjat pel grup " + nom_grup_source);
+                    Acceptarbutton->Enabled = false;
+                    Rebutjarbutton->Enabled = false;
+                }
+            }
+            else {
+                if (*id_status == 1LL) {
+                    Llista_Notificacions->Items->Add(id + " - " + nom_source + " t'ha invitat a unir-te al grup " + nom_grup_source);
+                    Acceptarbutton->Enabled = true;
+                    Rebutjarbutton->Enabled = true;
+                }
+                else if (*id_status == 3LL) {
+                    Llista_Notificacions->Items->Add(id + " - " + nom_destination + " ha acceptat la invitació al grup " + nom_grup_source);
+                    Acceptarbutton->Enabled = false;
+                    Rebutjarbutton->Enabled = false;
+                }
+                else {
+                    Llista_Notificacions->Items->Add(id + " - " + nom_destination + " ha solicitat unir-se al grup " + nom_grup_source);
+                    Acceptarbutton->Enabled = false;
+                    Rebutjarbutton->Enabled = false;
+                }
+            }
         }
     }
 
@@ -71,7 +106,9 @@ namespace CppCLRWinFormsProject {
             Int64^ status = 2LL;
             grupEstudiMembershipService->UserToGroup(id_source, id_grup);
             notificacioService->ChangeStatus(status, notificacio);
-
+            MessageManager::InfoMessage("S'ha acceptat la solicitud");
+            LoadNotificacionsList(sender, e);
+            Llista_Notificacions->Items->Clear();
         }
         else {
             MessageManager::WarningMessage("Selecciona una notificació de la llista.");
@@ -84,6 +121,10 @@ namespace CppCLRWinFormsProject {
             Notificacio^ notificacio = notificacioService->GetNotificacioById(selectedId);
             Int64^ status = 3LL;
             notificacioService->ChangeStatus(status, notificacio);
+            MessageManager::InfoMessage("S'ha rebutjat la solicitud");
+            LoadNotificacionsList(sender, e);
+            Llista_Notificacions->Items->Clear();
+
         }
         else {
             MessageManager::WarningMessage("Selecciona una notificació de la llista.");
@@ -94,9 +135,10 @@ namespace CppCLRWinFormsProject {
     {
         //TODO: que GetIdFromString tenga un return de Int64^ y que se lo pase a Acceptarbutton_Click y Rebutjarbutton_Click
         //TODO: que cambie el estado del botón a disable si la notificación es origen/destino
-        selectedIdString = this->GetIdFromString(this->Llista_Notificacions->SelectedItem->ToString());
-        selectedId = Int64::Parse(selectedIdString);
-
+        if (this != nullptr) {
+            selectedIdString = this->GetIdFromString(this->Llista_Notificacions->SelectedItem->ToString());
+            selectedId = Int64::Parse(selectedIdString);
+        }
     }
     
 
