@@ -2,10 +2,10 @@
 <Project>
   <ProjectOutputs>
     <ProjectOutput>
-      <FullPath>C:\Users\Mrmar\educonnect-desktop-app\x64\Debug\EduConnect.exe</FullPath>
+      <FullPath>C:\Users\alex_saiz243\educonnect-desktop-app\x64\Debug\EduConnect.exe</FullPath>
     </ProjectOutput>
     <ProjectOutput>
-      <FullPath>C:\Users\Mrmar\educonnect-desktop-app\educonne.c3c1b704\x64\Debug\EduConnect.exe.config</FullPath>
+      <FullPath>C:\Users\alex_saiz243\educonnect-desktop-app\educonne.c3c1b704\x64\Debug\EduConnect.exe.config</FullPath>
     </ProjectOutput>
   </ProjectOutputs>
   <ContentFiles />
