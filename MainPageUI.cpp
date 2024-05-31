@@ -46,7 +46,7 @@ namespace CppCLRWinFormsProject {
         this->BotoSessions->Image = Image::FromFile("resources/Icons/libro-cubierta-abierta.png");
         this->BotoEspais->Image = Image::FromFile("resources/Icons/edificio.png");
         this->BotoAdmin->Image = Image::FromFile("resources/Icons/herramientas.png");
-
+        this->Notification_Button->Image = Image::FromFile("resources/Icons/comment-alt.png");
 
         //CONTROL BAR
         this->Text = "";
