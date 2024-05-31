@@ -5,5 +5,9 @@
     <TestDuration Test="TestCaseName.TestName" Duration="1" />
     <TestDuration Test="TestCI.GivenNothing_WhenDeployment_ThenPass" Duration="1" />
     <TestDuration Test="TestCI.GivenNothing_WhenDeployment_ThenNotPass" Duration="1" />
+    <TestDuration Test="GrupEstudiTest.GivenNewGrupData_WhenInitialization_ThenCreateNewGrup" Duration="2" />
+    <TestDuration Test="GrupEstudiTest.GivenExistingGrup_WhenSetAndGet_ThenMethodsWorks" Duration="2" />
+    <TestDuration Test="UsuariTest.GivenNewUsuariData_WhenInitialization_ThenCreateNewUser" Duration="1" />
+    <TestDuration Test="UsuariTest.GivenExistingUsuari_WhenSetAndGet_ThenMethodsWorks" Duration="1" />
   </TestDurations>
 </GtaTestDurations>
