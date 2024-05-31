@@ -437,5 +437,5 @@ namespace CppCLRWinFormsProject {
 	private: System::Void SeguentButton_Click(System::Object^ sender, System::EventArgs^ e);
 	private: System::Void AnteriorButton_Click(System::Object^ sender, System::EventArgs^ e);
 
-};
+	};
 }
