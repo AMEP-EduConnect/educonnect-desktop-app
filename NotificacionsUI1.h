@@ -43,7 +43,7 @@ namespace CppCLRWinFormsProject {
 			}
 		}
 
-
+		
 	private:Int64^ selectedId;
 	private:String^ selectedIdString;
 
@@ -214,7 +214,6 @@ namespace CppCLRWinFormsProject {
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(772, 535);
 			this->Controls->Add(this->tableLayoutPanel1);
-			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
 			this->Margin = System::Windows::Forms::Padding(2);
 			this->Name = L"NotificacionsUI";
 			this->Text = L"NotificacionsUI";
@@ -232,5 +231,5 @@ namespace CppCLRWinFormsProject {
 	private: System::Void Acceptarbutton_Click(System::Object^ sender, System::EventArgs^ e);
 	private: System::Void Rebutjarbutton_Click(System::Object^ sender, System::EventArgs^ e);
 	private: System::Void Llista_Notificacions_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e);
-	};
+};
 }
