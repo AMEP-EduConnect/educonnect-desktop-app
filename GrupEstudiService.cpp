@@ -108,6 +108,13 @@ List<GrupEstudi^>^ GrupEstudiService::CheckNrecentGroups(Int64^ N, Int64^ user_i
 	return groups; 
 }
 
+List<GrupEstudi^>^ GrupEstudiService::RecomanaNGrups(Int64^ academic_tag, Int64^ user_id, Int64^ N)
+{
+	return grupEstudiRepository->GetNGrupEstudiByacademic_tag(academic_tag, user_id, N);
+}
+
+
+
 bool GrupEstudiService::CheckUserIsOwnerByIds(Int64^ user_id, Int64^ group_id)
 {
 	return grupEstudiRepository->CheckUserIsOwnerById(user_id, group_id);
@@ -144,4 +151,21 @@ String^ GrupEstudiService::GetGroupDescription(String^ NomGrup) {
 
 array<GrupEstudi^>^ GrupEstudiService::LoadGrupsNoMembers(Int64^ user_id) {
 		return grupEstudiRepository->LoadGrupsNoMembers(user_id);
+}
+
+List<Usuari^>^ GrupEstudiService::LoadAllUsers() {
+	return usuariRepository->GetUsersByRolId(2LL);
+}
+
+List<Usuari^>^ GrupEstudiService::LoadAllStudentsNotInGroup(Int64^ group_id) {
+	return usuariRepository->GetStudentsNotInGroup(group_id);
+}
+
+List<Usuari^>^ GrupEstudiService::LoadStudentsByStartingLetter(Int64^ group_id, String^ username) {
+	return usuariRepository->GetStudentsByStartingLetterNotInGroup(group_id, username + "%");
+}
+
+
+List<Usuari^>^ GrupEstudiService::LoadUsersByStartingLetter(String^ username) {
+	return usuariRepository->GetUsersByStartingLetter(2LL, username + "%");
 }

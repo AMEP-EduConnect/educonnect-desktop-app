@@ -4,16 +4,20 @@
 #include "FirstPageUI.h"
 #include "CaptchaUI.h"
 #include "StartPageUI.h"
+#include "CurrentSession.h"
+#include "Usuari.h"
+#include "ReportsService.h"
 using namespace System;
 
 
 namespace CppCLRWinFormsProject {
 
 
-    void IniciSessioUI::ContinuarIniciSessioButton_Click(System::Object^ sender, System::EventArgs^ e) 
+    void IniciSessioUI::ContinuarIniciSessioButton_Click(System::Object^ sender, System::EventArgs^ e)
     {
 
         IniciSessioService inici;
+        Usuari^ currentUser;
         String^ username = NomUsuari_TextBox->Text;
         String^ password = Contrasenya_TextBox->Text;
 
@@ -24,28 +28,63 @@ namespace CppCLRWinFormsProject {
         else {
 
             bool check = inici.CheckUsername(username, password);
-            
-            /*CaptchaUI^ form = gcnew CaptchaUI();
-            form->ShowDialog();
-            StartPageUI::Instance->captcha_ok;*/
-            if (check == true) {// and StartPageUI::Instance->captcha_ok) {
-                StartPageUI::Instance->Hide();
-                MainPageUI::Instance = gcnew MainPageUI();
-                MainPageUI::Instance->ShowDialog();
-                StartPageUI::Instance->Close();
-            }
 
+            CaptchaUI^ form = gcnew CaptchaUI();
+            form->ShowDialog();
+            StartPageUI::Instance->captcha_ok;
+
+            if (check == true) {
+                if (StartPageUI::Instance->captcha_ok) {
+                    currentUser = CurrentSession::Instance->GetCurrentUser();
+                    bool isBan = reportService->UserInBlacklist(currentUser->GetUserId());
+                    if (isBan == true) {
+                        bool checkBan = reportService->IsUserBlacklisted(currentUser->GetUserId());
+                        if (checkBan == true) {
+                            ban_label->Text = reportService->MessageBanInfo(currentUser->GetUserId());
+                            ban_label->Visible = true;
+                            descriptionBan_label->Text = "Motiu del ban: " +reportService->GetDescriptionBlacklist(currentUser->GetUserId());
+                            descriptionBan_label->Visible = true;
+                            CredencialsIncorrectes_Label->Visible = false;
+                            CredencialsIncorrectes_Label2->Visible = false;
+                            Contrasenya_TextBox->Text = "";
+                        }
+                        else {
+							StartPageUI::Instance->Hide();
+							MainPageUI::Instance = gcnew MainPageUI();
+							MainPageUI::Instance->ShowDialog();
+							StartPageUI::Instance->Close();
+						}
+                    }
+                    else {
+                        StartPageUI::Instance->Hide();
+                        MainPageUI::Instance = gcnew MainPageUI();
+                        MainPageUI::Instance->ShowDialog();
+                        StartPageUI::Instance->Close();
+                    }
+                }
+                else {
+                    CredencialsIncorrectes_Label2->Visible = true;
+                    CredencialsIncorrectes_Label->Visible = false;
+                    ban_label->Visible = false;
+                    descriptionBan_label->Visible = false;
+                }
+            }
             else {
                 CredencialsIncorrectes_Label->Visible = true;
-                CredencialsIncorrectes_Label2->Visible = true;
+                CredencialsIncorrectes_Label2->Visible = false;
+                ban_label->Visible = false;
+                descriptionBan_label->Visible = false;
+                Contrasenya_TextBox->Text = "";
             }
+
+            CurrentSession::Instance->LogoutCurrentUser();
         }
     }
 
 
-    Void IniciSessioUI::GoBackButton_Click(System::Object^ sender, System::EventArgs^ e) 
+    Void IniciSessioUI::GoBackButton_Click(System::Object^ sender, System::EventArgs^ e)
     {
-            
+
         FirstPageUI^ PanelUI = gcnew FirstPageUI();
         PanelUI->TopLevel = false;
         PanelUI->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
@@ -60,7 +99,7 @@ namespace CppCLRWinFormsProject {
 
     Void IniciSessioUI::pictureBox1_Click(System::Object^ sender, System::EventArgs^ e)
     {
-        if(password_visible) {
+        if (password_visible) {
             this->pictureBox1->Image = Image::FromFile("resources/Icons/eye-crossed.png");
             this->Contrasenya_TextBox->PasswordChar = true;
             password_visible = false;

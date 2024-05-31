@@ -35,7 +35,7 @@ namespace CppCLRWinFormsProject {
         if (not grupEstudiMembershipService->UserInSomeGroup(currentUser->GetUserId())) {
             abandonar_button->Visible = false;
             MoreInfo_GrupEstudi_Button->Visible = false;
-		}
+        }
     }
 
     void GrupEstudi_ConsultarUI::GrupEstudi_ConsultarUIreload() {
@@ -44,12 +44,12 @@ namespace CppCLRWinFormsProject {
         Noms_ListBox->Items->Clear();
 
         if (arrayIdGroupEstudisOfUser->Length == 0) {
-			abandonar_button->Visible = false;
-            
+            abandonar_button->Visible = false;
+
             Noms_ListBox->Items->Add("No tens cap grup d'estudi assignat.");
             Noms_ListBox->ForeColor = System::Drawing::Color::Gray;
             Noms_ListBox->Enabled = false;
-		}
+        }
         else {
             Noms_ListBox->ForeColor = System::Drawing::Color::Black;
             Noms_ListBox->Enabled = true;
@@ -58,7 +58,7 @@ namespace CppCLRWinFormsProject {
                 GrupEstudi^ grupEstudiUser = grupEstudiMembershipService->LoadAllGrupEstudibyId(arrayIdGroupEstudisOfUser[i]);
                 Noms_ListBox->Items->Add(grupEstudiUser->GetGroupName());
             }
-		}
+        }
     }
 
     void GrupEstudi_ConsultarUI::GrupEstudi_ConsultarUI_Load(System::Object^ sender, System::EventArgs^ e)
@@ -86,7 +86,7 @@ namespace CppCLRWinFormsProject {
 
                                 if (id_user == nullptr) {
                                     MessageBoxButtons buttons = MessageBoxButtons::YesNo;
-                                    System::Windows::Forms::DialogResult result = MessageBox::Show("Ets el owner del grup '" + Noms_ListBox->Text + "' i no hi ha cap usuari més per assignar com a owner, per tant es borrarà el grup d'estudi. Vols continuar?", "Confirmation", buttons);
+                                    System::Windows::Forms::DialogResult result = MessageBox::Show("Ets el owner del grup '" + Noms_ListBox->Text + "' i no hi ha cap usuari mÃ©s per assignar com a owner, per tant es borrarÃ  el grup d'estudi. Vols continuar?", "Confirmation", buttons);
 
                                     if (result == System::Windows::Forms::DialogResult::Yes)
                                     {
@@ -102,16 +102,19 @@ namespace CppCLRWinFormsProject {
                                             MessageManager::ErrorMessage("Error al eliminar el grup.");
                                         }
                                     }
-								}
+                                }
 
 
                                 else {
-                                    MessageManager::WarningMessage("Ets el owner del grup, ja no ho saràs i s'assiganrà al usuari més antic com a nou owner.");
+                                    MessageManager::WarningMessage("Ets el owner del grup, ja no ho sarÃ s i s'assiganrÃ  al usuari mÃ©s antic com a nou owner.");
                                     grupEstudiService->ChangeGroupOwner(group_id, id_user);
                                     abandonar_button_Click(sender, e);
                                 }
                             }
                             else {
+                                MessageBoxButtons buttons = MessageBoxButtons::YesNo;
+                                System::Windows::Forms::DialogResult result = MessageBox::Show("Segur que vols abandonar el grup '" + Noms_ListBox->Text + "' ?", "Confirmation", buttons);
+                                if (result == System::Windows::Forms::DialogResult::Yes) {
                                     grupEstudiMembershipService->DeleteUserFromGroup(user_id, group_id);
                                     MessageManager::InfoMessage("Has abandonat el grup d'estudi amb exit.");
 
@@ -124,7 +127,7 @@ namespace CppCLRWinFormsProject {
                                     MainPageUI::Instance->screen->Controls->Clear();
                                     MainPageUI::Instance->screen->Controls->Add(PanelUI);
                                     PanelUI->Show();
-
+                                }
                             }
                         }
                     }
@@ -148,17 +151,17 @@ namespace CppCLRWinFormsProject {
     void GrupEstudi_ConsultarUI::CrearGrupEstudi_Click(System::Object^ sender, System::EventArgs^ e)
     {
         GrupEstudi_CrearUI^ PanelUI = gcnew GrupEstudi_CrearUI(1);
-		PanelUI->TopLevel = false;
-		PanelUI->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
-		PanelUI->Dock = System::Windows::Forms::DockStyle::Fill;
+        PanelUI->TopLevel = false;
+        PanelUI->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
+        PanelUI->Dock = System::Windows::Forms::DockStyle::Fill;
 
-		MainPageUI::Instance->screen->Controls->Clear();
-		MainPageUI::Instance->screen->Controls->Add(PanelUI);
-		PanelUI->Show();
-	}
+        MainPageUI::Instance->screen->Controls->Clear();
+        MainPageUI::Instance->screen->Controls->Add(PanelUI);
+        PanelUI->Show();
+    }
     System::Void GrupEstudi_ConsultarUI::MoreInfo_GrupEstudi_Button_Click(System::Object^ sender, System::EventArgs^ e)
     {
-        GrupEstudi_InfoUI^ PanelUI = gcnew GrupEstudi_InfoUI(Noms_ListBox->Text);
+        GrupEstudi_InfoUI^ PanelUI = gcnew GrupEstudi_InfoUI(Noms_ListBox->Text, 1);
         PanelUI->TopLevel = false;
         PanelUI->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
         PanelUI->Dock = System::Windows::Forms::DockStyle::Fill;
