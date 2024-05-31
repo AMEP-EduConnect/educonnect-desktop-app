@@ -129,7 +129,7 @@ namespace CppCLRWinFormsProject {
 			Int64^ source_grup_id = grupEstudiService->GetGroupIdByName(Noms_ListBox->Text);
 			Usuari^ currentUser = CurrentSession::Instance->GetCurrentUser();
 			Int64^ source_user_id = currentUser->GetUserId();
-
+			
 			if (notificacioService->CheckIfRequestExists(source_grup_id, source_user_id)) {
 				MessageManager::WarningMessage("Ja has sol·licitat unir-te a aquest grup.");
 				return;
@@ -141,6 +141,7 @@ namespace CppCLRWinFormsProject {
 			Int64^ destination_user_id = grupEstudiService->GetGrupOwnerId(source_grup_id);
 			Int64^ status = 1LL;
 			Int64^ notification_type = 1LL;
+			MessageManager::InfoMessage("Solicitud enviada.");
 
 			notificacioService->AddNotificacio(notification_type, status, source_grup_id, source_user_id, destination_user_id);
 			Unirse_Button->Text = "Solicitud pendent";
