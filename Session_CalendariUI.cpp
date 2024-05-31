@@ -23,10 +23,10 @@ namespace CppCLRWinFormsProject {
 			
 		}
 		else {
-			// PASAR FECHA del calendar
+			
 			DateTime selectedDate = monthCalendar1->SelectionStart;
 			String^ dateString = selectedDate.ToString("yyyy-MM-dd");
-			sessionsdia = sessionService->GetSessionsByGroupIdArray(idgrups, dateString+" 00:00:00");
+			sessionsdia = sessionService->GetSessionsByGroupIdArray(idgrups, dateString+" 00:00:00", dateString+" 23:59:00");
 			if (sessionsdia->Count == 0) {
 				Anterior_Button->Visible = false;
 				Seguent_Button->Visible = false;
@@ -37,6 +37,12 @@ namespace CppCLRWinFormsProject {
 				DaySessions->Text = Convert::ToString(sessionsdia->Count);
 				int aux = i + 1;
 				Contador->Text = Convert::ToString(aux);
+				// create a Iterator sessionsdia
+				/*System::Collections::Generic::IEnumerator<Session^>^ enumerator = sessionsdia->GetEnumerator();
+				while (enumerator->MoveNext()) {
+					Session^ session = enumerator->Current;
+				}*/
+
 				NomGrup->Text = grupEstudiService->GetGrupEstudiById(sessionsdia[i]->GetGroupId())->GetGroupName();
 				Espai^ espai = consultaEspaisService->GetEspaiByEspaiId(sessionsdia[i]->GetEspaiId());
 				NomEspai->Text = espai->GetName();
