@@ -339,6 +339,9 @@
     <ClInclude Include="Session.h" />
     <ClInclude Include="SessionRepository.h" />
     <ClInclude Include="SessionService.h" />
+    <ClInclude Include="Session_CalendariUI.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="Session_CrearUI.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -429,6 +432,7 @@
     <ClCompile Include="Session.cpp" />
     <ClCompile Include="SessionRepository.cpp" />
     <ClCompile Include="SessionService.cpp" />
+    <ClCompile Include="Session_CalendariUI.cpp" />
     <ClCompile Include="Session_CrearUI.cpp" />
     <ClCompile Include="Session_EditarUI.cpp" />
     <ClCompile Include="StartPageUI.cpp" />
