@@ -114,7 +114,7 @@ namespace CppCLRWinFormsProject {
 			this->tableLayoutPanel1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
 				92.84732F)));
 			this->tableLayoutPanel1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Absolute,
-				90)));
+				91)));
 			this->tableLayoutPanel1->Controls->Add(this->EditaSession_Label, 1, 0);
 			this->tableLayoutPanel1->Controls->Add(this->SessionName_Label, 1, 1);
 			this->tableLayoutPanel1->Controls->Add(this->panel1, 1, 2);
@@ -140,9 +140,9 @@ namespace CppCLRWinFormsProject {
 			this->EditaSession_Label->ForeColor = System::Drawing::SystemColors::HotTrack;
 			this->EditaSession_Label->Location = System::Drawing::Point(54, 19);
 			this->EditaSession_Label->Name = L"EditaSession_Label";
-			this->EditaSession_Label->Size = System::Drawing::Size(666, 33);
+			this->EditaSession_Label->Size = System::Drawing::Size(665, 33);
 			this->EditaSession_Label->TabIndex = 0;
-			this->EditaSession_Label->Text = L"Editar sessi\u00F3";
+			this->EditaSession_Label->Text = L"Editar sessió";
 			this->EditaSession_Label->TextAlign = System::Drawing::ContentAlignment::BottomCenter;
 			// 
 			// SessionName_Label
@@ -153,7 +153,7 @@ namespace CppCLRWinFormsProject {
 				static_cast<System::Byte>(0)));
 			this->SessionName_Label->Location = System::Drawing::Point(54, 52);
 			this->SessionName_Label->Name = L"SessionName_Label";
-			this->SessionName_Label->Size = System::Drawing::Size(666, 46);
+			this->SessionName_Label->Size = System::Drawing::Size(665, 46);
 			this->SessionName_Label->TabIndex = 1;
 			this->SessionName_Label->Text = L"...";
 			this->SessionName_Label->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
@@ -177,8 +177,9 @@ namespace CppCLRWinFormsProject {
 			this->panel1->Controls->Add(this->Proveidor_ListBox);
 			this->panel1->Location = System::Drawing::Point(54, 101);
 			this->panel1->Name = L"panel1";
-			this->panel1->Size = System::Drawing::Size(666, 346);
+			this->panel1->Size = System::Drawing::Size(665, 346);
 			this->panel1->TabIndex = 2;
+			this->panel1->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &Session_EditarUI::panel1_Paint);
 			// 
 			// EditarTemps_Button
 			// 
@@ -276,9 +277,9 @@ namespace CppCLRWinFormsProject {
 			this->Proveidor_Label->Location = System::Drawing::Point(23, 126);
 			this->Proveidor_Label->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->Proveidor_Label->Name = L"Proveidor_Label";
-			this->Proveidor_Label->Size = System::Drawing::Size(206, 19);
+			this->Proveidor_Label->Size = System::Drawing::Size(158, 19);
 			this->Proveidor_Label->TabIndex = 15;
-			this->Proveidor_Label->Text = L"Prove\u00EFdor de espais";
+			this->Proveidor_Label->Text = L"Proveïdor de espais";
 			// 
 			// Espai_ComboBox
 			// 
@@ -301,9 +302,9 @@ namespace CppCLRWinFormsProject {
 			this->label1->Location = System::Drawing::Point(23, 20);
 			this->label1->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(183, 19);
+			this->label1->Size = System::Drawing::Size(137, 19);
 			this->label1->TabIndex = 13;
-			this->label1->Text = L"Nom de la sessi\u00F3";
+			this->label1->Text = L"Nom de la sessió";
 			// 
 			// SessionName_TextBox
 			// 
@@ -345,7 +346,7 @@ namespace CppCLRWinFormsProject {
 			this->GoBack_Button->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->GoBack_Button->ForeColor = System::Drawing::Color::Red;
-			this->GoBack_Button->Location = System::Drawing::Point(731, 462);
+			this->GoBack_Button->Location = System::Drawing::Point(730, 462);
 			this->GoBack_Button->Margin = System::Windows::Forms::Padding(1, 10, 1, 10);
 			this->GoBack_Button->Name = L"GoBack_Button";
 			this->GoBack_Button->Size = System::Drawing::Size(75, 35);
@@ -390,5 +391,7 @@ private:
 	void LoadProveidorsOnList();
 	void OnCalendarDateChanged();
 	bool FieldsNotEmpty();
+private: System::Void panel1_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
+}
 };
 }
