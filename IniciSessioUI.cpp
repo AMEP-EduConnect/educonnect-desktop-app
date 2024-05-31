@@ -17,6 +17,7 @@ namespace CppCLRWinFormsProject {
     {
 
         IniciSessioService inici;
+        Usuari^ currentUser;
         String^ username = NomUsuari_TextBox->Text;
         String^ password = Contrasenya_TextBox->Text;
 
@@ -34,7 +35,7 @@ namespace CppCLRWinFormsProject {
 
             if (check == true) {
                 if (StartPageUI::Instance->captcha_ok) {
-                    Usuari^ currentUser = CurrentSession::Instance->GetCurrentUser();
+                    currentUser = CurrentSession::Instance->GetCurrentUser();
                     bool isBan = reportService->UserInBlacklist(currentUser->GetUserId());
                     if (isBan == true) {
                         bool checkBan = reportService->IsUserBlacklisted(currentUser->GetUserId());
@@ -75,6 +76,8 @@ namespace CppCLRWinFormsProject {
                 descriptionBan_label->Visible = false;
                 Contrasenya_TextBox->Text = "";
             }
+
+            CurrentSession::Instance->LogoutCurrentUser();
         }
     }
 
