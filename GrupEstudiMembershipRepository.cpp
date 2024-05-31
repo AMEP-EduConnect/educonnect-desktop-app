@@ -7,7 +7,6 @@ using namespace System;
 
 GrupEstudiMembershipRepository::GrupEstudiMembershipRepository()
 {
-
 }
 
 array<Int64^>^ GrupEstudiMembershipRepository::LoadGrupsEstudiMembershipByUserId(Int64^ user_id)

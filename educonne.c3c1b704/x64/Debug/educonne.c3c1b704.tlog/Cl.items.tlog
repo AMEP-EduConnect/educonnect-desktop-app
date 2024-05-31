@@ -55,6 +55,13 @@ F:\Proyectos\EduConnect\educonnect-desktop-app\ModificaEspaisUI.cpp;F:\Proyectos
 F:\Proyectos\EduConnect\educonnect-desktop-app\pch.cpp;F:\Proyectos\EduConnect\educonnect-desktop-app\educonne.c3c1b704\x64\Debug\pch.obj
 F:\Proyectos\EduConnect\educonnect-desktop-app\PerfilPersonalModificaService.cpp;F:\Proyectos\EduConnect\educonnect-desktop-app\educonne.c3c1b704\x64\Debug\PerfilPersonalModificaService.obj
 F:\Proyectos\EduConnect\educonnect-desktop-app\PerfilPersonalConsultaService.cpp;F:\Proyectos\EduConnect\educonnect-desktop-app\educonne.c3c1b704\x64\Debug\PerfilPersonalConsultaService.obj
+F:\Proyectos\EduConnect\educonnect-desktop-app\Reports.cpp;F:\Proyectos\EduConnect\educonnect-desktop-app\educonne.c3c1b704\x64\Debug\Reports.obj
+F:\Proyectos\EduConnect\educonnect-desktop-app\ReportsRepository.cpp;F:\Proyectos\EduConnect\educonnect-desktop-app\educonne.c3c1b704\x64\Debug\ReportsRepository.obj
+F:\Proyectos\EduConnect\educonnect-desktop-app\ReportsService.cpp;F:\Proyectos\EduConnect\educonnect-desktop-app\educonne.c3c1b704\x64\Debug\ReportsService.obj
+F:\Proyectos\EduConnect\educonnect-desktop-app\ReportsUI.cpp;F:\Proyectos\EduConnect\educonnect-desktop-app\educonne.c3c1b704\x64\Debug\ReportsUI.obj
+F:\Proyectos\EduConnect\educonnect-desktop-app\Reports_ConsultaUI.cpp;F:\Proyectos\EduConnect\educonnect-desktop-app\educonne.c3c1b704\x64\Debug\Reports_ConsultaUI.obj
+F:\Proyectos\EduConnect\educonnect-desktop-app\Reports_GestioUI.cpp;F:\Proyectos\EduConnect\educonnect-desktop-app\educonne.c3c1b704\x64\Debug\Reports_GestioUI.obj
+F:\Proyectos\EduConnect\educonnect-desktop-app\Reports_InfoUI.cpp;F:\Proyectos\EduConnect\educonnect-desktop-app\educonne.c3c1b704\x64\Debug\Reports_InfoUI.obj
 F:\Proyectos\EduConnect\educonnect-desktop-app\Session.cpp;F:\Proyectos\EduConnect\educonnect-desktop-app\educonne.c3c1b704\x64\Debug\Session.obj
 F:\Proyectos\EduConnect\educonnect-desktop-app\SessionRepository.cpp;F:\Proyectos\EduConnect\educonnect-desktop-app\educonne.c3c1b704\x64\Debug\SessionRepository.obj
 F:\Proyectos\EduConnect\educonnect-desktop-app\SessionService.cpp;F:\Proyectos\EduConnect\educonnect-desktop-app\educonne.c3c1b704\x64\Debug\SessionService.obj
