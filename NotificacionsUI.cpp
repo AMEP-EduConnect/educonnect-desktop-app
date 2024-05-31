@@ -62,24 +62,8 @@ namespace CppCLRWinFormsProject {
                     if (*id_status == 1LL) {
                         Llista_Notificacions->Items->Add(id + " - " + nom_source + " ha solicitat unir-se al grup " + nom_grup_source);
 
-                        /*Acceptarbutton->Enabled = true;
-                        Acceptarbutton->Visible = true;
-                        Rebutjarbutton->Enabled = true;
-                        Rebutjarbutton->Visible = true;*/
                     }
-                    /*else if (*id_status == 2LL) {
-                        //Enviar missatge a solicitant
-                        Llista_Notificacions->Items->Add(id + " - " + " Has estat acceptat al grup " + nom_grup_source);
-                        Acceptarbutton->Enabled = false;
-                        Rebutjarbutton->Enabled = false;
-                    }
-                    else {
-                        //Enviar missatge a solicitant
-                        Llista_Notificacions->Items->Add(id + " - " + " Has estat rebutjat pel grup " + nom_grup_source);
-                        Acceptarbutton->Enabled = false;
-                        Rebutjarbutton->Enabled = false;
-                    }
-                    */
+                   
                 }
 
                 else {
@@ -87,46 +71,25 @@ namespace CppCLRWinFormsProject {
                         Llista_Notificacions->Items->Add(id + " - " + nom_source + " t'ha invitat a unir-te al grup " + nom_grup_source);
 
                     }
-                    /*
-                    else if (*id_status == 2LL) {
-                        Llista_Notificacions->Items->Add(id + " - " + nom_destination + " ha acceptat la invitació al grup " + nom_grup_source);
-                        Acceptarbutton->Enabled = false;
-                        Rebutjarbutton->Enabled = false;
-                    }
-                    else {
-                        Llista_Notificacions->Items->Add(id + " - " + nom_destination + " ha solicitat unir-se al grup " + nom_grup_source);
-                        Acceptarbutton->Enabled = false;
-                        Rebutjarbutton->Enabled = false;
-                    }
-                    */
+
                 }
             }
             else {
                 if (*id_type == 1LL) {
-                    /*if (*id_status == 1LL) {
-                        Llista_Notificacions->Items->Add(id + " - " + nom_source + " ha solicitat unir-se al grup " + nom_grup_source);
-                        Acceptarbutton->Enabled = true;
-                        Rebutjarbutton->Enabled = true;
-                    }
-                    else*/ if (*id_status == 2LL) {
-                    //Enviar missatge a solicitant
+                    if (*id_status == 2LL) {
+
                         Llista_Notificacions->Items->Add(id + " - " + " Has sigut acceptat al grup " + nom_grup_source);
 
                     }
                     else if (*id_status == 3LL) {
-                        //Enviar missatge a solicitant
+
                         Llista_Notificacions->Items->Add(id + " - " + " Has sigut rebutjat pel grup " + nom_grup_source);
 
                     }
                 }
 
                 else {
-                    /*if (*id_status == 1LL) {
-                        Llista_Notificacions->Items->Add(id + " - " + nom_source + " t'ha invitat a unir-te al grup " + nom_grup_source);
-                        Acceptarbutton->Enabled = true;
-                        Rebutjarbutton->Enabled = true;
-                    }
-                    else*/ if (*id_status == 2LL) {
+                    if (*id_status == 2LL) {
                         Llista_Notificacions->Items->Add(id + " - " + nom_destination + " ha acceptat la invitació al grup " + nom_grup_source);
 
                     }
@@ -198,9 +161,8 @@ namespace CppCLRWinFormsProject {
 
     System::Void NotificacionsUI::Llista_Notificacions_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e)
     {
-        //TODO: que GetIdFromString tenga un return de Int64^ y que se lo pase a Acceptarbutton_Click y Rebutjarbutton_Click
-        //TODO: que cambie el estado del botón a disable si la notificación es origen/destino
-        if (this != nullptr) {
+      
+        if (this->Llista_Notificacions->SelectedItem != nullptr) {
             selectedIdString = this->GetIdFromString(this->Llista_Notificacions->SelectedItem->ToString());
             selectedId = Int64::Parse(selectedIdString);
             Notificacio^ notificacio = notificacioService->GetNotificacioById(selectedId);
@@ -222,8 +184,7 @@ namespace CppCLRWinFormsProject {
                 Rebutjarbutton->Enabled = false;
                 Rebutjarbutton->Visible = false;
             }
-            //Llista_Notificacions->Items->Clear();
-            //LoadNotificacionsList(sender, e);
+            
         }
     }
 

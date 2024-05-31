@@ -75,11 +75,9 @@ List<Notificacio^>^ NotificacioRepository::GetNotificacionsByDestinationId(Int64
     Int64^ source_user_id = id_current_user;
     Int64^ destination_user_id = id_current_user;
 
-   // String^ sql = "SELECT * FROM userNotifications WHERE (source_user_id = @id_current_user and (status = 2 or status = 3)) or (destination_user_id = @id_current_user  and status = 1) ORDER BY COALESCE(modified_at, created_at) DESC";
-    String^ sql = "SELECT * FROM userNotifications WHERE (source_user_id = @source_user_id and (status = 2 or status = 3)) or (destination_user_id = @destination_user_id  and status = 1)";
+    String^ sql = "SELECT * FROM userNotifications WHERE (source_user_id = @source_user_id and (status = 2 or status = 3)) or (destination_user_id = @destination_user_id  and status = 1) ORDER BY id DESC";
 
     Dictionary<String^, Object^>^ params = gcnew Dictionary<String^, Object^>(0);
-   // params->Add("@destination_user_id", id_current_user);
     params->Add("@source_user_id", source_user_id);
     params->Add("@destination_user_id", destination_user_id);
 

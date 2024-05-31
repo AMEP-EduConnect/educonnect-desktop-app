@@ -125,7 +125,6 @@ namespace CppCLRWinFormsProject {
 
 	void GrupEstudi_Explorar::Unirse_Button_Click(System::Object^ sender, System::EventArgs^ e) {
 
-		//if (Unirse_Button->Text == "Solicitar unir-se") {
 		Int64^ source_grup_id = grupEstudiService->GetGroupIdByName(Noms_ListBox->Text);
 		Usuari^ currentUser = CurrentSession::Instance->GetCurrentUser();
 		Int64^ source_user_id = currentUser->GetUserId();
@@ -135,7 +134,7 @@ namespace CppCLRWinFormsProject {
 			return;
 		}
 		if (grupEstudiMembershipService->CheckIfUserIsInGroup(source_user_id, source_grup_id)) {
-			MessageManager::WarningMessage("Ja perteneixes a aquest grup.");
+			MessageManager::WarningMessage("Ja perteneixes al grup.");
 			return;
 		}
 		Int64^ destination_user_id = grupEstudiService->GetGrupOwnerId(source_grup_id);
@@ -147,12 +146,12 @@ namespace CppCLRWinFormsProject {
 		Unirse_Button->Text = "Solicitud pendent";
 
 
-		//}
+		
 
 	}
 
 	void GrupEstudi_Explorar::buscar_button_Click(System::Object^ sender, System::EventArgs^ e) {
-		//BOTON EN INVISIBLE
+		
 		String^ buscar_grup = buscador_textBox->Text;
 		if (Noms_ListBox->Items->Contains(buscar_grup)) {
 			Noms_ListBox->SelectedItem = buscar_grup;
