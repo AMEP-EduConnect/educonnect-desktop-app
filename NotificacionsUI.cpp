@@ -21,7 +21,8 @@ namespace CppCLRWinFormsProject {
         grupEstudiMembershipService = gcnew GrupEstudiMembershipService();
         grupEstudiService = gcnew GrupEstudiService();
         iniciSessioService = gcnew IniciSessioService();
-
+        Acceptarbutton->Enabled = false;
+        Rebutjarbutton->Enabled = false;
         this->Load += gcnew System::EventHandler(this, &NotificacionsUI::LoadNotificacionsList);
         this->Icon = gcnew System::Drawing::Icon("app.ico");
     }
@@ -29,10 +30,13 @@ namespace CppCLRWinFormsProject {
 
 
     Void NotificacionsUI::LoadNotificacionsList(System::Object^ sender, System::EventArgs^ e) {
+        Llista_Notificacions->Items->Clear();
+        //Acceptarbutton->Enabled = false;
+        //Rebutjarbutton->Enabled = false;
         Usuari^ current_user = CurrentSession::Instance->GetCurrentUser();
         Int64^ id_current_user = current_user->GetUserId();
         
-        //Int64^ status = 1LL;
+
         List<Notificacio^>^ notificacions = notificacioService->ListNotificacions(id_current_user);
         System::Collections::Generic::IEnumerator<Notificacio^>^ enumerator = notificacions->GetEnumerator();
         while (enumerator->MoveNext()) {
@@ -49,39 +53,85 @@ namespace CppCLRWinFormsProject {
             Usuari^ user_destination = iniciSessioService->GetUsuariById(id_destination);
             String^ nom_destination = user_destination->GetUsername();
 
+            if (id_current_user == id_destination) {
+                if (*id_type == 2LL) {
+                    if (*id_status == 1LL) {
+                        Llista_Notificacions->Items->Add(id + " - " + nom_source + " ha solicitat unir-se al grup " + nom_grup_source);
+                        Acceptarbutton->Enabled = true;
+                        Rebutjarbutton->Enabled = true;
+                    }
+                    /*else if (*id_status == 2LL) {
+                        //Enviar missatge a solicitant
+                        Llista_Notificacions->Items->Add(id + " - " + " Has estat acceptat al grup " + nom_grup_source);
+                        Acceptarbutton->Enabled = false;
+                        Rebutjarbutton->Enabled = false;
+                    }
+                    else {
+                        //Enviar missatge a solicitant
+                        Llista_Notificacions->Items->Add(id + " - " + " Has estat rebutjat pel grup " + nom_grup_source);
+                        Acceptarbutton->Enabled = false;
+                        Rebutjarbutton->Enabled = false;
+                    }
+                    */
+                }
 
-            if (*id_type == 1LL) {
-                if (*id_status == 1LL) {
-                    Llista_Notificacions->Items->Add(id + " - " + nom_source + " ha solicitat unir-se al grup " + nom_grup_source);
-                    Acceptarbutton->Enabled = true;
-                    Rebutjarbutton->Enabled = true;
-                }
-                else if (*id_status == 2LL) {
-                    Llista_Notificacions->Items->Add(id + " - " + " Has estat acceptat al grup " + nom_grup_source);
-                    Acceptarbutton->Enabled = false;
-                    Rebutjarbutton->Enabled = false;
-                }
                 else {
-                    Llista_Notificacions->Items->Add(id + " - " + " Has estat rebutjat pel grup " + nom_grup_source);
-                    Acceptarbutton->Enabled = false;
-                    Rebutjarbutton->Enabled = false;
+                    if (*id_status == 1LL) {
+                        Llista_Notificacions->Items->Add(id + " - " + nom_source + " t'ha invitat a unir-te al grup " + nom_grup_source);
+                        Acceptarbutton->Enabled = true;
+                        Rebutjarbutton->Enabled = true;
+                    }
+                    /*
+                    else if (*id_status == 2LL) {
+                        Llista_Notificacions->Items->Add(id + " - " + nom_destination + " ha acceptat la invitació al grup " + nom_grup_source);
+                        Acceptarbutton->Enabled = false;
+                        Rebutjarbutton->Enabled = false;
+                    }
+                    else {
+                        Llista_Notificacions->Items->Add(id + " - " + nom_destination + " ha solicitat unir-se al grup " + nom_grup_source);
+                        Acceptarbutton->Enabled = false;
+                        Rebutjarbutton->Enabled = false;
+                    }
+                    */
                 }
             }
             else {
-                if (*id_status == 1LL) {
-                    Llista_Notificacions->Items->Add(id + " - " + nom_source + " t'ha invitat a unir-te al grup " + nom_grup_source);
-                    Acceptarbutton->Enabled = true;
-                    Rebutjarbutton->Enabled = true;
+                if (*id_type == 1LL) {
+                    /*if (*id_status == 1LL) {
+                        Llista_Notificacions->Items->Add(id + " - " + nom_source + " ha solicitat unir-se al grup " + nom_grup_source);
+                        Acceptarbutton->Enabled = true;
+                        Rebutjarbutton->Enabled = true;
+                    }
+                    else*/ if (*id_status == 2LL) {
+                        //Enviar missatge a solicitant
+                        Llista_Notificacions->Items->Add(id + " - " + " Has estat acceptat al grup " + nom_grup_source);
+                        Acceptarbutton->Enabled = false;
+                        Rebutjarbutton->Enabled = false;
+                    }
+                    else {
+                        //Enviar missatge a solicitant
+                        Llista_Notificacions->Items->Add(id + " - " + " Has estat rebutjat pel grup " + nom_grup_source);
+                        Acceptarbutton->Enabled = false;
+                        Rebutjarbutton->Enabled = false;
+                    }
                 }
-                else if (*id_status == 3LL) {
-                    Llista_Notificacions->Items->Add(id + " - " + nom_destination + " ha acceptat la invitació al grup " + nom_grup_source);
-                    Acceptarbutton->Enabled = false;
-                    Rebutjarbutton->Enabled = false;
-                }
+
                 else {
-                    Llista_Notificacions->Items->Add(id + " - " + nom_destination + " ha solicitat unir-se al grup " + nom_grup_source);
-                    Acceptarbutton->Enabled = false;
-                    Rebutjarbutton->Enabled = false;
+                    /*if (*id_status == 1LL) {
+                        Llista_Notificacions->Items->Add(id + " - " + nom_source + " t'ha invitat a unir-te al grup " + nom_grup_source);
+                        Acceptarbutton->Enabled = true;
+                        Rebutjarbutton->Enabled = true;
+                    }
+                    else*/ if (*id_status == 2LL) {
+                        Llista_Notificacions->Items->Add(id + " - " + nom_destination + " ha acceptat la invitació al grup " + nom_grup_source);
+                        Acceptarbutton->Enabled = false;
+                        Rebutjarbutton->Enabled = false;
+                    }
+                    else {
+                        Llista_Notificacions->Items->Add(id + " - " + nom_destination + " ha solicitat unir-se al grup " + nom_grup_source);
+                        Acceptarbutton->Enabled = false;
+                        Rebutjarbutton->Enabled = false;
+                    }
                 }
             }
         }
@@ -107,8 +157,8 @@ namespace CppCLRWinFormsProject {
             grupEstudiMembershipService->UserToGroup(id_source, id_grup);
             notificacioService->ChangeStatus(status, notificacio);
             MessageManager::InfoMessage("S'ha acceptat la solicitud");
+            //Llista_Notificacions->Items->Clear();
             LoadNotificacionsList(sender, e);
-            Llista_Notificacions->Items->Clear();
         }
         else {
             MessageManager::WarningMessage("Selecciona una notificació de la llista.");
@@ -123,8 +173,6 @@ namespace CppCLRWinFormsProject {
             notificacioService->ChangeStatus(status, notificacio);
             MessageManager::InfoMessage("S'ha rebutjat la solicitud");
             LoadNotificacionsList(sender, e);
-            Llista_Notificacions->Items->Clear();
-
         }
         else {
             MessageManager::WarningMessage("Selecciona una notificació de la llista.");
@@ -138,8 +186,12 @@ namespace CppCLRWinFormsProject {
         if (this != nullptr) {
             selectedIdString = this->GetIdFromString(this->Llista_Notificacions->SelectedItem->ToString());
             selectedId = Int64::Parse(selectedIdString);
+           Acceptarbutton->Enabled = true;
+            Rebutjarbutton->Enabled = true;
+            //Llista_Notificacions->Items->Clear();
+            //LoadNotificacionsList(sender, e);
         }
     }
     
-
+    
 }
