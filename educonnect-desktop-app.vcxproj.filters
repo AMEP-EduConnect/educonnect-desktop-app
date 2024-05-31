@@ -208,6 +208,27 @@
     <ClCompile Include="Utils.cpp">
       <Filter>Source Files\utils</Filter>
     </ClCompile>
+    <ClCompile Include="Reports.cpp">
+      <Filter>Source Files\entities</Filter>
+    </ClCompile>
+    <ClCompile Include="Reports_ConsultaUI.cpp">
+      <Filter>Source Files\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="Reports_InfoUI.cpp">
+      <Filter>Source Files\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="Reports_GestioUI.cpp">
+      <Filter>Source Files\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="ReportsRepository.cpp">
+      <Filter>Source Files\repositories</Filter>
+    </ClCompile>
+    <ClCompile Include="ReportsService.cpp">
+      <Filter>Source Files\services</Filter>
+    </ClCompile>
+    <ClCompile Include="ReportsUI.cpp">
+      <Filter>Source Files\ui</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
@@ -414,6 +435,27 @@
     </ClInclude>
     <ClInclude Include="StartPageUI.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+	<ClInclude Include="ReportsUI.h">
+	<Filter>Header Files</Filter>
+		</ClInclude>
+	<ClInclude Include="Reports_ConsultaUI.h">
+		  	<Filter>Header Files</Filter>
+		</ClInclude>
+	<ClInclude Include="Reports_GestioUI.h">
+		  	<Filter>Header Files</Filter>
+		</ClInclude>
+	<ClInclude Include="Reports_InfoUI.h">
+		  	<Filter>Header Files</Filter>
+		</ClInclude>
+	<ClInclude Include="Reports.h">
+      <Filter>Source Files\entities</Filter>
+    </ClInclude>
+    <ClInclude Include="ReportsRepository.h">
+      <Filter>Source Files\repositories</Filter>
+    </ClInclude>
+    <ClInclude Include="ReportsService.h">
+      <Filter>Source Files\services</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

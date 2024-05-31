@@ -1,10 +1,11 @@
-#pragma once
+ï»¿#pragma once
 #include "Utils.h"
 #include "DatabaseConnector.h"
 #include <iostream>
 #include <string>
 #include "IniciSessioService.h"
 #include "FirstPageUI.h"
+#include "ReportsService.h"
 
 namespace CppCLRWinFormsProject {
 
@@ -26,19 +27,19 @@ namespace CppCLRWinFormsProject {
 		{
 			InitializeComponent();
 			//
-			//TODO: agregar código de constructor aquí
+			//TODO: agregar cï¿½digo de constructor aquï¿½
 			//
 			this->Icon = gcnew System::Drawing::Icon("app.ico");
-
+			reportService = gcnew ReportsService();
 			//this->Background_PictureBox->Image = Image::FromFile("background.png");
 			this->pictureBox1->Image = Image::FromFile("resources/Icons/eye-crossed.png");
-			
+
 		}
 
 
 	protected:
 		/// <summary>
-		/// Limpiar los recursos que se estén usando.
+		/// Limpiar los recursos que se estï¿½n usando.
 		/// </summary>
 		~IniciSessioUI()
 		{
@@ -49,7 +50,7 @@ namespace CppCLRWinFormsProject {
 		}
 
 	private: System::Windows::Forms::TextBox^ NomUsuari_TextBox;
-
+	private: ReportsService^ reportService;
 	private: System::Windows::Forms::TextBox^ Contrasenya_TextBox;
 	private: System::Windows::Forms::Label^ IniciarSessio_Label;
 	private: System::Windows::Forms::Button^ Continuar_Button;
@@ -63,20 +64,22 @@ namespace CppCLRWinFormsProject {
 	private: System::Windows::Forms::Label^ label1;
 	private: System::Windows::Forms::PictureBox^ pictureBox1;
 	private: System::Windows::Forms::Label^ CredencialsIncorrectes_Label2;
+	private: System::Windows::Forms::Label^ ban_label;
+	private: System::Windows::Forms::Label^ descriptionBan_label;
 
 
 	protected:
 
 	private:
 		/// <summary>
-		/// Variable del diseñador necesaria.
+		/// Variable del diseï¿½ador necesaria.
 		/// </summary>
 		System::ComponentModel::Container^ components;
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
-		/// Método necesario para admitir el Diseñador. No se puede modificar
-		/// el contenido de este método con el editor de código.
+		/// Mï¿½todo necesario para admitir el Diseï¿½ador. No se puede modificar
+		/// el contenido de este mï¿½todo con el editor de cï¿½digo.
 		/// </summary>
 		void InitializeComponent(void)
 		{
@@ -92,6 +95,8 @@ namespace CppCLRWinFormsProject {
 			this->CredencialsIncorrectes_Label = (gcnew System::Windows::Forms::Label());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->CredencialsIncorrectes_Label2 = (gcnew System::Windows::Forms::Label());
+			this->ban_label = (gcnew System::Windows::Forms::Label());
+			this->descriptionBan_label = (gcnew System::Windows::Forms::Label());
 			this->Main_Panel->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			this->SuspendLayout();
@@ -102,7 +107,7 @@ namespace CppCLRWinFormsProject {
 				static_cast<System::Byte>(0)));
 			this->NomUsuari_TextBox->Location = System::Drawing::Point(35, 55);
 			this->NomUsuari_TextBox->Name = L"NomUsuari_TextBox";
-			this->NomUsuari_TextBox->Size = System::Drawing::Size(226, 27);
+			this->NomUsuari_TextBox->Size = System::Drawing::Size(226, 32);
 			this->NomUsuari_TextBox->TabIndex = 0;
 			// 
 			// Contrasenya_TextBox
@@ -112,7 +117,7 @@ namespace CppCLRWinFormsProject {
 			this->Contrasenya_TextBox->Location = System::Drawing::Point(35, 122);
 			this->Contrasenya_TextBox->Name = L"Contrasenya_TextBox";
 			this->Contrasenya_TextBox->PasswordChar = '*';
-			this->Contrasenya_TextBox->Size = System::Drawing::Size(226, 27);
+			this->Contrasenya_TextBox->Size = System::Drawing::Size(226, 32);
 			this->Contrasenya_TextBox->TabIndex = 1;
 			this->Contrasenya_TextBox->UseSystemPasswordChar = true;
 			// 
@@ -124,9 +129,9 @@ namespace CppCLRWinFormsProject {
 			this->IniciarSessio_Label->ForeColor = System::Drawing::SystemColors::HotTrack;
 			this->IniciarSessio_Label->Location = System::Drawing::Point(314, 100);
 			this->IniciarSessio_Label->Name = L"IniciarSessio_Label";
-			this->IniciarSessio_Label->Size = System::Drawing::Size(272, 33);
+			this->IniciarSessio_Label->Size = System::Drawing::Size(236, 41);
 			this->IniciarSessio_Label->TabIndex = 4;
-			this->IniciarSessio_Label->Text = L"Iniciar sessi\u00F3";
+			this->IniciarSessio_Label->Text = L"Iniciar sessiÃ³";
 			// 
 			// Continuar_Button
 			// 
@@ -150,7 +155,7 @@ namespace CppCLRWinFormsProject {
 			this->NomUsuari_Label->ForeColor = System::Drawing::SystemColors::HotTrack;
 			this->NomUsuari_Label->Location = System::Drawing::Point(31, 33);
 			this->NomUsuari_Label->Name = L"NomUsuari_Label";
-			this->NomUsuari_Label->Size = System::Drawing::Size(109, 19);
+			this->NomUsuari_Label->Size = System::Drawing::Size(133, 24);
 			this->NomUsuari_Label->TabIndex = 7;
 			this->NomUsuari_Label->Text = L"Nom d\'usuari";
 			// 
@@ -163,7 +168,7 @@ namespace CppCLRWinFormsProject {
 			this->Contrasenya_Label->ForeColor = System::Drawing::SystemColors::HotTrack;
 			this->Contrasenya_Label->Location = System::Drawing::Point(31, 99);
 			this->Contrasenya_Label->Name = L"Contrasenya_Label";
-			this->Contrasenya_Label->Size = System::Drawing::Size(99, 20);
+			this->Contrasenya_Label->Size = System::Drawing::Size(124, 25);
 			this->Contrasenya_Label->TabIndex = 8;
 			this->Contrasenya_Label->Text = L"Contrasenya";
 			// 
@@ -214,22 +219,23 @@ namespace CppCLRWinFormsProject {
 			this->CredencialsIncorrectes_Label->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->CredencialsIncorrectes_Label->ForeColor = System::Drawing::Color::Red;
-			this->CredencialsIncorrectes_Label->Location = System::Drawing::Point(314, 479);
+			this->CredencialsIncorrectes_Label->Location = System::Drawing::Point(317, 483);
 			this->CredencialsIncorrectes_Label->Name = L"CredencialsIncorrectes_Label";
-			this->CredencialsIncorrectes_Label->Size = System::Drawing::Size(213, 19);
+			this->CredencialsIncorrectes_Label->Size = System::Drawing::Size(234, 24);
 			this->CredencialsIncorrectes_Label->TabIndex = 10;
-			this->CredencialsIncorrectes_Label->Text = L"Credencials incorrectes i/o";
+			this->CredencialsIncorrectes_Label->Text = L"Credencials incorrectes";
 			this->CredencialsIncorrectes_Label->Visible = false;
+			this->CredencialsIncorrectes_Label->Click += gcnew System::EventHandler(this, &IniciSessioUI::CredencialsIncorrectes_Label_Click);
 			// 
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->Font = (gcnew System::Drawing::Font(L"SF Pro Display", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label1->ForeColor = System::Drawing::SystemColors::HotTrack;
 			this->label1->Location = System::Drawing::Point(316, 86);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(91, 19);
+			this->label1->Size = System::Drawing::Size(121, 25);
 			this->label1->TabIndex = 12;
 			this->label1->Text = L"EduConnect";
 			// 
@@ -239,20 +245,48 @@ namespace CppCLRWinFormsProject {
 			this->CredencialsIncorrectes_Label2->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->CredencialsIncorrectes_Label2->ForeColor = System::Drawing::Color::Red;
-			this->CredencialsIncorrectes_Label2->Location = System::Drawing::Point(314, 500);
+			this->CredencialsIncorrectes_Label2->Location = System::Drawing::Point(317, 483);
 			this->CredencialsIncorrectes_Label2->Name = L"CredencialsIncorrectes_Label2";
-			this->CredencialsIncorrectes_Label2->Size = System::Drawing::Size(159, 19);
+			this->CredencialsIncorrectes_Label2->Size = System::Drawing::Size(191, 24);
 			this->CredencialsIncorrectes_Label2->TabIndex = 13;
-			this->CredencialsIncorrectes_Label2->Text = L"Captcha incorrecte.";
+			this->CredencialsIncorrectes_Label2->Text = L"Captcha incorrecte";
 			this->CredencialsIncorrectes_Label2->Visible = false;
+			// 
+			// ban_label
+			// 
+			this->ban_label->AutoSize = true;
+			this->ban_label->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->ban_label->ForeColor = System::Drawing::Color::Red;
+			this->ban_label->Location = System::Drawing::Point(317, 483);
+			this->ban_label->Name = L"ban_label";
+			this->ban_label->Size = System::Drawing::Size(107, 24);
+			this->ban_label->TabIndex = 14;
+			this->ban_label->Text = L"Estas ban!";
+			this->ban_label->Visible = false;
+			// 
+			// descriptionBan_label
+			// 
+			this->descriptionBan_label->AutoSize = true;
+			this->descriptionBan_label->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->descriptionBan_label->ForeColor = System::Drawing::Color::Red;
+			this->descriptionBan_label->Location = System::Drawing::Point(317, 507);
+			this->descriptionBan_label->Name = L"descriptionBan_label";
+			this->descriptionBan_label->Size = System::Drawing::Size(105, 24);
+			this->descriptionBan_label->TabIndex = 15;
+			this->descriptionBan_label->Text = L"Motiu ban";
+			this->descriptionBan_label->Visible = false;
 			// 
 			// IniciSessioUI
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
+			this->AutoScaleDimensions = System::Drawing::SizeF(8, 17);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(243)), static_cast<System::Int32>(static_cast<System::Byte>(243)),
 				static_cast<System::Int32>(static_cast<System::Byte>(243)));
 			this->ClientSize = System::Drawing::Size(933, 696);
+			this->Controls->Add(this->descriptionBan_label);
+			this->Controls->Add(this->ban_label);
 			this->Controls->Add(this->CredencialsIncorrectes_Label2);
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->CredencialsIncorrectes_Label);
@@ -278,11 +312,13 @@ namespace CppCLRWinFormsProject {
 
 #pragma endregion
 
-private: System::Void GoBackButton_Click(System::Object^ sender, System::EventArgs^ e);
-private: System::Void ContinuarIniciSessioButton_Click(System::Object^ sender, System::EventArgs^ e);
+	private: System::Void GoBackButton_Click(System::Object^ sender, System::EventArgs^ e);
+	private: System::Void ContinuarIniciSessioButton_Click(System::Object^ sender, System::EventArgs^ e);
 
-private: System::Void IniciSessioUI_Load(System::Object^ sender, System::EventArgs^ e) {
-}
-private: System::Void pictureBox1_Click(System::Object^ sender, System::EventArgs^ e);
+	private: System::Void IniciSessioUI_Load(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void pictureBox1_Click(System::Object^ sender, System::EventArgs^ e);
+	private: System::Void CredencialsIncorrectes_Label_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
 };
 }

@@ -20,6 +20,10 @@
   educonnect_desktop_app.InformacioPersonal_ConsultaUI.resources - Embedded, ContainedInManifestFile, 
   educonnect_desktop_app.MainPageUI.resources - Embedded, ContainedInManifestFile, 
   educonnect_desktop_app.RegistreUsuariUI.resources - Embedded, ContainedInManifestFile, 
+  educonnect_desktop_app.ReportsUI.resources - Embedded, ContainedInManifestFile, 
+  educonnect_desktop_app.Reports_ConsultaUI.resources - Embedded, ContainedInManifestFile, 
+  educonnect_desktop_app.Reports_GestioUI.resources - Embedded, ContainedInManifestFile, 
+  educonnect_desktop_app.Reports_InfoUI.resources - Embedded, ContainedInManifestFile, 
   educonnect_desktop_app.Session_CrearUI.resources - Embedded, ContainedInManifestFile, 
   educonnect_desktop_app.Session_EditarUI.resources - Embedded, ContainedInManifestFile, 
   educonnect_desktop_app.StartPageUI.resources - Embedded, ContainedInManifestFile, 
@@ -28,15 +32,7 @@ Assembly EduConnect, Version=0.0.*, Culture=Todos los idiomas (todos los países
 	hash=SHA1, flags=PublicKey
 Assembly mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
 	hash=None, flags=None
-Assembly Microsoft.VisualStudio.Shell.15.0, Version=17.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a: 
-	hash=None, flags=None
-Assembly Microsoft.VisualStudio.Shell.Framework, Version=17.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a: 
-	hash=None, flags=None
 Assembly MySql.Data, Version=8.3.0.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d: 
-	hash=None, flags=None
-Assembly PresentationCore, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35: 
-	hash=None, flags=None
-Assembly PresentationFramework, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35: 
 	hash=None, flags=None
 Assembly System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
 	hash=None, flags=None
@@ -44,13 +40,21 @@ Assembly System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e0
 	hash=None, flags=None
 Assembly System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a: 
 	hash=None, flags=None
-Assembly System.Messaging, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a: 
-	hash=None, flags=None
 Assembly System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
 	hash=None, flags=None
-Assembly System.Xaml, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
-	hash=None, flags=None
 Assembly System.Xml, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly Microsoft.VisualStudio.Shell.15.0, Version=17.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a: 
+	hash=None, flags=None
+Assembly Microsoft.VisualStudio.Shell.Framework, Version=17.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a: 
+	hash=None, flags=None
+Assembly PresentationCore, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35: 
+	hash=None, flags=None
+Assembly PresentationFramework, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35: 
+	hash=None, flags=None
+Assembly System.Messaging, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a: 
+	hash=None, flags=None
+Assembly System.Xaml, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
 	hash=None, flags=None
 Assembly UIAutomationProvider, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35: 
 	hash=None, flags=None
@@ -511,6 +515,66 @@ Class CppCLRWinFormsProject.Session_CrearUI: AutoLayout, AnsiClass, Class, Publi
 Class CppCLRWinFormsProject.Session_EditarUI: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form
     Void .ctor(GrupEstudi, System.ValueType): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class ReportsRepository: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    CreateReport(ValueType Int64 IsBoxed, ValueType Int64 IsBoxed, String): PrivateScope, Public, HideBySig
+    ReportExists(ValueType Int64 IsBoxed, ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
+    LoadReportData(): PrivateScope, Public, HideBySig
+    GetReportDescription(ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
+    DeleteReport(ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
+    GetReportedMember(ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
+    GetReportMember(ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
+    LoadSuspendedTimes(): PrivateScope, Public, HideBySig
+    GetNamesTimes(ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
+    SetBlackListDescription(String): PrivateScope, Public, HideBySig
+    GetSuspendedTime(String): PrivateScope, Public, HideBySig
+    SetBlacklist(ValueType Int64 IsBoxed, String, ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
+    GetDescriptionBlacklist(ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
+    GetTimeCounterBlacklist(ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
+    GetIssueDateBlacklist(ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
+    GetCurrentTimestamp(): PrivateScope, Public, HideBySig
+    UserInBlacklist(ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
+    DeleteBlacklist(ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
+Class Report: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(System.ValueType, System.ValueType, System.ValueType, System.String, System.String): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    GetId(): PrivateScope, Public, HideBySig
+    GetUserRepId(): PrivateScope, Public, HideBySig
+    GetUserId(): PrivateScope, Public, HideBySig
+    GetDescription(): PrivateScope, Public, HideBySig
+    GetDate(): PrivateScope, Public, HideBySig
+    SetId(ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
+    SetUserRepId(ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
+    SetUserId(ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
+    SetDescription(String): PrivateScope, Public, HideBySig
+    SetDate(String): PrivateScope, Public, HideBySig
+Class ReportsService: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    CreateReport(ValueType Int64 IsBoxed, ValueType Int64 IsBoxed, String): PrivateScope, Public, HideBySig
+    ReportExists(ValueType Int64 IsBoxed, ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
+    LoadReportData(): PrivateScope, Public, HideBySig
+    GetReportDescription(ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
+    DeleteReport(ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
+    GetReportedMember(ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
+    GetReportMember(ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
+    LoadSuspendedTimes(): PrivateScope, Public, HideBySig
+    GetNamesTimes(ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
+    SetBlackListDescription(String): PrivateScope, Public, HideBySig
+    GetSuspendedTime(String): PrivateScope, Public, HideBySig
+    SetBlacklist(ValueType Int64 IsBoxed, String, ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
+    GetDescriptionBlacklist(ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
+    GetTimeCounterBlacklist(ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
+    GetIssueDateBlacklist(ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
+    GetCurrentTimestamp(): PrivateScope, Public, HideBySig
+    IsUserBlacklisted(ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
+    UserInBlacklist(ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
+    MessageBanInfo(ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
+Class CppCLRWinFormsProject.ReportsUI: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(System.String, System.String): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
 Class AltaProveidorService: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
   Methods:
@@ -527,6 +591,12 @@ Class CppCLRWinFormsProject.AltaProveidorUI: AutoLayout, AnsiClass, Class, Publi
     IsValidEmail(String): PrivateScope, Public, HideBySig
     IsPasswordStrong(String): PrivateScope, Public, HideBySig
 Class CppCLRWinFormsProject.BaixaProveidorUI: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class CppCLRWinFormsProject.BaixaUsuariUI: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class CppCLRWinFormsProject.Reports_ConsultaUI: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
 Class AltaEspaisService: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
@@ -564,9 +634,6 @@ Class CppCLRWinFormsProject.AltaEspaisUI: AutoLayout, AnsiClass, Class, Public, 
     NomEspai_TextBox_Validating(String): PrivateScope, Public, HideBySig
     IsValidCapacitat(String): PrivateScope, Public, HideBySig
     Capacitat_TextBox_Validating(Object, CancelEventArgs): PrivateScope, Public, HideBySig
-Class CppCLRWinFormsProject.BaixaUsuariUI: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
-  :System.Windows.Forms.Form
-    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
 Class PerfilPersonalModificaService: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
   Methods:
@@ -640,3 +707,9 @@ Class GrupSessionAttendant: AutoLayout, AnsiClass, Class, Public, BeforeFieldIni
     SetId(ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
     SetIdSession(ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
     SetIdUser(ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
+Class CppCLRWinFormsProject.Reports_InfoUI: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(System.ValueType): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class CppCLRWinFormsProject.Reports_GestioUI: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(System.ValueType, System.ValueType, System.String, System.ValueType, System.String): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
