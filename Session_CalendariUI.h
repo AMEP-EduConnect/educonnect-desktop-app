@@ -38,6 +38,7 @@ namespace CppCLRWinFormsProject {
 		   List<Session^>^ sessionsdia;
 		   int i;
 	private: bool isSessionLoaded;
+	public: System::Collections::Generic::IEnumerator<Session^>^ enumerator;
 	protected:
 
 	protected:

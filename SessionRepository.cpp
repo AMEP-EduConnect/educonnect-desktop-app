@@ -188,7 +188,7 @@ List<Session^>^ SessionRepository::GetSessionsByGroupIdAndStartDate(Int64^ group
 void SessionRepository::GetSessionsByGroupIdArray(Int64^ groupId, String^ dateString, String^ dateFinish,List<Session^>^& aux)
 {
 	DatabaseConnector::Instance->Connect();
-	String^ sql = "SELECT * FROM grupSessions WHERE group_id=@groupId AND session_start_date >= @date AND session_start_date = @date2 ORDER BY session_start_date ASC";
+	String^ sql = "SELECT * FROM grupSessions WHERE group_id=@groupId AND session_start_date >= @date AND session_start_date < @date2 ORDER BY session_start_date ASC";
 	Dictionary<String^, Object^>^ params = gcnew Dictionary<String^, Object^>(0);
 	params->Add("@groupId", groupId);
 	params->Add("@date", dateString);
