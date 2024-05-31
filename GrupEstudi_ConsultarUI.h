@@ -205,15 +205,15 @@ namespace CppCLRWinFormsProject {
 			this->tableLayoutPanel1->PerformLayout();
 			this->ResumeLayout(false);
 
-		}
+		   }
 #pragma endregion
-private: System::Void GrupEstudi_ConsultarUI_Load(System::Object^ sender, System::EventArgs^ e);
-private: System::Void Noms_ListBox_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e);
-private: System::Void tableLayoutPanel1_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
-}
-private: System::Void abandonar_button_Click(System::Object^ sender, System::EventArgs^ e);
-private: void GrupEstudi_ConsultarUIreload();
-private: System::Void CrearGrupEstudi_Click(System::Object^ sender, System::EventArgs^ e);
-private: System::Void MoreInfo_GrupEstudi_Button_Click(System::Object^ sender, System::EventArgs^ e);
-};
+	private: System::Void GrupEstudi_ConsultarUI_Load(System::Object^ sender, System::EventArgs^ e);
+	private: System::Void Noms_ListBox_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e);
+	private: System::Void tableLayoutPanel1_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
+	}
+	private: System::Void abandonar_button_Click(System::Object^ sender, System::EventArgs^ e);
+	private: void GrupEstudi_ConsultarUIreload();
+	private: System::Void CrearGrupEstudi_Click(System::Object^ sender, System::EventArgs^ e);
+	private: System::Void MoreInfo_GrupEstudi_Button_Click(System::Object^ sender, System::EventArgs^ e);
+	};
 }

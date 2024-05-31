@@ -183,11 +183,82 @@ Usuari^ UsuariRepository::GetProveidorByEspaiId(Int64^ espai_id)
 	return usuari;
 
 }
+
 List<Usuari^>^ UsuariRepository::GetUsersByRolId(Int64^ rol_id) {
 	DatabaseConnector::Instance->Connect();
 	String^ sql = "SELECT * FROM users u INNER JOIN users_roles ur ON u.id = ur.user_id WHERE ur.role_id = @rol_id ORDER BY u.username ASC";
 	Dictionary<String^, Object^>^ params = gcnew Dictionary<String^, Object^>(0);
 	params->Add("@rol_id", rol_id);
+	MySqlDataReader^ data = DatabaseConnector::Instance->ExecuteClientCommand(sql, params);
+	List<Usuari^>^ users = gcnew List<Usuari^>(0);
+	while (data->Read()) {
+		Usuari^ usuari = gcnew Usuari();
+		usuari->SetUserId(data->GetInt64(0));
+		usuari->SetUsername(data->GetString(1));
+		usuari->SetPassword(data->GetString(2));
+		usuari->SetEmail(data->GetString(3));
+		usuari->SetName(data->GetString(4));
+		users->Add(usuari);
+	}
+	data->Close();
+	DatabaseConnector::Instance->Disconnect();
+	return users;
+}
+
+List<Usuari^>^ UsuariRepository::GetStudentsNotInGroup(Int64^ group_id) {
+	DatabaseConnector::Instance->Connect();
+	String^ sql = "SELECT u.* FROM users u JOIN users_roles ur ON u.id = ur.user_id WHERE ur.role_id = 2 AND NOT EXISTS (SELECT 1 FROM studyGroupsMembership sgm WHERE sgm.user_id = u.id AND sgm.group_id = @group_id) ORDER BY u.username ASC";
+	Dictionary<String^, Object^>^ params = gcnew Dictionary<String^, Object^>(0);
+	params->Add("@group_id", group_id);
+	MySqlDataReader^ data = DatabaseConnector::Instance->ExecuteClientCommand(sql, params);
+	List<Usuari^>^ users = gcnew List<Usuari^>(0);
+	while (data->Read()) {
+		Usuari^ usuari = gcnew Usuari();
+		usuari->SetUserId(data->GetInt64(0));
+		usuari->SetUsername(data->GetString(1));
+		usuari->SetPassword(data->GetString(2));
+		usuari->SetEmail(data->GetString(3));
+		usuari->SetName(data->GetString(4));
+		users->Add(usuari);
+	}
+	data->Close();
+	DatabaseConnector::Instance->Disconnect();
+	return users;
+}
+
+
+List<Usuari^>^ UsuariRepository::GetUsersByStartingLetter(Int64^ rol_id, String^ username)
+{
+	DatabaseConnector::Instance->Connect();
+	String^ sql = "SELECT * FROM users u INNER JOIN users_roles ur ON u.id = ur.user_id WHERE u.username LIKE @username AND ur.role_id = @rol_id ORDER BY u.username ASC";
+	Dictionary<String^, Object^>^ params = gcnew Dictionary<String^, Object^>(0);
+	params->Add("@rol_id", rol_id);
+	params->Add("@username", username);
+
+	MySqlDataReader^ data = DatabaseConnector::Instance->ExecuteClientCommand(sql, params);
+	List<Usuari^>^ users = gcnew List<Usuari^>(0);
+	while (data->Read()) {
+		Usuari^ usuari = gcnew Usuari();
+		usuari->SetUserId(data->GetInt64(0));
+		usuari->SetUsername(data->GetString(1));
+		usuari->SetPassword(data->GetString(2));
+		usuari->SetEmail(data->GetString(3));
+		usuari->SetName(data->GetString(4));
+		users->Add(usuari);
+	}
+	data->Close();
+	DatabaseConnector::Instance->Disconnect();
+	return users;
+}
+
+List<Usuari^>^ UsuariRepository::GetStudentsByStartingLetterNotInGroup(Int64^ group_id, String^ username)
+{
+	DatabaseConnector::Instance->Connect();
+	String^ sql = "SELECT u.* FROM users u INNER JOIN users_roles ur ON u.id = ur.user_id WHERE u.username LIKE @username AND ur.role_id = 2 AND NOT EXISTS (SELECT 1 FROM studyGroupsMembership sgm WHERE sgm.user_id = u.id AND sgm.group_id = @group_id) ORDER BY u.username ASC";
+	Dictionary<String^, Object^>^ params = gcnew Dictionary<String^, Object^>(0);
+	params->Add("@group_id", group_id);
+	params->Add("@username", username);
+
 	MySqlDataReader^ data = DatabaseConnector::Instance->ExecuteClientCommand(sql, params);
 	List<Usuari^>^ users = gcnew List<Usuari^>(0);
 	while (data->Read()) {

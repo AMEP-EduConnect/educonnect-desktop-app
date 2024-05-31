@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GtaTestDurations xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Executable>F:\Proyectos\EduConnect\educonnect-desktop-app\x64\Debug\educonnect-test.exe</Executable>
+  <TestDurations>
+    <TestDuration Test="TestCaseName.TestName" Duration="1" />
+    <TestDuration Test="TestCI.GivenNothing_WhenDeployment_ThenPass" Duration="1" />
+    <TestDuration Test="TestCI.GivenNothing_WhenDeployment_ThenNotPass" Duration="1" />
+    <TestDuration Test="GrupEstudiTest.GivenNewGrupData_WhenInitialization_ThenCreateNewGrup" Duration="2" />
+    <TestDuration Test="GrupEstudiTest.GivenExistingGrup_WhenSetAndGet_ThenMethodsWorks" Duration="2" />
+    <TestDuration Test="UsuariTest.GivenNewUsuariData_WhenInitialization_ThenCreateNewUser" Duration="1" />
+    <TestDuration Test="UsuariTest.GivenExistingUsuari_WhenSetAndGet_ThenMethodsWorks" Duration="1" />
+  </TestDurations>
+</GtaTestDurations>

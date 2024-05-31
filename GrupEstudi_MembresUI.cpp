@@ -44,7 +44,7 @@ namespace CppCLRWinFormsProject {
     void GrupEstudi_Membres::CancelButton_Click(System::Object^ sender, System::EventArgs^ e)
     {
         if (consulta) {
-            GrupEstudi_InfoUI^ PanelUI = gcnew GrupEstudi_InfoUI(Noms_ListBox);
+            GrupEstudi_InfoUI^ PanelUI = gcnew GrupEstudi_InfoUI(Noms_ListBox,1);
             PanelUI->TopLevel = false;
             PanelUI->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
             PanelUI->Dock = System::Windows::Forms::DockStyle::Fill;
@@ -54,7 +54,7 @@ namespace CppCLRWinFormsProject {
             PanelUI->Show();
         }
         else if (not consulta) {
-			GrupEstudi_Explorar^ PanelUI = gcnew GrupEstudi_Explorar();
+			GrupEstudi_Explorar^ PanelUI = gcnew GrupEstudi_Explorar("");
             
             PanelUI->TopLevel = false;
             PanelUI->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
@@ -127,13 +127,10 @@ namespace CppCLRWinFormsProject {
                                         return;
                                     }
                                     else {
-                                        grupEstudiMembershipService->DeleteUserFromGroup(user_id, group_id);
-                                        Membres_Box->Text = "";
-                                        Noms_ListBox = "";
                                         MessageManager::InfoMessage("Usuari expulsat del grup d'estudi amb exit.");
+                                        grupEstudiMembershipService->DeleteUserFromGroup(user_id, group_id);
 
-                                        GrupEstudi_ConsultarUI^ PanelUI = gcnew GrupEstudi_ConsultarUI();
-
+                                        GrupEstudi_InfoUI^ PanelUI = gcnew GrupEstudi_InfoUI(Noms_ListBox, 1);
                                         PanelUI->TopLevel = false;
                                         PanelUI->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
                                         PanelUI->Dock = System::Windows::Forms::DockStyle::Fill;
@@ -141,6 +138,9 @@ namespace CppCLRWinFormsProject {
                                         MainPageUI::Instance->screen->Controls->Clear();
                                         MainPageUI::Instance->screen->Controls->Add(PanelUI);
                                         PanelUI->Show();
+                                        
+                                        Membres_Box->Text = "";
+                                        Noms_ListBox = "";  
                                     }
                                 }
                             }
