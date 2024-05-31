@@ -27,7 +27,7 @@ namespace CppCLRWinFormsProject {
 
 	System::Void Session_CrearUI::GoBack_Button_Click(System::Object^ sender, System::EventArgs^ e)
 	{
-		GrupEstudi_InfoUI^ PanelUI = gcnew GrupEstudi_InfoUI((this->CurrentGrupEntity)->GetGroupName());
+		GrupEstudi_InfoUI^ PanelUI = gcnew GrupEstudi_InfoUI((this->CurrentGrupEntity)->GetGroupName(),1);
 
 		PanelUI->TopLevel = false;
 		PanelUI->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
@@ -67,7 +67,7 @@ namespace CppCLRWinFormsProject {
 			}
 			else
 			{
-				MessageManager::ErrorMessage("La data seleccionada ja està ocupada per una sessió.");
+				MessageManager::ErrorMessage("La data seleccionada ja està ocupada per una sessi\u00F3.");
 				this->CreateSession_Button->Enabled = false;
 			}
 		}
@@ -79,13 +79,13 @@ namespace CppCLRWinFormsProject {
 		{
 			bool nameIsAvailable = this->sessionService->CheckIfSessionNameIsAvailable(this->SessionName_TextBox->Text);
 			if (!nameIsAvailable) {
-				MessageManager::ErrorMessage("Ja existeix una sessió amb aquest nom.");
+				MessageManager::ErrorMessage("Ja existeix una sessi\u00F3 amb aquest nom.");
 				return;
 			}
 			bool isFree = this->sessionService->CheckIfTimeStampIsFree(FullyFormatedSessionDate);
 			if (!isFree)
 			{
-				MessageManager::ErrorMessage("La data seleccionada ja està ocupada per una sessió.");
+				MessageManager::ErrorMessage("La data seleccionada ja està ocupada per una sessi\u00F3.");
 				return;
 			}
 			String^ realName = this->sessionService->GetFormattedEspai(this->Espai_ComboBox->Text);
@@ -105,12 +105,12 @@ namespace CppCLRWinFormsProject {
 
 			if (isCreated)
 			{
-				MessageManager::InfoMessage("Sessió creada correctament.");
+				MessageManager::InfoMessage("Sessi\u00F3 creada correctament.");
 				this->GoBack_Button_Click(sender, e);
 			}
 			else
 			{
-				MessageManager::ErrorMessage("No s'ha pogut crear la sessió.");
+				MessageManager::ErrorMessage("No s'ha pogut crear la sessi\u00F3.");
 			}
 		}
 	}

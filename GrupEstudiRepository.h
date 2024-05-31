@@ -19,6 +19,7 @@ public:
 
 	GrupEstudi^ GetGrupEstudiById(Int64^ id);
 	GrupEstudi^ GetGrupEstudiByName(String^ group_name);
+	List<GrupEstudi^>^ GetNGrupEstudiByacademic_tag(Int64^ academic_tag, Int64^ user_id, Int64^ N);
 
 	void UpdateGroupName(String^ group_name_act, String^ group_name_new);
 	void UpdateGroupDescription(String^ group_name_act, String^ description_new);

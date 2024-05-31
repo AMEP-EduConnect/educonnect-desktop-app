@@ -21,7 +21,7 @@
   <PropertyGroup Label="Globals">
     <ProjectGuid>{4bdf1846-a3f3-4edb-9b89-b043bcb6b167}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <WindowsTargetPlatformVersion>10.0.22621.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
     <ConfigurationType>Application</ConfigurationType>
     <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
@@ -29,11 +29,9 @@
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <UseOfMfc>Dynamic</UseOfMfc>
     <CLRSupport>true</CLRSupport>
   </PropertyGroup>
   <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <UseOfMfc>Dynamic</UseOfMfc>
     <CLRSupport>true</CLRSupport>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
@@ -107,6 +105,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="GrupEstudiSUT.h" />
+    <ClInclude Include="UsuariSUT.h" />
+  </ItemGroup>
+  <ItemGroup>
     <ClCompile Include="GrupEstudiSUT.cpp" />
     <ClCompile Include="test-GrupEstudi.cpp" />
     <ClCompile Include="test-Usuari.cpp" />
@@ -114,16 +116,12 @@
     <ClCompile Include="UsuariSUT.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="GrupEstudiSUT.h" />
-    <ClInclude Include="UsuariSUT.h" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\educonnect-desktop-app.vcxproj">
       <Project>{c3c1b704-4c81-499b-8de4-b573ade850f0}</Project>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

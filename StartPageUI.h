@@ -60,34 +60,32 @@ namespace CppCLRWinFormsProject {
 			// 
 			this->screen->Dock = System::Windows::Forms::DockStyle::Fill;
 			this->screen->Location = System::Drawing::Point(0, 0);
-			this->screen->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
-			this->screen->MaximumSize = System::Drawing::Size(1244, 857);
-			this->screen->MinimumSize = System::Drawing::Size(1244, 857);
+			this->screen->MaximumSize = System::Drawing::Size(933, 696);
+			this->screen->MinimumSize = System::Drawing::Size(933, 696);
 			this->screen->Name = L"screen";
-			this->screen->Size = System::Drawing::Size(1244, 857);
+			this->screen->Size = System::Drawing::Size(933, 696);
 			this->screen->TabIndex = 0;
 			// 
 			// pictureBox1
 			// 
 			this->pictureBox1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(243)), static_cast<System::Int32>(static_cast<System::Byte>(243)),
 				static_cast<System::Int32>(static_cast<System::Byte>(243)));
-			this->pictureBox1->Location = System::Drawing::Point(0, 645);
-			this->pictureBox1->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->pictureBox1->Location = System::Drawing::Point(0, 524);
 			this->pictureBox1->Name = L"pictureBox1";
-			this->pictureBox1->Size = System::Drawing::Size(1244, 438);
+			this->pictureBox1->Size = System::Drawing::Size(933, 356);
 			this->pictureBox1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
 			this->pictureBox1->TabIndex = 1;
 			this->pictureBox1->TabStop = false;
 			// 
 			// StartPageUI
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
+			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(1223, 809);
+			this->ClientSize = System::Drawing::Size(917, 657);
 			this->Controls->Add(this->pictureBox1);
 			this->Controls->Add(this->screen);
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedSingle;
-			this->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->MaximizeBox = false;
 			this->Name = L"StartPageUI";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"EduConnect";

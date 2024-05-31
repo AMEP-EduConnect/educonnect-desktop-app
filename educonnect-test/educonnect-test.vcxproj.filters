@@ -1,30 +1,28 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="test-GrupEstudi.cpp" />
     <ClCompile Include="test.cpp" />
     <ClCompile Include="GrupEstudiSUT.cpp">
-      <Filter>sut</Filter>
+      <Filter>SUT</Filter>
     </ClCompile>
     <ClCompile Include="UsuariSUT.cpp">
-      <Filter>sut</Filter>
+      <Filter>SUT</Filter>
     </ClCompile>
-    <ClCompile Include="test-Usuari.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="GrupEstudiSUT.h">
+      <Filter>SUT</Filter>
+    </ClInclude>
+    <ClInclude Include="UsuariSUT.h">
+      <Filter>SUT</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Filter Include="sut">
-      <UniqueIdentifier>{e1a34aad-0fb7-4f76-aad1-b7d810f36005}</UniqueIdentifier>
+    <Filter Include="SUT">
+      <UniqueIdentifier>{29a9e134-988a-4ba1-9116-da6882f66aff}</UniqueIdentifier>
     </Filter>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="GrupEstudiSUT.h">
-      <Filter>sut</Filter>
-    </ClInclude>
-    <ClInclude Include="UsuariSUT.h">
-      <Filter>sut</Filter>
-    </ClInclude>
   </ItemGroup>
 </Project>

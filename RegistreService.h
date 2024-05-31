@@ -4,6 +4,7 @@
 #include "DatabaseConnector.h"
 #include "Usuari.h"
 #include "CredentialManagementService.h"
+
 public ref class RegistreService
 {
 	
@@ -14,6 +15,7 @@ public ref class RegistreService
 		bool CheckUsername(String^ username);
         bool CheckEmail(String^ email);
 		bool CreateUser(String^ username, String^ email, String^ name, String^ password);
+
 
 	private:
 

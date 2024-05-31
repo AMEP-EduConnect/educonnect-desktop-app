@@ -26,7 +26,7 @@ namespace CppCLRWinFormsProject {
 	public ref class GrupEstudi_Explorar : public System::Windows::Forms::Form
 	{
 	public:
-		GrupEstudi_Explorar(void);
+		GrupEstudi_Explorar(String^ groupname);
 
 	protected:
 		/// <summary>
@@ -59,6 +59,7 @@ namespace CppCLRWinFormsProject {
 	private: System::Windows::Forms::TextBox^ buscador_textBox;
 	private: System::Windows::Forms::Panel^ panel1;
 	private: System::Windows::Forms::Button^ Unirse_Button;
+	public: System::String^ groupname;
 	protected:
 
 	private:

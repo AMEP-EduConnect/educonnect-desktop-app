@@ -162,6 +162,7 @@ namespace CppCLRWinFormsProject {
 	private: System::Void CaptchaUI_Load(System::Object^ sender, System::EventArgs^ e) {
 	}
 	private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
+		textBox1->Text = "";
 		GenerateCaptcha();
 	}
 private: System::Void Cancelar_Click(System::Object^ sender, System::EventArgs^ e);

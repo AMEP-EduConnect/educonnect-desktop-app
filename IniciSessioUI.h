@@ -5,7 +5,7 @@
 #include <string>
 #include "IniciSessioService.h"
 #include "FirstPageUI.h"
-
+#include "ReportsService.h"
 namespace CppCLRWinFormsProject {
 
 	using namespace System;
@@ -29,7 +29,7 @@ namespace CppCLRWinFormsProject {
 			//TODO: agregar código de constructor aquí
 			//
 			this->Icon = gcnew System::Drawing::Icon("app.ico");
-
+			reportService = gcnew ReportsService();
 			//this->Background_PictureBox->Image = Image::FromFile("background.png");
 			this->pictureBox1->Image = Image::FromFile("resources/Icons/eye-crossed.png");
 			
@@ -49,7 +49,7 @@ namespace CppCLRWinFormsProject {
 		}
 
 	private: System::Windows::Forms::TextBox^ NomUsuari_TextBox;
-
+	private: ReportsService^ reportService;
 	private: System::Windows::Forms::TextBox^ Contrasenya_TextBox;
 	private: System::Windows::Forms::Label^ IniciarSessio_Label;
 	private: System::Windows::Forms::Button^ Continuar_Button;
@@ -63,6 +63,9 @@ namespace CppCLRWinFormsProject {
 	private: System::Windows::Forms::Label^ label1;
 	private: System::Windows::Forms::PictureBox^ pictureBox1;
 	private: System::Windows::Forms::Label^ CredencialsIncorrectes_Label2;
+	private: System::Windows::Forms::Label^ ban_label;
+	private: System::Windows::Forms::Label^ descriptionBan_label;
+
 
 
 	protected:
@@ -92,6 +95,8 @@ namespace CppCLRWinFormsProject {
 			this->CredencialsIncorrectes_Label = (gcnew System::Windows::Forms::Label());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->CredencialsIncorrectes_Label2 = (gcnew System::Windows::Forms::Label());
+			this->ban_label = (gcnew System::Windows::Forms::Label());
+			this->descriptionBan_label = (gcnew System::Windows::Forms::Label());
 			this->Main_Panel->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			this->SuspendLayout();
@@ -124,9 +129,9 @@ namespace CppCLRWinFormsProject {
 			this->IniciarSessio_Label->ForeColor = System::Drawing::SystemColors::HotTrack;
 			this->IniciarSessio_Label->Location = System::Drawing::Point(314, 100);
 			this->IniciarSessio_Label->Name = L"IniciarSessio_Label";
-			this->IniciarSessio_Label->Size = System::Drawing::Size(272, 33);
+			this->IniciarSessio_Label->Size = System::Drawing::Size(188, 33);
 			this->IniciarSessio_Label->TabIndex = 4;
-			this->IniciarSessio_Label->Text = L"Iniciar sessi\u00F3";
+			this->IniciarSessio_Label->Text = L"Iniciar sessió";
 			// 
 			// Continuar_Button
 			// 
@@ -216,20 +221,20 @@ namespace CppCLRWinFormsProject {
 			this->CredencialsIncorrectes_Label->ForeColor = System::Drawing::Color::Red;
 			this->CredencialsIncorrectes_Label->Location = System::Drawing::Point(314, 479);
 			this->CredencialsIncorrectes_Label->Name = L"CredencialsIncorrectes_Label";
-			this->CredencialsIncorrectes_Label->Size = System::Drawing::Size(213, 19);
+			this->CredencialsIncorrectes_Label->Size = System::Drawing::Size(188, 19);
 			this->CredencialsIncorrectes_Label->TabIndex = 10;
-			this->CredencialsIncorrectes_Label->Text = L"Credencials incorrectes i/o";
+			this->CredencialsIncorrectes_Label->Text = L"Credencials incorrectes";
 			this->CredencialsIncorrectes_Label->Visible = false;
 			// 
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->Font = (gcnew System::Drawing::Font(L"SF Pro Display", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label1->ForeColor = System::Drawing::SystemColors::HotTrack;
 			this->label1->Location = System::Drawing::Point(316, 86);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(91, 19);
+			this->label1->Size = System::Drawing::Size(98, 20);
 			this->label1->TabIndex = 12;
 			this->label1->Text = L"EduConnect";
 			// 
@@ -246,6 +251,32 @@ namespace CppCLRWinFormsProject {
 			this->CredencialsIncorrectes_Label2->Text = L"Captcha incorrecte.";
 			this->CredencialsIncorrectes_Label2->Visible = false;
 			// 
+			// ban_label
+			// 
+			this->ban_label->AutoSize = true;
+			this->ban_label->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->ban_label->ForeColor = System::Drawing::Color::Red;
+			this->ban_label->Location = System::Drawing::Point(316, 479);
+			this->ban_label->Name = L"ban_label";
+			this->ban_label->Size = System::Drawing::Size(80, 19);
+			this->ban_label->TabIndex = 14;
+			this->ban_label->Text = L"ban_label";
+			this->ban_label->Visible = false;
+			// 
+			// descriptionBan_label
+			// 
+			this->descriptionBan_label->AutoSize = true;
+			this->descriptionBan_label->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->descriptionBan_label->ForeColor = System::Drawing::Color::Red;
+			this->descriptionBan_label->Location = System::Drawing::Point(316, 500);
+			this->descriptionBan_label->Name = L"descriptionBan_label";
+			this->descriptionBan_label->Size = System::Drawing::Size(55, 19);
+			this->descriptionBan_label->TabIndex = 15;
+			this->descriptionBan_label->Text = L"label2";
+			this->descriptionBan_label->Visible = false;
+			// 
 			// IniciSessioUI
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
@@ -253,6 +284,8 @@ namespace CppCLRWinFormsProject {
 			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(243)), static_cast<System::Int32>(static_cast<System::Byte>(243)),
 				static_cast<System::Int32>(static_cast<System::Byte>(243)));
 			this->ClientSize = System::Drawing::Size(933, 696);
+			this->Controls->Add(this->descriptionBan_label);
+			this->Controls->Add(this->ban_label);
 			this->Controls->Add(this->CredencialsIncorrectes_Label2);
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->CredencialsIncorrectes_Label);

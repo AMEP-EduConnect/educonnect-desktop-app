@@ -20,6 +20,8 @@ namespace CppCLRWinFormsProject {
 		static MainPageUI^ Instance;
 		MainPageUI(void);
 
+		
+
 
 		//protected:
 			/// <summary>
@@ -37,7 +39,7 @@ namespace CppCLRWinFormsProject {
 		System::Windows::Forms::Panel^ screen;
 
 	private:
-
+		bool sessionClosed = false;
 		System::Windows::Forms::Button^ BotoPersonal;
 		System::Windows::Forms::Button^ BotoLogout;
 		System::Windows::Forms::TableLayoutPanel^ tableLayoutPanel3;
@@ -128,7 +130,7 @@ namespace CppCLRWinFormsProject {
 			this->BotoLogout->Name = L"BotoLogout";
 			this->BotoLogout->Size = System::Drawing::Size(146, 41);
 			this->BotoLogout->TabIndex = 2;
-			this->BotoLogout->Text = L"Tancar sessió";
+			this->BotoLogout->Text = L"Tancar sessiï¿½";
 			this->BotoLogout->TextAlign = System::Drawing::ContentAlignment::MiddleRight;
 			this->BotoLogout->UseVisualStyleBackColor = true;
 			this->BotoLogout->Click += gcnew System::EventHandler(this, &MainPageUI::Tancar_Sessio_Click);
@@ -181,13 +183,13 @@ namespace CppCLRWinFormsProject {
 			// 
 			this->label1->Anchor = System::Windows::Forms::AnchorStyles::None;
 			this->label1->AutoSize = true;
-			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 21.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->label1->Font = (gcnew System::Drawing::Font(L"Inter", 21.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label1->ForeColor = System::Drawing::SystemColors::HotTrack;
 			this->label1->ImageAlign = System::Drawing::ContentAlignment::MiddleRight;
-			this->label1->Location = System::Drawing::Point(21, 17);
+			this->label1->Location = System::Drawing::Point(17, 16);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(174, 33);
+			this->label1->Size = System::Drawing::Size(183, 35);
 			this->label1->TabIndex = 0;
 			this->label1->Text = L"EduConnect";
 			// 
@@ -273,6 +275,7 @@ namespace CppCLRWinFormsProject {
 			this->BotoSessions->TextAlign = System::Drawing::ContentAlignment::MiddleLeft;
 			this->BotoSessions->TextImageRelation = System::Windows::Forms::TextImageRelation::ImageBeforeText;
 			this->BotoSessions->UseVisualStyleBackColor = true;
+			this->BotoSessions->Click += gcnew System::EventHandler(this, &MainPageUI::BotoSessions_Click);
 			// 
 			// BotoElsMeus
 			// 
@@ -366,6 +369,7 @@ namespace CppCLRWinFormsProject {
 			this->screen->Name = L"screen";
 			this->screen->Size = System::Drawing::Size(814, 535);
 			this->screen->TabIndex = 14;
+			this->screen->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &MainPageUI::screen_Paint);
 			// 
 			// Notification_Button
 			// 
@@ -421,7 +425,11 @@ private:
 	System::Void ElsMeus_Click(System::Object^ sender, System::EventArgs^ e);
 	System::Void BotoExplorar_Click(System::Object^ sender, System::EventArgs^ e);
 	System::Void BotoEspais_Click(System::Object^ sender, System::EventArgs^ e);
+	System::Void BotoSessions_Click(System::Object^ sender, System::EventArgs^ e);
 
 private: System::Void NotificationButton_Click(System::Object^ sender, System::EventArgs^ e);
+private: System::Void screen_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
+}
+System::Void MainForm_FormClosing(System::Object^ sender, System::Windows::Forms::FormClosingEventArgs^ e);
 };
 }

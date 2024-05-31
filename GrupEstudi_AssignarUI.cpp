@@ -5,7 +5,7 @@
 
 namespace CppCLRWinFormsProject {
 
-    GrupEstudi_AssignarUI::GrupEstudi_AssignarUI(String^ nomsListBox)
+    GrupEstudi_AssignarUI::GrupEstudi_AssignarUI(String^ groupName)
     {
         InitializeComponent();
         grupEstudiMembershipService = gcnew GrupEstudiMembershipService;
@@ -14,11 +14,12 @@ namespace CppCLRWinFormsProject {
         Noms_ListBox = nomsListBox;
         NomGrup_TextBox->Text = Noms_ListBox;
         this->Icon = gcnew System::Drawing::Icon("app.ico");
+        this->Load += gcnew System::EventHandler(this, &GrupEstudi_AssignarUI::GEstudiAssignarAdminUI_Load);
     }
 
     void GrupEstudi_AssignarUI::CancelarButton_Click(System::Object^ sender, System::EventArgs^ e)
     {
-        GrupEstudi_Membres^ PanelUI = gcnew GrupEstudi_Membres(Noms_ListBox, true);
+        GrupEstudi_Membres^ PanelUI = gcnew GrupEstudi_Membres(groupName, true);
 
         PanelUI->TopLevel = false;
         PanelUI->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
@@ -42,7 +43,7 @@ namespace CppCLRWinFormsProject {
                             return;
                         }
                         else if (notificacioService->CheckIfInvitationExists(group_id, user_id)) {
-                            MessageManager::WarningMessage("L'usuari ja té una invitació pendent per aquest grup.");
+                            MessageManager::WarningMessage("L'usuari ja tï¿½ una invitaciï¿½ pendent per aquest grup.");
                             return;
                         }
                         else {
@@ -58,7 +59,7 @@ namespace CppCLRWinFormsProject {
                                 notificacioService->AddNotificacio(notification_type, status, group_id, source_user_id, user_id);
                                 NomUsuari_TextBox->Text = "";
                                 NomGrup_TextBox->Text = "";
-                                MessageManager::InfoMessage("Invitació enviada amb èxit.");
+                                MessageManager::InfoMessage("Invitaciï¿½ enviada amb ï¿½xit.");
 
                                 GrupEstudi_Membres^ PanelUI = gcnew GrupEstudi_Membres(Noms_ListBox, true);
 
@@ -77,11 +78,41 @@ namespace CppCLRWinFormsProject {
                     }
                 }
                 else {
-                    MessageManager::WarningMessage("L'usuari no existeix");
+                    MessageManager::WarningMessage("L'usuari no existeix.");
                 }
             }
             else {
-                MessageManager::WarningMessage("Falten camps per omplir.");
+                if(Noms_ListBox->Items->Count == 0) MessageManager::WarningMessage("No existeixen usuaris per a assignar");
+                
+                else MessageManager::WarningMessage("Selecciona un usuari");
+            }
+    }
+    
+    Void GrupEstudi_AssignarUI::buscador_textBox_TextChanged(System::Object^ sender, System::EventArgs^ e) {
+        if (buscador_textBox->Text == "Buscar Usuari..." or buscador_textBox->Text == "") {
+			Noms_ListBox->Items->Clear();
+            GEstudiAssignarAdminUI_Load(sender, e);
+        }
+        else {
+            Int64^ group_id = grupEstudiService->GetGroupIdByName(groupName);
+            String^ buscar_user = buscador_textBox->Text;
+            List<Usuari^>^ users = grupEstudiService->LoadStudentsByStartingLetter(group_id, buscar_user);
+            Noms_ListBox->ForeColor = System::Drawing::Color::Black;
+            Noms_ListBox->Enabled = true;
+            if (users->Count == Noms_ListBox->Items->Count) {
+ 
+                return;
+            }
+            Noms_ListBox->Items->Clear();
+            System::Collections::Generic::IEnumerator<Usuari^>^ enumerator = users->GetEnumerator();
+            while (enumerator->MoveNext())
+                Noms_ListBox->Items->Add(enumerator->Current->GetUsername());
+            if (Noms_ListBox->Items->Count == 0) {
+                MessageManager::ErrorMessage("No s'ha trobat cap usuari amb aquest nom");
+                buscador_textBox->Enabled = false;
+                buscador_textBox->Enabled = true;
+                buscador_textBox->ForeColor = System::Drawing::SystemColors::ActiveCaption;
+                buscador_textBox->Text = L"Buscar Usuari...";
             }
         }
         else {

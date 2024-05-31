@@ -28,7 +28,7 @@ namespace CppCLRWinFormsProject {
 
 	protected:
 		/// <summary>
-		/// Limpiar los recursos que se estén usando.
+		/// Limpiar los recursos que se estï¿½n usando.
 		/// </summary>
 		~GrupEstudi_AssignarUI()
 		{
@@ -39,9 +39,16 @@ namespace CppCLRWinFormsProject {
 		}
 
 	private: System::Windows::Forms::Label^ AssignarGrupEstudi_Label;
-	private: System::Windows::Forms::TextBox^ NomUsuari_TextBox;
+
 	private: System::Windows::Forms::Label^ NomUsuari_Label;
 	private: System::Windows::Forms::Panel^ Assignar_Panel;
+
+
+	private: System::Windows::Forms::Button^ Assigna_Button;
+
+	private: System::Windows::Forms::Button^ Cancelar_Button;
+	private: String^ Username;
+	private: String^ groupName;
 	private: System::Windows::Forms::TextBox^ NomGrup_TextBox;
 	private: System::Windows::Forms::Label^ NomGrup_Label;
 	private: System::Windows::Forms::Button^ Convidar_Button;
@@ -57,8 +64,8 @@ namespace CppCLRWinFormsProject {
 
 #pragma region Windows Form Designer generated code
 		   /// <summary>
-		   /// Método necesario para admitir el Diseñador. No se puede modificar
-		   /// el contenido de este método con el editor de código.
+		   /// Mï¿½todo necesario para admitir el Diseï¿½ador. No se puede modificar
+		   /// el contenido de este mï¿½todo con el editor de cï¿½digo.
 		   /// </summary>
 		   void InitializeComponent(void)
 		   {

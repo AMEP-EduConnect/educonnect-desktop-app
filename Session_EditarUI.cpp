@@ -63,7 +63,7 @@ namespace CppCLRWinFormsProject {
 				bool isFree = this->sessionService->CheckIfTimeStampIsFree(FullyFormatedSessionDate);
 				if (!isFree)
 				{
-					MessageManager::ErrorMessage("La data seleccionada ja està ocupada per una sessió.");
+					MessageManager::ErrorMessage("La data seleccionada ja està ocupada per una sessi\u00F3.");
 				}
 				else {
 					if (IsLoaded) this->EditarTemps_Button->Enabled = true;
@@ -87,20 +87,20 @@ namespace CppCLRWinFormsProject {
 		{
 			bool nameIsAvailable = this->sessionService->CheckIfSessionNameIsAvailable(this->SessionName_TextBox->Text);
 			if (!nameIsAvailable) {
-				MessageManager::ErrorMessage("Ja existeix una sessió amb aquest nom.");
+				MessageManager::ErrorMessage("Ja existeix una sessi\u00F3 amb aquest nom.");
 				return;
 			}
 			else
 			{
 				if (this->sessionService->UpdateSessionName(this->SessionName_TextBox->Text, this->CurrentSessionEntity->GetSessionName()))
 				{
-					MessageManager::InfoMessage("Nom de la sessió actualitzat correctament.");
+					MessageManager::InfoMessage("Nom de la sessi\u00F3 actualitzat correctament.");
 					this->SessionName_Label->Text = this->SessionName_TextBox->Text;
 					this->EditarNom_Button->Enabled = false;
 				}
 				else
 				{
-					MessageManager::ErrorMessage("Error al actualitzar el nom de la sessió.");
+					MessageManager::ErrorMessage("Error al actualitzar el nom de la sessi\u00F3.");
 				}
 
 			}
@@ -129,12 +129,12 @@ namespace CppCLRWinFormsProject {
 				Int64^ espaiId = this->consultaEspaisService->GetEspaiIdByName(realName);
 				if (this->sessionService->UpdateSessionEspai(espaiId, this->CurrentSessionEntity->GetEspaiId()))
 				{
-					MessageManager::InfoMessage("Espai de la sessió actualitzat correctament.");
+					MessageManager::InfoMessage("Espai de la sessi\u00F3 actualitzat correctament.");
 					this->EditarEspai_Button->Enabled = false;
 				}
 				else
 				{
-					MessageManager::ErrorMessage("Error al actualitzar l'espai de la sessió.");
+					MessageManager::ErrorMessage("Error al actualitzar l'espai de la sessi\u00F3.");
 				}
 			}
 		}
@@ -146,18 +146,18 @@ namespace CppCLRWinFormsProject {
 		{
 			if (this->sessionService->UpdateSessionDate(FullyFormatedSessionDate, this->CurrentSessionEntity->GetId()))
 			{
-				MessageManager::InfoMessage("Data de la sessió actualitzada correctament.");
+				MessageManager::InfoMessage("Data de la sessi\u00F3 actualitzada correctament.");
 				this->EditarTemps_Button->Enabled = false;
 			}
 			else
 			{
-				MessageManager::ErrorMessage("Error al actualitzar la data de la sessió.");
+				MessageManager::ErrorMessage("Error al actualitzar la data de la sessi\u00F3.");
 			}
 		}
 	}
 	System::Void Session_EditarUI::GoBack_Button_Click(System::Object^ sender, System::EventArgs^ e)
 	{
-		GrupEstudi_InfoUI^ PanelUI = gcnew GrupEstudi_InfoUI((this->CurrentGrupEntity)->GetGroupName());
+		GrupEstudi_InfoUI^ PanelUI = gcnew GrupEstudi_InfoUI((this->CurrentGrupEntity)->GetGroupName(),1);
 
 		PanelUI->TopLevel = false;
 		PanelUI->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
