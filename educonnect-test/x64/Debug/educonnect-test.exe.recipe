@@ -2,13 +2,16 @@
 <Project>
   <ProjectOutputs>
     <ProjectOutput>
-      <FullPath>C:\Users\GERARD\educonnect-desktop-app\x64\Debug\EduConnect.exe</FullPath>
+      <FullPath>F:\Proyectos\EduConnect\educonnect-desktop-app\x64\Debug\EduConnect.exe</FullPath>
     </ProjectOutput>
     <ProjectOutput>
-      <FullPath>C:\Users\GERARD\educonnect-desktop-app\educonne.c3c1b704\x64\Debug\EduConnect.exe.config</FullPath>
+      <FullPath>F:\Proyectos\EduConnect\educonnect-desktop-app\educonne.c3c1b704\x64\Debug\EduConnect.exe.config</FullPath>
     </ProjectOutput>
     <ProjectOutput>
-      <FullPath>C:\Users\GERARD\educonnect-desktop-app\x64\Debug\educonnect-test.exe</FullPath>
+      <FullPath>F:\Proyectos\EduConnect\educonnect-desktop-app\x64\Debug\educonnect-test.exe</FullPath>
+    </ProjectOutput>
+    <ProjectOutput>
+      <FullPath>F:\Proyectos\EduConnect\educonnect-desktop-app\educonnect-test\x64\Debug\educonnect-test.exe.config</FullPath>
     </ProjectOutput>
   </ProjectOutputs>
   <ContentFiles />

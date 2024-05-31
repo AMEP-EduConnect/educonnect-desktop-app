@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="test.cpp" />
+    <ClCompile Include="GrupEstudiSUT.cpp">
+      <Filter>SUT</Filter>
+    </ClCompile>
+    <ClCompile Include="UsuariSUT.cpp">
+      <Filter>SUT</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="GrupEstudiSUT.h">
+      <Filter>SUT</Filter>
+    </ClInclude>
+    <ClInclude Include="UsuariSUT.h">
+      <Filter>SUT</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="SUT">
+      <UniqueIdentifier>{29a9e134-988a-4ba1-9116-da6882f66aff}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
