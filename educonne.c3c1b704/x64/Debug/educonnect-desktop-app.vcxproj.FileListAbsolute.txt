@@ -153,3 +153,11 @@ F:\Proyectos\EduConnect\educonnect-desktop-app\educonne.c3c1b704\x64\Debug\educo
 F:\Proyectos\EduConnect\educonnect-desktop-app\educonne.c3c1b704\x64\Debug\educonnect_desktop_app.Reports_ConsultaUI.resources
 F:\Proyectos\EduConnect\educonnect-desktop-app\educonne.c3c1b704\x64\Debug\educonnect_desktop_app.Reports_GestioUI.resources
 F:\Proyectos\EduConnect\educonnect-desktop-app\educonne.c3c1b704\x64\Debug\educonnect_desktop_app.Reports_InfoUI.resources
+C:\Users\alex_saiz243\educonnect-desktop-app\x64\Debug\Microsoft.VisualStudio.Telemetry.dll
+C:\Users\alex_saiz243\educonnect-desktop-app\x64\Debug\Microsoft.VisualStudio.Utilities.Internal.dll
+C:\Users\alex_saiz243\educonnect-desktop-app\x64\Debug\Newtonsoft.Json.dll
+C:\Users\alex_saiz243\educonnect-desktop-app\x64\Debug\Microsoft.VisualStudio.RemoteControl.dll
+C:\Users\alex_saiz243\educonnect-desktop-app\educonne.c3c1b704\x64\Debug\educonnect_desktop_app.ReportsUI.resources
+C:\Users\alex_saiz243\educonnect-desktop-app\educonne.c3c1b704\x64\Debug\educonnect_desktop_app.Reports_ConsultaUI.resources
+C:\Users\alex_saiz243\educonnect-desktop-app\educonne.c3c1b704\x64\Debug\educonnect_desktop_app.Reports_GestioUI.resources
+C:\Users\alex_saiz243\educonnect-desktop-app\educonne.c3c1b704\x64\Debug\educonnect_desktop_app.Reports_InfoUI.resources
