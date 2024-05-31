@@ -31,8 +31,8 @@ namespace CppCLRWinFormsProject {
 
     Void NotificacionsUI::LoadNotificacionsList(System::Object^ sender, System::EventArgs^ e) {
         Llista_Notificacions->Items->Clear();
-        //Acceptarbutton->Enabled = false;
-        //Rebutjarbutton->Enabled = false;
+        Acceptarbutton->Enabled = false;
+        Rebutjarbutton->Enabled = false;
         Usuari^ current_user = CurrentSession::Instance->GetCurrentUser();
         Int64^ id_current_user = current_user->GetUserId();
         
@@ -186,8 +186,16 @@ namespace CppCLRWinFormsProject {
         if (this != nullptr) {
             selectedIdString = this->GetIdFromString(this->Llista_Notificacions->SelectedItem->ToString());
             selectedId = Int64::Parse(selectedIdString);
-           Acceptarbutton->Enabled = true;
-            Rebutjarbutton->Enabled = true;
+            Notificacio^ notificacio = notificacioService->GetNotificacioById(selectedId);
+            Int64^ id_source = notificacio->GetSourceUserId();
+
+            Usuari^ current_user = CurrentSession::Instance->GetCurrentUser();
+            Int64^ id_current_user = current_user->GetUserId();
+
+            if (id_current_user != id_source) {
+                Acceptarbutton->Enabled = true;
+                Rebutjarbutton->Enabled = true;
+            }
             //Llista_Notificacions->Items->Clear();
             //LoadNotificacionsList(sender, e);
         }
