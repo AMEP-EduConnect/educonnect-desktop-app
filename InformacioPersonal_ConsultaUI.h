@@ -7,6 +7,7 @@
 #include "BaixaUsuariUI.h"
 #include "Utils.h"
 #include "CredentialManagementService.h"
+#include "AcademicTag.h"
 #include <iostream>
 #include <string>
 
@@ -27,8 +28,31 @@ namespace CppCLRWinFormsProject {
 	{
 	public:
 		bool password_visible1 = false;
-		bool password_visible2 = false;
-		InformacioPersonal_ConsultaUI(void);
+
+	public:
+
+
+
+
+
+
+
+
+
+
+
+
+	private: System::Windows::Forms::Panel^ panel3;
+
+	private: System::Windows::Forms::Panel^ panel4;
+	private: System::Windows::Forms::FlowLayoutPanel^ flowLayoutPanel1;
+	private: System::Windows::Forms::Label^ label7;
+
+
+
+
+		   bool password_visible2 = false;
+	public: InformacioPersonal_ConsultaUI(void);
 		Void Nickname_Validating(Object^ sender, System::ComponentModel::CancelEventArgs^ e);
 		Void Password_Validating(Object^ sender, System::ComponentModel::CancelEventArgs^ e);
 		Void Email_Validating(Object^ sender, System::ComponentModel::CancelEventArgs^ e);
@@ -36,7 +60,6 @@ namespace CppCLRWinFormsProject {
 		bool IsValidEmail(String^ email);
 		bool IsPasswordStrong(String^ password);
 	private: System::Windows::Forms::Button^ BotoElimina;
-	public:
 
 	private: System::Windows::Forms::Panel^ panel2;
 	private: System::Windows::Forms::Button^ BotoCancela;
@@ -125,11 +148,17 @@ namespace CppCLRWinFormsProject {
 			this->BotoCancela = (gcnew System::Windows::Forms::Button());
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->BotoElimina = (gcnew System::Windows::Forms::Button());
+			this->panel3 = (gcnew System::Windows::Forms::Panel());
+			this->panel4 = (gcnew System::Windows::Forms::Panel());
+			this->flowLayoutPanel1 = (gcnew System::Windows::Forms::FlowLayoutPanel());
+			this->label7 = (gcnew System::Windows::Forms::Label());
 			this->panel1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->BeginInit();
 			this->tableLayoutPanel1->SuspendLayout();
 			this->panel2->SuspendLayout();
+			this->panel3->SuspendLayout();
+			this->panel4->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// panel1
@@ -148,7 +177,7 @@ namespace CppCLRWinFormsProject {
 			this->panel1->Controls->Add(this->label5);
 			this->panel1->Controls->Add(this->label3);
 			this->panel1->Controls->Add(this->label4);
-			this->panel1->Location = System::Drawing::Point(16, 15);
+			this->panel1->Location = System::Drawing::Point(16, 28);
 			this->panel1->Margin = System::Windows::Forms::Padding(4);
 			this->panel1->Name = L"panel1";
 			this->panel1->Size = System::Drawing::Size(448, 288);
@@ -312,7 +341,7 @@ namespace CppCLRWinFormsProject {
 			this->label2->AutoSize = true;
 			this->label2->Font = (gcnew System::Drawing::Font(L"Inter", 20.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label2->Location = System::Drawing::Point(303, 23);
+			this->label2->Location = System::Drawing::Point(303, 15);
 			this->label2->Name = L"label2";
 			this->label2->Size = System::Drawing::Size(206, 33);
 			this->label2->TabIndex = 2;
@@ -331,12 +360,13 @@ namespace CppCLRWinFormsProject {
 			this->tableLayoutPanel1->Controls->Add(this->label2, 1, 0);
 			this->tableLayoutPanel1->Controls->Add(this->panel2, 1, 1);
 			this->tableLayoutPanel1->Controls->Add(this->BotoElimina, 1, 2);
+			this->tableLayoutPanel1->Controls->Add(this->panel3, 2, 1);
 			this->tableLayoutPanel1->Dock = System::Windows::Forms::DockStyle::Fill;
 			this->tableLayoutPanel1->Location = System::Drawing::Point(0, 0);
 			this->tableLayoutPanel1->Name = L"tableLayoutPanel1";
 			this->tableLayoutPanel1->RowCount = 3;
-			this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 15)));
-			this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 69.64618F)));
+			this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 11.91806F)));
+			this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 72.43948F)));
 			this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 15.45624F)));
 			this->tableLayoutPanel1->Size = System::Drawing::Size(814, 537);
 			this->tableLayoutPanel1->TabIndex = 9;
@@ -348,17 +378,18 @@ namespace CppCLRWinFormsProject {
 			this->panel2->Controls->Add(this->BotoCancela);
 			this->panel2->Controls->Add(this->panel1);
 			this->panel2->Controls->Add(this->button1);
-			this->panel2->Location = System::Drawing::Point(165, 88);
+			this->panel2->Location = System::Drawing::Point(165, 67);
 			this->panel2->Name = L"panel2";
-			this->panel2->Size = System::Drawing::Size(482, 357);
+			this->panel2->Size = System::Drawing::Size(482, 383);
 			this->panel2->TabIndex = 24;
 			// 
 			// BotoCancela
 			// 
+			this->BotoCancela->Anchor = System::Windows::Forms::AnchorStyles::None;
 			this->BotoCancela->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->BotoCancela->ForeColor = System::Drawing::Color::Red;
-			this->BotoCancela->Location = System::Drawing::Point(16, 310);
+			this->BotoCancela->Location = System::Drawing::Point(16, 323);
 			this->BotoCancela->Name = L"BotoCancela";
 			this->BotoCancela->Size = System::Drawing::Size(135, 35);
 			this->BotoCancela->TabIndex = 6;
@@ -371,7 +402,7 @@ namespace CppCLRWinFormsProject {
 			this->button1->Anchor = System::Windows::Forms::AnchorStyles::None;
 			this->button1->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->button1->Location = System::Drawing::Point(329, 310);
+			this->button1->Location = System::Drawing::Point(329, 323);
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(135, 35);
 			this->button1->TabIndex = 5;
@@ -396,6 +427,46 @@ namespace CppCLRWinFormsProject {
 			this->BotoElimina->UseVisualStyleBackColor = false;
 			this->BotoElimina->Click += gcnew System::EventHandler(this, &InformacioPersonal_ConsultaUI::BotoElimina_Click);
 			// 
+			// panel3
+			// 
+			this->panel3->Anchor = System::Windows::Forms::AnchorStyles::None;
+			this->panel3->Controls->Add(this->panel4);
+			this->panel3->Location = System::Drawing::Point(657, 67);
+			this->panel3->Name = L"panel3";
+			this->panel3->Size = System::Drawing::Size(149, 383);
+			this->panel3->TabIndex = 25;
+			// 
+			// panel4
+			// 
+			this->panel4->BackColor = System::Drawing::SystemColors::GradientInactiveCaption;
+			this->panel4->Controls->Add(this->flowLayoutPanel1);
+			this->panel4->Controls->Add(this->label7);
+			this->panel4->Location = System::Drawing::Point(2, 27);
+			this->panel4->Name = L"panel4";
+			this->panel4->Size = System::Drawing::Size(132, 288);
+			this->panel4->TabIndex = 0;
+			// 
+			// flowLayoutPanel1
+			// 
+			this->flowLayoutPanel1->AutoScroll = true;
+			this->flowLayoutPanel1->FlowDirection = System::Windows::Forms::FlowDirection::TopDown;
+			this->flowLayoutPanel1->Location = System::Drawing::Point(14, 40);
+			this->flowLayoutPanel1->Name = L"flowLayoutPanel1";
+			this->flowLayoutPanel1->Size = System::Drawing::Size(116, 216);
+			this->flowLayoutPanel1->TabIndex = 0;
+			this->flowLayoutPanel1->WrapContents = false;
+			// 
+			// label7
+			// 
+			this->label7->AutoSize = true;
+			this->label7->Font = (gcnew System::Drawing::Font(L"Inter Medium", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label7->Location = System::Drawing::Point(24, 10);
+			this->label7->Name = L"label7";
+			this->label7->Size = System::Drawing::Size(90, 19);
+			this->label7->TabIndex = 26;
+			this->label7->Text = L"Interessos";
+			// 
 			// InformacioPersonal_ConsultaUI
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
@@ -419,6 +490,9 @@ namespace CppCLRWinFormsProject {
 			this->tableLayoutPanel1->ResumeLayout(false);
 			this->tableLayoutPanel1->PerformLayout();
 			this->panel2->ResumeLayout(false);
+			this->panel3->ResumeLayout(false);
+			this->panel4->ResumeLayout(false);
+			this->panel4->PerformLayout();
 			this->ResumeLayout(false);
 
 		}
@@ -430,6 +504,7 @@ namespace CppCLRWinFormsProject {
 	private: System::Void label3_Click(System::Object^ sender, System::EventArgs^ e) {
 	}
 	private: System::Void Edita_Click(System::Object^ sender, System::EventArgs^ e);
+	private: System::Void Checkbox_Click(System::Object^ sender, System::EventArgs^ e);
 	private: System::Void textBox1_TextChanged(System::Object^ sender, System::EventArgs^ e) {
 	}
 	private: System::Void label2_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -444,5 +519,10 @@ namespace CppCLRWinFormsProject {
 private: System::Void BotoCancela_Click(System::Object^ sender, System::EventArgs^ e);
 private: System::Void pictureBox2_Click(System::Object^ sender, System::EventArgs^ e);
 private: System::Void pictureBox1_Click(System::Object^ sender, System::EventArgs^ e);
+private: System::Void fill_flowlayoutpanelwithtags();
+
+
+
 };
+
 }

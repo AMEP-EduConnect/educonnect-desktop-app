@@ -123,7 +123,8 @@
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <LanguageStandard>stdcpp20</LanguageStandard>
-      <AdditionalIncludeDirectories>.\resources\libs\cryptopp890\</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>
+      </AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <AdditionalDependencies>
@@ -216,7 +217,19 @@
     <ResourceCompile Include="app.rc" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="GrupEstudi.h" />
+    <ClInclude Include="AcademicTagRepository.h" />
+    <ClInclude Include="BaixaUsuariAdminUI.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="ChatGrupEstudiService.h" />
+    <ClInclude Include="ChatGrupEstudiUI.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="ChatMessage.h" />
+    <ClInclude Include="ChatMessageRepository.h" />
+    <ClInclude Include="File.h" />
+    <ClInclude Include="FileByteConverterService.h" />
+    <ClInclude Include="FileRepository.h" />
     <ClInclude Include="GrupEstudi_ExplorarUI.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -252,6 +265,7 @@
     <ClInclude Include="EliminarEspaisService.h" />
     <ClInclude Include="Espai.h" />
     <ClInclude Include="EspaisRepository.h" />
+    <ClInclude Include="GrupEstudi.h" />
     <ClInclude Include="GrupEstudiMembershipRepository.h" />
     <ClInclude Include="GrupEstudiMembershipService.h" />
     <ClInclude Include="GrupEstudiRepository.h" />
@@ -326,7 +340,15 @@
     <ClInclude Include="Utils.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="GrupEstudi.cpp" />
+    <ClCompile Include="AcademicTagRepository.cpp" />
+    <ClCompile Include="BaixaUsuariAdminUI.cpp" />
+    <ClCompile Include="ChatGrupEstudiService.cpp" />
+    <ClCompile Include="ChatGrupEstudiUI.cpp" />
+    <ClCompile Include="ChatMessage.cpp" />
+    <ClCompile Include="ChatMessageRepository.cpp" />
+    <ClCompile Include="File.cpp" />
+    <ClCompile Include="FileByteConverterService.cpp" />
+    <ClCompile Include="FileRepository.cpp" />
     <ClCompile Include="GrupEstudi_ExplorarUI.cpp" />
     <ClCompile Include="GrupEstudi_InfoUI.cpp" />
     <ClCompile Include="GrupEstudi_MembresUI.cpp" />
@@ -357,6 +379,7 @@
     <ClCompile Include="InformacioPersonal_ConsultaUI.cpp" />
     <ClCompile Include="IniciSessioUI.cpp" />
     <ClCompile Include="FirstPageUI.cpp" />
+    <ClCompile Include="GrupEstudi.cpp" />
     <ClCompile Include="GrupEstudiMembershipRepository.cpp" />
     <ClCompile Include="GrupEstudiMembershipService.cpp" />
     <ClCompile Include="GrupEstudiRepository.cpp" />
@@ -401,14 +424,30 @@
     <Image Include="background.png" />
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.VisualStudio.Shell.15.0">
+      <HintPath>Microsoft.VisualStudio.Shell.15.0</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.Shell.Framework">
+      <HintPath>Microsoft.VisualStudio.Shell.Framework</HintPath>
+    </Reference>
     <Reference Include="MySql.Data">
       <HintPath>C:\Program Files (x86)\MySQL\MySQL Connector NET 8.3.0\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="RuWizard">
+      <HintPath>..\appdata\local\microsoft\visualstudio\17.0_7a097949\extensions\pkersg22.q5n\RuWizard.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Messaging" />
     <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xaml" />
     <Reference Include="System.Xml" />
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="AdministradorUI.resx">
@@ -423,6 +462,9 @@
     <EmbeddedResource Include="BaixaProveidorUI.resx">
       <DependentUpon>BaixaProveidorUI.h</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="BaixaUsuariAdminUI.resx">
+      <DependentUpon>BaixaUsuariAdminUI.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="BaixaUsuariUI.resx">
       <DependentUpon>BaixaUsuariUI.h</DependentUpon>
     </EmbeddedResource>
@@ -431,6 +473,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ConsultaEspaisUI.resx">
       <DependentUpon>ConsultaEspaisUI.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChatGrupEstudiUI.resx">
+      <DependentUpon>ChatGrupEstudiUI.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FirstPageUI.resx">
       <DependentUpon>FirstPageUI.h</DependentUpon>

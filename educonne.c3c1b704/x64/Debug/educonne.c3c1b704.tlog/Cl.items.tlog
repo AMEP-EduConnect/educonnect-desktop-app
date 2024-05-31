@@ -1,4 +1,12 @@
-F:\Proyectos\EduConnect\educonnect-desktop-app\GrupEstudi.cpp;F:\Proyectos\EduConnect\educonnect-desktop-app\educonne.c3c1b704\x64\Debug\GrupEstudi.obj
+F:\Proyectos\EduConnect\educonnect-desktop-app\AcademicTagRepository.cpp;F:\Proyectos\EduConnect\educonnect-desktop-app\educonne.c3c1b704\x64\Debug\AcademicTagRepository.obj
+F:\Proyectos\EduConnect\educonnect-desktop-app\BaixaUsuariAdminUI.cpp;F:\Proyectos\EduConnect\educonnect-desktop-app\educonne.c3c1b704\x64\Debug\BaixaUsuariAdminUI.obj
+F:\Proyectos\EduConnect\educonnect-desktop-app\ChatGrupEstudiService.cpp;F:\Proyectos\EduConnect\educonnect-desktop-app\educonne.c3c1b704\x64\Debug\ChatGrupEstudiService.obj
+F:\Proyectos\EduConnect\educonnect-desktop-app\ChatGrupEstudiUI.cpp;F:\Proyectos\EduConnect\educonnect-desktop-app\educonne.c3c1b704\x64\Debug\ChatGrupEstudiUI.obj
+F:\Proyectos\EduConnect\educonnect-desktop-app\ChatMessage.cpp;F:\Proyectos\EduConnect\educonnect-desktop-app\educonne.c3c1b704\x64\Debug\ChatMessage.obj
+F:\Proyectos\EduConnect\educonnect-desktop-app\ChatMessageRepository.cpp;F:\Proyectos\EduConnect\educonnect-desktop-app\educonne.c3c1b704\x64\Debug\ChatMessageRepository.obj
+F:\Proyectos\EduConnect\educonnect-desktop-app\File.cpp;F:\Proyectos\EduConnect\educonnect-desktop-app\educonne.c3c1b704\x64\Debug\File.obj
+F:\Proyectos\EduConnect\educonnect-desktop-app\FileByteConverterService.cpp;F:\Proyectos\EduConnect\educonnect-desktop-app\educonne.c3c1b704\x64\Debug\FileByteConverterService.obj
+F:\Proyectos\EduConnect\educonnect-desktop-app\FileRepository.cpp;F:\Proyectos\EduConnect\educonnect-desktop-app\educonne.c3c1b704\x64\Debug\FileRepository.obj
 F:\Proyectos\EduConnect\educonnect-desktop-app\GrupEstudi_ExplorarUI.cpp;F:\Proyectos\EduConnect\educonnect-desktop-app\educonne.c3c1b704\x64\Debug\GrupEstudi_ExplorarUI.obj
 F:\Proyectos\EduConnect\educonnect-desktop-app\GrupEstudi_InfoUI.cpp;F:\Proyectos\EduConnect\educonnect-desktop-app\educonne.c3c1b704\x64\Debug\GrupEstudi_InfoUI.obj
 F:\Proyectos\EduConnect\educonnect-desktop-app\GrupEstudi_MembresUI.cpp;F:\Proyectos\EduConnect\educonnect-desktop-app\educonne.c3c1b704\x64\Debug\GrupEstudi_MembresUI.obj
@@ -29,6 +37,7 @@ F:\Proyectos\EduConnect\educonnect-desktop-app\GrupSessionAttendantsService.cpp;
 F:\Proyectos\EduConnect\educonnect-desktop-app\InformacioPersonal_ConsultaUI.cpp;F:\Proyectos\EduConnect\educonnect-desktop-app\educonne.c3c1b704\x64\Debug\InformacioPersonal_ConsultaUI.obj
 F:\Proyectos\EduConnect\educonnect-desktop-app\IniciSessioUI.cpp;F:\Proyectos\EduConnect\educonnect-desktop-app\educonne.c3c1b704\x64\Debug\IniciSessioUI.obj
 F:\Proyectos\EduConnect\educonnect-desktop-app\FirstPageUI.cpp;F:\Proyectos\EduConnect\educonnect-desktop-app\educonne.c3c1b704\x64\Debug\FirstPageUI.obj
+F:\Proyectos\EduConnect\educonnect-desktop-app\GrupEstudi.cpp;F:\Proyectos\EduConnect\educonnect-desktop-app\educonne.c3c1b704\x64\Debug\GrupEstudi.obj
 F:\Proyectos\EduConnect\educonnect-desktop-app\GrupEstudiMembershipRepository.cpp;F:\Proyectos\EduConnect\educonnect-desktop-app\educonne.c3c1b704\x64\Debug\GrupEstudiMembershipRepository.obj
 F:\Proyectos\EduConnect\educonnect-desktop-app\GrupEstudiMembershipService.cpp;F:\Proyectos\EduConnect\educonnect-desktop-app\educonne.c3c1b704\x64\Debug\GrupEstudiMembershipService.obj
 F:\Proyectos\EduConnect\educonnect-desktop-app\GrupEstudiRepository.cpp;F:\Proyectos\EduConnect\educonnect-desktop-app\educonne.c3c1b704\x64\Debug\GrupEstudiRepository.obj

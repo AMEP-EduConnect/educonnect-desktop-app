@@ -42,3 +42,11 @@ bool BaixaUsuariService::BaixaUsuari(String^ value) {
 		if(*CurrentSession::Instance->GetCurrentUserRol() != 1LL) CurrentSession::Instance->LogoutCurrentUser();
 		return true;
 }
+
+List<Usuari^>^  BaixaUsuariService::LoadAllUsers() {
+	return usuariRepository->GetUsersByRolId(2LL);
+}
+
+List<Usuari^>^ BaixaUsuariService::LoadUsersByStartingLetter(String^ username) {
+	return usuariRepository->GetUsersByStartingLetter(2LL,username+"%");
+}

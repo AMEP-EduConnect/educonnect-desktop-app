@@ -38,6 +38,9 @@ namespace CppCLRWinFormsProject {
 	private: System::Windows::Forms::Panel^ panel1;
 	private: System::Windows::Forms::Label^ label2;
 	private: System::Windows::Forms::Panel^ panel2;
+	private: System::Windows::Forms::PictureBox^ pictureBox1;
+	private: bool password_visible = false;
+
 
 	protected:
 
@@ -62,9 +65,11 @@ namespace CppCLRWinFormsProject {
 			this->panel2 = (gcnew System::Windows::Forms::Panel());
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
 			this->label2 = (gcnew System::Windows::Forms::Label());
+			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
 			this->tableLayoutPanel1->SuspendLayout();
 			this->panel2->SuspendLayout();
 			this->panel1->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// label1
@@ -159,6 +164,7 @@ namespace CppCLRWinFormsProject {
 			// 
 			this->panel1->Anchor = System::Windows::Forms::AnchorStyles::None;
 			this->panel1->BackColor = System::Drawing::SystemColors::GradientInactiveCaption;
+			this->panel1->Controls->Add(this->pictureBox1);
 			this->panel1->Controls->Add(this->textBox1);
 			this->panel1->Controls->Add(this->button1);
 			this->panel1->Location = System::Drawing::Point(14, 1);
@@ -181,6 +187,19 @@ namespace CppCLRWinFormsProject {
 			this->label2->TabIndex = 19;
 			this->label2->Text = L"Donar Baixa Usuari";
 			// 
+			// pictureBox1
+			// 
+			this->pictureBox1->BackColor = System::Drawing::SystemColors::Window;
+			this->pictureBox1->Location = System::Drawing::Point(309, 46);
+			this->pictureBox1->MaximumSize = System::Drawing::Size(24, 24);
+			this->pictureBox1->MinimumSize = System::Drawing::Size(24, 24);
+			this->pictureBox1->Name = L"pictureBox1";
+			this->pictureBox1->Size = System::Drawing::Size(24, 24);
+			this->pictureBox1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
+			this->pictureBox1->TabIndex = 18;
+			this->pictureBox1->TabStop = false;
+			this->pictureBox1->Click += gcnew System::EventHandler(this, &BaixaUsuariUI::pictureBox1_Click);
+			// 
 			// BaixaUsuariUI
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
@@ -199,6 +218,7 @@ namespace CppCLRWinFormsProject {
 			this->panel2->ResumeLayout(false);
 			this->panel1->ResumeLayout(false);
 			this->panel1->PerformLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
 			this->ResumeLayout(false);
 
 		}
@@ -213,5 +233,6 @@ private: System::Void BaixaUsuariUI_Load(System::Object^ sender, System::EventAr
 }
 private: System::Void panel1_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
 }
+private: System::Void pictureBox1_Click(System::Object^ sender, System::EventArgs^ e);
 };
 }

@@ -41,6 +41,7 @@ Int64^ UsuariRolRepository::GetRolId(Int64^ user_id) {
 	DatabaseConnector::Instance->Disconnect();
 	return rol_id;
 }
+
 List<Int64>^ UsuariRolRepository::GetUsersByRolId(Int64^ rol_id) {
 	DatabaseConnector::Instance->Connect();
 	String^ sql = "SELECT user_id FROM users_roles WHERE role_id=@rol_id";

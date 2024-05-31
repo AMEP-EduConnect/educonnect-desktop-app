@@ -3,7 +3,7 @@
 #include "MainPageUI.h"
 #include "AltaProveidorUI.h"
 #include "BaixaProveidorUI.h"
-#include "BaixaUsuariUI.h"
+#include "BaixaUsuariAdminUI.h"
 using namespace System;
 
 namespace CppCLRWinFormsProject {
@@ -38,7 +38,7 @@ namespace CppCLRWinFormsProject {
 
     }
         Void AdministradorUI::BotoBaixaUser_Click(System::Object^ sender, System::EventArgs^ e) {
-        BaixaUsuariUI^ PanelUI = gcnew BaixaUsuariUI();
+        BaixaUsuariAdminUI^ PanelUI = gcnew BaixaUsuariAdminUI();
 		PanelUI->TopLevel = false;
 		PanelUI->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
 		PanelUI->Dock = System::Windows::Forms::DockStyle::Fill;

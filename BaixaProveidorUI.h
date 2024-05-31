@@ -84,11 +84,11 @@ namespace CppCLRWinFormsProject {
 			   this->PageTitleLabel->AutoSize = true;
 			   this->PageTitleLabel->Font = (gcnew System::Drawing::Font(L"Inter", 20.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				   static_cast<System::Byte>(0)));
-			   this->PageTitleLabel->Location = System::Drawing::Point(207, 23);
+			   this->PageTitleLabel->Location = System::Drawing::Point(252, 23);
 			   this->PageTitleLabel->Name = L"PageTitleLabel";
-			   this->PageTitleLabel->Size = System::Drawing::Size(398, 33);
+			   this->PageTitleLabel->Size = System::Drawing::Size(308, 33);
 			   this->PageTitleLabel->TabIndex = 13;
-			   this->PageTitleLabel->Text = L"Donar Baixa Prove\u00EFdor";
+			   this->PageTitleLabel->Text = L"Donar Baixa Proveïdor";
 			   // 
 			   // tableLayoutPanel1
 			   // 
@@ -147,9 +147,9 @@ namespace CppCLRWinFormsProject {
 			   this->BaixaProveidorLabel->ForeColor = System::Drawing::SystemColors::HotTrack;
 			   this->BaixaProveidorLabel->Location = System::Drawing::Point(39, 39);
 			   this->BaixaProveidorLabel->Name = L"BaixaProveidorLabel";
-			   this->BaixaProveidorLabel->Size = System::Drawing::Size(139, 19);
+			   this->BaixaProveidorLabel->Size = System::Drawing::Size(91, 19);
 			   this->BaixaProveidorLabel->TabIndex = 7;
-			   this->BaixaProveidorLabel->Text = L"Prove\u00EFdors";
+			   this->BaixaProveidorLabel->Text = L"Proveïdors";
 			   // 
 			   // Pertany_Label
 			   // 
@@ -165,7 +165,7 @@ namespace CppCLRWinFormsProject {
 			   // Llista_Proveidors
 			   // 
 			   this->Llista_Proveidors->Anchor = System::Windows::Forms::AnchorStyles::None;
-			   this->Llista_Proveidors->BackColor = System::Drawing::Color::Lavender;
+			   this->Llista_Proveidors->BackColor = System::Drawing::SystemColors::Window;
 			   this->Llista_Proveidors->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			   this->Llista_Proveidors->Font = (gcnew System::Drawing::Font(L"Inter", 11.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				   static_cast<System::Byte>(0)));
