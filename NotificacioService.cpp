@@ -12,6 +12,9 @@ Int64^ NotificacioService::AddNotificacio(Int64^ notification_type, Int64^ statu
     return notificacioRepository->AddNotificacio(notification_type, status, source_grup_id, source_user_id, destination_user_id);
 }
 
+void NotificacioService::RemoveNotificacio(Int64^ id) {
+    notificacioRepository->RemoveNotificacio(id);
+}
 
 List<Notificacio^>^ NotificacioService::ListNotificacions(Int64^ id_current_user) {
     List<Notificacio^>^ notificacions = gcnew List<Notificacio^>(0);

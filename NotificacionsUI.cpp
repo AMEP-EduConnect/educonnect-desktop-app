@@ -57,10 +57,11 @@ namespace CppCLRWinFormsProject {
             Usuari^ user_destination = iniciSessioService->GetUsuariById(id_destination);
             String^ nom_destination = user_destination->GetUsername();
 
-            if (id_current_user == id_destination) {
-                if (*id_type == 2LL) {
+            if (*id_current_user == *id_destination) {
+                if (*id_type == 1LL) {
                     if (*id_status == 1LL) {
-                        Llista_Notificacions->Items->Add(id + " - " + nom_source + " t'ha invitat a unir-te al grup " + nom_grup_source);
+                        Llista_Notificacions->Items->Add(id + " - " + nom_source + " ha solicitat unir-se al grup " + nom_grup_source);
+
                         /*Acceptarbutton->Enabled = true;
                         Acceptarbutton->Visible = true;
                         Rebutjarbutton->Enabled = true;
@@ -83,7 +84,7 @@ namespace CppCLRWinFormsProject {
 
                 else {
                     if (*id_status == 1LL) {
-                        Llista_Notificacions->Items->Add(id + " - " + nom_source + " ha solicitat unir-se al grup " + nom_grup_source);
+                        Llista_Notificacions->Items->Add(id + " - " + nom_source + " t'ha invitat a unir-te al grup " + nom_grup_source);
 
                     }
                     /*
@@ -158,14 +159,20 @@ namespace CppCLRWinFormsProject {
             Int64^ status = 2LL;
             Int64^ id_user;
             Int64^ id_type = notificacio->GetNotificationType();
-            if (id_type == 1LL) id_user = id_source;
+            if (*id_type == 1LL) id_user = id_source;
             else id_user = id_destination;
-            grupEstudiMembershipService->UserToGroup(id_user, id_grup);
-            notificacioService->ChangeStatus(status, notificacio);
-            if (id_type == 1LL)MessageManager::InfoMessage("S'ha acceptat la solicitud");
-            else MessageManager::InfoMessage("Has acceptat la invitació");
 
-            //Llista_Notificacions->Items->Clear();
+            if (grupEstudiMembershipService->CheckIfUserIsInGroup(id_user, id_grup)) {
+                MessageManager::WarningMessage("L'usuari ja pertany al grup.");
+                notificacioService->RemoveNotificacio(selectedId);
+            }
+
+            else {
+                grupEstudiMembershipService->UserToGroup(id_user, id_grup);
+                notificacioService->ChangeStatus(status, notificacio);
+                if (*id_type == 1LL)MessageManager::InfoMessage("S'ha acceptat la solicitud");
+                else MessageManager::InfoMessage("Has acceptat la invitació");
+            }
             LoadNotificacionsList(sender, e);
         }
         else {
@@ -180,7 +187,7 @@ namespace CppCLRWinFormsProject {
             Int64^ status = 3LL;
             Int64^ id_type = notificacio->GetNotificationType();
             notificacioService->ChangeStatus(status, notificacio);
-            if (id_type == 1LL) MessageManager::InfoMessage("S'ha rebutjat la solicitud");
+            if (*id_type == 1LL) MessageManager::InfoMessage("S'ha rebutjat la solicitud");
             else MessageManager::InfoMessage("Has rebutjat la invitació");
             LoadNotificacionsList(sender, e);
         }
@@ -202,7 +209,7 @@ namespace CppCLRWinFormsProject {
             Usuari^ current_user = CurrentSession::Instance->GetCurrentUser();
             Int64^ id_current_user = current_user->GetUserId();
 
-            if (id_current_user == id_source) {
+            if (*id_current_user != *id_source) {
                 Acceptarbutton->Enabled = true;
                 Acceptarbutton->Visible = true;
                 Rebutjarbutton->Enabled = true;
