@@ -6,7 +6,7 @@
 #include "StartPageUI.h"
 #include "CurrentSession.h"
 #include "Usuari.h"
-#include "ReportsService.h"
+
 using namespace System;
 
 
