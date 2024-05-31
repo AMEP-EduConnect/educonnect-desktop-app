@@ -24,7 +24,7 @@ namespace CppCLRWinFormsProject {
 	public ref class GrupEstudi_Explorar : public System::Windows::Forms::Form
 	{
 	public:
-		GrupEstudi_Explorar(void);
+		GrupEstudi_Explorar(String^ groupname);
 
 	protected:
 		/// <summary>
@@ -55,13 +55,14 @@ namespace CppCLRWinFormsProject {
 	private: System::Windows::Forms::TextBox^ buscador_textBox;
 	private: System::Windows::Forms::Panel^ panel1;
 	private: System::Windows::Forms::Button^ Unirse_Button;
+	public: System::String^ groupname;
 	protected:
 
 	private:
 		/// <summary>
 		/// Variable del dise�ador necesaria.
 		/// </summary>
-		System::ComponentModel::Container ^components;
+		System::ComponentModel::Container^ components;
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
@@ -332,25 +333,25 @@ namespace CppCLRWinFormsProject {
 		}
 #pragma endregion
 
-private: System::Void Actual_Panel_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {}
-private: System::Void Pertany_Label_Click(System::Object^ sender, System::EventArgs^ e) {}
-private: System::Void tableLayoutPanel1_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {}
+	private: System::Void Actual_Panel_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {}
+	private: System::Void Pertany_Label_Click(System::Object^ sender, System::EventArgs^ e) {}
+	private: System::Void tableLayoutPanel1_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {}
 
-private: System::Void Membres_Button_Click(System::Object^ sender, System::EventArgs^ e);
-private: System::Void Unirse_Button_Click(System::Object^ sender, System::EventArgs^ e);
+	private: System::Void Membres_Button_Click(System::Object^ sender, System::EventArgs^ e);
+	private: System::Void Unirse_Button_Click(System::Object^ sender, System::EventArgs^ e);
 
-private: System::Void GrupEstudi_Explorar_Load(System::Object^ sender, System::EventArgs^ e);
-private: System::Void Noms_ListBox_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e);
+	private: System::Void GrupEstudi_Explorar_Load(System::Object^ sender, System::EventArgs^ e);
+	private: System::Void Noms_ListBox_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e);
 
-private: System::Void Description_ListBox_Load(System::Object^ sender, System::EventArgs^ e);
-private: System::Void numero_membres(System::Object^ sender, System::EventArgs^ e);
-private: System::Void academic_tag(System::Object^ sender, System::EventArgs^ e);
-private: System::Void buscador_textBox_Click(System::Object^ sender, System::EventArgs^ e);
-private: System::Void buscar_button_Click(System::Object^ sender, System::EventArgs^ e);
+	private: System::Void Description_ListBox_Load(System::Object^ sender, System::EventArgs^ e);
+	private: System::Void numero_membres(System::Object^ sender, System::EventArgs^ e);
+	private: System::Void academic_tag(System::Object^ sender, System::EventArgs^ e);
+	private: System::Void buscador_textBox_Click(System::Object^ sender, System::EventArgs^ e);
+	private: System::Void buscar_button_Click(System::Object^ sender, System::EventArgs^ e);
 
-private: System::Void buscador_textBox_TextChanged(System::Object^ sender, System::EventArgs^ e);
-array<GrupEstudi^>^ GrupEstudi_Explorar_Array();
-private: System::Void GrupEstudi_Explorar_FormClosed();
+	private: System::Void buscador_textBox_TextChanged(System::Object^ sender, System::EventArgs^ e);
+		   array<GrupEstudi^>^ GrupEstudi_Explorar_Array();
+	private: System::Void GrupEstudi_Explorar_FormClosed();
 
-};
+	};
 };

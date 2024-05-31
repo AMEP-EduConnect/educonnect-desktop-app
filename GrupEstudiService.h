@@ -36,6 +36,7 @@ public:
 	bool CheckUserIsOwnerByIds(Int64^ user_id, Int64^ group_id);
 
 	List<GrupEstudi^>^ CheckNrecentGroups(Int64^ N, Int64^ user_id);
+	List<GrupEstudi^>^ RecomanaNGrups(Int64^ academic_tag, Int64^ user_id, Int64^ N);
 
 	void ChangeGroupOwner(Int64^ group_id, Int64^ new_owner_id);
 	bool DeleteGrupEstudiById(Int64^ id);

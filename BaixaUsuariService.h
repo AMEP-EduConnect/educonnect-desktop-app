@@ -7,8 +7,12 @@
 public ref class BaixaUsuariService
 {
 public:
-		BaixaUsuariService();
-		bool BaixaUsuari(String^ username);
+	BaixaUsuariService();
+	bool BaixaUsuari(String^ username);
+
+	List<Usuari^>^ LoadAllUsers();
+
+	List<Usuari^>^ LoadUsersByStartingLetter(String^ username);
 
 private:
 	UsuariRepository^ usuariRepository;

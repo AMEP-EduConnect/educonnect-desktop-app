@@ -101,29 +101,36 @@ List<GrupEstudi^>^ GrupEstudiService::CheckNrecentGroups(Int64^ N, Int64^ user_i
 	groups_id = grupEstudiMembershipService->CheckNRecentGroups(N, user_id);
 	IEnumerator<Int64>^ enumerator = groups_id->GetEnumerator();
 
-	while(enumerator->MoveNext())
+	while (enumerator->MoveNext())
 		groups->Add(grupEstudiRepository->GetGrupEstudiById(enumerator->Current));
-		
 
-	return groups; 
+
+	return groups;
 }
+
+List<GrupEstudi^>^ GrupEstudiService::RecomanaNGrups(Int64^ academic_tag, Int64^ user_id, Int64^ N)
+{
+	return grupEstudiRepository->GetNGrupEstudiByacademic_tag(academic_tag, user_id, N);
+}
+
+
 
 bool GrupEstudiService::CheckUserIsOwnerByIds(Int64^ user_id, Int64^ group_id)
 {
 	return grupEstudiRepository->CheckUserIsOwnerById(user_id, group_id);
 }
 
-GrupEstudi^ GrupEstudiService::GetGrupEstudiById(Int64^ id) 
+GrupEstudi^ GrupEstudiService::GetGrupEstudiById(Int64^ id)
 {
 	return grupEstudiRepository->GetGrupEstudiById(id);
 }
 
-GrupEstudi^ GrupEstudiService::GetGrupEstudiByName(String^ group_name) 
+GrupEstudi^ GrupEstudiService::GetGrupEstudiByName(String^ group_name)
 {
 	return grupEstudiRepository->GetGrupEstudiByName(group_name);
 }
 
-String^ GrupEstudiService::GetAcademicTagNameById(Int64^ academic_tag_id) 
+String^ GrupEstudiService::GetAcademicTagNameById(Int64^ academic_tag_id)
 {
 	return grupEstudiRepository->GetAcademicTagNameById(academic_tag_id);
 }
@@ -143,5 +150,5 @@ String^ GrupEstudiService::GetGroupDescription(String^ NomGrup) {
 }
 
 array<GrupEstudi^>^ GrupEstudiService::LoadGrupsNoMembers(Int64^ user_id) {
-		return grupEstudiRepository->LoadGrupsNoMembers(user_id);
+	return grupEstudiRepository->LoadGrupsNoMembers(user_id);
 }

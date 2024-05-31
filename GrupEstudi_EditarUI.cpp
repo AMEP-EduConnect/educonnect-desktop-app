@@ -1,4 +1,4 @@
-#include "pch.h"
+ï»¿#include "pch.h"
 #include "GrupEstudi_EditarUI.h"
 #include "GrupEstudi_ConsultarUI.h"
 #include "GrupEstudi_InfoUI.h"
@@ -26,7 +26,7 @@ namespace CppCLRWinFormsProject {
 
     void GrupEstudi_EditarUI::CancelarButton_Click(System::Object^ sender, System::EventArgs^ e)
     {
-        GrupEstudi_InfoUI^ PanelUI = gcnew GrupEstudi_InfoUI(nomActual);
+        GrupEstudi_InfoUI^ PanelUI = gcnew GrupEstudi_InfoUI(nomActual, 1);
 
         PanelUI->TopLevel = false;
         PanelUI->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
@@ -103,10 +103,10 @@ namespace CppCLRWinFormsProject {
                 else if (noModifica == true and EditarDescripcio_TextBox->Text == descripcioActual and NomActual_TextBox->Text == nomActual) {
                     //noModificarButton_Click(sender, e);
                     MessageManager::WarningMessage("Modifica almenys un camp per actualitzar el grup!");
-				}
+                }
 
                 if (checkD == true and checkN == false) {
-                    MessageManager::InfoMessage("Descripció del grup modificada correctament.");
+                    MessageManager::InfoMessage("Descripciï¿½ del grup modificada correctament.");
                     this->NomActual_TextBox->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(224)), static_cast<System::Int32>(static_cast<System::Byte>(224)),
                         static_cast<System::Int32>(static_cast<System::Byte>(224)));
                     this->EditarDescripcio_TextBox->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(224)), static_cast<System::Int32>(static_cast<System::Byte>(224)),
@@ -139,7 +139,7 @@ namespace CppCLRWinFormsProject {
                     descripcioActual = EditarDescripcio_TextBox->Text;
                 }
                 else if (checkN == true and checkD == true) {
-                    MessageManager::InfoMessage("Nom i descripció del grup modificats correctament.");
+                    MessageManager::InfoMessage("Nom i descripciï¿½ del grup modificats correctament.");
                     this->NomActual_TextBox->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(224)), static_cast<System::Int32>(static_cast<System::Byte>(224)),
                         static_cast<System::Int32>(static_cast<System::Byte>(224)));
                     this->EditarDescripcio_TextBox->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(224)), static_cast<System::Int32>(static_cast<System::Byte>(224)),

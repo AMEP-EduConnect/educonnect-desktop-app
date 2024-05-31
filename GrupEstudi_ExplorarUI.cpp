@@ -8,12 +8,14 @@
 
 namespace CppCLRWinFormsProject {
 	GrupEstudi_Explorar::GrupEstudi_Explorar(void)
+		GrupEstudi_Explorar::GrupEstudi_Explorar(String^ groupname)
 	{
 		InitializeComponent();
 		grupEstudiMembershipService = gcnew GrupEstudiMembershipService();
 		grupEstudiService = gcnew GrupEstudiService();
 		arrayIdGroupEstudisOfUserNoIn = GrupEstudi_Explorar_Array();
 		this->Icon = gcnew System::Drawing::Icon("app.ico");
+		this->groupname = groupname;
 	}
 
 	array<GrupEstudi^>^ GrupEstudi_Explorar::GrupEstudi_Explorar_Array() {
@@ -21,7 +23,7 @@ namespace CppCLRWinFormsProject {
 		array<GrupEstudi^>^ arrayIdGroupEstudisOfUser = grupEstudiService->LoadGrupsNoMembers(currentUser->GetUserId());
 		return arrayIdGroupEstudisOfUser;
 	}
-	
+
 	void GrupEstudi_Explorar::GrupEstudi_Explorar_Load(System::Object^ sender, System::EventArgs^ e) {
 
 		Noms_ListBox->Items->Clear();
@@ -38,29 +40,32 @@ namespace CppCLRWinFormsProject {
 			for (int i = 0; i < arrayIdGroupEstudisOfUserNoIn->Length; i++) {
 				Noms_ListBox->Items->Add(arrayIdGroupEstudisOfUserNoIn[i]->GetGroupName());
 
+				if (arrayIdGroupEstudisOfUserNoIn[i]->GetGroupName() == groupname) {
+					Noms_ListBox->SelectedIndex = i;
+				}
 			}
 		}
 	}
 
 	void GrupEstudi_Explorar::Noms_ListBox_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e)
 	{
-			Membres_Button->Visible = true;
-			Unirse_Button->Visible = true;
-			Description_titulo->Visible = true;
-			Num_membres->Visible = true;
-			academicTag_titulo->Visible = true;
+		Membres_Button->Visible = true;
+		Unirse_Button->Visible = true;
+		Description_titulo->Visible = true;
+		Num_membres->Visible = true;
+		academicTag_titulo->Visible = true;
 
-			nummem->Clear();
-			nummem->Visible = true;
-			numero_membres(sender, e);
+		nummem->Clear();
+		nummem->Visible = true;
+		numero_membres(sender, e);
 
-			academictag->Clear();
-			academictag->Visible = true;
-			academic_tag(sender, e);
+		academictag->Clear();
+		academictag->Visible = true;
+		academic_tag(sender, e);
 
-			Description_ListBox->Items->Clear();
-			Description_ListBox->Visible = true;
-			Description_ListBox_Load(sender, e);
+		Description_ListBox->Items->Clear();
+		Description_ListBox->Visible = true;
+		Description_ListBox_Load(sender, e);
 	}
 
 	void GrupEstudi_Explorar::GrupEstudi_Explorar_FormClosed() {
@@ -107,7 +112,7 @@ namespace CppCLRWinFormsProject {
 		MainPageUI::Instance->screen->Controls->Add(PanelUI);
 		PanelUI->Show();
 	}
-	
+
 	void GrupEstudi_Explorar::Unirse_Button_Click(System::Object^ sender, System::EventArgs^ e) {
 		//Solicita unirse al grupo
 		//TODO: FALTA IMPLEMENTAR SPRINT 3
@@ -128,7 +133,7 @@ namespace CppCLRWinFormsProject {
 		}
 		else {
 			MessageManager::ErrorMessage("No s'ha trobat cap grup amb aquest nom");
-			
+
 			buscador_textBox->Clear();
 			GrupEstudi_Explorar_FormClosed();
 		}

@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 
 using namespace MySql::Data::MySqlClient;
 
@@ -21,6 +21,8 @@ namespace CppCLRWinFormsProject {
 		MainPageUI(void);
 
 
+
+
 		//protected:
 			/// <summary>
 			/// Clean up any resources being used.
@@ -37,7 +39,7 @@ namespace CppCLRWinFormsProject {
 		System::Windows::Forms::Panel^ screen;
 
 	private:
-
+		bool sessionClosed = false;
 		System::Windows::Forms::Button^ BotoPersonal;
 		System::Windows::Forms::Button^ BotoLogout;
 		System::Windows::Forms::TableLayoutPanel^ tableLayoutPanel3;
@@ -123,7 +125,7 @@ namespace CppCLRWinFormsProject {
 			this->BotoLogout->Name = L"BotoLogout";
 			this->BotoLogout->Size = System::Drawing::Size(146, 41);
 			this->BotoLogout->TabIndex = 2;
-			this->BotoLogout->Text = L"Tancar sessi\u00F3";
+			this->BotoLogout->Text = L"Tancar sessi�";
 			this->BotoLogout->TextAlign = System::Drawing::ContentAlignment::MiddleRight;
 			this->BotoLogout->UseVisualStyleBackColor = true;
 			this->BotoLogout->Click += gcnew System::EventHandler(this, &MainPageUI::Tancar_Sessio_Click);
@@ -176,13 +178,13 @@ namespace CppCLRWinFormsProject {
 			// 
 			this->label1->Anchor = System::Windows::Forms::AnchorStyles::None;
 			this->label1->AutoSize = true;
-			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 21.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->label1->Font = (gcnew System::Drawing::Font(L"Inter", 21.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label1->ForeColor = System::Drawing::SystemColors::HotTrack;
 			this->label1->ImageAlign = System::Drawing::ContentAlignment::MiddleRight;
-			this->label1->Location = System::Drawing::Point(21, 17);
+			this->label1->Location = System::Drawing::Point(17, 16);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(174, 33);
+			this->label1->Size = System::Drawing::Size(183, 35);
 			this->label1->TabIndex = 0;
 			this->label1->Text = L"EduConnect";
 			// 
@@ -384,18 +386,18 @@ namespace CppCLRWinFormsProject {
 
 		}
 #pragma endregion
-private:
+	private:
 
-	System::Void MainPageUI_Load(System::Object^ sender, System::EventArgs^ e);
+		System::Void MainPageUI_Load(System::Object^ sender, System::EventArgs^ e);
 
-	System::Void Tancar_Sessio_Click(System::Object^ sender, System::EventArgs^ e);
-	System::Void Perfil_Click(System::Object^ sender, System::EventArgs^ e);
+		System::Void Tancar_Sessio_Click(System::Object^ sender, System::EventArgs^ e);
+		System::Void Perfil_Click(System::Object^ sender, System::EventArgs^ e);
 
-	System::Void BotoInici_Click(System::Object^ sender, System::EventArgs^ e);
-	System::Void Admin_Click(System::Object^ sender, System::EventArgs^ e);
-	System::Void ElsMeus_Click(System::Object^ sender, System::EventArgs^ e);
-	System::Void BotoExplorar_Click(System::Object^ sender, System::EventArgs^ e);
-	System::Void BotoEspais_Click(System::Object^ sender, System::EventArgs^ e);
-
-};
+		System::Void BotoInici_Click(System::Object^ sender, System::EventArgs^ e);
+		System::Void Admin_Click(System::Object^ sender, System::EventArgs^ e);
+		System::Void ElsMeus_Click(System::Object^ sender, System::EventArgs^ e);
+		System::Void BotoExplorar_Click(System::Object^ sender, System::EventArgs^ e);
+		System::Void BotoEspais_Click(System::Object^ sender, System::EventArgs^ e);
+		System::Void MainForm_FormClosing(System::Object^ sender, System::Windows::Forms::FormClosingEventArgs^ e);
+	};
 }

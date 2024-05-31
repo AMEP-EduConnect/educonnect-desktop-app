@@ -35,7 +35,7 @@ namespace CppCLRWinFormsProject {
         if (not grupEstudiMembershipService->UserInSomeGroup(currentUser->GetUserId())) {
             abandonar_button->Visible = false;
             MoreInfo_GrupEstudi_Button->Visible = false;
-		}
+        }
     }
 
     void GrupEstudi_ConsultarUI::GrupEstudi_ConsultarUIreload() {
@@ -44,12 +44,12 @@ namespace CppCLRWinFormsProject {
         Noms_ListBox->Items->Clear();
 
         if (arrayIdGroupEstudisOfUser->Length == 0) {
-			abandonar_button->Visible = false;
-            
+            abandonar_button->Visible = false;
+
             Noms_ListBox->Items->Add("No tens cap grup d'estudi assignat.");
             Noms_ListBox->ForeColor = System::Drawing::Color::Gray;
             Noms_ListBox->Enabled = false;
-		}
+        }
         else {
             Noms_ListBox->ForeColor = System::Drawing::Color::Black;
             Noms_ListBox->Enabled = true;
@@ -58,7 +58,7 @@ namespace CppCLRWinFormsProject {
                 GrupEstudi^ grupEstudiUser = grupEstudiMembershipService->LoadAllGrupEstudibyId(arrayIdGroupEstudisOfUser[i]);
                 Noms_ListBox->Items->Add(grupEstudiUser->GetGroupName());
             }
-		}
+        }
     }
 
     void GrupEstudi_ConsultarUI::GrupEstudi_ConsultarUI_Load(System::Object^ sender, System::EventArgs^ e)
@@ -102,7 +102,7 @@ namespace CppCLRWinFormsProject {
                                             MessageManager::ErrorMessage("Error al eliminar el grup.");
                                         }
                                     }
-								}
+                                }
 
 
                                 else {
@@ -151,17 +151,17 @@ namespace CppCLRWinFormsProject {
     void GrupEstudi_ConsultarUI::CrearGrupEstudi_Click(System::Object^ sender, System::EventArgs^ e)
     {
         GrupEstudi_CrearUI^ PanelUI = gcnew GrupEstudi_CrearUI(1);
-		PanelUI->TopLevel = false;
-		PanelUI->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
-		PanelUI->Dock = System::Windows::Forms::DockStyle::Fill;
+        PanelUI->TopLevel = false;
+        PanelUI->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
+        PanelUI->Dock = System::Windows::Forms::DockStyle::Fill;
 
-		MainPageUI::Instance->screen->Controls->Clear();
-		MainPageUI::Instance->screen->Controls->Add(PanelUI);
-		PanelUI->Show();
-	}
+        MainPageUI::Instance->screen->Controls->Clear();
+        MainPageUI::Instance->screen->Controls->Add(PanelUI);
+        PanelUI->Show();
+    }
     System::Void GrupEstudi_ConsultarUI::MoreInfo_GrupEstudi_Button_Click(System::Object^ sender, System::EventArgs^ e)
     {
-        GrupEstudi_InfoUI^ PanelUI = gcnew GrupEstudi_InfoUI(Noms_ListBox->Text);
+        GrupEstudi_InfoUI^ PanelUI = gcnew GrupEstudi_InfoUI(Noms_ListBox->Text, 1);
         PanelUI->TopLevel = false;
         PanelUI->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
         PanelUI->Dock = System::Windows::Forms::DockStyle::Fill;

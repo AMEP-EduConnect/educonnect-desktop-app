@@ -85,7 +85,7 @@ void GrupEstudiRepository::DeleteGrupEstudi(String^ group_name)
 	int rowsAffected = command->ExecuteNonQuery();
 
 	DatabaseConnector::Instance->Disconnect();
-}	
+}
 bool GrupEstudiRepository::DeleteGrupEstudiById(Int64^ id)
 {
 	DatabaseConnector::Instance->Connect();
@@ -133,6 +133,31 @@ GrupEstudi^ GrupEstudiRepository::GetGrupEstudiByName(String^ group_name_act) {
 	}
 	DatabaseConnector::Instance->Disconnect();
 	return grupestudi;
+}
+
+List<GrupEstudi^>^ GrupEstudiRepository::GetNGrupEstudiByacademic_tag(Int64^ academic_tag, Int64^ user_id, Int64^ N)
+{
+	DatabaseConnector::Instance->Connect();
+	String^ sql = "SELECT * FROM studyGroups WHERE group_academic_tag = @academic_tag AND id NOT IN (SELECT group_id FROM studyGroupsMembership WHERE user_id = @user_id)";
+
+	Dictionary<String^, Object^>^ params = gcnew Dictionary<String^, Object^>(0);
+	params->Add("@academic_tag", academic_tag->ToString());
+	params->Add("@user_id", user_id->ToString());
+	MySqlDataReader^ data = DatabaseConnector::Instance->ExecuteClientCommand(sql, params);
+	List<GrupEstudi^>^ grups = gcnew List<GrupEstudi^>(0);
+	while (data->Read())
+	{
+		GrupEstudi^ grup = gcnew GrupEstudi();
+		grup->SetId(data->GetInt64(0));
+		grup->SetGroupName(data->GetString(1));
+		grup->SetGroupOwnerId(data->GetInt64(2));
+		grup->SetGroupAcademicTag(data->GetInt64(3));
+		grup->SetDescription(data->GetString(4));
+		grups->Add(grup);
+	}
+	data->Close();
+	DatabaseConnector::Instance->Disconnect();
+	return grups;
 }
 
 
@@ -320,3 +345,5 @@ array<GrupEstudi^>^ GrupEstudiRepository::LoadGrupsNoMembers(Int64^ user_id) {
 	DatabaseConnector::Instance->Disconnect();
 	return grups;
 }
+
+

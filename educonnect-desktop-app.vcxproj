@@ -216,6 +216,19 @@
     <ResourceCompile Include="app.rc" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AcademicTagRepository.h" />
+    <ClInclude Include="BaixaUsuariAdminUI.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="ChatGrupEstudiService.h" />
+    <ClInclude Include="ChatGrupEstudiUI.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="ChatMessage.h" />
+    <ClInclude Include="ChatMessageRepository.h" />
+    <ClInclude Include="File.h" />
+    <ClInclude Include="FileByteConverterService.h" />
+    <ClInclude Include="FileRepository.h" />
     <ClInclude Include="GrupEstudi.h" />
     <ClInclude Include="GrupEstudi_ExplorarUI.h">
       <FileType>CppForm</FileType>
@@ -326,6 +339,15 @@
     <ClInclude Include="Utils.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="AcademicTagRepository.cpp" />
+    <ClCompile Include="BaixaUsuariAdminUI.cpp" />
+    <ClCompile Include="ChatGrupEstudiService.cpp" />
+    <ClCompile Include="ChatGrupEstudiUI.cpp" />
+    <ClCompile Include="ChatMessage.cpp" />
+    <ClCompile Include="ChatMessageRepository.cpp" />
+    <ClCompile Include="File.cpp" />
+    <ClCompile Include="FileByteConverterService.cpp" />
+    <ClCompile Include="FileRepository.cpp" />
     <ClCompile Include="GrupEstudi.cpp" />
     <ClCompile Include="GrupEstudi_ExplorarUI.cpp" />
     <ClCompile Include="GrupEstudi_InfoUI.cpp" />

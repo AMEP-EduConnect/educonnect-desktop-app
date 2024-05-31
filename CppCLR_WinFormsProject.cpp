@@ -18,12 +18,15 @@ using namespace System;
 #include "DatabaseConnector.h"
 #include "CurrentSession.h"
 #include "Usuari.h"
+#include "ChatMessage.h"
 #include "RegistreUsuariUI.h"
 #include "IniciSessioUI.h"
 #include "BaixaUsuariUI.h"
 #include "CaptchaUI.h"
 #include "StartPageUI.h"
-#include "AltaEspaisUI.h"
+#include "ChatGrupEstudiUI.h"
+#include "BaixaUsuariAdminUI.h"
+using namespace System;
 #include "InformacioPersonal_ConsultaUI.h"
 
 using namespace System;
@@ -34,12 +37,17 @@ int main()
 {
 	DatabaseConnector::Instance = gcnew DatabaseConnector();
 	CurrentSession::Instance = gcnew CurrentSession();
-	
+
 	Application::EnableVisualStyles();
 	Application::SetCompatibleTextRenderingDefault(false);
 
 	CppCLRWinFormsProject::StartPageUI::Instance = gcnew CppCLRWinFormsProject::StartPageUI();
-	
+
 	Application::Run(CppCLRWinFormsProject::StartPageUI::Instance);
+	delete CppCLRWinFormsProject::StartPageUI::Instance;
+	delete CppCLRWinFormsProject::ChatGrupEstudiUI::Instance;
+	delete DatabaseConnector::Instance;
+	delete CurrentSession::Instance;
+
 	return 0;
 }
