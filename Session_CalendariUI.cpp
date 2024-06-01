@@ -6,13 +6,12 @@ namespace CppCLRWinFormsProject {
 	Session_CalendariUI::Session_CalendariUI(void) {
 		InitializeComponent();
 		i = 0;
-		isSessionCardAvailable = false;
 		grupEstudiMembershipService = gcnew GrupEstudiMembershipService();
 		grupEstudiService = gcnew GrupEstudiService();
 		sessionService = gcnew SessionService();
 		grupSessionAttendantsService = gcnew GrupSessionAttendantsService();
 		consultaEspaisService = gcnew ConsultaEspaisService();
-		this->ChangeSessionCardVisibility(isSessionCardAvailable);
+		this->ChangeSessionCardVisibility(false);
 		Session_CalendariUI_ReLoad();
 	}
 	Void Session_CalendariUI::ChangeSessionCardVisibility(bool isSessionCardAvailable) {
@@ -24,8 +23,6 @@ namespace CppCLRWinFormsProject {
 		Horari->Visible = isSessionCardAvailable;
 		Capacity->Visible = isSessionCardAvailable;
 		Attendants->Visible = isSessionCardAvailable;
-		Anterior_Button->Visible = isSessionCardAvailable;
-		Seguent_Button->Visible = isSessionCardAvailable;
 		DaySessions->Visible = isSessionCardAvailable;
 		Contador->Visible = isSessionCardAvailable;
 		SeparatorAsistents_Label->Visible = isSessionCardAvailable;
@@ -61,14 +58,6 @@ namespace CppCLRWinFormsProject {
 					break;
 				}
 
-				/*NomGrup->Text = grupEstudiService->GetGrupEstudiById(sessionsdia[i]->GetGroupId())->GetGroupName();
-				Espai^ espai = consultaEspaisService->GetEspaiByEspaiId(sessionsdia[i]->GetEspaiId());
-				NomEspai->Text = espai->GetName();
-				NomSessió->Text = sessionsdia[i]->GetSessionName();
-				Data->Text = sessionsdia[i]->GetSessionStartDate()->ToString("dd/MM/yyyy");
-				Horari->Text = sessionsdia[i]->GetSessionStartDate()->ToString("HH:mm") + " - " + sessionsdia[0]->GetSessionEndDate()->ToString("HH:mm");
-				Capacity->Text = Convert::ToString(espai->GetCapacity());
-				Attendants->Text = Convert::ToString(grupSessionAttendantsService->GetSessionAttendantsCount(sessionsdia[i]->GetId()));*/
 				NomGrup->Text = grupEstudiService->GetGrupEstudiById(enumerator->Current->GetGroupId())->GetGroupName();
 				Espai^ espai = consultaEspaisService->GetEspaiByEspaiId(enumerator->Current->GetEspaiId());
 				NomEspai->Text = espai->GetName();
@@ -101,11 +90,6 @@ namespace CppCLRWinFormsProject {
 		int aux = i + 1;
 		Contador->Text = Convert::ToString(aux);
 		enumerator->MoveNext();
-		/*NomGrup->Text = grupEstudiService->GetGrupEstudiById(sessionsdia[i]->GetGroupId())->GetGroupName();
-		NomEspai->Text = consultaEspaisService->GetEspaiByEspaiId(sessionsdia[i]->GetEspaiId())->GetName();
-		NomSessió->Text = sessionsdia[i]->GetSessionName();
-		Data->Text = sessionsdia[i]->GetSessionStartDate()->ToString("dd/MM/yyyy");
-		Horari->Text = sessionsdia[i]->GetSessionStartDate()->ToString("HH:mm") + " - " + sessionsdia[0]->GetSessionEndDate()->ToString("HH:mm");*/
 		NomGrup->Text = grupEstudiService->GetGrupEstudiById(enumerator->Current->GetGroupId())->GetGroupName();
 		NomEspai->Text = consultaEspaisService->GetEspaiByEspaiId(enumerator->Current->GetEspaiId())->GetName();
 		NomSessió->Text = enumerator->Current->GetSessionName();
@@ -126,11 +110,6 @@ namespace CppCLRWinFormsProject {
 		}
 		int aux = i + 1;
 		Contador->Text = Convert::ToString(aux);
-		/*NomGrup->Text = grupEstudiService->GetGrupEstudiById(sessionsdia[i]->GetGroupId())->GetGroupName();
-		NomEspai->Text = consultaEspaisService->GetEspaiByEspaiId(sessionsdia[i]->GetEspaiId())->GetName();
-		NomSessió->Text = sessionsdia[i]->GetSessionName();
-		Data->Text = sessionsdia[i]->GetSessionStartDate()->ToString("dd/MM/yyyy");
-		Horari->Text = sessionsdia[i]->GetSessionStartDate()->ToString("HH:mm") + " - " + sessionsdia[0]->GetSessionEndDate()->ToString("HH:mm");*/
 		NomGrup->Text = grupEstudiService->GetGrupEstudiById(enumerator->Current->GetGroupId())->GetGroupName();
 		NomEspai->Text = consultaEspaisService->GetEspaiByEspaiId(enumerator->Current->GetEspaiId())->GetName();
 		NomSessió->Text = enumerator->Current->GetSessionName();
