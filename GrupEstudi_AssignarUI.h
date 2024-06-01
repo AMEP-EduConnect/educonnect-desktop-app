@@ -7,6 +7,7 @@
 #include "Usuari.h"
 #include "CurrentSession.h"
 #include "MessageManager.h"
+#include "NotificacioService.h"
 
 namespace CppCLRWinFormsProject {
 
@@ -51,13 +52,13 @@ namespace CppCLRWinFormsProject {
 
 	protected:
 
-
 	private:
 		/// <summary>
 		/// Variable del diseñador necesaria.
 		/// </summary>
 		System::ComponentModel::Container ^components;
 	private: GrupEstudiService^ grupEstudiService;
+	private: NotificacioService^ notificacioService;
 	private: System::Windows::Forms::TableLayoutPanel^ tableLayoutPanel1;
 
 	private: GrupEstudiMembershipService^ grupEstudiMembershipService;
