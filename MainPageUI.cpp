@@ -32,6 +32,8 @@ namespace CppCLRWinFormsProject {
         
         InitializeComponent();
         this->Text = L"EduConnect";
+        // 
+        this->BotoLogout->Text = L"Tancar sessi\u00f3";
         this->FormClosing += gcnew FormClosingEventHandler(this, &MainPageUI::MainForm_FormClosing);
         IniciUI^ PanelUI = gcnew IniciUI();
         PanelUI->TopLevel = false;
@@ -164,10 +166,15 @@ namespace CppCLRWinFormsProject {
 
     void MainPageUI::BotoInici_Click(System::Object^ sender, System::EventArgs^ e)
     {
-        if (ChatGrupEstudiUI::Instance != nullptr) {
+        if (*CurrentSession::Instance->GetCurrentUserRol() != 1LL) {
+            if (ChatGrupEstudiUI::Instance != nullptr) {
 
-            if (ChatGrupEstudiUI::Instance->chatTimer->Enabled) ChatGrupEstudiUI::Instance->chatTimer->Stop();
-            ChatGrupEstudiUI::Instance->Close();
+                if (ChatGrupEstudiUI::Instance->chatTimer->Enabled) ChatGrupEstudiUI::Instance->chatTimer->Stop();
+                ChatGrupEstudiUI::Instance->Close();
+
+                delete ChatGrupEstudiUI::Instance;
+                ChatGrupEstudiUI::Instance = nullptr;
+            }
         }
         IniciUI^ PanelUI = gcnew IniciUI();
         PanelUI->TopLevel = false;
@@ -201,8 +208,7 @@ namespace CppCLRWinFormsProject {
     }
 
     void MainPageUI::Admin_Click(System::Object^ sender, System::EventArgs^ e) {
-        if (ChatGrupEstudiUI::Instance != nullptr)
-            if (ChatGrupEstudiUI::Instance->chatTimer->Enabled) ChatGrupEstudiUI::Instance->chatTimer->Stop();
+        
         AdministradorUI^ PanelUI = gcnew AdministradorUI();
         PanelUI->TopLevel = false;
         PanelUI->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
@@ -268,8 +274,14 @@ namespace CppCLRWinFormsProject {
         }
 
         void MainPageUI::BotoExplorar_Click(System::Object ^ sender, System::EventArgs ^ e) {
-            if (ChatGrupEstudiUI::Instance != nullptr)
+            if (ChatGrupEstudiUI::Instance != nullptr) {
+
                 if (ChatGrupEstudiUI::Instance->chatTimer->Enabled) ChatGrupEstudiUI::Instance->chatTimer->Stop();
+                ChatGrupEstudiUI::Instance->Close();
+
+                delete ChatGrupEstudiUI::Instance;
+                ChatGrupEstudiUI::Instance = nullptr;
+            }
             GrupEstudi_Explorar^ PanelUI = gcnew GrupEstudi_Explorar("");
             PanelUI->TopLevel = false;
             PanelUI->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
@@ -298,8 +310,14 @@ namespace CppCLRWinFormsProject {
 
         }
         Void MainPageUI::BotoEspais_Click(System::Object^ sender, System::EventArgs^ e) {
-            if (ChatGrupEstudiUI::Instance != nullptr)
+            if (ChatGrupEstudiUI::Instance != nullptr) {
+
                 if (ChatGrupEstudiUI::Instance->chatTimer->Enabled) ChatGrupEstudiUI::Instance->chatTimer->Stop();
+                ChatGrupEstudiUI::Instance->Close();
+
+                delete ChatGrupEstudiUI::Instance;
+                ChatGrupEstudiUI::Instance = nullptr;
+            }
             ConsultaEspaisUI^ PanelUI = gcnew ConsultaEspaisUI();
             PanelUI->TopLevel = false;
             PanelUI->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
@@ -329,6 +347,14 @@ namespace CppCLRWinFormsProject {
 
         System::Void MainPageUI::NotificationButton_Click(System::Object^ sender, System::EventArgs^ e)
         {
+            if (ChatGrupEstudiUI::Instance != nullptr) {
+
+                if (ChatGrupEstudiUI::Instance->chatTimer->Enabled) ChatGrupEstudiUI::Instance->chatTimer->Stop();
+                ChatGrupEstudiUI::Instance->Close();
+
+                delete ChatGrupEstudiUI::Instance;
+                ChatGrupEstudiUI::Instance = nullptr;
+            }
             NotificacionsUI^ PanelUI = gcnew NotificacionsUI();
             PanelUI->TopLevel = false;
             PanelUI->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
@@ -355,6 +381,14 @@ namespace CppCLRWinFormsProject {
         }
         
         Void MainPageUI::BotoSessions_Click(System::Object^ sender, System::EventArgs^ e) {
+            if (ChatGrupEstudiUI::Instance != nullptr) {
+
+                if (ChatGrupEstudiUI::Instance->chatTimer->Enabled) ChatGrupEstudiUI::Instance->chatTimer->Stop();
+                ChatGrupEstudiUI::Instance->Close();
+
+                delete ChatGrupEstudiUI::Instance;
+                ChatGrupEstudiUI::Instance = nullptr;
+            }
             Session_CalendariUI^ PanelUI = gcnew Session_CalendariUI();
             PanelUI->TopLevel = false;
             PanelUI->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
