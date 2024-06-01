@@ -99,7 +99,7 @@ namespace CppCLRWinFormsProject {
 			this->AssignarGrupEstudi_Label->Name = L"AssignarGrupEstudi_Label";
 			this->AssignarGrupEstudi_Label->Size = System::Drawing::Size(301, 33);
 			this->AssignarGrupEstudi_Label->TabIndex = 2;
-			this->AssignarGrupEstudi_Label->Text = L"Convidar Membre a \"\"";
+			this->AssignarGrupEstudi_Label->Text = L"Convidar membre a \"\"";
 			this->AssignarGrupEstudi_Label->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
 			// 
 			// NomUsuari_Label

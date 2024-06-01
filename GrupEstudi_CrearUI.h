@@ -163,6 +163,7 @@ namespace CppCLRWinFormsProject {
 			this->FormGrupDescription_TextBox->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->FormGrupDescription_TextBox->Location = System::Drawing::Point(23, 190);
+			this->FormGrupDescription_TextBox->MaxLength = 111;
 			this->FormGrupDescription_TextBox->Multiline = true;
 			this->FormGrupDescription_TextBox->Name = L"FormGrupDescription_TextBox";
 			this->FormGrupDescription_TextBox->Size = System::Drawing::Size(408, 135);
@@ -189,9 +190,9 @@ namespace CppCLRWinFormsProject {
 			this->GrupDescription_Label->ForeColor = System::Drawing::SystemColors::HotTrack;
 			this->GrupDescription_Label->Location = System::Drawing::Point(20, 168);
 			this->GrupDescription_Label->Name = L"GrupDescription_Label";
-			this->GrupDescription_Label->Size = System::Drawing::Size(135, 19);
+			this->GrupDescription_Label->Size = System::Drawing::Size(90, 19);
 			this->GrupDescription_Label->TabIndex = 7;
-			this->GrupDescription_Label->Text = L"Descripci\u00F3";
+			this->GrupDescription_Label->Text = L"Descripció";
 			// 
 			// AcademicTag_ComboBox
 			// 
@@ -208,6 +209,7 @@ namespace CppCLRWinFormsProject {
 			this->FormGrupName_TextBox->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->FormGrupName_TextBox->Location = System::Drawing::Point(23, 49);
+			this->FormGrupName_TextBox->MaxLength = 22;
 			this->FormGrupName_TextBox->Name = L"FormGrupName_TextBox";
 			this->FormGrupName_TextBox->Size = System::Drawing::Size(408, 27);
 			this->FormGrupName_TextBox->TabIndex = 4;
