@@ -20,7 +20,6 @@ namespace CppCLRWinFormsProject {
 
     void GrupEstudi_ConsultarUI::Noms_ListBox_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e)
     {
-        MoreInfo_GrupEstudi_Button->Visible = true;
         bool isOwner = grupEstudiService->CheckUserIsOwner(Noms_ListBox->Text);
         Usuari^ currentUser = CurrentSession::Instance->GetCurrentUser();
 
