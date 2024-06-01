@@ -32,7 +32,6 @@ namespace CppCLRWinFormsProject {
         
         InitializeComponent();
         this->Text = L"EduConnect";
-        // 
         this->BotoLogout->Text = L"Tancar sessi\u00f3";
         this->FormClosing += gcnew FormClosingEventHandler(this, &MainPageUI::MainForm_FormClosing);
         IniciUI^ PanelUI = gcnew IniciUI();
