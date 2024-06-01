@@ -451,6 +451,7 @@ Class GrupSessionAttendantsRepository: AutoLayout, AnsiClass, Class, Public, Bef
     EliminaSessionAttendant(ValueType Int64 IsBoxed, ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
     IsAttendant(ValueType Int64 IsBoxed, ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
     GetSessionAttendantsCount(ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
+    GetIdSessions(ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
 Class GrupSessionAttendantsService: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
   Methods:
@@ -458,6 +459,7 @@ Class GrupSessionAttendantsService: AutoLayout, AnsiClass, Class, Public, Before
     EliminaSessionAttendant(ValueType Int64 IsBoxed, ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
     IsAttendant(ValueType Int64 IsBoxed, ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
     GetSessionAttendantsCount(ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
+    GetIdSessions(ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
 Class PerfilPersonalConsultaService: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
   Methods:
