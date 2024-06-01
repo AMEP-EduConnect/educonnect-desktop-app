@@ -18,6 +18,7 @@
   educonnect_desktop_app.IniciSessioUI.resources - Embedded, ContainedInManifestFile, 
   educonnect_desktop_app.IniciUI.resources - Embedded, ContainedInManifestFile, 
   educonnect_desktop_app.InformacioPersonal_ConsultaUI.resources - Embedded, ContainedInManifestFile, 
+  educonnect_desktop_app.MainPageUI.resources - Embedded, ContainedInManifestFile, 
   educonnect_desktop_app.NotificacionsUI.resources - Embedded, ContainedInManifestFile, 
   educonnect_desktop_app.RegistreUsuariUI.resources - Embedded, ContainedInManifestFile, 
   educonnect_desktop_app.ReportsUI.resources - Embedded, ContainedInManifestFile, 
