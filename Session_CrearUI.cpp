@@ -45,6 +45,7 @@ namespace CppCLRWinFormsProject {
 
 	System::Void Session_CrearUI::DayMonth_Calendar_DateChanged(System::Object^ sender, System::Windows::Forms::DateRangeEventArgs^ e)
 	{
+		//TODO: Check if the date is in the past and prompt a message
 		this->FullyFormatedSessionDate = this->DayMonth_Calendar->SelectionStart;
 		this->LoadEspaiTimeStampsOfCurrentDay();
 	}
@@ -141,6 +142,7 @@ namespace CppCLRWinFormsProject {
 	{
 		this->TimeHour_ComboBox->Items->Clear();
 		this->TimeHour_ComboBox->Enabled = true;
+		//TODO: Generate all timestamps of the day only after the current time
 		List<String^>^ TimeStamps = this->sessionService->GenerateAllTimeStamps();
 		System::Collections::Generic::IEnumerator<String^>^ enumerator = TimeStamps->GetEnumerator();
 		while (enumerator->MoveNext())
