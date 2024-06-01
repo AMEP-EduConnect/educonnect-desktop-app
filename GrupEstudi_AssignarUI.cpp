@@ -1,4 +1,4 @@
-#include "pch.h"
+﻿#include "pch.h"
 #include "GrupEstudi_AssignarUI.h"
 #include "GrupEstudi_MembresUI.h"
 #include "MainPageUI.h"
@@ -10,7 +10,9 @@ namespace CppCLRWinFormsProject {
         InitializeComponent();
         grupEstudiMembershipService = gcnew GrupEstudiMembershipService;
         grupEstudiService = gcnew GrupEstudiService();
+        notificacioService = gcnew NotificacioService();
         this->groupName = groupName;
+    
 
 		this->AssignarGrupEstudi_Label->Text = "Convidar Membre a " + groupName;
         this->Icon = gcnew System::Drawing::Icon("app.ico");
@@ -43,16 +45,24 @@ namespace CppCLRWinFormsProject {
 								MessageManager::WarningMessage("L'usuari ja esta assignat al grup d'estudi.");
 								return;
 							}
+                            else if (notificacioService->CheckIfInvitationExists(group_id, user_id)) {
+                                MessageManager::WarningMessage("L'usuari ja té una invitació pendent per aquest grup.");
+                                return;
+                            }
                             else {
                                 bool owner = grupEstudiService->CheckUserIsOwner(groupName);
                                 if (not owner) {
                                     MessageManager::WarningMessage("No ets el propietari del grup.");
                                 }
                                 else {
-                                    grupEstudiMembershipService->UserToGroup(user_id, group_id);
 
-                                    MessageManager::InfoMessage("Usuari assignat al grup d'estudi amb exit.");
-                                    
+                                    Int64^ notification_type = 2LL;
+                                    Int64^ status = 1LL;
+                                    Int64^ source_user_id = CurrentSession::Instance->GetCurrentUser()->GetUserId();
+
+                                    notificacioService->AddNotificacio(notification_type, status, group_id, source_user_id, user_id);
+                                    MessageManager::InfoMessage("Invitacio enviada amb éxit.");
+
                                     GrupEstudi_Membres^ PanelUI = gcnew GrupEstudi_Membres(groupName, true);
 
                                     PanelUI->TopLevel = false;
@@ -62,7 +72,9 @@ namespace CppCLRWinFormsProject {
                                     MainPageUI::Instance->screen->Controls->Clear();
                                     MainPageUI::Instance->screen->Controls->Add(PanelUI);
                                     PanelUI->Show();
+
                                 }
+                                   
                             }
                         }
                         catch (Exception^ e) {
@@ -76,13 +88,14 @@ namespace CppCLRWinFormsProject {
                 else {
                     MessageManager::WarningMessage("L'usuari no existeix.");
                 }
-            }
-            else {
-                if(Noms_ListBox->Items->Count == 0) MessageManager::WarningMessage("No existeixen usuaris per a assignar");
+        }
+        else {
+            if(Noms_ListBox->Items->Count == 0) MessageManager::WarningMessage("No existeixen usuaris per a assignar");
                 
-                else MessageManager::WarningMessage("Selecciona un usuari");
-            }
+            else MessageManager::WarningMessage("Selecciona un usuari");
+        }
     }
+
     
     Void GrupEstudi_AssignarUI::buscador_textBox_TextChanged(System::Object^ sender, System::EventArgs^ e) {
         if (buscador_textBox->Text == "Buscar Usuari..." or buscador_textBox->Text == "") {
