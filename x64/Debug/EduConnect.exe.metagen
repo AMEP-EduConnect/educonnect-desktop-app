@@ -25,6 +25,7 @@
   educonnect_desktop_app.Reports_ConsultaUI.resources - Embedded, ContainedInManifestFile, 
   educonnect_desktop_app.Reports_GestioUI.resources - Embedded, ContainedInManifestFile, 
   educonnect_desktop_app.Reports_InfoUI.resources - Embedded, ContainedInManifestFile, 
+  educonnect_desktop_app.Session_CalendariUI.resources - Embedded, ContainedInManifestFile, 
   educonnect_desktop_app.Session_CrearUI.resources - Embedded, ContainedInManifestFile, 
   educonnect_desktop_app.Session_EditarUI.resources - Embedded, ContainedInManifestFile, 
   educonnect_desktop_app.StartPageUI.resources - Embedded, ContainedInManifestFile, 
@@ -395,7 +396,7 @@ Class SessionRepository: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
     GetSessionById(ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
     GetSessionByName(String): PrivateScope, Public, HideBySig
     GetSessionsByGroupIdAndStartDate(ValueType Int64 IsBoxed, String): PrivateScope, Public, HideBySig
-    GetSessionsByGroupIdArray(ValueType Int64 IsBoxed, String, String, List`1* IsImplicitlyDereferenced): PrivateScope, Public, HideBySig
+    GetSessionsByGroupIdArray(ValueType Int64 IsBoxed, ValueType Int64 IsBoxed, String, String, List`1* IsImplicitlyDereferenced): PrivateScope, Public, HideBySig
 Class Espai: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
     Void .ctor(System.ValueType, System.String, System.ValueType, System.ValueType): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
@@ -755,6 +756,8 @@ Class CppCLRWinFormsProject.Session_CalendariUI: AutoLayout, AnsiClass, Class, P
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
   Fields:
     System.Collections.Generic.IEnumerator`1[Session] enumerator : Public
+  Methods:
+    ChangeSessionCardVisibility(Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig
 Class CppCLRWinFormsProject.NotificacionsUI: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
