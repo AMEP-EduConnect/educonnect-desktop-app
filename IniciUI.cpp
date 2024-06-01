@@ -80,26 +80,43 @@ namespace CppCLRWinFormsProject {
             if (enumerator->Current->GetGroupName()->Length > 10) {
                 this->Grup1label->Text = enumerator->Current->GetGroupName()->Substring(0, 10) + "...";
             }
-            else
-                this->Grup1label->Text = enumerator->Current->GetGroupName();
+            else this->Grup1label->Text = enumerator->Current->GetGroupName();
+
+  
+			String^ initials = extreureInicials(enumerator->Current->GetGroupName());
+
             this->Grup1->Tag = enumerator->Current->GetGroupName();
             this->pictureBox3->Tag = enumerator->Current->GetGroupName();
+            this->pictureBox3->Click += gcnew System::EventHandler(this, &IniciUI::pictureBox_Click);
+            this->pictureBox3->MouseEnter += gcnew System::EventHandler(this, &IniciUI::panel_MouseEnter);
+            this->pictureBox3->MouseLeave += gcnew System::EventHandler(this, &IniciUI::panel_MouseLeave);
+
             enumerator->MoveNext();
             if (enumerator->Current->GetGroupName()->Length > 10) {
                 this->Grup2label->Text = enumerator->Current->GetGroupName()->Substring(0, 10) + "...";
             }
-            else
-                this->Grup2label->Text = enumerator->Current->GetGroupName();
+            else this->Grup2label->Text = enumerator->Current->GetGroupName();
+
+            String^ initials = extreureInicials(enumerator->Current->GetGroupName());
+
             this->Grup2->Tag = enumerator->Current->GetGroupName();
             this->pictureBox2->Tag = enumerator->Current->GetGroupName();
+            this->pictureBox2->Click += gcnew System::EventHandler(this, &IniciUI::pictureBox_Click);
+            this->pictureBox2->MouseEnter += gcnew System::EventHandler(this, &IniciUI::panel_MouseEnter);
+            this->pictureBox2->MouseLeave += gcnew System::EventHandler(this, &IniciUI::panel_MouseLeave);
+
             enumerator->MoveNext();
             if (enumerator->Current->GetGroupName()->Length > 10) {
                 this->Grup3label->Text = enumerator->Current->GetGroupName()->Substring(0, 10) + "...";
             }
-            else
-                this->Grup3label->Text = enumerator->Current->GetGroupName();
+            else this->Grup3label->Text = enumerator->Current->GetGroupName();
+
+            this->Grup1->Tag = enumerator->Current->GetGroupName();
             this->pictureBox1->Tag = enumerator->Current->GetGroupName();
-            this->Grup3->Tag = enumerator->Current->GetGroupName();
+            this->pictureBox1->Click += gcnew System::EventHandler(this, &IniciUI::pictureBox_Click);
+            this->pictureBox1->MouseEnter += gcnew System::EventHandler(this, &IniciUI::panel_MouseEnter);
+            this->pictureBox1->MouseLeave += gcnew System::EventHandler(this, &IniciUI::panel_MouseLeave);
+            
         }
         else if (groups->Count == 2) {
             this->Grup1->Visible = true;
@@ -108,32 +125,41 @@ namespace CppCLRWinFormsProject {
             if (enumerator->Current->GetGroupName()->Length > 10) {
                 this->Grup1label->Text = enumerator->Current->GetGroupName()->Substring(0, 10) + "...";
             }
-            else
-                this->Grup1label->Text = enumerator->Current->GetGroupName();
+            else this->Grup1label->Text = enumerator->Current->GetGroupName();
+
             this->pictureBox3->Tag = enumerator->Current->GetGroupName();
             this->Grup1->Tag = enumerator->Current->GetGroupName();
+            this->pictureBox3->Click += gcnew System::EventHandler(this, &IniciUI::pictureBox_Click);
+            this->pictureBox3->MouseEnter += gcnew System::EventHandler(this, &IniciUI::panel_MouseEnter);
+            this->pictureBox3->MouseLeave += gcnew System::EventHandler(this, &IniciUI::panel_MouseLeave);
+
             enumerator->MoveNext();
             if (enumerator->Current->GetGroupName()->Length > 10) {
                 this->Grup2label->Text = enumerator->Current->GetGroupName()->Substring(0, 10) + "...";
             }
-            else
-                this->Grup2label->Text = enumerator->Current->GetGroupName();
+            else this->Grup2label->Text = enumerator->Current->GetGroupName();
+
             this->Grup2->Tag = enumerator->Current->GetGroupName();
             this->pictureBox2->Tag = enumerator->Current->GetGroupName();
+            this->pictureBox2->Click += gcnew System::EventHandler(this, &IniciUI::pictureBox_Click);
+            this->pictureBox2->MouseEnter += gcnew System::EventHandler(this, &IniciUI::panel_MouseEnter);
+            this->pictureBox2->MouseLeave += gcnew System::EventHandler(this, &IniciUI::panel_MouseLeave);
         }
         else if (groups->Count == 1) {
             this->Grup1->Visible = true;
 
             enumerator->MoveNext();
-            // Verifica que si el String^ es mayor a 10 caracteres, lo corta y añade "..."
+            
             if (enumerator->Current->GetGroupName()->Length > 10) {
                 this->Grup1label->Text = enumerator->Current->GetGroupName()->Substring(0, 10) + "...";
             }
-            else
-                this->Grup1label->Text = enumerator->Current->GetGroupName();
+            else this->Grup1label->Text = enumerator->Current->GetGroupName();
              
             this->Grup1->Tag = enumerator->Current->GetGroupName();
             this->pictureBox3->Tag = enumerator->Current->GetGroupName();
+			this->pictureBox3->Click += gcnew System::EventHandler(this, &IniciUI::pictureBox_Click);
+            this->pictureBox3->MouseEnter += gcnew System::EventHandler(this, &IniciUI::panel_MouseEnter);
+            this->pictureBox3->MouseLeave += gcnew System::EventHandler(this, &IniciUI::panel_MouseLeave);
         }
   
 
@@ -239,9 +265,20 @@ namespace CppCLRWinFormsProject {
     // Función para añadir un panel con texto al FlowLayoutPanel
     Void IniciUI::AddPanelWithText(FlowLayoutPanel^ flowLayout, String^ text) 
     {
-     
+
+        TableLayoutPanel^ table = gcnew TableLayoutPanel();
+        table->Size = Drawing::Size(132, 200); 
+        table->RowCount = 2;
+        table->ColumnCount = 1;
+        table->RowStyles->Add(gcnew RowStyle(SizeType::Percent, 50));
+        table->RowStyles->Add(gcnew RowStyle(SizeType::Percent, 50));
+        table->ColumnStyles->Add(gcnew ColumnStyle(SizeType::Percent, 100));
+        table->Margin = System::Windows::Forms::Padding(3, 3, 30, 3);
+
+
         Panel^ panel = gcnew Panel();
-        panel->Size = System::Drawing::Size(190, 70);
+        panel->MinimumSize = Drawing::Size(126, 126);
+        panel->Size = System::Drawing::Size(126, 126);
 		panel->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;  
         panel->Name = text;  
         panel->BackColor = System::Drawing::Color::FromArgb(215, 228, 242);  
@@ -249,21 +286,29 @@ namespace CppCLRWinFormsProject {
         panel->MouseLeave += gcnew System::EventHandler(this, &IniciUI::panel_MouseLeave);
         panel->Tag = text;
         panel->Click += gcnew System::EventHandler(this, &IniciUI::pictureBoxSuggest_Click);
+
+        table->Controls->Add(panel, 0, 0);
 		
-		
-        flowLayout->Controls->Add(panel);
+        
 
 
         Label^ label = gcnew Label();
-        label->Text = text;
+
+        if (text->Length > 10) label->Text = text->Substring(0, 10) + "...";
+        
+        else label->Text = text;
+
         label->AutoSize = true;
-        label->Dock = DockStyle::Bottom;  
+        //label->Dock = DockStyle::Bottom;  
+        label->Anchor = AnchorStyles::Left;
         label->TextAlign = ContentAlignment::MiddleLeft; 
         label->Font = (gcnew System::Drawing::Font(L"Inter Light", 12.0F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
             static_cast<System::Byte>(0)));
-        label->Margin = System::Windows::Forms::Padding(0, 3, 3, 30);
+        label->Margin = System::Windows::Forms::Padding(0, 0, 3, 0);
+
+        table->Controls->Add(label, 0, 1);
         
-        flowLayout->Controls->Add(label);
+        flowLayout->Controls->Add(table);
         
 
     }
@@ -285,4 +330,6 @@ namespace CppCLRWinFormsProject {
     }
 
 
+
 }
+

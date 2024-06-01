@@ -105,9 +105,9 @@ namespace CppCLRWinFormsProject {
 			   this->Panel_Membres->Controls->Add(this->Expulsar_Button);
 			   this->Panel_Membres->Controls->Add(this->Membres_Box);
 			   this->Panel_Membres->Controls->Add(this->Membres_GE2);
-			   this->Panel_Membres->Location = System::Drawing::Point(171, 112);
+			   this->Panel_Membres->Location = System::Drawing::Point(171, 116);
 			   this->Panel_Membres->Name = L"Panel_Membres";
-			   this->Panel_Membres->Size = System::Drawing::Size(469, 336);
+			   this->Panel_Membres->Size = System::Drawing::Size(469, 328);
 			   this->Panel_Membres->TabIndex = 7;
 			   this->Panel_Membres->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &GrupEstudi_Membres::Panel_Membres_Paint);
 			   // 
@@ -116,7 +116,7 @@ namespace CppCLRWinFormsProject {
 			   this->button_reportar->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			   this->button_reportar->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				   static_cast<System::Byte>(0)));
-			   this->button_reportar->Location = System::Drawing::Point(313, 287);
+			   this->button_reportar->Location = System::Drawing::Point(313, 277);
 			   this->button_reportar->Name = L"button_reportar";
 			   this->button_reportar->Size = System::Drawing::Size(100, 35);
 			   this->button_reportar->TabIndex = 8;
@@ -144,7 +144,7 @@ namespace CppCLRWinFormsProject {
 			   this->Expulsar_Button->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			   this->Expulsar_Button->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				   static_cast<System::Byte>(0)));
-			   this->Expulsar_Button->Location = System::Drawing::Point(63, 287);
+			   this->Expulsar_Button->Location = System::Drawing::Point(63, 277);
 			   this->Expulsar_Button->Name = L"Expulsar_Button";
 			   this->Expulsar_Button->Size = System::Drawing::Size(100, 35);
 			   this->Expulsar_Button->TabIndex = 8;
@@ -174,7 +174,7 @@ namespace CppCLRWinFormsProject {
 			   this->Membres_GE2->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				   static_cast<System::Byte>(0)));
 			   this->Membres_GE2->ForeColor = System::Drawing::SystemColors::HotTrack;
-			   this->Membres_GE2->Location = System::Drawing::Point(59, 25);
+			   this->Membres_GE2->Location = System::Drawing::Point(59, 45);
 			   this->Membres_GE2->Name = L"Membres_GE2";
 			   this->Membres_GE2->Size = System::Drawing::Size(85, 19);
 			   this->Membres_GE2->TabIndex = 1;
@@ -212,7 +212,7 @@ namespace CppCLRWinFormsProject {
 				   static_cast<System::Byte>(0)));
 			   this->Cancelar_Button->ForeColor = System::Drawing::Color::Red;
 			   this->Cancelar_Button->Location = System::Drawing::Point(682, 476);
-			   this->Cancelar_Button->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			   this->Cancelar_Button->Margin = System::Windows::Forms::Padding(4);
 			   this->Cancelar_Button->Name = L"Cancelar_Button";
 			   this->Cancelar_Button->Size = System::Drawing::Size(100, 35);
 			   this->Cancelar_Button->TabIndex = 7;
@@ -227,7 +227,7 @@ namespace CppCLRWinFormsProject {
 			   this->ClientSize = System::Drawing::Size(814, 537);
 			   this->Controls->Add(this->tableLayoutPanel1);
 			   this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
-			   this->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			   this->Margin = System::Windows::Forms::Padding(2);
 			   this->Name = L"GrupEstudi_Membres";
 			   this->Text = L"GrupEstudi_Membres";
 			   this->Load += gcnew System::EventHandler(this, &GrupEstudi_Membres::GrupEstudi_Membres_Load);

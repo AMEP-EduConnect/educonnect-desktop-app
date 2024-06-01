@@ -50,7 +50,8 @@ namespace CppCLRWinFormsProject {
         this->BotoEspais->Image = Image::FromFile("resources/Icons/edificio.png");
         this->BotoAdmin->Image = Image::FromFile("resources/Icons/herramientas.png");
         this->Notification_Button->Image = Image::FromFile("resources/Icons/comment-alt.png");
-
+		this->BotoLogout->Text = "Tancar Sessi\u00F3";
+       
         //CONTROL BAR
         this->Text = "";
 
