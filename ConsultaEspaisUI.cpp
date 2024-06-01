@@ -16,10 +16,7 @@ namespace CppCLRWinFormsProject {
 
     Void ConsultaEspaisUI::ButtonGestio_Click(System::Object^ sender, System::EventArgs^ e) {
         if (Llista_Espais->SelectedItem != nullptr) {
-           // Espai^ espai = Llista_Espais->SelectedItem();
            String^ selectedEspais = Llista_Espais->SelectedItem->ToString();
-          
-           //GOTO: Agafar el Espai i transportarlo al modificar espai 
            ModificaEspaisUI^ PanelUI = gcnew ModificaEspaisUI(selectedEspais);
            PanelUI->TopLevel = false;
            PanelUI->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
@@ -42,7 +39,7 @@ namespace CppCLRWinFormsProject {
         MainPageUI::Instance->screen->Controls->Add(PanelUI);
         PanelUI->Show();
     }
-    // create a function that eliminates the selected item from the list
+
     Void ConsultaEspaisUI::ButtonEliminar_Click(System::Object^ sender, System::EventArgs^ e) {
         if (Llista_Espais->SelectedItem != nullptr) {
 			String^ selectedEspais = Llista_Espais->SelectedItem->ToString(); 

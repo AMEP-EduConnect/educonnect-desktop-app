@@ -137,6 +137,17 @@ List<Session^>^ SessionService::GetSessionsByGroupIdAndStartDate(Int64^ groupId,
 	return sessionRepository->GetSessionsByGroupIdAndStartDate(groupId,formattedTimestamp);
 }
 
+List<Session^>^ SessionService::GetSessionsByGroupIdArray(array<Int64^>^ groupId, String^ dateString, String^ dateFinish)
+{
+	List<Session^>^ sessionsdia = gcnew List<Session^>(0);
+	for (int i = 0; i < groupId->Length; ++i) {
+		sessionRepository->GetSessionsByGroupIdArray(groupId[i], dateString, dateFinish,sessionsdia);
+	}
+
+	return sessionsdia;
+}
+
+
 Session^ SessionService::GetSessionById(Int64^ user_id)
 {
 	return sessionRepository->GetSessionById(user_id);

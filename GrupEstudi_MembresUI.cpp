@@ -5,6 +5,7 @@
 #include "GrupEstudi_ExplorarUI.h"
 #include "GrupEstudi_InfoUI.h"
 #include "Usuari.h"
+#include "ReportsUI.h"
 #include "MainPageUI.h"
 
 namespace CppCLRWinFormsProject {
@@ -43,7 +44,7 @@ namespace CppCLRWinFormsProject {
     void GrupEstudi_Membres::CancelButton_Click(System::Object^ sender, System::EventArgs^ e)
     {
         if (consulta) {
-            GrupEstudi_InfoUI^ PanelUI = gcnew GrupEstudi_InfoUI(Noms_ListBox);
+            GrupEstudi_InfoUI^ PanelUI = gcnew GrupEstudi_InfoUI(Noms_ListBox,1);
             PanelUI->TopLevel = false;
             PanelUI->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
             PanelUI->Dock = System::Windows::Forms::DockStyle::Fill;
@@ -53,7 +54,7 @@ namespace CppCLRWinFormsProject {
             PanelUI->Show();
         }
         else if (not consulta) {
-			GrupEstudi_Explorar^ PanelUI = gcnew GrupEstudi_Explorar();
+			GrupEstudi_Explorar^ PanelUI = gcnew GrupEstudi_Explorar("");
             
             PanelUI->TopLevel = false;
             PanelUI->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
@@ -71,11 +72,27 @@ namespace CppCLRWinFormsProject {
         bool isOwner = grupEstudiService->CheckUserIsOwner(Noms_ListBox);
 
         if (Membres_Box->SelectedIndex != -1) {
+            Usuari^ currentUser = CurrentSession::Instance->GetCurrentUser();
             if (isOwner) {
-                Expulsar_Button->Visible = true;
+                if (Membres_Box->Text != currentUser->GetUsername()) {
+                    Expulsar_Button->Visible = true;
+                    button_reportar->Visible = true;
+                }
+                else {
+                    Expulsar_Button->Visible = false;
+                    button_reportar->Visible = false;
+                }
                 Assignar_Button->Visible = true;
             }
             if (not isOwner) {
+                if (Membres_Box->Text != currentUser->GetUsername()) {
+                    if (consulta == true) {
+                        button_reportar->Visible = true;
+                    }
+                }
+                else {
+                    button_reportar->Visible = false;
+                }
                 Expulsar_Button->Visible = false;
                 Assignar_Button->Visible = false;
             }
@@ -110,13 +127,10 @@ namespace CppCLRWinFormsProject {
                                         return;
                                     }
                                     else {
-                                        grupEstudiMembershipService->DeleteUserFromGroup(user_id, group_id);
-                                        Membres_Box->Text = "";
-                                        Noms_ListBox = "";
                                         MessageManager::InfoMessage("Usuari expulsat del grup d'estudi amb exit.");
+                                        grupEstudiMembershipService->DeleteUserFromGroup(user_id, group_id);
 
-                                        GrupEstudi_ConsultarUI^ PanelUI = gcnew GrupEstudi_ConsultarUI();
-
+                                        GrupEstudi_InfoUI^ PanelUI = gcnew GrupEstudi_InfoUI(Noms_ListBox, 1);
                                         PanelUI->TopLevel = false;
                                         PanelUI->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
                                         PanelUI->Dock = System::Windows::Forms::DockStyle::Fill;
@@ -124,6 +138,9 @@ namespace CppCLRWinFormsProject {
                                         MainPageUI::Instance->screen->Controls->Clear();
                                         MainPageUI::Instance->screen->Controls->Add(PanelUI);
                                         PanelUI->Show();
+                                        
+                                        Membres_Box->Text = "";
+                                        Noms_ListBox = "";  
                                     }
                                 }
                             }
@@ -153,6 +170,18 @@ namespace CppCLRWinFormsProject {
     {
         
         GrupEstudi_AssignarUI^ PanelUI = gcnew GrupEstudi_AssignarUI(Noms_ListBox);
+
+        PanelUI->TopLevel = false;
+        PanelUI->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
+        PanelUI->Dock = System::Windows::Forms::DockStyle::Fill;
+
+        MainPageUI::Instance->screen->Controls->Clear();
+        MainPageUI::Instance->screen->Controls->Add(PanelUI);
+        PanelUI->Show();
+    }
+
+    void GrupEstudi_Membres::Reportar_Button_Click(System::Object^ sender, System::EventArgs^ e) {
+        ReportsUI^ PanelUI = gcnew ReportsUI(Membres_Box->Text, Noms_ListBox);
 
         PanelUI->TopLevel = false;
         PanelUI->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;

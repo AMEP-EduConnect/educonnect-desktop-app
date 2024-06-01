@@ -8,16 +8,17 @@
 #include "Session.h"
 #include "CurrentSession.h"
 #include "Usuari.h"
-
+#include "ChatGrupEstudiUI.h"
 
 namespace CppCLRWinFormsProject {
 
-    GrupEstudi_InfoUI::GrupEstudi_InfoUI(String^ CurrentGrup)
+    GrupEstudi_InfoUI::GrupEstudi_InfoUI(String^ CurrentGrup, bool return_page)
     {
         InitializeComponent();
         grupEstudiService = gcnew GrupEstudiService();
         grupEstudiMembershipService = gcnew GrupEstudiMembershipService();
         currentGrup = CurrentGrup;
+		this->return_page = return_page;
         this->CurrentGrupEntity = this->grupEstudiService->GetGrupEstudiByName(CurrentGrup);
         sessionService = gcnew SessionService();
         grupSessionAttendantsService = gcnew GrupSessionAttendantsService();
@@ -25,9 +26,9 @@ namespace CppCLRWinFormsProject {
         this->Icon = gcnew System::Drawing::Icon("app.ico");
         sessionService = gcnew SessionService();
         isSessionLoaded = false;
-        
-       
-
+		label2->Text = "Descripci\u00F3";
+        this->NewSession_Button->Text = L"Nova sessi\u00F3";
+        this->pictureBox1->Image = Image::FromFile("resources/Icons/groups_48dp_FILL0_wght500_GRAD-25_opsz48.png");
     }
 
     void GrupEstudi_InfoUI::GrupEstudi_InfoUI_Load(System::Object^ sender, System::EventArgs^ e)
@@ -70,7 +71,7 @@ namespace CppCLRWinFormsProject {
                     this->Confirm_Cancel_Attent_Button->Enabled = true;
                     this->Confirm_Cancel_Attent_Button->Text = "Asistir";
                 }
-                else if (isSessionFull) {
+                else if (isSessionFull && not grupSessionAttendantsService->IsAttendant(CurrentSessionEntity->GetId(), CurrentSession::Instance->GetCurrentUser()->GetUserId())) {
 					this->Confirm_Cancel_Attent_Button->Text = "Complet";
 					this->Confirm_Cancel_Attent_Button->Enabled = false;
                 }
@@ -132,6 +133,18 @@ namespace CppCLRWinFormsProject {
         PanelUI->Show();
     }
 
+    System::Void GrupEstudi_InfoUI::Chat_Button_Click(System::Object^ sender, System::EventArgs^ e)
+    {
+        ChatGrupEstudiUI::Instance = gcnew ChatGrupEstudiUI(this->CurrentGrupEntity->GetId());
+        ChatGrupEstudiUI::Instance->TopLevel = false;
+        ChatGrupEstudiUI::Instance->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
+        ChatGrupEstudiUI::Instance->Dock = System::Windows::Forms::DockStyle::Fill;
+
+        MainPageUI::Instance->screen->Controls->Clear();
+        MainPageUI::Instance->screen->Controls->Add(ChatGrupEstudiUI::Instance);
+        ChatGrupEstudiUI::Instance->Show();
+    }
+
     System::Void GrupEstudi_InfoUI::Sessions_Actuals_Load()
     {
         this->Sessions_ListBox->Items->Clear();
@@ -172,7 +185,7 @@ namespace CppCLRWinFormsProject {
                 this->Confirm_Cancel_Attent_Button->Enabled = true;
                 this->Confirm_Cancel_Attent_Button->Text = "Asistir";
             }
-            else if (isSessionFull) {
+            else if (isSessionFull && not grupSessionAttendantsService->IsAttendant(CurrentSessionEntity->GetId(), CurrentSession::Instance->GetCurrentUser()->GetUserId())) {
                 this->Confirm_Cancel_Attent_Button->Text = "Complet";
                 this->Confirm_Cancel_Attent_Button->Enabled = false;
             }
@@ -216,7 +229,7 @@ namespace CppCLRWinFormsProject {
         if (CurrentSessionEntity != nullptr)
         {
             MessageBoxButtons buttons = MessageBoxButtons::YesNo;
-            System::Windows::Forms::DialogResult result = MessageBox::Show("Vols suprimir la sessió '" + this->CurrentSessionEntity->GetSessionName() + "'?", "Confirmation", buttons);
+            System::Windows::Forms::DialogResult result = MessageBox::Show("Vols suprimir la sessi\u00F3 '" + this->CurrentSessionEntity->GetSessionName() + "'?", "Confirmation", buttons);
 
             if (result == System::Windows::Forms::DialogResult::Yes)
             {
@@ -255,15 +268,24 @@ namespace CppCLRWinFormsProject {
 
     System::Void GrupEstudi_InfoUI::GoBack_Button_Click(System::Object^ sender, System::EventArgs^ e)
     {
-        GrupEstudi_ConsultarUI^ PanelUI = gcnew GrupEstudi_ConsultarUI();
-
-        PanelUI->TopLevel = false;
-        PanelUI->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
-        PanelUI->Dock = System::Windows::Forms::DockStyle::Fill;
-
-        MainPageUI::Instance->screen->Controls->Clear();
-        MainPageUI::Instance->screen->Controls->Add(PanelUI);
-        PanelUI->Show();
+        if (return_page == 1) {
+            GrupEstudi_ConsultarUI^ PanelUI = gcnew GrupEstudi_ConsultarUI();
+            PanelUI->TopLevel = false;
+            PanelUI->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
+            PanelUI->Dock = System::Windows::Forms::DockStyle::Fill;
+            MainPageUI::Instance->screen->Controls->Clear();
+            MainPageUI::Instance->screen->Controls->Add(PanelUI);
+            PanelUI->Show();
+        }
+        else {
+            IniciUI^ PanelUI = gcnew IniciUI();
+            PanelUI->TopLevel = false;
+            PanelUI->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
+            PanelUI->Dock = System::Windows::Forms::DockStyle::Fill;
+            MainPageUI::Instance->screen->Controls->Clear();
+            MainPageUI::Instance->screen->Controls->Add(PanelUI);
+            PanelUI->Show();
+        }
     }
 
     void GrupEstudi_InfoUI::EliminarButton_Click(System::Object^ sender, System::EventArgs^ e)

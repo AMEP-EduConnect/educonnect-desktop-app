@@ -17,4 +17,5 @@ public:
 	Session^ GetSessionById(Int64^ session_id);
 	Session^ GetSessionByName(String^ name);
 	List<Session^>^ GetSessionsByGroupIdAndStartDate(Int64^ groupId, String^ date);
+	void GetSessionsByGroupIdArray(Int64^ groupId, String^ dateString, String^ dateFinish, List<Session^>^ &aux);
 };

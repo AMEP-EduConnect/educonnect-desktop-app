@@ -85,12 +85,14 @@ namespace CppCLRWinFormsProject {
 			this->tableLayoutPanel1->Controls->Add(this->label6, 1, 0);
 			this->tableLayoutPanel1->Dock = System::Windows::Forms::DockStyle::Fill;
 			this->tableLayoutPanel1->Location = System::Drawing::Point(0, 0);
+			this->tableLayoutPanel1->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->tableLayoutPanel1->Name = L"tableLayoutPanel1";
 			this->tableLayoutPanel1->RowCount = 2;
 			this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 13.03538F)));
 			this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 86.96461F)));
-			this->tableLayoutPanel1->Size = System::Drawing::Size(814, 537);
+			this->tableLayoutPanel1->Size = System::Drawing::Size(1085, 661);
 			this->tableLayoutPanel1->TabIndex = 0;
+			this->tableLayoutPanel1->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &AdministradorUI::tableLayoutPanel1_Paint);
 			// 
 			// panel2
 			// 
@@ -100,9 +102,10 @@ namespace CppCLRWinFormsProject {
 			this->panel2->Controls->Add(this->label1);
 			this->panel2->Controls->Add(this->BotoBaixa);
 			this->panel2->Controls->Add(this->BotoAlta);
-			this->panel2->Location = System::Drawing::Point(27, 73);
+			this->panel2->Location = System::Drawing::Point(35, 90);
+			this->panel2->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->panel2->Name = L"panel2";
-			this->panel2->Size = System::Drawing::Size(561, 334);
+			this->panel2->Size = System::Drawing::Size(748, 411);
 			this->panel2->TabIndex = 1;
 			// 
 			// button_elim_usuari
@@ -113,9 +116,10 @@ namespace CppCLRWinFormsProject {
 			this->button_elim_usuari->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->button_elim_usuari->ImageAlign = System::Drawing::ContentAlignment::MiddleLeft;
-			this->button_elim_usuari->Location = System::Drawing::Point(7, 219);
+			this->button_elim_usuari->Location = System::Drawing::Point(9, 270);
+			this->button_elim_usuari->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->button_elim_usuari->Name = L"button_elim_usuari";
-			this->button_elim_usuari->Size = System::Drawing::Size(243, 41);
+			this->button_elim_usuari->Size = System::Drawing::Size(324, 50);
 			this->button_elim_usuari->TabIndex = 23;
 			this->button_elim_usuari->Text = L"Donar de baixa usuari";
 			this->button_elim_usuari->UseVisualStyleBackColor = false;
@@ -129,12 +133,15 @@ namespace CppCLRWinFormsProject {
 			this->BotoReports->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->BotoReports->ImageAlign = System::Drawing::ContentAlignment::MiddleLeft;
-			this->BotoReports->Location = System::Drawing::Point(7, 172);
+			this->BotoReports->Location = System::Drawing::Point(9, 212);
+			this->BotoReports->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->BotoReports->Name = L"BotoReports";
-			this->BotoReports->Size = System::Drawing::Size(243, 41);
+			this->BotoReports->Size = System::Drawing::Size(324, 50);
 			this->BotoReports->TabIndex = 22;
 			this->BotoReports->Text = L"Reports";
 			this->BotoReports->UseVisualStyleBackColor = false;
+			this->BotoReports->Click += gcnew System::EventHandler(this, &AdministradorUI::BotoReports_Click);
+
 			// 
 			// label2
 			// 
@@ -143,9 +150,10 @@ namespace CppCLRWinFormsProject {
 			this->label2->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label2->ForeColor = System::Drawing::SystemColors::HotTrack;
-			this->label2->Location = System::Drawing::Point(3, 150);
+			this->label2->Location = System::Drawing::Point(4, 185);
+			this->label2->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(69, 19);
+			this->label2->Size = System::Drawing::Size(84, 24);
 			this->label2->TabIndex = 21;
 			this->label2->Text = L"Usuaris";
 			// 
@@ -156,11 +164,12 @@ namespace CppCLRWinFormsProject {
 			this->label1->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label1->ForeColor = System::Drawing::SystemColors::HotTrack;
-			this->label1->Location = System::Drawing::Point(3, 12);
+			this->label1->Location = System::Drawing::Point(4, 15);
+			this->label1->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(95, 19);
+			this->label1->Size = System::Drawing::Size(116, 24);
 			this->label1->TabIndex = 20;
-			this->label1->Text = L"Prove\u00EFdors";
+			this->label1->Text = L"Proveïdors";
 			// 
 			// BotoBaixa
 			// 
@@ -170,11 +179,12 @@ namespace CppCLRWinFormsProject {
 			this->BotoBaixa->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->BotoBaixa->ImageAlign = System::Drawing::ContentAlignment::MiddleLeft;
-			this->BotoBaixa->Location = System::Drawing::Point(7, 81);
+			this->BotoBaixa->Location = System::Drawing::Point(9, 100);
+			this->BotoBaixa->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->BotoBaixa->Name = L"BotoBaixa";
-			this->BotoBaixa->Size = System::Drawing::Size(243, 41);
+			this->BotoBaixa->Size = System::Drawing::Size(324, 50);
 			this->BotoBaixa->TabIndex = 19;
-			this->BotoBaixa->Text = L"Donar de baixa prove\u00EFdor";
+			this->BotoBaixa->Text = L"Donar de baixa proveïdor";
 			this->BotoBaixa->UseVisualStyleBackColor = false;
 			this->BotoBaixa->Click += gcnew System::EventHandler(this, &AdministradorUI::BotoBaixa_Click);
 			// 
@@ -186,11 +196,12 @@ namespace CppCLRWinFormsProject {
 			this->BotoAlta->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->BotoAlta->ImageAlign = System::Drawing::ContentAlignment::MiddleLeft;
-			this->BotoAlta->Location = System::Drawing::Point(7, 34);
+			this->BotoAlta->Location = System::Drawing::Point(9, 42);
+			this->BotoAlta->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->BotoAlta->Name = L"BotoAlta";
-			this->BotoAlta->Size = System::Drawing::Size(243, 41);
+			this->BotoAlta->Size = System::Drawing::Size(324, 50);
 			this->BotoAlta->TabIndex = 17;
-			this->BotoAlta->Text = L"Donar d\'alta prove\u00EFdor";
+			this->BotoAlta->Text = L"Donar d\'alta proveïdor";
 			this->BotoAlta->UseVisualStyleBackColor = false;
 			this->BotoAlta->Click += gcnew System::EventHandler(this, &AdministradorUI::BotoAltaProveidor_Click);
 			// 
@@ -201,22 +212,24 @@ namespace CppCLRWinFormsProject {
 			this->label6->Font = (gcnew System::Drawing::Font(L"Inter", 20.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label6->ForeColor = System::Drawing::SystemColors::HotTrack;
-			this->label6->Location = System::Drawing::Point(264, 18);
+			this->label6->Location = System::Drawing::Point(363, 22);
+			this->label6->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label6->Name = L"label6";
-			this->label6->Size = System::Drawing::Size(310, 33);
+			this->label6->Size = System::Drawing::Size(390, 41);
 			this->label6->TabIndex = 14;
 			this->label6->Text = L"Panell d\'administrador";
 			// 
 			// AdministradorUI
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
+			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(243)), static_cast<System::Int32>(static_cast<System::Byte>(243)),
 				static_cast<System::Int32>(static_cast<System::Byte>(243)));
-			this->ClientSize = System::Drawing::Size(814, 537);
+			this->ClientSize = System::Drawing::Size(1085, 661);
 			this->Controls->Add(this->tableLayoutPanel1);
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
-			this->MinimumSize = System::Drawing::Size(814, 537);
+			this->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->MinimumSize = System::Drawing::Size(1085, 661);
 			this->Name = L"AdministradorUI";
 			this->Text = L"AdministradorUI";
 			this->tableLayoutPanel1->ResumeLayout(false);
@@ -231,5 +244,8 @@ namespace CppCLRWinFormsProject {
 private: System::Void BotoAltaProveidor_Click(System::Object^ sender, System::EventArgs^ e);
 private: System::Void BotoBaixa_Click(System::Object^ sender, System::EventArgs^ e);
 private: System::Void BotoBaixaUser_Click(System::Object^ sender, System::EventArgs^ e);
+private: System::Void BotoReports_Click(System::Object^ sender, System::EventArgs^ e);
+private: System::Void tableLayoutPanel1_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
+}
 };
 }

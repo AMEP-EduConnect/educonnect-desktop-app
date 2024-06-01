@@ -26,7 +26,7 @@ namespace CppCLRWinFormsProject {
 
     void GrupEstudi_EditarUI::CancelarButton_Click(System::Object^ sender, System::EventArgs^ e)
     {
-        GrupEstudi_InfoUI^ PanelUI = gcnew GrupEstudi_InfoUI(nomActual);
+        GrupEstudi_InfoUI^ PanelUI = gcnew GrupEstudi_InfoUI(nomActual,1);
 
         PanelUI->TopLevel = false;
         PanelUI->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
@@ -37,11 +37,31 @@ namespace CppCLRWinFormsProject {
         PanelUI->Show();
     }
 
+    void GrupEstudi_EditarUI::noModificarButton_Click(System::Object^ sender, System::EventArgs^ e) {
+        MessageManager::InfoMessage("No s'ha modificat cap camp.");
+        this->NomActual_TextBox->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(224)), static_cast<System::Int32>(static_cast<System::Byte>(224)),
+            static_cast<System::Int32>(static_cast<System::Byte>(224)));
+        this->EditarDescripcio_TextBox->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(224)), static_cast<System::Int32>(static_cast<System::Byte>(224)),
+            static_cast<System::Int32>(static_cast<System::Byte>(224)));
+
+        this->NomActual_TextBox->Enabled = false;
+        this->EditarDescripcio_TextBox->Enabled = false;
+
+        Cancelar_Button->Visible = true;
+        Edita_Button->Text = "Modificar";
+        noModificarButton->Visible = false;
+
+        nomActual = NomActual_TextBox->Text;
+        EditarDescripcio_TextBox->Text = descripcioActual;
+        //descripcioActual = EditarDescripcio_TextBox->Text;
+    }
+
     void GrupEstudi_EditarUI::testEdita_Button(System::Object^ sender, System::EventArgs^ e)
     {
         if (grupEstudiService->CheckIfGroupExists(nomActual)) {
             bool checkD = false;
             bool checkN = false;
+            noModificarButton->Visible = true;
             Usuari^ currentUser = CurrentSession::Instance->GetCurrentUser();
             Int64^ currentUser_id = currentUser->GetUserId();
             bool owner = grupEstudiService->CheckUserIsOwner(nomActual);
@@ -80,6 +100,10 @@ namespace CppCLRWinFormsProject {
                         MessageManager::WarningMessage("Ja existeix un grup amb aquest nom.");
                     }
                 }
+                else if (noModifica == true and EditarDescripcio_TextBox->Text == descripcioActual and NomActual_TextBox->Text == nomActual) {
+                    //noModificarButton_Click(sender, e);
+                    MessageManager::WarningMessage("Modifica almenys un camp per actualitzar el grup!");
+				}
 
                 if (checkD == true and checkN == false) {
                     MessageManager::InfoMessage("Descripció del grup modificada correctament.");
@@ -130,6 +154,8 @@ namespace CppCLRWinFormsProject {
                     nomActual = NomActual_TextBox->Text;
                     descripcioActual = EditarDescripcio_TextBox->Text;
                 }
+                if (noModifica == true) noModifica = false;
+                else if (noModifica == false) noModifica = true;
             }
         }
         else {

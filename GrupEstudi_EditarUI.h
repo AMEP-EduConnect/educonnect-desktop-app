@@ -60,7 +60,8 @@ namespace CppCLRWinFormsProject {
 	private: GrupEstudiService^ grupEstudiService;
 
 	private: String^ nomActual;
-
+	private: System::Windows::Forms::Button^ noModificarButton;
+	private: bool noModifica = false;
 	private: String^ descripcioActual;
 
 #pragma region Windows Form Designer generated code
@@ -74,6 +75,7 @@ namespace CppCLRWinFormsProject {
 			this->NomActual_TextBox = (gcnew System::Windows::Forms::TextBox());
 			this->Nom_Label = (gcnew System::Windows::Forms::Label());
 			this->Editar_Panel = (gcnew System::Windows::Forms::Panel());
+			this->noModificarButton = (gcnew System::Windows::Forms::Button());
 			this->Edita_Button = (gcnew System::Windows::Forms::Button());
 			this->EditarDescripcio_TextBox = (gcnew System::Windows::Forms::TextBox());
 			this->Descripcio_Label = (gcnew System::Windows::Forms::Label());
@@ -125,6 +127,7 @@ namespace CppCLRWinFormsProject {
 			// 
 			this->Editar_Panel->Anchor = System::Windows::Forms::AnchorStyles::None;
 			this->Editar_Panel->BackColor = System::Drawing::SystemColors::GradientInactiveCaption;
+			this->Editar_Panel->Controls->Add(this->noModificarButton);
 			this->Editar_Panel->Controls->Add(this->Edita_Button);
 			this->Editar_Panel->Controls->Add(this->EditarDescripcio_TextBox);
 			this->Editar_Panel->Controls->Add(this->Descripcio_Label);
@@ -135,6 +138,23 @@ namespace CppCLRWinFormsProject {
 			this->Editar_Panel->Name = L"Editar_Panel";
 			this->Editar_Panel->Size = System::Drawing::Size(454, 292);
 			this->Editar_Panel->TabIndex = 4;
+			// 
+			// noModificarButton
+			// 
+			this->noModificarButton->Anchor = System::Windows::Forms::AnchorStyles::None;
+			this->noModificarButton->BackColor = System::Drawing::Color::Transparent;
+			this->noModificarButton->Cursor = System::Windows::Forms::Cursors::Hand;
+			this->noModificarButton->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->noModificarButton->ForeColor = System::Drawing::Color::Red;
+			this->noModificarButton->Location = System::Drawing::Point(30, 237);
+			this->noModificarButton->Name = L"noModificarButton";
+			this->noModificarButton->Size = System::Drawing::Size(98, 35);
+			this->noModificarButton->TabIndex = 6;
+			this->noModificarButton->Text = L"Cancel·la";
+			this->noModificarButton->UseVisualStyleBackColor = true;
+			this->noModificarButton->Visible = false;
+			this->noModificarButton->Click += gcnew System::EventHandler(this, &GrupEstudi_EditarUI::noModificarButton_Click);
 			// 
 			// Edita_Button
 			// 
@@ -151,7 +171,6 @@ namespace CppCLRWinFormsProject {
 			// 
 			// EditarDescripcio_TextBox
 			// 
-			this->EditarDescripcio_TextBox->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			this->EditarDescripcio_TextBox->Font = (gcnew System::Drawing::Font(L"Inter", 11.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->EditarDescripcio_TextBox->Location = System::Drawing::Point(31, 120);
@@ -168,9 +187,9 @@ namespace CppCLRWinFormsProject {
 			this->Descripcio_Label->ForeColor = System::Drawing::SystemColors::HotTrack;
 			this->Descripcio_Label->Location = System::Drawing::Point(27, 98);
 			this->Descripcio_Label->Name = L"Descripcio_Label";
-			this->Descripcio_Label->Size = System::Drawing::Size(203, 19);
+			this->Descripcio_Label->Size = System::Drawing::Size(158, 19);
 			this->Descripcio_Label->TabIndex = 4;
-			this->Descripcio_Label->Text = L"Descripci\u00F3 del grup";
+			this->Descripcio_Label->Text = L"Descripció del grup";
 			// 
 			// Cancelar_Button
 			// 
@@ -243,6 +262,7 @@ namespace CppCLRWinFormsProject {
 #pragma endregion
 private: System::Void CancelarButton_Click(System::Object^ sender, System::EventArgs^ e);
 private: System::Void testEdita_Button(System::Object^ sender, System::EventArgs^ e);
+private: System::Void noModificarButton_Click(System::Object^ sender, System::EventArgs^ e);
 private: System::Void GrupEstudi_EditarUI_Load(System::Object^ sender, System::EventArgs^ e) {
 }
 private: System::Void EduConnect_Label_Click(System::Object^ sender, System::EventArgs^ e) {

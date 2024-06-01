@@ -28,7 +28,6 @@ namespace CppCLRWinFormsProject {
         if (!IsPasswordStrong(textBox->Text) and textBox->Text != "") {
             MessageBox::Show("La contrasenya no és prou robusta.\nHa de contenir 8 o més caràcters, caràcters especials i números.", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
             textBox->Text = "";
-            //e->Cancel = true; // Previene que el foco cambie de control hasta que la entrada sea válida.
         }
     }
 
@@ -51,7 +50,6 @@ namespace CppCLRWinFormsProject {
             if (!IsValidEmail(textBox->Text) and textBox->Text != "") {
                 MessageBox::Show("El correu electrònic no té un format vàlid.", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
                 this->textBox2->Text = "";
-                //e->Cancel = true; // Esto previene que el foco cambie al siguiente control si la validación falla.
             }
             else {
                 bool isnotValid = this->altaProveidorService->CheckEmail(textBox->Text);
@@ -64,14 +62,7 @@ namespace CppCLRWinFormsProject {
         }
     }
 
-    /*void AltaProveidorUI::Cancelar_Button_Click(System::Object^ sender, System::EventArgs^ e)
-    {   
-        this->Hide();
-        MainPageUI^ form = gcnew MainPageUI();
-        form->ShowDialog();
-        this->Close();
-    }*/
-    
+   
     
     void AltaProveidorUI::button1_Click(System::Object^ sender, System::EventArgs^ e)
     {

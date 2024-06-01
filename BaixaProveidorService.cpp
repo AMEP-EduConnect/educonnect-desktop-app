@@ -31,3 +31,7 @@ Usuari^ BaixaProveidorService::GetProveidorByEspaiId(Int64^ espai_id) {
 	Usuari^ proveidor = usuariRepository->GetProveidorByEspaiId(espai_id);
 	return proveidor;
 }
+
+List<Usuari^>^ BaixaProveidorService::LoadProvidersByStartingLetter(String^ providerName) {
+    return usuariRepository->GetUsersByStartingLetter(3LL, providerName + "%");
+}

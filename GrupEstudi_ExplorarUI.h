@@ -8,6 +8,8 @@
 #include "CurrentSession.h"
 #include "GrupEstudi_EditarUI.h"
 #include "MessageManager.h"
+#include "NotificacioService.h"
+
 
 namespace CppCLRWinFormsProject {
 
@@ -24,7 +26,7 @@ namespace CppCLRWinFormsProject {
 	public ref class GrupEstudi_Explorar : public System::Windows::Forms::Form
 	{
 	public:
-		GrupEstudi_Explorar(void);
+		GrupEstudi_Explorar(String^ groupname);
 
 	protected:
 		/// <summary>
@@ -45,6 +47,8 @@ namespace CppCLRWinFormsProject {
 	private: System::Windows::Forms::Label^ NomPertany_Label;
 	private: System::Windows::Forms::ListBox^ Description_ListBox;
 	private: GrupEstudiService^ grupEstudiService;
+	private: NotificacioService^ notificacioService;
+
 	private: GrupEstudiMembershipService^ grupEstudiMembershipService;
 	private: array<GrupEstudi^>^ arrayIdGroupEstudisOfUserNoIn;
 	private: System::Windows::Forms::Label^ Description_titulo;
@@ -55,6 +59,7 @@ namespace CppCLRWinFormsProject {
 	private: System::Windows::Forms::TextBox^ buscador_textBox;
 	private: System::Windows::Forms::Panel^ panel1;
 	private: System::Windows::Forms::Button^ Unirse_Button;
+	public: System::String^ groupname;
 	protected:
 
 	private:
@@ -193,11 +198,11 @@ namespace CppCLRWinFormsProject {
 			this->Unirse_Button->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->Unirse_Button->ForeColor = System::Drawing::SystemColors::ControlText;
-			this->Unirse_Button->Location = System::Drawing::Point(265, 353);
+			this->Unirse_Button->Location = System::Drawing::Point(220, 334);
 			this->Unirse_Button->Name = L"Unirse_Button";
-			this->Unirse_Button->Size = System::Drawing::Size(143, 35);
+			this->Unirse_Button->Size = System::Drawing::Size(188, 54);
 			this->Unirse_Button->TabIndex = 8;
-			this->Unirse_Button->Text = L"Unir-se";
+			this->Unirse_Button->Text = L"Solicitar unir-se";
 			this->Unirse_Button->UseVisualStyleBackColor = true;
 			this->Unirse_Button->Visible = false;
 			this->Unirse_Button->Click += gcnew System::EventHandler(this, &GrupEstudi_Explorar::Unirse_Button_Click);
@@ -210,9 +215,9 @@ namespace CppCLRWinFormsProject {
 			this->Description_titulo->ForeColor = System::Drawing::SystemColors::HotTrack;
 			this->Description_titulo->Location = System::Drawing::Point(21, 172);
 			this->Description_titulo->Name = L"Description_titulo";
-			this->Description_titulo->Size = System::Drawing::Size(134, 19);
+			this->Description_titulo->Size = System::Drawing::Size(88, 19);
 			this->Description_titulo->TabIndex = 10;
-			this->Description_titulo->Text = L"Descripci\u00F3";
+			this->Description_titulo->Text = L"Descripció";
 			this->Description_titulo->Visible = false;
 			// 
 			// Membres_Button
@@ -220,10 +225,10 @@ namespace CppCLRWinFormsProject {
 			this->Membres_Button->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->Membres_Button->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->Membres_Button->Location = System::Drawing::Point(25, 353);
+			this->Membres_Button->Location = System::Drawing::Point(25, 335);
 			this->Membres_Button->Margin = System::Windows::Forms::Padding(4);
 			this->Membres_Button->Name = L"Membres_Button";
-			this->Membres_Button->Size = System::Drawing::Size(143, 35);
+			this->Membres_Button->Size = System::Drawing::Size(158, 53);
 			this->Membres_Button->TabIndex = 9;
 			this->Membres_Button->Text = L"Veure membres";
 			this->Membres_Button->UseVisualStyleBackColor = true;

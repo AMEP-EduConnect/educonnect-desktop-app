@@ -17,6 +17,8 @@
 #include "MessageManager.h"
 #include "Usuari.h"
 #include "CurrentSession.h"
+#include "GrupEstudiService.h"
+#include "PerfilPersonalConsultaService.h"
 
 namespace CppCLRWinFormsProject {
 
@@ -47,7 +49,7 @@ namespace CppCLRWinFormsProject {
 			}
 		}
 	private: GrupEstudiService^ grupEstudiService;
-	private:
+	private: PerfilPersonalConsultaService^ perfilPersonalConsultaService;
 	private: System::Windows::Forms::Label^ Benvinguda;
 	private: System::Windows::Forms::TableLayoutPanel^ tableLayoutPanel1;
 	private: System::Windows::Forms::Label^ label2;
@@ -64,13 +66,33 @@ namespace CppCLRWinFormsProject {
 	private: System::Windows::Forms::Panel^ panel2;
 	private: System::Windows::Forms::TableLayoutPanel^ Grup1;
 	private: System::Windows::Forms::Label^ Grup1label;
-	private: System::Windows::Forms::PictureBox^ pictureBox3;
+
 	private: System::Windows::Forms::TableLayoutPanel^ Grup2;
 	private: System::Windows::Forms::Label^ Grup2label;
-	private: System::Windows::Forms::PictureBox^ pictureBox2;
+
 	private: System::Windows::Forms::TableLayoutPanel^ Grup3;
 	private: System::Windows::Forms::Label^ Grup3label;
-	private: System::Windows::Forms::PictureBox^ pictureBox1;
+
+
+	private: System::Windows::Forms::FlowLayoutPanel^ flowLayoutPanel2;
+	private: System::Windows::Forms::Panel^ pictureBox3;
+	private: System::Windows::Forms::Panel^ pictureBox2;
+
+	private: System::Windows::Forms::Panel^ pictureBox1;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	protected:
 
 	private:
@@ -90,19 +112,20 @@ namespace CppCLRWinFormsProject {
 			this->tableLayoutPanel1 = (gcnew System::Windows::Forms::TableLayoutPanel());
 			this->panel4 = (gcnew System::Windows::Forms::Panel());
 			this->panel5 = (gcnew System::Windows::Forms::Panel());
+			this->flowLayoutPanel2 = (gcnew System::Windows::Forms::FlowLayoutPanel());
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->label3 = (gcnew System::Windows::Forms::Label());
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
 			this->flowLayoutPanel1 = (gcnew System::Windows::Forms::FlowLayoutPanel());
 			this->Grup1 = (gcnew System::Windows::Forms::TableLayoutPanel());
 			this->Grup1label = (gcnew System::Windows::Forms::Label());
-			this->pictureBox3 = (gcnew System::Windows::Forms::PictureBox());
+			this->pictureBox3 = (gcnew System::Windows::Forms::Panel());
 			this->Grup2 = (gcnew System::Windows::Forms::TableLayoutPanel());
 			this->Grup2label = (gcnew System::Windows::Forms::Label());
-			this->pictureBox2 = (gcnew System::Windows::Forms::PictureBox());
+			this->pictureBox2 = (gcnew System::Windows::Forms::Panel());
 			this->Grup3 = (gcnew System::Windows::Forms::TableLayoutPanel());
 			this->Grup3label = (gcnew System::Windows::Forms::Label());
-			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
+			this->pictureBox1 = (gcnew System::Windows::Forms::Panel());
 			this->tableLayoutPanel2 = (gcnew System::Windows::Forms::TableLayoutPanel());
 			this->panel2 = (gcnew System::Windows::Forms::Panel());
 			this->label7 = (gcnew System::Windows::Forms::Label());
@@ -115,11 +138,8 @@ namespace CppCLRWinFormsProject {
 			this->panel1->SuspendLayout();
 			this->flowLayoutPanel1->SuspendLayout();
 			this->Grup1->SuspendLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox3))->BeginInit();
 			this->Grup2->SuspendLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->BeginInit();
 			this->Grup3->SuspendLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			this->tableLayoutPanel2->SuspendLayout();
 			this->panel2->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox4))->BeginInit();
@@ -172,12 +192,25 @@ namespace CppCLRWinFormsProject {
 			this->panel5->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
 				| System::Windows::Forms::AnchorStyles::Left)
 				| System::Windows::Forms::AnchorStyles::Right));
+			this->panel5->Controls->Add(this->flowLayoutPanel2);
 			this->panel5->Controls->Add(this->label2);
 			this->panel5->Controls->Add(this->label3);
 			this->panel5->Location = System::Drawing::Point(0, 267);
 			this->panel5->Name = L"panel5";
 			this->panel5->Size = System::Drawing::Size(770, 190);
 			this->panel5->TabIndex = 5;
+			// 
+			// flowLayoutPanel2
+			// 
+			this->flowLayoutPanel2->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
+				| System::Windows::Forms::AnchorStyles::Left));
+			this->flowLayoutPanel2->AutoScroll = true;
+			this->flowLayoutPanel2->FlowDirection = System::Windows::Forms::FlowDirection::TopDown;
+			this->flowLayoutPanel2->Location = System::Drawing::Point(336, 39);
+			this->flowLayoutPanel2->Name = L"flowLayoutPanel2";
+			this->flowLayoutPanel2->Size = System::Drawing::Size(225, 151);
+			this->flowLayoutPanel2->TabIndex = 7;
+			this->flowLayoutPanel2->WrapContents = false;
 			// 
 			// label2
 			// 
@@ -192,7 +225,6 @@ namespace CppCLRWinFormsProject {
 			// 
 			// label3
 			// 
-			this->label3->Anchor = System::Windows::Forms::AnchorStyles::Top;
 			this->label3->AutoSize = true;
 			this->label3->Font = (gcnew System::Drawing::Font(L"Inter Light", 14));
 			this->label3->ForeColor = System::Drawing::SystemColors::HotTrack;
@@ -248,7 +280,8 @@ namespace CppCLRWinFormsProject {
 			this->Grup1label->AutoSize = true;
 			this->Grup1label->Font = (gcnew System::Drawing::Font(L"Inter Light", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->Grup1label->Location = System::Drawing::Point(3, 138);
+			this->Grup1label->Location = System::Drawing::Point(0, 138);
+			this->Grup1label->Margin = System::Windows::Forms::Padding(0, 0, 3, 0);
 			this->Grup1label->Name = L"Grup1label";
 			this->Grup1label->Size = System::Drawing::Size(86, 19);
 			this->Grup1label->TabIndex = 4;
@@ -263,8 +296,9 @@ namespace CppCLRWinFormsProject {
 			this->pictureBox3->Name = L"pictureBox3";
 			this->pictureBox3->Size = System::Drawing::Size(126, 126);
 			this->pictureBox3->TabIndex = 5;
-			this->pictureBox3->TabStop = false;
 			this->pictureBox3->Click += gcnew System::EventHandler(this, &IniciUI::pictureBox_Click);
+			this->pictureBox3->MouseEnter += gcnew System::EventHandler(this, &IniciUI::panel_MouseEnter);
+			this->pictureBox3->MouseLeave += gcnew System::EventHandler(this, &IniciUI::panel_MouseLeave);
 			// 
 			// Grup2
 			// 
@@ -278,6 +312,7 @@ namespace CppCLRWinFormsProject {
 			this->Grup2->RowCount = 2;
 			this->Grup2->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 50)));
 			this->Grup2->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Absolute, 31)));
+			this->Grup2->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Absolute, 20)));
 			this->Grup2->Size = System::Drawing::Size(132, 163);
 			this->Grup2->TabIndex = 14;
 			// 
@@ -287,7 +322,8 @@ namespace CppCLRWinFormsProject {
 			this->Grup2label->AutoSize = true;
 			this->Grup2label->Font = (gcnew System::Drawing::Font(L"Inter Light", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->Grup2label->Location = System::Drawing::Point(3, 138);
+			this->Grup2label->Location = System::Drawing::Point(0, 138);
+			this->Grup2label->Margin = System::Windows::Forms::Padding(0, 0, 3, 0);
 			this->Grup2label->Name = L"Grup2label";
 			this->Grup2label->Size = System::Drawing::Size(86, 19);
 			this->Grup2label->TabIndex = 4;
@@ -302,8 +338,9 @@ namespace CppCLRWinFormsProject {
 			this->pictureBox2->Name = L"pictureBox2";
 			this->pictureBox2->Size = System::Drawing::Size(126, 126);
 			this->pictureBox2->TabIndex = 5;
-			this->pictureBox2->TabStop = false;
 			this->pictureBox2->Click += gcnew System::EventHandler(this, &IniciUI::pictureBox_Click);
+			this->pictureBox2->MouseEnter += gcnew System::EventHandler(this, &IniciUI::panel_MouseEnter);
+			this->pictureBox2->MouseLeave += gcnew System::EventHandler(this, &IniciUI::panel_MouseLeave);
 			// 
 			// Grup3
 			// 
@@ -319,7 +356,7 @@ namespace CppCLRWinFormsProject {
 			this->Grup3->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Absolute, 31)));
 			this->Grup3->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Absolute, 20)));
 			this->Grup3->Size = System::Drawing::Size(132, 163);
-			this->Grup3->TabIndex = 13;
+			this->Grup3->TabIndex = 15;
 			// 
 			// Grup3label
 			// 
@@ -327,7 +364,8 @@ namespace CppCLRWinFormsProject {
 			this->Grup3label->AutoSize = true;
 			this->Grup3label->Font = (gcnew System::Drawing::Font(L"Inter Light", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->Grup3label->Location = System::Drawing::Point(3, 138);
+			this->Grup3label->Location = System::Drawing::Point(0, 138);
+			this->Grup3label->Margin = System::Windows::Forms::Padding(0, 0, 3, 0);
 			this->Grup3label->Name = L"Grup3label";
 			this->Grup3label->Size = System::Drawing::Size(86, 19);
 			this->Grup3label->TabIndex = 4;
@@ -342,8 +380,9 @@ namespace CppCLRWinFormsProject {
 			this->pictureBox1->Name = L"pictureBox1";
 			this->pictureBox1->Size = System::Drawing::Size(126, 126);
 			this->pictureBox1->TabIndex = 5;
-			this->pictureBox1->TabStop = false;
 			this->pictureBox1->Click += gcnew System::EventHandler(this, &IniciUI::pictureBox_Click);
+			this->pictureBox1->MouseEnter += gcnew System::EventHandler(this, &IniciUI::panel_MouseEnter);
+			this->pictureBox1->MouseLeave += gcnew System::EventHandler(this, &IniciUI::panel_MouseLeave);
 			// 
 			// tableLayoutPanel2
 			// 
@@ -438,13 +477,10 @@ namespace CppCLRWinFormsProject {
 			this->flowLayoutPanel1->ResumeLayout(false);
 			this->Grup1->ResumeLayout(false);
 			this->Grup1->PerformLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox3))->EndInit();
 			this->Grup2->ResumeLayout(false);
 			this->Grup2->PerformLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->EndInit();
 			this->Grup3->ResumeLayout(false);
 			this->Grup3->PerformLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
 			this->tableLayoutPanel2->ResumeLayout(false);
 			this->panel2->ResumeLayout(false);
 			this->panel2->PerformLayout();
@@ -465,5 +501,15 @@ private: System::Void flowLayoutPanel1_Paint_1(System::Object^ sender, System::W
 }
 private: System::Void pictureBox4_Click(System::Object^ sender, System::EventArgs^ e);
 private: System::Void pictureBox_Click(System::Object^ sender, System::EventArgs^ e);
+	   System::Void pictureBoxSuggest_Click(System::Object^ sender, System::EventArgs^ e);
+private: System::Void fillflowlayoutpanel();
+private: System::Void AddPanelWithText(FlowLayoutPanel^ flowLayout, String^ text);
+
+	   Void panel_MouseEnter(System::Object^ sender, System::EventArgs^ e);
+	   Void panel_MouseLeave(System::Object^ sender, System::EventArgs^ e);
+
+
+
 };
 }
+

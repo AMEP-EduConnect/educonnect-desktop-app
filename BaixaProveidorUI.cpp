@@ -5,7 +5,6 @@ using namespace System;
 namespace CppCLRWinFormsProject {
 
     Void BaixaProveidorUI::LoadProvidersList(System::Object^ sender, System::EventArgs^ e) {
-        //Creem array amb tots els proveuidors
         List<Usuari^>^ providers = baixaProveidorService->ListProveidors();
         System::Collections::Generic::IEnumerator<Usuari^>^ enumerator = providers->GetEnumerator();
         while (enumerator->MoveNext())
@@ -38,6 +37,35 @@ namespace CppCLRWinFormsProject {
          MainPageUI::Instance->screen->Controls->Clear();
          MainPageUI::Instance->screen->Controls->Add(PanelUI);
          PanelUI->Show();
+    }
+
+    Void BaixaProveidorUI::buscador_textBox_Click(System::Object^ sender, System::EventArgs^ e) {
+        if (buscador_textBox->Text == "Buscar Proveïdor...") { buscador_textBox->Clear(); }
+        buscador_textBox->ForeColor = Color::Black;
+    }
+
+    Void BaixaProveidorUI::buscador_textBox_TextChanged(System::Object^ sender, System::EventArgs^ e) {
+        if (buscador_textBox->Text == "Buscar Proveïdor...") {
+            LoadProvidersList(sender, e);
+        }
+        else {
+            String^ buscar_proveidor = buscador_textBox->Text;
+            List<Usuari^>^ providers = baixaProveidorService->LoadProvidersByStartingLetter(buscar_proveidor);
+            if (providers->Count == Llista_Proveidors->Items->Count) {
+                return;
+            }
+            Llista_Proveidors->Items->Clear();
+            System::Collections::Generic::IEnumerator<Usuari^>^ enumerator = providers->GetEnumerator();
+            while (enumerator->MoveNext())
+                Llista_Proveidors->Items->Add(enumerator->Current->GetUsername());
+            if (Llista_Proveidors->Items->Count == 0) {
+                MessageManager::ErrorMessage("No s'ha trobat cap proveïdor amb aquest nom");
+                buscador_textBox->Enabled = false;
+                buscador_textBox->Enabled = true;
+                buscador_textBox->ForeColor = System::Drawing::SystemColors::ActiveCaption;
+                buscador_textBox->Text = L"Buscar Proveïdor...";
+            }
+        }
     }
 
 
