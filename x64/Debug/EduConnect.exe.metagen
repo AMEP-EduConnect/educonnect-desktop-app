@@ -354,6 +354,7 @@ Class GrupEstudiService: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
     LoadAllStudentsNotInGroup(ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
     LoadStudentsByStartingLetter(ValueType Int64 IsBoxed, String): PrivateScope, Public, HideBySig
     LoadUsersByStartingLetter(String): PrivateScope, Public, HideBySig
+    GetGrupOwnerId(ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
 Class CppCLRWinFormsProject.GrupEstudi_EditarUI: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form
     Void .ctor(System.String): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
@@ -450,6 +451,7 @@ Class GrupSessionAttendantsRepository: AutoLayout, AnsiClass, Class, Public, Bef
     EliminaSessionAttendant(ValueType Int64 IsBoxed, ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
     IsAttendant(ValueType Int64 IsBoxed, ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
     GetSessionAttendantsCount(ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
+    GetIdSessions(ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
 Class GrupSessionAttendantsService: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
   Methods:
@@ -457,6 +459,7 @@ Class GrupSessionAttendantsService: AutoLayout, AnsiClass, Class, Public, Before
     EliminaSessionAttendant(ValueType Int64 IsBoxed, ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
     IsAttendant(ValueType Int64 IsBoxed, ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
     GetSessionAttendantsCount(ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
+    GetIdSessions(ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
 Class PerfilPersonalConsultaService: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
   Methods:
@@ -487,6 +490,42 @@ Class CppCLRWinFormsProject.ChatGrupEstudiUI: AutoLayout, AnsiClass, Class, Publ
     System.Collections.Generic.List`1[Files] files : Public
     System.Windows.Forms.ContextMenuStrip contextMenuStrip : Public
     CppCLRWinFormsProject.ChatGrupEstudiUI Instance : Public, Static
+Class Notificacio: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(System.ValueType, System.ValueType, System.ValueType, System.ValueType, System.ValueType, System.ValueType): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    SetId(ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
+    GetId(): PrivateScope, Public, HideBySig
+    SetNotificationType(ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
+    GetNotificationType(): PrivateScope, Public, HideBySig
+    SetStatusType(ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
+    GetStatusType(): PrivateScope, Public, HideBySig
+    SetSourceGroupId(ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
+    GetSourceGroupId(): PrivateScope, Public, HideBySig
+    SetSourceUserId(ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
+    GetSourceUserId(): PrivateScope, Public, HideBySig
+    SetDestinationUserId(ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
+    GetDestinationUserId(): PrivateScope, Public, HideBySig
+Class NotificacioRepository: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    AddNotificacio(ValueType Int64 IsBoxed, ValueType Int64 IsBoxed, ValueType Int64 IsBoxed, ValueType Int64 IsBoxed, ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
+    RemoveNotificacio(ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
+    GetNotificacionsByDestinationId(ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
+    ChangeStatus(ValueType Int64 IsBoxed, Notificacio): PrivateScope, Public, HideBySig
+    CheckIfInvitationExists(ValueType Int64 IsBoxed, ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
+    CheckIfRequestExists(ValueType Int64 IsBoxed, ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
+    GetNotificacioById(ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
+Class NotificacioService: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    AddNotificacio(ValueType Int64 IsBoxed, ValueType Int64 IsBoxed, ValueType Int64 IsBoxed, ValueType Int64 IsBoxed, ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
+    RemoveNotificacio(ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
+    ListNotificacions(ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
+    ChangeStatus(ValueType Int64 IsBoxed, Notificacio): PrivateScope, Public, HideBySig
+    GetNotificacioById(ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
+    CheckIfInvitationExists(ValueType Int64 IsBoxed, ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
+    CheckIfRequestExists(ValueType Int64 IsBoxed, ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
 Class CppCLRWinFormsProject.GrupEstudi_Explorar: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form
     Void .ctor(System.String): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
@@ -716,6 +755,25 @@ Class CppCLRWinFormsProject.Session_CalendariUI: AutoLayout, AnsiClass, Class, P
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
   Fields:
     System.Collections.Generic.IEnumerator`1[Session] enumerator : Public
+Class CppCLRWinFormsProject.NotificacionsUI: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class NotificationStatus: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(System.ValueType, System.String): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    SetId(ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
+    GetId(): PrivateScope, Public, HideBySig
+    SetStatusType(String): PrivateScope, Public, HideBySig
+    GetStatusType(): PrivateScope, Public, HideBySig
+Class NotificationType: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(System.ValueType, System.String): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    SetId(ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
+    GetId(): PrivateScope, Public, HideBySig
+    SetNotificationType(String): PrivateScope, Public, HideBySig
+    GetNotificationType(): PrivateScope, Public, HideBySig
 Class CppCLRWinFormsProject.Reports_InfoUI: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form
     Void .ctor(System.ValueType): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName

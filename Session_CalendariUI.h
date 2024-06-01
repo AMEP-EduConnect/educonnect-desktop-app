@@ -2,6 +2,7 @@
 #include "GrupEstudi.h"
 #include "GrupEstudiService.h"
 #include "SessionService.h"
+#include "Session.h"
 #include "GrupSessionAttendantsService.h"
 #include "ConsultaEspaisService.h"
 #include "CurrentSession.h"

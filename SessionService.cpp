@@ -148,9 +148,9 @@ List<Session^>^ SessionService::GetSessionsByGroupIdArray(array<Int64^>^ groupId
 }
 
 
-Session^ SessionService::GetSessionById(Int64^ user_id)
+Session^ SessionService::GetSessionById(Int64^ session_id)
 {
-	return sessionRepository->GetSessionById(user_id);
+	return sessionRepository->GetSessionById(session_id);
 }
 
 

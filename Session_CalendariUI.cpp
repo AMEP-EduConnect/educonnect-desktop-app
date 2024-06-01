@@ -16,12 +16,60 @@ namespace CppCLRWinFormsProject {
 
 	System::Void Session_CalendariUI::Session_CalendariUI_ReLoad() {
 		Usuari^ currentUser = CurrentSession::Instance->GetCurrentUser();
-		array<Int64^>^ idgrups = grupEstudiMembershipService->LoadGrupsEstudiMembershipByUserId(currentUser->GetUserId());
+		//array<Int64^>^ idgrups = grupEstudiMembershipService->LoadGrupsEstudiMembershipByUserId(currentUser->GetUserId());
+		array<Int64^>^ idsessions = grupSessionAttendantsService->GetIdSessions(currentUser->GetUserId());
+		array<Session^>^ sessions = gcnew array<Session^>(idsessions->Length);
+		for (int i = 0; i < idsessions->Length; ++i) {
+			sessions[i] = sessionService->GetSessionById(idsessions[i]);
+		}
+		DateTime selectedDate = monthCalendar1->SelectionStart;
+		String^ dateString = selectedDate.ToString("yyyy-MM-dd");
+		List<Session^>^ daySessions;
+		for (int i = 0; i < sessions->Length; ++i) {
+			DateTime^ sessionDate = sessions[i]->GetSessionStartDate();
+			if ((*sessionDate).ToString("yyyy-MM-dd") == dateString) {
+				daySessions->Add(sessions[i]);
+			}
+		}
+		if (daySessions->Count == 0) {
+			//Mensaje = "No tens sessions el dia + dateString"
+		}
+		else {
+			i = 0;
+			DaySessions->Text = Convert::ToString(daySessions->Count);
+			int aux = i + 1;
+			Contador->Text = Convert::ToString(aux);
+
+			// create a Iterator daySessions
+			enumerator = daySessions->GetEnumerator();
+			while (enumerator->MoveNext()) {
+				Session^ session = enumerator->Current;
+				break;
+			}
+			
+			NomGrup->Text = grupEstudiService->GetGrupEstudiById(enumerator->Current->GetGroupId())->GetGroupName();
+			Espai^ espai = consultaEspaisService->GetEspaiByEspaiId(enumerator->Current->GetEspaiId());
+			NomEspai->Text = espai->GetName();
+			NomSessió->Text = enumerator->Current->GetSessionName();
+			Data->Text = enumerator->Current->GetSessionStartDate()->ToString("dd/MM/yyyy");
+			Horari->Text = enumerator->Current->GetSessionStartDate()->ToString("HH:mm") + " - " + enumerator->Current->GetSessionEndDate()->ToString("HH:mm");
+			Capacity->Text = Convert::ToString(espai->GetCapacity());
+			Attendants->Text = Convert::ToString(grupSessionAttendantsService->GetSessionAttendantsCount(enumerator->Current->GetId()));
+			Anterior_Button->Visible = false;
+			if (sessionsdia->Count == 1) Seguent_Button->Visible = false;
+			else {
+				Seguent_Button->Visible = true;
+				Seguent_Button->Enabled = true;
+			}
+
+		}
+		/*
 		if (idgrups->Length == 0) {
 			Anterior_Button->Visible = false;
 			Seguent_Button->Visible = false;
 			
 		}
+		
 		else {
 			
 			DateTime selectedDate = monthCalendar1->SelectionStart;
@@ -44,14 +92,6 @@ namespace CppCLRWinFormsProject {
 					break;
 				}
 
-				/*NomGrup->Text = grupEstudiService->GetGrupEstudiById(sessionsdia[i]->GetGroupId())->GetGroupName();
-				Espai^ espai = consultaEspaisService->GetEspaiByEspaiId(sessionsdia[i]->GetEspaiId());
-				NomEspai->Text = espai->GetName();
-				NomSessió->Text = sessionsdia[i]->GetSessionName();
-				Data->Text = sessionsdia[i]->GetSessionStartDate()->ToString("dd/MM/yyyy");
-				Horari->Text = sessionsdia[i]->GetSessionStartDate()->ToString("HH:mm") + " - " + sessionsdia[0]->GetSessionEndDate()->ToString("HH:mm");
-				Capacity->Text = Convert::ToString(espai->GetCapacity());
-				Attendants->Text = Convert::ToString(grupSessionAttendantsService->GetSessionAttendantsCount(sessionsdia[i]->GetId()));*/
 				NomGrup->Text = grupEstudiService->GetGrupEstudiById(enumerator->Current->GetGroupId())->GetGroupName();
 				Espai^ espai = consultaEspaisService->GetEspaiByEspaiId(enumerator->Current->GetEspaiId());
 				NomEspai->Text = espai->GetName();
@@ -65,9 +105,7 @@ namespace CppCLRWinFormsProject {
 				else {
 					Seguent_Button->Visible = true;
 					Seguent_Button->Enabled = true;
-				}
-			}
-		}
+				}*/
 	}
 
 	System::Void Session_CalendariUI::monthCalendar1_DateChanged(System::Object^ sender, System::Windows::Forms::DateRangeEventArgs^ e) {
