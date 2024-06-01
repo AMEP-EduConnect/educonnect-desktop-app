@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 
 using namespace MySql::Data::MySqlClient;
 
@@ -20,7 +20,7 @@ namespace CppCLRWinFormsProject {
 		static MainPageUI^ Instance;
 		MainPageUI(void);
 
-		
+
 
 
 		//protected:
@@ -413,23 +413,23 @@ namespace CppCLRWinFormsProject {
 
 		}
 #pragma endregion
-private:
+	private:
 
-	System::Void MainPageUI_Load(System::Object^ sender, System::EventArgs^ e);
+		System::Void MainPageUI_Load(System::Object^ sender, System::EventArgs^ e);
 
-	System::Void Tancar_Sessio_Click(System::Object^ sender, System::EventArgs^ e);
-	System::Void Perfil_Click(System::Object^ sender, System::EventArgs^ e);
+		System::Void Tancar_Sessio_Click(System::Object^ sender, System::EventArgs^ e);
+		System::Void Perfil_Click(System::Object^ sender, System::EventArgs^ e);
 
-	System::Void BotoInici_Click(System::Object^ sender, System::EventArgs^ e);
-	System::Void Admin_Click(System::Object^ sender, System::EventArgs^ e);
-	System::Void ElsMeus_Click(System::Object^ sender, System::EventArgs^ e);
-	System::Void BotoExplorar_Click(System::Object^ sender, System::EventArgs^ e);
-	System::Void BotoEspais_Click(System::Object^ sender, System::EventArgs^ e);
-	System::Void BotoSessions_Click(System::Object^ sender, System::EventArgs^ e);
+		System::Void BotoInici_Click(System::Object^ sender, System::EventArgs^ e);
+		System::Void Admin_Click(System::Object^ sender, System::EventArgs^ e);
+		System::Void ElsMeus_Click(System::Object^ sender, System::EventArgs^ e);
+		System::Void BotoExplorar_Click(System::Object^ sender, System::EventArgs^ e);
+		System::Void BotoEspais_Click(System::Object^ sender, System::EventArgs^ e);
+		System::Void BotoSessions_Click(System::Object^ sender, System::EventArgs^ e);
 
-private: System::Void NotificationButton_Click(System::Object^ sender, System::EventArgs^ e);
-private: System::Void screen_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
-}
-System::Void MainForm_FormClosing(System::Object^ sender, System::Windows::Forms::FormClosingEventArgs^ e);
-};
+	private: System::Void NotificationButton_Click(System::Object^ sender, System::EventArgs^ e);
+	private: System::Void screen_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
+	}
+		   System::Void MainForm_FormClosing(System::Object^ sender, System::Windows::Forms::FormClosingEventArgs^ e);
+	};
 }

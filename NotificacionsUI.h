@@ -61,7 +61,7 @@ namespace CppCLRWinFormsProject {
 	private: System::Windows::Forms::ListBox^ Llista_Notificacions;
 	private: System::Windows::Forms::Button^ Rebutjarbutton;
 
-	private: System::Windows::Forms::Label^ NotificacionsLabel;
+
 
 	private: System::Windows::Forms::Label^ Pertany_Label;
 	private: System::Windows::Forms::Button^ Acceptarbutton;
@@ -88,7 +88,6 @@ namespace CppCLRWinFormsProject {
 			this->Acceptarbutton = (gcnew System::Windows::Forms::Button());
 			this->Llista_Notificacions = (gcnew System::Windows::Forms::ListBox());
 			this->Rebutjarbutton = (gcnew System::Windows::Forms::Button());
-			this->NotificacionsLabel = (gcnew System::Windows::Forms::Label());
 			this->Pertany_Label = (gcnew System::Windows::Forms::Label());
 			this->tableLayoutPanel1->SuspendLayout();
 			this->Actual_Panel->SuspendLayout();
@@ -135,7 +134,6 @@ namespace CppCLRWinFormsProject {
 			this->Actual_Panel->Controls->Add(this->Acceptarbutton);
 			this->Actual_Panel->Controls->Add(this->Llista_Notificacions);
 			this->Actual_Panel->Controls->Add(this->Rebutjarbutton);
-			this->Actual_Panel->Controls->Add(this->NotificacionsLabel);
 			this->Actual_Panel->Controls->Add(this->Pertany_Label);
 			this->Actual_Panel->Location = System::Drawing::Point(161, 93);
 			this->Actual_Panel->Name = L"Actual_Panel";
@@ -147,7 +145,7 @@ namespace CppCLRWinFormsProject {
 			this->Acceptarbutton->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->Acceptarbutton->ForeColor = System::Drawing::SystemColors::HotTrack;
-			this->Acceptarbutton->Location = System::Drawing::Point(73, 310);
+			this->Acceptarbutton->Location = System::Drawing::Point(73, 317);
 			this->Acceptarbutton->Name = L"Acceptarbutton";
 			this->Acceptarbutton->Size = System::Drawing::Size(91, 34);
 			this->Acceptarbutton->TabIndex = 18;
@@ -165,9 +163,9 @@ namespace CppCLRWinFormsProject {
 			this->Llista_Notificacions->FormattingEnabled = true;
 			this->Llista_Notificacions->IntegralHeight = false;
 			this->Llista_Notificacions->ItemHeight = 19;
-			this->Llista_Notificacions->Location = System::Drawing::Point(29, 49);
+			this->Llista_Notificacions->Location = System::Drawing::Point(29, 19);
 			this->Llista_Notificacions->Name = L"Llista_Notificacions";
-			this->Llista_Notificacions->Size = System::Drawing::Size(390, 256);
+			this->Llista_Notificacions->Size = System::Drawing::Size(390, 286);
 			this->Llista_Notificacions->TabIndex = 17;
 			this->Llista_Notificacions->SelectedIndexChanged += gcnew System::EventHandler(this, &NotificacionsUI::Llista_Notificacions_SelectedIndexChanged);
 			// 
@@ -176,26 +174,13 @@ namespace CppCLRWinFormsProject {
 			this->Rebutjarbutton->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->Rebutjarbutton->ForeColor = System::Drawing::SystemColors::HotTrack;
-			this->Rebutjarbutton->Location = System::Drawing::Point(285, 310);
+			this->Rebutjarbutton->Location = System::Drawing::Point(285, 317);
 			this->Rebutjarbutton->Name = L"Rebutjarbutton";
 			this->Rebutjarbutton->Size = System::Drawing::Size(91, 34);
 			this->Rebutjarbutton->TabIndex = 0;
 			this->Rebutjarbutton->Text = L"Rebutjar";
 			this->Rebutjarbutton->UseVisualStyleBackColor = true;
 			this->Rebutjarbutton->Click += gcnew System::EventHandler(this, &NotificacionsUI::Rebutjarbutton_Click);
-			// 
-			// NotificacionsLabel
-			// 
-			this->NotificacionsLabel->AutoSize = true;
-			this->NotificacionsLabel->BackColor = System::Drawing::SystemColors::GradientInactiveCaption;
-			this->NotificacionsLabel->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->NotificacionsLabel->ForeColor = System::Drawing::SystemColors::HotTrack;
-			this->NotificacionsLabel->Location = System::Drawing::Point(40, 10);
-			this->NotificacionsLabel->Name = L"NotificacionsLabel";
-			this->NotificacionsLabel->Size = System::Drawing::Size(149, 19);
-			this->NotificacionsLabel->TabIndex = 7;
-			this->NotificacionsLabel->Text = L"LlistaNotificacions";
 			// 
 			// Pertany_Label
 			// 
