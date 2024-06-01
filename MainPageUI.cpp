@@ -22,6 +22,7 @@
 #include "GrupEstudi_ExplorarUI.h"
 #include "ConsultaEspaisUI.h"
 #include "Session_CalendariUI.h"
+#include "NotificacionsUI.h"
 
 #include "ChatGrupEstudiUI.h"
 namespace CppCLRWinFormsProject {
@@ -48,7 +49,7 @@ namespace CppCLRWinFormsProject {
         this->BotoSessions->Image = Image::FromFile("resources/Icons/libro-cubierta-abierta.png");
         this->BotoEspais->Image = Image::FromFile("resources/Icons/edificio.png");
         this->BotoAdmin->Image = Image::FromFile("resources/Icons/herramientas.png");
-
+        this->Notification_Button->Image = Image::FromFile("resources/Icons/comment-alt.png");
 
         //CONTROL BAR
         this->Text = "";
@@ -59,6 +60,8 @@ namespace CppCLRWinFormsProject {
         if (*rol == 1) {
             this->BotoAdmin->Visible = true;
             this->BotoEspais->Visible = true;
+            this->Notification_Button->Visible = false;
+            this->BotoSessions->Visible = false;
         }
         else if (*rol == 3) {
             this->BotoAdmin->Visible = false;
@@ -66,10 +69,13 @@ namespace CppCLRWinFormsProject {
             this->BotoElsMeus->Visible = false;
             this->BotoExplorar->Visible = false;
             this->BotoSessions->Visible = false;
+            this->Notification_Button->Visible = false;
         }
         else {
             this->BotoAdmin->Visible = false;
             this->BotoEspais->Visible = false;
+            this->BotoSessions->Visible = true;
+            this->Notification_Button->Visible = true;
         }
 
     }
@@ -149,6 +155,8 @@ namespace CppCLRWinFormsProject {
             static_cast<System::Byte>(0)));
         this->BotoElsMeus->Font = (gcnew System::Drawing::Font(L"Inter Light", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
             static_cast<System::Byte>(0)));
+        this->Notification_Button->Font = (gcnew System::Drawing::Font(L"Inter Light", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+            static_cast<System::Byte>(0)));
         this->BotoSessions->Font = (gcnew System::Drawing::Font(L"Inter Light", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
             static_cast<System::Byte>(0)));
 
@@ -185,6 +193,8 @@ namespace CppCLRWinFormsProject {
             static_cast<System::Byte>(0)));
         this->BotoExplorar->Font = (gcnew System::Drawing::Font(L"Inter Light", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
             static_cast<System::Byte>(0)));
+        this->Notification_Button->Font = (gcnew System::Drawing::Font(L"Inter Light", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+        	static_cast<System::Byte>(0)));
         this->BotoSessions->Font = (gcnew System::Drawing::Font(L"Inter Light", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
             static_cast<System::Byte>(0)));
 
@@ -213,6 +223,8 @@ namespace CppCLRWinFormsProject {
             static_cast<System::Byte>(0)));
         this->BotoEspais->Font = (gcnew System::Drawing::Font(L"Inter Light", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
             static_cast<System::Byte>(0)));
+        this->Notification_Button->Font = (gcnew System::Drawing::Font(L"Inter Light", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+        	static_cast<System::Byte>(0)));
         this->BotoSessions->Font = (gcnew System::Drawing::Font(L"Inter Light", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
             static_cast<System::Byte>(0)));
 
@@ -247,6 +259,8 @@ namespace CppCLRWinFormsProject {
                 static_cast<System::Byte>(0)));
             this->BotoEspais->Font = (gcnew System::Drawing::Font(L"Inter Light", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
+            this->Notification_Button->Font = (gcnew System::Drawing::Font(L"Inter Light", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+            	static_cast<System::Byte>(0)));
             this->BotoSessions->Font = (gcnew System::Drawing::Font(L"Inter Light", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
 
@@ -276,6 +290,8 @@ namespace CppCLRWinFormsProject {
                 static_cast<System::Byte>(0)));
             this->BotoEspais->Font = (gcnew System::Drawing::Font(L"Inter Light", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
+            this->Notification_Button->Font = (gcnew System::Drawing::Font(L"Inter Light", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+                static_cast<System::Byte>(0)));
             this->BotoSessions->Font = (gcnew System::Drawing::Font(L"Inter Light", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
 
@@ -304,11 +320,38 @@ namespace CppCLRWinFormsProject {
                 static_cast<System::Byte>(0)));
             this->BotoExplorar->Font = (gcnew System::Drawing::Font(L"Inter Light", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
+            this->Notification_Button->Font = (gcnew System::Drawing::Font(L"Inter Light", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+            	static_cast<System::Byte>(0)));
             this->BotoSessions->Font = (gcnew System::Drawing::Font(L"Inter Light", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
 
         }
 
+        System::Void MainPageUI::NotificationButton_Click(System::Object^ sender, System::EventArgs^ e)
+        {
+            NotificacionsUI^ PanelUI = gcnew NotificacionsUI();
+            PanelUI->TopLevel = false;
+            PanelUI->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
+            PanelUI->Dock = System::Windows::Forms::DockStyle::Fill;
+
+            this->screen->Controls->Clear();
+            this->screen->Controls->Add(PanelUI);
+            PanelUI->Show();
+            this->BotoAdmin->Font = (gcnew System::Drawing::Font(L"Inter Medium", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+                static_cast<System::Byte>(0)));
+
+            this->BotoInici->Font = (gcnew System::Drawing::Font(L"Inter", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+                static_cast<System::Byte>(0)));
+            this->BotoExplorar->Font = (gcnew System::Drawing::Font(L"Inter Light", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+                static_cast<System::Byte>(0)));
+            this->BotoElsMeus->Font = (gcnew System::Drawing::Font(L"Inter Light", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+                static_cast<System::Byte>(0)));
+            this->BotoEspais->Font = (gcnew System::Drawing::Font(L"Inter Light", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+                static_cast<System::Byte>(0)));
+            this->Notification_Button->Font = (gcnew System::Drawing::Font(L"Inter Light", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+                				static_cast<System::Byte>(0)));
+        }
+        
         Void MainPageUI::BotoSessions_Click(System::Object^ sender, System::EventArgs^ e) {
             Session_CalendariUI^ PanelUI = gcnew Session_CalendariUI();
             PanelUI->TopLevel = false;
@@ -319,8 +362,9 @@ namespace CppCLRWinFormsProject {
             this->screen->Controls->Add(PanelUI);
             PanelUI->Show();
 
+            
             this->BotoSessions->Font = (gcnew System::Drawing::Font(L"Inter Medium", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-                static_cast<System::Byte>(0)));
+            static_cast<System::Byte>(0)));
 
             this->BotoInici->Font = (gcnew System::Drawing::Font(L"Inter", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));

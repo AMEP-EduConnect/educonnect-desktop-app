@@ -2,7 +2,6 @@
 #include "AltaEspaisService.h"
 #include "AdministradorUI.h"
 #include "Espai.h"
-#include "EspaisRepository.h"
 #include "ConsultaEspaisUI.h"
 #include <iostream>
 #include <string>

@@ -229,6 +229,24 @@
     <ClCompile Include="ReportsUI.cpp">
       <Filter>Source Files\ui</Filter>
     </ClCompile>
+    <ClCompile Include="NotificationStatus.cpp">
+      <Filter>Source Files\entities</Filter>
+    </ClCompile>
+    <ClCompile Include="NotificationType.cpp">
+      <Filter>Source Files\entities</Filter>
+    </ClCompile>
+    <ClCompile Include="Notificacio.cpp">
+      <Filter>Source Files\entities</Filter>
+    </ClCompile>
+    <ClCompile Include="NotificacioService.cpp">
+      <Filter>Source Files\services</Filter>
+    </ClCompile>
+    <ClCompile Include="NotificacioRepository.cpp">
+      <Filter>Source Files\repositories</Filter>
+    </ClCompile>
+    <ClCompile Include="NotificacionsUI.cpp">
+      <Filter>Source Files\ui</Filter>
+    </ClCompile>
     <ClCompile Include="Session_CalendariUI.cpp">
       <Filter>Source Files\ui</Filter>
     </ClCompile>
@@ -459,6 +477,24 @@
     </ClInclude>
     <ClInclude Include="ReportsService.h">
       <Filter>Source Files\services</Filter>
+    </ClInclude>
+    <ClInclude Include="NotificationType.h">
+      <Filter>Source Files\entities</Filter>
+    </ClInclude>
+    <ClInclude Include="NotificationStatus.h">
+      <Filter>Source Files\entities</Filter>
+    </ClInclude>
+    <ClInclude Include="Notificacio.h">
+      <Filter>Source Files\entities</Filter>
+    </ClInclude>
+    <ClInclude Include="NotificacioService.h">
+      <Filter>Source Files\services</Filter>
+    </ClInclude>
+    <ClInclude Include="NotificacioRepository.h">
+      <Filter>Source Files\repositories</Filter>
+    </ClInclude>
+    <ClInclude Include="NotificacionsUI.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Session_CalendariUI.h">
       <Filter>Header Files</Filter>

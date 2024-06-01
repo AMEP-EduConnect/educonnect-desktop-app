@@ -19,6 +19,7 @@
   educonnect_desktop_app.IniciUI.resources - Embedded, ContainedInManifestFile, 
   educonnect_desktop_app.InformacioPersonal_ConsultaUI.resources - Embedded, ContainedInManifestFile, 
   educonnect_desktop_app.MainPageUI.resources - Embedded, ContainedInManifestFile, 
+  educonnect_desktop_app.NotificacionsUI.resources - Embedded, ContainedInManifestFile, 
   educonnect_desktop_app.RegistreUsuariUI.resources - Embedded, ContainedInManifestFile, 
   educonnect_desktop_app.ReportsUI.resources - Embedded, ContainedInManifestFile, 
   educonnect_desktop_app.Reports_ConsultaUI.resources - Embedded, ContainedInManifestFile, 
@@ -226,6 +227,7 @@ Class GrupEstudiRepository: AutoLayout, AnsiClass, Class, Public, BeforeFieldIni
     GetAcademicTagNameById(ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
     CheckUserIsOwner(String): PrivateScope, Public, HideBySig
     LoadGrupsNoMembers(ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
+    GetGrupOwnerId(ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
     ChangeGroupOwner(ValueType Int64 IsBoxed, ValueType Int64 IsBoxed): PrivateScope, Public, HideBySig
 Class CredentialManagementService: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName

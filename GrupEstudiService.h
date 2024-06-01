@@ -52,6 +52,8 @@ public:
 
 	List<Usuari^>^ LoadUsersByStartingLetter(String^ username);
 
+	Int64^ GetGrupOwnerId(Int64^ group_id);
+	
 private:
 	GrupEstudiRepository^ grupEstudiRepository;
 	GrupEstudiMembershipService^ grupEstudiMembershipService;
