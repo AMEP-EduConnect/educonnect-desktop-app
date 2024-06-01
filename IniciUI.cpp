@@ -29,7 +29,7 @@ namespace CppCLRWinFormsProject {
 
         InitializeComponent();
 
-        this->pictureBox4->Image = Image::FromFile("resources/Icons/square-plus.png");
+        this->pictureBox4->Image = Image::FromFile("resources/Icons/add_circle_24dp_FILL0_wght400_GRAD0_opsz24.png");
 
 
         this->Grup1->Visible = false;
@@ -292,11 +292,31 @@ namespace CppCLRWinFormsProject {
         panel->Tag = text;
         panel->Click += gcnew System::EventHandler(this, &IniciUI::pictureBoxSuggest_Click);
 
+        // INCIALS
+        TableLayoutPanel^ namecontainer = gcnew TableLayoutPanel();
+        namecontainer->RowCount = 1;
+        namecontainer->ColumnCount = 1;
+        namecontainer->RowStyles->Add(gcnew RowStyle(SizeType::Percent, 100));
+        namecontainer->Dock = DockStyle::Fill;
+        namecontainer->Enabled = false;
+        
+		Label^ initials = gcnew Label();
+        initials->Text = extreureInicials(text);
+        initials->Font = (gcnew System::Drawing::Font(L"Inter", 30.0F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+            static_cast<System::Byte>(0)));
+		initials->Anchor = AnchorStyles::None;
+		initials->AutoSize = true;
+		initials->TextAlign = ContentAlignment::MiddleCenter;
+		initials->Margin = System::Windows::Forms::Padding(0, 0, 3, 0);
+		initials->Enabled = false;
+
+		namecontainer->Controls->Add(initials, 0, 0);
+
+        panel->Controls->Add(namecontainer);
+
         table->Controls->Add(panel, 0, 0);
 
-
-
-
+		//------------------------------------------------------------
         Label^ label = gcnew Label();
 
         if (text->Length > 10) label->Text = text->Substring(0, 10) + "...";
@@ -339,10 +359,12 @@ namespace CppCLRWinFormsProject {
         if (text->Contains(" ")) {
             array<wchar_t>^ delimiters = { ' ' };
             array<String^>^ words = text->Split(delimiters);
-            for each (String ^ word in words) {
-                if (word->Length > 0) {
+			int i = 0;
+            for each (String^ word in words) {
+                if (word->Length > 0 and i < 2) {
                     // Usar Substring para obtener el primer carácter como String^
                     initials += word->Substring(0, 1)->ToUpper();  // Convierte a mayúscula si necesario
+                    i++;
                 }
             }
         }

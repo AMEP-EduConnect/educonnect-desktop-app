@@ -216,3 +216,5 @@ C:\Users\alex_saiz243\educonnect-desktop-app\educonne.c3c1b704\x64\Debug\educonn
 C:\Users\alex_saiz243\educonnect-desktop-app\educonne.c3c1b704\x64\Debug\educonne.F9171944.Up2Date
 C:\Users\alex_saiz243\educonnect-desktop-app\educonne.c3c1b704\x64\Debug\educonnect_desktop_app.MainPageUI.resources
 C:\Users\alex_saiz243\educonnect-desktop-app\educonne.c3c1b704\x64\Debug\educonnect_desktop_app.Session_CalendariUI.resources
+C:\Users\GERARD\educonnect-desktop-app\educonne.c3c1b704\x64\Debug\educonnect_desktop_app.MainPageUI.resources
+C:\Users\GERARD\educonnect-desktop-app\educonne.c3c1b704\x64\Debug\educonnect_desktop_app.Session_CalendariUI.resources

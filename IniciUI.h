@@ -484,7 +484,7 @@ namespace CppCLRWinFormsProject {
 			this->label7->Font = (gcnew System::Drawing::Font(L"Inter Light", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label7->ForeColor = System::Drawing::SystemColors::HotTrack;
-			this->label7->Location = System::Drawing::Point(28, 50);
+			this->label7->Location = System::Drawing::Point(31, 57);
 			this->label7->Margin = System::Windows::Forms::Padding(3, 0, 3, 24);
 			this->label7->Name = L"label7";
 			this->label7->Size = System::Drawing::Size(108, 19);
@@ -494,12 +494,13 @@ namespace CppCLRWinFormsProject {
 			// pictureBox4
 			// 
 			this->pictureBox4->Anchor = System::Windows::Forms::AnchorStyles::None;
-			this->pictureBox4->Location = System::Drawing::Point(2, 47);
+			this->pictureBox4->Location = System::Drawing::Point(0, 51);
 			this->pictureBox4->Margin = System::Windows::Forms::Padding(78, 3, 3, 25);
-			this->pictureBox4->MaximumSize = System::Drawing::Size(24, 24);
-			this->pictureBox4->MinimumSize = System::Drawing::Size(24, 24);
+			this->pictureBox4->MaximumSize = System::Drawing::Size(48, 48);
+			this->pictureBox4->MinimumSize = System::Drawing::Size(30, 30);
 			this->pictureBox4->Name = L"pictureBox4";
-			this->pictureBox4->Size = System::Drawing::Size(24, 24);
+			this->pictureBox4->Size = System::Drawing::Size(30, 30);
+			this->pictureBox4->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
 			this->pictureBox4->TabIndex = 9;
 			this->pictureBox4->TabStop = false;
 			this->pictureBox4->Click += gcnew System::EventHandler(this, &IniciUI::pictureBox4_Click);
