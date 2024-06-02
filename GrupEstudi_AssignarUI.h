@@ -7,7 +7,6 @@
 #include "Usuari.h"
 #include "CurrentSession.h"
 #include "MessageManager.h"
-#include "NotificacioService.h"
 
 namespace CppCLRWinFormsProject {
 
@@ -52,13 +51,13 @@ namespace CppCLRWinFormsProject {
 
 	protected:
 
+
 	private:
 		/// <summary>
 		/// Variable del diseñador necesaria.
 		/// </summary>
 		System::ComponentModel::Container ^components;
 	private: GrupEstudiService^ grupEstudiService;
-	private: NotificacioService^ notificacioService;
 	private: System::Windows::Forms::TableLayoutPanel^ tableLayoutPanel1;
 
 	private: GrupEstudiMembershipService^ grupEstudiMembershipService;
@@ -99,7 +98,7 @@ namespace CppCLRWinFormsProject {
 			this->AssignarGrupEstudi_Label->Name = L"AssignarGrupEstudi_Label";
 			this->AssignarGrupEstudi_Label->Size = System::Drawing::Size(301, 33);
 			this->AssignarGrupEstudi_Label->TabIndex = 2;
-			this->AssignarGrupEstudi_Label->Text = L"Convidar membre a \"\"";
+			this->AssignarGrupEstudi_Label->Text = L"Convidar Membre a \"\"";
 			this->AssignarGrupEstudi_Label->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
 			// 
 			// NomUsuari_Label

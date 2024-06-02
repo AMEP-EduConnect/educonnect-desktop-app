@@ -571,9 +571,6 @@
     <EmbeddedResource Include="Reports_InfoUI.resx">
       <DependentUpon>Reports_InfoUI.h</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Session_CalendariUI.resx">
-      <DependentUpon>Session_CalendariUI.h</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Session_CrearUI.resx">
       <DependentUpon>Session_CrearUI.h</DependentUpon>
     </EmbeddedResource>
