@@ -27,6 +27,7 @@ namespace CppCLRWinFormsProject {
 		Contador->Visible = isSessionCardAvailable;
 		SeparatorAsistents_Label->Visible = isSessionCardAvailable;
 		Separator_Label->Visible = isSessionCardAvailable;
+		label3->Visible = isSessionCardAvailable;
 	}
 	System::Void Session_CalendariUI::Session_CalendariUI_ReLoad() {
 		Usuari^ currentUser = CurrentSession::Instance->GetCurrentUser();
