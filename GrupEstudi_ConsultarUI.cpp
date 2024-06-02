@@ -105,7 +105,7 @@ namespace CppCLRWinFormsProject {
 
 
                                 else {
-                                    MessageManager::WarningMessage("Ets el owner del grup, ja no ho saràs i s'assiganrà al usuari més antic com a nou owner.");
+                                    MessageManager::WarningMessage("Ets el owner del grup, ja no ho seràs i s'assignarà a l'usuari més antic com a nou owner.");
                                     grupEstudiService->ChangeGroupOwner(group_id, id_user);
                                     abandonar_button_Click(sender, e);
                                 }

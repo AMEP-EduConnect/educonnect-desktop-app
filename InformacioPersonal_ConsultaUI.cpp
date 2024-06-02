@@ -21,6 +21,7 @@ namespace CppCLRWinFormsProject {
 		textBox1->Text = username;
 		textBox3->Text = email;
 		textBox4->Text = name;
+		if (*CurrentSession::Instance->GetCurrentUserRol() != 2LL) panel4->Visible = false;
 
 		fill_flowlayoutpanelwithtags();
 
@@ -34,7 +35,7 @@ namespace CppCLRWinFormsProject {
 		this->pictureBox2->Image = Image::FromFile("resources/Icons/eye-crossed.png");
 
 		Int64^ rol = CurrentSession::Instance->GetCurrentUserRol();
-		if (*rol != 1LL) this->BotoElimina->Visible = true;
+		if (*rol != 1LL and *rol != 3LL) this->BotoElimina->Visible = true;
 		else this->BotoElimina->Visible = false;
 
 	}
