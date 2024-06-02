@@ -553,6 +553,9 @@
     <EmbeddedResource Include="MainPageUI.resx">
       <DependentUpon>MainPageUI.h</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ModificaEspaisUI.resx">
+      <DependentUpon>ModificaEspaisUI.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="NotificacionsUI.resx">
       <DependentUpon>NotificacionsUI.h</DependentUpon>
     </EmbeddedResource>

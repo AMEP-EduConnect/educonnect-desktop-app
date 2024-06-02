@@ -64,8 +64,8 @@ namespace CppCLRWinFormsProject {
 			this->tableLayoutPanel1 = (gcnew System::Windows::Forms::TableLayoutPanel());
 			this->panel2 = (gcnew System::Windows::Forms::Panel());
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
-			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
+			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->tableLayoutPanel1->SuspendLayout();
 			this->panel2->SuspendLayout();
 			this->panel1->SuspendLayout();
@@ -122,7 +122,7 @@ namespace CppCLRWinFormsProject {
 			this->Cancelar_Button->Name = L"Cancelar_Button";
 			this->Cancelar_Button->Size = System::Drawing::Size(88, 34);
 			this->Cancelar_Button->TabIndex = 2;
-			this->Cancelar_Button->Text = L"Cancelar";
+			this->Cancelar_Button->Text = L"Tornar";
 			this->Cancelar_Button->UseVisualStyleBackColor = false;
 			this->Cancelar_Button->Click += gcnew System::EventHandler(this, &BaixaUsuariUI::Cancelar_Button_Click);
 			// 
@@ -174,19 +174,6 @@ namespace CppCLRWinFormsProject {
 			this->panel1->TabIndex = 18;
 			this->panel1->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &BaixaUsuariUI::panel1_Paint);
 			// 
-			// label2
-			// 
-			this->label2->Anchor = System::Windows::Forms::AnchorStyles::None;
-			this->label2->AutoSize = true;
-			this->label2->Font = (gcnew System::Drawing::Font(L"Inter", 20.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->label2->ForeColor = System::Drawing::SystemColors::HotTrack;
-			this->label2->Location = System::Drawing::Point(272, 11);
-			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(267, 33);
-			this->label2->TabIndex = 19;
-			this->label2->Text = L"Donar Baixa Usuari";
-			// 
 			// pictureBox1
 			// 
 			this->pictureBox1->BackColor = System::Drawing::SystemColors::Window;
@@ -199,6 +186,19 @@ namespace CppCLRWinFormsProject {
 			this->pictureBox1->TabIndex = 18;
 			this->pictureBox1->TabStop = false;
 			this->pictureBox1->Click += gcnew System::EventHandler(this, &BaixaUsuariUI::pictureBox1_Click);
+			// 
+			// label2
+			// 
+			this->label2->Anchor = System::Windows::Forms::AnchorStyles::None;
+			this->label2->AutoSize = true;
+			this->label2->Font = (gcnew System::Drawing::Font(L"Inter", 20.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label2->ForeColor = System::Drawing::SystemColors::HotTrack;
+			this->label2->Location = System::Drawing::Point(272, 11);
+			this->label2->Name = L"label2";
+			this->label2->Size = System::Drawing::Size(267, 33);
+			this->label2->TabIndex = 19;
+			this->label2->Text = L"Donar Baixa Usuari";
 			// 
 			// BaixaUsuariUI
 			// 

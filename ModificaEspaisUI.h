@@ -242,7 +242,7 @@ namespace CppCLRWinFormsProject {
 			   this->Button_Cancelar_Edita->Name = L"Button_Cancelar_Edita";
 			   this->Button_Cancelar_Edita->Size = System::Drawing::Size(99, 34);
 			   this->Button_Cancelar_Edita->TabIndex = 19;
-			   this->Button_Cancelar_Edita->Text = L"Cancelar";
+			   this->Button_Cancelar_Edita->Text = L"Cancel·la";
 			   this->Button_Cancelar_Edita->UseVisualStyleBackColor = true;
 			   this->Button_Cancelar_Edita->Visible = false;
 			   this->Button_Cancelar_Edita->Click += gcnew System::EventHandler(this, &ModificaEspaisUI::Button_Cancelar_Edita_Click);
@@ -257,7 +257,7 @@ namespace CppCLRWinFormsProject {
 			   this->Cancelar_Button->Name = L"Cancelar_Button";
 			   this->Cancelar_Button->Size = System::Drawing::Size(88, 35);
 			   this->Cancelar_Button->TabIndex = 7;
-			   this->Cancelar_Button->Text = L"Cancelar";
+			   this->Cancelar_Button->Text = L"Tornar";
 			   this->Cancelar_Button->UseVisualStyleBackColor = true;
 			   this->Cancelar_Button->Click += gcnew System::EventHandler(this, &ModificaEspaisUI::Cancelar_Button_Click);
 			   // 
