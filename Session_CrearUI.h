@@ -207,6 +207,7 @@ namespace CppCLRWinFormsProject {
 			this->TimeHour_ComboBox->Size = System::Drawing::Size(192, 27);
 			this->TimeHour_ComboBox->TabIndex = 8;
 			this->TimeHour_ComboBox->SelectedIndexChanged += gcnew System::EventHandler(this, &Session_CrearUI::TimeHour_ComboBox_SelectedIndexChanged);
+			this->TimeHour_ComboBox->TextChanged += gcnew System::EventHandler(this, &Session_CrearUI::TimeHour_ComboBox_TextChanged);
 			// 
 			// Espai_Label
 			// 
@@ -338,6 +339,7 @@ private: System::Void LoadEspaisFromSelectedProveidor();
 private: System::Void Espai_ComboBox_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e);
 private: DateTime FormatTimeStringIntoDateTime(String^ espaiString);
 private: System::Void TimeHour_ComboBox_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e);
+private: System::Void TimeHour_ComboBox_TextChanged(System::Object^ sender, System::EventArgs^ e);
 private: System::Void CreateSession_Button_Click(System::Object^ sender, System::EventArgs^ e);
 private: bool FieldsNotEmpty();
 

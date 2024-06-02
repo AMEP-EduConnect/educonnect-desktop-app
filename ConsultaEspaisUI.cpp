@@ -69,4 +69,19 @@ namespace CppCLRWinFormsProject {
 		MainPageUI::Instance->screen->Controls->Add(PanelUI);
 		PanelUI->Show();
 	}
+
+    Void ConsultaEspaisUI::SetWelcomeMessage() {
+
+        String^ name = CurrentSession::Instance->GetCurrentUser()->GetName();
+
+        time_t now = time(0);
+        tm* time = localtime(&now);
+
+        if (time->tm_hour > 6 and time->tm_hour < 12) this->Benvinguda->Text = "Bon dia, " + name;
+
+        else if (time->tm_hour >= 12 and time->tm_hour < 20) this->Benvinguda->Text = "Bona tarda, " + name;
+
+        else if (time->tm_hour >= 20 or time->tm_hour <= 6) this->Benvinguda->Text = "Bona nit, " + name;
+
+    }
 }
