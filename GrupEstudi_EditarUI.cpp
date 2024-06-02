@@ -39,6 +39,8 @@ namespace CppCLRWinFormsProject {
 
     void GrupEstudi_EditarUI::noModificarButton_Click(System::Object^ sender, System::EventArgs^ e) {
         MessageManager::InfoMessage("No s'ha modificat cap camp.");
+        NomActual_TextBox->Text = nomActual;
+        EditarDescripcio_TextBox->Text = descripcioActual;
         this->NomActual_TextBox->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(224)), static_cast<System::Int32>(static_cast<System::Byte>(224)),
             static_cast<System::Int32>(static_cast<System::Byte>(224)));
         this->EditarDescripcio_TextBox->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(224)), static_cast<System::Int32>(static_cast<System::Byte>(224)),
@@ -50,10 +52,6 @@ namespace CppCLRWinFormsProject {
         Cancelar_Button->Visible = true;
         Edita_Button->Text = "Modificar";
         noModificarButton->Visible = false;
-
-        nomActual = NomActual_TextBox->Text;
-        EditarDescripcio_TextBox->Text = descripcioActual;
-        //descripcioActual = EditarDescripcio_TextBox->Text;
     }
 
     void GrupEstudi_EditarUI::testEdita_Button(System::Object^ sender, System::EventArgs^ e)
@@ -71,6 +69,10 @@ namespace CppCLRWinFormsProject {
             NomActual_TextBox->Enabled = true;
             EditarDescripcio_TextBox->Enabled = true;
 
+            if (EditarDescripcio_TextBox->Text == descripcioActual and NomActual_TextBox->Text == nomActual and Edita_Button->Text == "Guardar") {
+                MessageManager::WarningMessage("Modifica almenys un camp per actualitzar el grup!");
+            }
+
             Cancelar_Button->Visible = false;
             Edita_Button->Text = "Guardar";
 
@@ -81,29 +83,37 @@ namespace CppCLRWinFormsProject {
 
             else {
                 if (EditarDescripcio_TextBox->Text != descripcioActual) {
-                    grupEstudiService->ModifyGroupDescription(nomActual, EditarDescripcio_TextBox->Text);
-                    checkD = true;
+                    if (EditarDescripcio_TextBox->Text == "") {
+                        MessageManager::WarningMessage("La descripció del grup no pot ser buida.");
+                        EditarDescripcio_TextBox->Text = descripcioActual;
+                    }
+                    else {
+                        grupEstudiService->ModifyGroupDescription(nomActual, EditarDescripcio_TextBox->Text);
+                        checkD = true;
+                    }
                 }
 
                 if (NomActual_TextBox->Text != nomActual) {
-                    if (grupEstudiService->CheckIfGroupExists(NomActual_TextBox->Text) == false) {
-                        try {
-                            grupEstudiService->ModifyGroupName(nomActual, NomActual_TextBox->Text);
-                            checkN = true;
-                        }
-                        catch (Exception^ e) {
-                            MessageManager::ErrorMessage(e->Message);
-                        }
-
-                    }
+                    if (NomActual_TextBox->Text == "") {
+						MessageManager::WarningMessage("El nom del grup no pot ser buit.");
+                        NomActual_TextBox->Text = nomActual;
+					}
                     else {
-                        MessageManager::WarningMessage("Ja existeix un grup amb aquest nom.");
+                        if (grupEstudiService->CheckIfGroupExists(NomActual_TextBox->Text) == false) {
+                            try {
+                                grupEstudiService->ModifyGroupName(nomActual, NomActual_TextBox->Text);
+                                checkN = true;
+                            }
+                            catch (Exception^ e) {
+                                MessageManager::ErrorMessage(e->Message);
+                            }
+
+                        }
+                        else {
+                            MessageManager::WarningMessage("Ja existeix un grup amb aquest nom.");
+                        }
                     }
                 }
-                else if (noModifica == true and EditarDescripcio_TextBox->Text == descripcioActual and NomActual_TextBox->Text == nomActual) {
-                    //noModificarButton_Click(sender, e);
-                    MessageManager::WarningMessage("Modifica almenys un camp per actualitzar el grup!");
-				}
 
                 if (checkD == true and checkN == false) {
                     MessageManager::InfoMessage("Descripció del grup modificada correctament.");
@@ -154,8 +164,6 @@ namespace CppCLRWinFormsProject {
                     nomActual = NomActual_TextBox->Text;
                     descripcioActual = EditarDescripcio_TextBox->Text;
                 }
-                if (noModifica == true) noModifica = false;
-                else if (noModifica == false) noModifica = true;
             }
         }
         else {
