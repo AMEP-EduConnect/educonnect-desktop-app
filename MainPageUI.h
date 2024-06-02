@@ -347,12 +347,12 @@ namespace CppCLRWinFormsProject {
 			this->BotoInici->Dock = System::Windows::Forms::DockStyle::Top;
 			this->BotoInici->FlatAppearance->BorderSize = 0;
 			this->BotoInici->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->BotoInici->Font = (gcnew System::Drawing::Font(L"Inter ExtraBold", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
 			this->BotoInici->ImageAlign = System::Drawing::ContentAlignment::MiddleLeft;
 			this->BotoInici->Location = System::Drawing::Point(0, 0);
 			this->BotoInici->Margin = System::Windows::Forms::Padding(3, 3, 3, 100);
 			this->BotoInici->Name = L"BotoInici";
+			this->BotoInici->Font = (gcnew System::Drawing::Font(L"Inter ExtraBold", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->BotoInici->Size = System::Drawing::Size(220, 40);
 			this->BotoInici->TabIndex = 25;
 			this->BotoInici->Text = L"Inici";

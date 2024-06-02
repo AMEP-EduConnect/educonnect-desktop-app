@@ -111,7 +111,7 @@ namespace CppCLRWinFormsProject {
 			this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 15)));
 			this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 72.83763F)));
 			this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 12.29135F)));
-			this->tableLayoutPanel1->Size = System::Drawing::Size(772, 535);
+			this->tableLayoutPanel1->Size = System::Drawing::Size(814, 537);
 			this->tableLayoutPanel1->TabIndex = 17;
 			// 
 			// EditarGrupEstudi_Label
@@ -121,7 +121,7 @@ namespace CppCLRWinFormsProject {
 			this->EditarGrupEstudi_Label->Font = (gcnew System::Drawing::Font(L"Inter", 20.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->EditarGrupEstudi_Label->ForeColor = System::Drawing::SystemColors::HotTrack;
-			this->EditarGrupEstudi_Label->Location = System::Drawing::Point(290, 23);
+			this->EditarGrupEstudi_Label->Location = System::Drawing::Point(311, 23);
 			this->EditarGrupEstudi_Label->Name = L"EditarGrupEstudi_Label";
 			this->EditarGrupEstudi_Label->Size = System::Drawing::Size(190, 33);
 			this->EditarGrupEstudi_Label->TabIndex = 4;
@@ -135,7 +135,7 @@ namespace CppCLRWinFormsProject {
 			this->Actual_Panel->Controls->Add(this->Llista_Notificacions);
 			this->Actual_Panel->Controls->Add(this->Rebutjarbutton);
 			this->Actual_Panel->Controls->Add(this->Pertany_Label);
-			this->Actual_Panel->Location = System::Drawing::Point(161, 93);
+			this->Actual_Panel->Location = System::Drawing::Point(182, 93);
 			this->Actual_Panel->Name = L"Actual_Panel";
 			this->Actual_Panel->Size = System::Drawing::Size(448, 363);
 			this->Actual_Panel->TabIndex = 18;
@@ -163,9 +163,9 @@ namespace CppCLRWinFormsProject {
 			this->Llista_Notificacions->FormattingEnabled = true;
 			this->Llista_Notificacions->IntegralHeight = false;
 			this->Llista_Notificacions->ItemHeight = 19;
-			this->Llista_Notificacions->Location = System::Drawing::Point(29, 19);
+			this->Llista_Notificacions->Location = System::Drawing::Point(11, 14);
 			this->Llista_Notificacions->Name = L"Llista_Notificacions";
-			this->Llista_Notificacions->Size = System::Drawing::Size(390, 286);
+			this->Llista_Notificacions->Size = System::Drawing::Size(425, 291);
 			this->Llista_Notificacions->TabIndex = 17;
 			this->Llista_Notificacions->SelectedIndexChanged += gcnew System::EventHandler(this, &NotificacionsUI::Llista_Notificacions_SelectedIndexChanged);
 			// 
@@ -173,7 +173,7 @@ namespace CppCLRWinFormsProject {
 			// 
 			this->Rebutjarbutton->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->Rebutjarbutton->ForeColor = System::Drawing::SystemColors::HotTrack;
+			this->Rebutjarbutton->ForeColor = System::Drawing::Color::Red;
 			this->Rebutjarbutton->Location = System::Drawing::Point(285, 317);
 			this->Rebutjarbutton->Name = L"Rebutjarbutton";
 			this->Rebutjarbutton->Size = System::Drawing::Size(91, 34);
@@ -197,10 +197,11 @@ namespace CppCLRWinFormsProject {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(772, 535);
+			this->ClientSize = System::Drawing::Size(814, 537);
 			this->Controls->Add(this->tableLayoutPanel1);
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
 			this->Margin = System::Windows::Forms::Padding(2);
+			this->MinimumSize = System::Drawing::Size(814, 537);
 			this->Name = L"NotificacionsUI";
 			this->Text = L"NotificacionsUI";
 			this->tableLayoutPanel1->ResumeLayout(false);

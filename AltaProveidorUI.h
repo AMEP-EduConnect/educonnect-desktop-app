@@ -198,9 +198,9 @@ namespace CppCLRWinFormsProject {
 				   static_cast<System::Byte>(0)));
 			   this->label4->Location = System::Drawing::Point(46, 209);
 			   this->label4->Name = L"label4";
-			   this->label4->Size = System::Drawing::Size(50, 19);
+			   this->label4->Size = System::Drawing::Size(141, 19);
 			   this->label4->TabIndex = 9;
-			   this->label4->Text = L"Email";
+			   this->label4->Text = L"Correu electrònic";
 			   // 
 			   // label5
 			   // 
@@ -291,7 +291,7 @@ namespace CppCLRWinFormsProject {
 			   // pictureBox2
 			   // 
 			   this->pictureBox2->BackColor = System::Drawing::SystemColors::Window;
-			   this->pictureBox2->Location = System::Drawing::Point(221, 169);
+			   this->pictureBox2->Location = System::Drawing::Point(221, 168);
 			   this->pictureBox2->MaximumSize = System::Drawing::Size(24, 24);
 			   this->pictureBox2->MinimumSize = System::Drawing::Size(24, 24);
 			   this->pictureBox2->Name = L"pictureBox2";
@@ -304,7 +304,7 @@ namespace CppCLRWinFormsProject {
 			   // pictureBox1
 			   // 
 			   this->pictureBox1->BackColor = System::Drawing::SystemColors::Window;
-			   this->pictureBox1->Location = System::Drawing::Point(221, 101);
+			   this->pictureBox1->Location = System::Drawing::Point(221, 100);
 			   this->pictureBox1->MaximumSize = System::Drawing::Size(24, 24);
 			   this->pictureBox1->MinimumSize = System::Drawing::Size(24, 24);
 			   this->pictureBox1->Name = L"pictureBox1";

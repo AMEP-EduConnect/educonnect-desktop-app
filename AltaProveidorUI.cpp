@@ -20,6 +20,7 @@ namespace CppCLRWinFormsProject {
         this->pictureBox1->Image = Image::FromFile("resources/Icons/eye-crossed.png");
         this->pictureBox2->Image = Image::FromFile("resources/Icons/eye-crossed.png");
 		this->PageTitleLabel->Text = L"Donar d\'Alta Prove\u00EFdor";
+        this->label4->Text = L"Correu electr\u00F2nic";
 
     }
 
