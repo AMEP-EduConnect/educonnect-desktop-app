@@ -45,6 +45,12 @@ namespace CppCLRWinFormsProject {
 
 	System::Void Session_CrearUI::DayMonth_Calendar_DateChanged(System::Object^ sender, System::Windows::Forms::DateRangeEventArgs^ e)
 	{
+		if (!this->sessionService->CheckIfSelectedDayMonthIsOlderThanCurrentTime(this->DayMonth_Calendar->SelectionStart))
+		{
+			MessageManager::ErrorMessage("No es poden seleccionar dates passades.");
+			this->DayMonth_Calendar->SelectionStart = DateTime::Now;
+			return;
+		}
 		this->FullyFormatedSessionDate = this->DayMonth_Calendar->SelectionStart;
 		this->LoadEspaiTimeStampsOfCurrentDay();
 	}
@@ -71,6 +77,11 @@ namespace CppCLRWinFormsProject {
 				this->CreateSession_Button->Enabled = false;
 			}
 		}
+	}
+
+	System::Void Session_CrearUI::TimeHour_ComboBox_TextChanged(System::Object^ sender, System::EventArgs^ e)
+	{
+		
 	}
 
 	System::Void Session_CrearUI::CreateSession_Button_Click(System::Object^ sender, System::EventArgs^ e)
@@ -149,7 +160,10 @@ namespace CppCLRWinFormsProject {
 			bool isFree = this->sessionService->CheckIfTimeStampIsFree(CurrentTimeStamp);
 			if (isFree)
 			{
-				this->TimeHour_ComboBox->Items->Add(enumerator->Current);
+				if (!this->sessionService->CheckIfTimeStampIsOlderThanCurrentTime(CurrentTimeStamp))
+				{
+					this->TimeHour_ComboBox->Items->Add(enumerator->Current);
+				}
 			}
 		}
 	}
