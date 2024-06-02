@@ -125,6 +125,7 @@ namespace CppCLRWinFormsProject {
                     this->NomActual_TextBox->Enabled = false;
                     this->EditarDescripcio_TextBox->Enabled = false;
 
+                    noModificarButton->Visible = false;
                     Cancelar_Button->Visible = true;
                     Edita_Button->Text = "Modificar";
 
@@ -142,6 +143,7 @@ namespace CppCLRWinFormsProject {
                     this->NomActual_TextBox->Enabled = false;
                     this->EditarDescripcio_TextBox->Enabled = false;
 
+                    noModificarButton->Visible = false;
                     Cancelar_Button->Visible = true;
                     Edita_Button->Text = "Modificar";
 
@@ -158,6 +160,7 @@ namespace CppCLRWinFormsProject {
                     this->NomActual_TextBox->Enabled = false;
                     this->EditarDescripcio_TextBox->Enabled = false;
 
+                    noModificarButton->Visible = false;
                     Cancelar_Button->Visible = true;
                     Edita_Button->Text = "Modificar";
 
