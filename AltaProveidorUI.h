@@ -20,17 +20,11 @@ namespace CppCLRWinFormsProject {
 	public ref class AltaProveidorUI : public System::Windows::Forms::Form
 	{
 	public:
-		AltaProveidorUI(void) {
-			InitializeComponent();
-			altaProveidorService = gcnew AltaProveidorService();
-			this->textBox3->Validating += gcnew System::ComponentModel::CancelEventHandler(this, &AltaProveidorUI::NomUsuari_TextBox_Validating);
-			this->textBox2->Validating += gcnew System::ComponentModel::CancelEventHandler(this, &AltaProveidorUI::Email_TextBox_Validating);
-			this->textBox5->Validating += gcnew System::ComponentModel::CancelEventHandler(this, &AltaProveidorUI::textBoxPassword_Validating);
-			this->Icon = gcnew System::Drawing::Icon("app.ico");
-		}
+		AltaProveidorUI(void);
 		Void NomUsuari_TextBox_Validating(Object^ sender, System::ComponentModel::CancelEventArgs^ e);
 		Void Email_TextBox_Validating(Object^ sender, System::ComponentModel::CancelEventArgs^ e);
 		Void textBoxPassword_Validating(System::Object^ sender, System::ComponentModel::CancelEventArgs^ e);
+		Void Same_Password_Validating(System::Object^ sender, System::ComponentModel::CancelEventArgs^ e);
 		bool IsValidEmail(String^ email);
 		bool IsPasswordStrong(String^ password);
 
@@ -49,6 +43,8 @@ namespace CppCLRWinFormsProject {
 	private: System::Windows::Forms::Button^ button1;
 
 	private: AltaProveidorService^ altaProveidorService;
+	private: bool password_visible1 = false;
+	private: bool password_visible2 = false;
 	protected:
 
 	private:
@@ -66,17 +62,26 @@ namespace CppCLRWinFormsProject {
 	private: System::Windows::Forms::Label^ label4;
 	private: System::Windows::Forms::Label^ label5;
 	private: System::Windows::Forms::TableLayoutPanel^ tableLayoutPanel1;
-	private: System::Windows::Forms::TableLayoutPanel^ tableLayoutPanel2;
-	private: System::Windows::Forms::TableLayoutPanel^ tableLayoutPanel3;
+
+
 	private: System::Windows::Forms::Button^ Cancelar_Button;
 	private: System::Windows::Forms::Label^ PageTitleLabel;
+	private: System::Windows::Forms::Panel^ panel1;
+	private: System::Windows::Forms::Label^ label1;
+
+
+	private: System::Windows::Forms::PictureBox^ pictureBox2;
+	private: System::Windows::Forms::PictureBox^ pictureBox1;
+	private: System::Windows::Forms::TextBox^ textBox1;
+
+
 
 	System::ComponentModel::Container^ components;
 
 #pragma region Windows Form Designer generated code
 		   /// <summary>
-		   /// M�todo necesario para admitir el Dise�ador. No se puede modificar
-		   /// el contenido de este m�todo con el editor de c�digo.
+		   /// 
+		   /// 
 		   /// </summary>
 		   void InitializeComponent(void)
 		   {
@@ -91,12 +96,16 @@ namespace CppCLRWinFormsProject {
 			   this->label5 = (gcnew System::Windows::Forms::Label());
 			   this->tableLayoutPanel1 = (gcnew System::Windows::Forms::TableLayoutPanel());
 			   this->Cancelar_Button = (gcnew System::Windows::Forms::Button());
-			   this->tableLayoutPanel3 = (gcnew System::Windows::Forms::TableLayoutPanel());
-			   this->tableLayoutPanel2 = (gcnew System::Windows::Forms::TableLayoutPanel());
 			   this->PageTitleLabel = (gcnew System::Windows::Forms::Label());
+			   this->panel1 = (gcnew System::Windows::Forms::Panel());
+			   this->pictureBox2 = (gcnew System::Windows::Forms::PictureBox());
+			   this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
+			   this->textBox1 = (gcnew System::Windows::Forms::TextBox());
+			   this->label1 = (gcnew System::Windows::Forms::Label());
 			   this->tableLayoutPanel1->SuspendLayout();
-			   this->tableLayoutPanel3->SuspendLayout();
-			   this->tableLayoutPanel2->SuspendLayout();
+			   this->panel1->SuspendLayout();
+			   (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->BeginInit();
+			   (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			   this->SuspendLayout();
 			   // 
 			   // button1
@@ -104,7 +113,7 @@ namespace CppCLRWinFormsProject {
 			   this->button1->Anchor = System::Windows::Forms::AnchorStyles::None;
 			   this->button1->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				   static_cast<System::Byte>(0)));
-			   this->button1->Location = System::Drawing::Point(120, 177);
+			   this->button1->Location = System::Drawing::Point(80, 330);
 			   this->button1->Name = L"button1";
 			   this->button1->Size = System::Drawing::Size(135, 35);
 			   this->button1->TabIndex = 0;
@@ -115,42 +124,42 @@ namespace CppCLRWinFormsProject {
 			   // textBox2
 			   // 
 			   this->textBox2->Anchor = System::Windows::Forms::AnchorStyles::None;
-			   this->textBox2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			   this->textBox2->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				   static_cast<System::Byte>(0)));
-			   this->textBox2->Location = System::Drawing::Point(194, 87);
+			   this->textBox2->Location = System::Drawing::Point(50, 231);
 			   this->textBox2->Name = L"textBox2";
-			   this->textBox2->Size = System::Drawing::Size(162, 26);
+			   this->textBox2->Size = System::Drawing::Size(196, 27);
 			   this->textBox2->TabIndex = 2;
 			   // 
 			   // textBox3
 			   // 
 			   this->textBox3->Anchor = System::Windows::Forms::AnchorStyles::None;
-			   this->textBox3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			   this->textBox3->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				   static_cast<System::Byte>(0)));
-			   this->textBox3->Location = System::Drawing::Point(194, 7);
+			   this->textBox3->Location = System::Drawing::Point(50, 34);
 			   this->textBox3->Name = L"textBox3";
-			   this->textBox3->Size = System::Drawing::Size(162, 26);
+			   this->textBox3->Size = System::Drawing::Size(196, 27);
 			   this->textBox3->TabIndex = 0;
 			   // 
 			   // textBox4
 			   // 
 			   this->textBox4->Anchor = System::Windows::Forms::AnchorStyles::None;
-			   this->textBox4->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			   this->textBox4->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				   static_cast<System::Byte>(0)));
-			   this->textBox4->Location = System::Drawing::Point(194, 130);
+			   this->textBox4->Location = System::Drawing::Point(50, 292);
 			   this->textBox4->Name = L"textBox4";
-			   this->textBox4->Size = System::Drawing::Size(162, 26);
+			   this->textBox4->Size = System::Drawing::Size(196, 27);
 			   this->textBox4->TabIndex = 3;
 			   // 
 			   // textBox5
 			   // 
 			   this->textBox5->Anchor = System::Windows::Forms::AnchorStyles::None;
-			   this->textBox5->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			   this->textBox5->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				   static_cast<System::Byte>(0)));
-			   this->textBox5->Location = System::Drawing::Point(194, 48);
+			   this->textBox5->Location = System::Drawing::Point(50, 99);
 			   this->textBox5->Name = L"textBox5";
 			   this->textBox5->PasswordChar = '*';
-			   this->textBox5->Size = System::Drawing::Size(162, 26);
+			   this->textBox5->Size = System::Drawing::Size(196, 27);
 			   this->textBox5->TabIndex = 1;
 			   this->textBox5->UseSystemPasswordChar = true;
 			   // 
@@ -161,7 +170,7 @@ namespace CppCLRWinFormsProject {
 			   this->label2->BackColor = System::Drawing::SystemColors::GradientInactiveCaption;
 			   this->label2->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				   static_cast<System::Byte>(0)));
-			   this->label2->Location = System::Drawing::Point(3, 11);
+			   this->label2->Location = System::Drawing::Point(46, 12);
 			   this->label2->Name = L"label2";
 			   this->label2->Size = System::Drawing::Size(109, 19);
 			   this->label2->TabIndex = 7;
@@ -174,7 +183,7 @@ namespace CppCLRWinFormsProject {
 			   this->label3->BackColor = System::Drawing::SystemColors::GradientInactiveCaption;
 			   this->label3->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				   static_cast<System::Byte>(0)));
-			   this->label3->Location = System::Drawing::Point(3, 52);
+			   this->label3->Location = System::Drawing::Point(46, 77);
 			   this->label3->Name = L"label3";
 			   this->label3->Size = System::Drawing::Size(105, 19);
 			   this->label3->TabIndex = 8;
@@ -187,9 +196,9 @@ namespace CppCLRWinFormsProject {
 			   this->label4->BackColor = System::Drawing::SystemColors::GradientInactiveCaption;
 			   this->label4->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				   static_cast<System::Byte>(0)));
-			   this->label4->Location = System::Drawing::Point(3, 91);
+			   this->label4->Location = System::Drawing::Point(46, 209);
 			   this->label4->Name = L"label4";
-			   this->label4->Size = System::Drawing::Size(183, 19);
+			   this->label4->Size = System::Drawing::Size(50, 19);
 			   this->label4->TabIndex = 9;
 			   this->label4->Text = L"Email";
 			   // 
@@ -200,11 +209,11 @@ namespace CppCLRWinFormsProject {
 			   this->label5->BackColor = System::Drawing::SystemColors::GradientInactiveCaption;
 			   this->label5->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				   static_cast<System::Byte>(0)));
-			   this->label5->Location = System::Drawing::Point(3, 133);
+			   this->label5->Location = System::Drawing::Point(46, 270);
 			   this->label5->Name = L"label5";
-			   this->label5->Size = System::Drawing::Size(112, 19);
+			   this->label5->Size = System::Drawing::Size(45, 19);
 			   this->label5->TabIndex = 10;
-			   this->label5->Text = L"Nom complet";
+			   this->label5->Text = L"Nom";
 			   // 
 			   // tableLayoutPanel1
 			   // 
@@ -216,15 +225,15 @@ namespace CppCLRWinFormsProject {
 			   this->tableLayoutPanel1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
 				   20)));
 			   this->tableLayoutPanel1->Controls->Add(this->Cancelar_Button, 2, 2);
-			   this->tableLayoutPanel1->Controls->Add(this->tableLayoutPanel3, 1, 1);
 			   this->tableLayoutPanel1->Controls->Add(this->PageTitleLabel, 1, 0);
+			   this->tableLayoutPanel1->Controls->Add(this->panel1, 1, 1);
 			   this->tableLayoutPanel1->Dock = System::Windows::Forms::DockStyle::Fill;
 			   this->tableLayoutPanel1->Location = System::Drawing::Point(0, 0);
 			   this->tableLayoutPanel1->Name = L"tableLayoutPanel1";
 			   this->tableLayoutPanel1->RowCount = 3;
-			   this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 15)));
-			   this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 60)));
-			   this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 25)));
+			   this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 13.40782F)));
+			   this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 71.88082F)));
+			   this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 14.52514F)));
 			   this->tableLayoutPanel1->Size = System::Drawing::Size(814, 537);
 			   this->tableLayoutPanel1->TabIndex = 16;
 			   // 
@@ -236,60 +245,13 @@ namespace CppCLRWinFormsProject {
 			   this->Cancelar_Button->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				   static_cast<System::Byte>(0)));
 			   this->Cancelar_Button->ForeColor = System::Drawing::Color::Red;
-			   this->Cancelar_Button->Location = System::Drawing::Point(688, 452);
+			   this->Cancelar_Button->Location = System::Drawing::Point(688, 480);
 			   this->Cancelar_Button->Name = L"Cancelar_Button";
 			   this->Cancelar_Button->Size = System::Drawing::Size(88, 34);
 			   this->Cancelar_Button->TabIndex = 18;
-			   this->Cancelar_Button->Text = L"Cancelar";
+			   this->Cancelar_Button->Text = L"Tornar";
 			   this->Cancelar_Button->UseVisualStyleBackColor = false;
 			   this->Cancelar_Button->Click += gcnew System::EventHandler(this, &AltaProveidorUI::Cancelar_Button_Click);
-			   // 
-			   // tableLayoutPanel3
-			   // 
-			   this->tableLayoutPanel3->Anchor = System::Windows::Forms::AnchorStyles::None;
-			   this->tableLayoutPanel3->BackColor = System::Drawing::SystemColors::GradientInactiveCaption;
-			   this->tableLayoutPanel3->ColumnCount = 1;
-			   this->tableLayoutPanel3->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
-				   50)));
-			   this->tableLayoutPanel3->Controls->Add(this->button1, 0, 1);
-			   this->tableLayoutPanel3->Controls->Add(this->tableLayoutPanel2, 0, 0);
-			   this->tableLayoutPanel3->Location = System::Drawing::Point(218, 122);
-			   this->tableLayoutPanel3->MinimumSize = System::Drawing::Size(376, 237);
-			   this->tableLayoutPanel3->Name = L"tableLayoutPanel3";
-			   this->tableLayoutPanel3->RowCount = 3;
-			   this->tableLayoutPanel3->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 80)));
-			   this->tableLayoutPanel3->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 20)));
-			   this->tableLayoutPanel3->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Absolute, 20)));
-			   this->tableLayoutPanel3->Size = System::Drawing::Size(376, 237);
-			   this->tableLayoutPanel3->TabIndex = 18;
-			   // 
-			   // tableLayoutPanel2
-			   // 
-			   this->tableLayoutPanel2->Anchor = System::Windows::Forms::AnchorStyles::None;
-			   this->tableLayoutPanel2->BackColor = System::Drawing::SystemColors::GradientInactiveCaption;
-			   this->tableLayoutPanel2->ColumnCount = 2;
-			   this->tableLayoutPanel2->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
-				   52.22222F)));
-			   this->tableLayoutPanel2->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
-				   47.77778F)));
-			   this->tableLayoutPanel2->Controls->Add(this->label2, 0, 0);
-			   this->tableLayoutPanel2->Controls->Add(this->textBox4, 1, 3);
-			   this->tableLayoutPanel2->Controls->Add(this->label3, 0, 1);
-			   this->tableLayoutPanel2->Controls->Add(this->label4, 0, 2);
-			   this->tableLayoutPanel2->Controls->Add(this->textBox5, 1, 1);
-			   this->tableLayoutPanel2->Controls->Add(this->label5, 0, 3);
-			   this->tableLayoutPanel2->Controls->Add(this->textBox3, 1, 0);
-			   this->tableLayoutPanel2->Controls->Add(this->textBox2, 1, 2);
-			   this->tableLayoutPanel2->Location = System::Drawing::Point(7, 3);
-			   this->tableLayoutPanel2->Name = L"tableLayoutPanel2";
-			   this->tableLayoutPanel2->RowCount = 4;
-			   this->tableLayoutPanel2->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 24.85549F)));
-			   this->tableLayoutPanel2->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 25.1497F)));
-			   this->tableLayoutPanel2->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 22.75449F)));
-			   this->tableLayoutPanel2->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 28.14371F)));
-			   this->tableLayoutPanel2->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Absolute, 20)));
-			   this->tableLayoutPanel2->Size = System::Drawing::Size(362, 167);
-			   this->tableLayoutPanel2->TabIndex = 17;
 			   // 
 			   // PageTitleLabel
 			   // 
@@ -297,12 +259,85 @@ namespace CppCLRWinFormsProject {
 			   this->PageTitleLabel->AutoSize = true;
 			   this->PageTitleLabel->Font = (gcnew System::Drawing::Font(L"Inter", 20.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				   static_cast<System::Byte>(0)));
-			   this->PageTitleLabel->Location = System::Drawing::Point(206, 23);
+			   this->PageTitleLabel->Location = System::Drawing::Point(251, 19);
 			   this->PageTitleLabel->Name = L"PageTitleLabel";
-			   this->PageTitleLabel->Size = System::Drawing::Size(399, 33);
+			   this->PageTitleLabel->Size = System::Drawing::Size(309, 33);
 			   this->PageTitleLabel->TabIndex = 19;
-			   this->PageTitleLabel->Text = L"Donar d\'Alta Prove\u00EFdor";
+			   this->PageTitleLabel->Text = L"Donar d\'Alta Proveïdor";
 			   this->PageTitleLabel->Click += gcnew System::EventHandler(this, &AltaProveidorUI::PageTitleLabel_Click);
+			   // 
+			   // panel1
+			   // 
+			   this->panel1->Anchor = System::Windows::Forms::AnchorStyles::None;
+			   this->panel1->BackColor = System::Drawing::SystemColors::GradientInactiveCaption;
+			   this->panel1->Controls->Add(this->pictureBox2);
+			   this->panel1->Controls->Add(this->pictureBox1);
+			   this->panel1->Controls->Add(this->textBox1);
+			   this->panel1->Controls->Add(this->label1);
+			   this->panel1->Controls->Add(this->textBox4);
+			   this->panel1->Controls->Add(this->button1);
+			   this->panel1->Controls->Add(this->label5);
+			   this->panel1->Controls->Add(this->textBox5);
+			   this->panel1->Controls->Add(this->label3);
+			   this->panel1->Controls->Add(this->textBox2);
+			   this->panel1->Controls->Add(this->label4);
+			   this->panel1->Controls->Add(this->label2);
+			   this->panel1->Controls->Add(this->textBox3);
+			   this->panel1->Location = System::Drawing::Point(258, 75);
+			   this->panel1->Name = L"panel1";
+			   this->panel1->Size = System::Drawing::Size(296, 380);
+			   this->panel1->TabIndex = 20;
+			   // 
+			   // pictureBox2
+			   // 
+			   this->pictureBox2->BackColor = System::Drawing::SystemColors::Window;
+			   this->pictureBox2->Location = System::Drawing::Point(221, 169);
+			   this->pictureBox2->MaximumSize = System::Drawing::Size(24, 24);
+			   this->pictureBox2->MinimumSize = System::Drawing::Size(24, 24);
+			   this->pictureBox2->Name = L"pictureBox2";
+			   this->pictureBox2->Size = System::Drawing::Size(24, 24);
+			   this->pictureBox2->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
+			   this->pictureBox2->TabIndex = 25;
+			   this->pictureBox2->TabStop = false;
+			   this->pictureBox2->Click += gcnew System::EventHandler(this, &AltaProveidorUI::pictureBox2_Click);
+			   // 
+			   // pictureBox1
+			   // 
+			   this->pictureBox1->BackColor = System::Drawing::SystemColors::Window;
+			   this->pictureBox1->Location = System::Drawing::Point(221, 101);
+			   this->pictureBox1->MaximumSize = System::Drawing::Size(24, 24);
+			   this->pictureBox1->MinimumSize = System::Drawing::Size(24, 24);
+			   this->pictureBox1->Name = L"pictureBox1";
+			   this->pictureBox1->Size = System::Drawing::Size(24, 24);
+			   this->pictureBox1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
+			   this->pictureBox1->TabIndex = 27;
+			   this->pictureBox1->TabStop = false;
+			   this->pictureBox1->Click += gcnew System::EventHandler(this, &AltaProveidorUI::pictureBox1_Click);
+			   // 
+			   // textBox1
+			   // 
+			   this->textBox1->Anchor = System::Windows::Forms::AnchorStyles::None;
+			   this->textBox1->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				   static_cast<System::Byte>(0)));
+			   this->textBox1->Location = System::Drawing::Point(50, 167);
+			   this->textBox1->Name = L"textBox1";
+			   this->textBox1->PasswordChar = '*';
+			   this->textBox1->Size = System::Drawing::Size(196, 27);
+			   this->textBox1->TabIndex = 26;
+			   this->textBox1->UseSystemPasswordChar = true;
+			   // 
+			   // label1
+			   // 
+			   this->label1->Anchor = System::Windows::Forms::AnchorStyles::Left;
+			   this->label1->AutoSize = true;
+			   this->label1->BackColor = System::Drawing::SystemColors::GradientInactiveCaption;
+			   this->label1->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				   static_cast<System::Byte>(0)));
+			   this->label1->Location = System::Drawing::Point(46, 145);
+			   this->label1->Name = L"label1";
+			   this->label1->Size = System::Drawing::Size(173, 19);
+			   this->label1->TabIndex = 11;
+			   this->label1->Text = L"Repeteix contrasenya";
 			   // 
 			   // AltaProveidorUI
 			   // 
@@ -317,16 +352,20 @@ namespace CppCLRWinFormsProject {
 			   this->Text = L"EduConnect";
 			   this->tableLayoutPanel1->ResumeLayout(false);
 			   this->tableLayoutPanel1->PerformLayout();
-			   this->tableLayoutPanel3->ResumeLayout(false);
-			   this->tableLayoutPanel2->ResumeLayout(false);
-			   this->tableLayoutPanel2->PerformLayout();
+			   this->panel1->ResumeLayout(false);
+			   this->panel1->PerformLayout();
+			   (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->EndInit();
+			   (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
 			   this->ResumeLayout(false);
 
 		   }
 #pragma endregion
 private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e);
 private: System::Void Cancelar_Button_Click(System::Object^ sender, System::EventArgs^ e);
+	   Void pictureBox1_Click(System::Object^ sender, System::EventArgs^ e);
+	   Void pictureBox2_Click(System::Object^ sender, System::EventArgs^ e);
 private: System::Void PageTitleLabel_Click(System::Object^ sender, System::EventArgs^ e) {
 }
+
 };
 }
