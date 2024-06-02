@@ -16,7 +16,6 @@ namespace CppCLRWinFormsProject {
 		arrayIdGroupEstudisOfUserNoIn = GrupEstudi_Explorar_Array();
 		this->Icon = gcnew System::Drawing::Icon("app.ico");
 		this->groupname = groupname;
-		this->Description_titulo->Text = L"Descripci\u00f3";
 	}
 
 	array<GrupEstudi^>^ GrupEstudi_Explorar::GrupEstudi_Explorar_Array() {

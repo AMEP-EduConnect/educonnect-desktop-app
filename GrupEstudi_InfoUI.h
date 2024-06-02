@@ -83,7 +83,6 @@ namespace CppCLRWinFormsProject {
 	private: System::Windows::Forms::Button^ button1;
 	private: System::Windows::Forms::Panel^ panel3;
 	private: System::Windows::Forms::PictureBox^ pictureBox1;
-	private: System::Windows::Forms::FlowLayoutPanel^ flowLayoutPanel2;
 
 
 	private: Session^ CurrentSessionEntity;
@@ -124,9 +123,8 @@ namespace CppCLRWinFormsProject {
 			this->ModifyGrupEstudi_Button = (gcnew System::Windows::Forms::Button());
 			this->GoBack_Button = (gcnew System::Windows::Forms::Button());
 			this->panel3 = (gcnew System::Windows::Forms::Panel());
-			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
 			this->button1 = (gcnew System::Windows::Forms::Button());
-			this->flowLayoutPanel2 = (gcnew System::Windows::Forms::FlowLayoutPanel());
+			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
 			tableLayoutPanel1 = (gcnew System::Windows::Forms::TableLayoutPanel());
 			tableLayoutPanel1->SuspendLayout();
 			this->panel6->SuspendLayout();
@@ -137,7 +135,6 @@ namespace CppCLRWinFormsProject {
 			this->panel2->SuspendLayout();
 			this->panel3->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
-			this->flowLayoutPanel2->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// tableLayoutPanel1
@@ -160,10 +157,10 @@ namespace CppCLRWinFormsProject {
 			tableLayoutPanel1->MinimumSize = System::Drawing::Size(814, 537);
 			tableLayoutPanel1->Name = L"tableLayoutPanel1";
 			tableLayoutPanel1->RowCount = 4;
-			tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 10.80075F)));
-			tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 28.67784F)));
-			tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 48.97579F)));
-			tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 11.3594F)));
+			tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 10.05587F)));
+			tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 28.86406F)));
+			tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 49.16201F)));
+			tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 12.2905F)));
 			tableLayoutPanel1->Size = System::Drawing::Size(814, 537);
 			tableLayoutPanel1->TabIndex = 0;
 			tableLayoutPanel1->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &GrupEstudi_InfoUI::tableLayoutPanel1_Paint);
@@ -171,11 +168,11 @@ namespace CppCLRWinFormsProject {
 			// panel6
 			// 
 			this->panel6->Anchor = System::Windows::Forms::AnchorStyles::Top;
-			this->panel6->Controls->Add(this->flowLayoutPanel2);
 			this->panel6->Controls->Add(this->label1);
 			this->panel6->Controls->Add(this->AcademicTagsInfo_Label);
 			this->panel6->Controls->Add(this->label2);
-			this->panel6->Location = System::Drawing::Point(224, 61);
+			this->panel6->Controls->Add(this->DescGrupEstudi_Label);
+			this->panel6->Location = System::Drawing::Point(224, 56);
 			this->panel6->Name = L"panel6";
 			this->panel6->Size = System::Drawing::Size(388, 147);
 			this->panel6->TabIndex = 21;
@@ -227,7 +224,7 @@ namespace CppCLRWinFormsProject {
 			this->DescGrupEstudi_Label->Font = (gcnew System::Drawing::Font(L"Inter Light", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->DescGrupEstudi_Label->ForeColor = System::Drawing::SystemColors::HotTrack;
-			this->DescGrupEstudi_Label->Location = System::Drawing::Point(3, 0);
+			this->DescGrupEstudi_Label->Location = System::Drawing::Point(3, 33);
 			this->DescGrupEstudi_Label->Name = L"DescGrupEstudi_Label";
 			this->DescGrupEstudi_Label->Size = System::Drawing::Size(145, 19);
 			this->DescGrupEstudi_Label->TabIndex = 4;
@@ -240,7 +237,7 @@ namespace CppCLRWinFormsProject {
 			this->InfoGrupEstudi_Label->Font = (gcnew System::Drawing::Font(L"Inter", 20.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->InfoGrupEstudi_Label->ForeColor = System::Drawing::SystemColors::HotTrack;
-			this->InfoGrupEstudi_Label->Location = System::Drawing::Point(344, 12);
+			this->InfoGrupEstudi_Label->Location = System::Drawing::Point(344, 10);
 			this->InfoGrupEstudi_Label->Name = L"InfoGrupEstudi_Label";
 			this->InfoGrupEstudi_Label->RightToLeft = System::Windows::Forms::RightToLeft::No;
 			this->InfoGrupEstudi_Label->Size = System::Drawing::Size(149, 33);
@@ -254,7 +251,7 @@ namespace CppCLRWinFormsProject {
 			this->panel5->Anchor = System::Windows::Forms::AnchorStyles::None;
 			this->panel5->Controls->Add(this->flowLayoutPanel1);
 			this->panel5->Controls->Add(this->panel1);
-			this->panel5->Location = System::Drawing::Point(224, 215);
+			this->panel5->Location = System::Drawing::Point(224, 210);
 			this->panel5->Name = L"panel5";
 			this->panel5->Size = System::Drawing::Size(388, 256);
 			this->panel5->TabIndex = 20;
@@ -412,7 +409,7 @@ namespace CppCLRWinFormsProject {
 			this->panel4->Controls->Add(this->SessionsList_Label);
 			this->panel4->Controls->Add(this->Sessions_ListBox);
 			this->panel4->Controls->Add(this->NewSession_Button);
-			this->panel4->Location = System::Drawing::Point(12, 217);
+			this->panel4->Location = System::Drawing::Point(12, 212);
 			this->panel4->Name = L"panel4";
 			this->panel4->Size = System::Drawing::Size(197, 253);
 			this->panel4->TabIndex = 18;
@@ -465,7 +462,7 @@ namespace CppCLRWinFormsProject {
 			this->panel2->Controls->Add(this->MembersGrupEstudi_Button);
 			this->panel2->Controls->Add(this->DeleteGrupEstudi_Button);
 			this->panel2->Controls->Add(this->ModifyGrupEstudi_Button);
-			this->panel2->Location = System::Drawing::Point(619, 61);
+			this->panel2->Location = System::Drawing::Point(619, 56);
 			this->panel2->Name = L"panel2";
 			this->panel2->Size = System::Drawing::Size(192, 147);
 			this->panel2->TabIndex = 15;
@@ -518,7 +515,7 @@ namespace CppCLRWinFormsProject {
 			this->GoBack_Button->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->GoBack_Button->ForeColor = System::Drawing::Color::Red;
-			this->GoBack_Button->Location = System::Drawing::Point(677, 488);
+			this->GoBack_Button->Location = System::Drawing::Point(677, 486);
 			this->GoBack_Button->Name = L"GoBack_Button";
 			this->GoBack_Button->Size = System::Drawing::Size(75, 35);
 			this->GoBack_Button->TabIndex = 16;
@@ -531,19 +528,10 @@ namespace CppCLRWinFormsProject {
 			this->panel3->Anchor = System::Windows::Forms::AnchorStyles::None;
 			this->panel3->Controls->Add(this->pictureBox1);
 			this->panel3->Controls->Add(this->button1);
-			this->panel3->Location = System::Drawing::Point(10, 65);
+			this->panel3->Location = System::Drawing::Point(10, 60);
 			this->panel3->Name = L"panel3";
 			this->panel3->Size = System::Drawing::Size(200, 140);
 			this->panel3->TabIndex = 24;
-			// 
-			// pictureBox1
-			// 
-			this->pictureBox1->Location = System::Drawing::Point(77, 53);
-			this->pictureBox1->Name = L"pictureBox1";
-			this->pictureBox1->Size = System::Drawing::Size(48, 48);
-			this->pictureBox1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
-			this->pictureBox1->TabIndex = 23;
-			this->pictureBox1->TabStop = false;
 			// 
 			// button1
 			// 
@@ -559,13 +547,14 @@ namespace CppCLRWinFormsProject {
 			this->button1->UseVisualStyleBackColor = true;
 			this->button1->Click += gcnew System::EventHandler(this, &GrupEstudi_InfoUI::Chat_Button_Click);
 			// 
-			// flowLayoutPanel2
+			// pictureBox1
 			// 
-			this->flowLayoutPanel2->Controls->Add(this->DescGrupEstudi_Label);
-			this->flowLayoutPanel2->Location = System::Drawing::Point(0, 34);
-			this->flowLayoutPanel2->Name = L"flowLayoutPanel2";
-			this->flowLayoutPanel2->Size = System::Drawing::Size(375, 64);
-			this->flowLayoutPanel2->TabIndex = 21;
+			this->pictureBox1->Location = System::Drawing::Point(77, 53);
+			this->pictureBox1->Name = L"pictureBox1";
+			this->pictureBox1->Size = System::Drawing::Size(48, 48);
+			this->pictureBox1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
+			this->pictureBox1->TabIndex = 23;
+			this->pictureBox1->TabStop = false;
 			// 
 			// GrupEstudi_InfoUI
 			// 
@@ -591,8 +580,6 @@ namespace CppCLRWinFormsProject {
 			this->panel2->ResumeLayout(false);
 			this->panel3->ResumeLayout(false);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
-			this->flowLayoutPanel2->ResumeLayout(false);
-			this->flowLayoutPanel2->PerformLayout();
 			this->ResumeLayout(false);
 
 		}

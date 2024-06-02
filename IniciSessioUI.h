@@ -65,9 +65,6 @@ namespace CppCLRWinFormsProject {
 	private: System::Windows::Forms::Label^ CredencialsIncorrectes_Label2;
 	private: System::Windows::Forms::Label^ ban_label;
 	private: System::Windows::Forms::Label^ descriptionBan_label;
-	private: System::Windows::Forms::TableLayoutPanel^ tableLayoutPanel1;
-	private: System::Windows::Forms::Panel^ panel2;
-	private: System::Windows::Forms::Panel^ panel1;
 
 
 
@@ -100,14 +97,8 @@ namespace CppCLRWinFormsProject {
 			this->CredencialsIncorrectes_Label2 = (gcnew System::Windows::Forms::Label());
 			this->ban_label = (gcnew System::Windows::Forms::Label());
 			this->descriptionBan_label = (gcnew System::Windows::Forms::Label());
-			this->tableLayoutPanel1 = (gcnew System::Windows::Forms::TableLayoutPanel());
-			this->panel1 = (gcnew System::Windows::Forms::Panel());
-			this->panel2 = (gcnew System::Windows::Forms::Panel());
 			this->Main_Panel->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
-			this->tableLayoutPanel1->SuspendLayout();
-			this->panel1->SuspendLayout();
-			this->panel2->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// NomUsuari_TextBox
@@ -136,7 +127,7 @@ namespace CppCLRWinFormsProject {
 			this->IniciarSessio_Label->Font = (gcnew System::Drawing::Font(L"Inter", 20.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->IniciarSessio_Label->ForeColor = System::Drawing::SystemColors::HotTrack;
-			this->IniciarSessio_Label->Location = System::Drawing::Point(115, 52);
+			this->IniciarSessio_Label->Location = System::Drawing::Point(314, 100);
 			this->IniciarSessio_Label->Name = L"IniciarSessio_Label";
 			this->IniciarSessio_Label->Size = System::Drawing::Size(188, 33);
 			this->IniciarSessio_Label->TabIndex = 4;
@@ -191,9 +182,9 @@ namespace CppCLRWinFormsProject {
 			this->Main_Panel->Controls->Add(this->Contrasenya_Label);
 			this->Main_Panel->Controls->Add(this->Contrasenya_TextBox);
 			this->Main_Panel->Controls->Add(this->NomUsuari_TextBox);
-			this->Main_Panel->Location = System::Drawing::Point(121, 106);
+			this->Main_Panel->Location = System::Drawing::Point(318, 148);
 			this->Main_Panel->Name = L"Main_Panel";
-			this->Main_Panel->Size = System::Drawing::Size(303, 330);
+			this->Main_Panel->Size = System::Drawing::Size(303, 320);
 			this->Main_Panel->TabIndex = 9;
 			// 
 			// pictureBox1
@@ -228,7 +219,7 @@ namespace CppCLRWinFormsProject {
 			this->CredencialsIncorrectes_Label->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->CredencialsIncorrectes_Label->ForeColor = System::Drawing::Color::Red;
-			this->CredencialsIncorrectes_Label->Location = System::Drawing::Point(9, 31);
+			this->CredencialsIncorrectes_Label->Location = System::Drawing::Point(314, 479);
 			this->CredencialsIncorrectes_Label->Name = L"CredencialsIncorrectes_Label";
 			this->CredencialsIncorrectes_Label->Size = System::Drawing::Size(188, 19);
 			this->CredencialsIncorrectes_Label->TabIndex = 10;
@@ -241,7 +232,7 @@ namespace CppCLRWinFormsProject {
 			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label1->ForeColor = System::Drawing::SystemColors::HotTrack;
-			this->label1->Location = System::Drawing::Point(117, 35);
+			this->label1->Location = System::Drawing::Point(316, 86);
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(98, 20);
 			this->label1->TabIndex = 12;
@@ -253,7 +244,7 @@ namespace CppCLRWinFormsProject {
 			this->CredencialsIncorrectes_Label2->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->CredencialsIncorrectes_Label2->ForeColor = System::Drawing::Color::Red;
-			this->CredencialsIncorrectes_Label2->Location = System::Drawing::Point(9, 52);
+			this->CredencialsIncorrectes_Label2->Location = System::Drawing::Point(314, 500);
 			this->CredencialsIncorrectes_Label2->Name = L"CredencialsIncorrectes_Label2";
 			this->CredencialsIncorrectes_Label2->Size = System::Drawing::Size(159, 19);
 			this->CredencialsIncorrectes_Label2->TabIndex = 13;
@@ -266,7 +257,7 @@ namespace CppCLRWinFormsProject {
 			this->ban_label->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->ban_label->ForeColor = System::Drawing::Color::Red;
-			this->ban_label->Location = System::Drawing::Point(11, 31);
+			this->ban_label->Location = System::Drawing::Point(316, 479);
 			this->ban_label->Name = L"ban_label";
 			this->ban_label->Size = System::Drawing::Size(80, 19);
 			this->ban_label->TabIndex = 14;
@@ -279,55 +270,12 @@ namespace CppCLRWinFormsProject {
 			this->descriptionBan_label->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->descriptionBan_label->ForeColor = System::Drawing::Color::Red;
-			this->descriptionBan_label->Location = System::Drawing::Point(11, 52);
+			this->descriptionBan_label->Location = System::Drawing::Point(316, 500);
 			this->descriptionBan_label->Name = L"descriptionBan_label";
 			this->descriptionBan_label->Size = System::Drawing::Size(55, 19);
 			this->descriptionBan_label->TabIndex = 15;
 			this->descriptionBan_label->Text = L"label2";
 			this->descriptionBan_label->Visible = false;
-			// 
-			// tableLayoutPanel1
-			// 
-			this->tableLayoutPanel1->ColumnCount = 3;
-			this->tableLayoutPanel1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
-				20)));
-			this->tableLayoutPanel1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
-				60)));
-			this->tableLayoutPanel1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
-				20)));
-			this->tableLayoutPanel1->Controls->Add(this->panel2, 1, 1);
-			this->tableLayoutPanel1->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->tableLayoutPanel1->Location = System::Drawing::Point(0, 0);
-			this->tableLayoutPanel1->Name = L"tableLayoutPanel1";
-			this->tableLayoutPanel1->RowCount = 3;
-			this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 1.867816F)));
-			this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 90.94827F)));
-			this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 7.04023F)));
-			this->tableLayoutPanel1->Size = System::Drawing::Size(933, 696);
-			this->tableLayoutPanel1->TabIndex = 16;
-			// 
-			// panel1
-			// 
-			this->panel1->Controls->Add(this->CredencialsIncorrectes_Label);
-			this->panel1->Controls->Add(this->CredencialsIncorrectes_Label2);
-			this->panel1->Controls->Add(this->descriptionBan_label);
-			this->panel1->Controls->Add(this->ban_label);
-			this->panel1->Location = System::Drawing::Point(109, 415);
-			this->panel1->Name = L"panel1";
-			this->panel1->Size = System::Drawing::Size(200, 92);
-			this->panel1->TabIndex = 17;
-			// 
-			// panel2
-			// 
-			this->panel2->Anchor = System::Windows::Forms::AnchorStyles::None;
-			this->panel2->Controls->Add(this->Main_Panel);
-			this->panel2->Controls->Add(this->IniciarSessio_Label);
-			this->panel2->Controls->Add(this->label1);
-			this->panel2->Controls->Add(this->panel1);
-			this->panel2->Location = System::Drawing::Point(189, 16);
-			this->panel2->Name = L"panel2";
-			this->panel2->Size = System::Drawing::Size(553, 627);
-			this->panel2->TabIndex = 18;
 			// 
 			// IniciSessioUI
 			// 
@@ -336,11 +284,18 @@ namespace CppCLRWinFormsProject {
 			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(243)), static_cast<System::Int32>(static_cast<System::Byte>(243)),
 				static_cast<System::Int32>(static_cast<System::Byte>(243)));
 			this->ClientSize = System::Drawing::Size(933, 696);
-			this->Controls->Add(this->tableLayoutPanel1);
+			this->Controls->Add(this->descriptionBan_label);
+			this->Controls->Add(this->ban_label);
+			this->Controls->Add(this->CredencialsIncorrectes_Label2);
+			this->Controls->Add(this->label1);
+			this->Controls->Add(this->CredencialsIncorrectes_Label);
+			this->Controls->Add(this->IniciarSessio_Label);
+			this->Controls->Add(this->Main_Panel);
 			this->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->ForeColor = System::Drawing::SystemColors::ActiveCaptionText;
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
+			this->MaximumSize = System::Drawing::Size(933, 696);
 			this->MinimumSize = System::Drawing::Size(933, 696);
 			this->Name = L"IniciSessioUI";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterParent;
@@ -349,12 +304,8 @@ namespace CppCLRWinFormsProject {
 			this->Main_Panel->ResumeLayout(false);
 			this->Main_Panel->PerformLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
-			this->tableLayoutPanel1->ResumeLayout(false);
-			this->panel1->ResumeLayout(false);
-			this->panel1->PerformLayout();
-			this->panel2->ResumeLayout(false);
-			this->panel2->PerformLayout();
 			this->ResumeLayout(false);
+			this->PerformLayout();
 
 		}
 
@@ -366,6 +317,5 @@ private: System::Void ContinuarIniciSessioButton_Click(System::Object^ sender, S
 private: System::Void IniciSessioUI_Load(System::Object^ sender, System::EventArgs^ e) {
 }
 private: System::Void pictureBox1_Click(System::Object^ sender, System::EventArgs^ e);
-
 };
 }

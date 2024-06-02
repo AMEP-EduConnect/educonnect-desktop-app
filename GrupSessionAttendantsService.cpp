@@ -26,9 +26,4 @@ Int64^ GrupSessionAttendantsService::GetSessionAttendantsCount(Int64^ idsession)
 	return grupSessionAttendantsRepository->GetSessionAttendantsCount(idsession);
 }
 
-array<Int64^>^ GrupSessionAttendantsService::GetIdSessions(Int64^ iduser)
-{
-	return grupSessionAttendantsRepository->GetIdSessions(iduser);
-}
-
 

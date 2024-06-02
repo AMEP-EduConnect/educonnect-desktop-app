@@ -430,6 +430,9 @@
     <ClInclude Include="IniciUI.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="MainPageUI.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="InformacioPersonal_ConsultaUI.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -494,9 +497,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Session_CalendariUI.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="MainPageUI.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

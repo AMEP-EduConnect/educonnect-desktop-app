@@ -22,8 +22,6 @@ namespace CppCLRWinFormsProject {
 	public:
 		Session_CalendariUI(void);
 
-		Void ChangeSessionCardVisibility(bool isSessionCardAvailable);
-
 	protected:
 		/// <summary>
 		/// Limpiar los recursos que se est�n usando.
@@ -73,16 +71,14 @@ namespace CppCLRWinFormsProject {
 
 	private: System::Windows::Forms::Button^ Seguent_Button;
 	private: System::Windows::Forms::Label^ Contador;
-	private: System::Windows::Forms::Label^ Separator_Label;
 
-
+	private: System::Windows::Forms::Label^ label2;
 	private: System::Windows::Forms::Label^ DaySessions;
 	private: System::Windows::Forms::Label^ NomSessió;
 
 	private: System::Windows::Forms::Label^ Capacity;
 	private: System::Windows::Forms::Label^ Attendants;
-	private: System::Windows::Forms::Label^ SeparatorAsistents_Label;
-
+	private: System::Windows::Forms::Label^ label5;
 	private: System::Windows::Forms::Label^ Horari;
 	private: System::Windows::Forms::Label^ NomEspai;
 	private: System::Windows::Forms::Label^ NomGrup;
@@ -92,8 +88,6 @@ namespace CppCLRWinFormsProject {
 	private: System::Windows::Forms::Label^ label8;
 	private: System::Windows::Forms::Label^ label9;
 	private: System::Windows::Forms::Label^ Data;
-	private: System::Windows::Forms::Label^ label3;
-	private: bool isSessionCardAvailable;
 
 
 
@@ -112,24 +106,23 @@ namespace CppCLRWinFormsProject {
 			   this->panel1 = (gcnew System::Windows::Forms::Panel());
 			   this->DaySessions = (gcnew System::Windows::Forms::Label());
 			   this->Contador = (gcnew System::Windows::Forms::Label());
-			   this->Separator_Label = (gcnew System::Windows::Forms::Label());
+			   this->label2 = (gcnew System::Windows::Forms::Label());
 			   this->Anterior_Button = (gcnew System::Windows::Forms::Button());
 			   this->Seguent_Button = (gcnew System::Windows::Forms::Button());
 			   this->panel2 = (gcnew System::Windows::Forms::Panel());
-			   this->label3 = (gcnew System::Windows::Forms::Label());
-			   this->Data = (gcnew System::Windows::Forms::Label());
 			   this->NomGrup = (gcnew System::Windows::Forms::Label());
 			   this->Horari = (gcnew System::Windows::Forms::Label());
 			   this->NomEspai = (gcnew System::Windows::Forms::Label());
 			   this->NomSessió = (gcnew System::Windows::Forms::Label());
 			   this->Capacity = (gcnew System::Windows::Forms::Label());
 			   this->Attendants = (gcnew System::Windows::Forms::Label());
-			   this->SeparatorAsistents_Label = (gcnew System::Windows::Forms::Label());
+			   this->label5 = (gcnew System::Windows::Forms::Label());
 			   this->panel3 = (gcnew System::Windows::Forms::Panel());
 			   this->label7 = (gcnew System::Windows::Forms::Label());
 			   this->label1 = (gcnew System::Windows::Forms::Label());
 			   this->label8 = (gcnew System::Windows::Forms::Label());
 			   this->label9 = (gcnew System::Windows::Forms::Label());
+			   this->Data = (gcnew System::Windows::Forms::Label());
 			   this->tableLayoutPanel1->SuspendLayout();
 			   this->panel1->SuspendLayout();
 			   this->panel2->SuspendLayout();
@@ -178,7 +171,7 @@ namespace CppCLRWinFormsProject {
 			   this->panel1->BackColor = System::Drawing::SystemColors::GradientInactiveCaption;
 			   this->panel1->Controls->Add(this->DaySessions);
 			   this->panel1->Controls->Add(this->Contador);
-			   this->panel1->Controls->Add(this->Separator_Label);
+			   this->panel1->Controls->Add(this->label2);
 			   this->panel1->Controls->Add(this->Anterior_Button);
 			   this->panel1->Controls->Add(this->Seguent_Button);
 			   this->panel1->Controls->Add(this->panel2);
@@ -199,7 +192,6 @@ namespace CppCLRWinFormsProject {
 			   this->DaySessions->Size = System::Drawing::Size(22, 23);
 			   this->DaySessions->TabIndex = 28;
 			   this->DaySessions->Text = L"0";
-			   this->DaySessions->Visible = false;
 			   // 
 			   // Contador
 			   // 
@@ -211,19 +203,17 @@ namespace CppCLRWinFormsProject {
 			   this->Contador->Size = System::Drawing::Size(22, 23);
 			   this->Contador->TabIndex = 27;
 			   this->Contador->Text = L"0";
-			   this->Contador->Visible = false;
 			   // 
-			   // Separator_Label
+			   // label2
 			   // 
-			   this->Separator_Label->AutoSize = true;
-			   this->Separator_Label->Font = (gcnew System::Drawing::Font(L"Inter", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			   this->label2->AutoSize = true;
+			   this->label2->Font = (gcnew System::Drawing::Font(L"Inter", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				   static_cast<System::Byte>(0)));
-			   this->Separator_Label->Location = System::Drawing::Point(239, 325);
-			   this->Separator_Label->Name = L"Separator_Label";
-			   this->Separator_Label->Size = System::Drawing::Size(17, 23);
-			   this->Separator_Label->TabIndex = 26;
-			   this->Separator_Label->Text = L"/";
-			   this->Separator_Label->Visible = false;
+			   this->label2->Location = System::Drawing::Point(239, 325);
+			   this->label2->Name = L"label2";
+			   this->label2->Size = System::Drawing::Size(17, 23);
+			   this->label2->TabIndex = 26;
+			   this->label2->Text = L"/";
 			   // 
 			   // Anterior_Button
 			   // 
@@ -237,7 +227,6 @@ namespace CppCLRWinFormsProject {
 			   this->Anterior_Button->TabIndex = 25;
 			   this->Anterior_Button->Text = L"Anterior";
 			   this->Anterior_Button->UseVisualStyleBackColor = true;
-			   this->Anterior_Button->Visible = false;
 			   this->Anterior_Button->Click += gcnew System::EventHandler(this, &Session_CalendariUI::AnteriorButton_Click);
 			   // 
 			   // Seguent_Button
@@ -252,14 +241,12 @@ namespace CppCLRWinFormsProject {
 			   this->Seguent_Button->TabIndex = 24;
 			   this->Seguent_Button->Text = L"Següent";
 			   this->Seguent_Button->UseVisualStyleBackColor = true;
-			   this->Seguent_Button->Visible = false;
 			   this->Seguent_Button->Click += gcnew System::EventHandler(this, &Session_CalendariUI::SeguentButton_Click);
 			   // 
 			   // panel2
 			   // 
 			   this->panel2->Anchor = System::Windows::Forms::AnchorStyles::None;
 			   this->panel2->BackColor = System::Drawing::SystemColors::ButtonHighlight;
-			   this->panel2->Controls->Add(this->label3);
 			   this->panel2->Controls->Add(this->Data);
 			   this->panel2->Controls->Add(this->NomGrup);
 			   this->panel2->Controls->Add(this->Horari);
@@ -267,46 +254,24 @@ namespace CppCLRWinFormsProject {
 			   this->panel2->Controls->Add(this->NomSessió);
 			   this->panel2->Controls->Add(this->Capacity);
 			   this->panel2->Controls->Add(this->Attendants);
-			   this->panel2->Controls->Add(this->SeparatorAsistents_Label);
+			   this->panel2->Controls->Add(this->label5);
 			   this->panel2->Location = System::Drawing::Point(48, 40);
 			   this->panel2->Name = L"panel2";
-			   this->panel2->Size = System::Drawing::Size(412, 271);
+			   this->panel2->Size = System::Drawing::Size(412, 224);
 			   this->panel2->TabIndex = 14;
 			   this->panel2->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &Session_CalendariUI::panel2_Paint);
-			   // 
-			   // label3
-			   // 
-			   this->label3->AutoSize = true;
-			   this->label3->Font = (gcnew System::Drawing::Font(L"Inter", 12));
-			   this->label3->Location = System::Drawing::Point(18, 205);
-			   this->label3->Name = L"label3";
-			   this->label3->Size = System::Drawing::Size(78, 19);
-			   this->label3->TabIndex = 37;
-			   this->label3->Text = L"Asistents";
-			   this->label3->Visible = false;
-			   // 
-			   // Data
-			   // 
-			   this->Data->AutoSize = true;
-			   this->Data->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				   static_cast<System::Byte>(0)));
-			   this->Data->Location = System::Drawing::Point(271, 83);
-			   this->Data->Name = L"Data";
-			   this->Data->Size = System::Drawing::Size(0, 19);
-			   this->Data->TabIndex = 36;
 			   // 
 			   // NomGrup
 			   // 
 			   this->NomGrup->Anchor = System::Windows::Forms::AnchorStyles::Top;
 			   this->NomGrup->AutoSize = true;
-			   this->NomGrup->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			   this->NomGrup->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				   static_cast<System::Byte>(0)));
-			   this->NomGrup->Location = System::Drawing::Point(18, 25);
+			   this->NomGrup->Location = System::Drawing::Point(163, 25);
 			   this->NomGrup->Name = L"NomGrup";
-			   this->NomGrup->Size = System::Drawing::Size(240, 19);
+			   this->NomGrup->Size = System::Drawing::Size(85, 19);
 			   this->NomGrup->TabIndex = 35;
-			   this->NomGrup->Text = L"No hi ha sessions disponibles";
-			   this->NomGrup->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
+			   this->NomGrup->Text = L"Nom grup";
 			   // 
 			   // Horari
 			   // 
@@ -315,8 +280,9 @@ namespace CppCLRWinFormsProject {
 				   static_cast<System::Byte>(0)));
 			   this->Horari->Location = System::Drawing::Point(270, 117);
 			   this->Horari->Name = L"Horari";
-			   this->Horari->Size = System::Drawing::Size(0, 19);
+			   this->Horari->Size = System::Drawing::Size(108, 19);
 			   this->Horari->TabIndex = 34;
+			   this->Horari->Text = L"18:00 - 19:00";
 			   // 
 			   // NomEspai
 			   // 
@@ -328,7 +294,6 @@ namespace CppCLRWinFormsProject {
 			   this->NomEspai->Size = System::Drawing::Size(90, 19);
 			   this->NomEspai->TabIndex = 33;
 			   this->NomEspai->Text = L"Nom espai";
-			   this->NomEspai->Visible = false;
 			   // 
 			   // NomSessió
 			   // 
@@ -340,43 +305,39 @@ namespace CppCLRWinFormsProject {
 			   this->NomSessió->Size = System::Drawing::Size(97, 19);
 			   this->NomSessió->TabIndex = 32;
 			   this->NomSessió->Text = L"Nom sessió";
-			   this->NomSessió->Visible = false;
 			   // 
 			   // Capacity
 			   // 
 			   this->Capacity->AutoSize = true;
 			   this->Capacity->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				   static_cast<System::Byte>(0)));
-			   this->Capacity->Location = System::Drawing::Point(354, 200);
+			   this->Capacity->Location = System::Drawing::Point(209, 177);
 			   this->Capacity->Name = L"Capacity";
 			   this->Capacity->Size = System::Drawing::Size(19, 19);
 			   this->Capacity->TabIndex = 31;
 			   this->Capacity->Text = L"0";
-			   this->Capacity->Visible = false;
 			   // 
 			   // Attendants
 			   // 
 			   this->Attendants->AutoSize = true;
 			   this->Attendants->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				   static_cast<System::Byte>(0)));
-			   this->Attendants->Location = System::Drawing::Point(317, 200);
+			   this->Attendants->Location = System::Drawing::Point(172, 177);
 			   this->Attendants->Name = L"Attendants";
 			   this->Attendants->Size = System::Drawing::Size(19, 19);
 			   this->Attendants->TabIndex = 30;
 			   this->Attendants->Text = L"0";
-			   this->Attendants->Visible = false;
 			   // 
-			   // SeparatorAsistents_Label
+			   // label5
 			   // 
-			   this->SeparatorAsistents_Label->AutoSize = true;
-			   this->SeparatorAsistents_Label->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			   this->label5->AutoSize = true;
+			   this->label5->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				   static_cast<System::Byte>(0)));
-			   this->SeparatorAsistents_Label->Location = System::Drawing::Point(336, 200);
-			   this->SeparatorAsistents_Label->Name = L"SeparatorAsistents_Label";
-			   this->SeparatorAsistents_Label->Size = System::Drawing::Size(15, 19);
-			   this->SeparatorAsistents_Label->TabIndex = 29;
-			   this->SeparatorAsistents_Label->Text = L"/";
-			   this->SeparatorAsistents_Label->Visible = false;
+			   this->label5->Location = System::Drawing::Point(191, 177);
+			   this->label5->Name = L"label5";
+			   this->label5->Size = System::Drawing::Size(15, 19);
+			   this->label5->TabIndex = 29;
+			   this->label5->Text = L"/";
 			   // 
 			   // panel3
 			   // 
@@ -430,6 +391,17 @@ namespace CppCLRWinFormsProject {
 			   this->label9->Size = System::Drawing::Size(12, 13);
 			   this->label9->TabIndex = 29;
 			   this->label9->Text = L"/";
+			   // 
+			   // Data
+			   // 
+			   this->Data->AutoSize = true;
+			   this->Data->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				   static_cast<System::Byte>(0)));
+			   this->Data->Location = System::Drawing::Point(271, 83);
+			   this->Data->Name = L"Data";
+			   this->Data->Size = System::Drawing::Size(107, 19);
+			   this->Data->TabIndex = 36;
+			   this->Data->Text = L"19 juny 2023";
 			   // 
 			   // Session_CalendariUI
 			   // 
