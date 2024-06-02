@@ -106,29 +106,31 @@ bool SessionService::CheckIfTimeStampIsOlderThanCurrentTime(DateTime^ selectedDa
 	DateTime^ currentTime = DateTime::Now;
 	String^ onlyCurrentHour = currentTime->ToString("HH:mm");
 	String^ onlySelectedHour = selectedDay->ToString("HH:mm");
-
-	if (this->GetFormattedHour(onlyCurrentHour) >= this->GetFormattedHour(onlySelectedHour))
+	if (currentTime->ToString("yyyy-MM-dd") == selectedDay->ToString("yyyy-MM-dd"))
 	{
-		return true;
+		if (this->GetFormattedHour(onlyCurrentHour) >= this->GetFormattedHour(onlySelectedHour))
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
 	}
 	else
 	{
 		return false;
 	}
-
 }
 
 bool SessionService::CheckIfSelectedDayMonthIsOlderThanCurrentTime(DateTime^ selectedDay)
 {
 	DateTime^ currentTime = DateTime::Now;
-	if (DateTime::Compare(*currentTime, *selectedDay) <= 0)
-	{
-		return true;
-	}
-	else
-	{
-		return false;
-	}
+
+	DateTime currentDateOnly(currentTime->Year, currentTime->Month, currentTime->Day);
+	DateTime selectedDateOnly(selectedDay->Year, selectedDay->Month, selectedDay->Day);
+
+	return currentDateOnly <= selectedDateOnly;
 }
 
 List<String^>^ SessionService::GenerateAllTimeStamps()

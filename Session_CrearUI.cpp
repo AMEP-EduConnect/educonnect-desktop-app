@@ -79,6 +79,11 @@ namespace CppCLRWinFormsProject {
 		}
 	}
 
+	System::Void Session_CrearUI::TimeHour_ComboBox_TextChanged(System::Object^ sender, System::EventArgs^ e)
+	{
+		
+	}
+
 	System::Void Session_CrearUI::CreateSession_Button_Click(System::Object^ sender, System::EventArgs^ e)
 	{
 		if (this->FieldsNotEmpty())
