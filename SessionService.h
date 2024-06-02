@@ -17,6 +17,8 @@ public:
 
 	bool CheckIfTimeStampIsFree(DateTime^ selectedDay);
 	bool CheckIfSessionNameIsAvailable(String^ name);
+	bool CheckIfTimeStampIsOlderThanCurrentTime(DateTime^ selectedDay);
+	bool CheckIfSelectedDayMonthIsOlderThanCurrentTime(DateTime^ selectedDay);
 
 	List<String^>^ GenerateAllTimeStamps();
 	String^ GetFormattedEspai(String^ name);

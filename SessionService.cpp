@@ -101,6 +101,36 @@ bool SessionService::CheckIfSessionNameIsAvailable(String^ name)
 	}
 }
 
+bool SessionService::CheckIfTimeStampIsOlderThanCurrentTime(DateTime^ selectedDay)
+{
+	DateTime^ currentTime = DateTime::Now;
+	String^ onlyCurrentHour = currentTime->ToString("HH:mm");
+	String^ onlySelectedHour = selectedDay->ToString("HH:mm");
+
+	if (this->GetFormattedHour(onlyCurrentHour) >= this->GetFormattedHour(onlySelectedHour))
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
+
+}
+
+bool SessionService::CheckIfSelectedDayMonthIsOlderThanCurrentTime(DateTime^ selectedDay)
+{
+	DateTime^ currentTime = DateTime::Now;
+	if (DateTime::Compare(*currentTime, *selectedDay) <= 0)
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
+}
+
 List<String^>^ SessionService::GenerateAllTimeStamps()
 {
 	List<String^>^ allTimeStamps = gcnew List<String^>(0);
@@ -108,7 +138,6 @@ List<String^>^ SessionService::GenerateAllTimeStamps()
 	{
 		allTimeStamps->Add(i.ToString() + ":00 - " + (i + 1).ToString() + ":00");
 	}
-	allTimeStamps->Add("20:00 - 21:00");
 	return allTimeStamps;
 }
 
