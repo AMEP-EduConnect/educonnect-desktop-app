@@ -198,9 +198,9 @@ namespace CppCLRWinFormsProject {
 			this->Unirse_Button->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->Unirse_Button->ForeColor = System::Drawing::SystemColors::ControlText;
-			this->Unirse_Button->Location = System::Drawing::Point(220, 334);
+			this->Unirse_Button->Location = System::Drawing::Point(254, 348);
 			this->Unirse_Button->Name = L"Unirse_Button";
-			this->Unirse_Button->Size = System::Drawing::Size(188, 54);
+			this->Unirse_Button->Size = System::Drawing::Size(154, 35);
 			this->Unirse_Button->TabIndex = 8;
 			this->Unirse_Button->Text = L"Solicitar unir-se";
 			this->Unirse_Button->UseVisualStyleBackColor = true;
@@ -225,10 +225,10 @@ namespace CppCLRWinFormsProject {
 			this->Membres_Button->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->Membres_Button->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->Membres_Button->Location = System::Drawing::Point(25, 335);
+			this->Membres_Button->Location = System::Drawing::Point(25, 348);
 			this->Membres_Button->Margin = System::Windows::Forms::Padding(4);
 			this->Membres_Button->Name = L"Membres_Button";
-			this->Membres_Button->Size = System::Drawing::Size(158, 53);
+			this->Membres_Button->Size = System::Drawing::Size(154, 35);
 			this->Membres_Button->TabIndex = 9;
 			this->Membres_Button->Text = L"Veure membres";
 			this->Membres_Button->UseVisualStyleBackColor = true;
