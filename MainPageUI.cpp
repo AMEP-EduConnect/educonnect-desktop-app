@@ -33,14 +33,10 @@ namespace CppCLRWinFormsProject {
         InitializeComponent();
         this->Text = L"EduConnect";
         this->FormClosing += gcnew FormClosingEventHandler(this, &MainPageUI::MainForm_FormClosing);
-        IniciUI^ PanelUI = gcnew IniciUI();
-        PanelUI->TopLevel = false;
-        PanelUI->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
-        PanelUI->Dock = System::Windows::Forms::DockStyle::Fill;
 
-        this->screen->Controls->Clear();
-        this->screen->Controls->Add(PanelUI);
-        PanelUI->Show();
+
+
+
 
         this->BotoPersonal->Image = Image::FromFile("resources/Icons/usuario.png");
         this->BotoLogout->Image = Image::FromFile("resources/Icons/salida.png");
@@ -57,21 +53,69 @@ namespace CppCLRWinFormsProject {
         //ROLS
         Int64^ rol = CurrentSession::Instance->GetCurrentUserRol();
 
+        // ADMIN    
         if (*rol == 1) {
+            this->BotoAdmin->Font = (gcnew System::Drawing::Font(L"Inter Medium", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+                static_cast<System::Byte>(0)));
+
+            AdministradorUI^ PanelUI = gcnew AdministradorUI();
+            PanelUI->TopLevel = false;
+            PanelUI->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
+            PanelUI->Dock = System::Windows::Forms::DockStyle::Fill;
+            this->screen->Controls->Clear();
+            this->screen->Controls->Add(PanelUI);
+            PanelUI->Show();
+
             this->BotoAdmin->Visible = true;
-            this->BotoEspais->Visible = true;
-            this->Notification_Button->Visible = false;
-            this->BotoSessions->Visible = false;
+
+            this->BotoInici->Visible = false;
+			this->BotoEspais->Visible = false;
+			this->BotoElsMeus->Visible = false;
+			this->BotoExplorar->Visible = false;
+			this->BotoSessions->Visible = false;
+			this->Notification_Button->Visible = false;
+			this->panel4->Size = System::Drawing::Size(0, 30);
+			this->panel6->Size = System::Drawing::Size(0, 0);
         }
+
+        // PROVIDER
         else if (*rol == 3) {
-            this->BotoAdmin->Visible = false;
+            this->BotoEspais->Font = (gcnew System::Drawing::Font(L"Inter Medium", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+                static_cast<System::Byte>(0)));
+
+            ConsultaEspaisUI^ PanelUI = gcnew ConsultaEspaisUI();
+            PanelUI->TopLevel = false;
+            PanelUI->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
+            PanelUI->Dock = System::Windows::Forms::DockStyle::Fill;
+            this->screen->Controls->Clear();
+            this->screen->Controls->Add(PanelUI);
+            PanelUI->Show();
+
             this->BotoEspais->Visible = true;
+
+            this->BotoAdmin->Visible = false;
+			this->BotoInici->Visible = false;
             this->BotoElsMeus->Visible = false;
             this->BotoExplorar->Visible = false;
             this->BotoSessions->Visible = false;
             this->Notification_Button->Visible = false;
+            this->panel4->Size = System::Drawing::Size(0, 30);
+            this->panel6->Size = System::Drawing::Size(0, 0);
         }
+
+        // STUDENT
         else {
+            this->BotoInici->Font = (gcnew System::Drawing::Font(L"Inter ExtraBold", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+                static_cast<System::Byte>(0)));
+
+            IniciUI^ PanelUI = gcnew IniciUI();
+            PanelUI->TopLevel = false;
+            PanelUI->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
+            PanelUI->Dock = System::Windows::Forms::DockStyle::Fill;
+            this->screen->Controls->Clear();
+            this->screen->Controls->Add(PanelUI);
+            PanelUI->Show();
+
             this->BotoAdmin->Visible = false;
             this->BotoEspais->Visible = false;
             this->BotoSessions->Visible = true;

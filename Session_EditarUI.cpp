@@ -74,7 +74,13 @@ namespace CppCLRWinFormsProject {
 
 	System::Void Session_EditarUI::DayMonth_Calendar_DateChanged(System::Object^ sender, System::Windows::Forms::DateRangeEventArgs^ e)
 	{
-		if(IsLoaded) this->OnCalendarDateChanged();
+		if (!this->sessionService->CheckIfSelectedDayMonthIsOlderThanCurrentTime(this->DayMonth_Calendar->SelectionStart))
+		{
+			MessageManager::ErrorMessage("No es poden seleccionar dates passades.");
+			this->DayMonth_Calendar->SelectionStart = DateTime::Now;
+			return;
+		}
+		if (IsLoaded) this->OnCalendarDateChanged();
 	}
 	System::Void Session_EditarUI::Espai_ComboBox_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e)
 	{
@@ -189,7 +195,10 @@ namespace CppCLRWinFormsProject {
 			bool isFree = this->sessionService->CheckIfTimeStampIsFree(CurrentTimeStamp);
 			if (isFree)
 			{
-				this->TimeHour_ComboBox->Items->Add(enumerator->Current);
+				if (!this->sessionService->CheckIfTimeStampIsOlderThanCurrentTime(CurrentTimeStamp))
+				{
+					this->TimeHour_ComboBox->Items->Add(enumerator->Current);
+				}
 			}
 		}
 	}
