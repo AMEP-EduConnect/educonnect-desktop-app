@@ -10,5 +10,6 @@ public:
 	void EliminaSessionAttendant(Int64^ idsession, Int64^ iduser);
 	bool IsAttendant(Int64^ idsession, Int64^ iduser);
 	Int64^ GetSessionAttendantsCount(Int64^ idsession);
+	array<Int64^>^ GetIdSessions(Int64^ iduser);
 };
 

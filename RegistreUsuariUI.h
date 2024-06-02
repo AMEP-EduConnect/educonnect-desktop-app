@@ -72,6 +72,8 @@ namespace CppCLRWinFormsProject {
 	private: System::Windows::Forms::Label^ label2;
 	private: System::Windows::Forms::Label^ label3;
 	private: System::Windows::Forms::Label^ EmplenaTots;
+	private: System::Windows::Forms::TableLayoutPanel^ tableLayoutPanel1;
+	private: System::Windows::Forms::Panel^ panel2;
 	protected:
 
 	private:
@@ -104,8 +106,12 @@ namespace CppCLRWinFormsProject {
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->IniciarSessio_Label = (gcnew System::Windows::Forms::Label());
 			this->EmplenaTots = (gcnew System::Windows::Forms::Label());
+			this->tableLayoutPanel1 = (gcnew System::Windows::Forms::TableLayoutPanel());
+			this->panel2 = (gcnew System::Windows::Forms::Panel());
 			this->Main_Panel->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
+			this->tableLayoutPanel1->SuspendLayout();
+			this->panel2->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// NomUsuari_Label
@@ -146,7 +152,7 @@ namespace CppCLRWinFormsProject {
 			this->Main_Panel->Controls->Add(this->Email_Label);
 			this->Main_Panel->Controls->Add(this->Email_TextBox);
 			this->Main_Panel->Controls->Add(this->Nom_Label);
-			this->Main_Panel->Location = System::Drawing::Point(318, 73);
+			this->Main_Panel->Location = System::Drawing::Point(125, 78);
 			this->Main_Panel->Name = L"Main_Panel";
 			this->Main_Panel->Size = System::Drawing::Size(303, 410);
 			this->Main_Panel->TabIndex = 9;
@@ -158,9 +164,9 @@ namespace CppCLRWinFormsProject {
 				static_cast<System::Byte>(0)));
 			this->label3->Location = System::Drawing::Point(32, 289);
 			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(307, 19);
+			this->label3->Size = System::Drawing::Size(225, 19);
 			this->label3->TabIndex = 25;
-			this->label3->Text = L"car\u00E0cters especials i n\u00FAmeros.";
+			this->label3->Text = L"caràcters especials i números.";
 			// 
 			// label2
 			// 
@@ -170,9 +176,9 @@ namespace CppCLRWinFormsProject {
 				static_cast<System::Byte>(0)));
 			this->label2->Location = System::Drawing::Point(32, 270);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(333, 19);
+			this->label2->Size = System::Drawing::Size(251, 19);
 			this->label2->TabIndex = 23;
-			this->label2->Text = L"Ha de contenir 8 o m\u00E9s car\u00E0cters, ";
+			this->label2->Text = L"Ha de contenir 8 o més caràcters, ";
 			// 
 			// pictureBox1
 			// 
@@ -255,9 +261,9 @@ namespace CppCLRWinFormsProject {
 			this->Email_Label->ForeColor = System::Drawing::SystemColors::HotTrack;
 			this->Email_Label->Location = System::Drawing::Point(32, 89);
 			this->Email_Label->Name = L"Email_Label";
-			this->Email_Label->Size = System::Drawing::Size(185, 19);
+			this->Email_Label->Size = System::Drawing::Size(141, 19);
 			this->Email_Label->TabIndex = 10;
-			this->Email_Label->Text = L"Correu electr\u00F2nic";
+			this->Email_Label->Text = L"Correu electrònic";
 			// 
 			// Email_TextBox
 			// 
@@ -287,7 +293,7 @@ namespace CppCLRWinFormsProject {
 			this->label1->Font = (gcnew System::Drawing::Font(L"SF Pro Display", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label1->ForeColor = System::Drawing::SystemColors::HotTrack;
-			this->label1->Location = System::Drawing::Point(314, 10);
+			this->label1->Location = System::Drawing::Point(122, 13);
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(91, 19);
 			this->label1->TabIndex = 22;
@@ -299,7 +305,7 @@ namespace CppCLRWinFormsProject {
 			this->IniciarSessio_Label->Font = (gcnew System::Drawing::Font(L"Inter", 20.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->IniciarSessio_Label->ForeColor = System::Drawing::SystemColors::HotTrack;
-			this->IniciarSessio_Label->Location = System::Drawing::Point(312, 24);
+			this->IniciarSessio_Label->Location = System::Drawing::Point(119, 29);
 			this->IniciarSessio_Label->Name = L"IniciarSessio_Label";
 			this->IniciarSessio_Label->Size = System::Drawing::Size(135, 33);
 			this->IniciarSessio_Label->TabIndex = 21;
@@ -311,11 +317,43 @@ namespace CppCLRWinFormsProject {
 			this->EmplenaTots->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->EmplenaTots->ForeColor = System::Drawing::Color::Red;
-			this->EmplenaTots->Location = System::Drawing::Point(314, 489);
+			this->EmplenaTots->Location = System::Drawing::Point(121, 494);
 			this->EmplenaTots->Name = L"EmplenaTots";
 			this->EmplenaTots->Size = System::Drawing::Size(194, 19);
 			this->EmplenaTots->TabIndex = 25;
 			this->EmplenaTots->Text = L"Emplena tots els camps.";
+			// 
+			// tableLayoutPanel1
+			// 
+			this->tableLayoutPanel1->ColumnCount = 3;
+			this->tableLayoutPanel1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
+				20)));
+			this->tableLayoutPanel1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
+				60)));
+			this->tableLayoutPanel1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
+				20)));
+			this->tableLayoutPanel1->Controls->Add(this->panel2, 1, 1);
+			this->tableLayoutPanel1->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->tableLayoutPanel1->Location = System::Drawing::Point(0, 0);
+			this->tableLayoutPanel1->Name = L"tableLayoutPanel1";
+			this->tableLayoutPanel1->RowCount = 3;
+			this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 1.867816F)));
+			this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 90.94827F)));
+			this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 7.04023F)));
+			this->tableLayoutPanel1->Size = System::Drawing::Size(933, 696);
+			this->tableLayoutPanel1->TabIndex = 26;
+			// 
+			// panel2
+			// 
+			this->panel2->Anchor = System::Windows::Forms::AnchorStyles::None;
+			this->panel2->Controls->Add(this->Main_Panel);
+			this->panel2->Controls->Add(this->EmplenaTots);
+			this->panel2->Controls->Add(this->IniciarSessio_Label);
+			this->panel2->Controls->Add(this->label1);
+			this->panel2->Location = System::Drawing::Point(189, 16);
+			this->panel2->Name = L"panel2";
+			this->panel2->Size = System::Drawing::Size(553, 627);
+			this->panel2->TabIndex = 18;
 			// 
 			// RegistreUsuariUI
 			// 
@@ -324,15 +362,11 @@ namespace CppCLRWinFormsProject {
 			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(243)), static_cast<System::Int32>(static_cast<System::Byte>(243)),
 				static_cast<System::Int32>(static_cast<System::Byte>(243)));
 			this->ClientSize = System::Drawing::Size(933, 696);
-			this->Controls->Add(this->EmplenaTots);
-			this->Controls->Add(this->label1);
-			this->Controls->Add(this->IniciarSessio_Label);
-			this->Controls->Add(this->Main_Panel);
+			this->Controls->Add(this->tableLayoutPanel1);
 			this->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
 			this->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
-			this->MaximumSize = System::Drawing::Size(933, 696);
 			this->MinimumSize = System::Drawing::Size(933, 696);
 			this->Name = L"RegistreUsuariUI";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterParent;
@@ -341,8 +375,10 @@ namespace CppCLRWinFormsProject {
 			this->Main_Panel->ResumeLayout(false);
 			this->Main_Panel->PerformLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
+			this->tableLayoutPanel1->ResumeLayout(false);
+			this->panel2->ResumeLayout(false);
+			this->panel2->PerformLayout();
 			this->ResumeLayout(false);
-			this->PerformLayout();
 
 		}
 #pragma endregion

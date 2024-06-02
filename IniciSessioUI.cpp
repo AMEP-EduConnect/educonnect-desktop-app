@@ -49,17 +49,15 @@ namespace CppCLRWinFormsProject {
                             Contrasenya_TextBox->Text = "";
                         }
                         else {
-							StartPageUI::Instance->Hide();
-							MainPageUI::Instance = gcnew MainPageUI();
-							MainPageUI::Instance->ShowDialog();
-							StartPageUI::Instance->Close();
+                            StartPageUI::Instance->Hide();
+                            MainPageUI::Instance = gcnew MainPageUI();
+                            MainPageUI::Instance->ShowDialog();
 						}
                     }
                     else {
                         StartPageUI::Instance->Hide();
                         MainPageUI::Instance = gcnew MainPageUI();
                         MainPageUI::Instance->ShowDialog();
-                        StartPageUI::Instance->Close();
                     }
                 }
                 else {
