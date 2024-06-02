@@ -62,6 +62,7 @@ namespace CppCLRWinFormsProject {
 	private: String^ nomActual;
 	private: System::Windows::Forms::Button^ noModificarButton;
 	private: bool noModifica = false;
+
 	private: String^ descripcioActual;
 
 #pragma region Windows Form Designer generated code
@@ -106,6 +107,7 @@ namespace CppCLRWinFormsProject {
 			this->NomActual_TextBox->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->NomActual_TextBox->Location = System::Drawing::Point(31, 46);
+			this->NomActual_TextBox->MaxLength = 22;
 			this->NomActual_TextBox->Name = L"NomActual_TextBox";
 			this->NomActual_TextBox->Size = System::Drawing::Size(392, 27);
 			this->NomActual_TextBox->TabIndex = 2;
@@ -134,9 +136,9 @@ namespace CppCLRWinFormsProject {
 			this->Editar_Panel->Controls->Add(this->Nom_Label);
 			this->Editar_Panel->Controls->Add(this->NomActual_TextBox);
 			this->Editar_Panel->ForeColor = System::Drawing::SystemColors::HotTrack;
-			this->Editar_Panel->Location = System::Drawing::Point(179, 138);
+			this->Editar_Panel->Location = System::Drawing::Point(179, 122);
 			this->Editar_Panel->Name = L"Editar_Panel";
-			this->Editar_Panel->Size = System::Drawing::Size(454, 292);
+			this->Editar_Panel->Size = System::Drawing::Size(454, 324);
 			this->Editar_Panel->TabIndex = 4;
 			// 
 			// noModificarButton
@@ -147,7 +149,7 @@ namespace CppCLRWinFormsProject {
 			this->noModificarButton->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->noModificarButton->ForeColor = System::Drawing::Color::Red;
-			this->noModificarButton->Location = System::Drawing::Point(30, 237);
+			this->noModificarButton->Location = System::Drawing::Point(30, 253);
 			this->noModificarButton->Name = L"noModificarButton";
 			this->noModificarButton->Size = System::Drawing::Size(98, 35);
 			this->noModificarButton->TabIndex = 6;
@@ -158,10 +160,11 @@ namespace CppCLRWinFormsProject {
 			// 
 			// Edita_Button
 			// 
+			this->Edita_Button->Anchor = System::Windows::Forms::AnchorStyles::None;
 			this->Edita_Button->Cursor = System::Windows::Forms::Cursors::Hand;
 			this->Edita_Button->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->Edita_Button->Location = System::Drawing::Point(324, 237);
+			this->Edita_Button->Location = System::Drawing::Point(324, 253);
 			this->Edita_Button->Name = L"Edita_Button";
 			this->Edita_Button->Size = System::Drawing::Size(99, 35);
 			this->Edita_Button->TabIndex = 7;
@@ -174,6 +177,7 @@ namespace CppCLRWinFormsProject {
 			this->EditarDescripcio_TextBox->Font = (gcnew System::Drawing::Font(L"Inter", 11.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->EditarDescripcio_TextBox->Location = System::Drawing::Point(31, 120);
+			this->EditarDescripcio_TextBox->MaxLength = 111;
 			this->EditarDescripcio_TextBox->Multiline = true;
 			this->EditarDescripcio_TextBox->Name = L"EditarDescripcio_TextBox";
 			this->EditarDescripcio_TextBox->Size = System::Drawing::Size(392, 93);

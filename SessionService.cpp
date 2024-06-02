@@ -2,6 +2,7 @@
 #include "SessionService.h"
 #include "Session.h"
 #include "MessageManager.h"
+#include "CurrentSession.h"
 
 using namespace System;
 using namespace System::Globalization;
@@ -141,16 +142,16 @@ List<Session^>^ SessionService::GetSessionsByGroupIdArray(array<Int64^>^ groupId
 {
 	List<Session^>^ sessionsdia = gcnew List<Session^>(0);
 	for (int i = 0; i < groupId->Length; ++i) {
-		sessionRepository->GetSessionsByGroupIdArray(groupId[i], dateString, dateFinish,sessionsdia);
+		sessionRepository->GetSessionsByGroupIdArray(groupId[i], CurrentSession::Instance->GetCurrentUser()->GetUserId(), dateString, dateFinish, sessionsdia);
 	}
 
 	return sessionsdia;
 }
 
 
-Session^ SessionService::GetSessionById(Int64^ user_id)
+Session^ SessionService::GetSessionById(Int64^ session_id)
 {
-	return sessionRepository->GetSessionById(user_id);
+	return sessionRepository->GetSessionById(session_id);
 }
 
 

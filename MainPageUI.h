@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 
 using namespace MySql::Data::MySqlClient;
 
@@ -20,7 +20,7 @@ namespace CppCLRWinFormsProject {
 		static MainPageUI^ Instance;
 		MainPageUI(void);
 
-		
+
 
 
 		//protected:
@@ -82,6 +82,7 @@ namespace CppCLRWinFormsProject {
 			this->tableLayoutPanel2 = (gcnew System::Windows::Forms::TableLayoutPanel());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->panel3 = (gcnew System::Windows::Forms::Panel());
+			this->Notification_Button = (gcnew System::Windows::Forms::Button());
 			this->BotoAdmin = (gcnew System::Windows::Forms::Button());
 			this->panel6 = (gcnew System::Windows::Forms::Panel());
 			this->BotoEspais = (gcnew System::Windows::Forms::Button());
@@ -93,7 +94,6 @@ namespace CppCLRWinFormsProject {
 			this->panel2 = (gcnew System::Windows::Forms::Panel());
 			this->panel7 = (gcnew System::Windows::Forms::Panel());
 			this->screen = (gcnew System::Windows::Forms::Panel());
-			this->Notification_Button = (gcnew System::Windows::Forms::Button());
 			this->tableLayoutPanel3->SuspendLayout();
 			this->flowLayoutPanel1->SuspendLayout();
 			this->tableLayoutPanel2->SuspendLayout();
@@ -130,7 +130,7 @@ namespace CppCLRWinFormsProject {
 			this->BotoLogout->Name = L"BotoLogout";
 			this->BotoLogout->Size = System::Drawing::Size(146, 41);
 			this->BotoLogout->TabIndex = 2;
-			this->BotoLogout->Text = L"Tancar sessi�";
+			this->BotoLogout->Text = L"Tancar sessi\u00f3";
 			this->BotoLogout->TextAlign = System::Drawing::ContentAlignment::MiddleRight;
 			this->BotoLogout->UseVisualStyleBackColor = true;
 			this->BotoLogout->Click += gcnew System::EventHandler(this, &MainPageUI::Tancar_Sessio_Click);
@@ -211,6 +211,25 @@ namespace CppCLRWinFormsProject {
 			this->panel3->Name = L"panel3";
 			this->panel3->Size = System::Drawing::Size(220, 535);
 			this->panel3->TabIndex = 24;
+			// 
+			// Notification_Button
+			// 
+			this->Notification_Button->Dock = System::Windows::Forms::DockStyle::Top;
+			this->Notification_Button->FlatAppearance->BorderSize = 0;
+			this->Notification_Button->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->Notification_Button->Font = (gcnew System::Drawing::Font(L"Inter Light", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->Notification_Button->ImageAlign = System::Drawing::ContentAlignment::MiddleLeft;
+			this->Notification_Button->Location = System::Drawing::Point(0, 328);
+			this->Notification_Button->Margin = System::Windows::Forms::Padding(3, 3, 3, 100);
+			this->Notification_Button->Name = L"Notification_Button";
+			this->Notification_Button->Size = System::Drawing::Size(220, 40);
+			this->Notification_Button->TabIndex = 34;
+			this->Notification_Button->Text = L"  Notificacions";
+			this->Notification_Button->TextAlign = System::Drawing::ContentAlignment::MiddleLeft;
+			this->Notification_Button->TextImageRelation = System::Windows::Forms::TextImageRelation::ImageBeforeText;
+			this->Notification_Button->UseVisualStyleBackColor = true;
+			this->Notification_Button->Click += gcnew System::EventHandler(this, &MainPageUI::NotificationButton_Click);
 			// 
 			// BotoAdmin
 			// 
@@ -371,25 +390,6 @@ namespace CppCLRWinFormsProject {
 			this->screen->TabIndex = 14;
 			this->screen->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &MainPageUI::screen_Paint);
 			// 
-			// Notification_Button
-			// 
-			this->Notification_Button->Dock = System::Windows::Forms::DockStyle::Top;
-			this->Notification_Button->FlatAppearance->BorderSize = 0;
-			this->Notification_Button->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->Notification_Button->Font = (gcnew System::Drawing::Font(L"Inter Light", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->Notification_Button->ImageAlign = System::Drawing::ContentAlignment::MiddleLeft;
-			this->Notification_Button->Location = System::Drawing::Point(0, 328);
-			this->Notification_Button->Margin = System::Windows::Forms::Padding(3, 3, 3, 100);
-			this->Notification_Button->Name = L"Notification_Button";
-			this->Notification_Button->Size = System::Drawing::Size(220, 40);
-			this->Notification_Button->TabIndex = 34;
-			this->Notification_Button->Text = L"  Notificacions";
-			this->Notification_Button->TextAlign = System::Drawing::ContentAlignment::MiddleLeft;
-			this->Notification_Button->TextImageRelation = System::Windows::Forms::TextImageRelation::ImageBeforeText;
-			this->Notification_Button->UseVisualStyleBackColor = true;
-			this->Notification_Button->Click += gcnew System::EventHandler(this, &MainPageUI::NotificationButton_Click);
-			// 
 			// MainPageUI
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
@@ -413,23 +413,23 @@ namespace CppCLRWinFormsProject {
 
 		}
 #pragma endregion
-private:
+	private:
 
-	System::Void MainPageUI_Load(System::Object^ sender, System::EventArgs^ e);
+		System::Void MainPageUI_Load(System::Object^ sender, System::EventArgs^ e);
 
-	System::Void Tancar_Sessio_Click(System::Object^ sender, System::EventArgs^ e);
-	System::Void Perfil_Click(System::Object^ sender, System::EventArgs^ e);
+		System::Void Tancar_Sessio_Click(System::Object^ sender, System::EventArgs^ e);
+		System::Void Perfil_Click(System::Object^ sender, System::EventArgs^ e);
 
-	System::Void BotoInici_Click(System::Object^ sender, System::EventArgs^ e);
-	System::Void Admin_Click(System::Object^ sender, System::EventArgs^ e);
-	System::Void ElsMeus_Click(System::Object^ sender, System::EventArgs^ e);
-	System::Void BotoExplorar_Click(System::Object^ sender, System::EventArgs^ e);
-	System::Void BotoEspais_Click(System::Object^ sender, System::EventArgs^ e);
-	System::Void BotoSessions_Click(System::Object^ sender, System::EventArgs^ e);
+		System::Void BotoInici_Click(System::Object^ sender, System::EventArgs^ e);
+		System::Void Admin_Click(System::Object^ sender, System::EventArgs^ e);
+		System::Void ElsMeus_Click(System::Object^ sender, System::EventArgs^ e);
+		System::Void BotoExplorar_Click(System::Object^ sender, System::EventArgs^ e);
+		System::Void BotoEspais_Click(System::Object^ sender, System::EventArgs^ e);
+		System::Void BotoSessions_Click(System::Object^ sender, System::EventArgs^ e);
 
-private: System::Void NotificationButton_Click(System::Object^ sender, System::EventArgs^ e);
-private: System::Void screen_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
-}
-System::Void MainForm_FormClosing(System::Object^ sender, System::Windows::Forms::FormClosingEventArgs^ e);
-};
+	private: System::Void NotificationButton_Click(System::Object^ sender, System::EventArgs^ e);
+	private: System::Void screen_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
+	}
+		   System::Void MainForm_FormClosing(System::Object^ sender, System::Windows::Forms::FormClosingEventArgs^ e);
+	};
 }

@@ -185,14 +185,24 @@ List<Session^>^ SessionRepository::GetSessionsByGroupIdAndStartDate(Int64^ group
 	return sessions;
 }
 
-void SessionRepository::GetSessionsByGroupIdArray(Int64^ groupId, String^ dateString, String^ dateFinish,List<Session^>^& aux)
+void SessionRepository::GetSessionsByGroupIdArray(Int64^ groupId, Int64^ userId, String^ dateString, String^ dateFinish,List<Session^>^& aux)
 {
 	DatabaseConnector::Instance->Connect();
-	String^ sql = "SELECT * FROM grupSessions WHERE group_id=@groupId AND session_start_date >= @date AND session_start_date < @date2 ORDER BY session_start_date ASC";
+	String^ sql = R"(
+		SELECT gs.*
+		FROM grupSessions gs
+		JOIN grupSessionsAttendants gsa ON gs.id = gsa.session_id
+		WHERE gs.group_id = @groupId
+		AND gsa.user_id = @userId
+		AND gs.session_start_date >= @date
+		AND gs.session_start_date < @date2
+		ORDER BY gs.session_start_date ASC
+	)";
 	Dictionary<String^, Object^>^ params = gcnew Dictionary<String^, Object^>(0);
 	params->Add("@groupId", groupId);
 	params->Add("@date", dateString);
 	params->Add("@date2", dateFinish);
+	params->Add("@userId", userId);
 	MySqlDataReader^ data = DatabaseConnector::Instance->ExecuteClientCommand(sql, params);
 	while (data->Read()) {
 		Session^ session = gcnew Session(data->GetInt64(0), data->GetInt64(1), data->GetInt64(2), data->GetString(3), data->GetDateTime(4), data->GetDateTime(5));
