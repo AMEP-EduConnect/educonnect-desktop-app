@@ -101,10 +101,9 @@ namespace CppCLRWinFormsProject {
 			   this->NumReports_Label->Font = (gcnew System::Drawing::Font(L"Inter", 20.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				   static_cast<System::Byte>(0)));
 			   this->NumReports_Label->ForeColor = System::Drawing::SystemColors::HotTrack;
-			   this->NumReports_Label->Location = System::Drawing::Point(380, 24);
-			   this->NumReports_Label->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			   this->NumReports_Label->Location = System::Drawing::Point(276, 19);
 			   this->NumReports_Label->Name = L"NumReports_Label";
-			   this->NumReports_Label->Size = System::Drawing::Size(324, 41);
+			   this->NumReports_Label->Size = System::Drawing::Size(260, 33);
 			   this->NumReports_Label->TabIndex = 2;
 			   this->NumReports_Label->Text = L"Report Numero #X";
 			   this->NumReports_Label->Click += gcnew System::EventHandler(this, &Reports_InfoUI::ConsultarReports_Label_Click);
@@ -121,10 +120,9 @@ namespace CppCLRWinFormsProject {
 			   this->Actual_Panel->Controls->Add(this->acepta_button);
 			   this->Actual_Panel->Controls->Add(this->GrupDescription_Label);
 			   this->Actual_Panel->Controls->Add(this->Noms_ListBox);
-			   this->Actual_Panel->Location = System::Drawing::Point(221, 113);
-			   this->Actual_Panel->Margin = System::Windows::Forms::Padding(4);
+			   this->Actual_Panel->Location = System::Drawing::Point(165, 92);
 			   this->Actual_Panel->Name = L"Actual_Panel";
-			   this->Actual_Panel->Size = System::Drawing::Size(643, 394);
+			   this->Actual_Panel->Size = System::Drawing::Size(482, 320);
 			   this->Actual_Panel->TabIndex = 6;
 			   // 
 			   // nom_per
@@ -133,10 +131,9 @@ namespace CppCLRWinFormsProject {
 			   this->nom_per->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				   static_cast<System::Byte>(0)));
 			   this->nom_per->ForeColor = System::Drawing::SystemColors::Desktop;
-			   this->nom_per->Location = System::Drawing::Point(339, 40);
-			   this->nom_per->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			   this->nom_per->Location = System::Drawing::Point(254, 32);
 			   this->nom_per->Name = L"nom_per";
-			   this->nom_per->Size = System::Drawing::Size(58, 24);
+			   this->nom_per->Size = System::Drawing::Size(47, 19);
 			   this->nom_per->TabIndex = 13;
 			   this->nom_per->Text = L"NOM";
 			   // 
@@ -146,10 +143,9 @@ namespace CppCLRWinFormsProject {
 			   this->nom_de->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				   static_cast<System::Byte>(0)));
 			   this->nom_de->ForeColor = System::Drawing::SystemColors::Desktop;
-			   this->nom_de->Location = System::Drawing::Point(63, 40);
-			   this->nom_de->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			   this->nom_de->Location = System::Drawing::Point(47, 32);
 			   this->nom_de->Name = L"nom_de";
-			   this->nom_de->Size = System::Drawing::Size(58, 24);
+			   this->nom_de->Size = System::Drawing::Size(47, 19);
 			   this->nom_de->TabIndex = 12;
 			   this->nom_de->Text = L"NOM";
 			   // 
@@ -159,10 +155,9 @@ namespace CppCLRWinFormsProject {
 			   this->per->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				   static_cast<System::Byte>(0)));
 			   this->per->ForeColor = System::Drawing::SystemColors::HotTrack;
-			   this->per->Location = System::Drawing::Point(292, 40);
-			   this->per->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			   this->per->Location = System::Drawing::Point(219, 32);
 			   this->per->Name = L"per";
-			   this->per->Size = System::Drawing::Size(48, 24);
+			   this->per->Size = System::Drawing::Size(38, 19);
 			   this->per->TabIndex = 11;
 			   this->per->Text = L"Per:";
 			   // 
@@ -172,10 +167,9 @@ namespace CppCLRWinFormsProject {
 			   this->de->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				   static_cast<System::Byte>(0)));
 			   this->de->ForeColor = System::Drawing::SystemColors::HotTrack;
-			   this->de->Location = System::Drawing::Point(23, 40);
-			   this->de->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			   this->de->Location = System::Drawing::Point(17, 32);
 			   this->de->Name = L"de";
-			   this->de->Size = System::Drawing::Size(42, 24);
+			   this->de->Size = System::Drawing::Size(34, 19);
 			   this->de->TabIndex = 10;
 			   this->de->Text = L"De:";
 			   this->de->Click += gcnew System::EventHandler(this, &Reports_InfoUI::label1_Click);
@@ -183,14 +177,13 @@ namespace CppCLRWinFormsProject {
 			   // denega_button
 			   // 
 			   this->denega_button->Anchor = System::Windows::Forms::AnchorStyles::Right;
-			   this->denega_button->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			   this->denega_button->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				   static_cast<System::Byte>(0)));
 			   this->denega_button->ForeColor = System::Drawing::Color::DarkRed;
-			   this->denega_button->Location = System::Drawing::Point(477, 339);
-			   this->denega_button->Margin = System::Windows::Forms::Padding(5);
+			   this->denega_button->Location = System::Drawing::Point(358, 275);
+			   this->denega_button->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			   this->denega_button->Name = L"denega_button";
-			   this->denega_button->Size = System::Drawing::Size(139, 43);
+			   this->denega_button->Size = System::Drawing::Size(104, 35);
 			   this->denega_button->TabIndex = 9;
 			   this->denega_button->Text = L"Denega";
 			   this->denega_button->UseVisualStyleBackColor = true;
@@ -200,14 +193,13 @@ namespace CppCLRWinFormsProject {
 			   // acepta_button
 			   // 
 			   this->acepta_button->Anchor = System::Windows::Forms::AnchorStyles::Right;
-			   this->acepta_button->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			   this->acepta_button->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				   static_cast<System::Byte>(0)));
 			   this->acepta_button->ForeColor = System::Drawing::Color::Green;
-			   this->acepta_button->Location = System::Drawing::Point(27, 339);
-			   this->acepta_button->Margin = System::Windows::Forms::Padding(5);
+			   this->acepta_button->Location = System::Drawing::Point(20, 275);
+			   this->acepta_button->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			   this->acepta_button->Name = L"acepta_button";
-			   this->acepta_button->Size = System::Drawing::Size(139, 43);
+			   this->acepta_button->Size = System::Drawing::Size(104, 35);
 			   this->acepta_button->TabIndex = 9;
 			   this->acepta_button->Text = L"Accepta";
 			   this->acepta_button->UseVisualStyleBackColor = true;
@@ -220,10 +212,9 @@ namespace CppCLRWinFormsProject {
 			   this->GrupDescription_Label->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				   static_cast<System::Byte>(0)));
 			   this->GrupDescription_Label->ForeColor = System::Drawing::SystemColors::HotTrack;
-			   this->GrupDescription_Label->Location = System::Drawing::Point(23, 88);
-			   this->GrupDescription_Label->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			   this->GrupDescription_Label->Location = System::Drawing::Point(17, 72);
 			   this->GrupDescription_Label->Name = L"GrupDescription_Label";
-			   this->GrupDescription_Label->Size = System::Drawing::Size(70, 24);
+			   this->GrupDescription_Label->Size = System::Drawing::Size(56, 19);
 			   this->GrupDescription_Label->TabIndex = 8;
 			   this->GrupDescription_Label->Text = L"Motiu:";
 			   // 
@@ -235,25 +226,23 @@ namespace CppCLRWinFormsProject {
 				   static_cast<System::Byte>(0)));
 			   this->Noms_ListBox->FormattingEnabled = true;
 			   this->Noms_ListBox->IntegralHeight = false;
-			   this->Noms_ListBox->ItemHeight = 23;
-			   this->Noms_ListBox->Location = System::Drawing::Point(27, 116);
-			   this->Noms_ListBox->Margin = System::Windows::Forms::Padding(4);
+			   this->Noms_ListBox->ItemHeight = 19;
+			   this->Noms_ListBox->Location = System::Drawing::Point(20, 94);
 			   this->Noms_ListBox->Name = L"Noms_ListBox";
-			   this->Noms_ListBox->Size = System::Drawing::Size(589, 210);
+			   this->Noms_ListBox->Size = System::Drawing::Size(442, 171);
 			   this->Noms_ListBox->TabIndex = 2;
 			   this->Noms_ListBox->SelectedIndexChanged += gcnew System::EventHandler(this, &Reports_InfoUI::Noms_ListBox_SelectedIndexChanged);
 			   // 
 			   // Cancelar_Button
 			   // 
 			   this->Cancelar_Button->Anchor = System::Windows::Forms::AnchorStyles::Right;
-			   this->Cancelar_Button->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			   this->Cancelar_Button->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				   static_cast<System::Byte>(0)));
 			   this->Cancelar_Button->ForeColor = System::Drawing::Color::Red;
-			   this->Cancelar_Button->Location = System::Drawing::Point(724, 555);
-			   this->Cancelar_Button->Margin = System::Windows::Forms::Padding(5);
+			   this->Cancelar_Button->Location = System::Drawing::Point(542, 451);
+			   this->Cancelar_Button->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			   this->Cancelar_Button->Name = L"Cancelar_Button";
-			   this->Cancelar_Button->Size = System::Drawing::Size(139, 43);
+			   this->Cancelar_Button->Size = System::Drawing::Size(104, 35);
 			   this->Cancelar_Button->TabIndex = 9;
 			   this->Cancelar_Button->Text = L"Tornar";
 			   this->Cancelar_Button->UseVisualStyleBackColor = true;
@@ -274,25 +263,23 @@ namespace CppCLRWinFormsProject {
 			   this->tableLayoutPanel1->Controls->Add(this->Cancelar_Button, 1, 2);
 			   this->tableLayoutPanel1->Dock = System::Windows::Forms::DockStyle::Fill;
 			   this->tableLayoutPanel1->Location = System::Drawing::Point(0, 0);
-			   this->tableLayoutPanel1->Margin = System::Windows::Forms::Padding(4);
 			   this->tableLayoutPanel1->Name = L"tableLayoutPanel1";
 			   this->tableLayoutPanel1->RowCount = 4;
 			   this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 16.8F)));
 			   this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 83.2F)));
-			   this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Absolute, 90)));
-			   this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Absolute, 38)));
-			   this->tableLayoutPanel1->Size = System::Drawing::Size(1085, 661);
+			   this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Absolute, 73)));
+			   this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Absolute, 31)));
+			   this->tableLayoutPanel1->Size = System::Drawing::Size(814, 537);
 			   this->tableLayoutPanel1->TabIndex = 7;
 			   this->tableLayoutPanel1->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &Reports_InfoUI::tableLayoutPanel1_Paint);
 			   // 
 			   // Reports_InfoUI
 			   // 
-			   this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
+			   this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			   this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			   this->ClientSize = System::Drawing::Size(1085, 661);
+			   this->ClientSize = System::Drawing::Size(814, 537);
 			   this->Controls->Add(this->tableLayoutPanel1);
 			   this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
-			   this->Margin = System::Windows::Forms::Padding(4);
 			   this->Name = L"Reports_InfoUI";
 			   this->StartPosition = System::Windows::Forms::FormStartPosition::CenterParent;
 			   this->Text = L"EduConnect";
