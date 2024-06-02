@@ -24,6 +24,7 @@ namespace CppCLRWinFormsProject {
 		Void NomUsuari_TextBox_Validating(Object^ sender, System::ComponentModel::CancelEventArgs^ e);
 		Void Email_TextBox_Validating(Object^ sender, System::ComponentModel::CancelEventArgs^ e);
 		Void textBoxPassword_Validating(System::Object^ sender, System::ComponentModel::CancelEventArgs^ e);
+		Void Same_Password_Validating(System::Object^ sender, System::ComponentModel::CancelEventArgs^ e);
 		bool IsValidEmail(String^ email);
 		bool IsPasswordStrong(String^ password);
 
@@ -97,14 +98,14 @@ namespace CppCLRWinFormsProject {
 			   this->Cancelar_Button = (gcnew System::Windows::Forms::Button());
 			   this->PageTitleLabel = (gcnew System::Windows::Forms::Label());
 			   this->panel1 = (gcnew System::Windows::Forms::Panel());
+			   this->pictureBox2 = (gcnew System::Windows::Forms::PictureBox());
 			   this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
 			   this->textBox1 = (gcnew System::Windows::Forms::TextBox());
-			   this->pictureBox2 = (gcnew System::Windows::Forms::PictureBox());
 			   this->label1 = (gcnew System::Windows::Forms::Label());
 			   this->tableLayoutPanel1->SuspendLayout();
 			   this->panel1->SuspendLayout();
-			   (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			   (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->BeginInit();
+			   (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			   this->SuspendLayout();
 			   // 
 			   // button1
@@ -287,10 +288,23 @@ namespace CppCLRWinFormsProject {
 			   this->panel1->Size = System::Drawing::Size(296, 380);
 			   this->panel1->TabIndex = 20;
 			   // 
+			   // pictureBox2
+			   // 
+			   this->pictureBox2->BackColor = System::Drawing::SystemColors::Window;
+			   this->pictureBox2->Location = System::Drawing::Point(221, 169);
+			   this->pictureBox2->MaximumSize = System::Drawing::Size(24, 24);
+			   this->pictureBox2->MinimumSize = System::Drawing::Size(24, 24);
+			   this->pictureBox2->Name = L"pictureBox2";
+			   this->pictureBox2->Size = System::Drawing::Size(24, 24);
+			   this->pictureBox2->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
+			   this->pictureBox2->TabIndex = 25;
+			   this->pictureBox2->TabStop = false;
+			   this->pictureBox2->Click += gcnew System::EventHandler(this, &AltaProveidorUI::pictureBox2_Click);
+			   // 
 			   // pictureBox1
 			   // 
 			   this->pictureBox1->BackColor = System::Drawing::SystemColors::Window;
-			   this->pictureBox1->Location = System::Drawing::Point(222, 99);
+			   this->pictureBox1->Location = System::Drawing::Point(221, 101);
 			   this->pictureBox1->MaximumSize = System::Drawing::Size(24, 24);
 			   this->pictureBox1->MinimumSize = System::Drawing::Size(24, 24);
 			   this->pictureBox1->Name = L"pictureBox1";
@@ -311,19 +325,6 @@ namespace CppCLRWinFormsProject {
 			   this->textBox1->Size = System::Drawing::Size(196, 27);
 			   this->textBox1->TabIndex = 26;
 			   this->textBox1->UseSystemPasswordChar = true;
-			   // 
-			   // pictureBox2
-			   // 
-			   this->pictureBox2->BackColor = System::Drawing::SystemColors::Window;
-			   this->pictureBox2->Location = System::Drawing::Point(222, 167);
-			   this->pictureBox2->MaximumSize = System::Drawing::Size(24, 24);
-			   this->pictureBox2->MinimumSize = System::Drawing::Size(24, 24);
-			   this->pictureBox2->Name = L"pictureBox2";
-			   this->pictureBox2->Size = System::Drawing::Size(24, 24);
-			   this->pictureBox2->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
-			   this->pictureBox2->TabIndex = 25;
-			   this->pictureBox2->TabStop = false;
-			   this->pictureBox2->Click += gcnew System::EventHandler(this, &AltaProveidorUI::pictureBox2_Click);
 			   // 
 			   // label1
 			   // 
@@ -353,8 +354,8 @@ namespace CppCLRWinFormsProject {
 			   this->tableLayoutPanel1->PerformLayout();
 			   this->panel1->ResumeLayout(false);
 			   this->panel1->PerformLayout();
-			   (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
 			   (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->EndInit();
+			   (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
 			   this->ResumeLayout(false);
 
 		   }

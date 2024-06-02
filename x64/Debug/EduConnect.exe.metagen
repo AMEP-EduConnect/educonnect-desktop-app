@@ -632,6 +632,7 @@ Class CppCLRWinFormsProject.AltaProveidorUI: AutoLayout, AnsiClass, Class, Publi
     NomUsuari_TextBox_Validating(Object, CancelEventArgs): PrivateScope, Public, HideBySig
     Email_TextBox_Validating(Object, CancelEventArgs): PrivateScope, Public, HideBySig
     textBoxPassword_Validating(Object, CancelEventArgs): PrivateScope, Public, HideBySig
+    Same_Password_Validating(Object, CancelEventArgs): PrivateScope, Public, HideBySig
     IsValidEmail(String): PrivateScope, Public, HideBySig
     IsPasswordStrong(String): PrivateScope, Public, HideBySig
 Class CppCLRWinFormsProject.BaixaProveidorUI: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit

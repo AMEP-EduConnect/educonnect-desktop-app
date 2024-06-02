@@ -15,6 +15,7 @@ namespace CppCLRWinFormsProject {
         this->textBox3->Validating += gcnew System::ComponentModel::CancelEventHandler(this, &AltaProveidorUI::NomUsuari_TextBox_Validating);
         this->textBox2->Validating += gcnew System::ComponentModel::CancelEventHandler(this, &AltaProveidorUI::Email_TextBox_Validating);
         this->textBox5->Validating += gcnew System::ComponentModel::CancelEventHandler(this, &AltaProveidorUI::textBoxPassword_Validating);
+        this->textBox1->Validating += gcnew System::ComponentModel::CancelEventHandler(this, &AltaProveidorUI::Same_Password_Validating);
         this->Icon = gcnew System::Drawing::Icon("app.ico");
         this->pictureBox1->Image = Image::FromFile("resources/Icons/eye-crossed.png");
         this->pictureBox2->Image = Image::FromFile("resources/Icons/eye-crossed.png");
@@ -43,6 +44,19 @@ namespace CppCLRWinFormsProject {
             MessageBox::Show("La contrasenya no és prou robusta.\nHa de contenir 8 o més caràcters, caràcters especials i números.", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
             textBox->Text = "";
         }
+    }
+
+    Void AltaProveidorUI::Same_Password_Validating(System::Object^ sender, System::ComponentModel::CancelEventArgs^ e) 
+    {
+        TextBox^ textBox = dynamic_cast<TextBox^>(sender);
+		if (textBox != nullptr) {
+			if (textBox->Text != this->textBox5->Text) {
+				MessageBox::Show("Les contrasenyes no coincideixen.", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+				textBox->Text = "";
+				
+			}
+		}
+
     }
 
     Void AltaProveidorUI::NomUsuari_TextBox_Validating(Object^ sender, System::ComponentModel::CancelEventArgs^ e) {
@@ -83,11 +97,13 @@ namespace CppCLRWinFormsProject {
         
         String^ username = textBox3->Text;
         String^ password = textBox5->Text;
+        String^ rep_password = textBox1->Text;
         String^ email = textBox2->Text;
         String^ name = textBox4->Text;
-        if ((!String::IsNullOrWhiteSpace(username)) && (!String::IsNullOrWhiteSpace(password)) && (!String::IsNullOrWhiteSpace(email)) && (!String::IsNullOrWhiteSpace(name))) {
+        if ((!String::IsNullOrWhiteSpace(username)) && (!String::IsNullOrWhiteSpace(password)) && (!String::IsNullOrWhiteSpace(email)) && (!String::IsNullOrWhiteSpace(name)) && (!String::IsNullOrWhiteSpace(rep_password))) {
             this->altaProveidorService->AltaProveidor( username, email, name, password);
             MessageManager::InfoMessage("Proveidor donat d'alta!");
+            this->textBox1->Text = "";
             this->textBox2->Text = "";
             this->textBox3->Text = "";
             this->textBox4->Text = "";
