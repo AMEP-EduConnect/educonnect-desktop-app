@@ -79,10 +79,9 @@ namespace CppCLRWinFormsProject {
 			   this->ConsultarReports_Label->Font = (gcnew System::Drawing::Font(L"Inter", 20.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				   static_cast<System::Byte>(0)));
 			   this->ConsultarReports_Label->ForeColor = System::Drawing::SystemColors::HotTrack;
-			   this->ConsultarReports_Label->Location = System::Drawing::Point(360, 25);
-			   this->ConsultarReports_Label->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			   this->ConsultarReports_Label->Location = System::Drawing::Point(262, 20);
 			   this->ConsultarReports_Label->Name = L"ConsultarReports_Label";
-			   this->ConsultarReports_Label->Size = System::Drawing::Size(314, 41);
+			   this->ConsultarReports_Label->Size = System::Drawing::Size(250, 33);
 			   this->ConsultarReports_Label->TabIndex = 2;
 			   this->ConsultarReports_Label->Text = L"Reports d\'Usuaris";
 			   // 
@@ -92,10 +91,9 @@ namespace CppCLRWinFormsProject {
 			   this->Actual_Panel->BackColor = System::Drawing::SystemColors::GradientInactiveCaption;
 			   this->Actual_Panel->Controls->Add(this->MoreInfo_Button);
 			   this->Actual_Panel->Controls->Add(this->Noms_ListBox);
-			   this->Actual_Panel->Location = System::Drawing::Point(146, 114);
-			   this->Actual_Panel->Margin = System::Windows::Forms::Padding(4);
+			   this->Actual_Panel->Location = System::Drawing::Point(109, 92);
 			   this->Actual_Panel->Name = L"Actual_Panel";
-			   this->Actual_Panel->Size = System::Drawing::Size(743, 411);
+			   this->Actual_Panel->Size = System::Drawing::Size(557, 334);
 			   this->Actual_Panel->TabIndex = 6;
 			   // 
 			   // MoreInfo_Button
@@ -103,10 +101,10 @@ namespace CppCLRWinFormsProject {
 			   this->MoreInfo_Button->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			   this->MoreInfo_Button->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				   static_cast<System::Byte>(0)));
-			   this->MoreInfo_Button->Location = System::Drawing::Point(27, 350);
-			   this->MoreInfo_Button->Margin = System::Windows::Forms::Padding(5);
+			   this->MoreInfo_Button->Location = System::Drawing::Point(20, 284);
+			   this->MoreInfo_Button->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			   this->MoreInfo_Button->Name = L"MoreInfo_Button";
-			   this->MoreInfo_Button->Size = System::Drawing::Size(139, 43);
+			   this->MoreInfo_Button->Size = System::Drawing::Size(104, 35);
 			   this->MoreInfo_Button->TabIndex = 9;
 			   this->MoreInfo_Button->Text = L"Veure";
 			   this->MoreInfo_Button->UseVisualStyleBackColor = true;
@@ -121,11 +119,10 @@ namespace CppCLRWinFormsProject {
 				   static_cast<System::Byte>(0)));
 			   this->Noms_ListBox->FormattingEnabled = true;
 			   this->Noms_ListBox->IntegralHeight = false;
-			   this->Noms_ListBox->ItemHeight = 23;
-			   this->Noms_ListBox->Location = System::Drawing::Point(27, 40);
-			   this->Noms_ListBox->Margin = System::Windows::Forms::Padding(4);
+			   this->Noms_ListBox->ItemHeight = 19;
+			   this->Noms_ListBox->Location = System::Drawing::Point(20, 32);
 			   this->Noms_ListBox->Name = L"Noms_ListBox";
-			   this->Noms_ListBox->Size = System::Drawing::Size(693, 285);
+			   this->Noms_ListBox->Size = System::Drawing::Size(520, 232);
 			   this->Noms_ListBox->TabIndex = 2;
 			   this->Noms_ListBox->SelectedIndexChanged += gcnew System::EventHandler(this, &Reports_ConsultaUI::Noms_ListBox_SelectedIndexChanged);
 			   // 
@@ -143,14 +140,13 @@ namespace CppCLRWinFormsProject {
 			   this->tableLayoutPanel1->Controls->Add(this->Cancelar_Button, 1, 2);
 			   this->tableLayoutPanel1->Dock = System::Windows::Forms::DockStyle::Fill;
 			   this->tableLayoutPanel1->Location = System::Drawing::Point(0, 0);
-			   this->tableLayoutPanel1->Margin = System::Windows::Forms::Padding(4);
 			   this->tableLayoutPanel1->Name = L"tableLayoutPanel1";
 			   this->tableLayoutPanel1->RowCount = 4;
 			   this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 16.8F)));
 			   this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 83.2F)));
-			   this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Absolute, 80)));
-			   this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Absolute, 33)));
-			   this->tableLayoutPanel1->Size = System::Drawing::Size(1085, 661);
+			   this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Absolute, 65)));
+			   this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Absolute, 27)));
+			   this->tableLayoutPanel1->Size = System::Drawing::Size(814, 537);
 			   this->tableLayoutPanel1->TabIndex = 7;
 			   this->tableLayoutPanel1->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &Reports_ConsultaUI::tableLayoutPanel1_Paint);
 			   // 
@@ -161,10 +157,10 @@ namespace CppCLRWinFormsProject {
 			   this->Cancelar_Button->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				   static_cast<System::Byte>(0)));
 			   this->Cancelar_Button->ForeColor = System::Drawing::Color::Red;
-			   this->Cancelar_Button->Location = System::Drawing::Point(749, 565);
-			   this->Cancelar_Button->Margin = System::Windows::Forms::Padding(5);
+			   this->Cancelar_Button->Location = System::Drawing::Point(561, 459);
+			   this->Cancelar_Button->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			   this->Cancelar_Button->Name = L"Cancelar_Button";
-			   this->Cancelar_Button->Size = System::Drawing::Size(139, 43);
+			   this->Cancelar_Button->Size = System::Drawing::Size(104, 35);
 			   this->Cancelar_Button->TabIndex = 10;
 			   this->Cancelar_Button->Text = L"Tornar";
 			   this->Cancelar_Button->UseVisualStyleBackColor = true;
@@ -172,12 +168,11 @@ namespace CppCLRWinFormsProject {
 			   // 
 			   // Reports_ConsultaUI
 			   // 
-			   this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
+			   this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			   this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			   this->ClientSize = System::Drawing::Size(1085, 661);
+			   this->ClientSize = System::Drawing::Size(814, 537);
 			   this->Controls->Add(this->tableLayoutPanel1);
 			   this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
-			   this->Margin = System::Windows::Forms::Padding(4);
 			   this->Name = L"Reports_ConsultaUI";
 			   this->StartPosition = System::Windows::Forms::FormStartPosition::CenterParent;
 			   this->Text = L"EduConnect";

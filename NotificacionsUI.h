@@ -161,6 +161,7 @@ namespace CppCLRWinFormsProject {
 			this->Llista_Notificacions->Font = (gcnew System::Drawing::Font(L"Inter", 11.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->Llista_Notificacions->FormattingEnabled = true;
+			this->Llista_Notificacions->HorizontalScrollbar = true;
 			this->Llista_Notificacions->IntegralHeight = false;
 			this->Llista_Notificacions->ItemHeight = 19;
 			this->Llista_Notificacions->Location = System::Drawing::Point(11, 14);

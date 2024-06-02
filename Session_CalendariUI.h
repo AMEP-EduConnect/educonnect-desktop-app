@@ -192,11 +192,10 @@ namespace CppCLRWinFormsProject {
 			   // DaySessions
 			   // 
 			   this->DaySessions->AutoSize = true;
-			   this->DaySessions->Font = (gcnew System::Drawing::Font(L"Inter", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				   static_cast<System::Byte>(0)));
+			   this->DaySessions->Font = (gcnew System::Drawing::Font(L"Inter", 12));
 			   this->DaySessions->Location = System::Drawing::Point(257, 325);
 			   this->DaySessions->Name = L"DaySessions";
-			   this->DaySessions->Size = System::Drawing::Size(22, 23);
+			   this->DaySessions->Size = System::Drawing::Size(19, 19);
 			   this->DaySessions->TabIndex = 28;
 			   this->DaySessions->Text = L"0";
 			   this->DaySessions->Visible = false;
@@ -204,11 +203,10 @@ namespace CppCLRWinFormsProject {
 			   // Contador
 			   // 
 			   this->Contador->AutoSize = true;
-			   this->Contador->Font = (gcnew System::Drawing::Font(L"Inter", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				   static_cast<System::Byte>(0)));
+			   this->Contador->Font = (gcnew System::Drawing::Font(L"Inter", 12));
 			   this->Contador->Location = System::Drawing::Point(220, 325);
 			   this->Contador->Name = L"Contador";
-			   this->Contador->Size = System::Drawing::Size(22, 23);
+			   this->Contador->Size = System::Drawing::Size(19, 19);
 			   this->Contador->TabIndex = 27;
 			   this->Contador->Text = L"0";
 			   this->Contador->Visible = false;
@@ -216,11 +214,10 @@ namespace CppCLRWinFormsProject {
 			   // Separator_Label
 			   // 
 			   this->Separator_Label->AutoSize = true;
-			   this->Separator_Label->Font = (gcnew System::Drawing::Font(L"Inter", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				   static_cast<System::Byte>(0)));
+			   this->Separator_Label->Font = (gcnew System::Drawing::Font(L"Inter", 12));
 			   this->Separator_Label->Location = System::Drawing::Point(239, 325);
 			   this->Separator_Label->Name = L"Separator_Label";
-			   this->Separator_Label->Size = System::Drawing::Size(17, 23);
+			   this->Separator_Label->Size = System::Drawing::Size(15, 19);
 			   this->Separator_Label->TabIndex = 26;
 			   this->Separator_Label->Text = L"/";
 			   this->Separator_Label->Visible = false;
@@ -228,8 +225,7 @@ namespace CppCLRWinFormsProject {
 			   // Anterior_Button
 			   // 
 			   this->Anterior_Button->Enabled = false;
-			   this->Anterior_Button->Font = (gcnew System::Drawing::Font(L"Inter", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				   static_cast<System::Byte>(0)));
+			   this->Anterior_Button->Font = (gcnew System::Drawing::Font(L"Inter", 12));
 			   this->Anterior_Button->ForeColor = System::Drawing::SystemColors::HotTrack;
 			   this->Anterior_Button->Location = System::Drawing::Point(48, 317);
 			   this->Anterior_Button->Name = L"Anterior_Button";
@@ -243,8 +239,7 @@ namespace CppCLRWinFormsProject {
 			   // Seguent_Button
 			   // 
 			   this->Seguent_Button->Enabled = false;
-			   this->Seguent_Button->Font = (gcnew System::Drawing::Font(L"Inter", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				   static_cast<System::Byte>(0)));
+			   this->Seguent_Button->Font = (gcnew System::Drawing::Font(L"Inter", 12));
 			   this->Seguent_Button->ForeColor = System::Drawing::SystemColors::HotTrack;
 			   this->Seguent_Button->Location = System::Drawing::Point(356, 317);
 			   this->Seguent_Button->Name = L"Seguent_Button";

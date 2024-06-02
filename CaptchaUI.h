@@ -106,7 +106,7 @@ namespace CppCLRWinFormsProject {
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(358, 19);
 			this->label1->TabIndex = 3;
-			this->label1->Text = L"Escriu els car\u00E0cters que apareixen a la imatge";
+			this->label1->Text = L"Escriu els caràcters que apareixen a la imatge";
 			// 
 			// button2
 			// 
@@ -130,7 +130,7 @@ namespace CppCLRWinFormsProject {
 			this->button3->Name = L"button3";
 			this->button3->Size = System::Drawing::Size(91, 34);
 			this->button3->TabIndex = 3;
-			this->button3->Text = L"Cancelar";
+			this->button3->Text = L"Tornar";
 			this->button3->UseVisualStyleBackColor = true;
 			this->button3->Click += gcnew System::EventHandler(this, &CaptchaUI::Cancelar_Click);
 			// 

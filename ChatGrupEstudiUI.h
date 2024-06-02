@@ -161,9 +161,9 @@ namespace CppCLRWinFormsProject {
             this->Button_Cancelar->Font = (gcnew System::Drawing::Font(L"Inter", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
             this->Button_Cancelar->ForeColor = System::Drawing::Color::Red;
-            this->Button_Cancelar->Location = System::Drawing::Point(675, 65);
+            this->Button_Cancelar->Location = System::Drawing::Point(675, 55);
             this->Button_Cancelar->Name = L"Button_Cancelar";
-            this->Button_Cancelar->Size = System::Drawing::Size(75, 35);
+            this->Button_Cancelar->Size = System::Drawing::Size(93, 35);
             this->Button_Cancelar->TabIndex = 3;
             this->Button_Cancelar->Text = L"Tornar";
             this->Button_Cancelar->UseVisualStyleBackColor = true;

@@ -101,13 +101,13 @@ namespace CppCLRWinFormsProject {
 			this->ban_label = (gcnew System::Windows::Forms::Label());
 			this->descriptionBan_label = (gcnew System::Windows::Forms::Label());
 			this->tableLayoutPanel1 = (gcnew System::Windows::Forms::TableLayoutPanel());
-			this->panel1 = (gcnew System::Windows::Forms::Panel());
 			this->panel2 = (gcnew System::Windows::Forms::Panel());
+			this->panel1 = (gcnew System::Windows::Forms::Panel());
 			this->Main_Panel->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			this->tableLayoutPanel1->SuspendLayout();
-			this->panel1->SuspendLayout();
 			this->panel2->SuspendLayout();
+			this->panel1->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// NomUsuari_TextBox
@@ -306,17 +306,6 @@ namespace CppCLRWinFormsProject {
 			this->tableLayoutPanel1->Size = System::Drawing::Size(933, 696);
 			this->tableLayoutPanel1->TabIndex = 16;
 			// 
-			// panel1
-			// 
-			this->panel1->Controls->Add(this->CredencialsIncorrectes_Label);
-			this->panel1->Controls->Add(this->CredencialsIncorrectes_Label2);
-			this->panel1->Controls->Add(this->descriptionBan_label);
-			this->panel1->Controls->Add(this->ban_label);
-			this->panel1->Location = System::Drawing::Point(109, 415);
-			this->panel1->Name = L"panel1";
-			this->panel1->Size = System::Drawing::Size(200, 92);
-			this->panel1->TabIndex = 17;
-			// 
 			// panel2
 			// 
 			this->panel2->Anchor = System::Windows::Forms::AnchorStyles::None;
@@ -328,6 +317,17 @@ namespace CppCLRWinFormsProject {
 			this->panel2->Name = L"panel2";
 			this->panel2->Size = System::Drawing::Size(553, 627);
 			this->panel2->TabIndex = 18;
+			// 
+			// panel1
+			// 
+			this->panel1->Controls->Add(this->CredencialsIncorrectes_Label);
+			this->panel1->Controls->Add(this->CredencialsIncorrectes_Label2);
+			this->panel1->Controls->Add(this->descriptionBan_label);
+			this->panel1->Controls->Add(this->ban_label);
+			this->panel1->Location = System::Drawing::Point(109, 415);
+			this->panel1->Name = L"panel1";
+			this->panel1->Size = System::Drawing::Size(441, 92);
+			this->panel1->TabIndex = 17;
 			// 
 			// IniciSessioUI
 			// 
@@ -350,10 +350,10 @@ namespace CppCLRWinFormsProject {
 			this->Main_Panel->PerformLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
 			this->tableLayoutPanel1->ResumeLayout(false);
-			this->panel1->ResumeLayout(false);
-			this->panel1->PerformLayout();
 			this->panel2->ResumeLayout(false);
 			this->panel2->PerformLayout();
+			this->panel1->ResumeLayout(false);
+			this->panel1->PerformLayout();
 			this->ResumeLayout(false);
 
 		}

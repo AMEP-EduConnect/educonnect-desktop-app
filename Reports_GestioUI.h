@@ -243,7 +243,7 @@ namespace CppCLRWinFormsProject {
 			this->GrupDescription_Label->ForeColor = System::Drawing::SystemColors::HotTrack;
 			this->GrupDescription_Label->Location = System::Drawing::Point(20, 168);
 			this->GrupDescription_Label->Name = L"GrupDescription_Label";
-			this->GrupDescription_Label->Size = System::Drawing::Size(94, 19);
+			this->GrupDescription_Label->Size = System::Drawing::Size(152, 19);
 			this->GrupDescription_Label->TabIndex = 7;
 			this->GrupDescription_Label->Text = L"Motiu de la sanció:";
 			this->GrupDescription_Label->Click += gcnew System::EventHandler(this, &Reports_GestioUI::GrupDescription_Label_Click);
@@ -283,7 +283,7 @@ namespace CppCLRWinFormsProject {
 			this->Cancelar_Button->Name = L"Cancelar_Button";
 			this->Cancelar_Button->Size = System::Drawing::Size(90, 35);
 			this->Cancelar_Button->TabIndex = 11;
-			this->Cancelar_Button->Text = L"Cancelar";
+			this->Cancelar_Button->Text = L"Tornar";
 			this->Cancelar_Button->UseVisualStyleBackColor = false;
 			this->Cancelar_Button->Click += gcnew System::EventHandler(this, &Reports_GestioUI::Cancelar_Button_Click);
 			// 
